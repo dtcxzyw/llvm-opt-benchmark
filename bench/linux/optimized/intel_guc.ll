@@ -947,7 +947,7 @@ declare dso_local zeroext i1 @flush_work(ptr noundef) local_unnamed_addr #2
 declare dso_local void @intel_guc_slpc_fini(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @intel_guc_send_mmio(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @intel_guc_send_mmio(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = alloca i32, align 4
   %7 = getelementptr i8, ptr %0, i64 -632
   %8 = getelementptr i8, ptr %0, i64 -608

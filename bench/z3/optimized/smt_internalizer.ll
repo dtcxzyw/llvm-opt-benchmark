@@ -1426,7 +1426,7 @@ _ZN6bufferIP4exprLb0ELj16EED2Ev.exit:             ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context13top_sort_exprEPKP4exprjR7svectorISt4pairIS2_bEjE(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly captures(address) %exprs, i32 noundef %num_exprs, ptr noundef nonnull align 8 dereferenceable(8) %sorted_exprs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7context13top_sort_exprEPKP4exprjR7svectorISt4pairIS2_bEjE(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly %exprs, i32 noundef %num_exprs, ptr noundef nonnull align 8 dereferenceable(8) %sorted_exprs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp18.i = alloca %"class.std::allocator.316", align 1
@@ -1845,7 +1845,7 @@ declare void @_Z26notify_assertion_violationPKciS0_(ptr noundef, i32 noundef, pt
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context16internalize_deepEPKP4exprj(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef captures(address) %exprs, i32 noundef %num_exprs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7context16internalize_deepEPKP4exprj(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef %exprs, i32 noundef %num_exprs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %sorted_exprs = alloca %class.svector.282, align 8
   %ts_todo = getelementptr inbounds nuw i8, ptr %this, i64 10056
@@ -3097,7 +3097,7 @@ ehcleanup:                                        ; preds = %lpad.loopexit, %lpa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @_ZNK3smt7context11get_literalEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(11616) %this, ptr noundef readonly captures(address) %n) local_unnamed_addr #6 align 2 {
+define hidden i32 @_ZNK3smt7context11get_literalEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(11616) %this, ptr noundef readonly %n) local_unnamed_addr #6 align 2 {
 entry:
   %m_kind.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %n, i64 4
   %bf.load.i.i.i.i10 = load i32, ptr %m_kind.i.i.i.i9, align 4
@@ -5434,7 +5434,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef captures(address) %exprs, i32 noundef %num_exprs, i1 noundef zeroext %gate_ctx) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt7context11internalizeEPKP4exprjb(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef %exprs, i32 noundef %num_exprs, i1 noundef zeroext %gate_ctx) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @_ZN3smt7context16internalize_deepEPKP4exprj(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef %exprs, i32 noundef %num_exprs)
   %cmp5.not = icmp eq i32 %num_exprs, 0
@@ -8831,7 +8831,7 @@ _ZNK3smt7context11get_literalEP4expr.exit:        ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context12mk_and_cnstrEP3app(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly captures(address) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7context12mk_and_cnstrEP3app(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ls.i = alloca [2 x %"class.sat::literal"], align 4
   %buffer = alloca %class.sbuffer, align 8
@@ -9259,7 +9259,7 @@ if.end:                                           ; preds = %_ZNK3smt7context11g
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context11mk_or_cnstrEP3app(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly captures(address) %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7context11mk_or_cnstrEP3app(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly %n) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ls.i = alloca [2 x %"class.sat::literal"], align 4
   %buffer = alloca %class.sbuffer, align 8
@@ -9564,7 +9564,7 @@ _ZN7sbufferIN3sat7literalELj16EED2Ev.exit:        ; preds = %invoke.cont28, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context12mk_iff_cnstrEP3appb(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly captures(address) %n, i1 noundef zeroext %sign) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt7context12mk_iff_cnstrEP3appb(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly %n, i1 noundef zeroext %sign) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ls.i110 = alloca [3 x %"class.sat::literal"], align 4
   %ls.i105 = alloca [3 x %"class.sat::literal"], align 4
@@ -9874,7 +9874,7 @@ unreachable:                                      ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt7context12mk_ite_cnstrEP3app(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly captures(address) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3smt7context12mk_ite_cnstrEP3app(ptr noundef nonnull align 8 dereferenceable(11616) %this, ptr noundef readonly %n) local_unnamed_addr #3 align 2 {
 entry:
   %ls.i155 = alloca [3 x %"class.sat::literal"], align 4
   %ls.i151 = alloca [3 x %"class.sat::literal"], align 4
@@ -11155,7 +11155,7 @@ declare void @_ZN3smt8cg_table5eraseEPNS_5enodeE(ptr noundef nonnull align 8 der
 declare void @_ZN3smt5enode6del_ehER11ast_managerb(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef nonnull align 8 dereferenceable(976), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3smt7context28simplify_aux_clause_literalsERjPN3sat7literalER7sbufferIS3_Lj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(11616) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %num_lits, ptr noundef %lits, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %simp_lits) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3smt7context28simplify_aux_clause_literalsERjPN3sat7literalER7sbufferIS3_Lj16EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(11616) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %num_lits, ptr noundef %lits, ptr noundef nonnull align 8 dereferenceable(80) %simp_lits) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %num_lits, align 4
   %idx.ext = zext i32 %0 to i64

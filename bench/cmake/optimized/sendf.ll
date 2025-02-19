@@ -812,7 +812,7 @@ define dso_local noundef ptr @Curl_cwriter_get_by_name(ptr noundef readonly capt
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @Curl_cwriter_get_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
+define dso_local noundef ptr @Curl_cwriter_get_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %.08 = load ptr, ptr %3, align 8, !tbaa !87
   %.not9 = icmp eq ptr %.08, null
@@ -1880,7 +1880,7 @@ define dso_local void @Curl_creader_done(ptr noundef %0, i32 noundef %1) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @Curl_creader_get_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
+define dso_local noundef ptr @Curl_creader_get_by_type(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %.08 = load ptr, ptr %3, align 8, !tbaa !120
   %.not9 = icmp eq ptr %.08, null

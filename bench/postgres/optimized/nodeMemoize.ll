@@ -1309,7 +1309,7 @@ memoize_create.exit:                              ; preds = %memoize_compute_siz
 declare ptr @ExecStoreMinimalTuple(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef captures(address) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @cache_store_tuple(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 312
@@ -1529,7 +1529,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #7
 declare ptr @MemoryContextAllocExtended(ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @cache_reduce_memory(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc zeroext i1 @cache_reduce_memory(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load i64, ptr %4, align 8

@@ -458,7 +458,7 @@ entry:
 declare { ptr, i64 } @_ZN6hermes2vm15StringPrimitive16createStringViewERNS0_7RuntimeENS0_6HandleIS1_EE(ptr noundef nonnull align 8 dereferenceable(9832), ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i64 0, 8589934592) i64 @_ZN6hermes2vm12toArrayIndexENS0_10StringViewE(ptr readonly captures(address) %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 {
+define hidden range(i64 0, 8589934592) i64 @_ZN6hermes2vm12toArrayIndexENS0_10StringViewE(ptr readonly %str.coerce0, i64 %str.coerce1) local_unnamed_addr #0 {
 entry:
   %str.sroa.3.8.extract.trunc = trunc i64 %str.coerce1 to i32
   %str.sroa.8.8.extract.shift = lshr i64 %str.coerce1, 32
@@ -7279,7 +7279,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_8JSObjectEEENS0_6HandleIT_EEONS0_
 declare ptr @_ZN6hermes2vm8JSObject6createERNS0_7RuntimeE(ptr noundef nonnull align 8 dereferenceable(9832)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden ptr @_ZN6hermes2vm18speciesConstructorENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS1_INS0_8CallableEEE(ptr %O.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readnone captures(ret: address, provenance) %defaultConstructor.coerce) local_unnamed_addr #0 {
+define hidden ptr @_ZN6hermes2vm18speciesConstructorENS0_6HandleINS0_8JSObjectEEERNS0_7RuntimeENS1_INS0_8CallableEEE(ptr %O.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, ptr readnone %defaultConstructor.coerce) local_unnamed_addr #0 {
 entry:
   %ref.tmp = alloca %"class.hermes::vm::TwineChar16", align 8
   %call.i = tail call { i32, i64 } @_ZN6hermes2vm8JSObject24getNamedWithReceiver_RJSENS0_6HandleIS1_EERNS0_7RuntimeENS0_8SymbolIDENS2_INS0_11HermesValueEEENS0_11PropOpFlagsEPNS0_18PropertyCacheEntryE(ptr %O.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime, i32 56, ptr %O.coerce, i32 0, ptr noundef null) #17

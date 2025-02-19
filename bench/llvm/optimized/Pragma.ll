@@ -307,7 +307,7 @@ define dso_local void @_ZN5clang13PragmaHandlerD0Ev(ptr nonnull readnone align 8
 declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang18EmptyPragmaHandlerC2EN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr readonly captures(address_is_null) %1, i64 %2) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang18EmptyPragmaHandlerC2EN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0, ptr readonly %1, i64 %2) unnamed_addr #2 align 2 {
   %4 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7661,7 +7661,7 @@ define linkonce_odr hidden noundef ptr @_ZN5clang15PragmaNamespace14getIfNamespa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13PragmaHandlerD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang13PragmaHandlerD2Ev(ptr noundef nonnull align 8 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #2 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN5clang13PragmaHandlerE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !13

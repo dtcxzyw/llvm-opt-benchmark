@@ -538,7 +538,7 @@ entry:
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN7rocksdb3log6Reader10ReadRecordEPNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15WALRecoveryModeEPm(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %record, ptr noundef nonnull %scratch, i8 noundef signext %wal_recovery_mode, ptr noundef captures(address_is_null) %record_checksum) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN7rocksdb3log6Reader10ReadRecordEPNS_5SliceEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15WALRecoveryModeEPm(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef writeonly captures(none) initializes((0, 16)) %record, ptr noundef nonnull %scratch, i8 noundef signext %wal_recovery_mode, ptr noundef %record_checksum) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i450 = alloca %"class.rocksdb::Status", align 8
   %ref.tmp2.i451 = alloca %"class.rocksdb::Slice", align 8
@@ -2013,7 +2013,7 @@ declare noalias ptr @ROCKSDB_XXH3_createState() local_unnamed_addr #8
 declare i32 @ROCKSDB_XXH3_64bits_reset(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN7rocksdb3log6Reader18ReadPhysicalRecordEPNS_5SliceEPmS4_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef writeonly captures(none) %result, ptr noundef writeonly captures(none) %drop_size, ptr noundef captures(address_is_null) %fragment_checksum) local_unnamed_addr #3 align 2 {
+define noundef i32 @_ZN7rocksdb3log6Reader18ReadPhysicalRecordEPNS_5SliceEPmS4_(ptr noundef nonnull align 8 dereferenceable(240) %this, ptr noundef writeonly captures(none) %result, ptr noundef writeonly captures(none) %drop_size, ptr noundef %fragment_checksum) local_unnamed_addr #3 align 2 {
 entry:
   %r = alloca i32, align 4
   %r25 = alloca i32, align 4

@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @DefaultCurves = internal unnamed_addr constant { i32, <{ [10 x i32], [10 x i32] }>, <{ [10 x i32], [10 x i32] }>, ptr, ptr } { i32 10, <{ [10 x i32], [10 x i32] }> <{ [10 x i32] [i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 7, i32 8, i32 108, i32 109], [10 x i32] zeroinitializer }>, <{ [10 x i32], [10 x i32] }> <{ [10 x i32] [i32 1, i32 3, i32 4, i32 5, i32 7, i32 4, i32 5, i32 5, i32 1, i32 1], [10 x i32] zeroinitializer }>, ptr @DefaultEvalParametricFn, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocCurvesPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocCurvesPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsCurvesPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -94,7 +94,7 @@ DupPluginCurvesList.exit:                         ; preds = %7, %._crit_edge.i
 declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsRegisterParametricCurvesPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsRegisterParametricCurvesPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 6) #13
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split, label %5
@@ -158,13 +158,13 @@ define hidden ptr @cmsGetToneCurveEstimatedTable(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsBuildTabulatedToneCurve16(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @cmsBuildTabulatedToneCurve16(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef %1, i32 noundef 0, ptr noundef null, ptr noundef %2)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc ptr @AllocateToneCurveStruct(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = icmp ugt i32 %1, 65530
   br i1 %6, label %7, label %8
 
@@ -484,7 +484,7 @@ GetParametricCurveByType.exit:                    ; preds = %91, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @cmsBuildSegmentedToneCurve(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca float, align 4
   %5 = alloca float, align 4
   %6 = icmp eq i32 %1, 1
@@ -936,7 +936,7 @@ define hidden void @cmsFreeToneCurveTriple(ptr noundef captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @cmsDupToneCurve(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @cmsDupToneCurve(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -1510,7 +1510,7 @@ define hidden ptr @cmsReverseToneCurve(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsSmoothToneCurve(ptr noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %cmsIsToneCurveLinear.exit.thread, label %3
 

@@ -33,7 +33,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_115ProviderArgCopyEPv(ptr noundef returned captures(ret: address, provenance) %p) #4 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN12_GLOBAL__N_115ProviderArgCopyEPv(ptr noundef returned %p) #4 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI34grpc_authorization_policy_providerED2Ev.exit:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 4294967296 monotonic, align 8, !noalias !4
@@ -72,7 +72,7 @@ _ZN9grpc_core14DualRefCountedI34grpc_authorization_policy_providerE5UnrefEv.exit
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_114ProviderArgCmpEPvS0_(ptr noundef readnone captures(address) %p, ptr noundef readnone captures(address) %q) #3 {
+define internal noundef range(i32 -1, 2) i32 @_ZN12_GLOBAL__N_114ProviderArgCmpEPvS0_(ptr noundef readnone %p, ptr noundef readnone %q) #3 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

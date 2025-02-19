@@ -1367,7 +1367,7 @@ define range(i32 0, 2) i32 @SSL_is_tls(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @SSL_is_quic(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_is_quic(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2113,7 +2113,7 @@ define i64 @SSL_dane_clear_flags(ptr noundef %0, i64 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_get0_dane_authority(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @SSL_get0_dane_authority(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -2193,7 +2193,7 @@ define i32 @SSL_get0_dane_authority(ptr noundef %0, ptr noundef writeonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_get0_dane_tlsa(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define i32 @SSL_get0_dane_tlsa(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %.thread, label %8
 
@@ -4920,7 +4920,7 @@ declare void @OSSL_PARAM_construct_int(ptr dead_on_unwind writable sret(%struct.
 declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.ossl_param_st) align 8) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_get_read_ahead(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @SSL_get_read_ahead(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -5266,7 +5266,7 @@ declare i32 @SSL_set_session(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @SSL_get_session(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SSL_CTX_check_private_key(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @SSL_CTX_check_private_key(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -6401,7 +6401,7 @@ SSL_accept.exit.thread:                           ; preds = %20, %31, %SSL_accep
 declare i32 @SSL_in_before(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_get_early_data_status(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @SSL_get_early_data_status(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -6702,7 +6702,7 @@ define i32 @ssl_write_internal(ptr noundef %0, ptr noundef %1, i64 noundef %2, i
 declare i32 @ossl_quic_write_flags(ptr noundef, ptr noundef, i64 noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -1, 1) i64 @SSL_sendfile(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define range(i64 -1, 1) i64 @SSL_sendfile(ptr noundef %0, i32 noundef %1, i64 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.thread, label %7
 
@@ -7362,7 +7362,7 @@ can_renegotiate.exit:                             ; preds = %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @SSL_renegotiate_pending(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @SSL_renegotiate_pending(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -8530,7 +8530,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @ssl_get_ciphers_by_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define ptr @ssl_get_ciphers_by_id(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -8621,7 +8621,7 @@ SSL_get_ciphers.exit:                             ; preds = %17, %14, %9, %7, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CTX_get_ciphers(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define ptr @SSL_CTX_get_ciphers(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -8768,7 +8768,7 @@ cipher_list_tls12_num.exit.thread:                ; preds = %30, %cipher_list_tl
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @SSL_get_shared_ciphers(ptr noundef %0, ptr noundef writeonly captures(address, ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @SSL_get_shared_ciphers(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %SSL_get_ciphers.exit, label %5
 
@@ -12774,7 +12774,7 @@ define ptr @SSL_get_pending_cipher(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SSL_get_current_compression(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @SSL_get_current_compression(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -12799,7 +12799,7 @@ define ptr @SSL_get_current_compression(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SSL_get_current_expansion(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @SSL_get_current_expansion(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -12887,7 +12887,7 @@ define i32 @SSL_CTX_get_quiet_shutdown(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_quiet_shutdown(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @SSL_set_quiet_shutdown(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -12906,7 +12906,7 @@ define void @SSL_set_quiet_shutdown(ptr noundef captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SSL_get_quiet_shutdown(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @SSL_get_quiet_shutdown(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -12926,7 +12926,7 @@ define i32 @SSL_get_quiet_shutdown(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_shutdown(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @SSL_set_shutdown(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -13016,7 +13016,7 @@ define i32 @SSL_client_version(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SSL_set_SSL_CTX(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @SSL_set_SSL_CTX(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -14026,7 +14026,7 @@ SSL_CTX_set_block_padding_ex.exit:                ; preds = %11, %15, %18, %.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_set_record_padding_callback(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_set_record_padding_callback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -15559,7 +15559,7 @@ define i32 @SSL_client_hello_get0_legacy_version(ptr noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 33) i64 @SSL_client_hello_get0_random(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i64 0, 33) i64 @SSL_client_hello_get0_random(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -15600,7 +15600,7 @@ define range(i64 0, 33) i64 @SSL_client_hello_get0_random(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @SSL_client_hello_get0_session_id(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i64 @SSL_client_hello_get0_session_id(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -15646,7 +15646,7 @@ define i64 @SSL_client_hello_get0_session_id(ptr noundef %0, ptr noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @SSL_client_hello_get0_ciphers(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i64 @SSL_client_hello_get0_ciphers(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -15693,7 +15693,7 @@ define i64 @SSL_client_hello_get0_ciphers(ptr noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @SSL_client_hello_get0_compression_methods(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i64 @SSL_client_hello_get0_compression_methods(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -15739,7 +15739,7 @@ define i64 @SSL_client_hello_get0_compression_methods(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_client_hello_get1_extensions_present(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_client_hello_get1_extensions_present(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -15860,7 +15860,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get1_extensions_present(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_client_hello_get_extension_order(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_client_hello_get_extension_order(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -15967,7 +15967,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get_extension_order(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_client_hello_get0_ext(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_client_hello_get0_ext(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread, label %6
 
@@ -16048,7 +16048,7 @@ define range(i32 0, 2) i32 @SSL_client_hello_get0_ext(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_free_buffers(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_free_buffers(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -16405,7 +16405,7 @@ PACKET_memdup.exit:                               ; preds = %38
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_bytes_to_cipher_list(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_bytes_to_cipher_list(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.PACKET, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
   %8 = icmp eq ptr %0, null
@@ -16445,7 +16445,7 @@ define range(i32 0, 2) i32 @SSL_bytes_to_cipher_list(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_bytes_to_cipher_list(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_bytes_to_cipher_list(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %7) #20
   %8 = icmp ne i32 %4, 0
@@ -16689,7 +16689,7 @@ define i32 @SSL_CTX_get_max_early_data(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_set_max_early_data(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_set_max_early_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -16754,7 +16754,7 @@ define i32 @SSL_CTX_get_recv_max_early_data(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_set_recv_max_early_data(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_set_recv_max_early_data(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -17024,7 +17024,7 @@ define void @SSL_CTX_set_post_handshake_auth(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_post_handshake_auth(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define void @SSL_set_post_handshake_auth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 
@@ -17206,7 +17206,7 @@ define void @SSL_CTX_set_allow_early_data_cb(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_set_allow_early_data_cb(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
+define void @SSL_set_allow_early_data_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 
@@ -18559,7 +18559,7 @@ define range(i32 0, 2) i32 @SSL_CTX_set_domain_flags(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_get_domain_flags(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_get_domain_flags(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !99
   %5 = tail call ptr @OSSL_QUIC_client_method() #20
@@ -19034,7 +19034,7 @@ set_cert_type.exit:                               ; preds = %.preheader.i.i, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_get0_client_cert_type(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_get0_client_cert_type(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %5
 
@@ -19074,7 +19074,7 @@ define range(i32 0, 2) i32 @SSL_get0_client_cert_type(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_get0_server_cert_type(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_get0_server_cert_type(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %5
 
@@ -19114,7 +19114,7 @@ define range(i32 0, 2) i32 @SSL_get0_server_cert_type(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_get0_client_cert_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_CTX_get0_client_cert_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -19135,7 +19135,7 @@ define range(i32 0, 2) i32 @SSL_CTX_get0_client_cert_type(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @SSL_CTX_get0_server_cert_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @SSL_CTX_get0_server_cert_type(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

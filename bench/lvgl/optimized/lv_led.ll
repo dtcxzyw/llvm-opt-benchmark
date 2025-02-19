@@ -272,7 +272,7 @@ lv_led_get_brightness.exit:                       ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i8 @lv_led_get_brightness(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i8 @lv_led_get_brightness(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

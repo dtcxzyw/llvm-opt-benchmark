@@ -45,7 +45,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSetaSERKS0_(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %other) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSetaSERKS0_(ptr noundef nonnull returned writeonly align 4 dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %other) local_unnamed_addr #3 align 2 {
 entry:
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, ptr noundef nonnull align 4 dereferenceable(28) %other, i64 28, i1 false)
   ret ptr %this
@@ -107,7 +107,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet3setE11UScriptCodeR10UErrorCode(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(28) %this, i32 noundef %script, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet3setE11UScriptCodeR10UErrorCode(ptr noundef nonnull returned align 4 dereferenceable(28) %this, i32 noundef %script, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet5resetE11UScriptCodeR10UErrorCode(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(28) %this, i32 noundef %script, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet5resetE11UScriptCodeR10UErrorCode(ptr noundef nonnull returned align 4 dereferenceable(28) %this, i32 noundef %script, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -168,7 +168,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet5UnionERKS0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(28) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %other) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet5UnionERKS0_(ptr noundef nonnull returned align 4 dereferenceable(28) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %other) local_unnamed_addr #6 align 2 {
 entry:
   br label %for.body
 
@@ -189,7 +189,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet9intersectERKS0_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(28) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %other) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet9intersectERKS0_(ptr noundef nonnull returned align 4 dereferenceable(28) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(28) %other) local_unnamed_addr #6 align 2 {
 entry:
   br label %for.body
 
@@ -210,7 +210,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet9intersectE11UScriptCodeR10UErrorCode(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(28) %this, i32 noundef %script, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet9intersectE11UScriptCodeR10UErrorCode(ptr noundef nonnull returned align 4 dereferenceable(28) %this, i32 noundef %script, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.icu_75::ScriptSet", align 4
   call void @_ZN6icu_759ScriptSetC1Ev(ptr noundef nonnull align 4 dereferenceable(28) %t)
@@ -319,14 +319,14 @@ _ZNK6icu_759ScriptSeteqERKS0_.exit:               ; preds = %for.body.i2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet6setAllEv(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(28) initializes((0, 28)) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet6setAllEv(ptr noundef nonnull returned writeonly align 4 dereferenceable(28) initializes((0, 28)) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, i8 -1, i64 28, i1 false)
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet8resetAllEv(ptr noundef nonnull returned writeonly align 4 captures(ret: address, provenance) dereferenceable(28) initializes((0, 28)) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet8resetAllEv(ptr noundef nonnull returned writeonly align 4 dereferenceable(28) initializes((0, 28)) %this) local_unnamed_addr #0 align 2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %this, i8 0, i64 28, i1 false)
   ret ptr %this
@@ -550,7 +550,7 @@ declare void @_ZN6icu_7513UnicodeStringC1EPKciNS0_10EInvariantE(ptr noundef nonn
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet12parseScriptsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull align 8 dereferenceable(64) %scriptString, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 4 dereferenceable(28) ptr @_ZN6icu_759ScriptSet12parseScriptsERKNS_13UnicodeStringER10UErrorCode(ptr noundef nonnull returned align 4 dereferenceable(28) initializes((0, 28)) %this, ptr noundef nonnull align 8 dereferenceable(64) %scriptString, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oneScriptName = alloca %"class.icu_75::UnicodeString", align 8
   %buf = alloca [40 x i8], align 16

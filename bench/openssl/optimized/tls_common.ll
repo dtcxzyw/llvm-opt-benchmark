@@ -1833,7 +1833,7 @@ define i32 @tls_read_record(ptr noundef %0, ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @tls_release_record(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) #0 {
+define range(i32 -2, 2) i32 @tls_release_record(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1744
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4064
   %6 = load i64, ptr %5, align 8, !tbaa !96
@@ -2043,7 +2043,7 @@ declare i32 @OSSL_PARAM_get_size_t(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @OSSL_PARAM_get_int(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, ptr readnone captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef readonly captures(address_is_null) %15, ptr noundef %16, ptr noundef writeonly captures(none) initializes((0, 8)) %17) local_unnamed_addr #0 {
+define range(i32 -2, 2) i32 @tls_int_new_record_layer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i64 noundef %7, ptr noundef %8, ptr readnone captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, ptr noundef readonly %15, ptr noundef %16, ptr noundef writeonly captures(none) initializes((0, 8)) %17) local_unnamed_addr #0 {
   %19 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 4432, ptr noundef nonnull @.str, i32 noundef 1260) #13
   store ptr null, ptr %17, align 8, !tbaa !104
   %20 = icmp eq ptr %19, null
@@ -3594,7 +3594,7 @@ define void @tls_set_max_pipelines(ptr noundef writeonly captures(none) initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @tls_get_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #2 {
+define void @tls_get_state(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4072
   %5 = load i32, ptr %4, align 8, !tbaa !55
   switch i32 %5, label %7 [
@@ -3849,7 +3849,7 @@ tls_release_read_buffer.exit:                     ; preds = %42, %47
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @tls_new_record_layer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 zeroext %6, ptr readnone captures(none) %7, i64 %8, ptr noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19, ptr readnone captures(none) %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr readnone captures(none) %24, ptr readnone captures(none) %25, ptr noundef %26, ptr noundef %27, ptr noundef captures(address_is_null) %28, ptr noundef %29, ptr readnone captures(none) %30, ptr noundef captures(none) initializes((0, 8)) %31) #0 {
+define internal i32 @tls_new_record_layer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i16 zeroext %6, ptr readnone captures(none) %7, i64 %8, ptr noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, ptr noundef %13, i64 noundef %14, ptr noundef %15, i64 noundef %16, i32 noundef %17, ptr noundef %18, ptr noundef %19, ptr readnone captures(none) %20, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr readnone captures(none) %24, ptr readnone captures(none) %25, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr readnone captures(none) %30, ptr noundef captures(none) initializes((0, 8)) %31) #0 {
   %33 = tail call i32 @tls_int_new_record_layer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %15, i64 noundef %16, ptr noundef %18, ptr poison, ptr noundef %21, ptr noundef %22, ptr noundef %23, ptr noundef %26, ptr noundef %27, ptr noundef %28, ptr noundef %29, ptr noundef %31)
   %.not = icmp eq i32 %33, 1
   br i1 %.not, label %34, label %45

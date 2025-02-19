@@ -92,7 +92,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mem_write(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal noundef i32 @mem_write(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -191,7 +191,7 @@ mem_buf_sync.exit:                                ; preds = %15, %22, %24, %32
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mem_read(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal i32 @mem_read(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -253,7 +253,7 @@ define internal i32 @mem_read(ptr noundef %0, ptr noundef writeonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @mem_puts(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 {
+define internal noundef i32 @mem_puts(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #8
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @mem_write(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
@@ -261,7 +261,7 @@ define internal noundef i32 @mem_puts(ptr noundef %0, ptr noundef captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mem_gets(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal i32 @mem_gets(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -606,7 +606,7 @@ define internal range(i32 0, 2) i32 @mem_new(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mem_free(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal range(i32 0, 2) i32 @mem_free(ptr noundef readonly %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %21, label %3
 

@@ -1468,7 +1468,7 @@ define internal ptr @enum_new(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
 declare void @PyObject_GC_Del(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @enumerate_vectorcall(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal ptr @enumerate_vectorcall(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef readonly %3) #0 {
   %5 = and i64 %2, 9223372036854775807
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6

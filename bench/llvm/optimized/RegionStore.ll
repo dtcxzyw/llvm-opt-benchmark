@@ -4621,7 +4621,7 @@ _ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_118RegionStoreManager17invalidateRegionsEPKvN4llvm8ArrayRefIN5clang4ento4SValEEEPKNS5_4StmtEjPKNS5_15LocationContextEPKNS6_9CallEventERNS3_8DenseSetIPKNS6_7SymExprENS3_12DenseMapInfoISL_vEEEERNS6_33RegionAndSymbolInvalidationTraitsEPNS3_11SmallVectorIPKNS6_9MemRegionELj8EEESX_(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::ento::StoreRef") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr readonly captures(address) %3, i64 %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11, ptr noundef %12) unnamed_addr #2 align 2 {
+define internal void @_ZN12_GLOBAL__N_118RegionStoreManager17invalidateRegionsEPKvN4llvm8ArrayRefIN5clang4ento4SValEEEPKNS5_4StmtEjPKNS5_15LocationContextEPKNS6_9CallEventERNS3_8DenseSetIPKNS6_7SymExprENS3_12DenseMapInfoISL_vEEEERNS6_33RegionAndSymbolInvalidationTraitsEPNS3_11SmallVectorIPKNS6_9MemRegionELj8EEESX_(ptr dead_on_unwind noalias writable writeonly sret(%"class.clang::ento::StoreRef") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef %2, ptr readonly %3, i64 %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(48) %10, ptr noundef %11, ptr noundef %12) unnamed_addr #2 align 2 {
   %14 = alloca %"class.llvm::ImmutableMap.1191", align 8
   %15 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %16 = alloca %"struct.std::pair.1540", align 8
@@ -7639,7 +7639,7 @@ _ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118RegionStoreManager20scanReachableSymbolsEPKvPKN5clang4ento9MemRegionERNS4_20ScanReachableSymbolsE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #2 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_118RegionStoreManager20scanReachableSymbolsEPKvPKN5clang4ento9MemRegionERNS4_20ScanReachableSymbolsE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef %1, ptr noundef readnone %2, ptr noundef nonnull align 8 dereferenceable(40) %3) unnamed_addr #2 align 2 {
   %5 = alloca %"class.llvm::ImmutableMap<(anonymous namespace)::BindingKey, clang::ento::SVal>::iterator", align 8
   %6 = alloca %"class.llvm::ImmutableMap<(anonymous namespace)::BindingKey, clang::ento::SVal>::iterator", align 8
   %7 = ptrtoint ptr %1 to i64
@@ -19584,7 +19584,7 @@ _ZN4llvm15ImmutableMapRefIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE15remove_internalERKS6_PNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE15remove_internalERKS6_PNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readonly %2) unnamed_addr #2 align 2 {
   %4 = alloca ptr, align 8
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %common.ret28, label %5
@@ -19643,7 +19643,7 @@ common.ret28:                                     ; preds = %12, %11, %8, %3, %2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE13markImmutableEPNS_11ImutAVLTreeISD_EE(ptr noundef captures(address_is_null) %0) unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE13markImmutableEPNS_11ImutAVLTreeISD_EE(ptr noundef %0) unnamed_addr #15 align 2 {
   %.not2 = icmp eq ptr %0, null
   br i1 %.not2, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -20030,7 +20030,7 @@ _ZNSt6vectorIPN4llvm11ImutAVLTreeINS0_16ImutKeyValueInfoIPKN5clang4ento9MemRegio
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 %.0.val, i64 %.8.val, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE15remove_internalERKS3_PNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 %.0.val, i64 %.8.val, ptr noundef readonly %1) unnamed_addr #2 align 2 {
   %3 = alloca ptr, align 8
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %common.ret2, label %4
@@ -20100,7 +20100,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEE6isLes
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE13markImmutableEPNS_11ImutAVLTreeIS7_EE(ptr noundef captures(address_is_null) %0) unnamed_addr #15 align 2 {
+define internal fastcc void @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE13markImmutableEPNS_11ImutAVLTreeIS7_EE(ptr noundef %0) unnamed_addr #15 align 2 {
   %.not2 = icmp eq ptr %0, null
   br i1 %.not2, label %tailrecurse._crit_edge, label %.lr.ph
 
@@ -21096,7 +21096,7 @@ _ZN4llvm16FoldingSetNodeID10AddIntegerEi.exit:    ; preds = %_ZN4llvm16FoldingSe
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE12add_internalERKSt4pairIS3_S6_EPNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEEEE12add_internalERKSt4pairIS3_S6_EPNS_11ImutAVLTreeIS7_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef readonly %2) unnamed_addr #2 align 2 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %4, label %6
 
@@ -21159,7 +21159,7 @@ _ZN4llvm16ImutKeyValueInfoIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEE6isLes
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE12add_internalERKSt4pairIS6_SC_EPNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm14ImutAVLFactoryINS_16ImutKeyValueInfoIPKN5clang4ento9MemRegionENS_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS3_4SValENS1_IS9_SA_EEEEEEE12add_internalERKSt4pairIS6_SC_EPNS_11ImutAVLTreeISD_EE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef readonly %2) unnamed_addr #2 align 2 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %4, label %6
 
@@ -31509,7 +31509,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostream5w
 declare void @_ZNK5clang4ento4SVal9printJsonERN4llvm11raw_ostreamEb(ptr noundef nonnull align 8 dereferenceable(9), ptr noundef nonnull align 8 dereferenceable(48), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt4copyIN4llvm15mapped_iteratorINS0_15ImmutableMapRefIPKN5clang4ento9MemRegionENS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS0_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNKS9_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS7_SE_EEEN9__gnu_cxx17__normal_iteratorIPSU_St6vectorISU_SaISU_EEEEET0_SN_SN_S13_(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readonly captures(address) %1, ptr %2) unnamed_addr #3 {
+define internal fastcc void @_ZSt4copyIN4llvm15mapped_iteratorINS0_15ImmutableMapRefIPKN5clang4ento9MemRegionENS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS0_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNKS9_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS7_SE_EEEN9__gnu_cxx17__normal_iteratorIPSU_St6vectorISU_SaISU_EEEEET0_SN_SN_S13_(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr %2) unnamed_addr #3 {
   %4 = alloca %"class.llvm::mapped_iterator.1641", align 8
   %5 = alloca %"class.llvm::mapped_iterator.1641", align 8
   %6 = alloca %"class.llvm::mapped_iterator.1641", align 8
@@ -32035,7 +32035,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5cl
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN4llvm15mapped_iteratorINS0_15ImmutableMapRefIPKN5clang4ento9MemRegionENS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS0_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNKS9_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS7_SE_EEEPSU_SU_ET0_SN_SN_SX_RSaIT1_E(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef captures(ret: address, provenance) %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN4llvm15mapped_iteratorINS0_15ImmutableMapRefIPKN5clang4ento9MemRegionENS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS0_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNKS9_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS7_SE_EEEPSU_SU_ET0_SN_SN_SX_RSaIT1_E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #3 {
   %4 = alloca %"class.llvm::mapped_iterator.1641", align 8
   %5 = alloca %"class.llvm::mapped_iterator.1641", align 8
   %6 = alloca %"class.llvm::mapped_iterator.1641", align 8
@@ -32902,7 +32902,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_15ImmutableMapRefIPKN5cl
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZSt14__copy_move_a1ILb0EN4llvm15mapped_iteratorINS0_15ImmutableMapRefIPKN5clang4ento9MemRegionENS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS0_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNKS9_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS7_SE_EEEPSU_ET1_T0_SY_SX_(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef writeonly captures(ret: address, provenance) %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZSt14__copy_move_a1ILb0EN4llvm15mapped_iteratorINS0_15ImmutableMapRefIPKN5clang4ento9MemRegionENS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS0_16ImutKeyValueInfoISA_SB_EEEENSC_IS7_SE_EEE8iteratorEZNKS9_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS7_SE_EEEPSU_ET1_T0_SY_SX_(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef writeonly %2) unnamed_addr #3 {
   %4 = alloca %"class.llvm::mapped_iterator.1641", align 8
   %5 = alloca %"class.llvm::mapped_iterator.1641", align 8
   %6 = alloca %"class.llvm::mapped_iterator.1641", align 8
@@ -34763,7 +34763,7 @@ _ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIPKN5
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIPKN5clang4ento9MemRegionEN4llvm12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS8_16ImutKeyValueInfoISB_SC_EEEEESt6vectorISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterIZNKSA_17RegionBindingsRef9printJsonERNS8_11raw_ostreamEPKcjbEUlSI_SI_E_EEEvT_SX_SX_T0_(ptr %0, ptr %1, ptr readnone captures(address) %2, ptr %3) unnamed_addr #3 {
+define internal fastcc void @_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIPKN5clang4ento9MemRegionEN4llvm12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS8_16ImutKeyValueInfoISB_SC_EEEEESt6vectorISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterIZNKSA_17RegionBindingsRef9printJsonERNS8_11raw_ostreamEPKcjbEUlSI_SI_E_EEEvT_SX_SX_T0_(ptr %0, ptr %1, ptr readnone %2, ptr %3) unnamed_addr #3 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.llvm::raw_string_ostream", align 8
   %7 = alloca i64, align 8
@@ -39437,7 +39437,7 @@ declare void @_ZN4llvm11raw_ostream16SetBufferAndModeEPcmNS0_10BufferKindE(ptr n
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIPKN5clang4ento9MemRegionEN4llvm12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS8_16ImutKeyValueInfoISB_SC_EEEEESt6vectorISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterIZNKSA_17RegionBindingsRef9printJsonERNS8_11raw_ostreamEPKcjbEUlSI_SI_E_EEEvT_SX_T0_(ptr %0, ptr readnone captures(address) %1, ptr %2) unnamed_addr #2 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIPKN5clang4ento9MemRegionEN4llvm12ImmutableMapIN12_GLOBAL__N_110BindingKeyENS4_4SValENS8_16ImutKeyValueInfoISB_SC_EEEEESt6vectorISI_SaISI_EEEENS0_5__ops15_Iter_comp_iterIZNKSA_17RegionBindingsRef9printJsonERNS8_11raw_ostreamEPKcjbEUlSI_SI_E_EEEvT_SX_T0_(ptr %0, ptr readnone %1, ptr %2) unnamed_addr #2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::raw_string_ostream", align 8
   %6 = alloca i64, align 8
@@ -40144,7 +40144,7 @@ _ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIPKN5cl
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt4copyIN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEN9__gnu_cxx17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEET0_SH_SH_SX_(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readonly captures(address) %1, ptr %2) unnamed_addr #3 {
+define internal fastcc void @_ZSt4copyIN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEN9__gnu_cxx17__normal_iteratorIPSO_St6vectorISO_SaISO_EEEEET0_SH_SH_SX_(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr %2) unnamed_addr #3 {
   %4 = alloca %"class.llvm::mapped_iterator.1674", align 8
   %5 = alloca %"class.llvm::mapped_iterator.1674", align 8
   %6 = alloca %"class.llvm::mapped_iterator.1674", align 8
@@ -40670,7 +40670,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBA
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEPSO_SO_ET0_SH_SH_SR_RSaIT1_E(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef captures(ret: address, provenance) %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZSt22__uninitialized_copy_aIN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEPSO_SO_ET0_SH_SH_SR_RSaIT1_E(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef %2) unnamed_addr #3 {
   %4 = alloca %"class.llvm::mapped_iterator.1674", align 8
   %5 = alloca %"class.llvm::mapped_iterator.1674", align 8
   %6 = alloca %"class.llvm::mapped_iterator.1674", align 8
@@ -41537,7 +41537,7 @@ _ZN4llvm21iterator_adaptor_baseINS_15mapped_iteratorINS_12ImmutableMapIN12_GLOBA
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZSt14__copy_move_a1ILb0EN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEPSO_ET1_T0_SS_SR_(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef writeonly captures(ret: address, provenance) %2) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZSt14__copy_move_a1ILb0EN4llvm15mapped_iteratorINS0_12ImmutableMapIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValENS0_16ImutKeyValueInfoIS4_S7_EEE8iteratorEZNKS3_17RegionBindingsRef9printJsonERNS0_11raw_ostreamEPKcjbEUlRKT_E_PKSt4pairIS4_S7_EEEPSO_ET1_T0_SS_SR_(ptr noundef nonnull readonly %0, ptr noundef nonnull readonly %1, ptr noundef writeonly %2) unnamed_addr #3 {
   %4 = alloca %"class.llvm::mapped_iterator.1674", align 8
   %5 = alloca %"class.llvm::mapped_iterator.1674", align 8
   %6 = alloca %"class.llvm::mapped_iterator.1674", align 8
@@ -44865,7 +44865,7 @@ _ZZNK12_GLOBAL__N_117RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbENKUl
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_SQ_T0_(ptr %0, ptr readnone captures(address) %1, ptr readonly captures(none) %2) unnamed_addr #2 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKSt4pairIN12_GLOBAL__N_110BindingKeyEN5clang4ento4SValEESt6vectorISA_SaISA_EEEENS0_5__ops15_Iter_comp_iterIZNKS3_17RegionBindingsRef9printJsonERN4llvm11raw_ostreamEPKcjbEUlSA_SA_E_EEEvT_SQ_T0_(ptr %0, ptr readnone %1, ptr readonly captures(none) %2) unnamed_addr #2 {
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = icmp eq ptr %0, %1

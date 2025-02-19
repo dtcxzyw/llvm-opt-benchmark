@@ -79,7 +79,7 @@ gv_calloc.exit:                                   ; preds = %3, %gv_calloc.exit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @vector_subtract_to(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef returned captures(ret: address, provenance) %2) local_unnamed_addr #2 {
+define noundef ptr @vector_subtract_to(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef returned %2) local_unnamed_addr #2 {
   %4 = icmp sgt i32 %0, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
 
@@ -133,7 +133,7 @@ define double @vector_product(i32 noundef %0, ptr noundef readonly captures(none
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @vector_saxpy(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef returned captures(ret: address, provenance) %2, double noundef %3) local_unnamed_addr #2 {
+define noundef ptr @vector_saxpy(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef returned %2, double noundef %3) local_unnamed_addr #2 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -158,7 +158,7 @@ define noundef ptr @vector_saxpy(i32 noundef %0, ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @vector_saxpy2(i32 noundef %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef readonly captures(none) %2, double noundef %3) local_unnamed_addr #2 {
+define noundef ptr @vector_saxpy2(i32 noundef %0, ptr noundef returned %1, ptr noundef readonly captures(none) %2, double noundef %3) local_unnamed_addr #2 {
   %5 = icmp sgt i32 %0, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -508,7 +508,7 @@ define double @point_distance(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define ptr @strip_dir(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #11 {
+define ptr @strip_dir(ptr noundef %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

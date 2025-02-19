@@ -4629,7 +4629,7 @@ _ZNK15ClassFileStream14guarantee_moreEiP10JavaThread.exit: ; preds = %7, %17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(440) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN15ClassFileParser20assemble_annotationsEPKhiS1_iP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(440) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 align 2 {
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %3, null
   %or.cond = or i1 %7, %8
@@ -7384,7 +7384,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %174, %176
 declare noundef ptr @_ZNK11ConstMethod25localvariable_table_startEv(ptr noundef nonnull align 8 dereferenceable(52)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN15ClassFileParser23copy_method_annotationsEP11ConstMethodPKhiS3_iS3_iS3_iS3_iS3_iS3_iP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(440) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, i32 noundef %9, ptr noundef readonly captures(address_is_null) %10, i32 noundef %11, ptr noundef readonly captures(address_is_null) %12, i32 noundef %13, ptr noundef readonly captures(address_is_null) %14, i32 noundef %15, ptr noundef %16) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN15ClassFileParser23copy_method_annotationsEP11ConstMethodPKhiS3_iS3_iS3_iS3_iS3_iS3_iP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(440) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, ptr noundef readonly %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11, ptr noundef readonly %12, i32 noundef %13, ptr noundef readonly %14, i32 noundef %15, ptr noundef %16) local_unnamed_addr #1 align 2 {
   %18 = add nsw i32 %5, %3
   %19 = icmp sgt i32 %18, 0
   br i1 %19, label %20, label %50
@@ -14855,7 +14855,7 @@ declare void @_ZNK15ClassFileParser20classfile_ucve_errorEPKcPK6SymbolttP10JavaT
 declare noundef zeroext i1 @_ZN4UTF813is_legal_utf8EPKhib(ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN15ClassFileParser23verify_unqualified_nameEPKcji(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZN15ClassFileParser23verify_unqualified_nameEPKcji(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #10 align 2 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %.loopexit, label %.lr.ph
 

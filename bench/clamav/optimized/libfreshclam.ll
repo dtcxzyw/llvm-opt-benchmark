@@ -170,7 +170,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define range(i32 0, 17) i32 @fc_initialize(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #16
   %3 = icmp eq ptr %0, null
@@ -934,7 +934,7 @@ declare void @cli_hashset_destroy(ptr noundef) local_unnamed_addr #3
 declare i32 @cl_engine_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define range(i32 0, 17) i32 @fc_dns_query_update_info(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   %5 = alloca i64, align 8
   %6 = alloca [32 x i8], align 16
@@ -1103,7 +1103,7 @@ declare ptr @get_version() local_unnamed_addr #3
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define noundef i32 @fc_update_database(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = alloca ptr, align 8
   %10 = alloca i32, align 4
   %11 = alloca [26 x i8], align 16
@@ -1448,7 +1448,7 @@ declare ptr @localtime(ptr noundef) local_unnamed_addr #8
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_update_databases(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #1 {
+define noundef i32 @fc_update_databases(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, ptr noundef writeonly %8) local_unnamed_addr #1 {
   %10 = alloca i32, align 4
   %11 = alloca [26 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #16
@@ -1757,7 +1757,7 @@ define noundef i32 @fc_download_url_database(ptr noundef %0, ptr noundef %1, ptr
 declare i32 @updatecustomdb(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fc_download_url_databases(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
+define noundef i32 @fc_download_url_databases(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
   store i32 0, ptr %5, align 4, !tbaa !35

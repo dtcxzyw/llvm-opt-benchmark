@@ -551,7 +551,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__24HdGpGenerativeProceduralD0Ev
 declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__24HdGpGenerativeProcedural22_GetProceduralPrimPathEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZN32pxrInternal_v0_24__pxrReserved__24HdGpGenerativeProcedural22_GetProceduralPrimPathEv(ptr noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

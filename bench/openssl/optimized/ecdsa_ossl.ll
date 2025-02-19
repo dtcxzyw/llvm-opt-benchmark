@@ -842,7 +842,7 @@ declare i32 @ECDSA_do_verify(ptr noundef, i32 noundef, ptr noundef, ptr noundef)
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @ossl_ecdsa_simple_verify_sig(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @ossl_ecdsa_simple_verify_sig(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %13, label %6
 

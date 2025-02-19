@@ -14268,7 +14268,7 @@ declare noundef zeroext i1 @_ZNK2lp10lar_solver15has_lower_boundEjRPN18dependenc
 declare noundef zeroext i1 @_ZNK2lp10lar_solver15has_upper_boundEjRPN18dependency_managerIN25scoped_dependency_managerIjE6configEE10dependencyER8rationalRb(ptr noundef nonnull align 8 dereferenceable(1888), i32 noundef, ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN5arith6solver5firstEN6lp_api10bound_kindEPPNS1_5boundIN3sat7literalEEES8_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1144) %this, i32 noundef %kind, ptr noundef readonly captures(address, ret: address, provenance) %it, ptr noundef readnone captures(address, ret: address, provenance) %end) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZN5arith6solver5firstEN6lp_api10bound_kindEPPNS1_5boundIN3sat7literalEEES8_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1144) %this, i32 noundef %kind, ptr noundef readonly %it, ptr noundef readnone %end) local_unnamed_addr #10 align 2 {
 entry:
   %cmp.not5 = icmp eq ptr %it, %end
   br i1 %cmp.not5, label %return, label %for.body
@@ -14292,7 +14292,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN5arith6solver8next_infEPN6lp_api5boundIN3sat7literalEEENS1_10bound_kindEPS6_S8_Rb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1144) %this, ptr noundef %a1, i32 noundef %kind, ptr noundef readonly captures(address, ret: address, provenance) %it, ptr noundef readnone captures(address, ret: address, provenance) %end, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %found_compatible) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN5arith6solver8next_infEPN6lp_api5boundIN3sat7literalEEENS1_10bound_kindEPS6_S8_Rb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1144) %this, ptr noundef %a1, i32 noundef %kind, ptr noundef readonly %it, ptr noundef readnone %end, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %found_compatible) local_unnamed_addr #3 align 2 {
 entry:
   %m_value.i = getelementptr inbounds nuw i8, ptr %a1, i64 24
   store i8 0, ptr %found_compatible, align 1
@@ -14381,7 +14381,7 @@ for.end:                                          ; preds = %for.inc, %_ZleRK8ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN5arith6solver8next_supEPN6lp_api5boundIN3sat7literalEEENS1_10bound_kindEPS6_S8_Rb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1144) %this, ptr noundef %a1, i32 noundef %kind, ptr noundef readonly captures(address, ret: address, provenance) %it, ptr noundef readnone captures(address, ret: address, provenance) %end, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %found_compatible) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN5arith6solver8next_supEPN6lp_api5boundIN3sat7literalEEENS1_10bound_kindEPS6_S8_Rb(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1144) %this, ptr noundef %a1, i32 noundef %kind, ptr noundef readonly %it, ptr noundef readnone %end, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) initializes((0, 1)) %found_compatible) local_unnamed_addr #3 align 2 {
 entry:
   %m_value.i = getelementptr inbounds nuw i8, ptr %a1, i64 24
   store i8 0, ptr %found_compatible, align 1

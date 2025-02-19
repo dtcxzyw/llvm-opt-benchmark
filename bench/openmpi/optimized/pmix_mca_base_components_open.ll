@@ -335,7 +335,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @pmix_mca_base_show_load_errors(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define noundef zeroext i1 @pmix_mca_base_show_load_errors(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = load i32, ptr @show_load_errors, align 4, !tbaa !16
   switch i32 %3, label %5 [
     i32 0, label %.loopexit

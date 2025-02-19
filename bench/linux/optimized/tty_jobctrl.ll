@@ -847,7 +847,7 @@ define dso_local void @no_tty() local_unnamed_addr #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @tty_jobctrl_ioctl(ptr noundef readnone %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #0 align 16 {
   %6 = inttoptr i64 %4 to ptr
   switch i32 %3, label %195 [
     i32 21538, label %7

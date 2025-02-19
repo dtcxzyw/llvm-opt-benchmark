@@ -40049,7 +40049,7 @@ _ZN8pybind116objectD2Ev.exit:                     ; preds = %1, %3, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt13unordered_setIPN12_GLOBAL__N_19MyObject4ESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt13unordered_setIPN12_GLOBAL__N_19MyObject4ESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %2, align 8
   %.not1.i.i.i = icmp eq ptr %.val.i.i, null
@@ -44161,7 +44161,7 @@ _ZNSt10_HashtableIPvSt4pairIKS0_iESaIS3_ENSt8__detail10_Select1stESt8equal_toIS0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNSt13unordered_setIPN12_GLOBAL__N_110MyObject4aESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNSt13unordered_setIPN12_GLOBAL__N_110MyObject4aESt4hashIS2_ESt8equal_toIS2_ESaIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.val.i.i = load ptr, ptr %2, align 8
   %.not1.i.i.i = icmp eq ptr %.val.i.i, null
@@ -51986,7 +51986,7 @@ _ZNSt5arrayIN8pybind116objectELm1EED2Ev.exit:     ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject1EJ3refIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject1EJ3refIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_19MyObject1E, ptr %4, align 8
@@ -59849,7 +59849,7 @@ _ZZN8pybind116detail16type_caster_baseI16ConstructorStatsE21make_move_constructo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject2EJSt10shared_ptrIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject2EJSt10shared_ptrIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_19MyObject2E, ptr %4, align 8
@@ -61424,7 +61424,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2E
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #23 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject2ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -65307,7 +65307,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3E
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(48) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #23 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_19MyObject3ESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(48) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -67210,7 +67210,7 @@ _ZN8pybind114castIR3refIN12_GLOBAL__N_19MyObject1EETnNSt9enable_ifIXntsr11is_pyo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject4EJSt10unique_ptrIS2_NS_8nodeleteEEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject4EJSt10unique_ptrIS2_NS_8nodeleteEEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_19MyObject4E, ptr %4, align 8
@@ -68293,7 +68293,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IN12_GLOBAL__N_19MyObject4EJS
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject4EJSt10unique_ptrIS2_NS_8nodeleteEEEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject4EJSt10unique_ptrIS2_NS_8nodeleteEEEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -69091,7 +69091,7 @@ define linkonce_odr hidden ptr @_ZZN8pybind1112cpp_function10initializeIRPFvvEvJ
 declare ptr @PyStaticMethod_New(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_110MyObject4aEJSt10unique_ptrIS2_NS_8nodeleteEEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_110MyObject4aEJSt10unique_ptrIS2_NS_8nodeleteEEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_110MyObject4aE, ptr %4, align 8
@@ -70597,7 +70597,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IN12_GLOBAL__N_110MyObject4aE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_110MyObject4aEJSt10unique_ptrIS2_NS_8nodeleteEEEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_110MyObject4aEJSt10unique_ptrIS2_NS_8nodeleteEEEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -70741,7 +70741,7 @@ _ZN8pybind117capsuleD2Ev.exit:                    ; preds = %1, %39, %_ZN8pybind
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_110MyObject4bEJNS1_10MyObject4aESt10unique_ptrIS2_St14default_deleteIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_110MyObject4bEJNS1_10MyObject4aESt10unique_ptrIS2_St14default_deleteIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_110MyObject4bE, ptr %4, align 8
@@ -71526,7 +71526,7 @@ _ZNSt6vectorISt4pairIPKSt9type_infoPFPvS4_EESaIS7_EE12emplace_backIJRS3_RS6_EEER
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IN12_GLOBAL__N_110MyObject4bEJNS1_10MyObject4aESt10unique_ptrIS2_St14default_deleteIS2_EEEE8add_baseIS3_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESH_(ptr noundef readnone returned captures(ret: address, provenance) %0) #22 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IN12_GLOBAL__N_110MyObject4bEJNS1_10MyObject4aESt10unique_ptrIS2_St14default_deleteIS2_EEEE8add_baseIS3_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESH_(ptr noundef readnone returned %0) #22 align 2 {
   ret ptr %0
 }
 
@@ -71978,7 +71978,7 @@ _ZN8pybind113strD2Ev.exit:                        ; preds = %21, %23, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject5EJNS1_15huge_unique_ptrIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject5EJNS1_15huge_unique_ptrIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_19MyObject5E, ptr %4, align 8
@@ -72944,7 +72944,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IN12_GLOBAL__N_19MyObject5EJN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject5EJNS1_15huge_unique_ptrIS2_EEEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_19MyObject5EJNS1_15huge_unique_ptrIS2_EEEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -73088,7 +73088,7 @@ _ZN8pybind117capsuleD2Ev.exit:                    ; preds = %1, %39, %_ZN8pybind
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_112SharedPtrRef1AEJSt10shared_ptrIS3_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_112SharedPtrRef1AEJSt10shared_ptrIS3_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_112SharedPtrRef1AE, ptr %4, align 8
@@ -73869,7 +73869,7 @@ _ZNSt12__shared_ptrIN12_GLOBAL__N_112SharedPtrRef1AELN9__gnu_cxx12_Lock_policyE2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_112SharedPtrRefEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_112SharedPtrRefEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_112SharedPtrRefE, ptr %4, align 8
@@ -74506,7 +74506,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #23 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_112SharedPtrRef1AESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -74970,7 +74970,7 @@ _ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_112SharedPtrRef1AEE21make_m
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_112SharedPtrRefEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_112SharedPtrRefEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -78140,7 +78140,7 @@ _ZN8pybind113strD2Ev.exit:                        ; preds = %21, %23, %26
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_117SharedFromThisRefEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_117SharedFromThisRefEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_117SharedFromThisRefE, ptr %4, align 8
@@ -78889,7 +78889,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFro
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #23 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN12_GLOBAL__N_117SharedFromThisRef1BESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #23 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5
@@ -79400,7 +79400,7 @@ _ZZN8pybind116detail16type_caster_baseIN12_GLOBAL__N_117SharedFromThisRef1BEE21m
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_117SharedFromThisRefEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_117SharedFromThisRefEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -82387,7 +82387,7 @@ define internal noalias noundef nonnull ptr @_ZZN8pybind116detail16type_caster_b
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_11CEJNS1_17custom_unique_ptrIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_11CEJNS1_17custom_unique_ptrIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_11CE, ptr %4, align 8
@@ -83274,7 +83274,7 @@ define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJEE4callINS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_126TypeForHolderWithAddressOfEJNS1_34shared_ptr_with_addressof_operatorIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_126TypeForHolderWithAddressOfEJNS1_34shared_ptr_with_addressof_operatorIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_126TypeForHolderWithAddressOfE, ptr %4, align 8
@@ -86391,7 +86391,7 @@ _ZNSt5tupleIJN8pybind116detail11type_casterIN12_GLOBAL__N_134shared_ptr_with_add
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfEJNS1_34unique_ptr_with_addressof_operatorIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfEJNS1_34unique_ptr_with_addressof_operatorIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfE, ptr %4, align 8
@@ -87381,7 +87381,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS_6class_IN12_GLOBAL__N_134TypeForMove
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfEJNS1_34unique_ptr_with_addressof_operatorIS2_EEEE19get_function_recordENS_6handleE(ptr readonly captures(address_is_null) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZN8pybind116class_IN12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOfEJNS1_34unique_ptr_with_addressof_operatorIS2_EEEE19get_function_recordENS_6handleE(ptr readonly %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pybind11::capsule", align 8
   %.not9.i = icmp eq ptr %0, null
   br i1 %.not9.i, label %_ZN8pybind117capsuleD2Ev.exit, label %3
@@ -87629,7 +87629,7 @@ _ZNK12_GLOBAL__N_134TypeForMoveOnlyHolderWithAddressOf8toStringB5cxx11Ev.exit.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_119HeldByDefaultHolderEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_119HeldByDefaultHolderEJSt10unique_ptrIS2_St14default_deleteIS2_EEEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_119HeldByDefaultHolderE, ptr %4, align 8
@@ -89138,7 +89138,7 @@ _ZNSt10shared_ptrIN12_GLOBAL__N_119HeldByDefaultHolderEED2Ev.exit: ; preds = %0,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_111ElementBaseEJSt10shared_ptrIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_111ElementBaseEJSt10shared_ptrIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_111ElementBaseE, ptr %4, align 8
@@ -89628,7 +89628,7 @@ define internal noalias noundef ptr @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_111El
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_18ElementAEJNS1_11ElementBaseESt10shared_ptrIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_18ElementAEJNS1_11ElementBaseESt10shared_ptrIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_18ElementAE, ptr %4, align 8
@@ -90118,7 +90118,7 @@ define internal noalias noundef ptr @_ZNSt15_Sp_counted_ptrIPN12_GLOBAL__N_18Ele
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IN12_GLOBAL__N_18ElementAEJNS1_11ElementBaseESt10shared_ptrIS2_EEE8add_baseIS3_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESF_(ptr noundef readnone returned captures(ret: address, provenance) %0) #22 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IN12_GLOBAL__N_18ElementAEJNS1_11ElementBaseESt10shared_ptrIS2_EEE8add_baseIS3_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESF_(ptr noundef readnone returned %0) #22 align 2 {
   ret ptr %0
 }
 
@@ -90281,7 +90281,7 @@ _ZZN8pybind1112cpp_function10initializeIZNS0_C1IiN12_GLOBAL__N_18ElementAEJEJNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IN12_GLOBAL__N_111ElementListEJSt10shared_ptrIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IN12_GLOBAL__N_111ElementListEJSt10shared_ptrIS2_EEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef readonly %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIN12_GLOBAL__N_111ElementListE, ptr %4, align 8
@@ -92210,7 +92210,7 @@ _ZN8pybind116detail15pyobject_casterINS_4listEE4castERKNS_6handleENS_19return_va
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRN12_GLOBAL__N_111ElementListEEE4callINS_4listENS0_9void_typeERZ24test_submodule_smart_ptrRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address_is_null) %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRN12_GLOBAL__N_111ElementListEEE4callINS_4listENS0_9void_typeERZ24test_submodule_smart_ptrRNS_7module_EE4$_46EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESE_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::type_index", align 8
   %3 = alloca %"class.pybind11::object", align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2170)

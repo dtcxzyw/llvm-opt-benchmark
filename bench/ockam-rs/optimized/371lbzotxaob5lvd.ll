@@ -70939,7 +70939,7 @@ common.ret:                                       ; preds = %5, %"_ZN4core3ptr86
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ockam_identity..secure_channel..handshake..handshake_state_machine..StateMachine$GT$$GT$17hb095597385d45853E"(ptr %.0.val, ptr captures(address_is_null) %.8.val) unnamed_addr #6 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr134drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$ockam_identity..secure_channel..handshake..handshake_state_machine..StateMachine$GT$$GT$17hb095597385d45853E"(ptr %.0.val, ptr %.8.val) unnamed_addr #6 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -78682,7 +78682,7 @@ common.resume:                                    ; preds = %42, %26, %17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_core..routing..message..local_info..LocalInfo$C$alloc..alloc..Global$GT$$GT$17hdf1742a6757addc8E"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #18 {
+define internal fastcc void @"_ZN4core3ptr173drop_in_place$LT$$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$..to_vec..DropGuard$LT$ockam_core..routing..message..local_info..LocalInfo$C$alloc..alloc..Global$GT$$GT$17hdf1742a6757addc8E"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #18 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -99604,7 +99604,7 @@ define hidden void @"_ZN69_$LT$$LP$A$C$B$RP$$u20$as$u20$minicbor..decode..Decode
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h757294eab81fab94E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #20 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h757294eab81fab94E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #20 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -99627,7 +99627,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd021f2faec3581a6E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #20 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd021f2faec3581a6E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #20 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -100501,7 +100501,7 @@ define void @_ZN9ockam_api13authenticator6direct20direct_authenticator20AccountA
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(32) ptr @_ZN9ockam_api13authenticator6direct20direct_authenticator20AccountAuthorityInfo17account_authority17h082cb82d8334d721E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #17 {
+define noundef nonnull align 1 dereferenceable(32) ptr @_ZN9ockam_api13authenticator6direct20direct_authenticator20AccountAuthorityInfo17account_authority17h082cb82d8334d721E(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -101197,18 +101197,18 @@ define void @_ZN9ockam_api9cli_state11enrollments18IdentityEnrollment3new17h271b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(32) ptr @_ZN9ockam_api9cli_state11enrollments18IdentityEnrollment10identifier17h57c41de5dd937aa6E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #17 {
+define noundef nonnull align 1 dereferenceable(32) ptr @_ZN9ockam_api9cli_state11enrollments18IdentityEnrollment10identifier17h57c41de5dd937aa6E(ptr noalias noundef readonly returned align 8 dereferenceable(104) %0) unnamed_addr #17 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN9ockam_api9cli_state11enrollments18IdentityEnrollment4name17hc1a82fcb1e25a56fE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN9ockam_api9cli_state11enrollments18IdentityEnrollment4name17hc1a82fcb1e25a56fE(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN9ockam_api9cli_state11enrollments18IdentityEnrollment5email17hf9c01b42b35a9424E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN9ockam_api9cli_state11enrollments18IdentityEnrollment5email17hf9c01b42b35a9424E(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -101485,22 +101485,22 @@ define noundef zeroext i1 @"_ZN91_$LT$ockam_api..cloud..secure_clients..Credenti
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(168) ptr @"_ZN123_$LT$ockam_api..cloud..secure_clients..AuthorityNodeClient$u20$as$u20$ockam_api..cloud..secure_clients..HasSecureClient$GT$17get_secure_client17h5f4bb5152782ca63E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(168) ptr @"_ZN123_$LT$ockam_api..cloud..secure_clients..AuthorityNodeClient$u20$as$u20$ockam_api..cloud..secure_clients..HasSecureClient$GT$17get_secure_client17h5f4bb5152782ca63E"(ptr noalias noundef readonly returned align 8 dereferenceable(168) %0) unnamed_addr #17 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(168) ptr @"_ZN121_$LT$ockam_api..cloud..secure_clients..ProjectNodeClient$u20$as$u20$ockam_api..cloud..secure_clients..HasSecureClient$GT$17get_secure_client17h0d3cb5ff7bd2dad5E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(168) ptr @"_ZN121_$LT$ockam_api..cloud..secure_clients..ProjectNodeClient$u20$as$u20$ockam_api..cloud..secure_clients..HasSecureClient$GT$17get_secure_client17h0d3cb5ff7bd2dad5E"(ptr noalias noundef readonly returned align 8 dereferenceable(168) %0) unnamed_addr #17 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(168) ptr @"_ZN120_$LT$ockam_api..cloud..secure_clients..ControllerClient$u20$as$u20$ockam_api..cloud..secure_clients..HasSecureClient$GT$17get_secure_client17h370561ad914a4a02E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(168) ptr @"_ZN120_$LT$ockam_api..cloud..secure_clients..ControllerClient$u20$as$u20$ockam_api..cloud..secure_clients..HasSecureClient$GT$17get_secure_client17h370561ad914a4a02E"(ptr noalias noundef readonly returned align 8 dereferenceable(168) %0) unnamed_addr #17 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(168) ptr @"_ZN123_$LT$ockam_api..cloud..secure_clients..GenericSecureClient$u20$as$u20$ockam_api..cloud..secure_clients..HasSecureClient$GT$17get_secure_client17hda746f1d1cee3009E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(168) ptr @"_ZN123_$LT$ockam_api..cloud..secure_clients..GenericSecureClient$u20$as$u20$ockam_api..cloud..secure_clients..HasSecureClient$GT$17get_secure_client17hda746f1d1cee3009E"(ptr noalias noundef readonly returned align 8 dereferenceable(168) %0) unnamed_addr #17 {
   ret ptr %0
 }
 
@@ -101646,7 +101646,7 @@ define void @_ZN9ockam_api12minicbor_url3Url5parse17he0b6470417b0bc89E(ptr noali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(88) ptr @"_ZN72_$LT$ockam_api..minicbor_url..Url$u20$as$u20$core..ops..deref..Deref$GT$5deref17h41f5a0b341bc2d76E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(88) ptr @"_ZN72_$LT$ockam_api..minicbor_url..Url$u20$as$u20$core..ops..deref..Deref$GT$5deref17h41f5a0b341bc2d76E"(ptr noalias noundef readonly returned align 8 dereferenceable(88) %0) unnamed_addr #17 {
   ret ptr %0
 }
 
@@ -101713,7 +101713,7 @@ define void @_ZN9ockam_api10test_utils8TestNode14listen_address17h8147323988fa41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(88) ptr @"_ZN75_$LT$ockam_api..test_utils..TestNode$u20$as$u20$core..ops..deref..Deref$GT$5deref17h939a55ba2805bbe6E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(328) %0) unnamed_addr #17 {
+define noundef nonnull align 8 dereferenceable(88) ptr @"_ZN75_$LT$ockam_api..test_utils..TestNode$u20$as$u20$core..ops..deref..Deref$GT$5deref17h939a55ba2805bbe6E"(ptr noalias noundef readonly align 8 dereferenceable(328) %0) unnamed_addr #17 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   ret ptr %2
 }

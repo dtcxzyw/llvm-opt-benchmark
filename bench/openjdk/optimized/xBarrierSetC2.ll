@@ -378,7 +378,7 @@ _ZN18XBarrierSetC2State4liveEPK4Node.exit:        ; preds = %_ZNK10Node_ArrayixE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull ptr @_ZN18XLoadBarrierStubC25entryEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN18XLoadBarrierStubC25entryEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %0) local_unnamed_addr #5 align 2 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 1808
@@ -396,7 +396,7 @@ define hidden noundef nonnull ptr @_ZN18XLoadBarrierStubC25entryEv(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN18XLoadBarrierStubC212continuationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull ptr @_ZN18XLoadBarrierStubC212continuationEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }

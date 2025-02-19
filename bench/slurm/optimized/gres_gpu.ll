@@ -1342,7 +1342,7 @@ declare i32 @slurm_list_transfer(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_list_find_first(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @_find_nonnull_type_in_gres_list(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #11 {
+define internal range(i32 0, 2) i32 @_find_nonnull_type_in_gres_list(ptr noundef readonly %0, ptr readnone captures(none) %1) #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -1438,7 +1438,7 @@ _sort_string_null_last.exit:                      ; preds = %11, %13, %36, %34, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_find_type_in_gres_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @_find_type_in_gres_list(ptr noundef readonly %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 

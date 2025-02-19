@@ -1776,7 +1776,7 @@ define dso_local range(i32 0, 2) i32 @closeClientOnOutputBufferLimitReached(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @cmdHasPushAsReply(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define dso_local range(i32 0, 2) i32 @cmdHasPushAsReply(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -5432,7 +5432,7 @@ sdslen.exit9:                                     ; preds = %sdslen.exit, %33, %
 declare ptr @sdscatprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addReplyBulkCString(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @addReplyBulkCString(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %10
 
@@ -5517,7 +5517,7 @@ define dso_local void @addReplyVerbatim(ptr noundef %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @addExtendedReplyHelp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @addExtendedReplyHelp(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8, !tbaa !154
@@ -7733,7 +7733,7 @@ define dso_local void @disconnectSlaves() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @anyOtherSlaveWaitRdb(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @anyOtherSlaveWaitRdb(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = alloca %struct.listIter, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #26
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 1464), align 8, !tbaa !204
@@ -10976,7 +10976,7 @@ connFormatAddr.exit:                              ; preds = %13, %16, %connAddr.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @getClientMemoryUsage(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i64 @getClientMemoryUsage(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load i64, ptr %3, align 8, !tbaa !86
   %4 = and i64 %.val.i, 5
@@ -11223,7 +11223,7 @@ define dso_local range(i32 -1, 1) i32 @validateClientAttr(ptr noundef readonly c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @validateClientName(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #19 {
+define dso_local range(i32 -1, 1) i32 @validateClientName(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #19 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %3
 
@@ -11308,7 +11308,7 @@ validateClientAttr.exit:                          ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @clientSetName(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @clientSetName(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %.critedge, label %4
 

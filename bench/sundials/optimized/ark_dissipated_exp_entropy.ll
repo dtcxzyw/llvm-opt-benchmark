@@ -688,7 +688,7 @@ define dso_local range(i32 0, 2) i32 @check_flag(i32 noundef %0, ptr noundef %1)
 declare ptr @N_VNew_Serial(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 0, 2) i32 @check_ptr(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
+define dso_local range(i32 0, 2) i32 @check_ptr(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %6
 

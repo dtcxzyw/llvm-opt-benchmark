@@ -1267,7 +1267,7 @@ _ZN4llvm13AllocatorBaseINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL9IsNSErrorN5clang8QualTypeEPNS_14IdentifierInfoE(i64 %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL9IsNSErrorN5clang8QualTypeEPNS_14IdentifierInfoE(i64 %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = and i64 %0, -16
   %4 = inttoptr i64 %3 to ptr
   %5 = load ptr, ptr %4, align 16, !tbaa !599

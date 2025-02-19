@@ -12952,7 +12952,7 @@ _ZN4just6parser6Parser4rest17h648ca49f9737a975E.exit: ; preds = %2
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @_ZN4just6parser6Parser8next_are17h904c44e2a49215cdE(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef range(i64 1, 5) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @_ZN4just6parser6Parser8next_are17h904c44e2a49215cdE(ptr noalias noundef nonnull align 8 dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef range(i64 1, 5) %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, { ptr, [2 x i64] }, i8, {}, {}, [7 x i8] }, align 8
   %5 = alloca { [32 x i8], i8, [7 x i8] }, align 8
   %6 = load i8, ptr %1, align 1, !range !40, !noundef !4

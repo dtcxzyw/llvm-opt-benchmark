@@ -78,7 +78,7 @@ switch.lookup:                                    ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @is_compatible(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 {
+define dso_local zeroext i1 @is_compatible(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   br label %tailrecurse.outer
 
 tailrecurse.outer:                                ; preds = %tailrecurse.outer.backedge, %2
@@ -320,7 +320,7 @@ define dso_local noalias noundef ptr @struct_type() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_type(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define dso_local void @add_type(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %204, label %2
 

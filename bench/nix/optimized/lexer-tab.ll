@@ -4508,7 +4508,7 @@ define noalias noundef ptr @_Z7yyallocmPv(i64 noundef %0, ptr noundef readnone c
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_Z16yy_delete_bufferP15yy_buffer_statePv(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
+define void @_Z16yy_delete_bufferP15yy_buffer_statePv(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -4557,7 +4557,7 @@ define void @_Z6yyfreePvS_(ptr noundef captures(none) %0, ptr noundef readnone c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @_Z15yy_flush_bufferP15yy_buffer_statePv(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #20 {
+define void @_Z15yy_flush_bufferP15yy_buffer_statePv(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -5170,7 +5170,7 @@ define void @_Z10yyset_llocPN3nix14ParserLocationEPv(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_Z10yylex_initPPv(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #25 {
+define noundef range(i32 0, 2) i32 @_Z10yylex_initPPv(ptr noundef writeonly %0) local_unnamed_addr #25 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -5192,7 +5192,7 @@ define noundef range(i32 0, 2) i32 @_Z10yylex_initPPv(ptr noundef writeonly capt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_Z16yylex_init_extraPvPS_(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #25 {
+define noundef range(i32 0, 2) i32 @_Z16yylex_init_extraPvPS_(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #25 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

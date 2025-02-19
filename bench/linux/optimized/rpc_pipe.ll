@@ -813,7 +813,7 @@ define dso_local ptr @rpc_create_client_dir(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @rpc_mkdir_populate(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc ptr @rpc_mkdir_populate(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.qstr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load ptr, ptr %7, align 8
@@ -926,7 +926,7 @@ define internal i32 @rpc_clntdir_populate(ptr noundef %0, ptr noundef %1) #0 ali
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @rpc_remove_client_dir(ptr noundef captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @rpc_remove_client_dir(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null

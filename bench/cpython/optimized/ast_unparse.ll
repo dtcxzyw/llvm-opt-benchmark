@@ -3080,7 +3080,7 @@ append_ast_arg.exit.thread:                       ; preds = %63, %60, %48, %44, 
 declare i32 @PyUnicodeWriter_WriteChar(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehensions(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @append_ast_comprehensions(ptr noundef nonnull %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %._crit_edge, label %4
 

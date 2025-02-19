@@ -937,7 +937,7 @@ declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @find_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 9) i32 @find_file(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #18
@@ -1050,7 +1050,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define void @emax_reached(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @emax_reached(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 
@@ -3571,7 +3571,7 @@ declare i32 @json_object_array_add(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @cli_jsonint(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @dispatch_prescan_callback(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @dispatch_prescan_callback(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %4
 
@@ -3614,7 +3614,7 @@ define internal fastcc i32 @dispatch_prescan_callback(ptr noundef readonly captu
 declare i32 @fmap_get_hash(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 23) i32 @dispatch_file_inspection_callback(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 23) i32 @dispatch_file_inspection_callback(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 92
   %5 = load i32, ptr %4, align 4, !tbaa !30
   %6 = zext i32 %5 to i64
@@ -4957,7 +4957,7 @@ define internal fastcc i32 @scanraw(ptr noundef %0, i32 noundef range(i32 587, 5
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc zeroext i1 @result_should_goto_done(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #8 {
+define internal fastcc zeroext i1 @result_should_goto_done(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2) unnamed_addr #8 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -8641,13 +8641,13 @@ define i32 @cli_magic_scan_desc(i32 noundef %0, ptr noundef %1, ptr noundef %2, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_scandesc(i32 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define i32 @cl_scandesc(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @cl_scandesc_callback(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef null)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_scandesc_callback(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @cl_scandesc_callback(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.stat, align 8
   %9 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %8) #18
@@ -8981,7 +8981,7 @@ define i32 @cli_magic_scan_buff(ptr noundef %0, i64 noundef %1, ptr noundef %2, 
 declare ptr @fmap_open_memory(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @scan_common(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i32 @scan_common(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.tms, align 8
   %9 = alloca [512 x i8], align 16
   %10 = alloca %union.ev_val, align 8
@@ -9704,7 +9704,7 @@ perf_done.exit:                                   ; preds = %328
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_scanmap_callback(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @cl_scanmap_callback(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 72
   %9 = load i64, ptr %8, align 8, !tbaa !200
   %.not = icmp eq i64 %9, 0
@@ -9768,7 +9768,7 @@ define i32 @cl_scanmap_callback(ptr noundef %0, ptr noundef %1, ptr noundef writ
 declare noundef i32 @open(ptr noundef readonly captures(none), i32 noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_scanfile(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @cl_scanfile(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %cl_scanfile_callback.exit, label %6
 
@@ -9795,7 +9795,7 @@ cl_scanfile_callback.exit:                        ; preds = %5, %9, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @cl_scanfile_callback(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @cl_scanfile_callback(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %7
 

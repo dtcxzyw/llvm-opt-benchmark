@@ -1499,7 +1499,7 @@ define dso_local ptr @find_key_to_update(ptr noundef %0, ptr noundef %1) local_u
 declare dso_local ptr @assoc_array_find(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @find_keyring_by_name(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @find_keyring_by_name(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %97, label %4
 
@@ -2655,7 +2655,7 @@ define internal noundef zeroext i1 @keyring_gc_select_iterator(ptr noundef %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @keyring_restriction_gc(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @keyring_restriction_gc(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %17, label %4
 

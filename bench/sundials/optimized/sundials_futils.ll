@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @stderr = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -9991, 1) i32 @SUNDIALSFileOpen(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -9991, 1) i32 @SUNDIALSFileOpen(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %2, align 8, !tbaa !3
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %5
@@ -51,7 +51,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @SUNDIALSFileClose(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef i32 @SUNDIALSFileClose(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

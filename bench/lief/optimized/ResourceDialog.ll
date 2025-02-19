@@ -2080,7 +2080,7 @@ define noundef zeroext i1 @_ZNK4LIEF2PE14ResourceDialog9is_italicEv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF2PE14ResourceDialog5titleB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(200) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF2PE14ResourceDialog5titleB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(200) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %4 = load i16, ptr %3, align 2
@@ -2102,7 +2102,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF2PE14ResourceDi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF2PE14ResourceDialog8typefaceB5cxx11Ev(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(200) %0) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF2PE14ResourceDialog8typefaceB5cxx11Ev(ptr noundef nonnull readonly align 8 dereferenceable(200) %0) local_unnamed_addr #2 align 2 {
   %2 = alloca ptr, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %4 = load i16, ptr %3, align 2

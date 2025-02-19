@@ -733,7 +733,7 @@ declare void @_ZNKSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEE3strEv
 declare void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox20translateToInnerRowsERKNS0_17SelectivityVectorEPKiPKmRS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(38) %outerRows, ptr noundef readonly captures(none) %indices, ptr noundef readonly captures(address_is_null) %nulls, ptr noundef nonnull align 8 captures(none) dereferenceable(38) %innerRows) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox20translateToInnerRowsERKNS0_17SelectivityVectorEPKiPKmRS1_(ptr noundef nonnull align 8 captures(none) dereferenceable(38) %outerRows, ptr noundef readonly captures(none) %indices, ptr noundef readonly %nulls, ptr noundef nonnull align 8 captures(none) dereferenceable(38) %innerRows) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %found.i.i = alloca i32, align 4
   %agg.tmp.i.i = alloca %class.anon.8, align 8

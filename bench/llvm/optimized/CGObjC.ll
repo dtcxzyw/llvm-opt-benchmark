@@ -2800,7 +2800,7 @@ _ZNK5clang4Type10isVoidTypeEv.exit.i:             ; preds = %157
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime22GetRuntimeProtocolListEPKPNS_16ObjCProtocolDeclES5_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.999") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen13CGObjCRuntime22GetRuntimeProtocolListEPKPNS_16ObjCProtocolDeclES5_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.999") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(16) %1, ptr noundef readonly %2, ptr noundef readnone %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
   %6 = alloca %"struct.std::pair.1555", align 8
   %7 = alloca %"struct.llvm::detail::DenseSetEmpty", align 1
@@ -22520,7 +22520,7 @@ define internal noundef ptr @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionES2_EE11callback_fnIZL28emitARCUnsafeClaimCallResultS6_PKNS3_4ExprEE3$_1EES2_lS6_S2_"(i64 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #10 align 2 {
+define internal noundef ptr @"_ZN4llvm12function_refIFPNS_5ValueERN5clang7CodeGen15CodeGenFunctionES2_EE11callback_fnIZL28emitARCUnsafeClaimCallResultS6_PKNS3_4ExprEE3$_1EES2_lS6_S2_"(i64 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef readnone returned %2) #10 align 2 {
   ret ptr %2
 }
 

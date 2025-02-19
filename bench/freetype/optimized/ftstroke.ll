@@ -34,7 +34,7 @@ define range(i32 0, 2) i32 @FT_Outline_GetOutsideBorder(ptr noundef %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Stroker_New(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @FT_Stroker_New(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
   %.not = icmp eq ptr %0, null
@@ -85,7 +85,7 @@ define i32 @FT_Stroker_New(ptr noundef %0, ptr noundef writeonly captures(addres
 declare hidden ptr @ft_mem_alloc(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FT_Stroker_Set(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
+define void @FT_Stroker_Set(ptr noundef writeonly %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, i64 noundef %4) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %FT_Stroker_Rewind.exit
 
@@ -120,7 +120,7 @@ FT_Stroker_Rewind.exit:                           ; preds = %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @FT_Stroker_Rewind(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @FT_Stroker_Rewind(ptr noundef writeonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -199,7 +199,7 @@ define void @FT_Stroker_Done(ptr noundef %0) local_unnamed_addr #0 {
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Stroker_LineTo(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @FT_Stroker_LineTo(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.FT_Vector_, align 8
   %4 = alloca %struct.FT_Vector_, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
@@ -928,7 +928,7 @@ ft_stroke_border_grow.exit:                       ; preds = %49, %56
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Stroker_ConicTo(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @FT_Stroker_ConicTo(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [34 x %struct.FT_Vector_], align 16
   %5 = alloca %struct.FT_Vector_, align 8
   %6 = alloca %struct.FT_Vector_, align 8
@@ -1432,7 +1432,7 @@ ft_stroke_border_grow.exit:                       ; preds = %18, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Stroker_CubicTo(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @FT_Stroker_CubicTo(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca [37 x %struct.FT_Vector_], align 16
   %6 = alloca %struct.FT_Vector_, align 8
   %7 = alloca %struct.FT_Vector_, align 8
@@ -2032,7 +2032,7 @@ ft_stroke_border_grow.exit:                       ; preds = %19, %26
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 7) i32 @FT_Stroker_BeginSubPath(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #5 {
+define range(i32 0, 7) i32 @FT_Stroker_BeginSubPath(ptr noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #5 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -2552,7 +2552,7 @@ define internal fastcc i32 @ft_stroker_cap(ptr noundef nonnull captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 7) i32 @FT_Stroker_GetBorderCounts(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #6 {
+define range(i32 0, 7) i32 @FT_Stroker_GetBorderCounts(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ugt i32 %1, 1
   %or.cond = or i1 %5, %6
@@ -2626,7 +2626,7 @@ ft_stroke_border_get_counts.exit:                 ; preds = %.lr.ph.i, %._crit_e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 7) i32 @FT_Stroker_GetCounts(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
+define range(i32 0, 7) i32 @FT_Stroker_GetCounts(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %4
 
@@ -2747,7 +2747,7 @@ ft_stroke_border_get_counts.exit38:               ; preds = %.lr.ph.i22, %._crit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @FT_Stroker_ExportBorder(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #7 {
+define void @FT_Stroker_ExportBorder(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #7 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -2875,7 +2875,7 @@ ft_stroke_border_export.exit:                     ; preds = %.thread.i, %16, %._
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @FT_Stroker_Export(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #7 {
+define void @FT_Stroker_Export(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -3117,7 +3117,7 @@ FT_Stroker_ExportBorder.exit36:                   ; preds = %2, %FT_Stroker_Expo
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Stroker_ParseOutline(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @FT_Stroker_ParseOutline(ptr noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca %struct.FT_Vector_, align 8
   %5 = alloca %struct.FT_Vector_, align 8
   %6 = alloca %struct.FT_Vector_, align 8
@@ -3432,7 +3432,7 @@ FT_Stroker_BeginSubPath.exit.thread:              ; preds = %125, %123, %121, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Glyph_Stroke(ptr noundef captures(address_is_null) %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @FT_Glyph_Stroke(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %55, label %5
@@ -3609,7 +3609,7 @@ declare i32 @FT_Outline_New(ptr noundef, i32 noundef, i32 noundef, ptr noundef) 
 declare void @FT_Done_Glyph(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @FT_Glyph_StrokeBorder(ptr noundef captures(address_is_null) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define i32 @FT_Glyph_StrokeBorder(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %6

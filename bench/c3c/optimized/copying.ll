@@ -1726,7 +1726,7 @@ define dso_local void @copy_end() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @copy_type_info_single(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @copy_type_info_single(ptr noundef %0) local_unnamed_addr #0 {
   store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
@@ -1736,7 +1736,7 @@ define dso_local noundef ptr @copy_type_info_single(ptr noundef captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @copy_type_info(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @copy_type_info(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %common.ret41, label %3
 
@@ -1919,7 +1919,7 @@ define dso_local noundef ptr @copy_ast_defer(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @copy_expr_single(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @copy_expr_single(ptr noundef %0) local_unnamed_addr #0 {
   store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
@@ -1929,7 +1929,7 @@ define dso_local noundef ptr @copy_expr_single(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @copy_expr(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @copy_expr(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %common.ret575, label %3
 
@@ -3134,7 +3134,7 @@ fixup.exit519:                                    ; preds = %615
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @copy_range(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define dso_local void @copy_range(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %.not = icmp eq i32 %4, 0
@@ -3286,7 +3286,7 @@ copy_ast_list.exit:                               ; preds = %38, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @copy_decl_list_macro(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @copy_decl_list_macro(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %copy_decl_list.exit, label %2
 
@@ -3369,7 +3369,7 @@ copy_decl_list.exit:                              ; preds = %28, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @copy_decl_list(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc ptr @copy_decl_list(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %3
 
@@ -3452,7 +3452,7 @@ define internal fastcc ptr @copy_decl_list(ptr noundef captures(address) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @copy_decl_list_single(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @copy_decl_list_single(ptr noundef readonly %0) local_unnamed_addr #0 {
   store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
@@ -3539,7 +3539,7 @@ copy_decl_list_macro.exit:                        ; preds = %28, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @copy_attributes_single(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @copy_attributes_single(ptr noundef readonly %0) local_unnamed_addr #0 {
   store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777209), align 1
   store i8 0, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777208), align 8
@@ -3706,7 +3706,7 @@ copy_attributes.exit:                             ; preds = %70, %1, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @copy_decl_list_single_for_unit(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777210), align 2
   store ptr @copy_struct, ptr getelementptr inbounds nuw (i8, ptr @copy_struct, i64 16777200), align 8
@@ -3811,7 +3811,7 @@ define dso_local noundef ptr @copy_lambda_deep(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @copy_decl(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @copy_decl(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %common.ret1025, label %3
 
@@ -6638,7 +6638,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @copy_expr_list(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc ptr @copy_expr_list(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %3
 
@@ -6721,7 +6721,7 @@ define internal fastcc ptr @copy_expr_list(ptr noundef captures(address) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @macro_copy_designator_list(ptr noundef captures(address) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc ptr @macro_copy_designator_list(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %3
 
@@ -6831,7 +6831,7 @@ declare ptr @vmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @copy_const_initializer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
+define internal fastcc void @copy_const_initializer(ptr noundef %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

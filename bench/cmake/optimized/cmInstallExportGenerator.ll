@@ -1015,7 +1015,7 @@ declare void @_ZN12cmCryptoHash10HashStringB5cxx11ESt17basic_string_viewIcSt11ch
 declare void @_ZN12cmCryptoHashD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN24cmInstallExportGenerator14ComputeTempDirEv(ptr noundef nonnull align 8 captures(address) dereferenceable(416) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN24cmInstallExportGenerator14ComputeTempDirEv(ptr noundef nonnull align 8 dereferenceable(416) %0) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %2) #23
   call void @_ZNK24cmInstallExportGenerator16TempDirCalculateB5cxx11Ev(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %2, ptr noundef nonnull align 8 dereferenceable(416) %0)

@@ -371,7 +371,7 @@ define noalias noundef ptr @Pdr_SetDup(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @Pdr_SetRef(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #7 {
+define noundef ptr @Pdr_SetRef(ptr noundef returned %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !14
   %4 = add nsw i32 %3, 1
@@ -380,7 +380,7 @@ define noundef ptr @Pdr_SetRef(ptr noundef returned captures(ret: address, prove
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Pdr_SetDeref(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @Pdr_SetDeref(ptr noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !14
   %4 = add nsw i32 %3, -1
@@ -402,7 +402,7 @@ define void @Pdr_SetDeref(ptr noundef captures(address_is_null) %0) local_unname
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define void @Pdr_SetPrint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #10 {
+define void @Pdr_SetPrint(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #10 {
   %5 = add nsw i32 %2, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #28
@@ -781,7 +781,7 @@ Vec_IntFree.exit52:                               ; preds = %Vec_IntFree.exit52.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Pdr_SetPrintStr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #10 {
+define void @Pdr_SetPrintStr(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #10 {
   %5 = add nsw i32 %2, 1
   %6 = sext i32 %5 to i64
   %7 = tail call noalias ptr @malloc(i64 noundef %6) #28
@@ -1369,7 +1369,7 @@ define noalias noundef ptr @Pdr_OblStart(i32 noundef %0, i32 noundef %1, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @Pdr_OblRef(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #7 {
+define noundef ptr @Pdr_OblRef(ptr noundef returned %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !58
   %4 = add nsw i32 %3, 1

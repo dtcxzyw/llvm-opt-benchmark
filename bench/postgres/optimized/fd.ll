@@ -3262,7 +3262,7 @@ declare void @pqsignal_be(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FreeFile(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local i32 @FreeFile(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @numAllocatedDescs, align 4
   %3 = add i32 %2, -1
   %4 = icmp sgt i32 %3, -1
@@ -3528,7 +3528,7 @@ define dso_local ptr @ReadDirExtended(ptr noundef %0, ptr noundef %1, i32 nounde
 declare ptr @readdir(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @FreeDir(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local i32 @FreeDir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -3587,7 +3587,7 @@ define dso_local i32 @FreeDir(ptr noundef captures(address) %0) local_unnamed_ad
 declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ClosePipeStream(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local i32 @ClosePipeStream(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr @numAllocatedDescs, align 4
   %3 = add i32 %2, -1
   %4 = icmp sgt i32 %3, -1

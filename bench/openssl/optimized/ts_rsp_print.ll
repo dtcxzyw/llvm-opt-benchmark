@@ -173,7 +173,7 @@ ts_status_map_print.exit:                         ; preds = %44
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @TS_TST_INFO_print_bio(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %86, label %4
 

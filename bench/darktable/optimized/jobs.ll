@@ -110,7 +110,7 @@ dt_control_job_get_state.exit:                    ; preds = %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @dt_control_job_get_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @dt_control_job_get_params(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1147,7 +1147,7 @@ declare ptr @dt_control_progress_create(ptr noundef, i32 noundef, ptr noundef) l
 declare void @dt_control_progress_attach_job(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @dt_control_job_set_progress_message(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @dt_control_job_set_progress_message(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -1169,7 +1169,7 @@ define void @dt_control_job_set_progress_message(ptr noundef readonly captures(a
 declare void @dt_control_progress_set_message(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @dt_control_job_set_progress(ptr noundef readonly captures(address_is_null) %0, double noundef %1) local_unnamed_addr #0 {
+define void @dt_control_job_set_progress(ptr noundef readonly %0, double noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -1191,7 +1191,7 @@ define void @dt_control_job_set_progress(ptr noundef readonly captures(address_i
 declare void @dt_control_progress_set_progress(ptr noundef, ptr noundef, double noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define double @dt_control_job_get_progress(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define double @dt_control_job_get_progress(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

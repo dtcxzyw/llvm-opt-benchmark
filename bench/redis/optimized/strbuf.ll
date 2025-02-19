@@ -153,7 +153,7 @@ debug_stats.exit:                                 ; preds = %1, %4
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strbuf_free_to_string(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define dso_local ptr @strbuf_free_to_string(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i32, ptr %3, align 8, !tbaa !17
   %.not.i = icmp eq i32 %4, 0

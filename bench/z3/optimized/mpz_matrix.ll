@@ -256,7 +256,7 @@ declare noundef ptr @_ZN22small_object_allocator8allocateEm(ptr noundef nonnull 
 declare void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18mpz_matrix_manager3setER10mpz_matrixRKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %A, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %B) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN18mpz_matrix_manager3setER10mpz_matrixRKS0_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef nonnull readonly align 8 dereferenceable(16) %B) local_unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %A, %B
   br i1 %cmp, label %for.end20, label %if.end
@@ -1281,7 +1281,7 @@ declare void @_ZN11mpz_managerILb0EE3lcmERK3mpzS3_RS1_(ptr noundef nonnull align
 declare void @_ZN11mpz_managerILb0EE3subERK3mpzS3_RS1_(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager10solve_coreERK10mpz_matrixP3mpzb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %_A, ptr noundef %b, i1 noundef zeroext %int_solver) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager10solve_coreERK10mpz_matrixP3mpzb(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_A, ptr noundef %b, i1 noundef zeroext %int_solver) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %A = alloca %class.scoped_mpz_matrix, align 8
   store ptr %this, ptr %A, align 8
@@ -1738,7 +1738,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare void @_ZN11mpz_managerILb0EE6submulERK3mpzS3_S3_RS1_(ptr noundef nonnull align 8 dereferenceable(600), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager5solveERK10mpz_matrixP3mpzPKS3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %A, ptr noundef %b, ptr noundef %c) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager5solveERK10mpz_matrixP3mpzPKS3_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef %b, ptr noundef %c) local_unnamed_addr #5 align 2 {
 entry:
   %n = getelementptr inbounds nuw i8, ptr %A, i64 4
   %0 = load i32, ptr %n, align 4
@@ -1782,7 +1782,7 @@ for.end:                                          ; preds = %_ZN11mpz_managerILb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager5solveERK10mpz_matrixPiPKi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %A, ptr noundef writeonly captures(none) %b, ptr noundef readonly captures(none) %c) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN18mpz_matrix_manager5solveERK10mpz_matrixPiPKi(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, ptr noundef writeonly captures(none) %b, ptr noundef readonly captures(none) %c) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 _ZN18mpz_matrix_manager3delER10mpz_matrix.exit.i:
   %_b = alloca %class.scoped_mpz_matrix, align 8
   store ptr %this, ptr %_b, align 8
@@ -1940,7 +1940,7 @@ _ZN17scoped_mpz_matrixD2Ev.exit:                  ; preds = %for.end9.i.i49, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18mpz_matrix_manager11filter_colsERK10mpz_matrixjPKjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %A, i32 noundef %num_cols, ptr noundef readonly captures(none) %cols, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18mpz_matrix_manager11filter_colsERK10mpz_matrixjPKjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %A, i32 noundef %num_cols, ptr noundef readonly captures(none) %cols, ptr noundef nonnull align 8 dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %C = alloca %class.scoped_mpz_matrix, align 8
   %n = getelementptr inbounds nuw i8, ptr %A, i64 4
@@ -2318,7 +2318,7 @@ _ZN17scoped_mpz_matrixD2Ev.exit:                  ; preds = %for.end9.i.i, %for.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN18mpz_matrix_manager23linear_independent_rowsERK10mpz_matrixPjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(16) %_A, ptr noundef %r, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN18mpz_matrix_manager23linear_independent_rowsERK10mpz_matrixPjRS0_(ptr noundef nonnull align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 dereferenceable(16) %_A, ptr noundef %r, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %B) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont22:
   %A = alloca %class.scoped_mpz_matrix, align 8
   %g = alloca %class._scoped_numeral, align 8

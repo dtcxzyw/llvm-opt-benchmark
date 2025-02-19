@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.timespec = type { i64, i64 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_glfwPollPOSIX(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_glfwPollPOSIX(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %2, null
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

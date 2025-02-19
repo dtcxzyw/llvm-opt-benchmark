@@ -1223,7 +1223,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 declare i32 @Gia_ManHashAnd(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Gia_ManQuantDupConeSupp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #2 {
+define noundef ptr @Gia_ManQuantDupConeSupp(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #2 {
   %7 = ashr i32 %1, 1
   %8 = getelementptr i8, ptr %0, i64 32
   %.val65 = load ptr, ptr %8, align 8, !tbaa !30
@@ -2512,7 +2512,7 @@ Gia_ManQuantMarkUsedCis.exit:                     ; preds = %30, %Abc_TtClear.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Gia_ManQuantExist2Dup(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #2 {
+define noundef ptr @Gia_ManQuantExist2Dup(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly %5) local_unnamed_addr #2 {
   %7 = getelementptr i8, ptr %3, i64 4
   %.val104 = load i32, ptr %7, align 4, !tbaa !36
   %8 = getelementptr i8, ptr %2, i64 4

@@ -247,7 +247,7 @@ define { double, double } @gvrender_ptf(ptr noundef readonly captures(none) %0, 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @gvrender_ptf_A(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly captures(ret: address, provenance) %2, i64 noundef %3) local_unnamed_addr #6 {
+define noundef ptr @gvrender_ptf_A(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 632
   %.sroa.014.0.copyload = load double, ptr %5, align 8, !tbaa !70
   %.sroa.516.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 640

@@ -970,7 +970,7 @@ _ZNSt12_Vector_baseIN32pxrInternal_v0_24__pxrReserved__19HgiVertexBufferDescESaI
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(360) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipeline13GetDescriptorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(368) %0) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(360) ptr @_ZNK32pxrInternal_v0_24__pxrReserved__19HgiGraphicsPipeline13GetDescriptorEv(ptr noundef nonnull readnone align 8 dereferenceable(368) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

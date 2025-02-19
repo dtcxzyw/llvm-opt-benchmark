@@ -465,7 +465,7 @@ define internal range(i32 0, 2) i32 @_cleanup_search(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @copy_gids(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @copy_gids(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %9, label %3
 
@@ -495,7 +495,7 @@ declare ptr @slurm_xcalloc(i64 noundef, i64 noundef, i1 noundef zeroext, i1 noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @copy_gr_names(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @copy_gr_names(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp ne i32 %0, 0
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

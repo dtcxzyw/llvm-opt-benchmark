@@ -2746,7 +2746,7 @@ ehcleanup:                                        ; preds = %lpad10, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_0EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -3005,7 +3005,7 @@ lpad3:                                            ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_1EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -3046,7 +3046,7 @@ _ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_2EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_2EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -3087,7 +3087,7 @@ _ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_3EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_3EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -3128,7 +3128,7 @@ _ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_4EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_4EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3623,7 +3623,7 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit112:  ; preds = %_ZN10ref_vectorI4ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_5EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_5EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3664,7 +3664,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_6EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_6EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3705,7 +3705,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_7EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_7EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3746,7 +3746,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_8EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_8EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3787,7 +3787,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_9EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE3$_9EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3828,7 +3828,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_10EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_10EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3869,7 +3869,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_11EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_11EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3910,7 +3910,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_12EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_12EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3951,7 +3951,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_13EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_13EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -3992,7 +3992,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_14EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_14EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4033,7 +4033,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_15EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_15EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4074,7 +4074,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_16EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_16EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4115,7 +4115,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_17EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_17EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4156,7 +4156,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_18EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_18EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4197,7 +4197,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_19EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_19EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4238,7 +4238,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_20EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_20EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4279,7 +4279,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_21EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_21EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.245", align 8
@@ -4320,7 +4320,7 @@ _ZNSt8functionIFvjPKP4exprR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_22EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_22EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4361,7 +4361,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_23EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_23EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.241", align 8
@@ -4402,7 +4402,7 @@ _ZNSt8functionIFvjPKP4exprS3_R10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_24EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_24EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
@@ -4689,7 +4689,7 @@ lpad3:                                            ; preds = %if.end.i, %if.then.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_25EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_25EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
@@ -4730,7 +4730,7 @@ _ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_26EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_26EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
@@ -4771,7 +4771,7 @@ _ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_27EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_27EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_jS7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.247", align 8
@@ -4812,7 +4812,7 @@ _ZNSt8functionIFvjPKP4exprjR10ref_vectorIS0_11ast_managerEEED2Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_28EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_28EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
@@ -5156,7 +5156,7 @@ ehcleanup:                                        ; preds = %lpad8, %lpad3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_29EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_29EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
@@ -5197,7 +5197,7 @@ _ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_30EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvjPKP4exprS3_R7obj_refIS0_11ast_managerEEEaSIZN2bv6solver19internalize_circuitEP3appE4$_30EENSt9enable_ifIXsrNS9_9_CallableIT_NSG_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISI_E4typeEE4typeES9_EE5valueESt5decayISI_EE4type4typeESt15__invoke_resultIRST_JjS3_S3_S7_EEEE5valueERS9_E4typeEOSI_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.243", align 8
@@ -9247,7 +9247,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_31EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_31EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9288,7 +9288,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_32EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_32EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -9573,7 +9573,7 @@ ehcleanup:                                        ; preds = %lpad25, %lpad
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_33EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_33EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9614,7 +9614,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_34EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_34EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -9655,7 +9655,7 @@ _ZNSt8functionIFP4exprS1_EED2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_35EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_35EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9696,7 +9696,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_36EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_36EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -9737,7 +9737,7 @@ _ZNSt8functionIFP4exprS1_EED2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_37EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_37EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9778,7 +9778,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_38EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_38EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8
@@ -9819,7 +9819,7 @@ _ZNSt8functionIFP4exprS1_EED2Ev.exit:             ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_39EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_S1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_39EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_S1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.249", align 8
@@ -9860,7 +9860,7 @@ _ZNSt8functionIFP4exprS1_S1_EED2Ev.exit:          ; preds = %entry, %if.then.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_40EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFP4exprS1_EEaSIZN2bv6solver19internalize_circuitEP3appE4$_40EENSt9enable_ifIXsrNS3_9_CallableIT_NSA_IXntsr7is_sameINSt9remove_cvINSt16remove_referenceISC_E4typeEE4typeES3_EE5valueESt5decayISC_EE4type4typeESt15__invoke_resultIRSN_JS1_EEEE5valueERS3_E4typeEOSC_"(ptr noundef nonnull returned align 8 dereferenceable(32) %this, i64 %__f.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i = alloca { i64, i64 }, align 8
   %ref.tmp = alloca %"class.std::function.252", align 8

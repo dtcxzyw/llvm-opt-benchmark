@@ -1854,7 +1854,7 @@ _ZNSt10shared_ptrIN4cvc58internal9ProofNodeEEC2ERKS3_.exit: ; preds = %17, %14, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofERSt6vectorISt10shared_ptrINS0_9ProofNodeEESaIS5_EERKNS0_6detail13TreeProofNodeE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 captures(address) dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(96) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK4cvc58internal22LazyTreeProofGenerator8getProofERSt6vectorISt10shared_ptrINS0_9ProofNodeEESaIS5_EERKNS0_6detail13TreeProofNodeE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull align 8 dereferenceable(192) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(96) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::vector.294", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.cvc5::internal::NodeTemplate", align 8

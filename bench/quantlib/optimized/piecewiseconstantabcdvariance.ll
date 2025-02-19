@@ -942,21 +942,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29PiecewiseConstantAbcdVariance9rateTimesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29PiecewiseConstantAbcdVariance9rateTimesEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) unnamed_addr #8 align 2 {
 entry:
   %rateTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 56
   ret ptr %rateTimes_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29PiecewiseConstantAbcdVariance9variancesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29PiecewiseConstantAbcdVariance9variancesEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) unnamed_addr #8 align 2 {
 entry:
   %variances_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %variances_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29PiecewiseConstantAbcdVariance12volatilitiesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib29PiecewiseConstantAbcdVariance12volatilitiesEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) unnamed_addr #8 align 2 {
 entry:
   %volatilities_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %volatilities_

@@ -184,7 +184,7 @@ define i32 @PEM_write_NETSCAPE_CERT_SEQUENCE(ptr noundef %0, ptr noundef %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PEM_read_bio_RSAPrivateKey(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @PEM_read_bio_RSAPrivateKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3) #4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pkey_get_rsa.exit, label %6
@@ -219,7 +219,7 @@ declare ptr @PEM_read_bio_PrivateKey(ptr noundef, ptr noundef, ptr noundef, ptr 
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @PEM_read_RSAPrivateKey(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @PEM_read_RSAPrivateKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PEM_read_PrivateKey(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3) #4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pkey_get_rsa.exit, label %6
@@ -318,7 +318,7 @@ define i32 @PEM_write_RSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PEM_read_bio_DSAPrivateKey(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @PEM_read_bio_DSAPrivateKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3) #4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pkey_get_dsa.exit, label %6
@@ -387,7 +387,7 @@ define i32 @PEM_write_DSA_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PEM_read_DSAPrivateKey(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @PEM_read_DSAPrivateKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PEM_read_PrivateKey(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3) #4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pkey_get_dsa.exit, label %6
@@ -442,7 +442,7 @@ define i32 @PEM_write_DSAparams(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PEM_read_bio_ECPrivateKey(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @PEM_read_bio_ECPrivateKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PEM_read_bio_PrivateKey(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3) #4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pkey_get_eckey.exit, label %6
@@ -539,7 +539,7 @@ define i32 @PEM_write_EC_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PEM_read_ECPrivateKey(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @PEM_read_ECPrivateKey(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PEM_read_PrivateKey(ptr noundef %0, ptr noundef null, ptr noundef %2, ptr noundef %3) #4
   %.not.i = icmp eq ptr %5, null
   br i1 %.not.i, label %pkey_get_eckey.exit, label %6

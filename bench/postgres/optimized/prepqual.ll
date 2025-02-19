@@ -307,7 +307,7 @@ declare ptr @make_andclause(ptr noundef) local_unnamed_addr #2
 declare ptr @make_notclause(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @canonicalize_qual(ptr noundef captures(address_is_null, ret: address, provenance) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @canonicalize_qual(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -321,7 +321,7 @@ define dso_local ptr @canonicalize_qual(ptr noundef captures(address_is_null, re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_duplicate_ors(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc ptr @find_duplicate_ors(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %process_duplicate_ors.exit, label %3
 
@@ -803,7 +803,7 @@ process_duplicate_ors.exit:                       ; preds = %169, %32, %is_orcla
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pull_ors(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc ptr @pull_ors(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -859,7 +859,7 @@ is_orclause.exit.thread:                          ; preds = %.lr.ph24, %9, %is_o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @pull_ands(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc ptr @pull_ands(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph

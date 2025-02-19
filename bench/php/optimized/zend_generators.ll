@@ -706,7 +706,7 @@ zend_get_gc_buffer_add_obj.exit:                  ; preds = %83, %88
 declare ptr @zend_unfinished_execution_gc_ex(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_generator_check_placeholder_frame(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define dso_local ptr @zend_generator_check_placeholder_frame(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !25
   %.not = icmp eq ptr %3, null

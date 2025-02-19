@@ -161,7 +161,7 @@ declare void @lv_event_pop(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_obj_event_base(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_obj_event_base(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %.preheader
 
@@ -223,7 +223,7 @@ declare void @lv_obj_allocate_spec_attr(ptr noundef) local_unnamed_addr #2
 declare ptr @lv_event_add(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_obj_get_event_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @lv_obj_get_event_count(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -249,7 +249,7 @@ define i32 @lv_obj_get_event_count(ptr noundef readonly captures(address_is_null
 declare i32 @lv_event_get_count(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_obj_get_event_dsc(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @lv_obj_get_event_dsc(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -275,7 +275,7 @@ define ptr @lv_obj_get_event_dsc(ptr noundef readonly captures(address_is_null) 
 declare ptr @lv_event_get_dsc(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_obj_remove_event(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @lv_obj_remove_event(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -301,7 +301,7 @@ define zeroext i1 @lv_obj_remove_event(ptr noundef readonly captures(address_is_
 declare zeroext i1 @lv_event_remove(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @lv_obj_remove_event_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @lv_obj_remove_event_cb(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -367,7 +367,7 @@ lv_obj_remove_event.exit:                         ; preds = %lv_obj_get_event_ds
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -400,7 +400,7 @@ define zeroext i1 @lv_obj_remove_event_dsc(ptr noundef readonly captures(address
 declare zeroext i1 @lv_event_remove_dsc(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define i32 @lv_obj_remove_event_cb_with_user_data(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 

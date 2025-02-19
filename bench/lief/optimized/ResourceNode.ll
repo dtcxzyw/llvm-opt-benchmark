@@ -1302,7 +1302,7 @@ _ZNSt7__cxx1112basic_stringIDsSt11char_traitsIDsESaIDsEED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(76) ptr @_ZN4LIEF2PE12ResourceNodeaSERKS1_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(76) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(76) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(76) ptr @_ZN4LIEF2PE12ResourceNodeaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(76) %0, ptr noundef nonnull readonly align 8 dereferenceable(76) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr.49", align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %5
@@ -1698,7 +1698,7 @@ define void @_ZNK4LIEF2PE12ResourceNode6childsEv(ptr dead_on_unwind noalias writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF2PE12ResourceNode4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(76) %0) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK4LIEF2PE12ResourceNode4nameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(76) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -2827,7 +2827,7 @@ define void @_ZN4LIEF2PE12ResourceNode2idEj(ptr noundef nonnull writeonly align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN4LIEF2PE12ResourceNode4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(address) dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN4LIEF2PE12ResourceNode4nameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"class.tl::expected", align 8
   %5 = alloca %"class.std::__cxx11::basic_string.39", align 8

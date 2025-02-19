@@ -5321,7 +5321,7 @@ define internal fastcc void @"_ZN3png7decoder15Reader$LT$R$GT$24next_interlaced_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(304) ptr @"_ZN3png7decoder15Reader$LT$R$GT$4info17h2d34a6addb3c96d7E.llvm.3683678558897460461"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(680) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(304) ptr @"_ZN3png7decoder15Reader$LT$R$GT$4info17h2d34a6addb3c96d7E.llvm.3683678558897460461"(ptr noalias noundef readonly align 8 dereferenceable(680) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load i64, ptr %2, align 8, !range !17, !noundef !7
   %4 = icmp eq i64 %3, -9223372036854775808
@@ -136955,7 +136955,7 @@ define noundef range(i8 -1, 2) i8 @"_ZN70_$LT$typst..foundations..ty..Type$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 ptr @"_ZN118_$LT$typst..foundations..ty..Type$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..ty..NativeTypeData$GT$$GT$4from17h28b78823dc6a9a71E"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #6 {
+define noundef nonnull align 8 ptr @"_ZN118_$LT$typst..foundations..ty..Type$u20$as$u20$core..convert..From$LT$$RF$typst..foundations..ty..NativeTypeData$GT$$GT$4from17h28b78823dc6a9a71E"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -141181,14 +141181,14 @@ define noundef zeroext i1 @"_ZN68_$LT$typst..layout..point..Point$u20$as$u20$typ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN97_$LT$typst..layout..point..Point$u20$as$u20$typst..util..Get$LT$typst..layout..axes..Axis$GT$$GT$7get_ref17h1b9e2f6c8869c702E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(16) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN97_$LT$typst..layout..point..Point$u20$as$u20$typst..util..Get$LT$typst..layout..axes..Axis$GT$$GT$7get_ref17h1b9e2f6c8869c702E"(ptr noalias noundef readonly align 8 dereferenceable(16) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %.0.idx = select i1 %1, i64 8, i64 0
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx
   ret ptr %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN97_$LT$typst..layout..point..Point$u20$as$u20$typst..util..Get$LT$typst..layout..axes..Axis$GT$$GT$7get_mut17h48435638b747e694E"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(16) %0, i1 noundef zeroext %1) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN97_$LT$typst..layout..point..Point$u20$as$u20$typst..util..Get$LT$typst..layout..axes..Axis$GT$$GT$7get_mut17h48435638b747e694E"(ptr noalias noundef readnone align 8 dereferenceable(16) %0, i1 noundef zeroext %1) unnamed_addr #6 {
   %.0.idx = select i1 %1, i64 8, i64 0
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.idx
   ret ptr %.0
@@ -141647,7 +141647,7 @@ define hidden { double, double } @"_ZN5typst6layout5stack12Gen$LT$T$GT$9into_axe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5typst4math5align10alignments17h4f3685cbf90849e6E(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 }, double }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN5typst4math5align10alignments17h4f3685cbf90849e6E(ptr noalias noundef writeonly sret({ { { i64, ptr, {} }, i64 }, double }) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %5 = alloca { { i64, ptr, {} }, i64 }, align 8
   %6 = alloca { { i64, ptr, {} }, i64 }, align 8
@@ -143065,7 +143065,7 @@ define { ptr, i64 } @_ZN5typst4text4lang13WritingScript6as_str17h3bbbe0291a2b24c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(4) ptr @_ZN5typst4text4lang13WritingScript8as_bytes17ha8624508f3566edaE(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(5) %0) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(4) ptr @_ZN5typst4text4lang13WritingScript8as_bytes17ha8624508f3566edaE(ptr noalias noundef readonly returned align 1 dereferenceable(5) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -148010,7 +148010,7 @@ define noundef zeroext i1 @"_ZN72_$LT$typst..layout..layout_.._..Fields$u20$as$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout7layout_1_52_$LT$impl$u20$typst..layout..layout_..LayoutElem$GT$4func17h182e260c63f9bdc4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst6layout7layout_1_52_$LT$impl$u20$typst..layout..layout_..LayoutElem$GT$4func17h182e260c63f9bdc4E"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -149029,7 +149029,7 @@ define void @"_ZN5typst6layout7spacing1_47_$LT$impl$u20$typst..layout..spacing..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5typst6layout7spacing1_47_$LT$impl$u20$typst..layout..spacing..HElem$GT$6amount17h4d03e812c5ff091bE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5typst6layout7spacing1_47_$LT$impl$u20$typst..layout..spacing..HElem$GT$6amount17h4d03e812c5ff091bE"(ptr noalias noundef readonly returned align 8 dereferenceable(40) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -150293,7 +150293,7 @@ define void @"_ZN5typst6layout7spacing1_47_$LT$impl$u20$typst..layout..spacing..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5typst6layout7spacing1_47_$LT$impl$u20$typst..layout..spacing..VElem$GT$6amount17ha1988784837dd16eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN5typst6layout7spacing1_47_$LT$impl$u20$typst..layout..spacing..VElem$GT$6amount17ha1988784837dd16eE"(ptr noalias noundef readonly returned align 8 dereferenceable(48) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -152655,7 +152655,7 @@ define void @"_ZN5typst5model4emph1_46_$LT$impl$u20$typst..model..emph..EmphElem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst5model4emph1_46_$LT$impl$u20$typst..model..emph..EmphElem$GT$4body17h4a5b27b77f1356c8E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst5model4emph1_46_$LT$impl$u20$typst..model..emph..EmphElem$GT$4body17h4a5b27b77f1356c8E"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -153350,12 +153350,12 @@ define void @"_ZN5typst5model4link1_46_$LT$impl$u20$typst..model..link..LinkElem
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 16 dereferenceable(48) ptr @"_ZN5typst5model4link1_46_$LT$impl$u20$typst..model..link..LinkElem$GT$4dest17h7c7135175e745278E"(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #6 {
+define noundef nonnull align 16 dereferenceable(48) ptr @"_ZN5typst5model4link1_46_$LT$impl$u20$typst..model..link..LinkElem$GT$4dest17h7c7135175e745278E"(ptr noalias noundef readonly returned align 16 dereferenceable(80) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst5model4link1_46_$LT$impl$u20$typst..model..link..LinkElem$GT$4body17h57c96eb310c06fbfE"(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst5model4link1_46_$LT$impl$u20$typst..model..link..LinkElem$GT$4body17h57c96eb310c06fbfE"(ptr noalias noundef readonly align 16 dereferenceable(80) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -156238,7 +156238,7 @@ define void @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference..RefElem$GT$6target17h387051030ddb094aE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference..RefElem$GT$6target17h387051030ddb094aE"(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }
@@ -156299,7 +156299,7 @@ _ZN5typst11foundations6styles10StyleChain7get_ref17h2911f60bc663f79bE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference..RefElem$GT$8citation17h3995152f38803eadE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #15 {
+define noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference..RefElem$GT$8citation17h3995152f38803eadE"(ptr noalias noundef readonly align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #15 {
   %3 = load i64, ptr %0, align 8, !range !1086, !noundef !7
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -156308,7 +156308,7 @@ define noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5typst5model9referen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference..RefElem$GT$7element17hfbdc9c5ea4b5eb79E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #15 {
+define noundef align 8 dereferenceable_or_null(24) ptr @"_ZN5typst5model9reference1_50_$LT$impl$u20$typst..model..reference..RefElem$GT$7element17hfbdc9c5ea4b5eb79E"(ptr noalias noundef readonly align 8 dereferenceable(104) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #15 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !range !1086, !noundef !7
   %trunc = trunc nuw i64 %4 to i1
@@ -158335,7 +158335,7 @@ _ZN5typst11foundations6styles10StyleChain3get17h73c93d8856fa6b25E.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst5model6strong1_50_$LT$impl$u20$typst..model..strong..StrongElem$GT$4body17h022c1a79eb70876cE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN5typst5model6strong1_50_$LT$impl$u20$typst..model..strong..StrongElem$GT$4body17h022c1a79eb70876cE"(ptr noalias noundef readonly align 8 dereferenceable(40) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }

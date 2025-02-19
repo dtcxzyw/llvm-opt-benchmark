@@ -318,7 +318,7 @@ define internal void @devm_mipi_dsi_device_unregister(ptr noundef %0) #0 align 1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @of_find_mipi_dsi_host_by_node(ptr noundef readnone captures(address) %0) #0 align 16 {
+define dso_local noundef ptr @of_find_mipi_dsi_host_by_node(ptr noundef readnone %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @host_lock) #14
   br label %2
 
@@ -644,7 +644,7 @@ define dso_local noundef zeroext i1 @mipi_dsi_packet_format_is_long(i8 noundef z
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 -22, 1) i32 @mipi_dsi_create_packet(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @mipi_dsi_create_packet(ptr noundef writeonly %0, ptr noundef readonly %1) #5 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -1284,7 +1284,7 @@ define dso_local i64 @mipi_dsi_dcs_write_buffer(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @mipi_dsi_dcs_write(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) #0 align 16 {
+define dso_local i64 @mipi_dsi_dcs_write(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly %2, i64 noundef %3) #0 align 16 {
   %5 = alloca %struct.mipi_dsi_msg, align 8
   %6 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14

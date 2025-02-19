@@ -1444,7 +1444,7 @@ define internal fastcc void @die() unnamed_addr #11 {
 }
 
 ; Function Attrs: noreturn nounwind sspstrong uwtable
-define hidden void @rb_bug_for_fatal_signal(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ...) local_unnamed_addr #4 {
+define hidden void @rb_bug_for_fatal_signal(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ...) local_unnamed_addr #4 {
   %5 = alloca [256 x i8], align 16
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -2756,7 +2756,7 @@ define dso_local void @rb_unexpected_type(i64 noundef %0, i32 noundef %1) local_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @rb_typeddata_inherited_p(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #21 {
+define dso_local range(i32 0, 2) i32 @rb_typeddata_inherited_p(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #21 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 
@@ -2777,7 +2777,7 @@ define dso_local range(i32 0, 2) i32 @rb_typeddata_inherited_p(ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #21 {
+define dso_local range(i32 0, 2) i32 @rb_typeddata_is_kind_of(i64 noundef %0, ptr noundef readnone %1) local_unnamed_addr #21 {
   %3 = icmp eq i64 %0, 0
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
@@ -2821,7 +2821,7 @@ rb_typeddata_inherited_p.exit:                    ; preds = %.lr.ph.i, %20, %2, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @rb_typeddata_is_instance_of(i64 noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #22 {
+define hidden range(i32 0, 2) i32 @rb_typeddata_is_instance_of(i64 noundef %0, ptr noundef readnone %1) local_unnamed_addr #22 {
   %3 = icmp eq i64 %0, 0
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
@@ -2855,7 +2855,7 @@ rb_typeddata_is_instance_of_inline.exit:          ; preds = %2, %rbimpl_RB_TYPE_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @rb_check_typeddata(i64 noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define dso_local ptr @rb_check_typeddata(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %0, 0
   %4 = and i64 %0, 7
   %5 = icmp ne i64 %4, 0
@@ -11132,7 +11132,7 @@ declare ptr @ruby_popen_writer(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @append_pathname(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #27 {
+define internal fastcc ptr @append_pathname(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #27 {
   %4 = inttoptr i64 %2 to ptr
   %5 = load i64, ptr %4, align 8, !tbaa !7, !noalias !173
   %6 = and i64 %5, 8192

@@ -523,7 +523,7 @@ rhash_sha3_permutation.exit:                      ; preds = %111
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @rhash_sha3_final(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local void @rhash_sha3_final(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 396
   %4 = load i32, ptr %3, align 4, !tbaa !4
   %5 = lshr i32 %4, 1

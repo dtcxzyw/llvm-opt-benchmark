@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.X509_REQ_set_version = private unnamed_addr constant [21 x i8] c"X509_REQ_set_version\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_REQ_set_version(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define i32 @X509_REQ_set_version(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ne i64 %1, 0
   %or.cond = or i1 %3, %4

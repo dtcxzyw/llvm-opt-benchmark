@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.d2i_AutoPrivateKey_legacy = private unnamed_addr constant [26 x i8] c"d2i_AutoPrivateKey_legacy\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_d2i_PrivateKey_legacy(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define ptr @ossl_d2i_PrivateKey_legacy(i32 noundef %0, ptr noundef %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #3
   %8 = load ptr, ptr %2, align 8, !tbaa !3

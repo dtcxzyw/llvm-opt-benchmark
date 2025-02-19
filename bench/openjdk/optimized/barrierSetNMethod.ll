@@ -234,7 +234,7 @@ define hidden noundef zeroext i1 @_ZN17BarrierSetNMethod21nmethod_entry_barrierE
 declare void @_ZN7nmethod22mark_as_maybe_on_stackEv(ptr noundef nonnull align 8 dereferenceable(214)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZNK17BarrierSetNMethod28disarmed_guard_value_addressEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(12) %0) unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZNK17BarrierSetNMethod28disarmed_guard_value_addressEv(ptr noundef nonnull readnone align 8 dereferenceable(12) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }

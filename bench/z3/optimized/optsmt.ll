@@ -8088,7 +8088,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3opt6optsmt9get_modelER3refI5modelER7svectorI6symboljE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %mdl, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %labels) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3opt6optsmt9get_modelER3refI5modelER7svectorI6symboljE(ptr noundef nonnull readonly align 8 dereferenceable(120) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %mdl, ptr noundef nonnull align 8 dereferenceable(8) %labels) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_best_model = getelementptr inbounds nuw i8, ptr %this, i64 96
   %0 = load ptr, ptr %m_best_model, align 8

@@ -442,7 +442,7 @@ define dso_local i64 @xmltotext(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @xmltotext_with_options(ptr noundef readnone returned captures(ret: address, provenance) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @xmltotext_with_options(ptr noundef readnone returned %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
   %.not = icmp eq i32 %1, 0
   %brmerge = or i1 %.not, %2
   br i1 %brmerge, label %5, label %4
@@ -1041,7 +1041,7 @@ define dso_local i64 @query_to_xml(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @query_to_xml_internal(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #4 {
+define internal fastcc ptr @query_to_xml_internal(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %9, label %7
 
@@ -1229,7 +1229,7 @@ declare ptr @SPI_cursor_find(ptr noundef) local_unnamed_addr #3
 declare void @SPI_cursor_fetch(ptr noundef, i1 noundef zeroext, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #4 {
+define internal fastcc void @SPI_sql_row_to_xmlelement(ptr noundef %0, ptr noundef readnone %1, i1 noundef zeroext %2, ptr noundef %3, i1 noundef zeroext %4) unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %6
 
@@ -1964,7 +1964,7 @@ declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @CreateTupleDescCopy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #4 {
+define internal fastcc ptr @map_sql_typecoll_to_xmlschema_types(ptr noundef readonly %0) unnamed_addr #4 {
   %2 = alloca %struct.StringInfoData, align 8
   %3 = alloca i32, align 4
   %4 = alloca %struct.StringInfoData, align 8

@@ -409,7 +409,7 @@ define internal { ptr, i64 } @_ZN4core5panic12PanicPayload6as_str17h5e5b6743c512
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h10b09baf447f1db6E.llvm.4847468473963617652"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h10b09baf447f1db6E.llvm.4847468473963617652"(ptr noalias noundef returned align 8 dereferenceable(160) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca [160 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !130, !noundef !30
   %4 = icmp eq i64 %3, 3

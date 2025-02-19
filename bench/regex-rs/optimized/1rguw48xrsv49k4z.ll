@@ -1840,7 +1840,7 @@ define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$13pus
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12pop_class_op17hee614eb78ded60ecE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(160) %0, ptr captures(address_is_null) %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN12regex_syntax3ast5parse16ParserI$LT$P$GT$12pop_class_op17hee614eb78ded60ecE"(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(160) %0, ptr %.0.val, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(160) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { [38 x i32], i32, [1 x i32] }, align 8
   %4 = alloca { [38 x i32], i32, [1 x i32] }, align 8
   %5 = alloca { { i64, i64, i64 }, { i64, i64, i64 } }, align 8

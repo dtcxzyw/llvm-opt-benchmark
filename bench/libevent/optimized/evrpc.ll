@@ -257,7 +257,7 @@ evrpc_construct_uri.exit:                         ; preds = %19
 declare void @event_mm_free_(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @evrpc_remove_hook(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @evrpc_remove_hook(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   switch i32 %1, label %7 [
     i32 0, label %4
     i32 1, label %5
@@ -1345,7 +1345,7 @@ define void @evrpc_pool_set_timeout(ptr noundef captures(none) %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @evrpc_resume_request(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @evrpc_resume_request(ptr noundef captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   br label %5
 

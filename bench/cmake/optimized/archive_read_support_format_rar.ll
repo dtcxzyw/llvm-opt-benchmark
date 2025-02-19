@@ -1234,7 +1234,7 @@ define internal noundef i32 @archive_read_support_format_rar_capabilities(ptr re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @archive_read_format_rar_has_encrypted_entries(ptr noundef readonly captures(address_is_null) %0) #5 {
+define internal i32 @archive_read_format_rar_has_encrypted_entries(ptr noundef readonly %0) #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -2267,7 +2267,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull readonly captures(address) %0, ptr noundef captures(none) %1, ptr noundef nonnull readnone captures(address) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @read_exttime(ptr noundef nonnull readonly %0, ptr noundef captures(none) %1, ptr noundef nonnull readnone %2) unnamed_addr #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca i64, align 8
   %6 = alloca %struct.tm, align 8
@@ -5768,7 +5768,7 @@ define internal fastcc range(i32 -30, 1) i32 @copy_from_lzss_window(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address) %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @execute_filter(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.audio_state, align 4
   %6 = load ptr, ptr %1, align 8, !tbaa !229
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
@@ -6369,7 +6369,7 @@ execute_filter_delta.exit:                        ; preds = %.lr.ph.i27, %.lr.ph
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @delete_filter(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @delete_filter(ptr noundef %0) unnamed_addr #0 {
   %.not5 = icmp eq ptr %0, null
   br i1 %.not5, label %._crit_edge, label %.lr.ph
 

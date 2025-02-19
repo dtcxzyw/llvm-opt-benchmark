@@ -91,7 +91,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib9Histogram6breaksEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib9Histogram6breaksEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) local_unnamed_addr #1 align 2 {
 entry:
   %breaks_ = getelementptr inbounds nuw i8, ptr %this, i64 40
   ret ptr %breaks_

@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [21 x i8] c"XINERAMA_CENTER_HINT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @SplashConvertStringAlloc(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden noundef ptr @SplashConvertStringAlloc(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -920,7 +920,7 @@ declare i32 @XUnmapWindow(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i32 @XMoveResizeWindow(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @sendctl(ptr noundef readonly captures(address_is_null) %0, i8 noundef signext %1) local_unnamed_addr #7 {
+define hidden void @sendctl(ptr noundef readonly %0, i8 noundef signext %1) local_unnamed_addr #7 {
   %3 = alloca i8, align 1
   store i8 %1, ptr %3, align 1
   %.not = icmp eq ptr %0, null
@@ -1787,7 +1787,7 @@ declare i32 @pthread_mutex_lock(ptr noundef) local_unnamed_addr #1
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @SplashClosePlatform(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden void @SplashClosePlatform(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 81, ptr %2, align 1
@@ -1810,7 +1810,7 @@ sendctl.exit:                                     ; preds = %1, %3, %6
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @SplashUpdate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden void @SplashUpdate(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 85, ptr %2, align 1
@@ -1833,7 +1833,7 @@ sendctl.exit:                                     ; preds = %1, %3, %6
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden void @SplashReconfigure(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden void @SplashReconfigure(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2)
   store i8 82, ptr %2, align 1

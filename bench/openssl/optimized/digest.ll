@@ -289,7 +289,7 @@ evp_md_ctx_reset_ex.exit:                         ; preds = %1, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_md_ctx_new_ex(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define ptr @evp_md_ctx_new_ex(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 131) #8
   %6 = icmp eq ptr %5, null
   br i1 %6, label %EVP_MD_CTX_free.exit.critedge, label %7
@@ -1135,7 +1135,7 @@ declare i32 @EVP_DigestSignUpdate(ptr noundef, ptr noundef, i64 noundef) local_u
 declare i32 @EVP_DigestVerifyUpdate(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DigestFinal(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @EVP_DigestFinal(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @EVP_DigestFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %5 = icmp eq ptr %0, null
   br i1 %5, label %EVP_MD_CTX_reset.exit, label %6
@@ -1162,7 +1162,7 @@ EVP_MD_CTX_reset.exit:                            ; preds = %3, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_DigestFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @EVP_DigestFinal_ex(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store i64 0, ptr %4, align 8, !tbaa !50
@@ -2068,7 +2068,7 @@ declare i32 @ENGINE_init(ptr noundef) local_unnamed_addr #1
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_Digest(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_Digest(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 72, ptr noundef nonnull @.str, i32 noundef 131) #8
   %8 = icmp eq ptr %7, null
   br i1 %8, label %23, label %9
@@ -2115,7 +2115,7 @@ EVP_MD_CTX_free.exit:                             ; preds = %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_Q_digest(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_Q_digest(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = tail call ptr @evp_generic_fetch(ptr noundef %0, i32 noundef 1, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @evp_md_from_algorithm, ptr noundef nonnull @evp_md_up_ref, ptr noundef nonnull @evp_md_free) #8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
@@ -2171,7 +2171,7 @@ define ptr @EVP_MD_fetch(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MD_get_params(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @EVP_MD_get_params(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
 
@@ -2240,7 +2240,7 @@ define ptr @EVP_MD_settable_ctx_params(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MD_CTX_settable_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_MD_CTX_settable_params(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %33, label %3
 
@@ -2382,7 +2382,7 @@ define ptr @EVP_MD_gettable_ctx_params(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MD_CTX_gettable_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_MD_CTX_gettable_params(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %33, label %3
 

@@ -1070,7 +1070,7 @@ define hidden ptr @xmpp_get_first_element(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @xmpp_xml_frame_to_element_t(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.except_stacknode, align 8
   %6 = alloca %struct.except_cleanup, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 408
@@ -1448,7 +1448,7 @@ define hidden void @xmpp_proto_tree_hide_first_child(ptr noundef %0) local_unnam
 declare void @proto_tree_children_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @children_foreach_hide_func(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #6 {
+define internal void @children_foreach_hide_func(ptr noundef readonly %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ne i32 %3, 0
   %.not.i = icmp eq ptr %0, null
@@ -1487,7 +1487,7 @@ define hidden void @xmpp_proto_tree_show_first_child(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @children_foreach_show_func(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #6 {
+define internal void @children_foreach_show_func(ptr noundef readonly %0, ptr noundef captures(none) %1) #6 {
   %3 = load i32, ptr %1, align 4
   %4 = icmp ne i32 %3, 0
   %.not.i = icmp eq ptr %0, null
@@ -1516,7 +1516,7 @@ proto_item_set_visible.exit:                      ; preds = %8, %5, %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noalias ptr @proto_item_get_text(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden noalias ptr @proto_item_get_text(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %14, label %4
 
@@ -1542,7 +1542,7 @@ define hidden noalias ptr @proto_item_get_text(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @xmpp_display_attrs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @xmpp_display_attrs(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %0)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -1846,7 +1846,7 @@ define internal fastcc void @xmpp_unknown_attrs(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @xmpp_display_attrs_ext(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @proto_tree_get_parent(ptr noundef %0)
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load ptr, ptr %8, align 8
@@ -2120,7 +2120,7 @@ define hidden noalias noundef ptr @xmpp_name_attr_struct(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @xmpp_display_elems(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #0 {
+define hidden void @xmpp_display_elems(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp ne ptr %4, null
   %8 = icmp ne i32 %5, 0
   %9 = and i1 %7, %8

@@ -497,7 +497,7 @@ define internal range(i32 0, 2) i32 @test_EVP_rsa_legacy_key() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %0, i32 noundef range(i32 1, 5) %1, i32 noundef range(i32 1, 5) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @test_rsa_simple(i32 noundef %0, i32 noundef range(i32 1, 5) %1, i32 noundef range(i32 1, 5) %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca [256 x i8], align 16
   %8 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #5

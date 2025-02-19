@@ -1741,7 +1741,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit25: ; preds = %_ZNSt15__exception_
 }
 
 ; Function Attrs: uwtable
-define range(i32 -4, 1) i32 @faiss_IndexBinary_remove_ids(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define range(i32 -4, 1) i32 @faiss_IndexBinary_remove_ids(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %5 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %6 = alloca %"class.std::__exception_ptr::exception_ptr", align 8

@@ -597,7 +597,7 @@ declare i64 @rb_fiber_scheduler_current() local_unnamed_addr #3
 declare i64 @rb_fiber_scheduler_process_wait(i64 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_waitpid(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define dso_local i32 @rb_waitpid(i32 noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i64 @rb_process_status_wait(i32 noundef %0, i32 noundef %2)
   %5 = icmp eq i64 %4, 4
   br i1 %5, label %23, label %6
@@ -5021,7 +5021,7 @@ define dso_local noundef i32 @rb_exec_async_signal_safe(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 -1, -2147483648) i32 @rb_fork_async_signal_safe(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
+define dso_local range(i32 -1, -2147483648) i32 @rb_fork_async_signal_safe(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = alloca %struct.rb_process_status, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %7) #27
   %8 = call fastcc i32 @fork_check_err(ptr noundef nonnull %7, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef null)
@@ -5040,7 +5040,7 @@ define dso_local range(i32 -1, -2147483648) i32 @rb_fork_async_signal_safe(ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @fork_check_err(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @fork_check_err(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readonly %6) unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca [2 x i32], align 4
   %10 = alloca i32, align 4
@@ -5276,7 +5276,7 @@ pipe_nocrash.exit.thread:                         ; preds = %.thread.i, %18, %62
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i32 @rb_fork_ruby(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden i32 @rb_fork_ruby(ptr noundef writeonly %0) local_unnamed_addr #1 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.__sigset_t, align 8
   %4 = alloca i32, align 4
@@ -5416,7 +5416,7 @@ declare void @rb_thread_release_fork_lock() local_unnamed_addr #3
 declare void @rb_thread_reset_fork_lock() local_unnamed_addr #3
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @handle_fork_error(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @handle_fork_error(i32 noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2, ptr noundef nonnull %3) unnamed_addr #1 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #27
   store i32 0, ptr %5, align 4, !tbaa !60
@@ -11338,7 +11338,7 @@ define internal i32 @intrcmp(ptr noundef readonly captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 1) i32 @save_redirect_fd(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @save_redirect_fd(i32 noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %5
 
@@ -11463,7 +11463,7 @@ declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 declare i32 @execv(ptr noundef, ptr noundef) local_unnamed_addr #13
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, -2147483648) i32 @retry_fork_async_signal_safe(ptr noundef captures(address_is_null) %0, ptr noundef nonnull captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, -2147483648) i32 @retry_fork_async_signal_safe(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4, i64 noundef %5) unnamed_addr #1 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
@@ -11735,7 +11735,7 @@ define internal fastcc range(i32 -1, 1) i32 @disable_child_handler_fork_child(pt
 declare void @_exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @send_child_error(i32 noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #1 {
+define internal fastcc void @send_child_error(i32 noundef %0, ptr noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #27
   %5 = tail call ptr @rb_errno_ptr() #27

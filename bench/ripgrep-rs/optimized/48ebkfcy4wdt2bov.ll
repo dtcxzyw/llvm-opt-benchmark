@@ -984,7 +984,7 @@ _ZN8grep_cli7process12StderrReader5async17h1b4c9ea4b8b6d943E.exit: ; preds = %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8grep_cli7process20CommandReaderBuilder12async_stderr17h8522839c48884ac1E(ptr noalias noundef returned writeonly align 1 captures(ret: address, provenance) dereferenceable(1) initializes((0, 1)) %0, i1 noundef zeroext %1) unnamed_addr #5 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN8grep_cli7process20CommandReaderBuilder12async_stderr17h8522839c48884ac1E(ptr noalias noundef returned writeonly align 1 dereferenceable(1) initializes((0, 1)) %0, i1 noundef zeroext %1) unnamed_addr #5 {
   %3 = zext i1 %1 to i8
   store i8 %3, ptr %0, align 1
   ret ptr %0

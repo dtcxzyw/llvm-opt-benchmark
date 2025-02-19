@@ -1491,7 +1491,7 @@ declare void @slurm_set_port(ptr noundef, i16 noundef zeroext) local_unnamed_add
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @srun_info_create(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local ptr @srun_info_create(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i16 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 272, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.1, i32 noundef 724, ptr noundef nonnull @__func__.srun_info_create) #9
   %7 = icmp eq i16 %4, 0
   %8 = icmp eq i16 %4, -2

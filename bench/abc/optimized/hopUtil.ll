@@ -262,7 +262,7 @@ define void @Hop_ObjCleanData_rec(ptr noundef captures(none) initializes((0, 8))
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Hop_ObjCollectMulti_rec(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
+define void @Hop_ObjCollectMulti_rec(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 {
   %4 = getelementptr i8, ptr %0, i64 32
   br label %tailrecurse
 

@@ -19994,7 +19994,7 @@ define dso_local void @_ZN5clang13ASTStmtReader27VisitCXXTemporaryObjectExprEPNS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13ASTStmtReader15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((16, 25)) %0, ptr noundef captures(address) initializes((8, 16)) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13ASTStmtReader15VisitLambdaExprEPNS_10LambdaExprE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((16, 25)) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13ASTStmtReader9VisitExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1)
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32
@@ -21491,7 +21491,7 @@ _ZN5clang13ASTStmtReader18readSourceLocationEv.exit: ; preds = %23, %24
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang13ASTStmtReader15VisitCXXNewExprEPNS_10CXXNewExprE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((16, 25)) %0, ptr noundef captures(address) initializes((8, 16)) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang13ASTStmtReader15VisitCXXNewExprEPNS_10CXXNewExprE(ptr noundef nonnull align 8 captures(none) dereferenceable(28) initializes((16, 25)) %0, ptr noundef initializes((8, 16)) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN5clang13ASTStmtReader9VisitExprEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(28) %0, ptr noundef %1)
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32

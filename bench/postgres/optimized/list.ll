@@ -856,7 +856,7 @@ new_head_cell.exit:                               ; preds = %10, %enlarge_list.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @list_concat(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @list_concat(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   br i1 %3, label %5, label %30
@@ -970,7 +970,7 @@ list_copy.exit:                                   ; preds = %6, %5, %30, %63
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @list_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @list_copy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -1012,7 +1012,7 @@ define dso_local noundef ptr @list_copy(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @list_concat_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @list_concat_copy(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   br i1 %3, label %5, label %30
@@ -1138,7 +1138,7 @@ list_copy.exit:                                   ; preds = %6, %5, %54, %list_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @list_truncate(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #2 {
+define dso_local noundef ptr @list_truncate(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 1
   %.not.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not.i, %3
@@ -1160,7 +1160,7 @@ list_length.exit.thread:                          ; preds = %list_length.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @list_member(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @list_member(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1194,7 +1194,7 @@ define dso_local noundef zeroext i1 @list_member(ptr noundef readonly captures(a
 declare zeroext i1 @equal(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @list_member_ptr(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @list_member_ptr(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1226,7 +1226,7 @@ define dso_local noundef zeroext i1 @list_member_ptr(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @list_member_int(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @list_member_int(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1258,7 +1258,7 @@ define dso_local noundef zeroext i1 @list_member_int(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @list_member_oid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @list_member_oid(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1290,7 +1290,7 @@ define dso_local noundef zeroext i1 @list_member_oid(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @list_member_xid(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @list_member_xid(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %.lr.ph
@@ -1514,7 +1514,7 @@ list_delete_cell.exit:                            ; preds = %7, %2, %.lr.ph, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @list_delete_ptr(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @list_delete_ptr(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %list_delete_cell.exit, label %.lr.ph
 
@@ -1846,7 +1846,7 @@ list_free.exit:                                   ; preds = %4, %12, %2, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_union(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_union(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %list_copy.exit, label %4
 
@@ -1948,7 +1948,7 @@ list_member.exit:                                 ; preds = %.lr.ph23.i, %.loope
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_union_ptr(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_union_ptr(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %list_copy.exit, label %4
 
@@ -2049,7 +2049,7 @@ list_member_ptr.exit:                             ; preds = %42, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_union_int(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_union_int(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %list_copy.exit, label %4
 
@@ -2150,7 +2150,7 @@ list_member_int.exit:                             ; preds = %42, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_union_oid(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_union_oid(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %list_copy.exit, label %4
 
@@ -2251,7 +2251,7 @@ list_member_oid.exit:                             ; preds = %42, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_intersection(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_intersection(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -2319,7 +2319,7 @@ list_member.exit.thread:                          ; preds = %17, %.lr.ph.i, %lis
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_intersection_int(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_intersection_int(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -2390,7 +2390,7 @@ list_member_int.exit.thread:                      ; preds = %19, %.lr.ph.i, %lis
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_difference(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_difference(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %.preheader
 
@@ -2491,7 +2491,7 @@ list_copy.exit:                                   ; preds = %list_member.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_difference_ptr(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_difference_ptr(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %.preheader
 
@@ -2591,7 +2591,7 @@ list_copy.exit:                                   ; preds = %list_member_ptr.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_difference_int(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_difference_int(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %.preheader
 
@@ -2691,7 +2691,7 @@ list_copy.exit:                                   ; preds = %list_member_int.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_difference_oid(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_difference_oid(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %10, label %.preheader
 
@@ -2941,7 +2941,7 @@ list_member_oid.exit:                             ; preds = %9, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_concat_unique(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_concat_unique(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3006,7 +3006,7 @@ list_member.exit:                                 ; preds = %.lr.ph23.i, %.loope
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_concat_unique_ptr(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_concat_unique_ptr(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3070,7 +3070,7 @@ list_member_ptr.exit:                             ; preds = %17, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_concat_unique_int(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_concat_unique_int(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3134,7 +3134,7 @@ list_member_int.exit:                             ; preds = %17, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @list_concat_unique_oid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @list_concat_unique_oid(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -3198,7 +3198,7 @@ list_member_oid.exit:                             ; preds = %17, %.loopexit
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @list_deduplicate_oid(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local void @list_deduplicate_oid(ptr noundef %0) local_unnamed_addr #5 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
@@ -3294,7 +3294,7 @@ list_free_private.exit:                           ; preds = %1, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @list_copy_head(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @list_copy_head(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 1
   %or.cond = or i1 %3, %4
@@ -3339,7 +3339,7 @@ define dso_local noundef ptr @list_copy_head(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @list_copy_tail(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @list_copy_tail(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.smax.i32(i32 %1, i32 0)
   %3 = icmp eq ptr %0, null
   br i1 %3, label %32, label %4
@@ -3389,7 +3389,7 @@ define dso_local noundef ptr @list_copy_tail(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @list_copy_deep(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @list_copy_deep(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -3448,7 +3448,7 @@ define dso_local noundef ptr @list_copy_deep(ptr noundef readonly captures(addre
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @list_sort(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @list_sort(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 

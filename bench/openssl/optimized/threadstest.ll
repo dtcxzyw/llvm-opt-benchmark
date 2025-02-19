@@ -1261,7 +1261,7 @@ declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #3
 declare i32 @test_skip(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @thread_run_test(ptr noundef readonly captures(address_is_null) %0, i64 noundef range(i64 2, 11) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @thread_run_test(ptr noundef readonly %0, i64 noundef range(i64 2, 11) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, ptr noundef %4) unnamed_addr #1 {
   store i1 true, ptr @multi_success, align 4
   store ptr null, ptr @multi_libctx, align 8, !tbaa !16
   store i64 0, ptr @multi_num_threads, align 8, !tbaa !12
@@ -1388,7 +1388,7 @@ multi_set_success.exit:                           ; preds = %8, %4, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @thread_setup_libctx(i32 noundef range(i32 0, 2) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @thread_setup_libctx(i32 noundef range(i32 0, 2) %0, ptr noundef readonly %1) unnamed_addr #1 {
   %.not = icmp eq i32 %0, 0
   br i1 %.not, label %9, label %3
 
@@ -2254,7 +2254,7 @@ define internal void @once_do_run() #8 {
 declare i32 @CRYPTO_THREAD_init_local(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @thread_local_destructor(ptr noundef captures(address_is_null) %0) #9 {
+define internal void @thread_local_destructor(ptr noundef %0) #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

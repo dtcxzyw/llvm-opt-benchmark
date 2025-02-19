@@ -1047,7 +1047,7 @@ declare void @llvm.va_start.p0(ptr) #7
 declare void @llvm.va_end.p0(ptr) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_ary_tmp_new_from_values(i64 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define hidden i64 @rb_ary_tmp_new_from_values(i64 noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   %4 = tail call fastcc i64 @ary_new(i64 noundef %0, i64 noundef %1)
   %5 = icmp sgt i64 %1, 0
   %6 = icmp ne ptr %2, null
@@ -1079,7 +1079,7 @@ define hidden i64 @rb_ary_tmp_new_from_values(i64 noundef %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i64 @rb_ary_new_from_values(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define dso_local i64 @rb_ary_new_from_values(i64 noundef %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = load i64, ptr @rb_cArray, align 8, !tbaa !13
   %4 = tail call fastcc i64 @ary_new(i64 noundef %3, i64 noundef %0)
   %5 = icmp sgt i64 %0, 0
@@ -1112,7 +1112,7 @@ rb_ary_tmp_new_from_values.exit:                  ; preds = %2, %11, %15
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden i64 @rb_ec_ary_new_from_values(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define hidden i64 @rb_ec_ary_new_from_values(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #4 {
   %4 = alloca i32, align 4
   %5 = load i64, ptr @rb_cArray, align 8, !tbaa !13
   %6 = icmp slt i64 %1, 0
@@ -8988,7 +8988,7 @@ define internal i64 @rb_ary_s_new(i32 noundef %0, ptr noundef %1, i64 noundef %2
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal i64 @rb_ary_s_create(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) #4 {
+define internal i64 @rb_ary_s_create(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2) #4 {
   %4 = sext i32 %0 to i64
   %5 = tail call fastcc i64 @ary_new(i64 noundef %2, i64 noundef %4)
   %6 = icmp sgt i32 %0, 0
@@ -25217,7 +25217,7 @@ declare i32 @rb_block_arity() local_unnamed_addr #6
 declare i64 @rb_check_block_call(i64 noundef, i64 noundef, i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef i64 @take_i(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 %4) #4 {
+define internal noundef i64 @take_i(i64 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef readonly %3, i64 %4) #4 {
   %6 = inttoptr i64 %1 to ptr
   %7 = icmp sgt i32 %2, 1
   br i1 %7, label %8, label %rb_ary_new_from_values.exit

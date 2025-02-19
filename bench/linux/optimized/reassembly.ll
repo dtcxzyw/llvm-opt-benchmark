@@ -1573,7 +1573,7 @@ define internal void @ipv6_frags_pre_exit_net(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @ipv6_frags_exit_net(ptr noundef readonly captures(address) %0) #3 align 16 {
+define internal void @ipv6_frags_exit_net(ptr noundef readonly %0) #3 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1688
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 32

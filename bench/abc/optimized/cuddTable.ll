@@ -5528,7 +5528,7 @@ declare void @Cudd_IterDerefBdd(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare i32 @Cudd_DebugCheck(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @ddPatchTree(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #7 {
+define internal fastcc void @ddPatchTree(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #7 {
   %.not11 = icmp eq ptr %1, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
 

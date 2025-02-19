@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [6 x i8] c"\09]\0A}\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @hex_encode(ptr noundef writeonly captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @hex_encode(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %8
 
@@ -77,7 +77,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ensure_bufsize(ptr noundef captures(ret: address, provenance) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @ensure_bufsize(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #4 {
   %5 = load i64, ptr %1, align 8, !tbaa !6
   %6 = sub i64 %5, %2
   %7 = icmp ult i64 %6, %3

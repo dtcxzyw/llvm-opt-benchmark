@@ -160,7 +160,7 @@ define hidden void @SXNET_free(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SXNET_add_id_asc(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SXNET_add_id_asc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @s2i_ASN1_INTEGER(ptr noundef null, ptr noundef %1) #5
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
@@ -186,7 +186,7 @@ declare ptr @s2i_ASN1_INTEGER(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SXNET_add_id_INTEGER(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -320,7 +320,7 @@ SXNET_get_id_INTEGER.exit.thread:                 ; preds = %29, %25, %SXNET_get
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @SXNET_add_id_ulong(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @SXNET_add_id_ulong(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @ASN1_STRING_type_new(i32 noundef 2) #5
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %8, label %6

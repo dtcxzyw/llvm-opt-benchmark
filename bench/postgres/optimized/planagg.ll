@@ -236,7 +236,7 @@ list_length.exit80.thread:                        ; preds = %28, %26, %list_leng
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly captures(address_is_null) %.608.val, ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @can_minmax_aggs(ptr readonly %.608.val, ptr noundef nonnull captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %.608.val, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %.608.val, i64 16
   %.not = icmp eq ptr %.608.val, null

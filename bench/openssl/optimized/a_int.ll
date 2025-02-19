@@ -60,7 +60,7 @@ declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ossl_i2c_ASN1_INTEGER(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define i32 @ossl_i2c_ASN1_INTEGER(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !11
   %5 = load i32, ptr %0, align 8, !tbaa !12
@@ -174,7 +174,7 @@ i2c_ibuf.exit:                                    ; preds = %30, %32, %twos_comp
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #6
   %5 = load ptr, ptr %1, align 8, !tbaa !16
@@ -252,7 +252,7 @@ define noundef ptr @ossl_c2i_ASN1_INTEGER(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef i64 @c2i_ibuf(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2, i64 noundef %3) unnamed_addr #0 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %6, label %7
 
@@ -384,7 +384,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @d2i_ASN1_UINTEGER(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @d2i_ASN1_UINTEGER(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
@@ -524,13 +524,13 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %0, ptr noundef %1, i32 noundef 2)
   ret i32 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 2, 11) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @asn1_string_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i32 noundef range(i32 2, 11) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
 
@@ -686,7 +686,7 @@ asn1_string_set_int64.exit:                       ; preds = %.preheader.i, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_INTEGER_get_uint64(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_INTEGER_get_uint64(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %5
 
@@ -838,7 +838,7 @@ ASN1_INTEGER_set_int64.exit:                      ; preds = %.preheader.i.i, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ASN1_INTEGER_get(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define i64 @ASN1_INTEGER_get(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   %3 = icmp eq ptr %0, null
@@ -996,7 +996,7 @@ define internal fastcc ptr @asn1_string_to_bn(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASN1_ENUMERATED_get_int64(ptr noundef writeonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i32 @asn1_string_get_int64(ptr noundef %0, ptr noundef %1, i32 noundef 10)
   ret i32 %3
 }
@@ -1094,7 +1094,7 @@ ASN1_ENUMERATED_set_int64.exit:                   ; preds = %.preheader.i.i, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ASN1_ENUMERATED_get(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define i64 @ASN1_ENUMERATED_get(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #6
   %3 = icmp eq ptr %0, null
@@ -1138,7 +1138,7 @@ define ptr @ASN1_ENUMERATED_to_BN(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_c2i_uint64_int(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #6
   %6 = load ptr, ptr %2, align 8, !tbaa !16
@@ -1184,7 +1184,7 @@ asn1_get_uint64.exit:                             ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define i32 @ossl_i2c_uint64_int(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define i32 @ossl_i2c_uint64_int(ptr noundef writeonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = alloca [8 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #6
   br label %5

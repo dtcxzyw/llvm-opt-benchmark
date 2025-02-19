@@ -1462,7 +1462,7 @@ return:                                           ; preds = %for.body24, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @SHA256(ptr noundef %d, i64 noundef %n, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %md) local_unnamed_addr #4 {
+define dso_local noundef nonnull ptr @SHA256(ptr noundef %d, i64 noundef %n, ptr noundef writeonly %md) local_unnamed_addr #4 {
 entry:
   %c = alloca %struct.SHA256state_st, align 4
   %cmp = icmp eq ptr %md, null

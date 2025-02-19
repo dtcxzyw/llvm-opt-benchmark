@@ -814,7 +814,7 @@ define hidden void @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell21set
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(9) ptr @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell5attrs(ptr noalias noundef readonly align 4 captures(ret: address, provenance) dereferenceable(36) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 1 dereferenceable(9) ptr @_RNvMs_NtCs8mTrBI1stz4_15turborepo_vt1004cellNtB4_4Cell5attrs(ptr noalias noundef readonly align 4 dereferenceable(36) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 25
   ret ptr %2
 }

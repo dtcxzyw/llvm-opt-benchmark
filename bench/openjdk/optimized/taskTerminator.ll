@@ -198,7 +198,7 @@ define hidden noundef range(i64 0, 4294967296) i64 @_ZNK14TaskTerminator18tasks_
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN14TaskTerminator18prepare_for_returnEP6Threadm(ptr noundef nonnull align 8 dereferenceable(384) %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #2 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %1

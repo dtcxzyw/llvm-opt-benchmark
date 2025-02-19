@@ -2361,7 +2361,7 @@ define internal fastcc i32 @__pidfd_prepare(ptr noundef %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @copy_process(ptr noundef readnone captures(address) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local ptr @copy_process(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 align 16 {
   %5 = alloca %struct.multiprocess_signals, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18

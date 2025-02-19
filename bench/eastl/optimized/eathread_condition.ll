@@ -31,7 +31,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA6Thread9ConditionC2EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef readonly captures(address_is_null) %pConditionParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #2 align 2 {
+define dso_local void @_ZN2EA6Thread9ConditionC2EPKNS0_19ConditionParametersEb(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 48)) %this, ptr noundef readonly %pConditionParameters, i1 noundef zeroext %bDefaultParameters) unnamed_addr #2 align 2 {
 entry:
   %cattr.i6 = alloca %union.pthread_condattr_t, align 4
   %cattr.i = alloca %union.pthread_condattr_t, align 4
@@ -69,7 +69,7 @@ if.end:                                           ; preds = %land.lhs.true, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParametersE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly captures(address_is_null) %pConditionParameters) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN2EA6Thread9Condition4InitEPKNS0_19ConditionParametersE(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef readonly %pConditionParameters) local_unnamed_addr #2 align 2 {
 entry:
   %cattr = alloca %union.pthread_condattr_t, align 4
   %tobool.not = icmp eq ptr %pConditionParameters, null

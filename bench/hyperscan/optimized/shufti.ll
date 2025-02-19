@@ -265,7 +265,7 @@ return:                                           ; preds = %for.cond.i, %for.bo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read, inaccessiblemem: write) uwtable
-define hidden ptr @shuftiDoubleExec(<2 x i64> noundef %mask1_lo, <2 x i64> noundef %mask1_hi, <2 x i64> noundef %mask2_lo, <2 x i64> noundef %mask2_hi, ptr noundef %buf, ptr noundef readonly captures(address, ret: address, provenance) %buf_end) local_unnamed_addr #0 {
+define hidden ptr @shuftiDoubleExec(<2 x i64> noundef %mask1_lo, <2 x i64> noundef %mask1_hi, <2 x i64> noundef %mask2_lo, <2 x i64> noundef %mask2_hi, ptr noundef %buf, ptr noundef readonly %buf_end) local_unnamed_addr #0 {
 entry:
   %0 = load <2 x i64>, ptr %buf, align 1
   %and.i282 = lshr <2 x i64> %0, splat (i64 4)

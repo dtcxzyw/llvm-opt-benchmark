@@ -132,7 +132,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.H5G__dense_remove_by_idx_fh_cb = private unnamed_addr constant [31 x i8] c"H5G__dense_remove_by_idx_fh_cb\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5G__dense_create(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5G__dense_create(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5HF_create_t, align 8
   %5 = alloca %struct.H5B2_create_t, align 8
   %6 = alloca i64, align 8

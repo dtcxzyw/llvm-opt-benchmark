@@ -1087,7 +1087,7 @@ $_ZTSN3fmt3v116detail16file_scan_bufferE = comdat any
 @llvm.used = appending global [1 x ptr] [ptr @_ZN3fmt3v1112format_facetISt6localeE2idE], section "llvm.metadata"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN3fmt3v116detail16parse_scan_specsEPKcS3_RNS0_12format_specsENS1_9scan_typeE(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN3fmt3v116detail16parse_scan_specsEPKcS3_RNS0_12format_specsENS1_9scan_typeE(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull align 4 captures(none) dereferenceable(16) %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not9 = icmp eq ptr %0, %1
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader
 

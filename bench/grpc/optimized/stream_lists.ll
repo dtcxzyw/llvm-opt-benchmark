@@ -172,7 +172,7 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z39grpc_chttp2_list_remove_writable_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef captures(address) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z39grpc_chttp2_list_remove_writable_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
@@ -474,7 +474,7 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z47grpc_chttp2_list_remove_waiting_for_concurrencyP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef captures(address) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z47grpc_chttp2_list_remove_waiting_for_concurrencyP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
@@ -654,7 +654,7 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z44grpc_chttp2_list_remove_stalled_by_transportP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef captures(address) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z44grpc_chttp2_list_remove_stalled_by_transportP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1
@@ -834,7 +834,7 @@ _ZL15stream_list_popP21grpc_chttp2_transportPP18grpc_chttp2_stream26grpc_chttp2_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z41grpc_chttp2_list_remove_stalled_by_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef captures(address) %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z41grpc_chttp2_list_remove_stalled_by_streamP21grpc_chttp2_transportP18grpc_chttp2_stream(ptr noundef %t, ptr noundef %s) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %included.i = getelementptr inbounds nuw i8, ptr %s, i64 375
   %0 = load i8, ptr %included.i, align 1

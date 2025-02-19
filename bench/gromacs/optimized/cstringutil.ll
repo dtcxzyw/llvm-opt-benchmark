@@ -30,7 +30,7 @@ $_ZNSt10filesystem7__cxx114pathD2Ev = comdat any
 @.str.4 = private unnamed_addr constant [4 x i8] c"%ld\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 2) i32 @_Z10continuingPc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z10continuingPc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_Z5rtrimPc.exit, label %3
 
@@ -84,7 +84,7 @@ _Z5rtrimPc.exit:                                  ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define void @_Z5rtrimPc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @_Z5rtrimPc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.critedge, label %3
 
@@ -311,7 +311,7 @@ define void @_Z13strip_commentPc(ptr noundef %0) local_unnamed_addr #8 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @_Z8upstringPc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
+define void @_Z8upstringPc(ptr noundef %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -341,7 +341,7 @@ define void @_Z8upstringPc(ptr noundef captures(address_is_null) %0) local_unnam
 declare i32 @toupper(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @_Z5ltrimPc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
+define void @_Z5ltrimPc(ptr noundef %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.critedge.thread, label %.preheader24
 
@@ -416,7 +416,7 @@ define void @_Z5ltrimPc(ptr noundef captures(address_is_null) %0) local_unnamed_
 declare i32 @isspace(i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite) uwtable
-define void @_Z4trimPc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
+define void @_Z4trimPc(ptr noundef %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_Z5rtrimPc.exit, label %.preheader24.i
 
@@ -1104,7 +1104,7 @@ define noundef i64 @_Z14str_to_int64_tPKcPPc(ptr noundef %0, ptr noundef capture
 declare i64 @strtoll(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef ptr @_Z12gmx_step_strlPc(i64 noundef %0, ptr noundef returned writeonly captures(ret: address, provenance) %1) local_unnamed_addr #17 {
+define noundef ptr @_Z12gmx_step_strlPc(i64 noundef %0, ptr noundef returned writeonly %1) local_unnamed_addr #17 {
   %3 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.4, i64 noundef %0) #22
   ret ptr %1
 }

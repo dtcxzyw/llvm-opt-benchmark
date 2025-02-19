@@ -2697,7 +2697,7 @@ freedirs.exit:                                    ; preds = %81, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @Curl_GetFTPResponse(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i32 @Curl_GetFTPResponse(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24

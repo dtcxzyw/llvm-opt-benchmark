@@ -442,7 +442,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkRootFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkRootFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -532,7 +532,7 @@ define range(i32 -21, 1) i32 @arkRootFree(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -21, 1) i32 @arkPrintRootMem(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

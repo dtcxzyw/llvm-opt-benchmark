@@ -2284,7 +2284,7 @@ declare dso_local ptr @i915_sched_lookup_priolist(ptr noundef, i32 noundef) loca
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef captures(ret: address, provenance) %1) unnamed_addr #0 align 16 {
+define internal fastcc ptr @process_csb(ptr noundef %0, ptr noundef %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 968
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   %5 = load ptr, ptr %4, align 8
@@ -3087,7 +3087,7 @@ define internal fastcc void @execlists_reset(ptr noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @post_process_csb(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @post_process_csb(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #0 align 16 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit13, label %.preheader

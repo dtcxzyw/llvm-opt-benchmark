@@ -10248,7 +10248,7 @@ declare void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo15witnessedUpdate
 declare void @_ZN4cvc58internal6theory5arith6linear10UpdateInfo6updateERKNS0_13DeltaRationalERKNS0_8RationalEPNS3_10ConstraintEii(ptr noundef nonnull align 8 dereferenceable(204), ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule17updateCoefficientEN9__gnu_cxx17__normal_iteratorIPKNS3_6BorderESt6vectorIS7_SaIS7_EEEESD_(ptr dead_on_unwind noalias nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr readonly captures(address) %2, ptr readnone captures(address) %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory5arith6linear20LinearEqualityModule17updateCoefficientEN9__gnu_cxx17__normal_iteratorIPKNS3_6BorderESt6vectorIS7_SaIS7_EEEESD_(ptr dead_on_unwind noalias nonnull writable sret(%"class.cvc5::internal::Rational") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr readonly %2, ptr readnone %3) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cvc5::internal::Rational", align 8
   %6 = alloca %"class.cvc5::internal::Rational", align 8
   tail call void @_ZN4cvc58internal8RationalC2Ei(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 0)

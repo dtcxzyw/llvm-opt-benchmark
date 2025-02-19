@@ -859,7 +859,7 @@ define i32 @Aig_ManCountReprs(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr i8, ptr %0, i64 312
   %5 = icmp eq ptr %1, null
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -928,7 +928,7 @@ Aig_ObjEquiv.exit:                                ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Aig_ObjCheckTfi(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Aig_ObjCheckTfi(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   tail call void @Aig_ManIncrementTravId(ptr noundef %0) #18
   %4 = tail call i32 @Aig_ObjCheckTfi_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4

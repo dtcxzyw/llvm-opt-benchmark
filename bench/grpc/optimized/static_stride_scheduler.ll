@@ -31,7 +31,7 @@ $_ZN4absl12lts_2023080222internal_any_invocable12EmptyManagerENS1_14FunctionToCa
 @_ZN9grpc_core21StaticStrideSchedulerC1ESt6vectorItSaItEEN4absl12lts_2023080212AnyInvocableIFjvEEE = unnamed_addr alias void (ptr, ptr, ptr), ptr @_ZN9grpc_core21StaticStrideSchedulerC2ESt6vectorItSaItEEN4absl12lts_2023080212AnyInvocableIFjvEEE
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core21StaticStrideScheduler4MakeEN4absl12lts_202308024SpanIKfEENS2_12AnyInvocableIFjvEEE(ptr noalias sret(%"class.std::optional") align 16 %agg.result, ptr readonly captures(address) %float_weights.coerce0, i64 %float_weights.coerce1, ptr noundef %next_sequence_func) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core21StaticStrideScheduler4MakeEN4absl12lts_202308024SpanIKfEENS2_12AnyInvocableIFjvEEE(ptr noalias sret(%"class.std::optional") align 16 %agg.result, ptr readonly %float_weights.coerce0, i64 %float_weights.coerce1, ptr noundef %next_sequence_func) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp65 = alloca %"class.grpc_core::StaticStrideScheduler", align 16
   %agg.tmp66 = alloca %"class.std::vector", align 8

@@ -10600,7 +10600,7 @@ return:                                           ; preds = %if.else.i.i7.i.i89,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(120) ptr @_ZN3opt15model_based_opt3row9normalizeEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(120) ptr @_ZN3opt15model_based_opt3row9normalizeEv(ptr noundef nonnull readnone returned align 8 dereferenceable(120) %this) local_unnamed_addr #6 align 2 {
 entry:
   ret ptr %this
 }

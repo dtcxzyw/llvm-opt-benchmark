@@ -54,7 +54,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare ptr @BN_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @BN_BLINDING_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @BN_BLINDING_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

@@ -2833,7 +2833,7 @@ define dso_local noundef zeroext i1 @init_nodemask_of_mempolicy(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @mempolicy_in_oom_domain(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @mempolicy_in_oom_domain(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %21, label %4
 
@@ -3396,7 +3396,7 @@ define dso_local i32 @vma_dup_policy(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__mpol_dup(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local ptr @__mpol_dup(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca %struct.nodemask_t, align 8
   %3 = load ptr, ptr @policy_cache, align 8
   %4 = tail call noalias align 8 ptr @kmem_cache_alloc(ptr noundef %3, i32 noundef 3264) #19
@@ -3477,7 +3477,7 @@ declare dso_local zeroext i1 @current_cpuset_is_being_rebound() local_unnamed_ad
 declare dso_local i64 @cpuset_mems_allowed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @__mpol_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local zeroext i1 @__mpol_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -4235,7 +4235,7 @@ define internal fastcc i32 @mpol_set_nodemask(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -12, 1) i32 @mpol_set_shared_policy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = load i64, ptr %1, align 8
@@ -5254,7 +5254,7 @@ declare dso_local i32 @match_string(ptr noundef, i64 noundef, ptr noundef) local
 declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpol_to_str(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @mpol_to_str(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.nodemask_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #19
   store i64 0, ptr %4, align 8

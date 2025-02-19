@@ -15721,7 +15721,7 @@ define internal ptr @dec_mpd_adjexp(ptr noundef %0, ptr readnone captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @dec_canonical(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #8 {
+define internal noundef ptr @dec_canonical(ptr noundef returned %0, ptr readnone captures(none) %1) #8 {
   %3 = load i32, ptr %0, align 8, !tbaa !38
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -15736,7 +15736,7 @@ _Py_NewRef.exit:                                  ; preds = %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @dec_conjugate(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #8 {
+define internal noundef ptr @dec_conjugate(ptr noundef returned %0, ptr readnone captures(none) %1) #8 {
   %3 = load i32, ptr %0, align 8, !tbaa !38
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -21214,7 +21214,7 @@ PyDecType_New.exit:                               ; preds = %Py_DECREF.exit111, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @dec_copy(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #8 {
+define internal noundef ptr @dec_copy(ptr noundef returned %0, ptr readnone captures(none) %1) #8 {
   %3 = load i32, ptr %0, align 8, !tbaa !38
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -22929,7 +22929,7 @@ declare hidden i32 @mpd_isdynamic_data(ptr noundef) local_unnamed_addr #1
 declare ptr @PyLong_FromSize_t(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @dec_real(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #8 {
+define internal noundef ptr @dec_real(ptr noundef returned %0, ptr readnone captures(none) %1) #8 {
   %3 = load i32, ptr %0, align 8, !tbaa !38
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %_Py_NewRef.exit, label %5
@@ -31733,7 +31733,7 @@ Py_DECREF.exit:                                   ; preds = %26, %23, %convert_o
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @ctx_canonical(ptr noundef readonly captures(none) %0, ptr noundef captures(ret: address, provenance) %1) #0 {
+define internal noundef ptr @ctx_canonical(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 96
   %.val = load ptr, ptr %3, align 8, !tbaa !42
   %4 = getelementptr inbounds nuw i8, ptr %.val, i64 24
@@ -36338,7 +36338,7 @@ define internal range(i64 -1, 10) i64 @signaldict_len(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @signaldict_getitem(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #0 {
+define internal noundef ptr @signaldict_getitem(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !69
   %5 = icmp eq ptr %4, null
@@ -36419,7 +36419,7 @@ incr_true.exit:                                   ; preds = %36, %33, %31, %28, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @signaldict_setitem(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @signaldict_setitem(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !69
   %6 = icmp eq ptr %5, null

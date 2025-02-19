@@ -628,7 +628,7 @@ define dso_local { i64, i64 } @i128_mult64(i64 %0, i64 %1, i64 noundef %2) local
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local { i64, i64 } @i128_from_strl(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
+define dso_local { i64, i64 } @i128_from_strl(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %.not10 = icmp eq ptr %0, %1
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -668,7 +668,7 @@ define dso_local { i64, i64 } @i128_from_strl(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local { i64, i64 } @i128_from_hexstrl(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #6 {
+define dso_local { i64, i64 } @i128_from_hexstrl(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #6 {
   %.not10 = icmp eq ptr %0, %1
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 

@@ -731,7 +731,7 @@ define void @hwloc_distances_release(ptr noundef readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @hwloc_backend_distances_add_create(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define noalias noundef ptr @hwloc_backend_distances_add_create(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #8 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %7, label %5
 
@@ -1076,7 +1076,7 @@ hwloc_internal_distances_restrict.exit:           ; preds = %37
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @hwloc_internal_distances_restrict(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #11 {
+define internal fastcc void @hwloc_internal_distances_restrict(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3, i32 noundef %4, i32 noundef %5) unnamed_addr #11 {
   %.not66 = icmp eq i32 %4, 0
   br i1 %.not66, label %._crit_edge, label %.lr.ph
 
@@ -2193,7 +2193,7 @@ hwloc__check_grouping_matrix.exit.thread:         ; preds = %.split.us.i146, %91
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_add_by_index(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_add_by_index(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i64 noundef %7, i64 noundef %8) local_unnamed_addr #1 {
   %10 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #31
   %.not21.i = icmp eq ptr %10, null
   br i1 %.not21.i, label %hwloc_backend_distances_add_create.exit.thread, label %11
@@ -2294,7 +2294,7 @@ hwloc_backend_distances_add_create.exit.thread:   ; preds = %hwloc_backend_dista
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_add(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #1 {
+define hidden range(i32 -1, 1) i32 @hwloc_internal_distances_add(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #1 {
   %8 = tail call noalias dereferenceable_or_null(88) ptr @calloc(i64 noundef 1, i64 noundef 88) #31
   %.not21.i = icmp eq ptr %8, null
   br i1 %.not21.i, label %hwloc_backend_distances_add_create.exit.thread, label %9
@@ -2348,7 +2348,7 @@ hwloc_backend_distances_add_create.exit.thread:   ; preds = %12, %7, %23, %13
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @hwloc_distances_add_create(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #8 {
+define noalias noundef ptr @hwloc_distances_add_create(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #8 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %6 = load i64, ptr %5, align 8, !tbaa !63
   %7 = and i64 %6, 2
@@ -2441,7 +2441,7 @@ hwloc_backend_distances_add_create.exit:          ; preds = %42, %34, %29, %27, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_distances_add_values(ptr readnone captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @hwloc_distances_add_values(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #1 {
   %7 = icmp ugt i32 %2, 1
   %wide.trip.count = zext i32 %2 to i64
   br i1 %7, label %.lr.ph, label %._crit_edge
@@ -2997,7 +2997,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get(ptr noundef %0, ptr noundef cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_get(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i64 noundef %5) unnamed_addr #1 {
+define internal fastcc range(i32 -1, 1) i32 @hwloc__distances_get(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef captures(none) %3, ptr noundef captures(none) %4, i64 noundef %5) unnamed_addr #1 {
   tail call void @hwloc_internal_distances_refresh(ptr noundef %0)
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %.04587 = load ptr, ptr %7, align 8, !tbaa !51
@@ -3216,7 +3216,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get_by_depth(ptr noundef %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @hwloc_distances_get_by_name(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #1 {
+define range(i32 -1, 1) i32 @hwloc_distances_get_by_name(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, i64 noundef %4) local_unnamed_addr #1 {
   %.not = icmp eq i64 %4, 0
   br i1 %.not, label %6, label %10
 
@@ -3268,7 +3268,7 @@ define range(i32 -1, 1) i32 @hwloc_distances_get_by_type(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -1, 1) i32 @hwloc_distances_transform(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #20 {
+define range(i32 -1, 1) i32 @hwloc_distances_transform(ptr noundef readnone captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef readnone %3, i64 noundef %4) local_unnamed_addr #20 {
   %6 = icmp ne i64 %4, 0
   %7 = icmp ne ptr %3, null
   %or.cond = or i1 %7, %6

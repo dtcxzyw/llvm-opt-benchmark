@@ -29,7 +29,7 @@ return:                                           ; preds = %if.end, %entry, %if
 declare i64 @libdeflate_zlib_compress_bound(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly captures(address_is_null) %ctxt, i32 noundef %level, ptr noundef %in, i64 noundef %in_bytes, ptr noundef %out, i64 noundef %out_bytes_avail, ptr noundef writeonly captures(address_is_null) %actual_out) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @exr_compress_buffer(ptr noundef readonly %ctxt, i32 noundef %level, ptr noundef %in, i64 noundef %in_bytes, ptr noundef %out, i64 noundef %out_bytes_avail, ptr noundef writeonly %actual_out) local_unnamed_addr #0 {
 entry:
   %level.addr = alloca i32, align 4
   store i32 %level, ptr %level.addr, align 4
@@ -100,7 +100,7 @@ declare i64 @libdeflate_zlib_compress(ptr noundef, ptr noundef, i64 noundef, ptr
 declare void @libdeflate_free_compressor(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly captures(address_is_null) %ctxt, ptr noundef %in, i64 noundef %in_bytes, ptr noundef %out, i64 noundef %out_bytes_avail, ptr noundef %actual_out) local_unnamed_addr #0 {
+define range(i32 0, 24) i32 @exr_uncompress_buffer(ptr noundef readonly %ctxt, ptr noundef %in, i64 noundef %in_bytes, ptr noundef %out, i64 noundef %out_bytes_avail, ptr noundef %actual_out) local_unnamed_addr #0 {
 entry:
   %actual_in_bytes = alloca i64, align 8
   %tobool.not = icmp eq ptr %ctxt, null

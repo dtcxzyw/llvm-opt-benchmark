@@ -636,7 +636,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly captures(ret: address, provenance) %2, i32 noundef %3) local_unnamed_addr #9 {
+define dso_local noundef ptr @acct_gather_profile_dataset_str(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #9 {
   %.not32 = icmp eq ptr %0, null
   br i1 %.not32, label %.critedge, label %.lr.ph
 

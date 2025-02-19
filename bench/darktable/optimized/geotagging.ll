@@ -2069,7 +2069,7 @@ define internal noundef i32 @_datetime_key_pressed(ptr noundef %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone captures(address) %0, ptr noundef %1, ptr noundef %2) #1 {
+define internal range(i32 0, 2) i32 @_datetime_scroll_over(ptr noundef readnone %0, ptr noundef %1, ptr noundef %2) #1 {
   %4 = alloca i32, align 4
   %5 = tail call i32 @dt_gui_ignore_scroll(ptr noundef %1) #16
   %.not = icmp eq i32 %5, 0
@@ -2250,7 +2250,7 @@ define internal void @_mouse_over_image_callback(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_image_info_changed(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #1 {
+define internal void @_image_info_changed(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #1 {
   %.not8 = icmp eq ptr %1, null
   br i1 %.not8, label %.loopexit, label %.lr.ph
 

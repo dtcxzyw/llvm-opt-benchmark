@@ -78654,7 +78654,7 @@ define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_c
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone captures(address) %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN25Benchmark_SortSingle_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.0.val
   %4 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
@@ -79297,7 +79297,7 @@ define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SP_SK_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone captures(address) %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZN24Benchmark_SortMulti_Test8TestBodyEvE3$_0NS3_8std_sortEJEEEvT0_T1_DpOT2_EUlT_SK_E_EEEvSP_SP_SK_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.0.val
   %4 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64
@@ -79940,7 +79940,7 @@ define internal fastcc void @"_ZSt13__adjust_heapISt16reverse_iteratorIN9__gnu_c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone captures(address) %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
+define internal fastcc void @"_ZSt16__insertion_sortISt16reverse_iteratorIN9__gnu_cxx17__normal_iteratorIPN4entt6entityESt6vectorIS4_SaIS4_EEEEENS1_5__ops15_Iter_comp_iterIZNS3_14basic_registryIS4_S7_E4sortI8positionZZN34Benchmark_AlmostSortedStdSort_Test8TestBodyEvENK3$_0clEvEUlRKT_RKT0_E_NS3_8std_sortEJEEEvSM_T1_DpOT2_EUlSJ_SM_E_EEEvSJ_SJ_SM_"(ptr noundef nonnull readonly captures(none) %0, ptr readnone %.0.val, ptr readonly captures(none) %1) unnamed_addr #19 {
   %.sroa.0.0.copyload.i.i = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %.sroa.0.0.copyload.i.i, %.0.val
   %4 = ptrtoint ptr %.sroa.0.0.copyload.i.i to i64

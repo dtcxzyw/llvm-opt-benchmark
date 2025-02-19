@@ -401,7 +401,7 @@ $_ZTVN4llvm13format_objectIJjjEEE = comdat any
 @_ZN5clang9api_notes14APINotesReaderD1Ev = unnamed_addr alias void (ptr), ptr @_ZN5clang9api_notes14APINotesReaderD2Ev
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local { i64, i8 } @_ZN5clang9api_notes14APINotesReader14Implementation13getIdentifierEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local { i64, i8 } @_ZN5clang9api_notes14APINotesReader14Implementation13getIdentifierEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.val = load ptr, ptr %4, align 8, !tbaa !3
   %.not = icmp eq ptr %.val, null
@@ -1489,7 +1489,7 @@ _ZN5clang9api_notes18StoredObjCSelectorD2Ev.exit: ; preds = %.loopexit, %352
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang9api_notes14APINotesReader14Implementation16readControlBlockERN4llvm15BitstreamCursorERNS3_15SmallVectorImplImEE(ptr noundef nonnull align 8 captures(address) dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
+define dso_local noundef zeroext i1 @_ZN5clang9api_notes14APINotesReader14Implementation16readControlBlockERN4llvm15BitstreamCursorERNS3_15SmallVectorImplImEE(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull align 8 dereferenceable(344) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #2 align 2 {
   %4 = alloca %"class.llvm::Error", align 8
   %5 = alloca %"class.llvm::Error", align 8
   %6 = alloca %class.anon, align 1
@@ -7988,7 +7988,7 @@ _ZNSt10unique_ptrIN5clang9api_notes14APINotesReaderESt14default_deleteIS2_EED2Ev
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader17lookupObjCClassIDEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader17lookupObjCClassIDEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !475
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -8199,7 +8199,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader19lookupObjCClassInfoEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader19lookupObjCClassInfoEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"class.llvm::OnDiskChainedHashTable<clang::api_notes::(anonymous namespace)::ContextInfoTableInfo>::iterator", align 8
   %6 = alloca %"class.llvm::SmallVector.181", align 8
   %7 = load ptr, ptr %1, align 8, !tbaa !475
@@ -8959,7 +8959,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader20lookupObjCProtocolIDEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader20lookupObjCProtocolIDEN4llvm9StringRefE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !475
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 88
@@ -9170,7 +9170,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader22lookupObjCProtocolInfoEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader22lookupObjCProtocolInfoEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = alloca %"class.llvm::OnDiskChainedHashTable<clang::api_notes::(anonymous namespace)::ContextInfoTableInfo>::iterator", align 8
   %6 = alloca %"class.llvm::SmallVector.181", align 8
   %7 = load ptr, ptr %1, align 8, !tbaa !475
@@ -9332,7 +9332,7 @@ _ZN4llvm11SmallVectorISt4pairINS_12VersionTupleEN5clang9api_notes11ContextInfoEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader18lookupObjCPropertyENS0_9ContextIDEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.197") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 %2, ptr readonly captures(address) %3, i64 %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader18lookupObjCPropertyENS0_9ContextIDEN4llvm9StringRefEb(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.197") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 %2, ptr readonly %3, i64 %4, i1 noundef zeroext %5) local_unnamed_addr #2 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.clang::api_notes::ObjCPropertyInfo", align 8
@@ -10762,7 +10762,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader11lookupFieldENS0_9ContextIDEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.228") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader11lookupFieldENS0_9ContextIDEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.228") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 %2, ptr readonly %3, i64 %4) local_unnamed_addr #2 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.clang::api_notes::FieldInfo", align 8
@@ -11477,7 +11477,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader15lookupCXXMethodENS0_9ContextIDEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.237") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader15lookupCXXMethodENS0_9ContextIDEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.237") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 %2, ptr readonly %3, i64 %4) local_unnamed_addr #2 align 2 {
   %6 = alloca %"class.clang::api_notes::ParamInfo", align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.clang::api_notes::CXXMethodInfo", align 8
@@ -12204,7 +12204,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader20lookupGlobalVariableEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.254") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address) %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader20lookupGlobalVariableEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.254") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #2 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.clang::api_notes::GlobalVariableInfo", align 8
@@ -12921,7 +12921,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader20lookupGlobalFunctionEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.263") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address) %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader20lookupGlobalFunctionEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.263") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #2 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.clang::api_notes::GlobalFunctionInfo", align 8
@@ -13854,7 +13854,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader18lookupEnumConstantEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.272") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader18lookupEnumConstantEN4llvm9StringRefE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.272") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly %2, i64 %3) local_unnamed_addr #2 align 2 {
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
   %7 = alloca %"class.llvm::VersionTuple", align 8
@@ -14495,7 +14495,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader11lookupTagIDEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i64 %3, i8 %4) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader11lookupTagIDEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly %1, i64 %2, i64 %3, i8 %4) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %6 = load ptr, ptr %0, align 8, !tbaa !475
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -14711,7 +14711,7 @@ _ZN4llvm22OnDiskChainedHashTableIN5clang9api_notes12_GLOBAL__N_118ContextIDTable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader9lookupTagEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.281") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address) %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader9lookupTagEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.281") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #2 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -16117,7 +16117,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9api_notes14APINotesReader13lookupTypedefEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.290") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly captures(address) %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang9api_notes14APINotesReader13lookupTypedefEN4llvm9StringRefESt8optionalINS0_7ContextEE(ptr dead_on_unwind noalias writable sret(%"class.clang::api_notes::APINotesReader::VersionedInfo.290") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr readonly %2, i64 %3, i64 %4, i8 %5) local_unnamed_addr #2 align 2 {
   %7 = alloca i64, align 8
   %8 = alloca ptr, align 8
   %9 = alloca %"class.clang::api_notes::TypedefInfo", align 8
@@ -16909,7 +16909,7 @@ _ZNK4llvm12VersionTuple5emptyEv.exit2.thread:     ; preds = %.loopexit, %.loopex
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, inaccessiblemem: write) uwtable
-define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader17lookupNamespaceIDEN4llvm9StringRefESt8optionalINS0_9ContextIDEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address) %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local range(i64 0, 8589934592) i64 @_ZN5clang9api_notes14APINotesReader17lookupNamespaceIDEN4llvm9StringRefESt8optionalINS0_9ContextIDEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly %1, i64 %2, i64 %3) local_unnamed_addr #0 align 2 {
   %.sroa.0.i.i.i.i.i.i.i = alloca [9 x i8], align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !475
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 88
@@ -19262,7 +19262,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN5clang9api_notes12_GLOBAL__N_120ReadCommonEntityInfoERPKhRNS0_16CommonEntityInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(72) %1) unnamed_addr #2 {
+define internal fastcc void @_ZN5clang9api_notes12_GLOBAL__N_120ReadCommonEntityInfoERPKhRNS0_16CommonEntityInfoE(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull align 8 dereferenceable(72) %1) unnamed_addr #2 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

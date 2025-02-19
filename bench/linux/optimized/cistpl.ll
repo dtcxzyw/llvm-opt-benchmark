@@ -478,7 +478,7 @@ define dso_local noundef range(i32 -22, 1) i32 @pcmcia_write_cis_mem(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @destroy_cis_cache(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @destroy_cis_cache(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -2760,7 +2760,7 @@ default.unreachable225:                           ; preds = %649
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @pccard_validate_cis(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @pccard_validate_cis(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %112, label %4
 
@@ -3238,7 +3238,7 @@ declare dso_local noalias ptr @kmalloc_trace(ptr noundef, i32 noundef, i64 nound
 declare dso_local noalias ptr @__kmalloc(i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc ptr @parse_power(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) unnamed_addr #10 align 16 {
+define internal fastcc ptr @parse_power(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef captures(none) %2) unnamed_addr #10 align 16 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %5
 

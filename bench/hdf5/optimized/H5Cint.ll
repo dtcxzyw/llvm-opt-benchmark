@@ -1133,7 +1133,7 @@ declare i32 @H5C_reset_cache_hit_rate_stats(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5C_init_g, align 1, !tbaa !38, !range !39, !noundef !40
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !39
@@ -1267,7 +1267,7 @@ define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_all_markers(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C__autoadjust__ageout__remove_excess_markers(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5C_init_g, align 1, !tbaa !38, !range !39, !noundef !40
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !39

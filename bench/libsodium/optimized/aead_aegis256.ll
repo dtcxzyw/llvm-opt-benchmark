@@ -43,7 +43,7 @@ define dso_local void @crypto_aead_aegis256_keygen(ptr noundef nonnull %0) local
 declare void @randombytes_buf(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_aead_aegis256_encrypt(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #1 {
+define dso_local i32 @crypto_aead_aegis256_encrypt(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #1 {
   %10 = or i64 %5, %3
   %or.cond.not.i = icmp ult i64 %10, 2305843009213693952
   br i1 %or.cond.not.i, label %crypto_aead_aegis256_encrypt_detached.exit, label %11
@@ -72,7 +72,7 @@ crypto_aead_aegis256_encrypt_detached.exit:       ; preds = %9
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_aead_aegis256_encrypt_detached(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef readnone captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) local_unnamed_addr #1 {
+define dso_local i32 @crypto_aead_aegis256_encrypt_detached(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef readnone captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) local_unnamed_addr #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %12, label %11
 
@@ -97,7 +97,7 @@ define dso_local i32 @crypto_aead_aegis256_encrypt_detached(ptr noundef nonnull 
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_aead_aegis256_decrypt(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #1 {
+define dso_local i32 @crypto_aead_aegis256_decrypt(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #1 {
   %10 = icmp ugt i64 %4, 31
   br i1 %10, label %11, label %crypto_aead_aegis256_decrypt_detached.exit
 

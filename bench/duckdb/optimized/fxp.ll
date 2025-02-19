@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c"%lu\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @duckdb_je_fxp_parse(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @duckdb_je_fxp_parse(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i8, ptr %1, align 1, !tbaa !3
   %.not = icmp eq i8 %4, 46
   %5 = add i8 %4, -48

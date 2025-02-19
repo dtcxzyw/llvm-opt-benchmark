@@ -51,7 +51,7 @@ define void @_ZN5boost6fibers4algo11round_robin8awakenedEPNS0_7contextE(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind uwtable
-define noundef ptr @_ZN5boost6fibers4algo11round_robin9pick_nextEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(121) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5boost6fibers4algo11round_robin9pick_nextEv(ptr noundef nonnull readonly align 8 dereferenceable(121) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !8
   %.not.i.i = icmp eq ptr %3, null
@@ -109,7 +109,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost6fibers4algo11round_robin16has_ready_fibersEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(121) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5boost6fibers4algo11round_robin16has_ready_fibersEv(ptr noundef nonnull readonly align 8 dereferenceable(121) %0) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !8
   %.not.i.i = icmp ne ptr %3, null

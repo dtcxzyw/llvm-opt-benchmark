@@ -2510,7 +2510,7 @@ define hidden noundef i32 @_ZNK18G1CMRootMemRegions16num_root_regionsEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef zeroext i1 @_ZNK18G1CMRootMemRegions8containsE9MemRegion(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr readnone captures(address) %1, i64 %2) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZNK18G1CMRootMemRegions8containsE9MemRegion(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr readnone %1, i64 %2) local_unnamed_addr #5 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load volatile i64, ptr %4, align 8
   %.not = icmp eq i64 %5, 0

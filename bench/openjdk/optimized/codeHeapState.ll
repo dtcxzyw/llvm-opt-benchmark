@@ -7751,7 +7751,7 @@ _ZN13CodeHeapState23print_aggregate_missingEP12outputStreamPKc.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13CodeHeapState19blob_access_is_safeEP8CodeBlob(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN13CodeHeapState19blob_access_is_safeEP8CodeBlob(ptr noundef readonly %0) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %2
 
@@ -7780,7 +7780,7 @@ define hidden noundef zeroext i1 @_ZN13CodeHeapState19blob_access_is_safeEP8Code
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13CodeHeapState22nmethod_access_is_safeEP7nmethod(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN13CodeHeapState22nmethod_access_is_safeEP7nmethod(ptr noundef readonly %0) local_unnamed_addr #0 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 

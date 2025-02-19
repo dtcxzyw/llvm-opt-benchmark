@@ -28,7 +28,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @i2c_client_type = external dso_local global %struct.device_type, align 8
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @psmouse_smbus_cleanup(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @psmouse_smbus_cleanup(ptr noundef readnone %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @psmouse_smbus_mutex) #9
   %2 = load ptr, ptr @psmouse_smbus_list, align 8
   %3 = icmp eq ptr %2, @psmouse_smbus_list

@@ -593,7 +593,7 @@ return:                                           ; preds = %entry, %if.end, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @hermes_source_map_get_num_paths(ptr noundef readonly captures(address_is_null) %map) local_unnamed_addr #5 {
+define hidden i32 @hermes_source_map_get_num_paths(ptr noundef readonly %map) local_unnamed_addr #5 {
 entry:
   %tobool.not = icmp eq ptr %map, null
   br i1 %tobool.not, label %return, label %lor.lhs.false
@@ -671,7 +671,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @hermes_source_map_get_location(ptr noundef captures(ret: address, provenance) %map, i32 noundef %line, i32 noundef %column) local_unnamed_addr #0 {
+define hidden noundef ptr @hermes_source_map_get_location(ptr noundef %map, i32 noundef %line, i32 noundef %column) local_unnamed_addr #0 {
 entry:
   %sourceMap_ = getelementptr inbounds nuw i8, ptr %map, i64 32
   %0 = load ptr, ptr %sourceMap_, align 8

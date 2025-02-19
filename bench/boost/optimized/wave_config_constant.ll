@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [168 x i8] c"(boost::wave::util::flex_string< char, std::char_traits<char>, std::allocator<char>, boost::wave::util::CowString< boost::wave::util::AllocatorStringStorage<char> > >)\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN5boost4wave18test_configurationEjPKcS2_(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN5boost4wave18test_configurationEjPKcS2_(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %1, null
   %5 = icmp ne ptr %2, null
   %or.cond.not13 = and i1 %4, %5

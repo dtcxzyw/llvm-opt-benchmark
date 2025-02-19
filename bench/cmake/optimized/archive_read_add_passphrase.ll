@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [22 x i8] c"Can't allocate memory\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -30, 1) i32 @archive_read_add_passphrase(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_read_add_passphrase(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 14594245, i32 noundef 1, ptr noundef nonnull @.str) #6
   %.not = icmp eq i32 %3, -30
   br i1 %.not, label %20, label %4

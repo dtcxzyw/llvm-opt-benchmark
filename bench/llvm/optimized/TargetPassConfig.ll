@@ -6592,7 +6592,7 @@ _ZNK4llvm16TargetPassConfig19getPassSubstitutionEPKv.exit: ; preds = %_ZN4llvm12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define internal fastcc { ptr, i8 } @_ZL12overridePassPKvN4llvm18IdentifyingPassPtrE(ptr noundef readnone captures(address) %0, ptr %1, i8 %2) unnamed_addr #13 {
+define internal fastcc { ptr, i8 } @_ZL12overridePassPKvN4llvm18IdentifyingPassPtrE(ptr noundef readnone %0, ptr %1, i8 %2) unnamed_addr #13 {
   %4 = load ptr, ptr @_ZN4llvm17PostRASchedulerIDE, align 8, !tbaa !54
   %5 = icmp eq ptr %0, %4
   br i1 %5, label %6, label %9

@@ -15628,7 +15628,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZNK6casadi9Sqpmethod18solve_elastic_modeEPNS_15SqpmethodMemoryEPxdxbbdddPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(2386) %0, ptr noundef %1, ptr noundef captures(none) %2, double noundef %3, i64 %4, i1 zeroext %5, i1 noundef zeroext %6, double noundef %7, double noundef %8, double noundef %9, ptr noundef captures(address) %10, i32 noundef %11) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK6casadi9Sqpmethod18solve_elastic_modeEPNS_15SqpmethodMemoryEPxdxbbdddPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEi(ptr noundef nonnull align 8 dereferenceable(2386) %0, ptr noundef %1, ptr noundef captures(none) %2, double noundef %3, i64 %4, i1 zeroext %5, i1 noundef zeroext %6, double noundef %7, double noundef %8, double noundef %9, ptr noundef %10, i32 noundef %11) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %13 = alloca i64, align 8
   %14 = alloca %"class.std::__cxx11::basic_string", align 8
   %15 = alloca %"class.std::__cxx11::basic_string", align 8

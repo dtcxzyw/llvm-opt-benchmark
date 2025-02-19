@@ -1970,7 +1970,7 @@ declare ptr @cl_engine_new() local_unnamed_addr #3
 declare void @cl_engine_set_clcb_virus_found(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @clamscan_virus_found_cb(i32 %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @clamscan_virus_found_cb(i32 %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %9, label %5
 
@@ -2585,7 +2585,7 @@ declare i32 @cl_engine_compile(ptr noundef) local_unnamed_addr #3
 declare void @cl_engine_set_clcb_meta(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3, i32 %4, i32 %5, ptr noundef readonly captures(address_is_null) %6) #0 {
+define internal noundef i32 @meta(ptr noundef %0, i64 %1, ptr noundef %2, i64 %3, i32 %4, i32 %5, ptr noundef readonly %6) #0 {
   %8 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %8) #21
   %.not = icmp eq ptr %6, null
@@ -2735,7 +2735,7 @@ print_chain.exit:                                 ; preds = %60, %64, %50
 declare void @cl_engine_set_clcb_pre_cache(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @pre(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #10 {
+define internal noundef i32 @pre(i32 %0, ptr readnone captures(none) %1, ptr noundef readonly %2) #10 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %11, label %4
 
@@ -2758,7 +2758,7 @@ define internal noundef i32 @pre(i32 %0, ptr readnone captures(none) %1, ptr nou
 declare void @cl_engine_set_clcb_post_scan(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal noundef i32 @post(i32 %0, i32 %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) #11 {
+define internal noundef i32 @post(i32 %0, i32 %1, ptr noundef readnone %2, ptr noundef readonly %3) #11 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.critedge, label %5
 

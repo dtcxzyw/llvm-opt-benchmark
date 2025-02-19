@@ -1946,7 +1946,7 @@ for.end:                                          ; preds = %for.inc, %if.end, %
 declare void @_ZN7rocksdb7Version3RefEv(ptr noundef nonnull align 16 dereferenceable(4953)) local_unnamed_addr #6
 
 ; Function Attrs: uwtable
-define void @_ZN7rocksdb8FlushJob3RunEPNS_19LogsWithPrepTrackerEPNS_12FileMetaDataEPbS5_PNS_12ErrorHandlerE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1760) %this, ptr noundef %prep_tracker, ptr noundef %file_meta, ptr noundef writeonly captures(address_is_null) %switched_to_mempurge, ptr noundef writeonly captures(address_is_null) %skipped_since_bg_error, ptr noundef %error_handler) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8FlushJob3RunEPNS_19LogsWithPrepTrackerEPNS_12FileMetaDataEPbS5_PNS_12ErrorHandlerE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 8 dereferenceable(1760) %this, ptr noundef %prep_tracker, ptr noundef %file_meta, ptr noundef writeonly %switched_to_mempurge, ptr noundef writeonly %skipped_since_bg_error, ptr noundef %error_handler) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.363", align 8
   %stage_run = alloca %"class.rocksdb::AutoThreadOperationStageUpdater", align 4
@@ -4374,7 +4374,7 @@ return:                                           ; preds = %if.end, %entry, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8FlushJob8MemPurgeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 captures(address) initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8FlushJob8MemPurgeEv(ptr noalias sret(%"class.rocksdb::Status") align 8 initializes((0, 6), (8, 16)) %agg.result, ptr noundef nonnull align 8 dereferenceable(1760) %this) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.363", align 8
   %new_mem = alloca ptr, align 8

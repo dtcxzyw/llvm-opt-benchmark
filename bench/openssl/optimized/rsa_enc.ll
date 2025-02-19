@@ -53,7 +53,7 @@ define internal noalias ptr @rsa_newctx(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_encrypt_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @rsa_encrypt_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc i32 @rsa_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 512)
   ret i32 %4
 }
@@ -169,7 +169,7 @@ define internal range(i32 -2147483648, 2) i32 @rsa_encrypt(ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_decrypt_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @rsa_decrypt_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc i32 @rsa_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 1024)
   ret i32 %4
 }
@@ -443,7 +443,7 @@ define internal ptr @rsa_dupctx(ptr noundef readonly captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @rsa_get_ctx_params(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %76, label %4
 
@@ -616,7 +616,7 @@ define internal noundef nonnull ptr @rsa_gettable_ctx_params(ptr readnone captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @rsa_set_ctx_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [50 x i8], align 16
   %4 = alloca [256 x i8], align 16
   %5 = alloca ptr, align 8
@@ -928,7 +928,7 @@ declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 512, 1025) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @rsa_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 512, 1025) %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   store i32 0, ptr %5, align 4, !tbaa !29

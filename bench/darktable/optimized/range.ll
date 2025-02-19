@@ -2667,7 +2667,7 @@ _current_hide_popup.exit:                         ; preds = %3, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_pref_changed(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define internal void @_dt_pref_changed(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca %struct._GtkBorder, align 2
@@ -4991,7 +4991,7 @@ declare void @gtk_label_set_line_wrap(ptr noundef, i32 noundef) local_unnamed_ad
 declare ptr @gtk_calendar_new() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_popup_date_changed(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #0 {
+define internal void @_popup_date_changed(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

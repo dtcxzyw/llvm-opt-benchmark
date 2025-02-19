@@ -565,7 +565,7 @@ define noundef zeroext i1 @"_ZN80_$LT$deltalake_sql..logical_plan..DeltaStatemen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN13deltalake_sql12logical_plan14DeltaStatement7display17h9b30fa38e0bf1575E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN13deltalake_sql12logical_plan14DeltaStatement7display17h9b30fa38e0bf1575E(ptr noalias noundef readonly returned align 8 dereferenceable(104) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
@@ -764,7 +764,7 @@ switch.lookup:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$6schema17h796397329275b9d0E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN132_$LT$deltalake_sql..logical_plan..DeltaStatement$u20$as$u20$datafusion_expr..logical_plan..extension..UserDefinedLogicalNodeCore$GT$6schema17h796397329275b9d0E"(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #0 {
   %2 = load i64, ptr %0, align 8, !range !149, !noundef !5
   %3 = icmp eq i64 %2, 3
   br i1 %3, label %4, label %6

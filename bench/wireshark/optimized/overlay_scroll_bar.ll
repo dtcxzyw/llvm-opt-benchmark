@@ -1309,7 +1309,7 @@ declare void @_ZN6QImage19setDevicePixelRatioEd(ptr noundef align 8 dereferencea
 declare void @_ZN8QPainterD1Ev(ptr noundef align 8 dereferenceable_or_null(8)) unnamed_addr #2
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN16OverlayScrollBar11eventFilterEP7QObjectP6QEvent(ptr noundef align 8 dereferenceable_or_null(196) %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QPointF, align 8
   %5 = alloca %class.QRectF, align 8
   %6 = alloca %class.QRectF, align 8

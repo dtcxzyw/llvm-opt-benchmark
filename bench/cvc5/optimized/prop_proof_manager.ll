@@ -6675,7 +6675,7 @@ _ZNSt12__shared_ptrIN4cvc58internal9ProofNodeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 declare noundef zeroext i1 @_ZNK4cvc58internal3Env19isSatProofProducingEv(ptr noundef nonnull align 8 dereferenceable(696)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal4prop13PropPfManager11getCnfProofEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1096) %0) local_unnamed_addr #11 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal4prop13PropPfManager11getCnfProofEv(ptr noundef nonnull readnone align 8 dereferenceable(1096) %0) local_unnamed_addr #11 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }

@@ -643,7 +643,7 @@ define dso_local i32 @trace_event_trigger_enable_disable(ptr noundef %0, i32 nou
 declare dso_local i32 @trace_event_enable_disable(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clear_event_triggers(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @clear_event_triggers(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -748,7 +748,7 @@ define dso_local void @update_cond_flag(ptr noundef %0) local_unnamed_addr #0 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @event_trigger_check_remove(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 align 16 {
+define dso_local zeroext i1 @event_trigger_check_remove(ptr noundef readonly %0) local_unnamed_addr #6 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -763,7 +763,7 @@ define dso_local zeroext i1 @event_trigger_check_remove(ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i1 @event_trigger_empty_param(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #7 align 16 {
+define dso_local noundef zeroext i1 @event_trigger_empty_param(ptr noundef readnone %0) local_unnamed_addr #7 align 16 {
   %2 = icmp eq ptr %0, null
   ret i1 %2
 }
@@ -1034,7 +1034,7 @@ declare dso_local void @free_event_filter(ptr noundef) local_unnamed_addr #1
 declare dso_local noalias ptr @kstrdup(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @find_named_trigger(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 align 16 {
+define dso_local ptr @find_named_trigger(ptr noundef readonly %0) local_unnamed_addr #8 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = load ptr, ptr @named_triggers, align 8
   %4 = icmp eq ptr %3, @named_triggers
@@ -1070,7 +1070,7 @@ define dso_local ptr @find_named_trigger(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @is_named_trigger(ptr noundef readnone captures(address) %0) local_unnamed_addr #9 align 16 {
+define dso_local zeroext i1 @is_named_trigger(ptr noundef readnone %0) local_unnamed_addr #9 align 16 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -2644,7 +2644,7 @@ define internal void @unregister_trigger(ptr readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal nonnull ptr @onoff_get_trigger_ops(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1) #14 align 16 {
+define internal nonnull ptr @onoff_get_trigger_ops(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #14 align 16 {
   %3 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(8) @.str.16) #15
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq ptr %1, null
@@ -2895,7 +2895,7 @@ define internal void @traceoff_trigger(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define internal noundef nonnull ptr @stacktrace_get_trigger_ops(ptr readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1) #7 align 16 {
+define internal noundef nonnull ptr @stacktrace_get_trigger_ops(ptr readnone captures(none) %0, ptr noundef readnone %1) #7 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = select i1 %3, ptr @stacktrace_trigger_ops, ptr @stacktrace_count_trigger_ops
   ret ptr %4
@@ -3018,7 +3018,7 @@ declare dso_local void @trace_dump_stack(i32 noundef) local_unnamed_addr #1
 declare dso_local i32 @tracing_gen_ctx_irq_test(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal nonnull ptr @event_enable_get_trigger_ops(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1) #14 align 16 {
+define internal nonnull ptr @event_enable_get_trigger_ops(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #14 align 16 {
   %3 = tail call i32 @strcmp(ptr noundef %0, ptr noundef nonnull dereferenceable(13) @.str.7) #15
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq ptr %1, null

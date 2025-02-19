@@ -5268,107 +5268,107 @@ define void @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition3new17hb28933ab4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_i3217h87cc3c0f888eca68E(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_i3217h87cc3c0f888eca68E(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_i32_mut17h6d6e0626456084a3E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_i32_mut17h6d6e0626456084a3E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_u3217hefee8ad3dfa8bb14E(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_u3217hefee8ad3dfa8bb14E(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_u32_mut17h48671378a389e1c3E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_u32_mut17h48671378a389e1c3E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_i6417h37a7bb2a64c25965E(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_i6417h37a7bb2a64c25965E(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_i64_mut17h37b88fc4a43f21f5E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_i64_mut17h37b88fc4a43f21f5E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_u6417h94e875b5ec811ea5E(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_u6417h94e875b5ec811ea5E(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_u64_mut17hb869f98aee2f436bE(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_u64_mut17hb869f98aee2f436bE(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_f3217h70b124b6075201fbE(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_f3217h70b124b6075201fbE(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_f32_mut17h8674358c5105dfb1E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_f32_mut17h8674358c5105dfb1E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition11as_f32_bits17h33587434541e7a22E(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition11as_f32_bits17h33587434541e7a22E(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition15as_f32_bits_mut17hefa507dc57dd83f6E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition15as_f32_bits_mut17hefa507dc57dd83f6E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_f6417ha7fff3d4e773bf89E(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition6as_f6417ha7fff3d4e773bf89E(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_f64_mut17h47d35efbe87d9146E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition10as_f64_mut17h47d35efbe87d9146E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition11as_f64_bits17h71c9151f35b278a5E(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition11as_f64_bits17h71c9151f35b278a5E(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition15as_f64_bits_mut17h4d111901303c511bE(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition15as_f64_bits_mut17h4d111901303c511bE(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 16 dereferenceable(16) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition7as_u12817h72116e6727470edaE(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 16 dereferenceable(16) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition7as_u12817h72116e6727470edaE(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 16 dereferenceable(16) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition11as_u128_mut17h4d219727f5ddd8d6E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 16 dereferenceable(16) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition11as_u128_mut17h4d219727f5ddd8d6E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(16) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition12as_u128_bits17h53e974e4ee0e7cbcE(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(16) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition12as_u128_bits17h53e974e4ee0e7cbcE(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(16) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition16as_u128_bits_mut17he0d30b2976778215E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(16) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition16as_u128_bits_mut17he0d30b2976778215E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 4 dereferenceable_or_null(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition9as_gc_ref17he374d6a796380786E(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #14 {
+define noundef align 4 dereferenceable_or_null(4) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition9as_gc_ref17he374d6a796380786E(ptr noalias noundef readonly align 16 dereferenceable(16) %0) unnamed_addr #14 {
   %2 = load i32, ptr %0, align 16, !noundef !9
   %3 = icmp eq i32 %2, 0
   %. = select i1 %3, ptr null, ptr %0
@@ -5429,7 +5429,7 @@ define noundef ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition11as_func
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition15as_func_ref_mut17haee719edabf96249E(ptr noalias noundef readnone returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN16wasmtime_runtime9vmcontext18VMGlobalDefinition15as_func_ref_mut17haee719edabf96249E(ptr noalias noundef readnone returned align 16 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 

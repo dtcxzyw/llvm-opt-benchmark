@@ -993,7 +993,7 @@ declare i64 @ossl_ht_count(ptr noundef) local_unnamed_addr #1
 declare void @ossl_ht_foreach_until(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, argmem: read, inaccessiblemem: write) uwtable
-define internal noundef i32 @int_foreach(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #8 {
+define internal noundef i32 @int_foreach(ptr noundef readonly %0, ptr readnone captures(none) %1) #8 {
 ossl_ht_test_int_from_value.exit:
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
@@ -1072,7 +1072,7 @@ declare ptr @ossl_ht_get(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @ossl_rcu_uptr_deref(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @hashtable_mt_free(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @hashtable_mt_free(ptr noundef readonly %0) #0 {
 ossl_ht_mt_TEST_MT_ENTRY_from_value.exit:
   %1 = alloca i32, align 4
   %2 = alloca i32, align 4

@@ -2790,19 +2790,19 @@ define internal noundef i32 @pdu_hash(ptr noundef %0) #9 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @pdu_equal(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #9 {
+define internal range(i32 0, 2) i32 @pdu_equal(ptr noundef readnone %0, ptr noundef readnone %1) #9 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @pdu_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #9 {
+define internal noundef ptr @pdu_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned %2) #9 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @pdu_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #9 {
+define internal noundef ptr @pdu_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned %2) #9 {
   ret ptr %2
 }
 

@@ -1076,7 +1076,7 @@ define internal noundef i32 @__driver_attach(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @device_release_driver_internal(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @device_release_driver_internal(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %13, label %5
 
@@ -1312,7 +1312,7 @@ define dso_local void @device_driver_detach(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @driver_detach(ptr noundef captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @driver_detach(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %4 [

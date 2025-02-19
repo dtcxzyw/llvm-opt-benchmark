@@ -132,7 +132,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @free_form(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %2
 
@@ -574,7 +574,7 @@ Insert_Field_By_Position.exit:                    ; preds = %93, %.critedge2.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @form_fields(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define dso_local ptr @form_fields(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0
@@ -584,7 +584,7 @@ define dso_local ptr @form_fields(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -32768, 32768) i32 @field_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define dso_local range(i32 -32768, 32768) i32 @field_count(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0

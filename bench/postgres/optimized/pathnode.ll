@@ -3237,7 +3237,7 @@ define dso_local noundef ptr @create_foreignscan_path(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @create_foreign_join_path(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef %4, double noundef %5, double noundef %6, ptr noundef %7, ptr noundef readnone captures(address_is_null) %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #3 {
+define dso_local noundef ptr @create_foreign_join_path(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2, double noundef %3, i32 noundef %4, double noundef %5, double noundef %6, ptr noundef %7, ptr noundef readnone %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #3 {
   %13 = tail call noundef ptr @palloc0(i64 noundef 104) #10
   store i32 287, ptr %13, align 4
   %14 = icmp eq ptr %8, null

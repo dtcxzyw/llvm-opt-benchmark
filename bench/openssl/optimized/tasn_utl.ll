@@ -128,7 +128,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @CRYPTO_THREAD_lock_free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @ossl_asn1_enc_init(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define void @ossl_asn1_enc_init(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %asn1_get_enc_ptr.exit.thread, label %4
 
@@ -165,7 +165,7 @@ asn1_get_enc_ptr.exit.thread:                     ; preds = %7, %11, %2, %4, %as
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_asn1_enc_free(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define void @ossl_asn1_enc_free(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %asn1_get_enc_ptr.exit.thread, label %4
 
@@ -206,7 +206,7 @@ asn1_get_enc_ptr.exit.thread:                     ; preds = %7, %11, %2, %4, %as
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_asn1_enc_save(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @ossl_asn1_enc_save(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %asn1_get_enc_ptr.exit.thread, label %6
 
@@ -264,7 +264,7 @@ declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_asn1_enc_restore(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ossl_asn1_enc_restore(ptr noundef writeonly %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %asn1_get_const_enc_ptr.exit.thread, label %6
 
@@ -347,7 +347,7 @@ define ptr @ossl_asn1_get_const_field_ptr(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_asn1_do_adb(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #3 {
+define ptr @ossl_asn1_do_adb(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   %5 = load i64, ptr %1, align 8, !tbaa !32

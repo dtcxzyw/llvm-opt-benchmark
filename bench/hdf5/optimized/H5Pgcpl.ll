@@ -242,7 +242,7 @@ declare i32 @H5E_dump_api_stack() local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_local_heap_size_hint(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_local_heap_size_hint(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5CX_node_t, align 8
   %4 = alloca %struct.H5O_ginfo_t, align 4
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %3) #7
@@ -505,7 +505,7 @@ define range(i32 -1, 1) i32 @H5Pset_link_phase_change(i64 noundef %0, i32 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_link_phase_change(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_link_phase_change(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5CX_node_t, align 8
   %5 = alloca %struct.H5O_ginfo_t, align 4
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #7
@@ -787,7 +787,7 @@ define range(i32 -1, 1) i32 @H5Pset_est_link_info(i64 noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_est_link_info(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_est_link_info(i64 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5CX_node_t, align 8
   %5 = alloca %struct.H5O_ginfo_t, align 4
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #7
@@ -1055,7 +1055,7 @@ define range(i32 -1, 1) i32 @H5Pset_link_creation_order(i64 noundef %0, i32 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Pget_link_creation_order(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Pget_link_creation_order(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5CX_node_t, align 8
   %4 = alloca %struct.H5O_linfo_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %3) #7

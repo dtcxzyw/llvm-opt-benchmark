@@ -420,7 +420,7 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17h40ba20865faa1747E(i64 n
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he3ed4f629168df6dE.llvm.5336576531423709235"(ptr noalias noundef returned align 8 captures(ret: address, provenance) dereferenceable(160) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17he3ed4f629168df6dE.llvm.5336576531423709235"(ptr noalias noundef returned align 8 dereferenceable(160) %0) unnamed_addr #5 personality ptr @rust_eh_personality {
   %2 = alloca [160 x i8], align 8
   %3 = load i64, ptr %0, align 8, !range !13, !noundef !14
   %4 = icmp eq i64 %3, 3

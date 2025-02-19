@@ -196,7 +196,7 @@ define hidden noundef ptr @new_gogcfg(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef zeroext i1 @add_hfid(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @add_hfid(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not52 = icmp eq ptr %1, null
   br i1 %.not52, label %.critedge, label %.lr.ph
 

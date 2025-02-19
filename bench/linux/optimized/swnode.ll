@@ -74,7 +74,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [18 x ptr] [ptr @__UNIQUE_ID___addressable_device_add_software_node325, ptr @__UNIQUE_ID___addressable_device_create_managed_software_node327, ptr @__UNIQUE_ID___addressable_device_remove_software_node326, ptr @__UNIQUE_ID___addressable_fwnode_create_software_node323, ptr @__UNIQUE_ID___addressable_fwnode_remove_software_node324, ptr @__UNIQUE_ID___addressable_is_software_node311, ptr @__UNIQUE_ID___addressable_property_entries_dup316, ptr @__UNIQUE_ID___addressable_property_entries_free317, ptr @__UNIQUE_ID___addressable_software_node_find_by_name318, ptr @__UNIQUE_ID___addressable_software_node_fwnode313, ptr @__UNIQUE_ID___addressable_software_node_init329, ptr @__UNIQUE_ID___addressable_software_node_register321, ptr @__UNIQUE_ID___addressable_software_node_register_node_group319, ptr @__UNIQUE_ID___addressable_software_node_unregister322, ptr @__UNIQUE_ID___addressable_software_node_unregister_node_group320, ptr @__UNIQUE_ID___addressable_to_software_node312, ptr @__exitcall_software_node_exit, ptr @software_node_exit], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @is_software_node(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local zeroext i1 @is_software_node(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -92,7 +92,7 @@ define dso_local zeroext i1 @is_software_node(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local ptr @to_software_node(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local ptr @to_software_node(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -118,7 +118,7 @@ define dso_local ptr @to_software_node(ptr noundef readonly captures(address) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @software_node_fwnode(ptr noundef readnone captures(address) %0) #1 align 16 {
+define dso_local ptr @software_node_fwnode(ptr noundef readnone %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -160,7 +160,7 @@ define dso_local ptr @software_node_fwnode(ptr noundef readnone captures(address
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @property_entries_dup(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local ptr @property_entries_dup(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %.preheader25
 
@@ -561,7 +561,7 @@ define dso_local void @property_entries_free(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @software_node_find_by_name(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(address_is_null) %1) #1 align 16 {
+define dso_local ptr @software_node_find_by_name(ptr noundef readnone %0, ptr noundef readonly %1) #1 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %35, label %4
 
@@ -629,7 +629,7 @@ declare dso_local i32 @strcmp(ptr noundef captures(none), ptr noundef captures(n
 declare dso_local ptr @kobject_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @software_node_register_node_group(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local i32 @software_node_register_node_group(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit9, label %3
 
@@ -819,7 +819,7 @@ define dso_local i32 @software_node_register(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @software_node_unregister_node_group(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local void @software_node_unregister_node_group(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit6, label %.preheader7
 
@@ -896,7 +896,7 @@ define dso_local void @software_node_unregister_node_group(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @software_node_unregister(ptr noundef readnone captures(address) %0) #1 align 16 {
+define dso_local void @software_node_unregister(ptr noundef readnone %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 
@@ -1079,7 +1079,7 @@ define dso_local void @fwnode_remove_software_node(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @fwnode_create_software_node(ptr noundef captures(address_is_null) %0, ptr noundef %1) #1 align 16 {
+define dso_local ptr @fwnode_create_software_node(ptr noundef %0, ptr noundef %1) #1 align 16 {
   %3 = icmp ugt ptr %1, inttoptr (i64 -4096 to ptr)
   br i1 %3, label %31, label %4
 
@@ -1486,7 +1486,7 @@ define dso_local void @software_node_notify_remove(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @device_create_managed_software_node(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readnone captures(address) %2) #1 align 16 {
+define dso_local i32 @device_create_managed_software_node(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #1 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %.thread3, label %5
 
@@ -1659,7 +1659,7 @@ define internal void @software_node_put(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal zeroext i1 @software_node_property_present(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) #8 align 16 {
+define internal zeroext i1 @software_node_property_present(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #8 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %5 = or i1 %3, %4
@@ -1712,7 +1712,7 @@ define internal zeroext i1 @software_node_property_present(ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i32 @software_node_read_int_array(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) #9 align 16 {
+define internal i32 @software_node_read_int_array(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #9 align 16 {
   %6 = icmp eq ptr %0, null
   %7 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %8 = or i1 %6, %7
@@ -1851,7 +1851,7 @@ property_entry_read_int_array.exit:               ; preds = %30, %21, %23, %34, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal i32 @software_node_read_string_array(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) #9 align 16 {
+define internal i32 @software_node_read_string_array(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) #9 align 16 {
   %5 = icmp eq ptr %0, null
   %6 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %7 = or i1 %5, %6
@@ -1974,7 +1974,7 @@ define internal i32 @software_node_read_string_array(ptr noundef readonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal ptr @software_node_get_name(ptr noundef readonly captures(address) %0) #10 align 16 {
+define internal ptr @software_node_get_name(ptr noundef readonly %0) #10 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -2033,7 +2033,7 @@ define internal nonnull ptr @software_node_get_name_prefix(ptr noundef %0) #1 al
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @software_node_get_parent(ptr noundef readonly captures(address) %0) #1 align 16 {
+define internal ptr @software_node_get_parent(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -2180,7 +2180,7 @@ define internal ptr @software_node_get_named_child_node(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @software_node_get_reference_args(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) #1 align 16 {
+define internal i32 @software_node_get_reference_args(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) #1 align 16 {
   %7 = icmp eq ptr %0, null
   %8 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %9 = or i1 %7, %8
@@ -2615,7 +2615,7 @@ define internal ptr @software_node_graph_get_next_endpoint(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @software_node_graph_get_remote_endpoint(ptr noundef readonly captures(address) %0) #1 align 16 {
+define internal ptr @software_node_graph_get_remote_endpoint(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3
@@ -2732,7 +2732,7 @@ define internal ptr @software_node_graph_get_remote_endpoint(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal ptr @software_node_graph_get_port_parent(ptr noundef readonly captures(address) %0) #1 align 16 {
+define internal ptr @software_node_graph_get_port_parent(ptr noundef readonly %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = icmp ugt ptr %0, inttoptr (i64 -4096 to ptr)
   %4 = or i1 %2, %3

@@ -227,7 +227,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 1) i32 @gzbuffer(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -1, 1) i32 @gzbuffer(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 
@@ -257,7 +257,7 @@ define range(i32 -1, 1) i32 @gzbuffer(ptr noundef captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @gzrewind(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @gzrewind(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %33, label %3
 
@@ -335,7 +335,7 @@ gz_reset.exit:                                    ; preds = %23, %30
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @gzseek64(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @gzseek64(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread69, label %5
 
@@ -618,13 +618,13 @@ define hidden void @gz_error(ptr noundef captures(none) %0, i32 noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @gzseek(ptr noundef captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i64 @gzseek(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i64 @gzseek64(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @gztell64(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define i64 @gztell64(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -659,7 +659,7 @@ define i64 @gztell64(ptr noundef readonly captures(address_is_null) %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @gztell(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define i64 @gztell(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %gztell64.exit, label %3
 
@@ -694,7 +694,7 @@ gztell64.exit:                                    ; preds = %1, %3, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @gzoffset64(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i64 @gzoffset64(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 
@@ -730,7 +730,7 @@ define i64 @gzoffset64(ptr noundef readonly captures(address_is_null) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @gzoffset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i64 @gzoffset(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %gzoffset64.exit, label %3
 
@@ -766,7 +766,7 @@ gzoffset64.exit:                                  ; preds = %1, %3, %5, %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @gzeof(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @gzeof(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -800,7 +800,7 @@ define range(i32 0, 2) i32 @gzeof(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @gzerror(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define ptr @gzerror(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %14, label %4
 
@@ -834,7 +834,7 @@ define ptr @gzerror(ptr noundef readonly captures(address_is_null) %0, ptr nound
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @gzclearerr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define void @gzclearerr(ptr noundef %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 

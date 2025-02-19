@@ -34396,7 +34396,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EE16_Temporary_valueD2Ev.
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings9RegExpOpr16isPairNodesInSetERSt3setISt4pairINS0_12NodeTemplateILb1EEES7_ESt4lessIS8_ESaIS8_EES7_S7_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(544) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory7strings9RegExpOpr16isPairNodesInSetERSt3setISt4pairINS0_12NodeTemplateILb1EEES7_ESt4lessIS8_ESaIS8_EES7_S7_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(544) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8

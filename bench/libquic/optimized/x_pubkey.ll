@@ -52,7 +52,7 @@ define hidden void @X509_PUBKEY_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @ASN1_item_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_PUBKEY_set(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_PUBKEY_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   %5 = alloca %struct.cbb_st, align 8
@@ -250,7 +250,7 @@ declare void @CRYPTO_STATIC_MUTEX_lock_write(ptr noundef) local_unnamed_addr #1
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_PUBKEY(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef %1, i64 noundef %2, ptr noundef nonnull @X509_PUBKEY_it) #5
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %10, label %5
@@ -303,7 +303,7 @@ define hidden i32 @i2d_PUBKEY(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_RSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_RSA_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %5 = load ptr, ptr %1, align 8, !tbaa !6
@@ -392,7 +392,7 @@ declare ptr @EVP_PKEY_new() local_unnamed_addr #1
 declare i32 @EVP_PKEY_set1_RSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_DSA_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_DSA_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %5 = load ptr, ptr %1, align 8, !tbaa !6
@@ -479,7 +479,7 @@ i2d_PUBKEY.exit:                                  ; preds = %7, %10
 declare i32 @EVP_PKEY_set1_DSA(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_EC_PUBKEY(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_EC_PUBKEY(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #5
   %5 = load ptr, ptr %1, align 8, !tbaa !6
@@ -609,7 +609,7 @@ define hidden range(i32 0, 2) i32 @X509_PUBKEY_set0_param(ptr noundef readonly c
 declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @X509_PUBKEY_get0_param(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #4 {
+define hidden noundef i32 @X509_PUBKEY_get0_param(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %6
 

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._pcre2_script_run_8.1 = private unnamed_addr constant [9 x i32] [i32 5, i32 poison, i32 poison, i32 poison, i32 poison, i32 3, i32 3, i32 4, i32 2], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_pcre2_script_run_8(ptr noundef readonly %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [6 x i32], align 16
   %5 = alloca [6 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #4

@@ -2056,7 +2056,7 @@ Py_XDECREF.exit:                                  ; preds = %67, %64, %62, %_PyF
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PyFunction_SetVectorcall(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @PyFunction_SetVectorcall(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8, !tbaa !119
   %5 = icmp ult i32 %4, 2
@@ -2300,7 +2300,7 @@ define dso_local ptr @PyFunction_GetClosure(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyFunction_SetClosure(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyFunction_SetClosure(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val15 = load ptr, ptr %3, align 8, !tbaa !130
   %.not = icmp eq ptr %.val15, @PyFunction_Type
@@ -2671,7 +2671,7 @@ Py_DECREF.exit:                                   ; preds = %34, %31, %29, %Py_X
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_Py_set_function_type_params(ptr noundef readnone captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef %2) local_unnamed_addr #0 {
+define hidden noundef ptr @_Py_set_function_type_params(ptr noundef readnone captures(none) %0, ptr noundef returned %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 128
   %5 = load ptr, ptr %4, align 8, !tbaa !96
   %6 = load i32, ptr %2, align 8, !tbaa !99
@@ -3048,7 +3048,7 @@ define internal i32 @func_traverse(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @func_clear(ptr noundef captures(address) %0) #0 {
+define internal noundef i32 @func_clear(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load i32, ptr %2, align 8, !tbaa !119
   %4 = icmp ult i32 %3, 2

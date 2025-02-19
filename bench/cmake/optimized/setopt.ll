@@ -50,7 +50,7 @@ define dso_local range(i32 0, 44) i32 @Curl_setstropt(ptr noundef captures(none)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 44) i32 @Curl_setblobopt(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 44) i32 @Curl_setblobopt(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @Curl_cfree, align 8, !tbaa !4
   %4 = load ptr, ptr %0, align 8, !tbaa !10
   tail call void %3(ptr noundef %4) #10

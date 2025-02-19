@@ -3191,7 +3191,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 declare noundef i64 @_ZNK18OpenImageIO_v2_6_09ImageSpec11image_bytesEb(ptr noundef nonnull align 8 dereferenceable(160), i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef i64 @_ZN18OpenImageIO_v2_6_08IffInput22uncompress_rle_channelEPKhPhi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %this, ptr noundef %in, ptr noundef writeonly captures(address) %out, i32 noundef %size) local_unnamed_addr #8 align 2 {
+define hidden noundef i64 @_ZN18OpenImageIO_v2_6_08IffInput22uncompress_rle_channelEPKhPhi(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(352) %this, ptr noundef %in, ptr noundef writeonly %out, i32 noundef %size) local_unnamed_addr #8 align 2 {
 entry:
   %idx.ext = sext i32 %size to i64
   %add.ptr = getelementptr inbounds i8, ptr %out, i64 %idx.ext

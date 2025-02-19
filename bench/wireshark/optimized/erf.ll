@@ -2510,7 +2510,7 @@ erf_priv_free.exit:                               ; preds = %1, %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @erf_populate_interface_from_header(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define hidden i32 @erf_populate_interface_from_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %38, label %6
 
@@ -2581,7 +2581,7 @@ erf_get_source_from_header.exit:                  ; preds = %.thread.i, %.thread
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @erf_populate_interface(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext range(i8 0, 8) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc i32 @erf_populate_interface(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3, i8 noundef zeroext %4, i8 noundef zeroext range(i8 0, 8) %5, ptr noundef writeonly captures(none) %6, ptr noundef writeonly captures(none) %7) unnamed_addr #0 {
   %9 = alloca [16 x i8], align 16
   %10 = alloca [24 x i8], align 16
   %11 = alloca [16 x i8], align 16
@@ -3165,7 +3165,7 @@ declare i64 @file_tell(ptr noundef) local_unnamed_addr #3
 declare ptr @g_ptr_array_new_with_free_func(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @erf_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(none) %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @erf_read_header(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef captures(none) %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca %struct.erf_anchor_mapping, align 8
   %11 = alloca [8 x i8], align 1
   %12 = alloca i32, align 4
@@ -5007,7 +5007,7 @@ erf_populate_section_length_by_tags.exit:         ; preds = %.lr.ph.i, %24
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @erf_write_meta_record(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @erf_write_meta_record(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca [2 x i16], align 2
   %8 = alloca i32, align 4
   %9 = alloca [4 x i16], align 2

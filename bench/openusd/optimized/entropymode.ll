@@ -60,7 +60,7 @@ target triple = "x86_64-pc-linux-gnu"
 @default_inter_ext_tx_cdf = internal unnamed_addr constant <{ [4 x [17 x i16]], [4 x [17 x i16]], [4 x [17 x i16]], [4 x <{ i16, [16 x i16] }>] }> <{ [4 x [17 x i16]] zeroinitializer, [4 x [17 x i16]] [[17 x i16] [i16 28310, i16 27208, i16 25073, i16 23059, i16 19438, i16 17979, i16 15231, i16 12502, i16 11264, i16 9920, i16 8834, i16 7294, i16 5041, i16 3853, i16 2137, i16 0, i16 0], [17 x i16] [i16 31123, i16 30195, i16 27990, i16 27057, i16 24961, i16 24146, i16 22246, i16 17411, i16 15094, i16 12360, i16 10251, i16 7758, i16 5652, i16 3912, i16 2019, i16 0, i16 0], [17 x i16] [i16 30720, i16 28672, i16 26624, i16 24576, i16 22528, i16 20480, i16 18432, i16 16384, i16 14336, i16 12288, i16 10240, i16 8192, i16 6144, i16 4096, i16 2048, i16 0, i16 0], [17 x i16] [i16 30720, i16 28672, i16 26624, i16 24576, i16 22528, i16 20480, i16 18432, i16 16384, i16 14336, i16 12288, i16 10240, i16 8192, i16 6144, i16 4096, i16 2048, i16 0, i16 0]], [4 x [17 x i16]] [[17 x i16] [i16 30037, i16 27307, i16 24576, i16 21845, i16 19115, i16 16384, i16 13653, i16 10923, i16 8192, i16 5461, i16 2731, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0], [17 x i16] [i16 30037, i16 27307, i16 24576, i16 21845, i16 19115, i16 16384, i16 13653, i16 10923, i16 8192, i16 5461, i16 2731, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0], [17 x i16] [i16 31998, i16 30347, i16 27543, i16 19861, i16 16949, i16 13841, i16 11207, i16 8679, i16 6173, i16 4242, i16 2239, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0], [17 x i16] [i16 30037, i16 27307, i16 24576, i16 21845, i16 19115, i16 16384, i16 13653, i16 10923, i16 8192, i16 5461, i16 2731, i16 0, i16 0, i16 0, i16 0, i16 0, i16 0]], [4 x <{ i16, [16 x i16] }>] [<{ i16, [16 x i16] }> <{ i16 16384, [16 x i16] zeroinitializer }>, <{ i16, [16 x i16] }> <{ i16 28601, [16 x i16] zeroinitializer }>, <{ i16, [16 x i16] }> <{ i16 30770, [16 x i16] zeroinitializer }>, <{ i16, [16 x i16] }> <{ i16 32020, [16 x i16] zeroinitializer }>] }>, align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca [3 x i32], align 4
   %9 = alloca [18 x i32], align 16
   %10 = alloca [8 x i32], align 16
@@ -281,7 +281,7 @@ define hidden i32 @av1_get_palette_color_index_context(ptr noundef readonly capt
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden i32 @av1_fast_palette_color_index_context(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca [3 x i32], align 4
   %7 = alloca [3 x i32], align 4
   %8 = alloca [3 x i32], align 4

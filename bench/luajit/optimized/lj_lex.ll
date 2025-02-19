@@ -2458,7 +2458,7 @@ lj_buf_more.exit:                                 ; preds = %.critedge2, %76
 declare hidden ptr @lj_parse_keepstr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @lex_longstring(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
+define internal fastcc void @lex_longstring(ptr noundef %0, ptr noundef writeonly %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i32, ptr %4, align 8, !tbaa !26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64

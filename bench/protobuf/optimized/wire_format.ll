@@ -719,7 +719,7 @@ declare noundef ptr @_ZN6google8protobuf15UnknownFieldSet8AddGroupEi(ptr noundef
 declare void @_ZN6google8protobuf15UnknownFieldSet10AddFixed32Eij(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google8protobuf8internal10WireFormat30ReadPackedEnumPreserveUnknownsEPNS0_2io16CodedInputStreamEjPFbiEPNS0_15UnknownFieldSetEPNS0_13RepeatedFieldIiEE(ptr noundef %input, i32 noundef %field_number, ptr noundef readonly captures(address_is_null) %is_valid, ptr noundef %unknown_fields, ptr noundef %values) local_unnamed_addr #3 align 2 {
+define noundef zeroext i1 @_ZN6google8protobuf8internal10WireFormat30ReadPackedEnumPreserveUnknownsEPNS0_2io16CodedInputStreamEjPFbiEPNS0_15UnknownFieldSetEPNS0_13RepeatedFieldIiEE(ptr noundef %input, i32 noundef %field_number, ptr noundef readonly %is_valid, ptr noundef %unknown_fields, ptr noundef %values) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %input, align 8
   %buffer_end_.i = getelementptr inbounds nuw i8, ptr %input, i64 8
@@ -18435,7 +18435,7 @@ declare void @_ZN6google8protobuf2io16CodedInputStreamD1Ev(ptr noundef nonnull a
 declare noundef zeroext i1 @_ZN6google8protobuf2io16CodedInputStream7ReadRawEPvi(ptr noundef nonnull align 8 dereferenceable(80), ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef %ptr, ptr noundef readnone captures(address) %end, ptr noundef readonly byval(%class.anon) align 8 captures(none) %add) unnamed_addr #3 {
+define internal fastcc noundef ptr @"_ZN6google8protobuf8internal21ReadPackedVarintArrayIZNS1_10WireFormat27_InternalParseAndMergeFieldEPNS0_7MessageEPKcPNS1_12ParseContextEmPKNS0_10ReflectionEPKNS0_15FieldDescriptorEE3$_0EES7_S7_S7_T_"(ptr noundef %ptr, ptr noundef readnone %end, ptr noundef readonly byval(%class.anon) align 8 captures(none) %add) unnamed_addr #3 {
 entry:
   %cmp12 = icmp ult ptr %ptr, %end
   br i1 %cmp12, label %while.body.lr.ph, label %return

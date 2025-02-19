@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.sm22blob_encode = private unnamed_addr constant [16 x i8] c"sm22blob_encode\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @key2blob_newctx(ptr noundef readnone returned captures(ret: address, provenance) %0) #0 {
+define internal noundef ptr @key2blob_newctx(ptr noundef readnone returned %0) #0 {
   ret ptr %0
 }
 
@@ -66,7 +66,7 @@ define internal void @ec2blob_free_object(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec2blob_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #2 {
+define internal i32 @ec2blob_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #2 {
   %8 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9
@@ -151,7 +151,7 @@ define internal void @sm22blob_free_object(ptr noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm22blob_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #2 {
+define internal i32 @sm22blob_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #2 {
   %8 = alloca ptr, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9

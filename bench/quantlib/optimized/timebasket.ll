@@ -513,7 +513,7 @@ if.end:                                           ; preds = %if.then.i7.i, %clea
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK8QuantLib10TimeBasket5rebinERKSt6vectorINS_4DateESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::TimeBasket") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %buckets) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK8QuantLib10TimeBasket5rebinERKSt6vectorINS_4DateESaIS2_EE(ptr dead_on_unwind noalias writable sret(%"class.QuantLib::TimeBasket") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %buckets) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval.i60 = alloca %"class.QuantLib::Date", align 8
   %retval.i46 = alloca %"class.QuantLib::Date", align 8

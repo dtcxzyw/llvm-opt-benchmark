@@ -107,7 +107,7 @@ declare void @_ZN14HSpaceCountersC1EPKcS1_imm(ptr noundef nonnull align 8 derefe
 declare void @_ZN17CollectorCountersC1EPKci(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, i32 noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN23ZServiceabilityCounters18collector_countersEb(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN23ZServiceabilityCounters18collector_countersEb(ptr noundef nonnull readnone align 8 dereferenceable(200) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %.v = select i1 %1, i64 120, i64 160
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   ret ptr %3
@@ -299,7 +299,7 @@ define hidden void @_ZN15ZServiceability10initializeEv(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN15ZServiceability11memory_poolE13ZGenerationId(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN15ZServiceability11memory_poolE13ZGenerationId(ptr noundef nonnull readnone align 8 dereferenceable(1216) %0, i8 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %3 = icmp eq i8 %1, 0
   %.v = select i1 %3, i64 24, i64 232
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
@@ -307,14 +307,14 @@ define hidden noundef nonnull ptr @_ZN15ZServiceability11memory_poolE13ZGenerati
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN15ZServiceability20cycle_memory_managerEb(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN15ZServiceability20cycle_memory_managerEb(ptr noundef nonnull readnone align 8 dereferenceable(1216) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %.v = select i1 %1, i64 440, i64 632
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   ret ptr %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN15ZServiceability20pause_memory_managerEb(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1216) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN15ZServiceability20pause_memory_managerEb(ptr noundef nonnull readnone align 8 dereferenceable(1216) %0, i1 noundef zeroext %1) local_unnamed_addr #2 align 2 {
   %.v = select i1 %1, i64 824, i64 1016
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   ret ptr %3

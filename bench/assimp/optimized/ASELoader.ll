@@ -7512,7 +7512,7 @@ _ZNSt6vectorIP6aiNodeSaIS1_EED2Ev.exit102:        ; preds = %335, %336
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #9 align 2 {
+define hidden void @_ZN6Assimp11ASEImporter9AddMeshesEPKNS_3ASE8BaseNodeEP6aiNode(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(98) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) local_unnamed_addr #9 align 2 {
   %4 = alloca %class.aiMatrix4x4t, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load ptr, ptr %5, align 8

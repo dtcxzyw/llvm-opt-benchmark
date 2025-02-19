@@ -6310,7 +6310,7 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 declare ptr @PySet_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @analyze_block(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @analyze_block(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -9603,7 +9603,7 @@ symtable_add_def_ctx.exit49:                      ; preds = %45
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_keywords(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_keywords(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %3, label %.loopexit, label %.split
@@ -10768,7 +10768,7 @@ symtable_add_def_ctx.exit174:                     ; preds = %126
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @check_kwd_patterns(ptr noundef nonnull readonly captures(none) %0, ptr readonly captures(address_is_null) %.24.val, ptr readonly captures(none) %.32.val) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @check_kwd_patterns(ptr noundef nonnull readonly captures(none) %0, ptr readonly %.24.val, ptr readonly captures(none) %.32.val) unnamed_addr #0 {
   %2 = icmp eq ptr %.24.val, null
   %3 = getelementptr inbounds nuw i8, ptr %.32.val, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %.24.val, i64 16
@@ -11167,7 +11167,7 @@ define internal fastcc void @symtable_raise_if_comprehension_block(ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @symtable_handle_comprehension(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = load i32, ptr %1, align 8, !tbaa !106
   %8 = icmp eq i32 %7, 12
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16

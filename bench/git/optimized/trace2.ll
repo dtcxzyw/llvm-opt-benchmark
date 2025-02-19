@@ -326,7 +326,7 @@ declare i64 @getnanotime() local_unnamed_addr #1
 declare i64 @tr2tls_absolute_elapsed(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @redact_argv(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #0 {
+define internal fastcc ptr @redact_argv(ptr noundef readonly %0) unnamed_addr #0 {
   %.b = load i1, ptr @trace2_redact, align 4
   br i1 %.b, label %.thread, label %.preheader84
 

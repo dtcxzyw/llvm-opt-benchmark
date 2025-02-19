@@ -2592,7 +2592,7 @@ php_cli_server_client_send_through.exit:          ; preds = %28, %.thread.sink.s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @sapi_cli_server_flush(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @sapi_cli_server_flush(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 

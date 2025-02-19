@@ -253,7 +253,7 @@ define internal noundef i32 @dummy_store_close(ptr readnone captures(none) %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @dummy_rand_newctx(ptr noundef readnone returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
+define internal noundef ptr @dummy_rand_newctx(ptr noundef readnone returned %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
   ret ptr %0
 }
 

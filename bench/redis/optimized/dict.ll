@@ -162,7 +162,7 @@ declare void @abort() local_unnamed_addr #8
 declare ptr @zrealloc(ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_dictResize(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @_dictResize(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -466,7 +466,7 @@ dictCheckRehashingCompleted.exit:                 ; preds = %53, %67, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @_dictExpand(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @_dictExpand(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !14
   %.not = icmp eq i64 %5, -1
@@ -1044,7 +1044,7 @@ dictAddRaw.exit.thread:                           ; preds = %3, %12, %dictSetVal
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dictAddRaw(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local ptr @dictAddRaw(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = tail call ptr @dictFindPositionForInsert(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %13, label %5
@@ -1101,7 +1101,7 @@ define dso_local void @dictSetVal(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dictFindPositionForInsert(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local ptr @dictFindPositionForInsert(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load i16, ptr %4, align 8
   %.not.i = icmp sgt i16 %5, -1
@@ -1323,7 +1323,7 @@ dictGetNext.exit.thread:                          ; preds = %86, %87, %98
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dictInsertAtPosition(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #3 {
+define dso_local ptr @dictInsertAtPosition(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !14
   %.not = icmp ne i64 %5, -1
@@ -2186,7 +2186,7 @@ define dso_local ptr @dictGetKey(ptr noundef %0) local_unnamed_addr #12 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @_dictClear(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local noundef i32 @_dictClear(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds [2 x i8], ptr %4, i64 0, i64 %5
@@ -4112,7 +4112,7 @@ define dso_local i64 @dictScan(ptr noundef captures(none) %0, i64 noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @dictScanDefrag(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #3 {
+define dso_local i64 @dictScanDefrag(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #3 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %7 = load i64, ptr %6, align 8, !tbaa !14
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -4425,7 +4425,7 @@ rev.exit119:                                      ; preds = %rev.exit137, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dictDefragBucket(ptr noundef captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
+define internal fastcc void @dictDefragBucket(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #3 {
   %3 = load ptr, ptr %1, align 8, !tbaa !89
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !91
@@ -4853,7 +4853,7 @@ dictShrink.exit:                                  ; preds = %12, %48, %dictTypeR
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dictEmpty(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local void @dictEmpty(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !14
   %.not = icmp eq i64 %4, -1
@@ -4914,7 +4914,7 @@ dictHashKey.exit:                                 ; preds = %5, %8
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @dictFindByHashAndPtr(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) local_unnamed_addr #20 {
+define dso_local ptr @dictFindByHashAndPtr(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #20 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %4, align 8, !tbaa !14
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -5349,7 +5349,7 @@ define dso_local void @dictGetStats(ptr noundef captures(none) %0, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @dictDefaultCompare(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #2 {
+define internal range(i32 0, 2) i32 @dictDefaultCompare(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef readnone %2) unnamed_addr #2 {
   %4 = icmp eq ptr %1, %2
   %5 = zext i1 %4 to i32
   ret i32 %5

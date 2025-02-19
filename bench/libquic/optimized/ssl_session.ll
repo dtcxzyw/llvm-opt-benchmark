@@ -129,7 +129,7 @@ declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden nonnull ptr @SSL_SESSION_get_id(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define hidden nonnull ptr @SSL_SESSION_get_id(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -152,7 +152,7 @@ define hidden i64 @SSL_SESSION_get_timeout(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @SSL_SESSION_get_time(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden i64 @SSL_SESSION_get_time(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -203,7 +203,7 @@ define hidden i64 @SSL_SESSION_get_master_key(ptr noundef readonly captures(none
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i64 @SSL_SESSION_set_time(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #9 {
+define hidden noundef i64 @SSL_SESSION_set_time(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -218,7 +218,7 @@ define hidden noundef i64 @SSL_SESSION_set_time(ptr noundef writeonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i64 0, 2) i64 @SSL_SESSION_set_timeout(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #9 {
+define hidden range(i64 0, 2) i64 @SSL_SESSION_set_timeout(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 
@@ -1051,7 +1051,7 @@ SSL_SESSION_up_ref.exit:                          ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden i64 @SSL_CTX_set_timeout(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #6 {
+define hidden i64 @SSL_CTX_set_timeout(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %7, label %4
 
@@ -1067,7 +1067,7 @@ define hidden i64 @SSL_CTX_set_timeout(ptr noundef captures(address_is_null) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @SSL_CTX_get_timeout(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define hidden i64 @SSL_CTX_get_timeout(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

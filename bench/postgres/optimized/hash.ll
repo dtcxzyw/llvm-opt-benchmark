@@ -219,7 +219,7 @@ define dso_local noundef zeroext i1 @hashinsert(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @hashbulkdelete(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) #0 {
+define dso_local ptr @hashbulkdelete(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca i32, align 4
@@ -499,7 +499,7 @@ BufferGetPage.exit81:                             ; preds = %127, %133
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @hashvacuumcleanup(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(address_is_null, ret: address, provenance) %1) #0 {
+define dso_local noundef ptr @hashvacuumcleanup(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly %1) #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %7, label %4
 
@@ -551,7 +551,7 @@ define dso_local ptr @hashbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #0 {
+define dso_local void @hashrescan(ptr noundef %0, ptr noundef readonly %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -850,7 +850,7 @@ declare void @LockBufferForCleanup(i32 noundef) local_unnamed_addr #2
 declare void @_hash_checkpage(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashbucketcleanup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, i1 noundef zeroext %10, ptr noundef readonly captures(address_is_null) %11, ptr noundef %12) local_unnamed_addr #0 {
+define dso_local void @hashbucketcleanup(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef %9, i1 noundef zeroext %10, ptr noundef readonly %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = alloca [2048 x i16], align 16
   %15 = alloca %struct.xl_hash_delete, align 1
   br i1 %10, label %16, label %18

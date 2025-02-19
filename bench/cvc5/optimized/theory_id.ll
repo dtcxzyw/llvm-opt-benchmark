@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN4cvc58internal6theory15TheoryIdSetUtil11setToStringB5cxx11Ej = private unnamed_addr constant [14 x ptr] [ptr @.str, ptr @.str.1, ptr @.str.2, ptr @.str.3, ptr @.str.4, ptr @.str.5, ptr @.str.6, ptr @.str.7, ptr @.str.8, ptr @.str.10, ptr @.str.11, ptr @.str.12, ptr @.str.13, ptr @.str.14], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(4) %0) local_unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @_ZN4cvc58internal6theoryppERNS1_8TheoryIdE(ptr noundef nonnull returned align 4 dereferenceable(4) %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 4, !tbaa !3
   %3 = add nsw i32 %2, 1
   store i32 %3, ptr %0, align 4, !tbaa !3

@@ -127,7 +127,7 @@ _ZNK11XMarkStripe8is_emptyEv.exit.thread:         ; preds = %_ZNK11XMarkStripe8i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_ZN14XMarkStripeSet17stripe_for_workerEjj(ptr noundef nonnull readonly align 64 captures(ret: address, provenance) dereferenceable(2112) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull ptr @_ZN14XMarkStripeSet17stripe_for_workerEjj(ptr noundef nonnull readonly align 64 dereferenceable(2112) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = zext i32 %1 to i64
   %5 = load i64, ptr %0, align 64
   %6 = urem i64 %4, %5

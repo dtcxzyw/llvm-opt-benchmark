@@ -3333,7 +3333,7 @@ HeadMatchesArray.exit:                            ; preds = %.preheader151
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define internal noundef ptr @quote_file_name(ptr noundef %0, i32 noundef %1, ptr noundef %2) #0 {
   %4 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #11
   %5 = load ptr, ptr @completion_charp, align 8
@@ -11652,7 +11652,7 @@ pg_strdup_keyword_case.exit:                      ; preds = %51, %.lr.ph.i, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_complete_from_query(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc ptr @_complete_from_query(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, ptr noundef %4, i32 noundef %5) unnamed_addr #0 {
   %7 = alloca %struct.PQExpBufferData, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8

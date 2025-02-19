@@ -49,7 +49,7 @@ define i32 @duckdb_je_buferror(i32 noundef %0, ptr noundef %1, i64 noundef %2) l
 declare i32 @__xpg_strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define i64 @duckdb_je_malloc_strtoumax(ptr noalias noundef %0, ptr noalias noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 {
+define i64 @duckdb_je_malloc_strtoumax(ptr noalias noundef %0, ptr noalias noundef writeonly %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq i32 %2, 1
   %5 = icmp ugt i32 %2, 36
   %or.cond3 = or i1 %5, %4
@@ -1898,7 +1898,7 @@ declare void @llvm.va_start.p0(ptr) #9
 declare void @llvm.va_end.p0(ptr) #9
 
 ; Function Attrs: cold nounwind uwtable
-define void @duckdb_je_malloc_vcprintf(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 {
+define void @duckdb_je_malloc_vcprintf(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 {
   %5 = alloca [4096 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4096, ptr nonnull %5) #14
   %6 = icmp eq ptr %0, null
@@ -1913,7 +1913,7 @@ define void @duckdb_je_malloc_vcprintf(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: cold nounwind uwtable
-define void @duckdb_je_malloc_cprintf(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #10 {
+define void @duckdb_je_malloc_cprintf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #10 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
   call void @llvm.va_start.p0(ptr nonnull %4)

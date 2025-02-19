@@ -1250,7 +1250,7 @@ JS_ThrowOutOfMemory.exit:                         ; preds = %16, %12, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @js_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @js_realloc2(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !36
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -2948,7 +2948,7 @@ js_malloc.exit.thread:                            ; preds = %13, %17, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @JS_IsJobPending(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 {
+define dso_local range(i32 0, 2) i32 @JS_IsJobPending(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %4 = load ptr, ptr %3, align 8, !tbaa !61
@@ -2958,7 +2958,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsJobPending(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 2) i32 @JS_ExecutePendingJob(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 2) i32 @JS_ExecutePendingJob(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 288
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %5 = load ptr, ptr %4, align 8, !tbaa !61
@@ -3062,7 +3062,7 @@ JS_FreeValue.exit27:                              ; preds = %._crit_edge, %45, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @JS_SetRuntimeInfo(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #9 {
+define dso_local void @JS_SetRuntimeInfo(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -10849,7 +10849,7 @@ JS_DupValue.exit:                                 ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @JS_DupContext(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #7 {
+define dso_local noundef ptr @JS_DupContext(ptr noundef returned %0) local_unnamed_addr #7 {
   %2 = load i32, ptr %0, align 8, !tbaa !200
   %3 = add i32 %2, 1
   store i32 %3, ptr %0, align 8, !tbaa !200
@@ -14089,7 +14089,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @JS_ToCStringLen2(ptr noundef %0, ptr noundef writeonly %1, i64 %2, i64 %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = and i64 %3, 4294967295
   %.not = icmp eq i64 %6, 4294967289
   br i1 %.not, label %JS_DupValue.exit, label %7
@@ -16110,7 +16110,7 @@ define dso_local range(i32 0, 2) i32 @JS_IsLiveObject(ptr noundef readnone captu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @JS_ComputeMemoryUsage(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) initializes((0, 208)) %1) local_unnamed_addr #17 {
+define dso_local void @JS_ComputeMemoryUsage(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 208)) %1) local_unnamed_addr #17 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %1, i8 0, i64 208, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8, !tbaa !276
@@ -27938,7 +27938,7 @@ define internal fastcc range(i32 0, 2) i32 @check_define_prop_flags(i32 noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_shape_prepare_update(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_shape_prepare_update(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !156
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -30926,7 +30926,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_FreeAtomStruct.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @JS_IsCFunction(ptr noundef readnone captures(none) %0, i64 %1, i64 %2, ptr noundef readnone captures(address) %3, i32 noundef %4) local_unnamed_addr #14 {
+define dso_local range(i32 0, 2) i32 @JS_IsCFunction(ptr noundef readnone captures(none) %0, i64 %1, i64 %2, ptr noundef readnone %3, i32 noundef %4) local_unnamed_addr #14 {
   %6 = and i64 %2, 4294967295
   %.not = icmp eq i64 %6, 4294967295
   %7 = inttoptr i64 %1 to ptr
@@ -50467,7 +50467,7 @@ JS_FreeAtom.exit:                                 ; preds = %7, %10, %JS_FreeAto
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @add_export_entry2(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
+define internal fastcc noundef ptr @add_export_entry2(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca [64 x i8], align 16
   %8 = alloca [64 x i8], align 16
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 48
@@ -52727,7 +52727,7 @@ js_host_resolve_imported_module_atom.exit:        ; preds = %JS_FreeCString.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @JS_WriteObject2(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local ptr @JS_WriteObject2(ptr noundef %0, ptr noundef writeonly captures(none) %1, i64 %2, i64 %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct.DynBuf, align 8
   %9 = alloca %struct.BCWriterState, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %9) #41
@@ -72899,7 +72899,7 @@ JS_FreeValue.exit:                                ; preds = %JS_ToIndex.exit104.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i64 } @JS_GetTypedArrayBuffer(ptr noundef %0, i64 %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local { i64, i64 } @JS_GetTypedArrayBuffer(ptr noundef %0, i64 %1, i64 %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = and i64 %2, 4294967295
   %.not.i = icmp eq i64 %7, 4294967295
   %8 = inttoptr i64 %1 to ptr
@@ -80129,7 +80129,7 @@ JS_DupAtom.exit:                                  ; preds = %79, %87
 }
 
 ; Function Attrs: noinline nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @resize_properties(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) unnamed_addr #20 {
+define internal fastcc range(i32 -1, 1) i32 @resize_properties(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3) unnamed_addr #20 {
   %5 = load ptr, ptr %1, align 8, !tbaa !205
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 36
   %7 = load i32, ptr %6, align 4, !tbaa !269
@@ -81222,7 +81222,7 @@ lre_is_space.exit:                                ; preds = %12, %18
 declare i32 @lre_is_space_non_ascii(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc { i64, i64 } @js_atof2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 noundef range(i32 0, 1285) %4, ptr noundef %5) unnamed_addr #0 {
+define internal fastcc { i64, i64 } @js_atof2(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef range(i32 0, 1285) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca [64 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #41
@@ -82977,7 +82977,7 @@ JS_FreeValue.exit:                                ; preds = %61, %JS_StringToBig
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @JS_FreeBigInt(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readnone captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @JS_FreeBigInt(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull readnone %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, %2
   br i1 %4, label %5, label %13
 
@@ -90262,7 +90262,7 @@ define internal fastcc void @js_strict_eq_slow(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @close_var_refs(ptr noundef %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @close_var_refs(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !447
@@ -104353,7 +104353,7 @@ bc_read_error_end.exit:                           ; preds = %14, %17
 declare i32 @bf_resize(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @js_string_get_own_property(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i64 %2, i64 %3, i32 noundef %4) #0 {
+define internal range(i32 0, 2) i32 @js_string_get_own_property(ptr noundef %0, ptr noundef writeonly %1, i64 %2, i64 %3, i32 noundef %4) #0 {
   %.not = icmp sgt i32 %4, -1
   %6 = inttoptr i64 %2 to ptr
   br i1 %.not, label %40, label %7
@@ -112711,7 +112711,7 @@ string_buffer_putc.exit.thread:                   ; preds = %133, %string_buffer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ident_realloc(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull readnone captures(address) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ident_realloc(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull readnone %3) unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8, !tbaa !209
   %6 = load i64, ptr %2, align 8, !tbaa !45
   %7 = icmp ugt i64 %6, -6148914691236517207
@@ -127476,7 +127476,7 @@ JS_FreeValue.exit67:                              ; preds = %153, %148, %JS_Free
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @js_async_generator_resume_next(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @js_async_generator_resume_next(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.JSValue, align 8
   %4 = alloca %struct.JSValue, align 8
   %5 = alloca [2 x %struct.JSValue], align 16
@@ -144577,7 +144577,7 @@ JS_FreeAtom.exit:                                 ; preds = %JS_FreeAtom.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483646) %1, i32 noundef range(i32 0, 4) %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @js_parse_function_decl2(ptr noundef nonnull %0, i32 noundef range(i32 0, -2147483646) %1, i32 noundef range(i32 0, 4) %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 3) %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca i16, align 2
   %10 = alloca i16, align 2
@@ -147882,7 +147882,7 @@ emit_op.exit27:                                   ; preds = %emit_label.exit, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @js_parse_skip_parens_token(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc i32 @js_parse_skip_parens_token(ptr noundef nonnull %0, ptr noundef writeonly %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %4) #41
   store i8 0, ptr %4, align 16, !tbaa !46
@@ -152239,7 +152239,7 @@ JS_FreeAtom.exit:                                 ; preds = %js_parse_check_dupl
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_lvalue(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_lvalue(ptr noundef nonnull readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef writeonly %5, i32 noundef range(i32 0, 2) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
   %11 = alloca i16, align 2
@@ -171211,7 +171211,7 @@ add_var.exit.thread:                              ; preds = %js_resize_array.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(address) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 16) %9) unnamed_addr #0 {
+define internal fastcc i32 @get_closure_var2(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4, i32 noundef %5, i32 noundef %6, i32 noundef range(i32 0, 2) %7, i32 noundef range(i32 0, 2) %8, i32 noundef range(i32 0, 16) %9) unnamed_addr #0 {
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %12 = load ptr, ptr %11, align 8, !tbaa !973
   %.not = icmp eq ptr %2, %12
@@ -174049,7 +174049,7 @@ JS_DupAtom.exit46:                                ; preds = %61, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @resolve_scope_private_field1(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef captures(address) %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #0 {
+define internal fastcc i32 @resolve_scope_private_field1(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 65536) %5) unnamed_addr #0 {
   %7 = alloca [64 x i8], align 16
   br label %8
 
@@ -212047,7 +212047,7 @@ JS_ToInt32Clamp.exit:                             ; preds = %38, %._crit_edge57,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @js_atomics_get_ptr(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i64 %4, i64 %5, i64 %.0.val, i64 %.8.val, i32 noundef range(i32 0, 3) %6) unnamed_addr #0 {
+define internal fastcc ptr @js_atomics_get_ptr(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i64 %4, i64 %5, i64 %.0.val, i64 %.8.val, i32 noundef range(i32 0, 3) %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = and i64 %5, 4294967295
   %.not = icmp eq i64 %9, 4294967295

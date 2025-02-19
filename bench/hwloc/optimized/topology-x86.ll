@@ -1560,7 +1560,7 @@ declare i32 @hwloc_bitmap_iszero(ptr noundef) local_unnamed_addr #5
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cpuid_or_from_dump(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc void @cpuid_or_from_dump(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull captures(none) %3, ptr noundef readonly %4) unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %51, label %6
 
@@ -1675,7 +1675,7 @@ cpuiddump_find_by_input.exit:                     ; preds = %._crit_edge.i, %.cr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @look_proc(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, i32 noundef range(i32 0, 5) %5, ptr noundef captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc void @look_proc(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1, i32 noundef range(i32 1, 0) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4, i32 noundef range(i32 0, 5) %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca i32, align 4
@@ -4562,7 +4562,7 @@ declare i32 @hwloc_internal_cpukinds_register(ptr noundef, ptr noundef, i32 noun
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @read_extended_topo(ptr noundef writeonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 -2147483610, 32) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @read_extended_topo(ptr noundef writeonly captures(none) %0, ptr noundef nonnull captures(none) %1, i32 noundef range(i32 -2147483610, 32) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #22
   %.not.i = icmp eq ptr %3, null

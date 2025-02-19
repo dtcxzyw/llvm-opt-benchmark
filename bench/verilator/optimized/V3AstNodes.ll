@@ -20876,7 +20876,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK9AstAttrOf4dimpEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK13AstBasicDType9brokenGenEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(184) %0) unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZNK13AstBasicDType9brokenGenEv(ptr noundef nonnull readonly align 8 dereferenceable(184) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, %0
@@ -29168,7 +29168,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK15AstConsWildcard8defaultpEv(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZNK8AstConst9brokenGenEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(208) %0) unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZNK8AstConst9brokenGenEv(ptr noundef nonnull readonly align 8 dereferenceable(208) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %.fr.i = freeze ptr %3
@@ -36046,7 +36046,7 @@ define dso_local void @_ZNK18AstEmptyQueueDType17dumpTreeJsonOpGenERSoRKNSt7__cx
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK12AstEnumDType9brokenGenEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(264) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK12AstEnumDType9brokenGenEv(ptr noundef nonnull readonly align 8 dereferenceable(264) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not6 = icmp eq ptr %3, null
@@ -36107,7 +36107,7 @@ _ZNK12AstEnumDType6brokenEv.exit:                 ; preds = %"_ZSt6any_ofISt23_R
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK12AstEnumDType6brokenEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(264) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK12AstEnumDType6brokenEv(ptr noundef nonnull readonly align 8 dereferenceable(264) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -46403,7 +46403,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK11AstImplicit6exprspEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK12AstInitArray9brokenGenEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK12AstInitArray9brokenGenEv(ptr noundef nonnull readonly align 8 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -46432,7 +46432,7 @@ _ZNK12AstInitArray6brokenEv.exit:                 ; preds = %9, %7, %.lr.ph.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK12AstInitArray6brokenEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK12AstInitArray6brokenEv(ptr noundef nonnull readonly align 8 dereferenceable(200) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -47705,7 +47705,7 @@ define dso_local void @_ZNK9AstJumpGo17dumpTreeJsonOpGenERSoRKNSt7__cxx1112basic
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK12AstJumpLabel9brokenGenEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %0) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZNK12AstJumpLabel9brokenGenEv(ptr noundef nonnull readonly align 8 dereferenceable(160) %0) unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load ptr, ptr %2, align 8
   %.not5 = icmp eq ptr %3, null
@@ -90286,7 +90286,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit89: ; 
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN6AstVar12scVarRecurseEP7AstNode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #16 align 2 {
+define dso_local noundef ptr @_ZN6AstVar12scVarRecurseEP7AstNode(ptr noundef readonly %0) local_unnamed_addr #16 align 2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN7AstNode11privateCastI11AstArraySelPS_EEPT_S2_.exit.thread, label %2
 
@@ -92900,7 +92900,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode11privateCastI14AstStructD
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN11AstArraySel9baseFrompEP7AstNodeb(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
+define dso_local noundef ptr @_ZN11AstArraySel9baseFrompEP7AstNodeb(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #8 align 2 {
   %.not73 = icmp eq ptr %0, null
   br i1 %.not73, label %_ZN7AstNode9privateIsI13AstNodePreSelPS_EEbPKS_.exit._crit_edge, label %_ZN7AstNode9privateIsI11AstArraySelPS_EEbPKS_.exit.lr.ph
 
@@ -98379,7 +98379,7 @@ _ZNK13AstCellInline11origModNameB5cxx11Ev.exit:   ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN8AstClass16isCacheableChildEPK7AstNode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 align 2 {
+define dso_local noundef zeroext i1 @_ZN8AstClass16isCacheableChildEPK7AstNode(ptr noundef readonly %0) local_unnamed_addr #7 align 2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN7AstNode9privateIsI8AstCFuncPKS_EEbS3_.exit, label %_ZN7AstNode9privateIsI6AstVarPKS_EEbS3_.exit
 
@@ -98524,7 +98524,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN7AstNode9privateIsI8AstCFun
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN8AstClass14baseMostClasspEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(272) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull ptr @_ZN8AstClass14baseMostClasspEv(ptr noundef nonnull readonly align 8 dereferenceable(272) %0) local_unnamed_addr #3 align 2 {
   br label %_ZNK15AstClassExtends6classpEv.exit15
 
 _ZNK15AstClassExtends6classpEv.exit15:            ; preds = %_ZNK15AstClassExtends12classOrNullpEv.exit.i12, %1
@@ -98655,7 +98655,7 @@ _ZNK15AstClassExtends12classOrNullpEv.exit.thread: ; preds = %.thread.i, %4, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN8AstClass19isClassExtendedFromEPKS_S1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef zeroext i1 @_ZN8AstClass19isClassExtendedFromEPKS_S1_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #3 align 2 {
   %.not13 = icmp eq ptr %1, null
   br i1 %.not13, label %.split12, label %tailrecurse
 
@@ -100368,7 +100368,7 @@ define dso_local void @_ZNK16AstIfaceRefDType9dumpSmallERSo(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK12AstInitArray12dumpInitListERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK12AstInitArray12dumpInitListERSo(ptr noundef nonnull readonly align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %5 = load ptr, ptr %4, align 8
@@ -100447,7 +100447,7 @@ define dso_local void @_ZNK12AstInitArray4dumpERSo(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK12AstInitArray8dumpJsonERSo(ptr noundef nonnull align 8 captures(address) dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
+define dso_local void @_ZNK12AstInitArray8dumpJsonERSo(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #3 align 2 {
   %3 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %1, i8 noundef signext 44)
   %4 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c(ptr noundef nonnull align 8 dereferenceable(8) %3, i8 noundef signext 34)
   %5 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull @.str.444)
@@ -100460,7 +100460,7 @@ define dso_local void @_ZNK12AstInitArray8dumpJsonERSo(ptr noundef nonnull align
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local void @_ZN12AstInitArray11cloneRelinkEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0) unnamed_addr #17 align 2 {
+define dso_local void @_ZN12AstInitArray11cloneRelinkEv(ptr noundef nonnull readonly align 8 dereferenceable(200) %0) unnamed_addr #17 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -100633,7 +100633,7 @@ _ZNSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE12emplace_hintIJRmDnEEESt1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK12AstInitArray14getIndexValuepEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK12AstInitArray14getIndexValuepEm(ptr noundef nonnull readonly align 8 dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -100676,7 +100676,7 @@ _ZNKSt3mapImP11AstInitItemSt4lessImESaISt4pairIKmS1_EEE4findERS5_.exit.thread: ;
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK12AstInitArray23getIndexDefaultedValuepEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK12AstInitArray23getIndexDefaultedValuepEm(ptr noundef nonnull readonly align 8 dereferenceable(200) %0, i64 noundef %1) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160
@@ -105761,7 +105761,7 @@ define linkonce_odr dso_local noundef ptr @_ZN7AstNode15unsafePrivateAsI9AstVarR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef range(i32 -134217726, 134217727) i32 @_ZNK9AstVarRef10instrCountEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %0) unnamed_addr #8 align 2 {
+define dso_local noundef range(i32 -134217726, 134217727) i32 @_ZNK9AstVarRef10instrCountEv(ptr noundef nonnull readonly align 8 dereferenceable(200) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   %.not.i = icmp eq ptr %3, null

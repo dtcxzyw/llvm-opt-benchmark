@@ -1075,7 +1075,7 @@ define dso_local i32 @__blk_rq_map_sg(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local noundef range(i32 0, 2) i32 @ll_back_merge_fn(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local noundef range(i32 0, 2) i32 @ll_back_merge_fn(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8
@@ -1812,7 +1812,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @blk_attempt_bio_merge(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @blk_bio_list_merge(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local noundef zeroext i1 @blk_bio_list_merge(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) #0 align 16 {
   br label %5
 
 5:                                                ; preds = %13, %4
@@ -2810,7 +2810,7 @@ declare void @llvm.assume(i1 noundef) #8
 declare dso_local ptr @sg_next(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) unnamed_addr #9 align 16 {
+define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) unnamed_addr #9 align 16 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %133, label %6
 
@@ -2986,7 +2986,7 @@ define internal fastcc zeroext i1 @bio_will_gap(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef zeroext i1 @req_attempt_discard_merge(ptr noundef captures(none) %0, ptr noundef captures(address) %1, ptr noundef readonly captures(none) %2) unnamed_addr #10 align 16 {
+define internal fastcc noundef zeroext i1 @req_attempt_discard_merge(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #10 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 122
   %5 = load i16, ptr %4, align 2
   %6 = tail call i16 @llvm.umax.i16(i16 %5, i16 1)
@@ -3118,7 +3118,7 @@ define internal fastcc noundef zeroext i1 @req_attempt_discard_merge(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, argmem: readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 0, 2) i32 @ll_merge_requests_fn(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #11 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @ll_merge_requests_fn(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #11 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %4 = load ptr, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8

@@ -126,7 +126,7 @@ define hidden void @av1_copy_frame_mvs(ptr noundef readonly captures(none) %0, p
 declare i32 @llvm.abs.i32(i32, i1 immarg) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define hidden void @av1_find_mv_refs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i8 noundef signext %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(address) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef captures(none) %9) local_unnamed_addr #2 {
+define hidden void @av1_find_mv_refs(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i8 noundef signext %3, ptr noundef captures(none) %4, ptr noundef captures(none) %5, ptr noundef captures(none) %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef captures(none) %9) local_unnamed_addr #2 {
   %11 = alloca [2 x i8], align 1
   %12 = alloca i32, align 4
   %13 = alloca i32, align 4

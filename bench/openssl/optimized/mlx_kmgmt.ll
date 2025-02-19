@@ -491,7 +491,7 @@ define internal noundef nonnull ptr @mlx_kem_settable_params(ptr readnone captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mlx_kem_has(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 {
+define internal range(i32 0, 2) i32 @mlx_kem_has(ptr noundef readonly %0, i32 noundef %1) #0 {
   %3 = tail call i32 @ossl_prov_is_running() #6
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq ptr %0, null
@@ -594,7 +594,7 @@ define internal ptr @mlx_p256_kem_gen_init(ptr noundef %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mlx_kem_gen_set_params(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @mlx_kem_gen_set_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %ossl_param_is_empty.exit.thread, label %4
 
@@ -643,7 +643,7 @@ define internal noundef nonnull ptr @mlx_kem_gen_settable_params(ptr readnone ca
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @mlx_kem_gen(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @mlx_kem_gen(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %45, label %5
 
@@ -943,7 +943,7 @@ define internal noundef ptr @mlx_kem_imexport_types(i32 noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mlx_kem_export(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
+define internal i32 @mlx_kem_export(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = alloca %struct.export_cb_arg_st, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #6
   %6 = tail call i32 @ossl_prov_is_running() #6

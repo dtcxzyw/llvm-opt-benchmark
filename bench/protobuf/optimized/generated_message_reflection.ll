@@ -839,7 +839,7 @@ _ZNK6google8protobuf8internal16InternalMetadata14unknown_fieldsINS0_15UnknownFie
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf10Reflection19GetInternalMetadataERKNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(16) %message) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZNK6google8protobuf10Reflection19GetInternalMetadataERKNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull readnone align 8 dereferenceable(16) %message) local_unnamed_addr #10 align 2 {
 entry:
   %metadata_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %metadata_offset_.i, align 4
@@ -878,7 +878,7 @@ _ZN6google8protobuf8internal16InternalMetadata22mutable_unknown_fieldsINS0_15Unk
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6google8protobuf10Reflection23MutableInternalMetadataEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef readnone captures(ret: address, provenance) %message) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6google8protobuf10Reflection23MutableInternalMetadataEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef readnone %message) local_unnamed_addr #10 align 2 {
 entry:
   %metadata_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %metadata_offset_.i, align 4
@@ -912,7 +912,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8protobuf10Reflection15GetExtensionSetERKNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(16) %message) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6google8protobuf10Reflection15GetExtensionSetERKNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef nonnull readnone align 8 dereferenceable(16) %message) local_unnamed_addr #10 align 2 {
 entry:
   %extensions_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %extensions_offset_.i, align 8
@@ -15279,7 +15279,7 @@ if.end28:                                         ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK6google8protobuf10Reflection19MutableExtensionSetEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef readnone captures(ret: address, provenance) %message) local_unnamed_addr #10 align 2 {
+define noundef ptr @_ZNK6google8protobuf10Reflection19MutableExtensionSetEPNS0_7MessageE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %this, ptr noundef readnone %message) local_unnamed_addr #10 align 2 {
 entry:
   %extensions_offset_.i = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %extensions_offset_.i, align 8
@@ -38165,7 +38165,7 @@ if.end:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZNK6google8protobuf10Reflection10GetMapDataERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(16) %message, ptr noundef %field) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZNK6google8protobuf10Reflection10GetMapDataERKNS0_7MessageEPKNS0_15FieldDescriptorE(ptr noundef nonnull align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %message, ptr noundef %field) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %type_once_.i.i.i = getelementptr inbounds nuw i8, ptr %field, i64 24
   %0 = load ptr, ptr %type_once_.i.i.i, align 8

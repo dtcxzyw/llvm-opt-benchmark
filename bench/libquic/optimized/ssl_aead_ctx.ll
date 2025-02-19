@@ -174,7 +174,7 @@ define hidden void @SSL_AEAD_CTX_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @EVP_AEAD_CTX_cleanup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden range(i64 0, 256) i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define hidden range(i64 0, 256) i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 
@@ -196,7 +196,7 @@ define hidden range(i64 0, 256) i64 @SSL_AEAD_CTX_explicit_nonce_len(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @SSL_AEAD_CTX_max_overhead(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden i64 @SSL_AEAD_CTX_max_overhead(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 

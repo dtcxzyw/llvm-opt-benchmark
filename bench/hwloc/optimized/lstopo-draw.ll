@@ -5283,7 +5283,7 @@ declare i32 @hwloc_obj_type_is_memory(i32 noundef) local_unnamed_addr #14
 declare i32 @hwloc_obj_type_is_io(i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @next_child(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #18 {
+define internal fastcc ptr @next_child(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull captures(none) %4) unnamed_addr #18 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %6
 

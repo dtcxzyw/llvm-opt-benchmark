@@ -76,7 +76,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.59 = private unnamed_addr constant [42 x i8] c"***** Scanning rebuilt Mach-O file *****\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 27) i32 @cli_scanmacho(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_scanmacho(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.macho_hdr, align 4
   %4 = alloca %struct.macho_load_cmd, align 4
   %5 = alloca %struct.macho_segment_cmd, align 4
@@ -1047,7 +1047,7 @@ declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 27) i32 @cli_machoheader(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_machoheader(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @cli_scanmacho(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }

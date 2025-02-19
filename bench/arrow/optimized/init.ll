@@ -339,7 +339,7 @@ define hidden void @mi_thread_done() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_mi_thread_done(ptr noundef readonly captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @_mi_thread_done(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = atomicrmw sub ptr @thread_count, i64 1 monotonic, align 8
   tail call void @_mi_stat_decrease(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 256), i64 noundef 1) #12
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2848
@@ -579,7 +579,7 @@ declare void @_mi_os_free(ptr noundef, i64 noundef, ptr noundef) local_unnamed_a
 declare i32 @pthread_key_create(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_pthread_done(ptr noundef captures(address) %0) #0 {
+define internal void @mi_pthread_done(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

@@ -6485,7 +6485,7 @@ define internal void @rcu_tasks_postscan(ptr readnone captures(none) %0) #1 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @check_all_holdout_tasks(ptr noundef readonly captures(address) %0, i1 noundef zeroext %1, ptr noundef captures(none) %2) #1 align 16 {
+define internal void @check_all_holdout_tasks(ptr noundef readonly %0, i1 noundef zeroext %1, ptr noundef captures(none) %2) #1 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.loopexit, label %.preheader

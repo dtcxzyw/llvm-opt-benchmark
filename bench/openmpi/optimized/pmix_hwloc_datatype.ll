@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [4 x i8] c"%s\09\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_hwloc_pack_cpuset(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @pmix_hwloc_pack_cpuset(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
   %5 = icmp eq ptr %1, null
@@ -250,7 +250,7 @@ define ptr @pmix_hwloc_print_cpuset(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_hwloc_destruct_cpuset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @pmix_hwloc_destruct_cpuset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -289,7 +289,7 @@ define void @pmix_hwloc_destruct_cpuset(ptr noundef captures(address_is_null) %0
 declare void @hwloc_bitmap_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_ploc_base_destruct_cpuset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @pmix_ploc_base_destruct_cpuset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %pmix_hwloc_destruct_cpuset.exit, label %3
 
@@ -326,7 +326,7 @@ pmix_hwloc_destruct_cpuset.exit:                  ; preds = %1, %3, %6, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_hwloc_release_cpuset(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @pmix_hwloc_release_cpuset(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %.preheader
 
@@ -378,7 +378,7 @@ pmix_hwloc_destruct_cpuset.exit:                  ; preds = %.lr.ph, %7, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_ploc_base_release_cpuset(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @pmix_ploc_base_release_cpuset(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %pmix_hwloc_release_cpuset.exit, label %.preheader.i
 
@@ -446,7 +446,7 @@ declare void @hwloc_bitmap_fill(ptr noundef) local_unnamed_addr #3
 declare i32 @hwloc_bitmap_weight(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @pmix_hwloc_pack_topology(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @pmix_hwloc_pack_topology(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #7
@@ -1013,7 +1013,7 @@ define internal fastcc void @print_hwloc_obj(ptr noundef nonnull captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_hwloc_destruct_topology(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @pmix_hwloc_destruct_topology(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -1050,7 +1050,7 @@ define void @pmix_hwloc_destruct_topology(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_ploc_base_destruct_topology(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @pmix_ploc_base_destruct_topology(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %pmix_hwloc_destruct_topology.exit, label %3
 
@@ -1087,7 +1087,7 @@ pmix_hwloc_destruct_topology.exit:                ; preds = %1, %3, %6, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_hwloc_release_topology(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @pmix_hwloc_release_topology(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i64 %1, 0
   %or.cond = and i1 %3, %4
@@ -1133,7 +1133,7 @@ pmix_hwloc_destruct_topology.exit:                ; preds = %.lr.ph, %8, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_ploc_base_release_topology(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define void @pmix_ploc_base_release_topology(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i64 %1, 0
   %or.cond.i = and i1 %3, %4

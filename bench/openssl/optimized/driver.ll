@@ -176,7 +176,7 @@ define noundef i32 @pulldown_test_framework(i32 noundef returned %0) local_unnam
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @set_test_title(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define void @set_test_title(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = load ptr, ptr @test_title, align 8, !tbaa !14
   tail call void @free(ptr noundef %2) #13
   %3 = icmp eq ptr %0, null
@@ -810,7 +810,7 @@ define internal void @test_verdict(i32 noundef %0, ptr noundef %1, ...) unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @glue_strings(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define noundef ptr @glue_strings(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !14
   %.not27 = icmp eq ptr %3, null
   br i1 %.not27, label %._crit_edge, label %.lr.ph

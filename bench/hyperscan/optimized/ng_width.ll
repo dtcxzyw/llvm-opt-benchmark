@@ -292,7 +292,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %h) local_unnamed_addr #2 {
+define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderE(ptr noundef nonnull align 8 dereferenceable(136) %h) local_unnamed_addr #2 {
 entry:
   %startDepth.sroa.0.i = alloca i32, align 4
   %dotstarDepth.sroa.0.i = alloca i32, align 4
@@ -331,7 +331,7 @@ _ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderEj(ptr noundef nonnull align 8 captures(address) dereferenceable(136) %h, i32 noundef %top) local_unnamed_addr #2 {
+define hidden i32 @_ZN3ue212findMinWidthERKNS_8NGHolderEj(ptr noundef nonnull align 8 dereferenceable(136) %h, i32 noundef %top) local_unnamed_addr #2 {
 entry:
   %startDepth.sroa.0.i = alloca i32, align 4
   %dotstarDepth.sroa.0.i = alloca i32, align 4
@@ -463,7 +463,7 @@ _ZN3ue2L12findMaxWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterE.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %h, ptr readonly captures(none) %filter.0.val, i64 %filter.8.val, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc i32 @_ZN3ue2L12findMinWidthERKNS_8NGHolderERKNS_12_GLOBAL__N_117SpecialEdgeFilterENS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %h, ptr readonly captures(none) %filter.0.val, i64 %filter.8.val, ptr %src.coerce0, i64 %src.coerce1) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %s.i.i.i.i.i.i = alloca %"class.ue2::graph_detail::vertex_descriptor", align 8
   %agg.tmp9.i.i.i.i.i = alloca %"struct.boost::two_bit_color_map", align 8

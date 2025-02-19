@@ -124,7 +124,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ecx_to_text = private unnamed_addr constant [4 x ptr] [ptr @.str.30, ptr @.str.31, ptr @.str.32, ptr @.str.33], align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @key2text_newctx(ptr noundef readnone returned captures(ret: address, provenance) %0) #0 {
+define internal noundef ptr @key2text_newctx(ptr noundef readnone returned %0) #0 {
   ret ptr %0
 }
 
@@ -146,7 +146,7 @@ define internal void @dh2text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dh2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @dh2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -184,7 +184,7 @@ define internal void @dhx2text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dhx2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @dhx2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -222,7 +222,7 @@ define internal void @dsa2text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dsa2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @dsa2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -380,7 +380,7 @@ define internal void @ec2text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ec2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @ec2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -418,7 +418,7 @@ define internal void @sm22text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm22text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @sm22text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -456,7 +456,7 @@ define internal void @ed255192text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ed255192text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @ed255192text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -494,7 +494,7 @@ define internal void @ed4482text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ed4482text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @ed4482text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -532,7 +532,7 @@ define internal void @x255192text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @x255192text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @x255192text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -570,7 +570,7 @@ define internal void @x4482text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @x4482text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @x4482text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -608,7 +608,7 @@ define internal void @ml_kem_5122text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ml_kem_5122text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal i32 @ml_kem_5122text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -646,7 +646,7 @@ define internal void @ml_kem_7682text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ml_kem_7682text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal i32 @ml_kem_7682text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -684,7 +684,7 @@ define internal void @ml_kem_10242text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ml_kem_10242text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal i32 @ml_kem_10242text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -722,7 +722,7 @@ define internal void @rsa2text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsa2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @rsa2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -760,7 +760,7 @@ define internal void @rsapss2text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @rsapss2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal range(i32 0, 2) i32 @rsapss2text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -798,7 +798,7 @@ define internal void @ml_dsa_442text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ml_dsa_442text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal i32 @ml_dsa_442text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -836,7 +836,7 @@ define internal void @ml_dsa_652text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ml_dsa_652text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal i32 @ml_dsa_652text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -874,7 +874,7 @@ define internal void @ml_dsa_872text_free_object(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ml_dsa_872text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
+define internal i32 @ml_dsa_872text_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 

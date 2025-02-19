@@ -1411,7 +1411,7 @@ define hidden void @luaG_typeerror(ptr noundef %0, ptr noundef %1, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getobjname(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @getobjname(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %1, i64 24

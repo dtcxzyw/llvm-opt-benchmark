@@ -1988,7 +1988,7 @@ pmix_obj_new_tma.exit41:                          ; preds = %.lr.ph.i.i38, %87, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -51, 95) i32 @prte_oob_tcp_peer_recv_connect_ack(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.prte_oob_tcp_hdr_t, align 4
   call void @llvm.lifetime.start.p0(i64 568, ptr nonnull %4) #15
   %5 = icmp eq ptr %0, null

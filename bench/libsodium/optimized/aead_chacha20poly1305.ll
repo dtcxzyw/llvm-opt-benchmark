@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_pad0 = internal constant [16 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @crypto_aead_chacha20poly1305_encrypt_detached(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr readnone captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_aead_chacha20poly1305_encrypt_detached(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr readnone captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) local_unnamed_addr #0 {
   %11 = alloca %struct.crypto_onetimeauth_poly1305_state, align 16
   %12 = alloca [64 x i8], align 16
   %13 = alloca [8 x i8], align 8
@@ -60,7 +60,7 @@ declare i32 @crypto_onetimeauth_poly1305_final(ptr noundef, ptr noundef) local_u
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @crypto_aead_chacha20poly1305_encrypt(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_aead_chacha20poly1305_encrypt(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
   %10 = icmp ugt i64 %3, -17
   br i1 %10, label %11, label %12
 
@@ -87,7 +87,7 @@ define dso_local noundef i32 @crypto_aead_chacha20poly1305_encrypt(ptr noundef n
 declare void @sodium_misuse() local_unnamed_addr #3
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @crypto_aead_chacha20poly1305_ietf_encrypt_detached(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr readnone captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_aead_chacha20poly1305_ietf_encrypt_detached(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef writeonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr readnone captures(none) %7, ptr noundef nonnull %8, ptr noundef nonnull %9) local_unnamed_addr #0 {
   %11 = alloca %struct.crypto_onetimeauth_poly1305_state, align 16
   %12 = alloca [64 x i8], align 16
   %13 = alloca [8 x i8], align 8
@@ -131,7 +131,7 @@ declare i32 @crypto_stream_chacha20_ietf(ptr noundef, i64 noundef, ptr noundef, 
 declare i32 @crypto_stream_chacha20_ietf_xor_ic(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @crypto_aead_chacha20poly1305_ietf_encrypt(ptr noundef nonnull %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_aead_chacha20poly1305_ietf_encrypt(ptr noundef nonnull %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i64 noundef %5, ptr noundef readnone captures(none) %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
   %10 = icmp ugt i64 %3, 274877906880
   br i1 %10, label %11, label %12
 
@@ -204,7 +204,7 @@ define dso_local i32 @crypto_aead_chacha20poly1305_decrypt_detached(ptr noundef 
 declare i32 @crypto_verify_16(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_aead_chacha20poly1305_decrypt(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
+define dso_local i32 @crypto_aead_chacha20poly1305_decrypt(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
   %10 = icmp ugt i64 %4, 15
   br i1 %10, label %11, label %16
 
@@ -285,7 +285,7 @@ define dso_local i32 @crypto_aead_chacha20poly1305_ietf_decrypt_detached(ptr nou
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local i32 @crypto_aead_chacha20poly1305_ietf_decrypt(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
+define dso_local i32 @crypto_aead_chacha20poly1305_ietf_decrypt(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readnone captures(none) %2, ptr noundef nonnull %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8) local_unnamed_addr #0 {
   %10 = icmp ugt i64 %4, 15
   br i1 %10, label %11, label %16
 

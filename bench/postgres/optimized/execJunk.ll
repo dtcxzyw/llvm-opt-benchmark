@@ -246,7 +246,7 @@ ExecFindJunkAttributeInTlist.exit:                ; preds = %22, %2, %.lr.ph.i, 
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local signext i16 @ExecFindJunkAttributeInTlist(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.lr.ph
 

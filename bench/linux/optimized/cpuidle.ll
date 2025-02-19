@@ -102,7 +102,7 @@ define dso_local void @disable_cpuidle() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define dso_local zeroext i1 @cpuidle_not_available(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 align 16 {
+define dso_local zeroext i1 @cpuidle_not_available(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #2 align 16 {
   %3 = load i32, ptr @off, align 4
   %4 = icmp eq i32 %3, 0
   %5 = load i1, ptr @initialized, align 4

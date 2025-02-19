@@ -36,7 +36,7 @@ declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @GetVariable(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define dso_local ptr @GetVariable(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread17, label %.preheader
 
@@ -223,7 +223,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @PrintVariables(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @PrintVariables(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -257,7 +257,7 @@ define dso_local void @PrintVariables(ptr noundef readonly captures(address_is_n
 declare i32 @pg_printf(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SetVariable(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SetVariable(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -406,7 +406,7 @@ declare void @pg_free(ptr noundef) local_unnamed_addr #2
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SetVariableHooks(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @SetVariableHooks(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -552,13 +552,13 @@ define dso_local zeroext i1 @VariableHasHook(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @SetVariableBool(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @SetVariableBool(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @SetVariable(ptr noundef %0, ptr noundef %1, ptr noundef nonnull @.str.5)
   ret i1 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @DeleteVariable(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @DeleteVariable(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call zeroext i1 @SetVariable(ptr noundef %0, ptr noundef %1, ptr noundef null)
   ret i1 %3
 }

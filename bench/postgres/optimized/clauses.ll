@@ -1665,7 +1665,7 @@ is_strict_saop.exit:                              ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @find_forced_null_vars(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @find_forced_null_vars(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.lr.ph
 
@@ -1784,7 +1784,7 @@ tailrecurse:                                      ; preds = %54
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @find_forced_null_var(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define dso_local ptr @find_forced_null_var(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %37, label %3
 
@@ -1882,7 +1882,7 @@ define dso_local noundef zeroext i1 @is_pseudo_constant_clause(ptr noundef %0) l
 declare zeroext i1 @contain_var_clause(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @is_pseudo_constant_clause_relids(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @is_pseudo_constant_clause_relids(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -1918,7 +1918,7 @@ declare i32 @bms_num_members(ptr noundef) local_unnamed_addr #1
 declare void @bms_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @CommuteOpExpr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @CommuteOpExpr(ptr noundef %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %is_opclause.exit.thread, label %is_opclause.exit
 

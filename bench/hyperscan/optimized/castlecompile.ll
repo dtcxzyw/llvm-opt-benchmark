@@ -255,7 +255,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @__cxa_guard_release(ptr) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue211buildCastleERKNS_11CastleProtoERKSt3mapIjSt6vectorIS4_INS_9CharReachESaIS5_EESaIS7_EESt4lessIjESaISt4pairIKjS9_EEERKNS_14CompileContextERKNS_13ReportManagerE(ptr noalias sret(%"class.ue2::bytecode_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %proto, ptr noundef nonnull align 8 dereferenceable(48) %triggers, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue211buildCastleERKNS_11CastleProtoERKSt3mapIjSt6vectorIS4_INS_9CharReachESaIS5_EESaIS7_EESt4lessIjESaISt4pairIKjS9_EEERKNS_14CompileContextERKNS_13ReportManagerE(ptr noalias sret(%"class.ue2::bytecode_ptr") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(112) %proto, ptr noundef nonnull align 8 dereferenceable(48) %triggers, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(320) %cc, ptr noundef nonnull align 8 dereferenceable(505) %rm) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %negated.i = alloca %"class.ue2::CharReach", align 8
   %rsi.i = alloca %"struct.ue2::RepeatStateInfo", align 8
@@ -4210,7 +4210,7 @@ _ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEED2Ev.exit: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden range(i32 0, -2147483648) i32 @_ZN3ue212findMinWidthERKNS_11CastleProtoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %proto) local_unnamed_addr #10 {
+define hidden range(i32 0, -2147483648) i32 @_ZN3ue212findMinWidthERKNS_11CastleProtoE(ptr noundef nonnull readonly align 8 dereferenceable(112) %proto) local_unnamed_addr #10 {
 entry:
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %proto, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i.i.i.i.i, align 8, !noalias !79
@@ -4234,7 +4234,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden i32 @_ZN3ue212findMaxWidthERKNS_11CastleProtoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %proto) local_unnamed_addr #10 {
+define hidden i32 @_ZN3ue212findMaxWidthERKNS_11CastleProtoE(ptr noundef nonnull readonly align 8 dereferenceable(112) %proto) local_unnamed_addr #10 {
 entry:
   %_M_left.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %proto, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i.i.i.i.i, align 8, !noalias !84
@@ -4258,7 +4258,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN3ue212findMinWidthERKNS_11CastleProtoEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %proto, i32 noundef %top) local_unnamed_addr #2 {
+define hidden i32 @_ZN3ue212findMinWidthERKNS_11CastleProtoEj(ptr noundef nonnull readonly align 8 dereferenceable(112) %proto, i32 noundef %top) local_unnamed_addr #2 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %proto, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -4327,7 +4327,7 @@ return:                                           ; preds = %entry, %_ZNKSt8_Rb_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden i32 @_ZN3ue212findMaxWidthERKNS_11CastleProtoEj(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %proto, i32 noundef %top) local_unnamed_addr #2 {
+define hidden i32 @_ZN3ue212findMaxWidthERKNS_11CastleProtoEj(ptr noundef nonnull readonly align 8 dereferenceable(112) %proto, i32 noundef %top) local_unnamed_addr #2 {
 entry:
   %_M_parent.i.i.i.i = getelementptr inbounds nuw i8, ptr %proto, i64 16
   %0 = load ptr, ptr %_M_parent.i.i.i.i, align 8
@@ -5095,7 +5095,7 @@ return:                                           ; preds = %for.end, %if.end13,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3ue211mergeCastleERNS_11CastleProtoERKS0_RSt3mapIjjSt4lessIjESaISt4pairIKjjEEE(ptr noundef nonnull align 8 dereferenceable(112) %c1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %c2, ptr noundef nonnull align 8 dereferenceable(48) %top_map) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3ue211mergeCastleERNS_11CastleProtoERKS0_RSt3mapIjjSt4lessIjESaISt4pairIKjjEEE(ptr noundef nonnull align 8 dereferenceable(112) %c1, ptr noundef nonnull readonly align 8 dereferenceable(112) %c2, ptr noundef nonnull align 8 dereferenceable(48) %top_map) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %top = alloca i32, align 4
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %c1, i64 24
@@ -5818,7 +5818,7 @@ _ZNSt3mapIjN3ue210PureRepeatESt4lessIjESaISt4pairIKjS1_EEED2Ev.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3ue28is_equalERKNS_11CastleProtoEjS2_j(ptr noundef nonnull align 8 captures(address) dereferenceable(112) %c1, i32 noundef %report1, ptr noundef nonnull align 8 captures(address) dereferenceable(112) %c2, i32 noundef %report2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN3ue28is_equalERKNS_11CastleProtoEjS2_j(ptr noundef nonnull align 8 dereferenceable(112) %c1, i32 noundef %report1, ptr noundef nonnull align 8 dereferenceable(112) %c2, i32 noundef %report2) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_left.i.i.i = getelementptr inbounds nuw i8, ptr %c1, i64 24
   %0 = load ptr, ptr %_M_left.i.i.i, align 8
@@ -5885,7 +5885,7 @@ return:                                           ; preds = %lor.lhs.false, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc ptr @_ZSt7find_ifISt23_Rb_tree_const_iteratorISt4pairIKjN3ue210PureRepeatEEENS3_12_GLOBAL__N_19HasReportEET_S9_S9_T0_(ptr readonly %__first.coerce, ptr readnone captures(address) %__last.coerce, i32 %__pred.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc ptr @_ZSt7find_ifISt23_Rb_tree_const_iteratorISt4pairIKjN3ue210PureRepeatEEENS3_12_GLOBAL__N_19HasReportEET_S9_S9_T0_(ptr readonly %__first.coerce, ptr readnone %__last.coerce, i32 %__pred.coerce) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp3.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.boost::container::vec_iterator", align 8
   %agg.tmp4.i.i.i.i.i.i.i.i.i.i.i = alloca %"class.boost::container::vec_iterator", align 8
@@ -6131,7 +6131,7 @@ return:                                           ; preds = %if.end, %for.inc, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue210makeHolderERKNS_11CastleProtoERKNS_14CompileContextE(ptr noalias sret(%"class.std::unique_ptr.192") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %proto, ptr noundef nonnull align 8 dereferenceable(320) %cc) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue210makeHolderERKNS_11CastleProtoERKNS_14CompileContextE(ptr noalias sret(%"class.std::unique_ptr.192") align 8 captures(none) %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(112) %proto, ptr noundef nonnull align 8 dereferenceable(320) %cc) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp12.i268 = alloca %"class.boost::container::vec_iterator.188", align 8
   %agg.tmp14.i269 = alloca %"class.boost::container::vec_iterator", align 8
@@ -7767,7 +7767,7 @@ declare noundef zeroext i1 @_ZN3ue27matchesEN9__gnu_cxx17__normal_iteratorIPKNS_
 declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue2L15findCliqueGroupERN5boost14adjacency_listINS0_5listSES2_NS0_11undirectedSENS_17CliqueVertexPropsENS0_11no_propertyES5_S2_EERSt6vectorIjSaIjEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %cg, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %clique) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue2L15findCliqueGroupERN5boost14adjacency_listINS0_5listSES2_NS0_11undirectedSENS_17CliqueVertexPropsENS0_11no_propertyES5_S2_EERSt6vectorIjSaIjEE(ptr noundef nonnull readonly align 8 dereferenceable(56) %cg, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %clique) unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %gStack = alloca %"class.std::stack", align 8
   %vertexMap = alloca %"class.std::map.272", align 8

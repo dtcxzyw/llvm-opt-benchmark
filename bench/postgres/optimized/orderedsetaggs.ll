@@ -2296,7 +2296,7 @@ ExecQualAndReset.exit:                            ; preds = %151
 declare ptr @CreateStandaloneExprContext() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hypothetical_check_argtypes(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -16384, 16384) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @hypothetical_check_argtypes(ptr noundef readonly captures(none) %0, i32 noundef range(i32 -16384, 16384) %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %15, label %4
 

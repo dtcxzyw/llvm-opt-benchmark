@@ -96,7 +96,7 @@ declare i32 @ossl_lib_ctx_read_lock(ptr noundef) local_unnamed_addr #3
 declare i32 @ossl_lib_ctx_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_prop_defn_set(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_prop_defn_set(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.PROPERTY_DEFN_ELEM, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
   %5 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 2) #7

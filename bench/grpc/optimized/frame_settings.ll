@@ -70,7 +70,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z27grpc_chttp2_settings_createPjPKjjm(ptr noalias sret(%struct.grpc_slice) align 8 captures(address) %agg.result, ptr noundef captures(none) %old_settings, ptr noundef readonly captures(none) %new_settings, i32 noundef %force_mask, i64 noundef %count) local_unnamed_addr #3 {
+define void @_Z27grpc_chttp2_settings_createPjPKjjm(ptr noalias sret(%struct.grpc_slice) align 8 %agg.result, ptr noundef captures(none) %old_settings, ptr noundef readonly captures(none) %new_settings, i32 noundef %force_mask, i64 noundef %count) local_unnamed_addr #3 {
 entry:
   %ref.tmp = alloca %struct.grpc_slice, align 8
   %cmp36.not = icmp eq i64 %count, 0
@@ -503,7 +503,7 @@ _ZNSt12_Vector_baseIN4absl12lts_202308026StatusESaIS2_EED2Ev.exit: ; preds = %in
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef captures(none) %p, ptr noundef %t, ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %slice, i32 noundef %is_last) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z33grpc_chttp2_settings_parser_parsePvP21grpc_chttp2_transportP18grpc_chttp2_streamRK10grpc_slicei(ptr noalias sret(%"class.absl::lts_20230802::Status") align 8 %agg.result, ptr noundef captures(none) %p, ptr noundef %t, ptr noundef readnone captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %slice, i32 noundef %is_last) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp.i = alloca %"struct.std::__cxx11::basic_string<char>::__sv_wrapper", align 8
   %ref.tmp.i = alloca [2 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8

@@ -623,7 +623,7 @@ define i32 @H5Tget_member_index(i64 noundef %0, ptr noundef readonly captures(no
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5T__sort_value(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 {
+define noundef i32 @H5T__sort_value(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.H5T_cmemb_t, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
@@ -907,7 +907,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5T__sort_name(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 {
+define noundef i32 @H5T__sort_name(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #5 {
   %3 = alloca [32 x i8], align 16
   %4 = alloca %struct.H5T_cmemb_t, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)

@@ -744,7 +744,7 @@ _ZN14ExceptionCache12test_addressEPh.exit:        ; preds = %8, %3, %13
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ExceptionCache5matchE6HandlePh(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr readonly captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14ExceptionCache5matchE6HandlePh(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr readonly captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = load ptr, ptr %1, align 8
   %5 = load i8, ptr @UseCompressedClassPointers, align 1
   %6 = trunc i8 %5 to i1
@@ -809,7 +809,7 @@ _ZN14ExceptionCache12test_addressEPh.exit:        ; preds = %27, %32, %22, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN14ExceptionCache12test_addressEPh(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN14ExceptionCache12test_addressEPh(ptr noundef nonnull align 8 dereferenceable(288) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load volatile i32, ptr %3, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
@@ -1336,7 +1336,7 @@ define hidden void @_ZN7nmethod21clean_exception_cacheEv(ptr noundef nonnull ali
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7nmethod28handler_for_exception_and_pcE6HandlePh(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr readonly captures(none) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN7nmethod28handler_for_exception_and_pcE6HandlePh(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr readonly captures(none) %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load volatile ptr, ptr %4, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #23, !srcloc !6
@@ -8882,7 +8882,7 @@ define hidden void @_ZN7nmethod16copy_scopes_dataEPhi(ptr noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN15PcDescContainer21find_pc_desc_internalEPhbS0_P6PcDescS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN15PcDescContainer21find_pc_desc_internalEPhbS0_P6PcDescS2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) local_unnamed_addr #0 align 2 {
   %7 = icmp ult ptr %1, %3
   br i1 %7, label %_ZN11PcDescCache12find_pc_descEib.exit, label %8
 
@@ -9069,7 +9069,7 @@ define hidden noundef zeroext i1 @_ZN7nmethod19check_dependency_onER9DepChange(p
 declare noundef ptr @_ZN12Dependencies9DepStream24spot_check_dependency_atER9DepChange(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7nmethod22is_dependent_on_methodEP6Method(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7nmethod22is_dependent_on_methodEP6Method(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.Dependencies::DepStream", align 8
   store ptr %0, ptr %3, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9971,7 +9971,7 @@ declare noundef i32 @_ZN20AbstractDisassembler13print_hexdataEPhiP12outputStream
 declare void @_ZN12Disassembler6decodeEP7nmethodP12outputStream(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK7nmethod21nmethod_section_labelEPh(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(214) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK7nmethod21nmethod_section_labelEPh(ptr noundef nonnull readonly align 8 dereferenceable(214) %0, ptr noundef readnone %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i32, ptr %3, align 4
   %5 = sext i32 %4 to i64
@@ -10941,7 +10941,7 @@ declare noundef zeroext i1 @_ZN2os28dll_address_to_function_nameEPhPciPib(ptr no
 declare void @_ZNK6Method16print_short_nameEP12outputStream(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7nmethod13scope_desc_inEPhS0_(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN7nmethod13scope_desc_inEPhS0_(ptr noundef nonnull align 8 dereferenceable(214) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %6 = load ptr, ptr %5, align 8
@@ -10996,7 +10996,7 @@ _ZN7nmethod12pc_desc_nearEPh.exit.thread:         ; preds = %3, %_ZN7nmethod12pc
 declare noundef ptr @_ZNK6PcDesc7real_pcEPK7nmethod(ptr noundef nonnull align 4 dereferenceable(16), ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK7nmethod20print_nmethod_labelsEP12outputStreamPhb(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(214) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
+define hidden void @_ZNK7nmethod20print_nmethod_labelsEP12outputStreamPhb(ptr noundef nonnull readonly align 8 dereferenceable(214) %0, ptr noundef %1, ptr noundef readnone %2, i1 noundef zeroext %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %class.SignatureStream, align 8
   %6 = alloca %class.SignatureStream, align 8
   br i1 %3, label %7, label %57
@@ -11463,7 +11463,7 @@ _ZN19Bytecode_member_refC2ERK12methodHandlei.exit: ; preds = %3, %8
 declare noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr noundef nonnull align 8 dereferenceable(88), i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZNK7nmethod24call_instruction_addressEPh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(214) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK7nmethod24call_instruction_addressEPh(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(214) %0, ptr noundef readonly %1) local_unnamed_addr #8 align 2 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -5
   %4 = load i8, ptr %3, align 1
   %5 = icmp eq i8 %4, -24

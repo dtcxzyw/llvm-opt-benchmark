@@ -19,7 +19,7 @@ define internal ptr @kdf_tls1_prf_newctx(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @kdf_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal i32 @kdf_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @ossl_prov_is_running() #3
   %5 = icmp eq i32 %4, 0
   %6 = icmp eq ptr %0, null

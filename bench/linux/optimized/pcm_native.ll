@@ -1393,7 +1393,7 @@ define dso_local noundef i32 @snd_pcm_stop_xrun(ptr noundef %0) #0 align 16 {
 declare dso_local void @__snd_pcm_xrun(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_suspend_all(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_pcm_suspend_all(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit11, label %3
 
@@ -3198,7 +3198,7 @@ define internal fastcc i32 @snd_pcm_sw_params(ptr noundef %0, ptr noundef captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_prepare(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_pcm_prepare(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -3300,7 +3300,7 @@ define internal fastcc i32 @snd_pcm_start_lock_irq(ptr noundef nonnull %0) unnam
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_drain(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_pcm_drain(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = alloca %struct.wait_queue_entry, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #18
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 40, i1 false), !annotation !13
@@ -3633,7 +3633,7 @@ define internal fastcc i32 @snd_pcm_drain(ptr noundef %0, ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_delay(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_pcm_delay(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 369
   %5 = load i8, ptr %4, align 1, !range !6, !noundef !7
@@ -4278,7 +4278,7 @@ define internal range(i32 0, 272) i32 @snd_pcm_poll(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = and i32 %1, 65280
   %5 = icmp eq i32 %4, 16640
   br i1 %5, label %6, label %13
@@ -4298,7 +4298,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl_compat(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @snd_pcm_ioctl_compat(ptr noundef %0, i32 noundef %1, i64 noundef %2) #0 align 16 {
   %4 = and i64 %2, 4294967295
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5148,7 +5148,7 @@ define internal fastcc ptr @snd_pcm_stream_group_ref(ptr noundef %0) unnamed_add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_action_group(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_pcm_action_group(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 312
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -5565,7 +5565,7 @@ define internal void @snd_pcm_post_start(ptr noundef %0, i32 noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @snd_pcm_trigger_tstamp(ptr noundef readonly captures(address) %0) unnamed_addr #0 align 16 {
+define internal fastcc void @snd_pcm_trigger_tstamp(ptr noundef readonly %0) unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -5684,7 +5684,7 @@ define internal noundef i32 @snd_pcm_do_stop(ptr noundef %0, i32 %1) #0 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_post_stop(ptr noundef captures(address) %0, i32 noundef %1) #0 align 16 {
+define internal void @snd_pcm_post_stop(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   %5 = load i32, ptr %4, align 8
@@ -5778,7 +5778,7 @@ define internal noundef i32 @snd_pcm_do_suspend(ptr noundef %0, i32 %1) #0 align
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_post_suspend(ptr noundef captures(address) %0, i32 %1) #0 align 16 {
+define internal void @snd_pcm_post_suspend(ptr noundef %0, i32 %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @snd_pcm_trigger_tstamp(ptr noundef %0)
@@ -5896,7 +5896,7 @@ define internal void @snd_pcm_undo_pause(ptr noundef %0, i32 noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_post_pause(ptr noundef captures(address) %0, i32 noundef %1) #0 align 16 {
+define internal void @snd_pcm_post_pause(ptr noundef %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @snd_pcm_trigger_tstamp(ptr noundef %0)
@@ -7514,7 +7514,7 @@ declare dso_local ptr @snd_sgbuf_get_page(ptr noundef, i64 noundef) local_unname
 declare dso_local i64 @__snd_pcm_lib_xfer(ptr noundef, ptr noundef, i1 noundef zeroext, i64 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @snd_pcm_common_ioctl(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @snd_pcm_common_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %7 = load ptr, ptr %6, align 8
@@ -10098,7 +10098,7 @@ define internal void @snd_pcm_undo_resume(ptr noundef %0, i32 %1) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @snd_pcm_post_resume(ptr noundef captures(address) %0, i32 %1) #0 align 16 {
+define internal void @snd_pcm_post_resume(ptr noundef %0, i32 %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %4 = load ptr, ptr %3, align 8
   tail call fastcc void @snd_pcm_trigger_tstamp(ptr noundef %0)

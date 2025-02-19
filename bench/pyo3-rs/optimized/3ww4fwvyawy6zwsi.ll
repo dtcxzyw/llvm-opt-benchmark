@@ -861,12 +861,12 @@ define void @_ZN19pyo3_macros_backend10pyfunction17PyFunctionOptions14add_attrib
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden align 8 ptr @"_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction28_$u7b$$u7b$closure$u7d$$u7d$17hd3760b20de1dd05eE"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #0 {
+define hidden align 8 ptr @"_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction28_$u7b$$u7b$closure$u7d$$u7d$17hd3760b20de1dd05eE"(ptr readnone returned align 8 %0) unnamed_addr #0 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden align 8 ptr @"_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction28_$u7b$$u7b$closure$u7d$$u7d$17h12cade8699ab568fE"(ptr readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #0 {
+define hidden align 8 ptr @"_ZN19pyo3_macros_backend10pyfunction20impl_wrap_pyfunction28_$u7b$$u7b$closure$u7d$$u7d$17h12cade8699ab568fE"(ptr readnone returned align 8 %0) unnamed_addr #0 {
   ret ptr %0
 }
 

@@ -201,7 +201,7 @@ lpad:                                             ; preds = %new.notnull
 declare noundef ptr @_ZN6icu_757UMemorynwEm(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7518TimeZoneTransitionaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %right) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6icu_7518TimeZoneTransitionaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %right) local_unnamed_addr #1 align 2 {
 entry:
   %cmp.not = icmp eq ptr %this, %right
   br i1 %cmp.not, label %if.end, label %if.then
@@ -306,7 +306,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitioneqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %that) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitioneqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %that) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %that
   br i1 %cmp, label %return, label %typeid.end
@@ -398,7 +398,7 @@ return:                                           ; preds = %if.end.i.i, %land.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitionneERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %that) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitionneERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that) local_unnamed_addr #1 align 2 {
 entry:
   %call = tail call noundef zeroext i1 @_ZNK6icu_7518TimeZoneTransitioneqERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull align 8 dereferenceable(32) %that)
   %lnot = xor i1 %call, true

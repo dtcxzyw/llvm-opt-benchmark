@@ -592,7 +592,7 @@ _ZN6icu_7518CalendarAstronomer17getSiderealOffsetEv.exit: ; preds = %entry.if.en
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialERKNS0_8EclipticE(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ecliptic) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialERKNS0_8EclipticE(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %ecliptic) local_unnamed_addr #0 align 2 {
 entry:
   %longitude = getelementptr inbounds nuw i8, ptr %ecliptic, i64 8
   %0 = load double, ptr %longitude, align 8
@@ -663,7 +663,7 @@ _ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong, double noundef %eclipLat) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong, double noundef %eclipLat) local_unnamed_addr #0 align 2 {
 entry:
   %eclipObliquity.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load double, ptr %eclipObliquity.i, align 8
@@ -796,7 +796,7 @@ declare double @atan2(double noundef, double noundef) local_unnamed_addr #5
 declare double @asin(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEd(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEd(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
 entry:
   %eclipObliquity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load double, ptr %eclipObliquity.i.i, align 8
@@ -859,7 +859,7 @@ _ZN6icu_7518CalendarAstronomer20eclipticToEquatorialERNS0_10EquatorialEdd.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer17eclipticToHorizonERNS0_7HorizonEd(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer17eclipticToHorizonERNS0_7HorizonEd(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result, double noundef %eclipLong) local_unnamed_addr #0 align 2 {
 entry:
   %eclipObliquity.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load double, ptr %eclipObliquity.i.i.i, align 8
@@ -1074,7 +1074,7 @@ _ZN6icu_75L11trueAnomalyEdd.exit:                 ; preds = %do.body.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer14getSunPositionERNS0_10EquatorialE(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(16) initializes((0, 16)) %result) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer14getSunPositionERNS0_10EquatorialE(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this, ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((0, 16)) %result) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef double @_ZN6icu_7518CalendarAstronomer15getSunLongitudeEv(ptr noundef nonnull align 8 dereferenceable(129) %this)
   %eclipObliquity.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -1551,7 +1551,7 @@ do.end:                                           ; preds = %land.rhs, %do.body,
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer15getMoonPositionEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(129) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer15getMoonPositionEv(ptr noundef nonnull align 8 dereferenceable(129) %this) local_unnamed_addr #0 align 2 {
 entry:
   %moonPositionSet = getelementptr inbounds nuw i8, ptr %this, i64 128
   %0 = load i8, ptr %moonPositionSet, align 8
@@ -1722,7 +1722,7 @@ if.end:                                           ; preds = %_ZN6icu_7518Calenda
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7518CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this) local_unnamed_addr #0 align 2 {
+define noundef double @_ZN6icu_7518CalendarAstronomer10getMoonAgeEv(ptr noundef nonnull align 8 dereferenceable(129) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer15getMoonPositionEv(ptr noundef nonnull align 8 dereferenceable(129) %this)
   %moonEclipLong = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1737,7 +1737,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef double @_ZN6icu_7518CalendarAstronomer12getMoonPhaseEv(ptr noundef nonnull align 8 captures(none) dereferenceable(129) %this) local_unnamed_addr #0 align 2 {
+define noundef double @_ZN6icu_7518CalendarAstronomer12getMoonPhaseEv(ptr noundef nonnull align 8 dereferenceable(129) %this) local_unnamed_addr #0 align 2 {
 entry:
   %call.i = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZN6icu_7518CalendarAstronomer15getMoonPositionEv(ptr noundef nonnull align 8 dereferenceable(129) %this)
   %moonEclipLong.i = getelementptr inbounds nuw i8, ptr %this, i64 72
@@ -1891,7 +1891,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7513CalendarCache11createCacheEPPS0_R10UErrorCode(ptr noundef writeonly captures(address_is_null) %cache, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7513CalendarCache11createCacheEPPS0_R10UErrorCode(ptr noundef writeonly %cache, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @ucln_i18n_registerCleanup_75(i32 noundef 11, ptr noundef nonnull @_ZL22calendar_astro_cleanupv)
   %cmp = icmp eq ptr %cache, null

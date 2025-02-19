@@ -147,7 +147,7 @@ define internal void @ossl_rcu_free_local_data(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_rcu_read_unlock(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define void @ossl_rcu_read_unlock(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !3
   %4 = tail call ptr @ossl_lib_ctx_get_rcukey(ptr noundef %3) #9

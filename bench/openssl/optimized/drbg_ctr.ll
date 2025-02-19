@@ -424,7 +424,7 @@ drbg_ctr_init_lengths.exit:                       ; preds = %16, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_instantiate(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef captures(address_is_null) %5, i64 noundef %6) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_instantiate(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) #0 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %23, label %9
 
@@ -481,7 +481,7 @@ define internal i32 @drbg_ctr_uninstantiate(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_reseed(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_reseed(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = icmp eq ptr %1, null
   br i1 %6, label %19, label %7
 
@@ -515,7 +515,7 @@ inc_128.exit:                                     ; preds = %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @drbg_ctr_generate(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4) #0 {
+define internal range(i32 0, 2) i32 @drbg_ctr_generate(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #0 {
   %6 = alloca i32, align 4
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %8 = load ptr, ptr %7, align 8, !tbaa !3
@@ -690,7 +690,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @EVP_CipherInit_ex(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ctr_update(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef captures(address_is_null) %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ctr_update(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [48 x i8], align 16
   %10 = alloca i32, align 4
@@ -1151,7 +1151,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @EVP_CipherUpdate(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ctr_BCC_update(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ctr_BCC_update(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %5 = alloca [48 x i8], align 16
   %6 = alloca i32, align 4

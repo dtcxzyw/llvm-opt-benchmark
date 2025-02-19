@@ -1659,7 +1659,7 @@ declare i32 @proto_register_protocol(ptr noundef, ptr noundef, ptr noundef) loca
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @dissect_btsdp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #1 {
+define internal noundef i32 @dissect_btsdp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #1 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca ptr, align 8
@@ -3115,7 +3115,7 @@ declare zeroext i16 @tvb_get_ntohs(ptr noundef, i32 noundef) local_unnamed_addr 
 declare noalias ptr @wmem_array_new(ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_data_element(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_data_element(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #1 {
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %4)
   %7 = add i32 %4, 1
   %8 = and i8 %6, 7
@@ -7229,7 +7229,7 @@ declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #0
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef range(i32 0, 65536) %6, i32 noundef range(i32 0, 3) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef captures(address_is_null) %11, ptr noundef captures(address_is_null) %12, ptr noundef nonnull readonly captures(none) %13) unnamed_addr #1 {
+define internal fastcc void @reassemble_continuation_state(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 65536) %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef range(i32 0, 65536) %6, i32 noundef range(i32 0, 3) %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, ptr noundef %12, ptr noundef nonnull readonly captures(none) %13) unnamed_addr #1 {
   %15 = alloca [12 x %struct._wmem_tree_key_t], align 16
   %16 = alloca i32, align 4
   %17 = alloca i32, align 4
@@ -9313,7 +9313,7 @@ declare ptr @wmem_array_index(ptr noundef, i32 noundef) local_unnamed_addr #0
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #1 {
+define internal fastcc i32 @dissect_attribute_id_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4) unnamed_addr #1 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #10
   %.not = icmp eq ptr %4, null
@@ -9922,7 +9922,7 @@ get_type_length.exit22:                           ; preds = %get_type_length.exi
 declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #1 {
+define internal fastcc i32 @dissect_sdp_service_attribute_list(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef nonnull readonly captures(none) %5) unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct._uuid_t, align 8
   %9 = alloca [10 x %struct._wmem_tree_key_t], align 16
@@ -10453,7 +10453,7 @@ get_specified_uuid.exit:                          ; preds = %137, %.critedge.i
 declare void @add_new_data_source(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #1 {
+define internal fastcc void @dissect_sdp_service_attribute_list_array(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 8) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef nonnull readonly captures(none) %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #10
   %9 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %2)

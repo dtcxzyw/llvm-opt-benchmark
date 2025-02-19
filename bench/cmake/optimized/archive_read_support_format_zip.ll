@@ -1507,7 +1507,7 @@ define internal noundef i32 @archive_read_support_format_zip_capabilities_stream
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @archive_read_format_zip_has_encrypted_entries(ptr noundef readonly captures(address_is_null) %0) #5 {
+define internal i32 @archive_read_format_zip_has_encrypted_entries(ptr noundef readonly %0) #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -4733,7 +4733,7 @@ declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #14
 declare i32 @cm_zlib_inflate(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @check_authentication_code(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @check_authentication_code(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [20 x i8], align 16
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2072

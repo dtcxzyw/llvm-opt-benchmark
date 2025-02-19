@@ -1706,7 +1706,7 @@ T1_Compute_Max_Advance.exit:                      ; preds = %543
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @T1_Face_Done(ptr noundef captures(address_is_null) %0) #2 {
+define internal void @T1_Face_Done(ptr noundef %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %57, label %2
 
@@ -2986,7 +2986,7 @@ define internal noundef i32 @t1_ps_get_font_private(ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i64 1, 0) i64 @t1_ps_get_font_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) #2 {
+define internal range(i64 1, 0) i64 @t1_ps_get_font_value(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3, i64 noundef %4) #2 {
   %6 = tail call i64 @llvm.smax.i64(i64 %4, i64 0)
   switch i32 %1, label %.thread502 [
     i32 0, label %7
@@ -4828,7 +4828,7 @@ T1_Set_MM_Blend.exit:                             ; preds = %2, %._crit_edge9.i.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 7) i32 @T1_Set_MM_WeightVector(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #11 {
+define internal range(i32 0, 7) i32 @T1_Set_MM_WeightVector(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) #11 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 848
   %5 = load ptr, ptr %4, align 8, !tbaa !107
   %.not = icmp eq ptr %5, null

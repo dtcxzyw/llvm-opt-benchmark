@@ -493,7 +493,7 @@ do.end:                                           ; preds = %entry, %do.body, %i
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_755Edits12releaseArrayEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755Edits12releaseArrayEv(ptr noundef nonnull readonly align 8 dereferenceable(232) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -516,7 +516,7 @@ terminate.lpad:                                   ; preds = %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_755Edits9copyArrayERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_755Edits9copyArrayERKS0_(ptr noundef nonnull returned align 8 dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errorCode_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %errorCode_, align 8
@@ -677,7 +677,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_755EditsaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_755EditsaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(232) %this, ptr noundef nonnull readonly align 8 dereferenceable(232) %other) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end
@@ -854,7 +854,7 @@ _ZN6icu_755Edits9moveArrayERS0_.exit:             ; preds = %if.then.i, %if.then
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6icu_755EditsD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755EditsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(232) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %stackArray.i = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -877,7 +877,7 @@ _ZN6icu_755Edits12releaseArrayEv.exit:            ; preds = %entry, %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_755Edits12addUnchangedEi(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %this, i32 noundef %unchangedLength) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755Edits12addUnchangedEi(ptr noundef nonnull align 8 dereferenceable(232) %this, i32 noundef %unchangedLength) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errorCode_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %errorCode_, align 8
@@ -1128,7 +1128,7 @@ if.end19:                                         ; preds = %if.then.i54, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_755Edits6appendEi(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %this, i32 noundef %r) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755Edits6appendEi(ptr noundef nonnull align 8 dereferenceable(232) %this, i32 noundef %r) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %length = getelementptr inbounds nuw i8, ptr %this, i64 12
   %0 = load i32, ptr %length, align 4
@@ -1227,7 +1227,7 @@ if.end:                                           ; preds = %if.then3.i, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_755Edits10addReplaceEii(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %this, i32 noundef %oldLength, i32 noundef %newLength) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_755Edits10addReplaceEii(ptr noundef nonnull align 8 dereferenceable(232) %this, i32 noundef %oldLength, i32 noundef %newLength) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %errorCode_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i32, ptr %errorCode_, align 8
@@ -1635,7 +1635,7 @@ if.end136:                                        ; preds = %if.then.i103, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef signext range(i8 0, 2) i8 @_ZN6icu_755Edits9growArrayEv(ptr noundef nonnull align 8 captures(address) dereferenceable(232) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef signext range(i8 0, 2) i8 @_ZN6icu_755Edits9growArrayEv(ptr noundef nonnull align 8 dereferenceable(232) %this) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %stackArray = getelementptr inbounds nuw i8, ptr %this, i64 28
@@ -1737,7 +1737,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_755Edits14mergeAndAppendERKS0_S2_R10UErrorCode(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %ab, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %bc, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(232) ptr @_ZN6icu_755Edits14mergeAndAppendERKS0_S2_R10UErrorCode(ptr noundef nonnull returned align 8 dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %ab, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %bc, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) local_unnamed_addr #1 align 2 {
 entry:
   %abIter = alloca %"struct.icu_75::Edits::Iterator", align 8
   %bcIter = alloca %"struct.icu_75::Edits::Iterator", align 8

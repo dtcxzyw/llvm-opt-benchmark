@@ -1604,7 +1604,7 @@ mi_heap_recalloc.exit:                            ; preds = %mi_count_size_overf
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_heap_strdup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_heap_strdup(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %23, label %4
 
@@ -1654,7 +1654,7 @@ mi_heap_malloc.exit:                              ; preds = %4, %8
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_strdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define hidden noalias ptr @mi_strdup(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_mi_heap_default)
   %3 = load ptr, ptr %2, align 8, !tbaa !18
   %4 = icmp eq ptr %0, null

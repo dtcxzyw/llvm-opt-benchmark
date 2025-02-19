@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.CreateRoundtripXForm.States = private unnamed_addr constant [4 x double] [double 1.000000e+00, double 1.000000e+00, double 1.000000e+00, double 1.000000e+00], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsDetectBlackPoint(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsDetectBlackPoint(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3) local_unnamed_addr #0 {
   %5 = tail call i32 @cmsGetDeviceClass(ptr noundef %1) #7
   switch i32 %5, label %7 [
     i32 1852662636, label %6
@@ -90,7 +90,7 @@ declare i32 @cmsGetEncodedICCversion(ptr noundef) local_unnamed_addr #1
 declare i32 @cmsIsMatrixShaper(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BlackPointAsDarkerColorant(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @BlackPointAsDarkerColorant(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i32, align 4
   %6 = alloca %struct.cmsCIELab, align 8
@@ -178,7 +178,7 @@ define internal fastcc range(i32 0, 2) i32 @BlackPointAsDarkerColorant(ptr nound
 declare i32 @cmsGetColorSpace(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @BlackPointUsingPerceptualBlack(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @BlackPointUsingPerceptualBlack(ptr noundef writeonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [4 x i32], align 16
   %4 = alloca [4 x double], align 16
   %5 = alloca [4 x ptr], align 16

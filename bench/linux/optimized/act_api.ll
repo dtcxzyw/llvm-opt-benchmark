@@ -161,7 +161,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare dso_local i32 @sch_frag_xmit_hook(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @tcf_action_check_ctrlact(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcf_action_check_ctrlact(i32 noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) #0 align 16 {
   %5 = and i32 %0, -268435456
   %6 = icmp eq i32 %5, 0
   %7 = icmp samesign ugt i32 %0, 8
@@ -383,7 +383,7 @@ define dso_local noundef range(i32 0, 2) i32 @tcf_idr_release(ptr noundef %0, i1
 declare dso_local void @module_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) #0 align 16 {
+define dso_local i32 @tcf_generic_walker(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, i32 noundef %3, ptr noundef %4, ptr noundef writeonly %5) #0 align 16 {
   %7 = alloca i64, align 8
   %8 = alloca i32, align 4
   %9 = alloca i64, align 8
@@ -1450,7 +1450,7 @@ declare dso_local void @_raw_write_unlock(ptr noundef) local_unnamed_addr #2 sec
 declare dso_local void @unregister_pernet_subsys(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @tcf_unregister_action(ptr noundef captures(address) %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @tcf_unregister_action(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call void @_raw_write_lock(ptr noundef nonnull @act_mod_lock) #14
   br label %3
 
@@ -2897,7 +2897,7 @@ declare dso_local i32 @gnet_stats_copy_queue(ptr noundef, ptr noundef, ptr nound
 declare dso_local i32 @gnet_stats_finish_copy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @tcf_action_reoffload_cb(ptr noundef captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @tcf_action_reoffload_cb(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.flow_offload_action, align 8
   %5 = alloca [32 x ptr], align 16
   %6 = alloca i64, align 8
@@ -3252,7 +3252,7 @@ tcf_action_offload_del_ex.exit:                   ; preds = %90
 declare dso_local void @down_read(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tcf_action_offload_add_ex(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tcf_action_offload_add_ex(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = alloca [32 x ptr], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load i32, ptr %6, align 16
@@ -3582,7 +3582,7 @@ declare dso_local void @tc_cleanup_offload_action(ptr noundef) local_unnamed_add
 declare dso_local i32 @netlink_has_listeners(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @tca_get_fill(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 48, 51) %5, i32 noundef range(i32 0, 3) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 align 16 {
+define internal fastcc i32 @tca_get_fill(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i16 noundef zeroext %4, i32 noundef range(i32 48, 51) %5, i32 noundef range(i32 0, 3) %6, ptr noundef readonly %7) unnamed_addr #0 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 184

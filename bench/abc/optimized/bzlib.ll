@@ -231,7 +231,7 @@ define internal noalias noundef ptr @default_bzalloc(ptr readnone captures(none)
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @default_bzfree(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #7 {
+define internal void @default_bzfree(ptr readnone captures(none) %0, ptr noundef %1) #7 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -247,7 +247,7 @@ define internal void @default_bzfree(ptr readnone captures(none) %0, ptr noundef
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 -2, 5) i32 @BZ2_bzCompress(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %isempty_RL.exit.thread, label %4
 
@@ -869,7 +869,7 @@ isempty_RL.exit:                                  ; preds = %72, %69, %60, %57, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @BZ2_bzCompressEnd(ptr noundef captures(address) %0) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @BZ2_bzCompressEnd(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %39, label %3
 
@@ -1038,7 +1038,7 @@ define i32 @BZ2_indexIntoF(i32 noundef %0, ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BZ2_bzDecompress(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 {
+define i32 @BZ2_bzDecompress(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %unRLE_obuf_to_output_SMALL.exit.thread, label %3
 
@@ -2463,7 +2463,7 @@ unRLE_obuf_to_output_SMALL.exit.thread:           ; preds = %30, %unRLE_obuf_to_
 declare i32 @BZ2_decompress(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @BZ2_bzDecompressEnd(ptr noundef captures(address) %0) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @BZ2_bzDecompressEnd(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %39, label %3
 
@@ -2536,7 +2536,7 @@ define range(i32 -2, 1) i32 @BZ2_bzDecompressEnd(ptr noundef captures(address) %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
+define noundef ptr @BZ2_bzWriteOpen(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %6
 
@@ -2644,7 +2644,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define void @BZ2_bzWrite(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define void @BZ2_bzWrite(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %5
 
@@ -2837,13 +2837,13 @@ BZ2_bzCompress.exit:                              ; preds = %.split68.us.i
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @BZ2_bzWriteClose(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #4 {
+define void @BZ2_bzWriteClose(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #4 {
   tail call void @BZ2_bzWriteClose64(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null, ptr noundef %4, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @BZ2_bzWriteClose64(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #4 {
+define void @BZ2_bzWriteClose64(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #4 {
   %8 = icmp eq ptr %1, null
   br i1 %8, label %9, label %11
 
@@ -3220,7 +3220,7 @@ BZ2_bzCompressEnd.exit:                           ; preds = %119, %124, %151
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #4 {
+define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %7
 
@@ -3355,7 +3355,7 @@ define noundef ptr @BZ2_bzReadOpen(ptr noundef writeonly captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define void @BZ2_bzReadClose(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 {
+define void @BZ2_bzReadClose(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %.thread23
 
@@ -3471,7 +3471,7 @@ BZ2_bzDecompressEnd.exit:                         ; preds = %48, %21, %17, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @BZ2_bzRead(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define i32 @BZ2_bzRead(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %5
 
@@ -3695,7 +3695,7 @@ myfeof.exit96:                                    ; preds = %62
 declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @BZ2_bzReadGetUnused(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #13 {
+define void @BZ2_bzReadGetUnused(ptr noundef writeonly %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #13 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
 
@@ -3765,7 +3765,7 @@ define void @BZ2_bzReadGetUnused(ptr noundef writeonly captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
+define range(i32 -8, 1) i32 @BZ2_bzBuffToBuffCompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #4 {
   %8 = alloca %struct.bz_stream, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %8) #23
   %9 = icmp eq ptr %0, null
@@ -4028,7 +4028,7 @@ BZ2_bzCompressEnd.exit:                           ; preds = %BZ2_bzCompressEnd.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
+define range(i32 5, 4) i32 @BZ2_bzBuffToBuffDecompress(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #4 {
   %7 = alloca %struct.bz_stream, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #23
   %8 = icmp eq ptr %0, null
@@ -4274,13 +4274,13 @@ BZ2_bzDecompressInit.exit:                        ; preds = %120, %100, %97, %65
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @BZ2_bzopen(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
+define noundef ptr @BZ2_bzopen(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = tail call fastcc ptr @bzopen_or_bzdopen(ptr noundef %0, i32 noundef -1, ptr noundef %1, i32 noundef 0)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
+define internal fastcc noundef ptr @bzopen_or_bzdopen(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #4 {
   %5 = alloca [10 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #23
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %5, i8 0, i64 10, i1 false)
@@ -4464,7 +4464,7 @@ BZ2_bzWriteOpen.exit:                             ; preds = %52, %67, %71, %74, 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @BZ2_bzdopen(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #4 {
+define noundef ptr @BZ2_bzdopen(i32 noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = tail call fastcc ptr @bzopen_or_bzdopen(ptr noundef null, i32 noundef %0, ptr noundef %1, i32 noundef 1)
   ret ptr %3
 }

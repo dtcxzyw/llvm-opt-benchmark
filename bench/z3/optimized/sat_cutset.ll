@@ -5117,7 +5117,7 @@ if.end:                                           ; preds = %while.body, %if.els
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @_ZN3sat3cut11remove_elemEj(ptr noundef nonnull align 8 captures(address) dereferenceable(48) %this, i32 noundef %i) local_unnamed_addr #8 align 2 {
+define hidden void @_ZN3sat3cut11remove_elemEj(ptr noundef nonnull align 8 dereferenceable(48) %this, i32 noundef %i) local_unnamed_addr #8 align 2 {
 entry:
   %m_size = getelementptr inbounds nuw i8, ptr %this, i64 4
   %0 = load i32, ptr %m_size, align 4

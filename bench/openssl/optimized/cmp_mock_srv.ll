@@ -542,7 +542,7 @@ declare ptr @OSSL_CMP_SRV_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @OSSL_CMP_SRV_CTX_init(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @process_cert_request(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) #0 {
+define internal ptr @process_cert_request(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #0 {
   %9 = alloca ptr, align 8
   %10 = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %0) #4
   %11 = icmp eq ptr %10, null
@@ -911,7 +911,7 @@ refcert_cmp.exit.thread:                          ; preds = %30, %20, %17, %refc
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @process_genm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal range(i32 0, 2) i32 @process_genm(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %0) #4
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %1, null
@@ -993,7 +993,7 @@ define internal range(i32 0, 2) i32 @process_genm(ptr noundef %0, ptr noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @process_error(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal void @process_error(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %0) #4
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #4
@@ -1138,7 +1138,7 @@ define internal range(i32 0, 2) i32 @process_certConf(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @process_pollReq(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) #0 {
+define internal range(i32 0, 2) i32 @process_pollReq(ptr noundef %0, ptr noundef %1, i32 %2, ptr noundef writeonly %3, ptr noundef writeonly %4) #0 {
   %6 = tail call ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef %0) #4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread, label %7

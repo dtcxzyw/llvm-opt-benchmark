@@ -819,7 +819,7 @@ return:                                           ; preds = %if.then42, %if.end3
 declare ptr @internal_exr_match_decode(ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @exr_decoding_update(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef %cinfo, ptr noundef captures(address_is_null) %decode) local_unnamed_addr #0 {
+define i32 @exr_decoding_update(ptr noundef %ctxt, i32 noundef %part_index, ptr noundef %cinfo, ptr noundef %decode) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -1296,7 +1296,7 @@ return:                                           ; preds = %for.body12.us, %for
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @exr_decoding_destroy(ptr noundef readonly captures(address_is_null) %ctxt, ptr noundef %decode) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @exr_decoding_destroy(ptr noundef readonly %ctxt, ptr noundef %decode) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

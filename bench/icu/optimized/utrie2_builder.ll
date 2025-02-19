@@ -273,7 +273,7 @@ return:                                           ; preds = %if.end3.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @utrie2_clone_75(ptr noundef readonly captures(address_is_null) %other, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
+define noundef ptr @utrie2_clone_75(ptr noundef readonly %other, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #0 {
 entry:
   %0 = load i32, ptr %pErrorCode, align 4
   %cmp.i = icmp slt i32 %0, 1

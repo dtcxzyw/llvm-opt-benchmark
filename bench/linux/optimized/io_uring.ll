@@ -3650,7 +3650,7 @@ define internal void @perf_trace_io_uring_local_work_run(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @io_match_task_safe(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
+define dso_local zeroext i1 @io_match_task_safe(ptr noundef readonly %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #1 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %11, label %5
 
@@ -8495,7 +8495,7 @@ define internal void @io_activate_pollwq_cb(ptr noundef %0) #5 align 16 {
 declare dso_local i32 @task_work_add(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local void @io_uring_cancel_generic(i1 noundef zeroext %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 align 16 {
+define dso_local void @io_uring_cancel_generic(i1 noundef zeroext %0, ptr noundef readonly %1) local_unnamed_addr #5 align 16 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.wait_queue_entry, align 8
   %5 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #26, !srcloc !52
@@ -12515,7 +12515,7 @@ define internal fastcc zeroext i1 @io_uring_try_cancel_iowq(ptr noundef %0) unna
 declare dso_local i32 @io_wq_cancel_cb(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @io_cancel_task_cb(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
+define internal zeroext i1 @io_cancel_task_cb(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -208
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12651,7 +12651,7 @@ define internal fastcc void @io_iopoll_try_reap_events(ptr noundef %0) unnamed_a
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef zeroext i1 @io_cancel_defer_files(ptr noundef %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) unnamed_addr #5 align 16 {
+define internal fastcc noundef zeroext i1 @io_cancel_defer_files(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #5 align 16 {
   %4 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #24
   store ptr %4, ptr %4, align 8
@@ -12760,7 +12760,7 @@ declare dso_local zeroext i1 @io_futex_remove_all(ptr noundef, ptr noundef, i1 n
 declare dso_local zeroext i1 @io_kill_timeouts(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid optsize willreturn memory(argmem: read)
-define internal zeroext i1 @io_cancel_ctx_cb(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) #22 align 16 {
+define internal zeroext i1 @io_cancel_ctx_cb(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) #22 align 16 {
   %3 = getelementptr i8, ptr %0, i64 -120
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1

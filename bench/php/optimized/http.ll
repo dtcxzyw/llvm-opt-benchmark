@@ -72,7 +72,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.18 = private unnamed_addr constant [38 x i8] c"Invalid %s value in $options argument\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @php_url_encode_hash_ex(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local void @php_url_encode_hash_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16
   %11 = alloca ptr, align 8

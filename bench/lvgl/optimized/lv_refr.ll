@@ -36,7 +36,7 @@ define void @lv_refr_deinit() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_refr_now(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @lv_refr_now(ptr noundef readonly %0) local_unnamed_addr #1 {
   tail call void @lv_anim_refr_now() #9
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2

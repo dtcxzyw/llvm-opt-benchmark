@@ -55,7 +55,7 @@ define void @OSSL_SELF_TEST_set_callback(ptr noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OSSL_SELF_TEST_get_callback(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @OSSL_SELF_TEST_get_callback(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ossl_lib_ctx_get_data(ptr noundef %0, i32 noundef 12) #4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %5

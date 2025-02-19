@@ -3233,7 +3233,7 @@ define void @_ZN16meilisearch_auth14AuthController10delete_key17h8b41b0fa02276e4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(24) ptr @_ZN16meilisearch_auth14AuthController14get_master_key17h155fa7797ee5bcfdE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
+define noundef align 8 dereferenceable_or_null(24) ptr @_ZN16meilisearch_auth14AuthController14get_master_key17h155fa7797ee5bcfdE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #6 {
   %2 = load i64, ptr %0, align 8, !range !92, !noundef !27
   %3 = icmp eq i64 %2, -9223372036854775808
   %. = select i1 %3, ptr null, ptr %0

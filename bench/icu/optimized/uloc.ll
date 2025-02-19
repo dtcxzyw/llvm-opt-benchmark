@@ -2150,7 +2150,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_getKeywordValue_75(ptr noundef %localeID, ptr noundef captures(address_is_null) %keywordName, ptr noundef %buffer, i32 noundef %bufferCapacity, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uloc_getKeywordValue_75(ptr noundef %localeID, ptr noundef %keywordName, ptr noundef %buffer, i32 noundef %bufferCapacity, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %sink = alloca %"class.icu_75::CheckedArrayByteSink", align 8
   %0 = load i32, ptr %status, align 4
@@ -2201,7 +2201,7 @@ return:                                           ; preds = %entry, %cleanup
 declare void @_ZN6icu_7520CheckedArrayByteSinkC1EPci(ptr noundef nonnull align 8 dereferenceable(29), ptr noundef, i32 noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @ulocimp_getKeywordValue_75(ptr noundef %localeID, ptr noundef readonly captures(address_is_null) %keywordName, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @ulocimp_getKeywordValue_75(ptr noundef %localeID, ptr noundef readonly %keywordName, ptr noundef nonnull align 8 dereferenceable(8) %sink, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %keywordNameBuffer = alloca [25 x i8], align 16
   %localeKeywordNameBuffer = alloca [25 x i8], align 16
@@ -2568,7 +2568,7 @@ declare void @_ZN6icu_7518CharStringByteSinkD1Ev(ptr noundef nonnull align 8 der
 declare signext i8 @uprv_isASCIILetter_75(i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define i32 @uloc_setKeywordValue_75(ptr noundef readonly captures(address_is_null) %keywordName, ptr noundef readonly captures(address_is_null) %keywordValue, ptr noundef %buffer, i32 noundef %bufferCapacity, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @uloc_setKeywordValue_75(ptr noundef readonly %keywordName, ptr noundef readonly %keywordValue, ptr noundef %buffer, i32 noundef %bufferCapacity, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %keywordNameBuffer = alloca [25 x i8], align 16
   %keywordValueBuffer = alloca [97 x i8], align 16
@@ -3092,7 +3092,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6
 declare noundef i32 @_ZNK6icu_7510CharString7extractEPciR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(60), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @uloc_getCurrentCountryID_75(ptr noundef readonly captures(ret: address, provenance) %oldID) local_unnamed_addr #11 {
+define ptr @uloc_getCurrentCountryID_75(ptr noundef readonly %oldID) local_unnamed_addr #11 {
 entry:
   br label %while.cond1.preheader.i
 
@@ -3143,7 +3143,7 @@ return:                                           ; preds = %while.end.i, %_ZL10
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @uloc_getCurrentLanguageID_75(ptr noundef readonly captures(ret: address, provenance) %oldID) local_unnamed_addr #11 {
+define ptr @uloc_getCurrentLanguageID_75(ptr noundef readonly %oldID) local_unnamed_addr #11 {
 entry:
   br label %while.cond1.preheader.i
 
@@ -3194,7 +3194,7 @@ return:                                           ; preds = %while.end.i, %_ZL10
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z22ulocimp_getLanguage_75PKcPS0_R10UErrorCode(ptr noalias sret(%"class.icu_75::CharString") align 8 %agg.result, ptr noundef %localeID, ptr noundef writeonly captures(address_is_null) %pEnd, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z22ulocimp_getLanguage_75PKcPS0_R10UErrorCode(ptr noalias sret(%"class.icu_75::CharString") align 8 %agg.result, ptr noundef %localeID, ptr noundef writeonly %pEnd, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %agg.result)
@@ -3389,7 +3389,7 @@ declare i32 @uprv_strnicmp_75(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare void @_ZN6icu_7511StringPieceC1EPKc(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z20ulocimp_getScript_75PKcPS0_R10UErrorCode(ptr noalias sret(%"class.icu_75::CharString") align 8 %agg.result, ptr noundef %localeID, ptr noundef writeonly captures(address_is_null) %pEnd, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z20ulocimp_getScript_75PKcPS0_R10UErrorCode(ptr noalias sret(%"class.icu_75::CharString") align 8 %agg.result, ptr noundef %localeID, ptr noundef writeonly %pEnd, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %agg.result)
   %len.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 56
@@ -3495,7 +3495,7 @@ nrvo.skipdtor:                                    ; preds = %for.inc, %while.end
 declare signext i8 @uprv_toupper_75(i8 noundef signext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21ulocimp_getCountry_75PKcPS0_R10UErrorCode(ptr noalias sret(%"class.icu_75::CharString") align 8 %agg.result, ptr noundef %localeID, ptr noundef writeonly captures(address_is_null) %pEnd, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define void @_Z21ulocimp_getCountry_75PKcPS0_R10UErrorCode(ptr noalias sret(%"class.icu_75::CharString") align 8 %agg.result, ptr noundef %localeID, ptr noundef writeonly %pEnd, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.icu_75::StringPiece", align 8
   tail call void @_ZN6icu_7515MaybeStackArrayIcLi40EEC1Ev(ptr noundef nonnull align 8 dereferenceable(60) %agg.result)
@@ -6113,7 +6113,7 @@ while.end:                                        ; preds = %while.body, %entry
 declare ptr @uenum_unextDefault_75(ptr noundef, ptr noundef, ptr noundef) #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZL19uloc_kw_nextKeywordP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %en, ptr noundef writeonly captures(address_is_null) %resultLength, ptr readnone captures(none) %0) #13 {
+define internal noundef ptr @_ZL19uloc_kw_nextKeywordP12UEnumerationPiP10UErrorCode(ptr noundef readonly captures(none) %en, ptr noundef writeonly %resultLength, ptr readnone captures(none) %0) #13 {
 entry:
   %context = getelementptr inbounds nuw i8, ptr %en, i64 8
   %1 = load ptr, ptr %context, align 8

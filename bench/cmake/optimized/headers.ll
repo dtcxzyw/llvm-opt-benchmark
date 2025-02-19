@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [46 x i8] c"header_collect pushed(type=%x, len=%zu) -> %d\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 7) i32 @curl_easy_header(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
   %8 = icmp eq ptr %5, null
   %or.cond.not81.not87.not93 = or i1 %7, %8
@@ -189,7 +189,7 @@ declare ptr @Curl_node_next(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @curl_easy_nextheader(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 3144
   %6 = load i32, ptr %5, align 8, !tbaa !4
   %7 = icmp sgt i32 %2, %6

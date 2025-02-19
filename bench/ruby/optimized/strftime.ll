@@ -6074,7 +6074,7 @@ RSTRING_PTR.exit:                                 ; preds = %20, %26
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @buffer_size_check(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @buffer_size_check(ptr noundef readnone %0, ptr noundef %1, i64 noundef range(i64 1, 0) %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %9
 

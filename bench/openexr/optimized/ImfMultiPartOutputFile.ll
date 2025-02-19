@@ -1460,7 +1460,7 @@ declare noundef i32 @_ZN7Imf_3_223getChunkOffsetTableSizeERKNS_6HeaderE(ptr noun
 declare noundef zeroext i1 @_ZNK7Imf_3_26Header7hasTypeEv(ptr noundef nonnull align 8 dereferenceable(49)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7Imf_3_219MultiPartOutputFile4Data30overrideSharedAttributesValuesERKNS_6HeaderERS2_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(49) %src, ptr noundef nonnull align 8 dereferenceable(49) %dst) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7Imf_3_219MultiPartOutputFile4Data30overrideSharedAttributesValuesERKNS_6HeaderERS2_(ptr nonnull readnone align 8 captures(none) %this, ptr noundef nonnull readonly align 8 dereferenceable(49) %src, ptr noundef nonnull align 8 dereferenceable(49) %dst) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i69 = alloca %"class.Imf_3_2::Name", align 1
   %ref.tmp.i42 = alloca %"class.Imf_3_2::Name", align 1

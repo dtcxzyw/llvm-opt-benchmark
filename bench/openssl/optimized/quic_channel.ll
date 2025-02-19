@@ -973,13 +973,13 @@ define ptr @ossl_quic_channel_get_reactor(ptr noundef readonly captures(none) %0
 declare ptr @ossl_quic_port_get0_reactor(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_quic_channel_get_qsm(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define nonnull ptr @ossl_quic_channel_get_qsm(ptr noundef readnone %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 848
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_quic_channel_get_statm(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define nonnull ptr @ossl_quic_channel_get_statm(ptr noundef readnone %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 992
   ret ptr %2
 }
@@ -1085,7 +1085,7 @@ define ptr @ossl_quic_channel_get_stream_by_id(ptr noundef %0, i64 noundef %1) l
 declare ptr @ossl_quic_stream_map_get_by_id(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_quic_channel_is_active(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_quic_channel_is_active(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -1136,7 +1136,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_is_term_any(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_quic_channel_get_terminate_cause(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define ptr @ossl_quic_channel_get_terminate_cause(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = getelementptr i8, ptr %0, i64 1568
   %.val.i = load i64, ptr %2, align 8
   %3 = and i64 %.val.i, 6
@@ -4623,7 +4623,7 @@ define range(i32 0, 2) i32 @ossl_quic_channel_net_error(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_channel_restore_err_state(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @ossl_quic_channel_restore_err_state(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 

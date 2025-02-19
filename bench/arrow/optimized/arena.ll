@@ -736,7 +736,7 @@ _mi_os_numa_node_count.exit:                      ; preds = %8, %6, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %0, double noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 13) i32 @mi_reserve_huge_os_pages(i64 noundef %0, double noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   tail call void (ptr, ...) @_mi_warning_message(ptr noundef nonnull @.str.12) #6
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4

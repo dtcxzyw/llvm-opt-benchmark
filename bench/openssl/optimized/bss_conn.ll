@@ -749,7 +749,7 @@ BIO_CONNECT_new.exit:                             ; preds = %1, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @conn_free(ptr noundef captures(address_is_null) %0) #1 {
+define internal range(i32 0, 2) i32 @conn_free(ptr noundef %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 

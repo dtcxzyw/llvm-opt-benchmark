@@ -6001,7 +6001,7 @@ define internal range(i32 0, 2) i32 @script_41_inject_plain(ptr noundef captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @script_41_setup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define internal noundef i32 @script_41_setup(ptr noundef %0, ptr noundef readonly %1) #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread.i, label %4
 
@@ -6319,7 +6319,7 @@ define internal range(i32 0, 2) i32 @script_44_inject_plain(ptr noundef readonly
 declare i32 @ossl_quic_wire_encode_padding(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @force_ping(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define internal range(i32 0, 2) i32 @force_ping(ptr noundef captures(none) %0, ptr noundef readonly %1) #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread.i, label %4
 
@@ -6429,7 +6429,7 @@ s_lock.exit10:                                    ; preds = %46, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @wait_incoming_acks_increased(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define internal range(i32 0, 2) i32 @wait_incoming_acks_increased(ptr noundef captures(none) %0, ptr noundef readonly %1) #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread.i, label %4
 
@@ -6992,7 +6992,7 @@ define internal noundef i32 @init_reason(ptr readnone captures(none) %0, ptr rea
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @check_shutdown_reason(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define internal range(i32 0, 2) i32 @check_shutdown_reason(ptr noundef captures(none) %0, ptr noundef readonly %1) #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread.i, label %4
 
@@ -7384,7 +7384,7 @@ define internal range(i32 0, 2) i32 @script_68_inject_handshake(ptr noundef read
 declare i32 @qtest_fault_resize_message(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @set_max_early_data(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define internal range(i32 0, 2) i32 @set_max_early_data(ptr noundef captures(none) %0, ptr noundef readonly %1) #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread.i, label %4
 
@@ -7643,7 +7643,7 @@ define internal noundef i32 @setup_session(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @trigger_late_session_ticket(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define internal range(i32 0, 2) i32 @trigger_late_session_ticket(ptr noundef captures(none) %0, ptr noundef readonly %1) #1 {
   store i64 0, ptr @new_session_count, align 8, !tbaa !16
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread.i, label %4

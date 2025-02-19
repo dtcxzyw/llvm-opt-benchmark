@@ -1001,7 +1001,7 @@ define internal void @_ZNK12_GLOBAL__N_113CGPassManager16getAnalysisUsageERN4llv
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN12_GLOBAL__N_113CGPassManager18getAsPMDataManagerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(412) %0) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZN12_GLOBAL__N_113CGPassManager18getAsPMDataManagerEv(ptr noundef nonnull readnone align 8 dereferenceable(412) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   ret ptr %2
 }
@@ -1684,7 +1684,7 @@ _ZN4llvm12scc_iteratorIPNS_9CallGraphENS_11GraphTraitsIS2_EEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN12_GLOBAL__N_113CGPassManager9getAsPassEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(412) %0) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZN12_GLOBAL__N_113CGPassManager9getAsPassEv(ptr noundef nonnull readnone returned align 8 dereferenceable(412) %0) unnamed_addr #8 align 2 {
   ret ptr %0
 }
 
@@ -1711,7 +1711,7 @@ define internal void @_ZThn32_N12_GLOBAL__N_113CGPassManagerD0Ev(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZThn32_N12_GLOBAL__N_113CGPassManager9getAsPassEv(ptr noundef readnone captures(ret: address, provenance) %0) unnamed_addr #8 align 2 {
+define internal noundef nonnull ptr @_ZThn32_N12_GLOBAL__N_113CGPassManager9getAsPassEv(ptr noundef readnone %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -32
   ret ptr %2
 }
@@ -2761,7 +2761,7 @@ declare void @_ZN4llvm13PMDataManager23recordAvailableAnalysisEPNS_4PassE(ptr no
 declare void @_ZN4llvm13PMDataManager16removeDeadPassesEPNS_4PassENS_9StringRefENS_19PassDebuggingStringE(ptr noundef nonnull align 8 dereferenceable(380), ptr noundef, ptr, i64, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb(ptr readonly captures(address) %.16.val, ptr readnone captures(address) %.24.val, ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_113CGPassManager16RefreshCallGraphERKN4llvm12CallGraphSCCERNS1_9CallGraphEb(ptr readonly %.16.val, ptr readnone %.24.val, ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #1 align 2 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.std::optional.203", align 8
   %4 = alloca ptr, align 8

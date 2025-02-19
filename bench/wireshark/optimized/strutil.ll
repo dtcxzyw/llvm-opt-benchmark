@@ -81,7 +81,7 @@ declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: readwrite) uwtable
-define i32 @get_token_len(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
+define i32 @get_token_len(ptr noundef %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #3 {
   %4 = ptrtoint ptr %1 to i64
   %5 = ptrtoint ptr %0 to i64
   %6 = icmp ult ptr %0, %1
@@ -142,7 +142,7 @@ define i32 @get_token_len(ptr noundef %0, ptr noundef readnone captures(address)
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @hex_str_to_bytes(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define noundef zeroext i1 @hex_str_to_bytes(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
   %4 = alloca i8, align 1
   %5 = alloca [3 x i8], align 1
   %6 = alloca [3 x i8], align 1
@@ -351,7 +351,7 @@ declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 nound
 declare ptr @g_byte_array_append(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
+define noundef zeroext i1 @hex_str_to_bytes_encoding(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #14
   %.not = icmp eq ptr %1, null
@@ -656,7 +656,7 @@ define noundef zeroext i1 @uri_str_to_bytes(ptr noundef %0, ptr noundef %1) loca
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @byte_array_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define noundef ptr @byte_array_dup(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -677,13 +677,13 @@ define noundef ptr @byte_array_dup(ptr noundef readonly captures(address_is_null
 declare ptr @g_byte_array_new() local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @oid_str_to_bytes(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #4 {
+define noundef zeroext i1 @oid_str_to_bytes(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = tail call zeroext i1 @rel_oid_str_to_bytes(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret i1 %3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(address) %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
+define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #4 {
   %4 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %4) #14
   %5 = tail call ptr @g_byte_array_set_size(ptr noundef %1, i32 noundef 0)
@@ -886,7 +886,7 @@ define noundef zeroext i1 @rel_oid_str_to_bytes(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define zeroext i1 @byte_array_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define zeroext i1 @byte_array_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

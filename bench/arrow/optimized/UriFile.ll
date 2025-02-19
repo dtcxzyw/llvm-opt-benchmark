@@ -238,7 +238,7 @@ uriFilenameToUriStringA.exit:                     ; preds = %2, %.split.us.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @uriUriStringToUnixFilenameA(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @uriUriStringToUnixFilenameA(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -275,7 +275,7 @@ uriUriStringToFilenameA.exit:                     ; preds = %2, %.thread58.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameA(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @uriUriStringToWindowsFilenameA(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4

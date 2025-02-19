@@ -219,7 +219,7 @@ SUNBandMatrixStorage.exit:                        ; preds = %.lr.ph.i, %1
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @SUNMatDestroy_Band(ptr noundef captures(address_is_null) %0) #3 {
+define void @SUNMatDestroy_Band(ptr noundef %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 

@@ -1272,7 +1272,7 @@ declare i32 @EVP_PKEY_get_utf8_string_param(ptr noundef, ptr noundef, ptr nounde
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -2147483648, 2147483648) i64 @bio_dump_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #0 {
+define range(i64 -2147483648, 2147483648) i64 @bio_dump_callback(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, i64 noundef %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #0 {
   %9 = tail call ptr @BIO_get_callback_arg(ptr noundef %0) #6
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
@@ -1907,7 +1907,7 @@ define void @ssl_ctx_set_excert(ptr noundef %0, ptr noundef %1) local_unnamed_ad
 declare void @SSL_CTX_set_cert_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @set_cert_cb(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal range(i32 0, 2) i32 @set_cert_cb(ptr noundef %0, ptr noundef readonly %1) #0 {
   tail call void @SSL_certs_clear(ptr noundef %0) #6
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %.preheader39

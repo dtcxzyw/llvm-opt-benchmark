@@ -106,7 +106,7 @@ declare ptr @BIO_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @BIO_asn1_set_prefix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_prefix(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal range(i32 0, 2) i32 @ndef_prefix(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
   %.not = icmp eq ptr %3, null
@@ -153,7 +153,7 @@ define internal range(i32 0, 2) i32 @ndef_prefix(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal range(i32 0, 2) i32 @ndef_prefix_free(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #4 {
+define internal range(i32 0, 2) i32 @ndef_prefix_free(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3) #4 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %11, label %5
 
@@ -182,7 +182,7 @@ define internal range(i32 0, 2) i32 @ndef_prefix_free(ptr readnone captures(none
 declare i32 @BIO_asn1_set_suffix(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ndef_suffix(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal range(i32 0, 2) i32 @ndef_suffix(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.ASN1_STREAM_ARG_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #7
@@ -255,7 +255,7 @@ define internal range(i32 0, 2) i32 @ndef_suffix(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal range(i32 0, 2) i32 @ndef_suffix_free(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3) #4 {
+define internal range(i32 0, 2) i32 @ndef_suffix_free(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) #4 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %ndef_prefix_free.exit.thread, label %5
 

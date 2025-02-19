@@ -117,7 +117,7 @@ define internal ptr @H5G__node_get_shared(ptr noundef %0, ptr readnone captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5G__node_create(ptr noundef %0, i32 %1, ptr noundef writeonly captures(address_is_null) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(none) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5G__node_create(ptr noundef %0, i32 %1, ptr noundef writeonly %2, ptr readnone captures(none) %3, ptr noundef writeonly %4, ptr noundef captures(none) %5) #0 {
   %7 = load i8, ptr @H5G_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %8 = trunc nuw i8 %7 to i1
   %9 = load i8, ptr @H5_libterm_g, align 1, !range !7

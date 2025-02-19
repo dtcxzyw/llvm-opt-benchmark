@@ -90,7 +90,7 @@ ossl_cms_ctx_get0_propq.exit:                     ; preds = %.thread, %6, %9
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ossl_cms_get0_cmsctx(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
+define ptr @ossl_cms_get0_cmsctx(ptr noundef readnone %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = select i1 %.not, ptr null, ptr %2
@@ -100,7 +100,7 @@ define ptr @ossl_cms_get0_cmsctx(ptr noundef readnone captures(address_is_null, 
 declare ptr @ASN1_item_d2i_ex(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_cms_ctx_get0_libctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @ossl_cms_ctx_get0_libctx(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -114,7 +114,7 @@ define ptr @ossl_cms_ctx_get0_libctx(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_cms_ctx_get0_propq(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @ossl_cms_ctx_get0_propq(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -334,7 +334,7 @@ CMS_set_detached.exit:                            ; preds = %2, %11, %25, %.thre
 declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMS_set_detached(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMS_set_detached(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @CMS_get0_content(ptr noundef %0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %17, label %5
@@ -379,7 +379,7 @@ define range(i32 0, 2) i32 @CMS_set_detached(ptr noundef captures(address) %0, i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_cms_content_bio(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define ptr @ossl_cms_content_bio(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @CMS_get0_content(ptr noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %22, label %4
@@ -418,7 +418,7 @@ define ptr @ossl_cms_content_bio(ptr noundef captures(address) %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get0_content(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @CMS_get0_content(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !13
   %3 = tail call i32 @OBJ_obj2nid(ptr noundef %2) #5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -872,7 +872,7 @@ declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #1
 declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @CMS_is_detached(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @CMS_is_detached(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @CMS_get0_content(ptr noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
@@ -893,7 +893,7 @@ declare void @ASN1_OCTET_STRING_free(ptr noundef) local_unnamed_addr #1
 declare ptr @ASN1_OCTET_STRING_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_cms_DigestAlgorithm_init_bio(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @ossl_cms_DigestAlgorithm_init_bio(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca [50 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
@@ -1371,7 +1371,7 @@ define ptr @CMS_get1_certs(ptr noundef readonly captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_get1_certs_ex(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_get1_certs_ex(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %4
 
@@ -1487,7 +1487,7 @@ define ptr @CMS_get1_crls(ptr noundef readonly captures(none) %0) local_unnamed_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cms_get1_crls_ex(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cms_get1_crls_ex(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %cms_get0_revocation_choices.exit.thread, label %4
 

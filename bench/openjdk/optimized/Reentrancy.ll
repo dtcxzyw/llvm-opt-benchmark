@@ -46,7 +46,7 @@ assertTLSValue.exit:                              ; preds = %10, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @assertTLSValue(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define hidden void @assertTLSValue(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   store ptr inttoptr (i64 2576980377 to ptr), ptr %4, align 8
   %5 = load ptr, ptr %0, align 8

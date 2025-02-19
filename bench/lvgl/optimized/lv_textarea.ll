@@ -966,7 +966,7 @@ declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 declare void @lv_label_ins_text(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_textarea_clear_selection(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_textarea_clear_selection(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1135,7 +1135,7 @@ define void @lv_textarea_set_cursor_pos(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_textarea_get_cursor_pos(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_textarea_get_cursor_pos(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1326,7 +1326,7 @@ insert_handler.exit.thread:                       ; preds = %25, %lv_textarea_ge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_textarea_get_accepted_chars(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_textarea_get_accepted_chars(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1340,7 +1340,7 @@ define ptr @lv_textarea_get_accepted_chars(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_textarea_get_max_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_textarea_get_max_length(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1938,7 +1938,7 @@ lv_textarea_get_cursor_pos.exit:                  ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_textarea_set_cursor_click_pos(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
+define void @lv_textarea_set_cursor_click_pos(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2149,7 +2149,7 @@ declare zeroext i1 @lv_obj_remove_local_style_prop(ptr noundef, i8 noundef zeroe
 declare void @lv_obj_scroll_to(ptr noundef, i32 noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_textarea_set_accepted_chars(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #5 {
+define void @lv_textarea_set_accepted_chars(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2163,7 +2163,7 @@ define void @lv_textarea_set_accepted_chars(ptr noundef writeonly captures(addre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_textarea_set_max_length(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @lv_textarea_set_max_length(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2177,7 +2177,7 @@ define void @lv_textarea_set_max_length(ptr noundef writeonly captures(address_i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: none, inaccessiblemem: none) uwtable
-define void @lv_textarea_set_insert_replace(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define void @lv_textarea_set_insert_replace(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2190,7 +2190,7 @@ define void @lv_textarea_set_insert_replace(ptr noundef readnone captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_textarea_set_text_selection(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define void @lv_textarea_set_text_selection(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -2285,7 +2285,7 @@ declare void @lv_obj_set_style_text_align(ptr noundef, i32 noundef, i32 noundef)
 declare void @lv_obj_align(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_textarea_get_label(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_textarea_get_label(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2299,7 +2299,7 @@ define ptr @lv_textarea_get_label(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_textarea_get_text(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @lv_textarea_get_text(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2330,7 +2330,7 @@ define ptr @lv_textarea_get_text(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define nonnull ptr @lv_textarea_get_placeholder_text(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_textarea_get_placeholder_text(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2346,7 +2346,7 @@ define nonnull ptr @lv_textarea_get_placeholder_text(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_textarea_get_cursor_click_pos(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_textarea_get_cursor_click_pos(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2362,7 +2362,7 @@ define zeroext i1 @lv_textarea_get_cursor_click_pos(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_textarea_get_password_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_textarea_get_password_mode(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2408,7 +2408,7 @@ define nonnull ptr @lv_textarea_get_password_bullet(ptr noundef %0) local_unname
 declare zeroext i1 @lv_font_get_glyph_dsc(ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_textarea_get_one_line(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_textarea_get_one_line(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2424,7 +2424,7 @@ define zeroext i1 @lv_textarea_get_one_line(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_textarea_text_is_selected(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define zeroext i1 @lv_textarea_text_is_selected(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2454,7 +2454,7 @@ declare i32 @lv_label_get_text_selection_start(ptr noundef) local_unnamed_addr #
 declare i32 @lv_label_get_text_selection_end(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_textarea_get_text_selection(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define zeroext i1 @lv_textarea_get_text_selection(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2470,7 +2470,7 @@ define zeroext i1 @lv_textarea_get_text_selection(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_textarea_get_password_show_time(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @lv_textarea_get_password_show_time(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -2484,7 +2484,7 @@ define i32 @lv_textarea_get_password_show_time(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_textarea_get_current_char(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @lv_textarea_get_current_char(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3

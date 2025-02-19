@@ -183,7 +183,7 @@ define noundef i32 @casadi_c_real_width() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @casadi_c_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define i32 @casadi_c_id(ptr noundef readonly %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca i64, align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #23

@@ -1330,7 +1330,7 @@ define dso_local noundef range(i32 -75, 1) i32 @xfrm_replay_overflow(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @xfrm_init_replay(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #3 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @xfrm_init_replay(ptr noundef captures(none) %0, ptr noundef writeonly %1) #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

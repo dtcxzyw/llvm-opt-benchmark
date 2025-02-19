@@ -37,7 +37,7 @@ define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @ENGINE_get_static_state() #10
   %5 = load ptr, ptr %2, align 8, !tbaa !3
   %6 = icmp eq ptr %4, %5
@@ -131,7 +131,7 @@ define internal range(i32 0, 2) i32 @padlock_init(ptr readnone captures(none) %0
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 16) i32 @padlock_ciphers(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #1 {
+define internal range(i32 0, 16) i32 @padlock_ciphers(ptr readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %6
 
@@ -1144,7 +1144,7 @@ declare i32 @EVP_CIPHER_meth_set_flags(ptr noundef, i64 noundef) local_unnamed_a
 declare i32 @EVP_CIPHER_meth_set_init(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, i32 noundef %3) #1 {
+define internal range(i32 0, 2) i32 @padlock_aes_init_key(ptr noundef %0, ptr noundef readonly %1, ptr readnone captures(none) %2, i32 noundef %3) #1 {
   %5 = tail call i32 @EVP_CIPHER_CTX_get_key_length(ptr noundef %0) #10
   %6 = shl nsw i32 %5, 3
   %7 = tail call ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef %0) #10
@@ -1382,7 +1382,7 @@ declare i32 @EVP_CIPHER_CTX_is_encrypting(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #8 {
+define internal fastcc range(i32 -2, 1) i32 @padlock_aes_set_encrypt_key(ptr noundef nonnull readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #8 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %4
 

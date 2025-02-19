@@ -88,7 +88,7 @@ define internal range(i32 0, 2) i32 @dlfcn_load(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @dlfcn_unload(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal range(i32 0, 2) i32 @dlfcn_unload(ptr noundef readonly %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -129,7 +129,7 @@ define internal range(i32 0, 2) i32 @dlfcn_unload(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @dlfcn_bind_func(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #1 {
+define internal ptr @dlfcn_bind_func(ptr noundef readonly %0, ptr noundef %1) #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

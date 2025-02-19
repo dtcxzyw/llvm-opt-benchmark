@@ -772,7 +772,7 @@ define internal noundef i32 @rar5_capabilities(ptr readnone captures(none) %0) #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @rar5_has_encrypted_entries(ptr noundef readonly captures(address_is_null) %0) #6 {
+define internal i32 @rar5_has_encrypted_entries(ptr noundef readonly %0) #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -1104,7 +1104,7 @@ define internal fastcc range(i32 0, 2) i32 @read_u32(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @read_var_sized(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @read_var_sized(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %.not = icmp eq ptr %2, null
@@ -3527,7 +3527,7 @@ verify_checksums.exit:                            ; preds = %1, %12, %13, %21, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @do_unstore_file(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc i32 @do_unstore_file(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 19368
   %8 = load i64, ptr %7, align 8, !tbaa !67

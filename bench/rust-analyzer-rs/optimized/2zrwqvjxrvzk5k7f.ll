@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.de2cdd08407cf613c7b8f189fb1ed914.0 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$i32$GT$17hb6854b15ff579d4bE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17had363ecabdb73439E" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN104_$LT$rowan..api..SyntaxNode$LT$L$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$4from17h0a7c4e392651e418E.llvm.10524984205779628349"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #0 {
+define hidden noundef nonnull ptr @"_ZN104_$LT$rowan..api..SyntaxNode$LT$L$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$4from17h0a7c4e392651e418E.llvm.10524984205779628349"(ptr noundef nonnull readnone returned %0) unnamed_addr #0 {
   ret ptr %0
 }
 
@@ -20,7 +20,7 @@ define hidden { i64, ptr } @_ZN4core3ops8function6FnOnce9call_once17h8e1fb8c5bb6
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hb613a72e04c7911fE.llvm.10524984205779628349(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #2 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hb613a72e04c7911fE.llvm.10524984205779628349(ptr noundef nonnull readnone returned %0) unnamed_addr #2 {
   ret ptr %0
 }
 

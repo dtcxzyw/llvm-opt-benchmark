@@ -699,7 +699,7 @@ _ZNSt12__shared_ptrIKN12cmConstStackI17cmListFileContext19cmListFileBacktraceE5E
 declare void @_ZNK17cmGeneratorTarget20IsTransitivePropertyESt17basic_string_viewIcSt11char_traitsIcEEPK16cmLocalGeneratorRKNSt7__cxx1112basic_stringIcS2_SaIcEEEb(ptr dead_on_unwind writable sret(%"class.std::optional") align 8, ptr noundef nonnull align 8 dereferenceable(2912), i64, ptr, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i1 noundef zeroext) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker23EvaluatingLinkLibrariesEPK17cmGeneratorTargetNS_8ForGenexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(135) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZNK31cmGeneratorExpressionDAGChecker23EvaluatingLinkLibrariesEPK17cmGeneratorTargetNS_8ForGenexE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(135) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24

@@ -3711,7 +3711,7 @@ define internal void @PreeditDoneCallback(ptr readnone captures(none) %0, ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @PreeditDrawCallback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #2 {
+define internal void @PreeditDrawCallback(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly %2) #2 {
   %4 = alloca %struct.timeval, align 8
   %5 = load ptr, ptr @jvm, align 8
   %6 = tail call ptr @JNU_GetEnv(ptr noundef %5, i32 noundef 65538) #14

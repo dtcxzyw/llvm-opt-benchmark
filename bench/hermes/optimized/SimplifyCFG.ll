@@ -41,7 +41,7 @@ $_ZN6hermes11SimplifyCFGD0Ev = comdat any
 @.str = private unnamed_addr constant [12 x i8] c"SimplifyCFG\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes11SimplifyCFG13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes11SimplifyCFG13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
   %users.i.i = alloca %"class.llvh::SmallVector", align 8
   %visited.i = alloca %"class.llvh::SmallPtrSet.55", align 8

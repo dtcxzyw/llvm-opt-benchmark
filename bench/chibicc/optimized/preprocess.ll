@@ -4238,7 +4238,7 @@ define internal fastcc noalias noundef ptr @read_macro_arg_one(ptr noundef nonnu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @join_tokens(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #11 {
+define internal fastcc ptr @join_tokens(ptr noundef readonly %0, ptr noundef readnone %1) unnamed_addr #11 {
   %.not41 = icmp eq ptr %0, %1
   br i1 %.not41, label %.critedge.thread, label %.lr.ph
 

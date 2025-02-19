@@ -1403,7 +1403,7 @@ define internal range(i32 -1, 2) i32 @gt(ptr noundef readonly captures(none) %0,
 declare void @agerrorf(ptr noundef, ...) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef %4) unnamed_addr #11 {
+define internal fastcc range(i32 0, 2) i32 @intpoint(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, i32 noundef %4) unnamed_addr #11 {
   %6 = icmp slt i32 %4, 1
   br i1 %6, label %online.exit204.thread, label %7
 
@@ -1773,7 +1773,7 @@ online.exit204.thread:                            ; preds = %online.exit204.thre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -1, 2) i32 @online(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #9 {
+define internal fastcc range(i32 -1, 2) i32 @online(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 0, -2147483648) %2) unnamed_addr #9 {
   %.sroa.07.0.copyload = load double, ptr %0, align 8, !tbaa !23
   %.sroa.610.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   %.sroa.610.0.copyload = load double, ptr %.sroa.610.0..sroa_idx, align 8, !tbaa !23
@@ -1895,7 +1895,7 @@ between.exit24:                                   ; preds = %54, %52, %50, %48, 
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @putSeg(i32 noundef range(i32 1, 3) %0, ptr noundef readonly captures(address) %1) unnamed_addr #12 {
+define internal fastcc void @putSeg(i32 noundef range(i32 1, 3) %0, ptr noundef readonly %1) unnamed_addr #12 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !3
   %4 = load double, ptr %1, align 8, !tbaa !27
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8

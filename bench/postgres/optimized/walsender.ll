@@ -2336,7 +2336,7 @@ declare void @GetPGVariable(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @CommitTransactionCommand() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetStandbyFlushRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local i64 @GetStandbyFlushRecPtr(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #17
@@ -5001,7 +5001,7 @@ declare void @pq_beginmessage(ptr noundef, i8 noundef signext) local_unnamed_add
 declare void @pq_endmessage(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @WalSndLoop(ptr noundef readonly captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @WalSndLoop(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.WaitEvent, align 8
   %3 = alloca %struct.QueryCompletion, align 8
   %4 = tail call i64 @GetCurrentTimestamp() #17

@@ -326,7 +326,7 @@ declare void @_ZN6icu_7522RuleBasedBreakIteratorC1EPKhjR10UErrorCode(ptr noundef
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ubrk_safeClone_75(ptr noundef %bi, ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %pBufferSize, ptr noundef captures(address_is_null) %status) local_unnamed_addr #0 {
+define noundef ptr @ubrk_safeClone_75(ptr noundef %bi, ptr noundef readnone captures(none) %0, ptr noundef %pBufferSize, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -372,7 +372,7 @@ return:                                           ; preds = %if.end9, %return.si
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ubrk_clone_75(ptr noundef %bi, ptr noundef captures(address_is_null) %status) local_unnamed_addr #0 {
+define noundef ptr @ubrk_clone_75(ptr noundef %bi, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %status, null
   br i1 %cmp.i, label %ubrk_safeClone_75.exit, label %lor.lhs.false.i
@@ -591,7 +591,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @ubrk_getBinaryRules_75(ptr noundef %bi, ptr noundef writeonly captures(address_is_null) %binaryRules, i32 noundef %rulesCapacity, ptr noundef captures(none) %status) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @ubrk_getBinaryRules_75(ptr noundef %bi, ptr noundef writeonly %binaryRules, i32 noundef %rulesCapacity, ptr noundef captures(none) %status) local_unnamed_addr #0 {
 entry:
   %rulesLength = alloca i32, align 4
   %0 = load i32, ptr %status, align 4

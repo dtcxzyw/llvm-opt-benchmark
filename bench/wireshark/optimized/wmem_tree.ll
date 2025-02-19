@@ -378,7 +378,7 @@ define hidden ptr @wmem_tree_insert_node(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @rb_insert_case1(ptr noundef captures(none) %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @rb_insert_case1(ptr noundef captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %7
@@ -681,7 +681,7 @@ define void @wmem_tree_insert32(ptr noundef captures(none) %0, i32 noundef %1, p
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @lookup_or_insert32(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8
   %.not.i = icmp eq ptr %8, null
@@ -899,7 +899,7 @@ lookup_or_insert32_node.exit:                     ; preds = %53, %.split.us.i, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -943,7 +943,7 @@ define noundef zeroext i1 @wmem_tree_contains32(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_node.exit.thread, label %3
 
@@ -992,7 +992,7 @@ wmem_tree_lookup32_node.exit.thread:              ; preds = %17, %3, %2, %wmem_t
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_le(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32_le(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_le_node.exit.thread, label %3
 
@@ -1083,7 +1083,7 @@ wmem_tree_lookup32_le_node.exit.thread:           ; preds = %40, %28, %3, %2, %w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_le_full(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
+define ptr @wmem_tree_lookup32_le_full(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_le_node.exit.thread, label %4
 
@@ -1179,7 +1179,7 @@ wmem_tree_lookup32_le_node.exit.thread:           ; preds = %41, %29, %4, %3, %w
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_ge(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32_ge(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %3
 
@@ -1280,7 +1280,7 @@ wmem_tree_lookup32_ge_node.exit.thread:           ; preds = %44, %.thread, %3, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_ge_full(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
+define ptr @wmem_tree_lookup32_ge_full(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_ge_node.exit.thread, label %4
 
@@ -1386,7 +1386,7 @@ wmem_tree_lookup32_ge_node.exit.thread:           ; preds = %45, %.thread, %4, %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @wmem_tree_remove32(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @wmem_tree_remove32(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %wmem_tree_lookup32_node.exit.thread, label %3
 
@@ -2251,7 +2251,7 @@ declare i32 @g_ascii_strcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @wmem_tree_lookup_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @wmem_tree_lookup_string(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
   %5 = icmp eq ptr %0, null
@@ -2321,7 +2321,7 @@ wmem_tree_lookup.exit:                            ; preds = %12, %19, %wmem_tree
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @wmem_tree_remove_string(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @wmem_tree_remove_string(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not.i = icmp eq i32 %4, 0
   %5 = icmp eq ptr %0, null
@@ -2396,7 +2396,7 @@ wmem_tree_lookup_string.exit.thread:              ; preds = %12, %19, %14, %.spl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wmem_tree_insert32_array(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @wmem_tree_insert32_array(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %.not25 = icmp eq i32 %4, 0
   br i1 %.not25, label %._crit_edge29, label %.preheader.lr.ph
@@ -2572,7 +2572,7 @@ lookup_or_insert32.exit:                          ; preds = %.preheader.split.sp
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_array(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32_array(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4
@@ -2688,7 +2688,7 @@ wmem_tree_lookup32_array_helper.exit:             ; preds = %9, %wmem_tree_looku
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define ptr @wmem_tree_lookup32_array_le(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define ptr @wmem_tree_lookup32_array_le(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond.i = and i1 %3, %4

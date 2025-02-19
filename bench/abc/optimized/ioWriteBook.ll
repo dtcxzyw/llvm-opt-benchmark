@@ -114,7 +114,7 @@ declare ptr @Abc_NtkToNetlist(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteBook(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @Io_WriteBook(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #16
   %4 = add i64 %3, 7
   %5 = tail call noalias ptr @calloc(i64 noundef %4, i64 noundef 1) #17

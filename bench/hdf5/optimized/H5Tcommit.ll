@@ -3079,7 +3079,7 @@ define ptr @H5T_get_named_type(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5T_get_actual_type(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @H5T_get_actual_type(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7

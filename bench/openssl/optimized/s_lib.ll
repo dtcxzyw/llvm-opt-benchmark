@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [10 x i8] c"raw-bytes\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_SKEY_export(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @EVP_SKEY_export(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -308,7 +308,7 @@ EVP_SKEY_free.exit:                               ; preds = %30, %CRYPTO_DOWN_RE
 declare ptr @evp_skeymgmt_generate(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_SKEY_get_raw_key(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @EVP_SKEY_get_raw_key(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.raw_key_details_st, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7
   %5 = icmp eq ptr %0, null
@@ -393,7 +393,7 @@ define range(i32 0, 2) i32 @EVP_SKEY_up_ref(ptr noundef captures(none) %0) local
 declare void @evp_skeymgmt_freedata(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_SKEY_get0_key_id(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_SKEY_get0_key_id(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -417,7 +417,7 @@ define ptr @EVP_SKEY_get0_key_id(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @EVP_SKEY_get0_skeymgmt_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @EVP_SKEY_get0_skeymgmt_name(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -434,7 +434,7 @@ define ptr @EVP_SKEY_get0_skeymgmt_name(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_SKEY_get0_provider_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_SKEY_get0_provider_name(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -454,7 +454,7 @@ define ptr @EVP_SKEY_get0_provider_name(ptr noundef readonly captures(address_is
 declare ptr @ossl_provider_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_SKEY_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @EVP_SKEY_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 
@@ -476,7 +476,7 @@ define i32 @EVP_SKEY_is_a(ptr noundef readonly captures(address_is_null) %0, ptr
 declare i32 @EVP_SKEYMGMT_is_a(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @EVP_SKEY_to_provider(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef ptr @EVP_SKEY_to_provider(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.transfer_cb_ctx, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)

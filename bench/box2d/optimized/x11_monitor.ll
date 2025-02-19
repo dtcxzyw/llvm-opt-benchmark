@@ -820,7 +820,7 @@ define hidden void @_glfwFreeMonitorX11(ptr noundef readnone captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwGetMonitorPosX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden void @_glfwGetMonitorPosX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142064), align 8, !tbaa !3
   %5 = icmp eq i32 %4, 0
   %6 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142100), align 4
@@ -876,7 +876,7 @@ define hidden void @_glfwGetMonitorPosX11(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define hidden void @_glfwGetMonitorContentScaleX11(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define hidden void @_glfwGetMonitorContentScaleX11(ptr noundef readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -899,7 +899,7 @@ define hidden void @_glfwGetMonitorContentScaleX11(ptr noundef readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwGetMonitorWorkareaX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden void @_glfwGetMonitorWorkareaX11(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142064), align 8, !tbaa !3

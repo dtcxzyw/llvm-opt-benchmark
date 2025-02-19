@@ -541,7 +541,7 @@ define internal fastcc void @lv_spinbox_updatevalue(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_spinbox_set_rollover(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+define void @lv_spinbox_set_rollover(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -722,7 +722,7 @@ define void @lv_spinbox_set_digit_step_direction(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_spinbox_get_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @lv_spinbox_get_value(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -736,7 +736,7 @@ define i32 @lv_spinbox_get_value(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_spinbox_get_step(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @lv_spinbox_get_step(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -799,7 +799,7 @@ define void @lv_spinbox_step_prev(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_spinbox_get_rollover(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define zeroext i1 @lv_spinbox_get_rollover(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

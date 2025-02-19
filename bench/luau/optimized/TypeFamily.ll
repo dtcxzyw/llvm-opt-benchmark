@@ -11428,7 +11428,7 @@ _ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev.exit132: ; preds = %_ZNSt16_Sp_c
 declare noundef ptr @_ZN4Luau9TypeArena11addTypePackESt6vectorIPKNS_4TypeESaIS4_EESt8optionalIPKNS_11TypePackVarEE(ptr noundef nonnull align 8 dereferenceable(88), ptr noundef, ptr, i8) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau11andFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypeFamilyReductionResult") align 8 captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr readonly captures(none) %4) #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau11andFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypeFamilyReductionResult") align 8 captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr readonly captures(none) %4) #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"struct.Luau::SimplifyResult", align 8
@@ -12059,7 +12059,7 @@ declare void @_ZN4Luau20simplifyIntersectionENS_7NotNullINS_12BuiltinTypesEEENS0
 declare void @_ZN4Luau13simplifyUnionENS_7NotNullINS_12BuiltinTypesEEENS0_INS_9TypeArenaEEEPKNS_4TypeES7_(ptr dead_on_unwind writable sret(%"struct.Luau::SimplifyResult") align 8, ptr, ptr, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau10orFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypeFamilyReductionResult") align 8 captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr readonly captures(none) %4) #3 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau10orFamilyFnEPKNS_4TypeERKSt6vectorIS2_SaIS2_EERKS3_IPKNS_11TypePackVarESaISA_EENS_7NotNullINS_17TypeFamilyContextEEE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::TypeFamilyReductionResult") align 8 captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr readonly captures(none) %4) #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %8 = alloca %"struct.Luau::SimplifyResult", align 8
@@ -20884,7 +20884,7 @@ _ZNSt10shared_ptrIKN4Luau14NormalizedTypeEED2Ev.exit: ; preds = %324, %343, %356
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt9transformIN4Luau6detail14DenseHashTableIPKNS0_4TypeES5_S5_NS1_16ItemInterfaceSetIS5_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorESC_ZNS0_13indexFamilyFnES5_RKSt6vectorIS5_SaIS5_EERKSD_IPKNS0_11TypePackVarESaISK_EENS0_7NotNullINS0_17TypeFamilyContextEEEE3$_0ET0_T_SU_ST_T1_"(ptr readonly captures(address) %0, i64 %1, ptr readnone captures(address) %2, i64 %3, ptr %4, i64 %5) unnamed_addr #3 {
+define internal fastcc void @"_ZSt9transformIN4Luau6detail14DenseHashTableIPKNS0_4TypeES5_S5_NS1_16ItemInterfaceSetIS5_EENS0_16DenseHashPointerESt8equal_toIS5_EE8iteratorESC_ZNS0_13indexFamilyFnES5_RKSt6vectorIS5_SaIS5_EERKSD_IPKNS0_11TypePackVarESaISK_EENS0_7NotNullINS0_17TypeFamilyContextEEEE3$_0ET0_T_SU_ST_T1_"(ptr readonly %0, i64 %1, ptr readnone %2, i64 %3, ptr %4, i64 %5) unnamed_addr #3 {
   %.not.i = icmp ne ptr %0, %2
   %.not.i.fr = freeze i1 %.not.i
   %7 = icmp ne i64 %1, %3

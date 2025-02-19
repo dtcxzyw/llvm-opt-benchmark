@@ -2382,7 +2382,7 @@ declare noundef zeroext i1 @_ZNK5clang7VarDecl7hasInitEv(ptr noundef nonnull ali
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen16ReductionCodeGenC2EN4llvm8ArrayRefIPKNS_4ExprEEES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(2480) %0, ptr readonly captures(address) %1, i64 %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.242") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.242") align 8 captures(none) %6) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen16ReductionCodeGenC2EN4llvm8ArrayRefIPKNS_4ExprEEES7_S7_S7_(ptr noundef nonnull align 8 dereferenceable(2480) %0, ptr readonly %1, i64 %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.242") align 8 captures(none) %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.242") align 8 captures(none) %6) unnamed_addr #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %9, ptr %0, align 8, !tbaa !309
@@ -22384,7 +22384,7 @@ declare i64 @_ZN5clang7CodeGen13CodeGenModule23getNaturalTypeAlignmentENS_8QualT
 declare void @_ZN5clang7CodeGen15CodeGenFunction17EmitAggregateCopyENS0_6LValueES2_NS_8QualTypeENS0_12AggValueSlot9Overlap_tEb(ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef byval(%"class.clang::CodeGen::LValue") align 8, ptr noundef byval(%"class.clang::CodeGen::LValue") align 8, i64, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL16emitPrivatesInitRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveENS0_7AddressENS0_6LValueEPKNS_10RecordDeclENS_8QualTypeESB_RKNS0_13OMPTaskDataTyEN4llvm8ArrayRefISt4pairINS_9CharUnitsEN12_GLOBAL__N_116PrivateHelpersTyEEEEb(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef readonly byval(%"class.clang::CodeGen::Address") align 8 captures(none) %2, ptr noundef readonly byval(%"class.clang::CodeGen::LValue") align 8 captures(none) %3, ptr noundef nonnull %4, i64 %5, i64 %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %7, ptr readonly captures(address) %.0.val, i64 %.8.val, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @_ZL16emitPrivatesInitRN5clang7CodeGen15CodeGenFunctionERKNS_22OMPExecutableDirectiveENS0_7AddressENS0_6LValueEPKNS_10RecordDeclENS_8QualTypeESB_RKNS0_13OMPTaskDataTyEN4llvm8ArrayRefISt4pairINS_9CharUnitsEN12_GLOBAL__N_116PrivateHelpersTyEEEEb(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef readonly byval(%"class.clang::CodeGen::Address") align 8 captures(none) %2, ptr noundef readonly byval(%"class.clang::CodeGen::LValue") align 8 captures(none) %3, ptr noundef nonnull %4, i64 %5, i64 %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(896) %7, ptr readonly %.0.val, i64 %.8.val, i1 noundef zeroext %8) unnamed_addr #0 {
 .lr.ph.i.i.i:
   %9 = alloca %"class.clang::CodeGen::Address", align 8
   %10 = alloca %"class.clang::CodeGen::Address", align 8
@@ -24136,7 +24136,7 @@ define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime18emitDepobjElementsERN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime16emitDependClauseERNS0_15CodeGenFunctionEN4llvm8ArrayRefINS0_13OMPTaskDataTy10DependDataEEENS_14SourceLocationE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair.1474") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(4808) %1, ptr noundef nonnull align 8 dereferenceable(6496) %2, ptr readonly captures(address) %3, i64 %4, i32 %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CGOpenMPRuntime16emitDependClauseERNS0_15CodeGenFunctionEN4llvm8ArrayRefINS0_13OMPTaskDataTy10DependDataEEENS_14SourceLocationE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.std::pair.1474") align 8 captures(none) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(4808) %1, ptr noundef nonnull align 8 dereferenceable(6496) %2, ptr readonly %3, i64 %4, i32 %5) local_unnamed_addr #0 align 2 {
   %7 = alloca %"class.clang::CodeGen::Address", align 8
   %8 = alloca %"class.llvm::Twine", align 8
   %9 = alloca %"class.llvm::Twine", align 8
@@ -34956,7 +34956,7 @@ _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_17OMPNumTeamsClauseEEEbv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenMPRuntime35getNumThreadsExprForTargetDirectiveERNS0_15CodeGenFunctionERKNS_22OMPExecutableDirectiveERibPPN4llvm5ValueEPPKNS_4ExprE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, i1 noundef zeroext %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenMPRuntime35getNumThreadsExprForTargetDirectiveERNS0_15CodeGenFunctionERKNS_22OMPExecutableDirectiveERibPPN4llvm5ValueEPPKNS_4ExprE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 align 2 {
   %8 = alloca %"class.std::optional.1572", align 8
   %9 = alloca %"class.std::optional.1572", align 8
   %10 = alloca %"class.llvm::SmallVector.1807", align 8
@@ -37628,7 +37628,7 @@ define internal void @_ZN12_GLOBAL__N_121CGOpenMPInnerExprInfoD2Ev(ptr noundef n
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13getNumThreadsRN5clang7CodeGen15CodeGenFunctionEPKNS_12CapturedStmtEPPKNS_4ExprERibPPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc void @_ZL13getNumThreadsRN5clang7CodeGen15CodeGenFunctionEPKNS_12CapturedStmtEPPKNS_4ExprERibPPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca %"class.(anonymous namespace)::CGOpenMPInnerExprInfo", align 8
   %7 = alloca i8, align 1
   %8 = alloca %"class.clang::CodeGen::CodeGenFunction::LexicalScope", align 8
@@ -40952,7 +40952,7 @@ define dso_local noundef zeroext i1 @_ZN5clang7CodeGen15CGOpenMPRuntime16emitTar
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK5clang7CodeGen15CGOpenMPRuntime23emitDeferredTargetDeclsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(4808) %0) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK5clang7CodeGen15CGOpenMPRuntime23emitDeferredTargetDeclsEv(ptr noundef nonnull readonly align 8 dereferenceable(4808) %0) local_unnamed_addr #0 align 2 {
   %2 = alloca %"class.clang::CodeGen::ConstantAddress", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 3568
   %4 = load i32, ptr %3, align 8
@@ -72417,7 +72417,7 @@ _ZN4llvm8DenseMapIPKN5clang9ValueDeclENS_11SmallVectorINS_8ArrayRefINS1_27OMPCla
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler25generateAllInfoForClausesEN4llvm8ArrayRefIPKN5clang9OMPClauseEEERNS0_17MapCombinedInfoTyERNS1_15OpenMPIRBuilderERKNS1_8DenseSetINS3_16CanonicalDeclPtrIKNS3_4DeclEEENS1_12DenseMapInfoISG_vEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(1128) %3, ptr noundef nonnull align 8 dereferenceable(3104) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler25generateAllInfoForClausesEN4llvm8ArrayRefIPKN5clang9OMPClauseEEERNS0_17MapCombinedInfoTyERNS1_15OpenMPIRBuilderERKNS1_8DenseSetINS3_16CanonicalDeclPtrIKNS3_4DeclEEENS1_12DenseMapInfoISG_vEEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(1128) %3, ptr noundef nonnull align 8 dereferenceable(3104) %4, ptr noundef nonnull align 8 dereferenceable(24) %5) unnamed_addr #0 align 2 {
   %.sroa.63.i = alloca [23 x i8], align 1
   %.sroa.6.i = alloca [23 x i8], align 1
   %7 = alloca %"class.llvm::MapVector.2451", align 8
@@ -76136,7 +76136,7 @@ _ZN4llvm15SmallVectorImplIN12_GLOBAL__N_120MappableExprsHandler24DeferredDeviceP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i32 noundef %1, ptr %2, i64 %3, ptr captures(address) %4, i64 %5, ptr readonly captures(address) %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(1128) %6, ptr noundef nonnull align 8 dereferenceable(1128) %7, ptr noundef nonnull align 8 dereferenceable(1338) %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, i1 noundef zeroext %13, ptr noundef %14, ptr noundef %15, ptr readonly captures(address) %.0.val1, i64 %.8.val3, i1 noundef zeroext %16) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZNK12_GLOBAL__N_120MappableExprsHandler28generateInfoForComponentListEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEENS4_INS1_27OMPClauseMappableExprCommon17MappableComponentEEERNS0_17MapCombinedInfoTyESD_RNS0_17StructRangeInfoTyEbbbPKNS1_9ValueDeclEbSI_PKNS1_4ExprENS4_ISB_EEb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(112) %0, i32 noundef %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr readonly %.0.val, i64 %.8.val, ptr noundef nonnull align 8 dereferenceable(1128) %6, ptr noundef nonnull align 8 dereferenceable(1128) %7, ptr noundef nonnull align 8 dereferenceable(1338) %8, i1 noundef zeroext %9, i1 noundef zeroext %10, i1 noundef zeroext %11, ptr noundef %12, i1 noundef zeroext %13, ptr noundef %14, ptr noundef %15, ptr readonly %.0.val1, i64 %.8.val3, i1 noundef zeroext %16) unnamed_addr #0 align 2 {
   %18 = alloca %"class.clang::CodeGen::Address", align 8
   %19 = alloca %"class.llvm::Twine", align 8
   %20 = alloca %"class.llvm::Twine", align 8
@@ -82924,7 +82924,7 @@ _ZN5clang7CodeGen15CodeGenFunction14MakeAddrLValueENS0_7AddressENS_8QualTypeENS0
 declare void @_ZN5clang7CodeGen15CodeGenFunction32EmitLValueForFieldInitializationENS0_6LValueEPKNS_9FieldDeclE(ptr dead_on_unwind writable sret(%"class.clang::CodeGen::LValue") align 8, ptr noundef nonnull align 8 dereferenceable(6496), ptr noundef byval(%"class.clang::CodeGen::LValue") align 8, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_120MappableExprsHandler14getMapTypeBitsEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEEbbbb(i32 noundef %0, ptr readonly %1, i64 %2, ptr readonly captures(address) %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #6 align 2 {
+define internal fastcc noundef i64 @_ZNK12_GLOBAL__N_120MappableExprsHandler14getMapTypeBitsEN5clang19OpenMPMapClauseKindEN4llvm8ArrayRefINS1_21OpenMPMapModifierKindEEENS4_INS1_24OpenMPMotionModifierKindEEEbbbb(i32 noundef %0, ptr readonly %1, i64 %2, ptr readonly %3, i64 %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) unnamed_addr #6 align 2 {
   %10 = select i1 %5, i64 512, i64 0
   switch i32 %0, label %19 [
     i32 4, label %17
@@ -95454,7 +95454,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIPSt5tupleIJN4llvm8Arra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS3_12CapturedStmt7CaptureEPNS1_5ValueERNSM_17MapCombinedInfoTyERNSM_17StructRangeInfoTyEEUlRKSG_SY_E_EEEvT_S11_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #24 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS3_12CapturedStmt7CaptureEPNS1_5ValueERNSM_17MapCombinedInfoTyERNSM_17StructRangeInfoTyEEUlRKSG_SY_E_EEEvT_S11_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #24 {
   %3 = alloca %"class.std::tuple.2690", align 8
   %.sroa.8 = alloca [23 x i8], align 1
   %.sroa.12 = alloca [20 x i8], align 4
@@ -97701,7 +97701,7 @@ _ZSt21__move_merge_adaptiveIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappabl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt12__move_mergeIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEESH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS3_12CapturedStmt7CaptureEPNS1_5ValueERNSM_17MapCombinedInfoTyERNSM_17StructRangeInfoTyEEUlRKSG_SY_E_EEET0_T_S12_S12_S12_S11_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(ret: address, provenance) %4) unnamed_addr #24 {
+define internal fastcc void @_ZSt12__move_mergeIPSt5tupleIJN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEENS3_19OpenMPMapClauseKindENS2_INS3_21OpenMPMapModifierKindEEEbPKNS3_9ValueDeclEPKNS3_4ExprEEESH_N9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS3_12CapturedStmt7CaptureEPNS1_5ValueERNSM_17MapCombinedInfoTyERNSM_17StructRangeInfoTyEEUlRKSG_SY_E_EEET0_T_S12_S12_S12_S11_T1_(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #24 {
   %6 = icmp ne ptr %0, %1
   %7 = icmp ne ptr %2, %3
   %8 = and i1 %6, %7
@@ -98619,7 +98619,7 @@ _ZSt24__merge_sort_with_bufferIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCo
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_SO_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr readonly captures(none) %2) unnamed_addr #0 {
+define internal fastcc void @_ZSt16__insertion_sortIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17MappableComponentEEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKNS2_12CapturedStmt7CaptureEPNS0_5ValueERNSB_17MapCombinedInfoTyERNSB_17StructRangeInfoTyEEUlS5_S5_E_EEEvT_SO_T0_(ptr noundef %0, ptr noundef readnone %1, ptr readonly captures(none) %2) unnamed_addr #0 {
   %4 = alloca %"class.llvm::ArrayRef.2476", align 8
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %.loopexit, label %.preheader
@@ -98959,7 +98959,7 @@ _ZNSt3_V26rotateIPN4llvm8ArrayRefIN5clang27OMPClauseMappableExprCommon17Mappable
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly captures(none) %.0.val, ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) unnamed_addr #10 align 2 {
+define internal fastcc noundef zeroext i1 @_ZZNK12_GLOBAL__N_120MappableExprsHandler22generateInfoForCaptureEPKN5clang12CapturedStmt7CaptureEPN4llvm5ValueERNS0_17MapCombinedInfoTyERNS0_17StructRangeInfoTyEENKUlNS6_8ArrayRefINS1_27OMPClauseMappableExprCommon17MappableComponentEEESG_E_clESG_SG_(ptr readonly captures(none) %.0.val, ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) unnamed_addr #10 align 2 {
   %5 = getelementptr inbounds nuw %"class.clang::OMPClauseMappableExprCommon::MappableComponent", ptr %0, i64 %1
   %6 = getelementptr inbounds nuw %"class.clang::OMPClauseMappableExprCommon::MappableComponent", ptr %2, i64 %3
   br label %7

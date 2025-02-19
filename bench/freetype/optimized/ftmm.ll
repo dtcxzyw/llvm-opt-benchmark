@@ -146,7 +146,7 @@ ft_face_get_mm_service.exit.thread:               ; preds = %8, %.fold.split.i, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 34) i32 @FT_Done_MM_Var(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 34) i32 @FT_Done_MM_Var(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1143,7 +1143,7 @@ ft_face_get_mm_service.exit.thread:               ; preds = %9, %.fold.split.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 7) i32 @FT_Get_Var_Axis_Flags(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 0, 7) i32 @FT_Get_Var_Axis_Flags(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5

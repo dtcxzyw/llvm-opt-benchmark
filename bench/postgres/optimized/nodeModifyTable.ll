@@ -3720,7 +3720,7 @@ declare void @ProcessInterrupts() local_unnamed_addr #2
 declare void @MemoryContextReset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecMergeNotMatched(ptr noundef nonnull %0, ptr readonly captures(address_is_null) %.304.val, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc ptr @ExecMergeNotMatched(ptr noundef nonnull %0, ptr readonly %.304.val, i1 noundef zeroext %1) unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = load ptr, ptr %0, align 8
@@ -4064,7 +4064,7 @@ define internal fastcc void @ExecInitInsertProjection(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @ExecInsert(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc ptr @ExecInsert(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
   %9 = alloca i8, align 1
@@ -5604,7 +5604,7 @@ table_tuple_fetch_row_version.exit:               ; preds = %123
 declare void @UnlockTuple(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @ExecDelete(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef %9) unnamed_addr #0 {
+define internal fastcc noundef ptr @ExecDelete(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef %7, ptr noundef writeonly %8, ptr noundef %9) unnamed_addr #0 {
   %11 = alloca i8, align 1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %13 = load ptr, ptr %12, align 8
@@ -6858,7 +6858,7 @@ declare void @ExecARDeleteTriggers(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @ExecGetAllNullSlot(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ExecCheckPlanOutput(ptr readonly captures(none) %.64.val, ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @ExecCheckPlanOutput(ptr readonly captures(none) %.64.val, ptr noundef readonly %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %invariant.gep = getelementptr i8, ptr %.64.val, i64 24
   br i1 %.not, label %._crit_edge, label %.lr.ph

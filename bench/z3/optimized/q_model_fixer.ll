@@ -4248,7 +4248,7 @@ _ZN10ref_vectorI4expr11ast_managerED2Ev.exit:     ; preds = %if.end, %invoke.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN1q11model_fixer10invert_appEP3appP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone captures(none) %t, ptr noundef readonly captures(address, ret: address, provenance) %value) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN1q11model_fixer10invert_appEP3appP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone captures(none) %t, ptr noundef readonly %value) local_unnamed_addr #3 align 2 {
 entry:
   %ctx = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ctx, align 8

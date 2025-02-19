@@ -12210,7 +12210,7 @@ find_btmesh_property_length.exit.thread:          ; preds = %.lr.ph.i, %20, %fin
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr readonly captures(none) %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc i32 @dissect_columns_raw_value(ptr noundef %0, ptr noundef nonnull %1, i32 noundef range(i32 3, 6) %2, i16 noundef zeroext %3, ptr readonly captures(none) %.0.val, ptr readonly %.8.val) unnamed_addr #0 {
   %5 = icmp eq i16 %3, -1
   br i1 %5, label %find_characteristic_id.exit.preheader.i, label %.lr.ph.i
 

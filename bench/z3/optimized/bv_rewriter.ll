@@ -31714,7 +31714,7 @@ return:                                           ; preds = %_ZNK11bv_rewriter11
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN11bv_rewriter18is_add_no_overflowEP4expr(ptr noundef nonnull align 8 dereferenceable(157) %this, ptr noundef readonly captures(address) %e) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN11bv_rewriter18is_add_no_overflowEP4expr(ptr noundef nonnull align 8 dereferenceable(157) %this, ptr noundef readonly %e) local_unnamed_addr #3 align 2 {
 entry:
   %m_util.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_util.i.i.i, align 8
@@ -35471,7 +35471,7 @@ return:                                           ; preds = %land.rhs.i.i32, %lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11bv_rewriter16is_add_mul_constEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(157) %this, ptr noundef readonly captures(address) %e) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZNK11bv_rewriter16is_add_mul_constEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(157) %this, ptr noundef readonly %e) local_unnamed_addr #6 align 2 {
 entry:
   %m_util = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %m_util, align 8

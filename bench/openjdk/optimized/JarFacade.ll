@@ -136,7 +136,7 @@ define internal void @doAttribute(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @freeAttributes(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @freeAttributes(ptr noundef %0) local_unnamed_addr #0 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 
@@ -161,7 +161,7 @@ define hidden void @freeAttributes(ptr noundef captures(address_is_null) %0) loc
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define hidden ptr @getAttribute(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+define hidden ptr @getAttribute(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %.loopexit, label %.lr.ph
 

@@ -118,7 +118,7 @@ define internal void @fake_freectx(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @fake_cipher(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address) %4, i64 noundef %5) #4 {
+define internal range(i32 0, 2) i32 @fake_cipher(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5) #4 {
   %7 = icmp ult i64 %3, %5
   br i1 %7, label %20, label %8
 
@@ -245,7 +245,7 @@ define internal noundef nonnull ptr @fake_settable_ctx_params(ptr readnone captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fake_skey_einit(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %4) #6 {
+define internal noundef i32 @fake_skey_einit(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %4) #6 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %fake_skey_init.exit, label %6
 
@@ -258,7 +258,7 @@ fake_skey_init.exit:                              ; preds = %5, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @fake_skey_dinit(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %4) #6 {
+define internal noundef i32 @fake_skey_dinit(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, ptr readnone captures(none) %2, i64 %3, ptr readnone captures(none) %4) #6 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %fake_skey_init.exit, label %6
 

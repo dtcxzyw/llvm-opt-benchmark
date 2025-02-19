@@ -685,7 +685,7 @@ _Py_NewRef.exit:                                  ; preds = %14, %11, %5, %7, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @createfunc_nonmodule(ptr readnone captures(none) %0, ptr noundef readnone captures(address) %1) #0 {
+define internal ptr @createfunc_nonmodule(ptr readnone captures(none) %0, ptr noundef readnone %1) #0 {
   %3 = icmp ne ptr %1, @def_nonmodule
   %4 = icmp ne ptr %1, @def_nonmodule_with_methods
   %or.cond = and i1 %3, %4
@@ -854,7 +854,7 @@ declare ptr @PyModule_GetState(ptr noundef) local_unnamed_addr #1
 declare ptr @PyType_FromModuleAndSpec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testmultiphase_StateAccessType_get_defining_module(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @_testmultiphase_StateAccessType_get_defining_module(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -894,7 +894,7 @@ _testmultiphase_StateAccessType_get_defining_module_impl.exit: ; preds = %17, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_testmultiphase_StateAccessType_getmodulebydef_bad_def(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noalias noundef ptr @_testmultiphase_StateAccessType_getmodulebydef_bad_def(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -924,7 +924,7 @@ define internal noalias noundef ptr @_testmultiphase_StateAccessType_getmoduleby
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_testmultiphase_StateAccessType_get_count(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @_testmultiphase_StateAccessType_get_count(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -1032,7 +1032,7 @@ define internal noundef ptr @_testmultiphase_StateAccessType_increment_count_cli
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_StateAccessType_increment_count_noclinic(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noundef ptr @_StateAccessType_increment_count_noclinic(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %or.cond = icmp ult i64 %3, 2
   br i1 %or.cond, label %8, label %6
 

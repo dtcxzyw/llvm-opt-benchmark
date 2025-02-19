@@ -10023,7 +10023,7 @@ declare dso_local void @rb_erase(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare dso_local void @__rb_erase_color(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern inlinehint nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @free_vmap_area_rb_augment_cb_propagate(ptr noundef captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #16 align 16 {
+define internal fastcc void @free_vmap_area_rb_augment_cb_propagate(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #16 align 16 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.thread, label %.lr.ph
 

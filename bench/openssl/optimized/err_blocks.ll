@@ -102,7 +102,7 @@ declare ptr @ossl_err_get_state_int() local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @ERR_set_debug(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @ERR_set_debug(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @ossl_err_get_state_int() #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %err_set_debug.exit, label %6

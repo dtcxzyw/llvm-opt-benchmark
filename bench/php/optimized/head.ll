@@ -299,7 +299,7 @@ define dso_local zeroext i1 @php_header() local_unnamed_addr #0 {
 declare i32 @sapi_send_headers() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef readonly captures(address_is_null) %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
+define dso_local i32 @php_setcookie(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i1 noundef zeroext %5, i1 noundef zeroext %6, ptr noundef readonly %7, i1 noundef zeroext %8) local_unnamed_addr #0 {
   %10 = alloca [32 x i8], align 16
   %11 = alloca %struct.sapi_header_line, align 8
   %12 = alloca %struct.smart_str, align 8
@@ -1966,7 +1966,7 @@ declare ptr @_zend_new_array_0() local_unnamed_addr #3
 declare void @zend_llist_apply_with_argument(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @php_head_apply_header_list_to_hash(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal void @php_head_apply_header_list_to_hash(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = icmp ne ptr %1, null
   %4 = icmp ne ptr %0, null
   %or.cond = and i1 %4, %3

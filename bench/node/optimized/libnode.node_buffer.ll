@@ -14580,7 +14580,7 @@ _ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6Buffer12_GLOBA
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6Buffer12_GLOBAL__N_112CallbackInfo18OnBackingStoreFreeEvEUlS2_E_E4CallES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readnone captures(address) %args) unnamed_addr #3 align 2 {
+define internal void @_ZN4node13CallbackQueueIvJPNS_11EnvironmentEEE12CallbackImplIZNS_6Buffer12_GLOBAL__N_112CallbackInfo18OnBackingStoreFreeEvEUlS2_E_E4CallES2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readnone %args) unnamed_addr #3 align 2 {
 entry:
   %search.i.i.i.i = alloca %"class.node::CleanupQueue::CleanupHookCallback", align 8
   %callback_ = getelementptr inbounds nuw i8, ptr %this, i64 24

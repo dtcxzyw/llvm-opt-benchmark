@@ -626,7 +626,7 @@ define dso_local void @php_dom_xpath_callbacks_delayed_lib_registration(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_method_handler(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_method_handler(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct._zval_struct, align 8
   %9 = alloca ptr, align 8
   %10 = alloca ptr, align 8
@@ -1191,7 +1191,7 @@ zend_hash_add_new_ptr.exit:                       ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_single_method_handler(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @php_dom_xpath_callbacks_update_single_method_handler(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5, ptr noundef readonly %6) local_unnamed_addr #0 {
   %8 = alloca %struct._zval_struct, align 8
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %10 = load i64, ptr %9, align 8, !tbaa !58

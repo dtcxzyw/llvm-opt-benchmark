@@ -587,7 +587,7 @@ define i64 @duckdb_je_ckh_count(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @duckdb_je_ckh_iter(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define noundef zeroext i1 @duckdb_je_ckh_iter(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = load i64, ptr %1, align 8, !tbaa !17
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %7 = load i32, ptr %6, align 4, !tbaa !12
@@ -1669,7 +1669,7 @@ ckh_evict_reloc_insert.exit:                      ; preds = %82, %ckh_try_bucket
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @duckdb_je_ckh_remove(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define noundef zeroext i1 @duckdb_je_ckh_remove(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca [2 x i64], align 16
@@ -2488,7 +2488,7 @@ ckh_shrink.exit:                                  ; preds = %rtree_metadata_read
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @duckdb_je_ckh_search(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @duckdb_je_ckh_search(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #15
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -2912,7 +2912,7 @@ define void @duckdb_je_ckh_pointer_hash(ptr noundef %0, ptr noundef writeonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @duckdb_je_ckh_pointer_keycomp(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #9 {
+define noundef zeroext i1 @duckdb_je_ckh_pointer_keycomp(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, %1
   ret i1 %3
 }

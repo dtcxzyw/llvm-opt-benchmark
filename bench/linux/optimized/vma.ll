@@ -49,7 +49,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__setup_vdso_setup], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef ptr @arch_get_vdso_data(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 align 16 {
+define dso_local noundef ptr @arch_get_vdso_data(ptr noundef readnone %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 128
   ret ptr %2
 }

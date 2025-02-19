@@ -65,7 +65,7 @@ define dso_local range(i32 -1, 1) i32 @FuzzerInitialize(ptr noundef readnone cap
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @fuzz_free_cb(ptr noundef readonly captures(address_is_null) %0) #2 {
+define internal void @fuzz_free_cb(ptr noundef readonly %0) #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread, label %3
 
@@ -442,7 +442,7 @@ declare i32 @ossl_ht_flush(ptr noundef) local_unnamed_addr #4
 declare void @ossl_ht_foreach_until(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @table_iterator(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #6 {
+define internal range(i32 0, 2) i32 @table_iterator(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = load i16, ptr %1, align 2, !tbaa !35
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread, label %5
@@ -477,7 +477,7 @@ ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread:   ; preds = %5, %2, %ossl_ht_fz_
 declare ptr @ossl_ht_filter(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @filter_iterator(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #7 {
+define internal range(i32 0, 2) i32 @filter_iterator(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = load i16, ptr %1, align 2, !tbaa !35
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ossl_ht_fz_FUZZER_VALUE_from_value.exit.thread, label %5

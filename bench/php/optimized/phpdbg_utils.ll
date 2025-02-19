@@ -103,7 +103,7 @@ target triple = "x86_64-pc-linux-gnu"
 @elements = internal unnamed_addr constant [4 x { ptr, i64, i32, [4 x i8] }] [{ ptr, i64, i32, [4 x i8] } { ptr @.str.57, i64 6, i32 0, [4 x i8] zeroinitializer }, { ptr, i64, i32, [4 x i8] } { ptr @.str.58, i64 5, i32 1, [4 x i8] zeroinitializer }, { ptr, i64, i32, [4 x i8] } { ptr @.str.59, i64 6, i32 2, [4 x i8] zeroinitializer }, { ptr, i64, i32, [4 x i8] } zeroinitializer], align 16
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2049) i32 @phpdbg_is_numeric(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2049) i32 @phpdbg_is_numeric(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -149,7 +149,7 @@ define dso_local range(i32 0, 2049) i32 @phpdbg_is_numeric(ptr noundef readonly 
 declare ptr @__ctype_b_loc() local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @phpdbg_is_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @phpdbg_is_empty(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -208,7 +208,7 @@ define dso_local range(i32 0, 2) i32 @phpdbg_is_addr(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @phpdbg_is_class_method(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @phpdbg_is_class_method(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %strchr = tail call ptr @strchr(ptr nonnull dereferenceable(1) %0, i32 35)
   %.not = icmp eq ptr %strchr, null
   br i1 %.not, label %5, label %31
@@ -319,7 +319,7 @@ define dso_local ptr @phpdbg_current_file() local_unnamed_addr #3 {
 declare ptr @zend_get_executed_filename() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @phpdbg_get_function(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @phpdbg_get_function(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
 zend_string_alloc.exit35:
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #25
   %3 = and i64 %2, -8
@@ -503,7 +503,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 declare ptr @zend_lookup_class(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @phpdbg_trim(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local noalias ptr @phpdbg_trim(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = tail call ptr @__ctype_b_loc() #24
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = load i8, ptr %0, align 1, !tbaa !4
@@ -971,7 +971,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #19
 declare void @_efree(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @phpdbg_get_property_key(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #2 {
+define hidden ptr @phpdbg_get_property_key(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1, !tbaa !4
   %.not = icmp eq i8 %2, 0
   br i1 %.not, label %3, label %6

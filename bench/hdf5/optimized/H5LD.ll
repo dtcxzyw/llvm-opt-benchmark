@@ -419,13 +419,13 @@ H5LD_get_dset_dims.exit:                          ; preds = %26, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @H5LDget_dset_type_size(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i64 @H5LDget_dset_type_size(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc i64 @H5LD_get_dset_type_size(i64 noundef %0, ptr noundef %1)
   ret i64 %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @H5LD_get_dset_type_size(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc i64 @H5LD_get_dset_type_size(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca %union.anon.1, align 8
   %5 = alloca ptr, align 8
@@ -597,7 +597,7 @@ H5LD_clean_vector.exit:                           ; preds = %48, %._crit_edge, %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5LDget_dset_elmts(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca [32 x i64], align 16
   %8 = alloca [32 x i64], align 16

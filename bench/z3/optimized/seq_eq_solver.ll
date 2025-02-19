@@ -4925,7 +4925,7 @@ land.end:                                         ; preds = %land.rhs.i.i18, %la
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN3seq9eq_solver6occursEP4exprRK10ref_vectorIS1_11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readnone captures(address) %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %b) local_unnamed_addr #6 align 2 {
+define hidden noundef zeroext i1 @_ZN3seq9eq_solver6occursEP4exprRK10ref_vectorIS1_11ast_managerE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(200) %this, ptr noundef readnone %a, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %b) local_unnamed_addr #6 align 2 {
 entry:
   %m_nodes.i = getelementptr inbounds nuw i8, ptr %b, i64 8
   %0 = load ptr, ptr %m_nodes.i, align 8
@@ -6232,7 +6232,7 @@ lpad:                                             ; preds = %lor.rhs
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN3seq9eq_solver6occursEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readnone captures(address) %a, ptr noundef %b) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN3seq9eq_solver6occursEP4exprS2_(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readnone %a, ptr noundef %b) local_unnamed_addr #3 align 2 {
 entry:
   %m_todo = getelementptr inbounds nuw i8, ptr %this, i64 192
   %0 = load ptr, ptr %m_todo, align 8

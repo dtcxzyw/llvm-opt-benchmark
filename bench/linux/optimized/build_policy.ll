@@ -3427,7 +3427,7 @@ define internal void @switched_from_rt(ptr noundef captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @switched_to_rt(ptr noundef %0, ptr noundef readonly captures(address) %1) #2 align 16 {
+define internal void @switched_to_rt(ptr noundef %0, ptr noundef readonly %1) #2 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2336
   %4 = load ptr, ptr %3, align 32
   %5 = icmp eq ptr %4, %1
@@ -3521,7 +3521,7 @@ define internal void @switched_to_rt(ptr noundef %0, ptr noundef readonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @prio_changed_rt(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #2 align 16 {
+define internal void @prio_changed_rt(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1
@@ -9568,7 +9568,7 @@ define internal void @switched_to_dl(ptr noundef %0, ptr noundef %1) #2 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @prio_changed_dl(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 %2) #2 align 16 {
+define internal void @prio_changed_dl(ptr noundef %0, ptr noundef readonly %1, i32 %2) #2 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load i32, ptr %4, align 8
   %6 = icmp eq i32 %5, 1

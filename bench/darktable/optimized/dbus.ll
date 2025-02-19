@@ -148,7 +148,7 @@ declare void @g_object_unref(ptr noundef) local_unnamed_addr #3
 declare void @g_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @dt_dbus_connected(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @dt_dbus_connected(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

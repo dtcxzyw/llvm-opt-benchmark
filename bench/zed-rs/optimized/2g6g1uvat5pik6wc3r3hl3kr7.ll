@@ -7343,7 +7343,7 @@ define void @_ZN8terminal8Terminal7get_cwd17h4a77e4461428b11fE(ptr dead_on_unwin
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(216) ptr @_ZN8terminal8Terminal12last_content17hc67d1a6f04a93022E(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable(9760) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(216) ptr @_ZN8terminal8Terminal12last_content17hc67d1a6f04a93022E(ptr noalias noundef readonly align 16 dereferenceable(9760) %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8976
   ret ptr %2
 }
@@ -15383,7 +15383,7 @@ define noundef zeroext i1 @_ZN8terminal8Terminal29can_navigate_to_selected_word1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef align 8 dereferenceable_or_null(128) ptr @_ZN8terminal8Terminal4task17h674ebd440cc9af66E(ptr noalias noundef readonly align 16 captures(ret: address, provenance) dereferenceable(9760) %0) unnamed_addr #0 {
+define noundef align 8 dereferenceable_or_null(128) ptr @_ZN8terminal8Terminal4task17h674ebd440cc9af66E(ptr noalias noundef readonly align 16 dereferenceable(9760) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8736
   %3 = load i64, ptr %2, align 16, !range !146, !noundef !4
   %4 = icmp eq i64 %3, -9223372036854775808

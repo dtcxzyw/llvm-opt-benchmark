@@ -763,7 +763,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %text) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define { i64, i8 } @_ZN9grpc_core12ParseTimeoutERKNS_5SliceE(ptr noundef nonnull readonly align 8 dereferenceable(32) %text) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load ptr, ptr %text, align 8
   %tobool.not.i = icmp eq ptr %0, null

@@ -50,7 +50,7 @@ define ptr @stb_leakcheck_malloc(i64 noundef %0, ptr noundef %1, i32 noundef %2)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @stb_leakcheck_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @stb_leakcheck_free(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -98,7 +98,7 @@ define void @stb_leakcheck_free(ptr noundef captures(address_is_null) %0) local_
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define ptr @stb_leakcheck_realloc(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define ptr @stb_leakcheck_realloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %21
 

@@ -876,7 +876,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 declare i32 @PMIx_Register_event_handler(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @invite_hdlr(i64 %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly captures(address_is_null) %7, ptr noundef %8) #0 {
+define internal void @invite_hdlr(i64 %0, i32 noundef %1, ptr readnone captures(none) %2, ptr noundef %3, i64 noundef %4, ptr readnone captures(none) %5, i64 %6, ptr noundef readonly %7, ptr noundef %8) #0 {
   %10 = alloca %struct.pmix_byte_object, align 8
   %11 = alloca %struct.pmix_buffer_t, align 8
   %12 = alloca %struct.pmix_buffer_t, align 8
@@ -2392,7 +2392,7 @@ pmix_obj_run_destructors.exit197:                 ; preds = %.lr.ph.i194, %486
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @info_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((344, 348)) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #0 {
+define internal void @info_cbfunc(i32 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef initializes((344, 348)) %3, ptr noundef readonly %4, ptr noundef %5) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 344
   store i32 %0, ptr %7, align 8, !tbaa !28
   %.not = icmp eq ptr %1, null

@@ -6692,7 +6692,7 @@ ehcleanup:                                        ; preds = %lpad5, %lpad
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr readonly captures(address) %sortingOrders.0.val, ptr readnone captures(address) %sortingOrders.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox4core12_GLOBAL__N_122serializeSortingOrdersERKSt6vectorINS1_9SortOrderESaIS4_EE(ptr noalias nonnull align 8 initializes((0, 4), (8, 32)) %agg.result, ptr readonly %sortingOrders.0.val, ptr readnone %sortingOrders.8.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.folly::dynamic", align 8
   store i32 1, ptr %agg.result, align 8, !alias.scope !68

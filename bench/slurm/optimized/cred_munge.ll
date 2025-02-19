@@ -365,7 +365,7 @@ define dso_local ptr @cred_p_extract_net_cred(ptr noundef %0, i16 noundef zeroex
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 18, 17) i32 @_decode(ptr noundef %0, i1 noundef zeroext %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8

@@ -5427,7 +5427,7 @@ _ZN4llvm11SmallVectorIcLj128EED2Ev.exit72:        ; preds = %_ZN4llvm11SmallVect
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZN5clang6driver10toolchains10PS4PS5BaseC1ERKNS0_6DriverERKN4llvm6TripleERKNS6_3opt7ArgListENS6_9StringRefEPKcENK3$_0clERKNS0_7options2IDERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_"(ptr nonnull %.0.val, ptr readonly captures(none) %.8.val, i32 %.0.val1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly captures(address_is_null) %1, i64 %2) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZN5clang6driver10toolchains10PS4PS5BaseC1ERKNS0_6DriverERKN4llvm6TripleERKNS6_3opt7ArgListENS6_9StringRefEPKcENK3$_0clERKNS0_7options2IDERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESE_"(ptr nonnull %.0.val, ptr readonly captures(none) %.8.val, i32 %.0.val1, ptr noundef nonnull align 8 dereferenceable(32) %0, ptr readonly %1, i64 %2) unnamed_addr #3 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.clang::DiagnosticBuilder", align 8

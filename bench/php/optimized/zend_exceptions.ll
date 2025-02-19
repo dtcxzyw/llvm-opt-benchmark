@@ -1403,7 +1403,7 @@ zend_throw_exception.exit:                        ; preds = %zend_throw_exceptio
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_throw_exception(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @zend_throw_exception(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %5
 

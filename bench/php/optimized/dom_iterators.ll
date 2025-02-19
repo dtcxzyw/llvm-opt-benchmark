@@ -98,7 +98,7 @@ php_dom_libxml_hash_iter_ex.exit.thread:          ; preds = %2, %15, %12, %php_d
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @php_dom_iterator_current_data(ptr noundef readonly captures(ret: address, provenance) %0) #4 {
+define hidden ptr @php_dom_iterator_current_data(ptr noundef readonly %0) #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load i8, ptr %3, align 8, !tbaa !38

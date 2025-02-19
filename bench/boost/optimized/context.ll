@@ -488,7 +488,7 @@ define void @_ZN5boost6fibers7contextD0Ev(ptr noundef nonnull align 8 dereferenc
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK5boost6fibers7context6get_idEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(232) %0) local_unnamed_addr #11 align 2 {
+define noundef nonnull ptr @_ZNK5boost6fibers7context6get_idEv(ptr noundef nonnull readnone returned align 8 dereferenceable(232) %0) local_unnamed_addr #11 align 2 {
   ret ptr %0
 }
 
@@ -1016,7 +1016,7 @@ define void @_ZN5boost6fibers7context8scheduleEPS1_(ptr noundef nonnull readonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK5boost6fibers7context12get_fss_dataEPKv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZNK5boost6fibers7context12get_fss_dataEPKv(ptr noundef nonnull readonly align 8 dereferenceable(232) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
   %3 = ptrtoint ptr %1 to i64
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !76
@@ -1300,7 +1300,7 @@ define void @_ZN5boost6fibers7context14set_propertiesEPNS0_16fiber_propertiesE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost6fibers7context16worker_is_linkedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5boost6fibers7context16worker_is_linkedEv(ptr noundef nonnull readonly align 8 dereferenceable(232) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %.not.i.i = icmp ne ptr %3, null
@@ -1310,7 +1310,7 @@ define noundef zeroext i1 @_ZNK5boost6fibers7context16worker_is_linkedEv(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost6fibers7context15ready_is_linkedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5boost6fibers7context15ready_is_linkedEv(ptr noundef nonnull readonly align 8 dereferenceable(232) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %3 = load ptr, ptr %2, align 8, !tbaa !94
   %.not.i.i = icmp ne ptr %3, null
@@ -1320,7 +1320,7 @@ define noundef zeroext i1 @_ZNK5boost6fibers7context15ready_is_linkedEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost6fibers7context22remote_ready_is_linkedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5boost6fibers7context22remote_ready_is_linkedEv(ptr noundef nonnull readonly align 8 dereferenceable(232) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !95
   %.not.i.i = icmp ne ptr %3, null
@@ -1338,7 +1338,7 @@ define noundef zeroext i1 @_ZNK5boost6fibers7context15sleep_is_linkedEv(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZNK5boost6fibers7context20terminated_is_linkedEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZNK5boost6fibers7context20terminated_is_linkedEv(ptr noundef nonnull readonly align 8 dereferenceable(232) %0) local_unnamed_addr #15 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %3 = load ptr, ptr %2, align 8, !tbaa !95
   %.not.i.i = icmp ne ptr %3, null

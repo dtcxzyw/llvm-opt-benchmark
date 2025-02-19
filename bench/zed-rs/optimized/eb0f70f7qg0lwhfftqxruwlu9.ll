@@ -21966,12 +21966,12 @@ define hidden noundef zeroext i1 @"_ZN4zbus13object_server4Node19get_managed_obj
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h1570148bc0875f63E.llvm.495310588694779438"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #16 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h1570148bc0875f63E.llvm.495310588694779438"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #16 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hc1c398b920db3b43E.llvm.495310588694779438"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #16 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17hc1c398b920db3b43E.llvm.495310588694779438"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #16 {
   ret ptr %0
 }
 

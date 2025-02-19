@@ -3305,7 +3305,7 @@ declare noundef ptr @_ZN4llvm4Type9getInt8TyERNS_11LLVMContextE(ptr noundef nonn
 declare noundef ptr @_ZN4llvm4Type9getInt1TyERNS_11LLVMContextE(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL16getTypeForFormatRN4llvm11LLVMContextERKNS_12fltSemanticsEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 captures(address) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL16getTypeForFormatRN4llvm11LLVMContextERKNS_12fltSemanticsEb(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 1 %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase8IEEEhalfEv() #19
   %5 = icmp eq ptr %1, %4
   br i1 %5, label %6, label %11

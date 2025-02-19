@@ -8925,7 +8925,7 @@ entry:
 declare void @_ZNK7rocksdb6DBImpl23GetTimestampedSnapshotsEmmRSt6vectorISt10shared_ptrIKNS_8SnapshotEESaIS5_EE(ptr sret(%"class.rocksdb::Status") align 8, ptr noundef nonnull align 64 dereferenceable(6660), i64 noundef, i64 noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb24SnapshotCreationCallbackclEmb(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %this, i64 noundef %seq, i1 zeroext %disable_memtable) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb24SnapshotCreationCallbackclEmb(ptr noalias writeonly sret(%"class.rocksdb::Status") align 8 captures(none) %agg.result, ptr noundef nonnull align 8 dereferenceable(64) %this, i64 noundef %seq, i1 zeroext %disable_memtable) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.std::unique_ptr.73", align 8
   %ret = alloca %"struct.std::pair.518", align 8

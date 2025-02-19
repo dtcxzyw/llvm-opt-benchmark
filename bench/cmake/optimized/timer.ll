@@ -249,7 +249,7 @@ heap_insert.exit:                                 ; preds = %53, %timer_less_tha
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @uv_timer_stop(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define dso_local noundef i32 @uv_timer_stop(ptr noundef %0) local_unnamed_addr #1 {
   %2 = alloca %struct.heap_node, align 8
   %3 = alloca %struct.heap_node, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -764,7 +764,7 @@ uv_timer_again.exit:                              ; preds = %10, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @uv__timer_close(ptr noundef captures(address) %0) local_unnamed_addr #1 {
+define dso_local void @uv__timer_close(ptr noundef %0) local_unnamed_addr #1 {
   %2 = tail call i32 @uv_timer_stop(ptr noundef %0)
   ret void
 }

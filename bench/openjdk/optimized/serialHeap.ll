@@ -3193,7 +3193,7 @@ declare void @_ZN11MetaspaceGC16compute_new_sizeEv() local_unnamed_addr #1
 declare void @_ZN21ClassUnloadingContextD1Ev(ptr noundef nonnull align 8 dereferenceable(26)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK10SerialHeap11is_in_youngEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK10SerialHeap11is_in_youngEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readnone %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3203,7 +3203,7 @@ define hidden noundef zeroext i1 @_ZNK10SerialHeap11is_in_youngEPKv(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK10SerialHeap17requires_barriersEP17stackChunkOopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readnone captures(address) %1) unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK10SerialHeap17requires_barriersEP17stackChunkOopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readnone %1) unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -3293,7 +3293,7 @@ declare noundef ptr @_ZNK16DefNewGeneration11block_startEPKv(ptr noundef nonnull
 declare noundef ptr @_ZNK17TenuredGeneration11block_startEPKv(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK10SerialHeap12block_is_objEPKP12HeapWordImpl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(192) %0, ptr noundef readnone %1) local_unnamed_addr #7 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

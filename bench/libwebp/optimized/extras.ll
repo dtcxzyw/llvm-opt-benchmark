@@ -13,7 +13,7 @@ define dso_local noundef i32 @WebPGetExtrasVersion() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @WebPImportGray(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -96,7 +96,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -199,7 +199,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB565(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -302,7 +302,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportRGB4444(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = icmp eq ptr %4, null
   %7 = icmp eq ptr %0, null
   %or.cond = or i1 %7, %6
@@ -399,7 +399,7 @@ define dso_local range(i32 0, 2) i32 @WebPImportColorMappedARGB(ptr noundef read
 declare void @WebPPictureFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @WebPUnmultiplyARGB(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @WebPUnmultiplyARGB(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -449,7 +449,7 @@ define dso_local range(i32 0, 2) i32 @WebPUnmultiplyARGB(ptr noundef readonly ca
 declare void @WebPInitAlphaProcessing() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @SharpYuvEstimate420Risk(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef readonly %8, ptr noundef writeonly %9) local_unnamed_addr #1 {
   %11 = add i32 %6, -1
   %12 = icmp ult i32 %11, 2147483646
   %13 = add i32 %7, -1

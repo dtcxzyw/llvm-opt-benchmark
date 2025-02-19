@@ -250,7 +250,7 @@ define dso_local noundef range(i32 -12, 1) i32 @mpi_resize(ptr noundef captures(
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @mpi_clear(ptr noundef writeonly captures(address_is_null) %0) #5 align 16 {
+define dso_local void @mpi_clear(ptr noundef writeonly %0) #5 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -303,7 +303,7 @@ define dso_local void @mpi_free(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @mpi_copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef ptr @mpi_copy(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -385,7 +385,7 @@ define dso_local noundef ptr @mpi_copy(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @mpi_alloc_like(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef ptr @mpi_alloc_like(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %29, label %3
 
@@ -443,7 +443,7 @@ define dso_local noundef ptr @mpi_alloc_like(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mpi_snatch(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
+define dso_local void @mpi_snatch(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %22, label %4
 
@@ -517,7 +517,7 @@ define dso_local void @mpi_snatch(ptr noundef captures(address_is_null) %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @mpi_set(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) #1 align 16 {
+define dso_local noundef ptr @mpi_set(ptr noundef %0, ptr noundef readonly captures(none) %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = load i32, ptr %3, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 12
@@ -635,7 +635,7 @@ define dso_local noundef ptr @mpi_set(ptr noundef captures(address_is_null, ret:
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @mpi_set_ui(ptr noundef captures(address_is_null, ret: address, provenance) %0, i64 noundef %1) #1 align 16 {
+define dso_local noundef ptr @mpi_set_ui(ptr noundef %0, i64 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %15
 

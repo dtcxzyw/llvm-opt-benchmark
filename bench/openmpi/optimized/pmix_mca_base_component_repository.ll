@@ -155,7 +155,7 @@ define internal void @clf_destructor(ptr noundef captures(none) initializes((144
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_mca_base_component_repository_add(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define noundef i32 @pmix_mca_base_component_repository_add(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %4 = icmp eq ptr %1, null

@@ -104,7 +104,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8QuantLib10LatticeRsg12nextSequenceEv(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(80) %this) local_unnamed_addr #2 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8QuantLib10LatticeRsg12nextSequenceEv(ptr noundef nonnull align 8 dereferenceable(80) %this) local_unnamed_addr #2 align 2 {
 entry:
   %0 = load i64, ptr %this, align 8, !tbaa !3
   %cmp5.not = icmp eq i64 %0, 0

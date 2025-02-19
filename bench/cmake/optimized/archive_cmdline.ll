@@ -319,7 +319,7 @@ define dso_local noalias noundef ptr @__archive_cmdline_allocate() local_unnamed
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @__archive_cmdline_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef i32 @__archive_cmdline_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 

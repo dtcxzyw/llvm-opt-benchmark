@@ -32681,7 +32681,7 @@ _ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EEaSEOS4_.exit: ; preds = %_ZN2cv
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZNK2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEE3ptrEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZNK2cv6detail10VectorRefTIN6custom12_GLOBAL__N_14FaceEE3ptrEv(ptr noundef nonnull readonly align 8 dereferenceable(56) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::logic_error", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -41488,7 +41488,7 @@ _ZN2cv6detail13OCVCallHelperIN6custom12_GLOBAL__N_127OCVAccumulatePyramidOutputs
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EEaSERKS4_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN6custom12_GLOBAL__N_14FaceESaIS2_EEaSERKS4_(ptr noundef nonnull returned align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %39, label %3
 
@@ -42303,7 +42303,7 @@ _ZNK2cv6detail9OpaqueRef4rrefINS_5Size_IiEEEERKT_v.exit: ; preds = %_ZN2cv4util3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_(ptr noundef nonnull returned align 4 captures(ret: address, provenance) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #24 {
+define internal fastcc noundef nonnull align 4 dereferenceable(16) ptr @_ZN2cvaNIiEERNS_5Rect_IT_EES4_RKS3_(ptr noundef nonnull returned align 4 dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1) unnamed_addr #24 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 4
   %5 = icmp slt i32 %4, 1

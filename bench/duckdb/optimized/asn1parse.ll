@@ -720,7 +720,7 @@ mbedtls_asn1_get_tag.exit.thread:                 ; preds = %9, %3, %22, %16, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @mbedtls_asn1_traverse_sequence_of(ptr noundef captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) local_unnamed_addr #3 {
+define hidden noundef i32 @mbedtls_asn1_traverse_sequence_of(ptr noundef captures(none) %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef readonly %6, ptr noundef %7) local_unnamed_addr #3 {
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %9 to i64
@@ -1393,7 +1393,7 @@ mbedtls_asn1_free_named_data.exit:                ; preds = %1, %mbedtls_asn1_fr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @mbedtls_asn1_find_named_data(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
+define hidden ptr @mbedtls_asn1_find_named_data(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #8 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %union.anon = type { [2 x i64] }
 
 ; Function Attrs: nounwind uwtable
-define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
+define void @CRYPTO_cbc128_encrypt(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = icmp eq i64 %2, 0
   br i1 %7, label %36, label %.preheader62
 
@@ -102,7 +102,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address) %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
+define void @CRYPTO_cbc128_decrypt(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca %union.anon, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #3
   %8 = icmp eq i64 %2, 0

@@ -657,7 +657,7 @@ define internal void @tcp_md5_twsk_free_rcu(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @tcp_twsk_purge(ptr noundef readonly captures(address) %0, i32 noundef %1) #0 align 16 {
+define dso_local void @tcp_twsk_purge(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %.loopexit, label %.preheader

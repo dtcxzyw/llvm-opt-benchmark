@@ -273,7 +273,7 @@ Vec_IntAlloc.exit:                                ; preds = %.critedge, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Ivy_ManDfsSeq(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef ptr @Ivy_ManDfsSeq(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
 .critedge:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr i8, ptr %0, i64 136
@@ -1202,7 +1202,7 @@ Vec_VecFree.exit:                                 ; preds = %.critedge.i, %.crit
 declare i32 @Ivy_ManLevels(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Ivy_ManIsAcyclic_rec(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr i8, ptr %0, i64 176
   %.val60 = load i32, ptr %3, align 8, !tbaa !54
   %4 = getelementptr i8, ptr %1, i64 4
@@ -1433,7 +1433,7 @@ define range(i32 0, 2) i32 @Ivy_ManIsAcyclic(ptr noundef %0) local_unnamed_addr 
 declare void @Ivy_ManIncrementTravId(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2097152) i32 @Ivy_ManSetLevels_rec(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2097152) i32 @Ivy_ManSetLevels_rec(ptr noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val = load i32, ptr %3, align 8
   %4 = and i32 %.val, 16

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @crypto_core_hsalsa20(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_core_hsalsa20(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %14, label %6
 

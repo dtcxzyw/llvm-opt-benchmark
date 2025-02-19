@@ -76,7 +76,7 @@ fdt_create_with_flags.exit:                       ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i8, ptr %0, align 1, !tbaa !14
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24
@@ -469,7 +469,7 @@ fdt_add_reservemap_entry.exit.thread:             ; preds = %19, %fdt_sw_probe_m
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -9, 1) i32 @fdt_begin_node(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define range(i32 -9, 1) i32 @fdt_begin_node(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %3 = load i8, ptr %0, align 1, !tbaa !14
   %4 = zext i8 %3 to i32
   %5 = shl nuw i32 %4, 24
@@ -562,7 +562,7 @@ fdt_sw_probe_struct_.exit.thread16:               ; preds = %fdt_sw_probe_struct
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc ptr @fdt_grab_space_(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #3 {
+define internal fastcc ptr @fdt_grab_space_(ptr noundef %0, i64 noundef %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i8, ptr %3, align 1, !tbaa !14
   %5 = zext i8 %4 to i32
@@ -676,7 +676,7 @@ define internal fastcc ptr @fdt_grab_space_(ptr noundef captures(ret: address, p
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -9, 1) i32 @fdt_end_node(ptr noundef captures(address) %0) local_unnamed_addr #7 {
+define range(i32 -9, 1) i32 @fdt_end_node(ptr noundef %0) local_unnamed_addr #7 {
   %2 = load i8, ptr %0, align 1, !tbaa !14
   %3 = zext i8 %2 to i32
   %4 = shl nuw i32 %3, 24

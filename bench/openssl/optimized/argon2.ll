@@ -1052,7 +1052,7 @@ define internal fastcc range(i32 0, 2) i32 @kdf_argon2_ctx_set_out_length(ptr no
 declare i64 @ossl_get_avail_threads(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @initialize(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @initialize(ptr noundef %0) unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [4 x i8], align 1
   %4 = alloca i32, align 4
@@ -1661,7 +1661,7 @@ fill_mem_blocks_st.exit:                          ; preds = %.split.us.i, %.sink
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @finalize(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @finalize(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.BLOCK, align 8
   %4 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #10
@@ -1985,7 +1985,7 @@ blake2b_md.exit:                                  ; preds = %9, %23
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @fill_segment(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #7 {
+define internal fastcc void @fill_segment(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i8 noundef zeroext %3) unnamed_addr #7 {
   %5 = alloca %struct.BLOCK, align 8
   %6 = alloca %struct.BLOCK, align 8
   %7 = alloca %struct.BLOCK, align 8

@@ -86,7 +86,7 @@ define void @_ZN5folly6detail24reentrant_allocator_baseC2ERKS1_(ptr noundef nonn
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6detail24reentrant_allocator_baseaSERKS1_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN5folly6detail24reentrant_allocator_baseaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 dereferenceable(8) %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %13, label %3
 

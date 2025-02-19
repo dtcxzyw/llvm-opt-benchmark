@@ -2236,7 +2236,7 @@ define void @_ZN6duckdb21EquiWidthBinSerializeERNS_10SerializerENS_12optional_pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb23EquiWidthBinDeserializeERNS_12DeserializerERNS_14ScalarFunctionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(632) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(296) %2) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb23EquiWidthBinDeserializeERNS_12DeserializerERNS_14ScalarFunctionE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(632) %1, ptr noundef nonnull align 8 dereferenceable(296) %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12Deserializer3GetIRKNS_11LogicalTypeEEET_v(ptr noundef nonnull align 8 dereferenceable(632) %1)
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 144
   %6 = icmp eq ptr %5, %4
@@ -9435,7 +9435,7 @@ define internal void @_ZN6duckdbL25CanCastImplicitlyFunctionERNS_9DataChunkERNS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb18CurrentSettingBindERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(648) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(296) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb18CurrentSettingBindERNS_13ClientContextERNS_14ScalarFunctionERNS_6vectorINS_10unique_ptrINS_10ExpressionESt14default_deleteIS6_ELb1EEELb1EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.duckdb::unique_ptr") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(648) %1, ptr noundef nonnull align 8 dereferenceable(296) %2, ptr noundef nonnull align 8 dereferenceable(24) %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.duckdb::Value", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1

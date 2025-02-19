@@ -423,7 +423,7 @@ define internal noundef ptr @get_victim_cb(ptr noundef %0, ptr readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @reserve_cond_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 {
+define internal range(i32 0, 3) i32 @reserve_cond_cb(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr readnone captures(none) %3) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -594,7 +594,7 @@ declare ptr @lv_ll_get_prev(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @lv_iter_create(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cache_iter_next_cb(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) #0 {
+define internal range(i32 0, 2) i32 @cache_iter_next_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 

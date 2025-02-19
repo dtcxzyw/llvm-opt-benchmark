@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.20 = private unnamed_addr constant [37 x i8] c"NET: %s: getnameinfo(%pA) failed: %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @get_host_by_name(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @hostentLock) #14
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %8, label %6
@@ -282,7 +282,7 @@ declare ptr @__h_errno_location() local_unnamed_addr #3
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @is_full_path(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define dso_local noundef zeroext i1 @is_full_path(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

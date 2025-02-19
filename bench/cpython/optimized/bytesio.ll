@@ -2328,7 +2328,7 @@ _io_BytesIO_read_impl.exit:                       ; preds = %._crit_edge.i.i, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_BytesIO_getbuffer(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @_io_BytesIO_getbuffer(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

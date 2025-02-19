@@ -14,7 +14,7 @@ $_ZN4llvm12ScaledNumberImE10shiftRightEi = comdat any
 @.str.1 = private unnamed_addr constant [14 x i8] c"<invalid BFI>\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14BlockFrequencymLENS_17BranchProbabilityE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14BlockFrequencymLENS_17BranchProbabilityE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::BranchProbability", align 4
   store i32 %1, ptr %3, align 4
   %4 = load i64, ptr %0, align 8, !tbaa !3
@@ -40,7 +40,7 @@ define dso_local noundef i64 @_ZNK4llvm14BlockFrequencymlENS_17BranchProbability
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14BlockFrequencydVENS_17BranchProbabilityE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4llvm14BlockFrequencydVENS_17BranchProbabilityE(ptr noundef nonnull returned align 8 dereferenceable(8) %0, i32 %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::BranchProbability", align 4
   store i32 %1, ptr %3, align 4
   %4 = load i64, ptr %0, align 8, !tbaa !3

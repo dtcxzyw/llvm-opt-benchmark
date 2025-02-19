@@ -470,7 +470,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #6
 declare ptr @g_slist_append(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @busmaster_gen_packet(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @busmaster_gen_packet(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #0 {
 switch.edge:
   %5 = alloca %struct.canfd_frame, align 4
   %6 = alloca %struct.can_frame, align 4

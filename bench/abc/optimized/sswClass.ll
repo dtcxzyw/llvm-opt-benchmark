@@ -630,7 +630,7 @@ Ssw_ObjIsConst1Cand.exit:                         ; preds = %22, %24
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ssw_ClassesRemoveNode(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #13 {
+define void @Ssw_ClassesRemoveNode(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #13 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr i8, ptr %3, i64 256
   %.val = load ptr, ptr %4, align 8, !tbaa !33

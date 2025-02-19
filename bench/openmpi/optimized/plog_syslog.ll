@@ -77,7 +77,7 @@ define internal void @finalize() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
+define internal i32 @mylog(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
   %8 = icmp eq ptr %1, null
   %9 = icmp eq i64 %2, 0
   %or.cond = or i1 %8, %9

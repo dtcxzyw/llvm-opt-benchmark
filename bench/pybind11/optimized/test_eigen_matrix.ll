@@ -18987,7 +18987,7 @@ _ZN8pybind117module_10add_objectEPKcNS_6handleEb.exit.i1799: ; preds = %_ZNKR8py
 declare void @_ZN16test_initializerC1EPKcPFvRN8pybind117module_EE(ptr noundef nonnull align 1 dereferenceable(1), ptr noundef, ptr noundef) unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8pybind117module_3defIRZ27test_submodule_eigen_matrixRS0_E4$_11JEEES2_PKcOT_DpRKT0_"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8pybind117module_3defIRZ27test_submodule_eigen_matrixRS0_E4$_11JEEES2_PKcOT_DpRKT0_"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.pybind11::cpp_function", align 8
   %5 = alloca %"class.pybind11::object", align 8
@@ -19185,7 +19185,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %_ZN8pybind117module
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8pybind117module_3defIRZ27test_submodule_eigen_matrixRS0_E4$_12JEEES2_PKcOT_DpRKT0_"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8pybind117module_3defIRZ27test_submodule_eigen_matrixRS0_E4$_12JEEES2_PKcOT_DpRKT0_"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef %1) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::unique_ptr", align 8
   %4 = alloca %"class.pybind11::cpp_function", align 8
   %5 = alloca %"class.pybind11::object", align 8
@@ -19643,12 +19643,12 @@ define internal void @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12Re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester3getEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) #10 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester3getEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) #10 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester6getPtrEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) #10 align 2 {
+define internal noundef nonnull ptr @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester6getPtrEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) #10 align 2 {
   ret ptr %0
 }
 
@@ -19847,7 +19847,7 @@ _ZN8pybind1112cpp_functionD2Ev.exit:              ; preds = %53, %55, %58
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester4viewEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) #10 align 2 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @_ZZ27test_submodule_eigen_matrixRN8pybind117module_EEN12ReturnTester4viewEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) #10 align 2 {
   ret ptr %0
 }
 
@@ -66803,7 +66803,7 @@ _ZNSt11_Tuple_implILm1EJN8pybind116detail11type_casterIN5Eigen3RefIKNS3_6MatrixI
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesterJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ27test_submodule_eigen_matrixRNS_7module_EE12ReturnTesterJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ27test_submodule_eigen_matrixRN8pybind117module_EE12ReturnTester, ptr %4, align 8

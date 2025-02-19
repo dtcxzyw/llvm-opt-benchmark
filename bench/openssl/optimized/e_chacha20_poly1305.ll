@@ -22,7 +22,7 @@ define noundef nonnull ptr @EVP_chacha20_poly1305() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @chacha_init_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 %3) #1 {
+define internal noundef i32 @chacha_init_key(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %.not = icmp eq ptr %1, null
@@ -231,7 +231,7 @@ declare void @ChaCha20_ctr32(ptr noundef, ptr noundef, i64 noundef, ptr noundef,
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i32 %3) #6 {
+define internal noundef i32 @chacha20_poly1305_init_key(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 %3) #6 {
   %5 = alloca [16 x i8], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load ptr, ptr %6, align 8, !tbaa !3
@@ -706,7 +706,7 @@ define internal noundef i32 @chacha20_poly1305_cleanup(ptr noundef readonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) #2 {
+define internal range(i32 -1, 17) i32 @chacha20_poly1305_ctrl(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   switch i32 %1, label %132 [

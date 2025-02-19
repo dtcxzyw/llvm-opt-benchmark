@@ -111,7 +111,7 @@ _ZN5vcpkgeqENS_10StringViewES0_.exit:             ; preds = %4, %7, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5vcpkgltENS_10StringViewES0_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   %.v = tail call i64 @llvm.smin.i64(i64 %3, i64 %1)
   %6 = getelementptr inbounds i8, ptr %0, i64 %.v
@@ -151,7 +151,7 @@ _ZSt23lexicographical_compareIPKcS1_EbT_S2_T0_S3_.exit: ; preds = %_ZSt23lexicog
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkggtENS_10StringViewES0_(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5vcpkggtENS_10StringViewES0_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %.v.i = tail call i64 @llvm.smin.i64(i64 %1, i64 %3)
   %6 = getelementptr inbounds i8, ptr %2, i64 %.v.i
@@ -191,7 +191,7 @@ _ZN5vcpkgltENS_10StringViewES0_.exit:             ; preds = %_ZN5vcpkgltENS_10St
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkgleENS_10StringViewES0_(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5vcpkgleENS_10StringViewES0_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %0, i64 %1
   %.v.i = tail call i64 @llvm.smin.i64(i64 %1, i64 %3)
   %6 = getelementptr inbounds i8, ptr %2, i64 %.v.i
@@ -231,7 +231,7 @@ _ZN5vcpkgltENS_10StringViewES0_.exit:             ; preds = %_ZN5vcpkgltENS_10St
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5vcpkggeENS_10StringViewES0_(ptr readonly captures(address) %0, i64 %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5vcpkggeENS_10StringViewES0_(ptr readonly %0, i64 %1, ptr readonly %2, i64 %3) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   %.v.i = tail call i64 @llvm.smin.i64(i64 %3, i64 %1)
   %6 = getelementptr inbounds i8, ptr %0, i64 %.v.i

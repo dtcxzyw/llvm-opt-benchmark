@@ -118,7 +118,7 @@ define internal noalias noundef ptr @Make_Enum_Type(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal noalias noundef ptr @Copy_Enum_Type(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal noalias noundef ptr @Copy_Enum_Type(ptr noundef readonly %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -137,7 +137,7 @@ define internal noalias noundef ptr @Copy_Enum_Type(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @Free_Enum_Type(ptr noundef captures(address_is_null) %0) #2 {
+define internal void @Free_Enum_Type(ptr noundef %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

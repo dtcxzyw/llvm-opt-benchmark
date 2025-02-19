@@ -462,7 +462,7 @@ _ZNSt10unique_ptrI6bio_stN5folly23static_function_deleterIS0_XadL_Z9BIO_vfreeEEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 -2147483648, 2147483647) i32 @_ZN12_GLOBAL__N_116passwordCallbackEPciiPv(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, i32 %2, ptr noundef %3) #0 personality ptr @__gxx_personality_v0 {
+define internal noundef range(i32 -2147483648, 2147483647) i32 @_ZN12_GLOBAL__N_116passwordCallbackEPciiPv(ptr noundef writeonly %0, i32 noundef %1, i32 %2, ptr noundef %3) #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %3, null

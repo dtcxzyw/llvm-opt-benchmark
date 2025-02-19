@@ -712,7 +712,7 @@ zend_hash_real_init_mixed_ex.exit:                ; preds = %41, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_packed_to_hash(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @zend_hash_packed_to_hash(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !5
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
@@ -815,7 +815,7 @@ declare noalias ptr @__zend_malloc(i64 noundef) local_unnamed_addr #3
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @zend_hash_rehash(ptr noundef captures(address) %0) local_unnamed_addr #9 {
+define dso_local void @zend_hash_rehash(ptr noundef %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %3 = load i32, ptr %2, align 4, !tbaa !28
   %4 = icmp eq i32 %3, 0
@@ -1413,7 +1413,7 @@ define dso_local void @zend_hash_to_packed(ptr noundef captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_extend(ptr noundef captures(address) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define dso_local void @zend_hash_extend(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %125, label %5
 
@@ -1692,7 +1692,7 @@ define dso_local void @zend_hash_discard(ptr noundef captures(none) %0, i32 noun
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define dso_local i32 @zend_array_count(ptr noundef captures(address) %0) local_unnamed_addr #12 {
+define dso_local i32 @zend_array_count(ptr noundef %0) local_unnamed_addr #12 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !5
   %4 = and i32 %3, 32
@@ -2421,7 +2421,7 @@ _zend_hash_get_valid_pos.exit:                    ; preds = %80, %85, %_zend_has
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_array_dup(ptr noundef captures(address) %0) local_unnamed_addr #6 {
+define dso_local noundef ptr @zend_array_dup(ptr noundef %0) local_unnamed_addr #6 {
   %2 = tail call noalias ptr @_emalloc_56() #29
   store i32 1, ptr %2, align 4, !tbaa !26
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4
@@ -5185,7 +5185,7 @@ zend_hash_iterator_del.exit:                      ; preds = %23, %.critedge.i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @zend_hash_iterators_lower_pos(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #14 {
+define dso_local i32 @zend_hash_iterators_lower_pos(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !33
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   %5 = zext i32 %4 to i64
@@ -5222,7 +5222,7 @@ define dso_local i32 @zend_hash_iterators_lower_pos(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_zend_hash_iterators_update(ptr noundef readnone captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
+define dso_local void @_zend_hash_iterators_update(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !33
   %5 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   %6 = zext i32 %5 to i64
@@ -5256,7 +5256,7 @@ define dso_local void @_zend_hash_iterators_update(ptr noundef readnone captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @zend_hash_iterators_advance(ptr noundef readnone captures(address) %0, i32 noundef %1) local_unnamed_addr #17 {
+define dso_local void @zend_hash_iterators_advance(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #17 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !33
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   %5 = zext i32 %4 to i64
@@ -5287,7 +5287,7 @@ define dso_local void @zend_hash_iterators_advance(ptr noundef readnone captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_add_or_update(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_add_or_update(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   switch i32 %3, label %11 [
     i32 2, label %5
     i32 8, label %7
@@ -5318,7 +5318,7 @@ define dso_local ptr @zend_hash_add_or_update(ptr noundef captures(address) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_hash_add(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @zend_hash_add(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %.not.i3 = icmp eq i64 %5, 0
@@ -5482,7 +5482,7 @@ _zend_hash_add_or_update_i.exit:                  ; preds = %50, %zend_string_eq
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_hash_add_new(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @zend_hash_add_new(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %.not.i3 = icmp eq i64 %5, 0
@@ -5578,7 +5578,7 @@ _zend_hash_add_or_update_i.exit:                  ; preds = %21, %zend_string_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_update(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_update(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %.not.i3 = icmp eq i64 %5, 0
@@ -5763,7 +5763,7 @@ _zend_hash_add_or_update_i.exit:                  ; preds = %60, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_update_ind(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_update_ind(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !9
   %.not.i3 = icmp eq i64 %5, 0
@@ -5959,7 +5959,7 @@ _zend_hash_add_or_update_i.exit:                  ; preds = %66, %83
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_lookup(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_lookup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !9
   %.not.i2 = icmp eq i64 %4, 0
@@ -6119,7 +6119,7 @@ _zend_hash_add_or_update_i.exit:                  ; preds = %49, %zend_string_eq
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_str_add_or_update(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address) %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_str_add_or_update(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   switch i32 %4, label %12 [
     i32 2, label %6
     i32 8, label %8
@@ -6150,7 +6150,7 @@ define dso_local ptr @zend_hash_str_add_or_update(ptr noundef captures(address) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_str_add(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_str_add(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i64 @zend_hash_func(ptr noundef %1, i64 noundef %2) #29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !5
@@ -6313,7 +6313,7 @@ _zend_hash_str_add_or_update_i.exit:              ; preds = %zend_string_equals_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_hash_str_add_new(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @zend_hash_str_add_new(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call i64 @zend_hash_func(ptr noundef %1, i64 noundef %2) #29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !5
@@ -6419,7 +6419,7 @@ zend_string_alloc.exit:                           ; preds = %32, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_str_update(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_str_update(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = tail call i64 @zend_hash_func(ptr noundef %1, i64 noundef %2) #29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !5
@@ -6603,7 +6603,7 @@ _zend_hash_str_add_or_update_i.exit:              ; preds = %44, %zend_string_al
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_str_update_ind(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_str_update_ind(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = tail call i64 @zend_hash_func(ptr noundef %1, i64 noundef %2) #29
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !5
@@ -6800,7 +6800,7 @@ _zend_hash_str_add_or_update_i.exit:              ; preds = %50, %zend_string_al
 declare i64 @zend_hash_func(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_index_add_empty_element(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_index_add_empty_element(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6811,7 +6811,7 @@ define dso_local ptr @zend_hash_index_add_empty_element(ptr noundef captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_index_add(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define dso_local ptr @zend_hash_index_add(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !5
   %6 = and i32 %5, 4
@@ -7141,7 +7141,7 @@ _zend_hash_index_add_or_update_i.exit:            ; preds = %139, %_zend_hash_in
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_hash_add_empty_element(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @zend_hash_add_empty_element(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #29
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -7152,7 +7152,7 @@ define dso_local noundef ptr @zend_hash_add_empty_element(ptr noundef captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_str_add_empty_element(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_str_add_empty_element(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #29
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7163,7 +7163,7 @@ define dso_local ptr @zend_hash_str_add_empty_element(ptr noundef captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_index_add_or_update(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @zend_hash_index_add_or_update(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = add i32 %3, -2
   %6 = tail call i32 @llvm.fshl.i32(i32 %5, i32 %5, i32 29)
   switch i32 %6, label %21 [
@@ -7209,7 +7209,7 @@ define dso_local ptr @zend_hash_index_add_or_update(ptr noundef captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_index_add_new(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define dso_local ptr @zend_hash_index_add_new(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !5
   %6 = and i32 %5, 4
@@ -7503,7 +7503,7 @@ _zend_hash_index_add_or_update_i.exit:            ; preds = %_zend_hash_index_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_next_index_insert(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define dso_local ptr @zend_hash_next_index_insert(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !30
   %5 = icmp eq i64 %4, -9223372036854775808
@@ -7835,7 +7835,7 @@ _zend_hash_index_add_or_update_i.exit:            ; preds = %140, %_zend_hash_in
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_next_index_insert_new(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+define dso_local ptr @zend_hash_next_index_insert_new(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i64, ptr %3, align 8, !tbaa !30
   %5 = icmp eq i64 %4, -9223372036854775808
@@ -8096,7 +8096,7 @@ _zend_hash_index_add_or_update_i.exit:            ; preds = %14, %139
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_index_update(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define dso_local ptr @zend_hash_index_update(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !5
   %6 = and i32 %5, 4
@@ -8441,7 +8441,7 @@ _zend_hash_index_add_or_update_i.exit:            ; preds = %21, %.loopexit, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @zend_hash_index_lookup(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #6 {
+define dso_local ptr @zend_hash_index_lookup(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !5
   %5 = and i32 %4, 4
@@ -8977,7 +8977,7 @@ zend_string_release.exit:                         ; preds = %84, %90, %97, %98
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_packed_del_val(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @zend_hash_packed_del_val(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8
@@ -9081,7 +9081,7 @@ _zend_hash_packed_del_val.exit:                   ; preds = %47, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_del_bucket(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @zend_hash_del_bucket(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !5
@@ -9271,7 +9271,7 @@ _zend_hash_del_el_ex.exit:                        ; preds = %87, %93
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_hash_del(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_hash_del(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !9
@@ -9494,7 +9494,7 @@ _zend_hash_del_el_ex.exit:                        ; preds = %zend_string_equal_c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_hash_del_ind(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_hash_del_ind(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9761,7 +9761,7 @@ zend_string_equal_content.exit.thread:            ; preds = %37, %zend_string_eq
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_hash_str_del_ind(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_hash_str_del_ind(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = icmp ugt i64 %2, 7
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -10117,7 +10117,7 @@ zend_string_equals_cstr.exit.thread:              ; preds = %117, %zend_string_e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_hash_str_del(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_hash_str_del(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = icmp ugt i64 %2, 7
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -10444,7 +10444,7 @@ _zend_hash_del_el_ex.exit:                        ; preds = %zend_string_equals_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_hash_index_del(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @zend_hash_index_del(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -10696,7 +10696,7 @@ zend_hash_iterators_clamp_max.exit:               ; preds = %112, %102, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_destroy(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @zend_hash_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !27
   %.not = icmp eq i32 %3, 0
@@ -11942,7 +11942,7 @@ zend_string_release.exit:                         ; preds = %120, %119, %112, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_graceful_destroy(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @zend_hash_graceful_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12288,7 +12288,7 @@ _zend_hash_del_el_ex.exit:                        ; preds = %144, %140, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_graceful_reverse_destroy(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @zend_hash_graceful_reverse_destroy(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct._zval_struct, align 8
   %3 = alloca %struct._zval_struct, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -12634,7 +12634,7 @@ zend_hash_iterators_clamp_max.exit:               ; preds = %140, %130, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_apply(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local void @zend_hash_apply(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -12988,7 +12988,7 @@ zend_hash_iterators_clamp_max.exit:               ; preds = %153, %143, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_apply_with_argument(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @zend_hash_apply_with_argument(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -13342,7 +13342,7 @@ zend_hash_iterators_clamp_max.exit:               ; preds = %154, %144, %.crited
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_apply_with_arguments(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ...) local_unnamed_addr #0 {
+define dso_local void @zend_hash_apply_with_arguments(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca %struct._zval_struct, align 8
   %5 = alloca %struct._zval_struct, align 8
   %6 = alloca [1 x %struct.__va_list_tag], align 16
@@ -13720,7 +13720,7 @@ declare void @llvm.va_start.p0(ptr) #18
 declare void @llvm.va_end.p0(ptr) #18
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_reverse_apply(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local void @zend_hash_reverse_apply(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca %struct._zval_struct, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -14066,7 +14066,7 @@ _zend_hash_del_el_ex.exit:                        ; preds = %152, %148, %77
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_copy(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @zend_hash_copy(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 8, !tbaa !5
   %6 = and i32 %5, 4
@@ -14389,7 +14389,7 @@ zend_hash_real_init_packed.exit:                  ; preds = %.thread, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_merge(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @zend_hash_merge(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !5
   %7 = and i32 %6, 4
@@ -15009,7 +15009,7 @@ _zend_hash_add_or_update_i.exit.thread:           ; preds = %_zend_hash_add_or_u
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_merge_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @zend_hash_merge_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct._zend_hash_key, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !5
@@ -16281,13 +16281,13 @@ define dso_local void @zend_hash_bucket_packed_swap(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_hash_sort_ex(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @zend_hash_sort_ex(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   tail call fastcc void @zend_hash_sort_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_hash_sort_internal(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #6 {
+define internal fastcc void @zend_hash_sort_internal(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %6 = load i32, ptr %5, align 4, !tbaa !28
   %7 = icmp ugt i32 %6, 1
@@ -16673,7 +16673,7 @@ gc_check_possible_root.exit:                      ; preds = %30, %26, %21, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @zend_hash_compare(ptr noundef captures(address) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local i32 @zend_hash_compare(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, %1
   br i1 %5, label %234, label %6
 
@@ -17319,7 +17319,7 @@ define dso_local ptr @zend_hash_minmax(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #22 {
+define dso_local noundef zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #22 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %5 = load i8, ptr %0, align 1, !tbaa !5
   %6 = icmp eq i8 %5, 45
@@ -17388,7 +17388,7 @@ define dso_local noundef zeroext i1 @_zend_handle_numeric_str_ex(ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_symtable_to_proptable(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @zend_symtable_to_proptable(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !5
   %4 = and i32 %3, 4
@@ -17601,7 +17601,7 @@ zend_string_delref.exit:                          ; preds = %74, %69, %68
 declare ptr @zend_long_to_str(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_proptable_to_symtable(ptr noundef captures(address, ret: address, provenance) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @zend_proptable_to_symtable(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #29
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -17865,7 +17865,7 @@ declare ptr @zend_string_tolower_ex(ptr noundef, i1 noundef zeroext) local_unnam
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #23
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_hash_do_resize(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @zend_hash_do_resize(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !5
   %4 = and i32 %3, 4
@@ -17960,7 +17960,7 @@ declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unname
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #24
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_zend_hash_iterators_remove(ptr noundef readnone captures(address) %0) unnamed_addr #25 {
+define internal fastcc void @_zend_hash_iterators_remove(ptr noundef readnone %0) unnamed_addr #25 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1112), align 8, !tbaa !33
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   %4 = zext i32 %3 to i64
@@ -17990,7 +17990,7 @@ define internal fastcc void @_zend_hash_iterators_remove(ptr noundef readnone ca
 declare void @rc_dtor_func(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_array_dup_ht_iterators(ptr noundef readnone captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_array_dup_ht_iterators(ptr noundef readnone %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 1108), align 4, !tbaa !62
   %.not13 = icmp eq i32 %3, 0
   br i1 %.not13, label %._crit_edge, label %.lr.ph.preheader

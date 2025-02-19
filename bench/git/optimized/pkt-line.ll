@@ -817,7 +817,7 @@ declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @write_packetized_from_buf_no_flush_count(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @write_packetized_from_buf_no_flush_count(ptr noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.strbuf, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %.not18 = icmp eq ptr %3, null
@@ -945,7 +945,7 @@ define dso_local i32 @packet_length(ptr noundef readonly captures(none) %0, i64 
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 5) i32 @packet_read_with_status(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 5) i32 @packet_read_with_status(i32 noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca [4 x i8], align 1
   %9 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #16
@@ -1198,7 +1198,7 @@ _.exit77:                                         ; preds = %72, %74
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @get_packet_data(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef range(i64 0, 2147483644) %4, i32 noundef %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @get_packet_data(i32 noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef %3, i64 noundef range(i64 0, 2147483644) %4, i32 noundef %5) unnamed_addr #0 {
   %7 = icmp sgt i32 %0, -1
   %8 = icmp ne ptr %1, null
   %or.cond = and i1 %7, %8
@@ -1365,7 +1365,7 @@ define dso_local i32 @packet_read(i32 noundef %0, ptr noundef %1, i32 noundef %2
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @packet_read_line(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @packet_read_line(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
   store i32 -1, ptr %3, align 4, !tbaa !9
@@ -1386,7 +1386,7 @@ define dso_local ptr @packet_read_line(i32 noundef %0, ptr noundef writeonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @packet_read_line_gently(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i32 @packet_read_line_gently(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
   store i32 -1, ptr %4, align 4, !tbaa !9

@@ -1410,7 +1410,7 @@ if.end23:                                         ; preds = %for.body.i.i.i60, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address) %c, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_pr) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %c, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_pr) local_unnamed_addr #7 align 2 {
 entry:
   %m_subst = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 12
@@ -1563,7 +1563,7 @@ return:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3appRPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address) %c, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_pr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_dep) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZN17expr_substitution4findEP4exprRS1_RP3appRPN18dependency_managerIN11ast_manager22expr_dependency_configEE10dependencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %c, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_pr, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %def_dep) local_unnamed_addr #7 align 2 {
 entry:
   %m_subst = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %c, i64 12
@@ -1794,7 +1794,7 @@ return:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17expr_substitution8containsEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly captures(address) %s) local_unnamed_addr #8 align 2 {
+define hidden noundef zeroext i1 @_ZN17expr_substitution8containsEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %this, ptr noundef readonly %s) local_unnamed_addr #8 align 2 {
 entry:
   %m_subst = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12

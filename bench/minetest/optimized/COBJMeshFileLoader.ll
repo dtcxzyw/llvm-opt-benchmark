@@ -5550,7 +5550,7 @@ _ZN3irr5scene18COBJMeshFileLoader11goFirstWordEPKcS3_b.exit: ; preds = %while.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef i32 @_ZN3irr5scene18COBJMeshFileLoader8copyWordEPcPKcjS4_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) %outBuf, ptr noundef readonly %inBuf, i32 noundef %outBufLength, ptr noundef readnone captures(address) %bufEnd) local_unnamed_addr #11 align 2 {
+define noundef i32 @_ZN3irr5scene18COBJMeshFileLoader8copyWordEPcPKcjS4_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(48) %this, ptr noundef writeonly captures(none) %outBuf, ptr noundef readonly %inBuf, i32 noundef %outBufLength, ptr noundef readnone %bufEnd) local_unnamed_addr #11 align 2 {
 entry:
   %inBuf42 = ptrtoint ptr %inBuf to i64
   %outBuf41 = ptrtoint ptr %outBuf to i64

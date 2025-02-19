@@ -139,7 +139,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @dfvm_value_ref(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @dfvm_value_ref(ptr noundef returned %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -1413,7 +1413,7 @@ declare ptr @fvalue_new(i32 noundef) local_unnamed_addr #5
 declare void @fvalue_set_byte_array(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden zeroext i1 @dfvm_apply_full(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden zeroext i1 @dfvm_apply_full(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
@@ -4672,7 +4672,7 @@ stack_pop.exit:                                   ; preds = %25, %1505, %1506, %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i1 @read_tree(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %.0.val, ptr readonly captures(address_is_null) %.8.val, i32 %.8.val1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #2 {
+define internal fastcc zeroext i1 @read_tree(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 %.0.val, ptr readonly %.8.val, i32 %.8.val1, ptr noundef readonly %2) unnamed_addr #2 {
   %4 = icmp eq i32 %.0.val, 3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %5
@@ -4824,7 +4824,7 @@ read_tree_finfos.exit:                            ; preds = %.lr.ph.split, %66, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i1 @read_reference(ptr noundef readonly captures(none) %0, i32 %.0.val, ptr %.8.val, i32 %.8.val1, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc zeroext i1 @read_reference(ptr noundef readonly captures(none) %0, i32 %.0.val, ptr %.8.val, i32 %.8.val1, ptr noundef readonly %1) unnamed_addr #2 {
   %3 = icmp eq i32 %.0.val, 3
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
@@ -5192,7 +5192,7 @@ declare ptr @fvalue_type_name(ptr noundef) local_unnamed_addr #5
 declare void @wmem_strbuf_append_c_count(ptr noundef, i8 noundef signext, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @dfvm_value_tostr(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #2 {
+define internal fastcc ptr @dfvm_value_tostr(ptr noundef readonly %0) unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %50, label %2
 
@@ -5283,7 +5283,7 @@ define internal fastcc ptr @dfvm_value_tostr(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noalias ptr @value_type_tostr(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define internal fastcc noalias ptr @value_type_tostr(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %.not = icmp ne ptr %0, null
   %brmerge.not = and i1 %.not, %1
   br i1 %brmerge.not, label %5, label %3
@@ -5645,7 +5645,7 @@ declare i32 @fvalue_matches(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @test_in_internal(ptr noundef %0, ptr readonly captures(none) %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #2 {
+define internal fastcc noundef zeroext i1 @test_in_internal(ptr noundef %0, ptr readonly captures(none) %.0.val, ptr readonly %.8.val) unnamed_addr #2 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %.preheader, label %.preheader4
 

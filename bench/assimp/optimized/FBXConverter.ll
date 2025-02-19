@@ -6291,7 +6291,7 @@ define linkonce_odr void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter12ConvertNodesEmP6aiNodeS3_RK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(489) %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter12ConvertNodesEmP6aiNodeS3_RK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(489) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.std::vector.130", align 8
@@ -7518,7 +7518,7 @@ _ZNSt6vectorIPKN6Assimp3FBX10ConnectionESaIS4_EED2Ev.exit179: ; preds = %542, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter18MakeUniqueNodeNameB5cxx11EPKNS0_5ModelERK6aiNode(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1144) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter18MakeUniqueNodeNameB5cxx11EPKNS0_5ModelERK6aiNode(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull readonly align 8 dereferenceable(1144) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -7961,7 +7961,7 @@ declare noundef ptr @_ZNK6Assimp3FBX10Connection12SourceObjectEv(ptr noundef non
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN6Assimp3FBX12FBXConverter31GenerateTransformationNodeChainERKNS0_5ModelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS1_13PotentialNodeESaISE_EESH_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN6Assimp3FBX12FBXConverter31GenerateTransformationNodeChainERKNS0_5ModelERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt6vectorINS1_13PotentialNodeESaISE_EESH_(ptr noundef nonnull readonly align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(208) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -11169,7 +11169,7 @@ _ZN10aiMetadata3SetIbEEbjRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEER
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter12ConvertModelERKNS0_5ModelEP6aiNodeS6_RK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter12ConvertModelERKNS0_5ModelEP6aiNodeS6_RK12aiMatrix4x4tIfE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"class.std::vector.190", align 8
@@ -15070,7 +15070,7 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter11ConvertMeshERKNS0_12MeshGeometryERKNS0_5ModelEP6aiNodeS9_RK12aiMatrix4x4tIfE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.190") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull align 8 dereferenceable(1000) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %3, ptr noundef captures(address) %4, ptr noundef readnone captures(none) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter11ConvertMeshERKNS0_12MeshGeometryERKNS0_5ModelEP6aiNodeS9_RK12aiMatrix4x4tIfE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.190") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull align 8 dereferenceable(1000) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %3, ptr noundef %4, ptr noundef readnone captures(none) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca ptr, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %10 = load ptr, ptr %9, align 8
@@ -15307,7 +15307,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit57:                  ; preds = %95, %96
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter11ConvertLineERKNS0_12LineGeometryEP6aiNode(ptr dead_on_unwind noalias writable sret(%"class.std::vector.190") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef captures(address) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter11ConvertLineERKNS0_12LineGeometryEP6aiNode(ptr dead_on_unwind noalias writable sret(%"class.std::vector.190") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull align 8 dereferenceable(168) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGeometry11GetVerticesEv(ptr noundef nonnull align 8 dereferenceable(168) %2)
@@ -15625,7 +15625,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGe
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetMaterialIndicesEv(ptr noundef nonnull align 8 dereferenceable(1000)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter24ConvertMeshMultiMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEP6aiNodeSD_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.190") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull align 8 dereferenceable(1000) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4, ptr noundef captures(address) %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter24ConvertMeshMultiMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEP6aiNodeSD_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.190") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull align 8 dereferenceable(489) %1, ptr noundef nonnull align 8 dereferenceable(1000) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4, ptr noundef %5, ptr noundef readnone captures(none) %6) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"class.std::set", align 8
   %9 = tail call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12MeshGeometry18GetMaterialIndicesEv(ptr noundef nonnull align 8 dereferenceable(1000) %2)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #28
@@ -15875,7 +15875,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %82, %84
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6Assimp3FBX12FBXConverter25ConvertMeshSingleMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEP6aiNodeSD_(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(1000) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, ptr noundef captures(address) %4, ptr readnone captures(none) %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN6Assimp3FBX12FBXConverter25ConvertMeshSingleMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEP6aiNodeSD_(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(1000) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, ptr noundef %4, ptr readnone captures(none) %5) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -17899,7 +17899,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGe
 declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6Assimp3FBX12LineGeometry10GetIndicesEv(ptr noundef nonnull align 8 dereferenceable(168)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull ptr @_ZN6Assimp3FBX12FBXConverter14SetupEmptyMeshERKNS0_8GeometryEP6aiNode(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull ptr @_ZN6Assimp3FBX12FBXConverter14SetupEmptyMeshERKNS0_8GeometryEP6aiNode(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef readonly %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::tuple.567", align 8
@@ -19861,7 +19861,7 @@ declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4find
 declare noundef ptr @_ZNK6Assimp3FBX12MeshGeometry19ToOutputVertexIndexEjRj(ptr noundef nonnull align 8 dereferenceable(1000), i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN6Assimp3FBX12FBXConverter24ConvertMeshMultiMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEiP6aiNodeSD_(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(1000) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, i32 noundef %4, ptr noundef captures(address) %5, ptr readnone captures(none) %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN6Assimp3FBX12FBXConverter24ConvertMeshMultiMaterialERKNS0_12MeshGeometryERKNS0_5ModelERK12aiMatrix4x4tIfEiP6aiNodeSD_(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef nonnull align 8 dereferenceable(1000) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(208) %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, i32 noundef %4, ptr noundef %5, ptr readnone captures(none) %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
   %10 = alloca %"class.std::vector.190", align 8
@@ -25519,7 +25519,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit515: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter23SetShadingPropertiesRawEP10aiMaterialRKNS0_13PropertyTableERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISD_ESaISt4pairIKSD_SG_EEEPKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter23SetShadingPropertiesRawEP10aiMaterialRKNS0_13PropertyTableERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISD_ESaISt4pairIKSD_SG_EEEPKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(120) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %5 = alloca i64, align 8
   %6 = alloca ptr, align 8
@@ -27254,7 +27254,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit328: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter20SetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEEPKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter20SetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEEPKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -30652,7 +30652,7 @@ _ZN6Assimp12LogFunctionsINS_11FBXImporterEE7LogWarnIJRA112_KcEEEvDpOT_.exit: ; p
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter20SetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_14LayeredTextureESt4lessISA_ESaISt4pairIKSA_SD_EEEPKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter20SetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_14LayeredTextureESt4lessISA_ESaISt4pairIKSA_SD_EEEPKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(48) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -31918,7 +31918,7 @@ _ZNSt8_Rb_treeIPKN6Assimp3FBX5VideoESt4pairIKS4_jESt10_Select1stIS7_ESt4lessIS4_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_7TextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca i64, align 8
@@ -32799,7 +32799,7 @@ define linkonce_odr hidden void @_ZN6Assimp12LogFunctionsINS_11FBXImporterEE7Log
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_14LayeredTextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter23TrySetTexturePropertiesEP10aiMaterialRKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKNS0_14LayeredTextureESt4lessISA_ESaISt4pairIKSA_SD_EEERSH_13aiTextureTypePKNS0_12MeshGeometryE(ptr noundef nonnull align 8 dereferenceable(489) %0, ptr noundef %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
@@ -36663,7 +36663,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp3FBX12FBXConverter21ProcessMorphAnimDatasEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_IlP12morphKeyDataSt4lessIlESaISt4pairIKlSA_EEESB_IS8_ESaISD_IKS8_SI_EEEPKNS0_17BlendShapeChannelEPKNS0_18AnimationCurveNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(489) %0, ptr noundef %1, ptr noundef readonly captures(address) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp3FBX12FBXConverter21ProcessMorphAnimDatasEPSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_IlP12morphKeyDataSt4lessIlESaISt4pairIKlSA_EEESB_IS8_ESaISD_IKS8_SI_EEEPKNS0_17BlendShapeChannelEPKNS0_18AnimationCurveNodeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(489) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, std::map<long, morphKeyData *> *>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, std::map<long, morphKeyData *> *>>, std::less<std::__cxx11::basic_string<char>>>::_Auto_node", align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
@@ -40362,7 +40362,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit145: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN6Assimp3FBX12FBXConverter22GenerateSimpleNodeAnimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_5ModelEPSt23_Rb_tree_const_iteratorISt4pairIS8_St6vectorIPKNS0_18AnimationCurveNodeESaISI_EEEESM_llRdSO_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(489) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(address) %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN6Assimp3FBX12FBXConverter22GenerateSimpleNodeAnimERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_5ModelEPSt23_Rb_tree_const_iteratorISt4pairIS8_St6vectorIPKNS0_18AnimationCurveNodeESaISI_EEEESM_llRdSO_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(489) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(208) %2, ptr noundef readonly captures(none) %3, ptr readnone %4, i64 noundef %5, i64 noundef %6, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %8) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %10 = alloca %class.aiMatrix4x4t, align 4
   %11 = alloca %class.aiMatrix4x4t, align 4
   %12 = alloca %class.aiMatrix4x4t, align 4

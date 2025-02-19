@@ -2823,7 +2823,7 @@ _ZN12SequenceInfo5unrefEv.exit:                   ; preds = %_ZN15VoipCallsDialo
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN15VoipCallsDialog7tapDrawEPv(ptr noundef readonly captures(address_is_null) %0) #0 align 2 {
+define void @_ZN15VoipCallsDialog7tapDrawEPv(ptr noundef readonly %0) #0 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %35, label %2
 
@@ -8772,7 +8772,7 @@ _ZN7QStringD2Ev.exit48:                           ; preds = %112, %_ZN17QArrayDa
 declare noundef align 8 dereferenceable(16) ptr @_ZN11QTextStreamlsEPKc(ptr noundef align 8 dereferenceable_or_null(16), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN15VoipCallsDialog20on_buttonBox_clickedEP15QAbstractButton(ptr noundef align 8 dereferenceable_or_null(480) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN15VoipCallsDialog20on_buttonBox_clickedEP15QAbstractButton(ptr noundef align 8 dereferenceable_or_null(480) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4

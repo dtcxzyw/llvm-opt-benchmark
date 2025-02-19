@@ -18944,7 +18944,7 @@ declare void @_ZN8QVariantC1Ej(ptr noundef align 8 dereferenceable_or_null(32), 
 declare void @_ZNK9QComboBox11currentDataEi(ptr dead_on_unwind writable sret(%class.QVariant) align 8, ptr noundef align 8 dereferenceable_or_null(40), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16ImportTextDialog11capfileNameEv(ptr noundef readnone align 8 captures(ret: address, provenance) dereferenceable_or_null(305) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN16ImportTextDialog11capfileNameEv(ptr noundef readnone align 8 dereferenceable_or_null(305) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   ret ptr %2
 }
@@ -23165,7 +23165,7 @@ _ZN9QtPrivate17QForeachContainerI5QListIP15QAbstractButtonEED2Ev.exit148: ; pred
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16ImportTextDialog32on_ethertypeLineEdit_textChangedERK7QString(ptr noundef align 8 captures(address_is_null) dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16ImportTextDialog32on_ethertypeLineEdit_textChangedERK7QString(ptr noundef align 8 dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 616
@@ -23177,7 +23177,7 @@ define void @_ZN16ImportTextDialog32on_ethertypeLineEdit_textChangedERK7QString(
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16ImportTextDialog31on_protocolLineEdit_textChangedERK7QString(ptr noundef align 8 captures(address_is_null) dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16ImportTextDialog31on_protocolLineEdit_textChangedERK7QString(ptr noundef align 8 dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 624
@@ -23189,7 +23189,7 @@ define void @_ZN16ImportTextDialog31on_protocolLineEdit_textChangedERK7QString(p
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16ImportTextDialog33on_sourcePortLineEdit_textChangedERK7QString(ptr noundef align 8 captures(address_is_null) dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16ImportTextDialog33on_sourcePortLineEdit_textChangedERK7QString(ptr noundef align 8 dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 648
@@ -23201,7 +23201,7 @@ define void @_ZN16ImportTextDialog33on_sourcePortLineEdit_textChangedERK7QString
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16ImportTextDialog38on_destinationPortLineEdit_textChangedERK7QString(ptr noundef align 8 captures(address_is_null) dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16ImportTextDialog38on_destinationPortLineEdit_textChangedERK7QString(ptr noundef align 8 dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 656
@@ -23213,7 +23213,7 @@ define void @_ZN16ImportTextDialog38on_destinationPortLineEdit_textChangedERK7QS
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16ImportTextDialog26on_tagLineEdit_textChangedERK7QString(ptr noundef align 8 captures(address_is_null) dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16ImportTextDialog26on_tagLineEdit_textChangedERK7QString(ptr noundef align 8 dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 664
@@ -23225,7 +23225,7 @@ define void @_ZN16ImportTextDialog26on_tagLineEdit_textChangedERK7QString(ptr no
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16ImportTextDialog26on_ppiLineEdit_textChangedERK7QString(ptr noundef align 8 captures(address_is_null) dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16ImportTextDialog26on_ppiLineEdit_textChangedERK7QString(ptr noundef align 8 dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 672
@@ -23502,7 +23502,7 @@ define void @_ZN16ImportTextDialog41on_destinationAddressLineEdit_textChangedERK
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16ImportTextDialog15check_line_editEP14SyntaxLineEditRbRK7QStringijbPj(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(305) %0, ptr noundef %1, ptr noundef writeonly align 1 captures(none) dereferenceable(1) %2, ptr noundef readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16ImportTextDialog15check_line_editEP14SyntaxLineEditRbRK7QStringijbPj(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(305) %0, ptr noundef %1, ptr noundef writeonly align 1 captures(none) dereferenceable(1) %2, ptr noundef readonly align 8 captures(none) dereferenceable(24) %3, i32 noundef %4, i32 noundef %5, i1 noundef zeroext %6, ptr noundef writeonly %7) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #27
   %10 = icmp ne ptr %1, null
@@ -24092,7 +24092,7 @@ _ZN16ImportTextDialog23updateImportButtonStateEv.exit: ; preds = %84, %91, %99, 
 declare zeroext i1 @ws_inet_pton6(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16ImportTextDialog32on_maxLengthLineEdit_textChangedERK7QString(ptr noundef align 8 captures(address_is_null) dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
+define void @_ZN16ImportTextDialog32on_maxLengthLineEdit_textChangedERK7QString(ptr noundef align 8 dereferenceable_or_null(305) %0, ptr noundef readonly align 8 captures(none) dereferenceable(24) %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 744

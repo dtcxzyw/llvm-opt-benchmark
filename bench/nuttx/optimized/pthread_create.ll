@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_inactivetasks = external local_unnamed_addr global %struct.dq_queue_s, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -2147483647, -2147483648) i32 @nx_pthread_create(ptr noundef %0, ptr noundef writeonly %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.sched_param, align 4
   %.sroa.0 = alloca i8, align 8
   %.sroa.4 = alloca i8, align 2

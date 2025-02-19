@@ -40,7 +40,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [55 x i8] c"%s first arg must be bytes or a tuple of bytes, not %s\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_Py_bytes_isspace(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_Py_bytes_isspace(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.loopexit
@@ -87,7 +87,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_Py_bytes_isalpha(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_Py_bytes_isalpha(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.loopexit
@@ -128,7 +128,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isalpha(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_Py_bytes_isalnum(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_Py_bytes_isalnum(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.loopexit
@@ -169,7 +169,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isalnum(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden noundef nonnull ptr @_Py_bytes_isdigit(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_Py_bytes_isdigit(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.loopexit
@@ -210,7 +210,7 @@ define hidden noundef nonnull ptr @_Py_bytes_isdigit(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_islower(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.loopexit
@@ -262,7 +262,7 @@ define hidden ptr @_Py_bytes_islower(ptr noundef readonly captures(address) %0, 
 declare ptr @PyBool_FromLong(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_isupper(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_isupper(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.loopexit
@@ -313,7 +313,7 @@ define hidden ptr @_Py_bytes_isupper(ptr noundef readonly captures(address) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_Py_bytes_istitle(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #2 {
+define hidden ptr @_Py_bytes_istitle(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #2 {
   switch i64 %1, label %9 [
     i64 1, label %3
     i64 0, label %.thread

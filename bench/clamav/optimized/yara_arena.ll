@@ -53,7 +53,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @_yr_arena_page_for_address(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
+define ptr @_yr_arena_page_for_address(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !13
   %.not = icmp eq ptr %4, null
@@ -898,7 +898,7 @@ define range(i32 0, 2) i32 @yr_arena_make_relocatable(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @yr_arena_write_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @yr_arena_write_data(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !13
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -949,7 +949,7 @@ yr_arena_allocate_memory.exit:                    ; preds = %13, %27, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @yr_arena_write_string(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @yr_arena_write_string(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %5 = add i64 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

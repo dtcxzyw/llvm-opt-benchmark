@@ -2028,7 +2028,7 @@ _ZN7xgboost7GetElemINS_11JsonBooleanENS_4JsonEEENSt9enable_ifIXsr3std7is_sameIT0
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK7xgboost15MultiTargetTree9SaveModelEPNS_4JsonE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK7xgboost15MultiTargetTree9SaveModelEPNS_4JsonE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(184) %0, ptr noundef readonly %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = alloca %"class.std::unique_ptr", align 8
   %5 = alloca i64, align 8

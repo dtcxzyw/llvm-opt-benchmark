@@ -22079,7 +22079,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeINSt7
 declare void @_Z18getAvailableWorldsv(ptr dead_on_unwind writable sret(%"class.std::vector.97") align 8) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL16print_worldspecsRKSt6vectorI9WorldSpecSaIS0_EERSobb(ptr readonly captures(address) %worldspecs.0.val, ptr readnone captures(address) %worldspecs.8.val, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %print_name, i1 noundef zeroext %print_path) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL16print_worldspecsRKSt6vectorI9WorldSpecSaIS0_EERSobb(ptr readonly %worldspecs.0.val, ptr readnone %worldspecs.8.val, ptr noundef nonnull align 8 dereferenceable(8) %os, i1 noundef zeroext %print_name, i1 noundef zeroext %print_path) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
 entry:
   %__dnew.i.i54 = alloca i64, align 8
   %__dnew.i.i = alloca i64, align 8

@@ -2626,7 +2626,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEE17GetRootComparatorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) unnamed_addr #5 align 2 {
+define internal noundef nonnull ptr @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_22BytewiseComparatorImplEE17GetRootComparatorEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) unnamed_addr #5 align 2 {
 entry:
   %cmp_without_ts_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %cmp_without_ts_
@@ -3017,7 +3017,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEE17GetRootComparatorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %this) unnamed_addr #5 align 2 {
+define internal noundef nonnull ptr @_ZNK7rocksdb12_GLOBAL__N_123ComparatorWithU64TsImplINS0_29ReverseBytewiseComparatorImplEE17GetRootComparatorEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %this) unnamed_addr #5 align 2 {
 entry:
   %cmp_without_ts_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %cmp_without_ts_

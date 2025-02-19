@@ -3445,7 +3445,7 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef no
 declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(none) uwtable
-define internal fastcc noundef zeroext i1 @_ZL14StackGrowsDownPi(ptr noundef nonnull readnone captures(address) %0) unnamed_addr #19 {
+define internal fastcc noundef zeroext i1 @_ZL14StackGrowsDownPi(ptr noundef nonnull readnone %0) unnamed_addr #19 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #33
   %3 = icmp ult ptr %2, %0

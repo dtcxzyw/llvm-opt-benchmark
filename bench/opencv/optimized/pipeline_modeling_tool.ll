@@ -4881,7 +4881,7 @@ _ZNSt10shared_ptrI11DummySourceED2Ev.exit59:      ; preds = %_ZNSt10shared_ptrI1
 declare i64 @_ZNSt6chrono3_V212system_clock3nowEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZNK8Pipeline6reportEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(320) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZNK8Pipeline6reportEv(ptr noundef nonnull readnone align 8 dereferenceable(320) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   ret ptr %2
 }

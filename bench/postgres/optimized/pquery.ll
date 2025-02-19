@@ -101,7 +101,7 @@ declare void @UnregisterSnapshot(ptr noundef) local_unnamed_addr #2
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 5) i32 @ChoosePortalStrategy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 5) i32 @ChoosePortalStrategy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.thread90, label %list_length.exit
 
@@ -305,7 +305,7 @@ define dso_local ptr @FetchPortalTargetList(ptr noundef %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @FetchStatementTargetList(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @FetchStatementTargetList(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %FetchPortalTargetList.exit, label %.lr.ph
 
@@ -2067,7 +2067,7 @@ declare void @PushCopiedSnapshot(ptr noundef) local_unnamed_addr #2
 declare void @UpdateActiveSnapshotCommandId() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @ProcessQuery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call ptr @GetActiveSnapshot() #11
   %8 = tail call ptr @palloc(i64 noundef 112) #11
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4

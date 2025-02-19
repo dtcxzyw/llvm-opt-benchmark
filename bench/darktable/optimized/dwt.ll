@@ -48,7 +48,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @dt_dwt_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @dt_dwt_free(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -144,7 +144,7 @@ _first_scale_visible.exit:                        ; preds = %6, %7
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dwt_decompose(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define void @dwt_decompose(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

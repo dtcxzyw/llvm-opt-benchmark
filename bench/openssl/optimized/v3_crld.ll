@@ -781,7 +781,7 @@ print_reasons.exit:                               ; preds = %45, %.thread23.i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @DIST_POINT_set_dpname(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @DIST_POINT_set_dpname(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %27, label %4
 

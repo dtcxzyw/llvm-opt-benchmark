@@ -446,7 +446,7 @@ gc_compress.exit:                                 ; preds = %66, %71
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @gc_remove_from_buffer(ptr noundef captures(address) %0) local_unnamed_addr #8 {
+define dso_local void @gc_remove_from_buffer(ptr noundef %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4, !tbaa !39
   %4 = lshr i32 %3, 10
@@ -484,7 +484,7 @@ define dso_local void @gc_remove_from_buffer(ptr noundef captures(address) %0) l
 }
 
 ; Function Attrs: nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define internal fastcc void @gc_remove_compressed(ptr noundef readnone captures(address) %0, i32 noundef range(i32 0, 1048576) %1) unnamed_addr #9 {
+define internal fastcc void @gc_remove_compressed(ptr noundef readnone %0, i32 noundef range(i32 0, 1048576) %1) unnamed_addr #9 {
   %3 = load ptr, ptr @gc_globals, align 8, !tbaa !16
   %4 = zext nneg i32 %1 to i64
   %5 = getelementptr inbounds nuw %struct._gc_root_buffer, ptr %3, i64 %4

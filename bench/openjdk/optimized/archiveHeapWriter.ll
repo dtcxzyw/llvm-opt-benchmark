@@ -587,7 +587,7 @@ _ZN26GrowableArrayWithAllocatorIP7oopDesc18GrowableArrayCHeapIS1_L8MEMFLAGS13EEE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ArchiveHeapWriter5writeEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EEP15ArchiveHeapInfo(ptr noundef captures(address_is_null) %0, ptr noundef initializes((0, 16), (64, 72)) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ArchiveHeapWriter5writeEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EEP15ArchiveHeapInfo(ptr noundef %0, ptr noundef initializes((0, 16), (64, 72)) %1) local_unnamed_addr #0 align 2 {
   tail call void @_ZN17ArchiveHeapWriter15allocate_bufferEv()
   tail call void @_ZN17ArchiveHeapWriter26copy_source_objs_to_bufferEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EE(ptr noundef %0)
   %3 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
@@ -1003,7 +1003,7 @@ define hidden void @_ZN17ArchiveHeapWriter21set_requested_addressEP15ArchiveHeap
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ArchiveHeapWriter22relocate_embedded_oopsEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EEP15ArchiveHeapInfo(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN17ArchiveHeapWriter22relocate_embedded_oopsEP18GrowableArrayCHeapIP7oopDescL8MEMFLAGS13EEP15ArchiveHeapInfo(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca %"class.ArchiveHeapWriter::EmbeddedOopRelocator", align 8
@@ -1668,7 +1668,7 @@ _ZN17ArchiveHeapWriter23is_too_large_to_archiveEP7oopDesc.exit: ; preds = %26, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN17ArchiveHeapWriter21is_in_requested_rangeEP7oopDesc(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN17ArchiveHeapWriter21is_in_requested_rangeEP7oopDesc(ptr noundef readnone %0) local_unnamed_addr #4 align 2 {
   %2 = load ptr, ptr @_ZN17ArchiveHeapWriter17_requested_bottomE, align 8
   %3 = icmp ule ptr %2, %0
   %4 = load ptr, ptr @_ZN17ArchiveHeapWriter14_requested_topE, align 8

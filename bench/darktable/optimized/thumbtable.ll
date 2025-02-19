@@ -177,7 +177,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.dt_thumbtable_set_overlays_mode.2 = private unnamed_addr constant [7 x ptr] [ptr @.str.50, ptr @.str.56, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55], align 8
 
 ; Function Attrs: nounwind uwtable
-define void @dt_thumbtable_set_overlays_mode(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @dt_thumbtable_set_overlays_mode(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %46, label %3
 
@@ -318,7 +318,7 @@ declare void @dt_thumbnail_resize(ptr noundef, i32 noundef, i32 noundef, i32 nou
 declare void @dt_thumbnail_update_infos(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dt_thumbtable_set_overlays_block_timeout(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @dt_thumbtable_set_overlays_block_timeout(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -2726,7 +2726,7 @@ declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #2
 declare void @dt_control_signal_connect(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_collection_changed_callback(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) #0 {
+define internal void @_dt_collection_changed_callback(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef %5) #0 {
   %7 = alloca ptr, align 8
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %195, label %8
@@ -3157,7 +3157,7 @@ define internal void @_dt_collection_changed_callback(ptr readnone captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_mouse_over_image_callback(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define internal void @_dt_mouse_over_image_callback(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -3484,7 +3484,7 @@ dt_thumbtable_set_offset_image.exit:              ; preds = %18, %14, %7, %3, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_dt_profile_change_callback(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @_dt_profile_change_callback(ptr readnone captures(none) %0, i32 %1, ptr noundef readonly %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -5236,7 +5236,7 @@ declare i32 @sqlite3_finalize(ptr noundef) local_unnamed_addr #2
 declare void @dt_mipmap_cache_print(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dt_thumbtable_set_parent(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define void @dt_thumbtable_set_parent(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !20
   %6 = tail call ptr @gtk_widget_get_parent(ptr noundef %5) #14
@@ -5452,7 +5452,7 @@ declare void @gtk_container_remove(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @gtk_drag_source_unset(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_thumbs_update_overlays_mode(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @_thumbs_update_overlays_mode(ptr noundef %0) unnamed_addr #0 {
   %2 = tail call ptr @dt_conf_get_string_const(ptr noundef nonnull @.str.120) #14
   %3 = tail call ptr @g_strsplit(ptr noundef %2, ptr noundef nonnull @.str.121, i32 noundef -1) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -6432,7 +6432,7 @@ declare void @gtk_widget_queue_draw(ptr noundef) local_unnamed_addr #2
 declare ptr @g_list_delete_link(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_thumbs_load_needed(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc i32 @_thumbs_load_needed(ptr noundef captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7115,7 +7115,7 @@ declare i32 @dt_gui_get_scroll_unit_deltas(ptr noundef, ptr noundef, ptr noundef
 declare i32 @g_timeout_add(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_event_scroll_compressed(ptr noundef captures(address_is_null) %0) #0 {
+define internal noundef i32 @_event_scroll_compressed(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null

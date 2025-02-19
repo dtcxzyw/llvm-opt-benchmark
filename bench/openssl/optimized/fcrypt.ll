@@ -17,7 +17,7 @@ define noundef ptr @DES_crypt(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %2) local_unnamed_addr #0 {
+define noundef ptr @DES_fcrypt(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly initializes((0, 1)) %2) local_unnamed_addr #0 {
   %4 = alloca [2 x i32], align 4
   %5 = alloca [8 x i8], align 1
   %6 = alloca %struct.DES_ks, align 4

@@ -3413,7 +3413,7 @@ declare i32 @wtap_pcapng_file_type_subtype() local_unnamed_addr #4
 declare zeroext i1 @nstime_is_unset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @fileset_extract_prefix_suffix(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @fileset_extract_prefix_suffix(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = tail call noalias ptr @g_strdup(ptr noundef %0)
   %6 = icmp ne ptr %5, null
   br i1 %6, label %10, label %7

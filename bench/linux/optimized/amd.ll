@@ -100,7 +100,7 @@ define dso_local range(i32 1, 9) i32 @amd_get_nodes_per_socket() #0 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @rdrand_cmdline(ptr noundef readonly captures(address_is_null) %0) #1 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @rdrand_cmdline(ptr noundef readonly %0) #1 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

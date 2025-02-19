@@ -1978,7 +1978,7 @@ define internal i32 @tipcmp(ptr noundef readonly captures(none) %0, ptr noundef 
 declare i32 @oid_pos(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal ptr @nth_tip_table_ent(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1) #12 {
+define internal ptr @nth_tip_table_ent(i64 noundef %0, ptr noundef readnone %1) #12 {
   %3 = getelementptr inbounds nuw %struct.tip_table_entry, ptr %1, i64 %0
   ret ptr %3
 }

@@ -210,7 +210,7 @@ pmix_getenv.exit.thread._crit_edge:               ; preds = %39, %pmix_getenv.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @pmix_getenv(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define ptr @pmix_getenv(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit40, label %.preheader39
 
@@ -437,7 +437,7 @@ declare i32 @geteuid() local_unnamed_addr #7
 declare ptr @getpwuid(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -32, 1) i32 @pmix_util_harvest_envars(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -32, 1) i32 @pmix_util_harvest_envars(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !8
   %.not141 = icmp eq ptr %4, null
   br i1 %.not141, label %._crit_edge145, label %.lr.ph144

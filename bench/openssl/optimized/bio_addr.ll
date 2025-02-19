@@ -45,7 +45,7 @@ define void @BIO_ADDR_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @BIO_ADDR_copy(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @BIO_ADDR_copy(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -114,7 +114,7 @@ define range(i32 0, 2) i32 @BIO_ADDR_make(ptr noundef writeonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BIO_ADDR_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @BIO_ADDR_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %BIO_ADDR_new.exit.thread, label %2
 
@@ -229,7 +229,7 @@ define range(i32 0, 65536) i32 @BIO_ADDR_family(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @BIO_ADDR_rawaddress(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define range(i32 0, 2) i32 @BIO_ADDR_rawaddress(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %4 = load i16, ptr %0, align 4, !tbaa !3
   switch i16 %4, label %16 [
     i16 2, label %5
@@ -308,7 +308,7 @@ define ptr @BIO_ADDR_hostname_string(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @addr_strings(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @addr_strings(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca [1025 x i8], align 16
   %6 = alloca [32 x i8], align 16
   %7 = tail call i32 @BIO_sock_init() #15
@@ -487,12 +487,12 @@ define noalias ptr @BIO_ADDR_path_string(ptr noundef %0) local_unnamed_addr #0 {
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @BIO_ADDR_sockaddr(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #11 {
+define noundef ptr @BIO_ADDR_sockaddr(ptr noundef readnone returned %0) local_unnamed_addr #11 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @BIO_ADDR_sockaddr_noconst(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #11 {
+define noundef ptr @BIO_ADDR_sockaddr_noconst(ptr noundef readnone returned %0) local_unnamed_addr #11 {
   ret ptr %0
 }
 
@@ -520,7 +520,7 @@ define range(i32 16, 113) i32 @BIO_ADDR_sockaddr_size(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @BIO_ADDRINFO_next(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define ptr @BIO_ADDRINFO_next(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -535,7 +535,7 @@ define ptr @BIO_ADDRINFO_next(ptr noundef readonly captures(address_is_null) %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BIO_ADDRINFO_family(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define i32 @BIO_ADDRINFO_family(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -550,7 +550,7 @@ define i32 @BIO_ADDRINFO_family(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BIO_ADDRINFO_socktype(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define i32 @BIO_ADDRINFO_socktype(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -565,7 +565,7 @@ define i32 @BIO_ADDRINFO_socktype(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BIO_ADDRINFO_protocol(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define i32 @BIO_ADDRINFO_protocol(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -596,7 +596,7 @@ define i32 @BIO_ADDRINFO_protocol(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @BIO_ADDRINFO_sockaddr_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define i32 @BIO_ADDRINFO_sockaddr_size(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -611,7 +611,7 @@ define i32 @BIO_ADDRINFO_sockaddr_size(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @BIO_ADDRINFO_sockaddr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define ptr @BIO_ADDRINFO_sockaddr(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -626,7 +626,7 @@ define ptr @BIO_ADDRINFO_sockaddr(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @BIO_ADDRINFO_address(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define ptr @BIO_ADDRINFO_address(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -674,7 +674,7 @@ define void @BIO_ADDRINFO_free(ptr noundef %0) local_unnamed_addr #0 {
 declare void @freeaddrinfo(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BIO_parse_hostserv(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BIO_parse_hostserv(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr %0, align 1, !tbaa !3
   %6 = icmp eq i8 %5, 91
   br i1 %6, label %7, label %18

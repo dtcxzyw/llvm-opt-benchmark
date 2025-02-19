@@ -3881,7 +3881,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit6:                   ; preds = %30, %27
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark4UnitENS_8TimeUnitE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((96, 101)) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark4UnitENS_8TimeUnitE(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((96, 101)) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i32 %1, ptr %3, align 8, !tbaa !134
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 100
@@ -5372,7 +5372,7 @@ define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark5ApplyEPFvPS1_E(ptr 
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark5SetupEPFvRKNS_5StateEE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((208, 216)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark5SetupEPFvRKNS_5StateEE(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((208, 216)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5394,7 +5394,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit: ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark8TeardownEPFvRKNS_5StateEE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark8TeardownEPFvRKNS_5StateEE(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((216, 224)) %0, ptr noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5416,7 +5416,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit: ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark15RangeMultiplierEi(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark15RangeMultiplierEi(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((104, 108)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5438,7 +5438,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit: ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark7MinTimeEd(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((112, 120)) %0, double noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark7MinTimeEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((112, 120)) %0, double noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5475,7 +5475,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit3: ; preds = %_ZN9benchmark8int
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark13MinWarmUpTimeEd(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((120, 128)) %0, double noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark13MinWarmUpTimeEd(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((120, 128)) %0, double noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5512,7 +5512,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit3: ; preds = %_ZN9benchmark8int
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark10IterationsEl(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((128, 136)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark10IterationsEl(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((128, 136)) %0, i64 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5564,7 +5564,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit4: ; preds = %_ZN9benchmark8int
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark11RepetitionsEi(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((136, 140)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark11RepetitionsEi(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((136, 140)) %0, i32 noundef %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5586,7 +5586,7 @@ _ZN9benchmark8internal18GetNullLogInstanceEv.exit: ; preds = %2, %5, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark20ReportAggregatesOnlyEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((40, 44)) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark20ReportAggregatesOnlyEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((40, 44)) %0, i1 noundef zeroext %1) local_unnamed_addr #13 align 2 {
   %3 = select i1 %1, i32 6, i32 1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i32 %3, ptr %4, align 8, !tbaa !112
@@ -5594,7 +5594,7 @@ define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark20ReportAggregatesOn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark21DisplayAggregatesOnlyEb(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(224) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark21DisplayAggregatesOnlyEb(ptr noundef nonnull returned align 8 dereferenceable(224) %0, i1 noundef zeroext %1) local_unnamed_addr #14 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !112
   %5 = and i32 %4, -6
@@ -5606,14 +5606,14 @@ define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark21DisplayAggregatesO
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark21MeasureProcessCPUTimeEv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((140, 141)) %0) local_unnamed_addr #13 align 2 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark21MeasureProcessCPUTimeEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((140, 141)) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 140
   store i8 1, ptr %2, align 4, !tbaa !177
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark11UseRealTimeEv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((141, 142)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark11UseRealTimeEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((141, 142)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5644,7 +5644,7 @@ _ZN9benchmark8internallsIA57_cEERNS0_7LogTypeES4_RKT_.exit: ; preds = %_ZN9bench
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark13UseManualTimeEv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((142, 143)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark13UseManualTimeEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((142, 143)) %0) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %3 = icmp eq i8 %2, 0
   br i1 %3, label %4, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -5675,14 +5675,14 @@ _ZN9benchmark8internallsIA57_cEERNS0_7LogTypeES4_RKT_.exit: ; preds = %_ZN9bench
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark10ComplexityENS_4BigOE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((144, 148)) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark10ComplexityENS_4BigOE(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((144, 148)) %0, i32 noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   store i32 %1, ptr %3, align 8, !tbaa !137
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark10ComplexityEPFdlE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(224) initializes((144, 148), (152, 160)) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark10ComplexityEPFdlE(ptr noundef nonnull returned writeonly align 8 dereferenceable(224) initializes((144, 148), (152, 160)) %0, ptr noundef %1) local_unnamed_addr #13 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %3, align 8, !tbaa !180
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -5691,7 +5691,7 @@ define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark10ComplexityEPFdlE(p
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark7ThreadsEi(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(224) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark7ThreadsEi(ptr noundef nonnull returned align 8 dereferenceable(224) %0, i32 noundef %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -6128,7 +6128,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit21:        ; preds = %105, %111, %_ZNSt6v
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark16DenseThreadRangeEiii(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(224) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark16DenseThreadRangeEiii(ptr noundef nonnull returned align 8 dereferenceable(224) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = load atomic i8, ptr @_ZGVZN9benchmark8internal18GetNullLogInstanceEvE8null_log acquire, align 8
   %6 = icmp eq i8 %5, 0
   br i1 %6, label %7, label %_ZN9benchmark8internal18GetNullLogInstanceEv.exit, !prof !3
@@ -6327,7 +6327,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit14:        ; preds = %54, %_ZNSt6vectorIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark12ThreadPerCpuEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(224) %0) local_unnamed_addr #5 align 2 {
+define noundef nonnull ptr @_ZN9benchmark8internal9Benchmark12ThreadPerCpuEv(ptr noundef nonnull returned align 8 dereferenceable(224) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = tail call noundef nonnull align 8 dereferenceable(64) ptr @_ZN9benchmark7CPUInfo3GetEv()
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -6705,7 +6705,7 @@ _ZNSt6vectorIlSaIlEED2Ev.exit:                    ; preds = %42, %43
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9benchmark8internal9BenchmarkD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9benchmark8internal9BenchmarkD2Ev(ptr noundef nonnull align 8 dereferenceable(224) initializes((0, 8)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN9benchmark8internal9BenchmarkE, i64 16), ptr %0, align 8, !tbaa !13
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %3 = load ptr, ptr %2, align 8, !tbaa !146

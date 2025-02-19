@@ -173,7 +173,7 @@ declare void @clewExit() local_unnamed_addr #3
 declare void @b3OutputPrintfVarArgsInternal(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local i32 @b3OpenCLUtils_getNumPlatforms(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local i32 @b3OpenCLUtils_getNumPlatforms(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca [10 x ptr], align 16
   %3 = alloca i32, align 4
   %4 = tail call i32 @clewInit(ptr noundef nonnull @.str.6)
@@ -237,7 +237,7 @@ define dso_local void @b3OpenCLUtils_setCachePath(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_getPlatform(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_getPlatform(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = tail call i32 @clewInit(ptr noundef nonnull @.str.6)
   %.not.i = icmp eq i32 %4, 0
@@ -394,7 +394,7 @@ _ZN13b3OpenCLUtils15getPlatformInfoEP15_cl_platform_idP20b3OpenCLPlatformInfo.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readnone captures(address_is_null) %3, ptr readnone captures(none) %4, i32 noundef %5, i32 %6) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readnone %3, ptr readnone captures(none) %4, i32 noundef %5, i32 %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [16 x ptr], align 16
   %10 = alloca i32, align 4
@@ -487,7 +487,7 @@ define dso_local ptr @b3OpenCLUtils_createContextFromPlatform(ptr noundef %0, i6
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_createContextFromType(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_createContextFromType(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca [128 x i8], align 16
   %10 = alloca %struct.b3OpenCLPlatformInfo, align 1
@@ -1063,7 +1063,7 @@ define dso_local void @b3OpenCLUtils_printDeviceInfo(ptr noundef %0) local_unnam
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_compileCLProgramFromString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca [1024 x i8], align 16
@@ -1452,7 +1452,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define dso_local ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local ptr @b3OpenCLUtils_compileCLKernelFromString(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #12
   tail call void (ptr, ...) @b3OutputPrintfVarArgsInternal(ptr noundef nonnull @.str.77, ptr noundef %3)

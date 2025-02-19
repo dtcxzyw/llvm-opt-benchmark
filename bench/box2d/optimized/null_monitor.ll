@@ -27,7 +27,7 @@ define hidden void @_glfwFreeMonitorNull(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_glfwFreeGammaArrays(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_glfwGetMonitorPosNull(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden void @_glfwGetMonitorPosNull(ptr noundef readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -48,7 +48,7 @@ define hidden void @_glfwGetMonitorPosNull(ptr noundef readnone captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_glfwGetMonitorContentScaleNull(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden void @_glfwGetMonitorContentScaleNull(ptr noundef readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -69,7 +69,7 @@ define hidden void @_glfwGetMonitorContentScaleNull(ptr noundef readnone capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_glfwGetMonitorWorkareaNull(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #2 {
+define hidden void @_glfwGetMonitorWorkareaNull(ptr noundef readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %6
 

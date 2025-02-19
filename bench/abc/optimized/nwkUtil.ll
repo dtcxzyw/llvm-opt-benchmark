@@ -515,7 +515,7 @@ Nwk_ObjIsPo.exit.thread:                          ; preds = %Nwk_ObjIsPi.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManDumpBlif(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define void @Nwk_ManDumpBlif(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !35
   %7 = getelementptr i8, ptr %6, i64 4

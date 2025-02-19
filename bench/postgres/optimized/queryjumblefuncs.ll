@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__._jumbleList = private unnamed_addr constant [12 x i8] c"_jumbleList\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @CleanQuerytext(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define dso_local ptr @CleanQuerytext(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 4
   %5 = icmp sgt i32 %4, -1
   br i1 %5, label %6, label %11
@@ -12700,7 +12700,7 @@ RecordConstLocation.exit:                         ; preds = %AppendJumble.exit28
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleVariableShowStmt(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleVariableShowStmt(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -17886,7 +17886,7 @@ AppendJumble.exit16:                              ; preds = %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleClosePortalStmt(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleClosePortalStmt(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -19931,7 +19931,7 @@ AppendJumble.exit19:                              ; preds = %33, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleListenStmt(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleListenStmt(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -19978,7 +19978,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleUnlistenStmt(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleUnlistenStmt(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -20479,7 +20479,7 @@ AppendJumble.exit19:                              ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleLoadStmt(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleLoadStmt(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -20630,7 +20630,7 @@ AppendJumble.exit:                                ; preds = %14, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleAlterDatabaseRefreshCollStmt(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleAlterDatabaseRefreshCollStmt(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -22727,7 +22727,7 @@ define internal fastcc void @_jumbleGroupByOrdering(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleExtensibleNode(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleExtensibleNode(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -22811,7 +22811,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleFloat(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleFloat(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -22895,7 +22895,7 @@ AppendJumble.exit:                                ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleString(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleString(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 
@@ -22942,7 +22942,7 @@ AppendJumble.exit:                                ; preds = %11, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_jumbleBitString(ptr noundef captures(none) %0, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @_jumbleBitString(ptr noundef captures(none) %0, ptr readonly %.8.val) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %18, label %2
 

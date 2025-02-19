@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ecp_nistz256group_full_init = private unnamed_addr constant [28 x i8] c"ecp_nistz256group_full_init\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @EC_nistz256_pre_comp_dup(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @EC_nistz256_pre_comp_dup(ptr noundef returned %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

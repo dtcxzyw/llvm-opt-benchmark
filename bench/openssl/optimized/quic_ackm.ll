@@ -2024,7 +2024,7 @@ define i64 @ossl_ackm_get_loss_detection_deadline(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ossl_ackm_get0_probe_request(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #4 {
+define nonnull ptr @ossl_ackm_get0_probe_request(ptr noundef readnone %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 468
   ret ptr %2
 }

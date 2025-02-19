@@ -346,7 +346,7 @@ define hidden void @_ZN18G1SATBMarkQueueSet28handle_zero_index_for_threadEP6Thre
 declare void @_ZN16SATBMarkQueueSet17handle_zero_indexER13SATBMarkQueue(ptr noundef nonnull align 8 dereferenceable(393), ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(17) ptr @_ZNK18G1SATBMarkQueueSet21satb_queue_for_threadEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(ret: address, provenance) %1) unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(17) ptr @_ZNK18G1SATBMarkQueueSet21satb_queue_for_threadEP6Thread(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1) unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   ret ptr %3
 }

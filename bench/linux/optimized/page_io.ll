@@ -1048,7 +1048,7 @@ define internal void @sio_write_complete(ptr noundef %0, i64 noundef %1) #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @swap_read_folio(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
+define dso_local void @swap_read_folio(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 align 16 {
   %4 = alloca %struct.iov_iter, align 8
   %5 = alloca %struct.bio_vec, align 8
   %6 = alloca %struct.bio, align 8

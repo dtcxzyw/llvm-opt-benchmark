@@ -3321,7 +3321,7 @@ define internal void @_lib_timeline_collection_changed(ptr readnone captures(non
 declare ptr @dt_action_register(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_selection_start(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal void @_selection_start(ptr noundef readonly %0) #1 {
   %2 = alloca %struct.dt_datetime_t, align 8
   %3 = alloca %struct.dt_datetime_t, align 4
   %.not5.i = icmp ne ptr %0, null
@@ -3420,7 +3420,7 @@ _time_compare.exit.thread:                        ; preds = %24, %dt_action_lib.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_selection_stop(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal void @_selection_stop(ptr noundef readonly %0) #1 {
   %2 = alloca %struct.dt_datetime_t, align 8
   %.not5.i = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %.not5.i)
@@ -3586,7 +3586,7 @@ define void @gui_cleanup(ptr noundef captures(none) %0) local_unnamed_addr #1 {
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @_block_free(ptr noundef captures(address_is_null) %0) #1 {
+define internal void @_block_free(ptr noundef %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 

@@ -21185,7 +21185,7 @@ define internal fastcc void @"_ZN4core3ptr297drop_in_place$LT$hashbrown..scopegu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr309drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$LP$usize$C$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$RP$$C$hashbrown..raw..RawTable$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$..clone_from_impl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17heac95e8b1fc11b5eE"(i64 %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 {
+define internal fastcc void @"_ZN4core3ptr309drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$LP$usize$C$$RF$mut$u20$hashbrown..raw..RawTable$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$$RP$$C$hashbrown..raw..RawTable$LT$$LP$alloc..string..String$C$alloc..string..String$RP$$GT$..clone_from_impl..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17heac95e8b1fc11b5eE"(i64 %.0.val, ptr readonly %.8.val) unnamed_addr #0 {
   %.not.i.i = icmp eq i64 %.0.val, 0
   br i1 %.not.i.i, label %"_ZN88_$LT$hashbrown..scopeguard..ScopeGuard$LT$T$C$F$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h446c6992c2f3d6bcE.exit", label %.lr.ph.i.i
 
@@ -21313,7 +21313,7 @@ define hidden void @"_ZN4core3ptr337drop_in_place$LT$gpui..app..model_context..M
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @"_ZN4core3ptr340drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clone_from_with_hasher$LT$indexmap..map..core..get_hash$LT$alloc..string..String$C$serde_json..value..Value$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h14dbc3b5787cf5c2E"(ptr captures(address_is_null) %.0.val) unnamed_addr #24 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr340drop_in_place$LT$hashbrown..scopeguard..ScopeGuard$LT$$RF$mut$u20$hashbrown..raw..inner..RawTable$LT$usize$GT$$C$hashbrown..raw..inner..RawTable$LT$usize$GT$..clone_from_with_hasher$LT$indexmap..map..core..get_hash$LT$alloc..string..String$C$serde_json..value..Value$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h14dbc3b5787cf5c2E"(ptr %.0.val) unnamed_addr #24 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !5224)
@@ -23315,7 +23315,7 @@ define hidden void @"_ZN4core3ptr91drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$settings..settings_store..DeserializedSetting$GT$$GT$17h4280812708135f8eE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr94drop_in_place$LT$core..option..Option$LT$settings..settings_store..DeserializedSetting$GT$$GT$17h4280812708135f8eE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr66drop_in_place$LT$settings..settings_store..DeserializedSetting$GT$17h50c8b71ecb24e98aE.exit", label %2
 
@@ -26106,7 +26106,7 @@ _ZN4core5slice4sort6shared5pivot7median317h8807b11dbe22e703E.llvm.12726036149210
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h737f3e4e7bad790eE.llvm.12726036149210647513(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(88) %1, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(88) %2, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %3) unnamed_addr #29 {
+define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h737f3e4e7bad790eE.llvm.12726036149210647513(ptr noalias noundef readonly align 8 dereferenceable(88) %0, ptr noalias noundef readonly align 8 dereferenceable(88) %1, ptr noalias noundef readonly align 8 dereferenceable(88) %2, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %3) unnamed_addr #29 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6651)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6654)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6656)
@@ -26162,7 +26162,7 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h73
 }
 
 ; Function Attrs: alwaysinline nonlazybind uwtable
-define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h8807b11dbe22e703E.llvm.12726036149210647513(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(24) %1, ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(24) %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #22 {
+define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h8807b11dbe22e703E.llvm.12726036149210647513(ptr noalias noundef readonly align 8 dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #22 {
   %5 = alloca [64 x i8], align 8
   %6 = alloca [64 x i8], align 8
   %7 = alloca [64 x i8], align 8
@@ -26228,7 +26228,7 @@ define hidden noundef nonnull ptr @_ZN4core5slice4sort6shared5pivot7median317h88
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h086801776d0c13a7E.llvm.12726036149210647513(ptr noundef readnone captures(address) %0, ptr noundef captures(address) %1, ptr noalias nonnull readnone align 1 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h086801776d0c13a7E.llvm.12726036149210647513(ptr noundef readnone %0, ptr noundef %1, ptr noalias nonnull readnone align 1 captures(none) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca [64 x i8], align 8
   %5 = alloca [64 x i8], align 8
   %6 = alloca [64 x i8], align 8
@@ -26320,7 +26320,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17h08680177
 }
 
 ; Function Attrs: nofree nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17hb29df27aed15977dE.llvm.12726036149210647513(ptr noundef readnone captures(address) %0, ptr noundef captures(address) %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #30 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort6shared9smallsort11insert_tail17hb29df27aed15977dE.llvm.12726036149210647513(ptr noundef readnone %0, ptr noundef %1, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %2) unnamed_addr #30 personality ptr @rust_eh_personality {
   %.sroa.6 = alloca [72 x i8], align 8
   %4 = getelementptr inbounds i8, ptr %1, i64 -88
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6792)
@@ -26676,7 +26676,7 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort4_stable1
 }
 
 ; Function Attrs: nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h61ad864ba603f3d1E(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %3) unnamed_addr #32 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17h61ad864ba603f3d1E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %3) unnamed_addr #32 personality ptr @rust_eh_personality {
   %.sroa.6.i = alloca [72 x i8], align 8
   %5 = add i64 %2, -1
   %or.cond.not = icmp ult i64 %5, %1
@@ -26772,7 +26772,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17hb29df27aed15977dE.llvm.12726
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hd86cc9354c28f4b3E(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #0 {
+define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_left17hd86cc9354c28f4b3E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, i64 noundef %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #0 {
   %5 = add i64 %2, -1
   %or.cond.not = icmp ult i64 %5, %1
   br i1 %or.cond.not, label %7, label %6
@@ -26802,7 +26802,7 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort25insertion_sort_shift_l
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h26912484ca064a5fE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(address) %2, i64 noundef %3, ptr noalias noundef nonnull readnone align 1 captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17h26912484ca064a5fE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias noundef nonnull readnone align 1 captures(none) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [64 x i8], align 8
   %7 = alloca [64 x i8], align 8
   %8 = alloca [64 x i8], align 8
@@ -27119,7 +27119,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17h086801776d0c13a7E.llvm.12726
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc39239bf1c9c260dE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 captures(address) %2, i64 noundef %3, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort6shared9smallsort31small_sort_general_with_scratch17hc39239bf1c9c260dE(ptr noalias noundef nonnull align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %.sroa.6.i = alloca [72 x i8], align 8
   %6 = alloca [32 x i8], align 8
   %7 = icmp ult i64 %1, 2
@@ -27376,7 +27376,7 @@ _ZN4core5slice4sort6shared9smallsort11insert_tail17hb29df27aed15977dE.llvm.12726
 }
 
 ; Function Attrs: nofree nounwind nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort6stable5merge5merge17h873358db261b5bfeE(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %5) unnamed_addr #33 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort6stable5merge5merge17h873358db261b5bfeE(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef readnone align 8 captures(none) dereferenceable(8) %5) unnamed_addr #33 personality ptr @rust_eh_personality {
   %7 = icmp eq i64 %4, 0
   %8 = icmp uge i64 %4, %1
   %or.cond = or i1 %7, %8
@@ -27493,7 +27493,7 @@ define hidden void @_ZN4core5slice4sort6stable5merge5merge17h873358db261b5bfeE(p
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core5slice4sort6stable5merge5merge17hc30d7bd0996e32f0E(ptr noalias noundef nonnull align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef nonnull readnone align 1 captures(none) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN4core5slice4sort6stable5merge5merge17hc30d7bd0996e32f0E(ptr noalias noundef nonnull align 8 %0, i64 noundef %1, ptr noalias noundef nonnull align 8 %2, i64 noundef %3, i64 noundef %4, ptr noalias noundef nonnull readnone align 1 captures(none) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [64 x i8], align 8
   %8 = alloca [64 x i8], align 8
   %9 = alloca [64 x i8], align 8
@@ -27663,7 +27663,7 @@ define hidden { i64, i64 } @_ZN4core5slice5index5range17hda54da817e531369E(i64 n
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9a03fd0cc2d4e68aE.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN4core6option15Option$LT$T$GT$11map_or_else17h9a03fd0cc2d4e68aE.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(48) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [48 x i8], align 8
   %7 = icmp eq ptr %1, null
@@ -31063,7 +31063,7 @@ define hidden void @"_ZN4gpui3app13model_context21ModelContext$LT$T$GT$5spawn28_
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h095f6d1e6d87ba39E.llvm.12726036149210647513"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #19 {
+define hidden noundef nonnull ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17h095f6d1e6d87ba39E.llvm.12726036149210647513"(ptr noundef nonnull readnone returned %0) unnamed_addr #19 {
   ret ptr %0
 }
 
@@ -31181,7 +31181,7 @@ define hidden noundef zeroext i1 @"_ZN53_$LT$core..fmt..Error$u20$as$u20$core..f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(1176) ptr @"_ZN54_$LT$T$u20$as$u20$core..borrow..BorrowMut$LT$T$GT$$GT$10borrow_mut17h4069af32c9377ea5E.llvm.12726036149210647513"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(1176) %0) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(1176) ptr @"_ZN54_$LT$T$u20$as$u20$core..borrow..BorrowMut$LT$T$GT$$GT$10borrow_mut17h4069af32c9377ea5E.llvm.12726036149210647513"(ptr noalias noundef readnone returned align 8 dereferenceable(1176) %0) unnamed_addr #7 {
   ret ptr %0
 }
 
@@ -42837,7 +42837,7 @@ define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any28_$u7b$$u7b$closure$u7d$$u7d$17he3abe4658bb5cdbdE.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef align 8 captures(none) dereferenceable(96) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$15deserialize_any28_$u7b$$u7b$closure$u7d$$u7d$17he3abe4658bb5cdbdE.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef align 8 captures(none) dereferenceable(96) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -43212,7 +43212,7 @@ define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h013e73a0a185237aE.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef align 8 captures(none) dereferenceable(96) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h013e73a0a185237aE.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef align 8 captures(none) dereferenceable(96) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -43281,7 +43281,7 @@ define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h0691a7bbcd8084c7E.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef align 8 captures(none) dereferenceable(96) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h0691a7bbcd8084c7E.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef align 8 captures(none) dereferenceable(96) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -43350,7 +43350,7 @@ define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$s
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h7ff154689a358bebE.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 1 captures(address_is_null) %1, i64 %2, ptr noalias noundef align 8 captures(none) dereferenceable(96) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @"_ZN80_$LT$toml_edit..de..Deserializer$LT$S$GT$$u20$as$u20$serde..de..Deserializer$GT$18deserialize_struct28_$u7b$$u7b$closure$u7d$$u7d$17h7ff154689a358bebE.llvm.12726036149210647513"(ptr dead_on_unwind noalias noundef writable writeonly sret([96 x i8]) align 8 captures(none) dereferenceable(96) %0, ptr noalias noundef readonly align 1 %1, i64 %2, ptr noalias noundef align 8 captures(none) dereferenceable(96) %3) unnamed_addr #1 personality ptr @rust_eh_personality {
   %5 = alloca [24 x i8], align 8
   %6 = alloca [24 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6)
@@ -44182,7 +44182,7 @@ define hidden void @"_ZN87_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h85115b7abe68aee4E.llvm.12726036149210647513"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 {
+define hidden void @"_ZN87_$LT$hashbrown..raw..RawTable$LT$T$C$A$GT$$u20$as$u20$hashbrown..raw..RawTableClone$GT$15clone_from_spec17h85115b7abe68aee4E.llvm.12726036149210647513"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 {
   tail call void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17hb509a14dff763c95E.llvm.12726036149210647513"(ptr noalias noundef nonnull align 8 dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   ret void
 }
@@ -48186,7 +48186,7 @@ _ZN8smallvec12layout_array17hb6f867f3f7a66475E.exit80.thread: ; preds = %21, %16
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0541d330dccb6f3eE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0541d330dccb6f3eE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48200,7 +48200,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0b23f53690d31112E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0b23f53690d31112E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 175
   br i1 %4, label %6, label %5
@@ -48214,7 +48214,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0c86f504fc2da301E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0c86f504fc2da301E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 143
   br i1 %4, label %6, label %5
@@ -48228,7 +48228,7 @@ define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0d963b0508b9d525E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0d963b0508b9d525E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48242,7 +48242,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0e06ef5683326a88E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h0e06ef5683326a88E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48256,7 +48256,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h10dbe5d40097e000E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h10dbe5d40097e000E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48270,7 +48270,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h18d0eb10a6b2af7bE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h18d0eb10a6b2af7bE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48284,7 +48284,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1914ba4486666802E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1914ba4486666802E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -48297,7 +48297,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1a7dbe381dd01bd6E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1a7dbe381dd01bd6E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 111
   br i1 %4, label %6, label %5
@@ -48311,7 +48311,7 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1acb1488469eba71E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1acb1488469eba71E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48325,7 +48325,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1d5df8fb6346ba2aE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1d5df8fb6346ba2aE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -48338,7 +48338,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1f4c34c0eeaba64aE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1f4c34c0eeaba64aE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 239
   br i1 %4, label %6, label %5
@@ -48352,7 +48352,7 @@ define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1fac4b2b7737c70eE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h1fac4b2b7737c70eE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48366,7 +48366,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h23105a54524c8aebE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h23105a54524c8aebE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48380,7 +48380,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h23cbc69f1e86b232E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h23cbc69f1e86b232E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846968
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48394,7 +48394,7 @@ define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h23faa1cc583ee8f7E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h23faa1cc583ee8f7E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48408,7 +48408,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h24a35988d894fac4E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h24a35988d894fac4E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48422,7 +48422,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(224) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h2754879d6e01c1c3E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(224) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h2754879d6e01c1c3E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 223
   br i1 %4, label %6, label %5
@@ -48436,7 +48436,7 @@ define hidden noundef nonnull align 8 dereferenceable(224) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h28cfc34e49e9e950E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h28cfc34e49e9e950E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 143
   br i1 %4, label %6, label %5
@@ -48450,7 +48450,7 @@ define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h29c5b0cd74fbdc6aE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h29c5b0cd74fbdc6aE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48464,7 +48464,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h2c786534c91eee3dE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h2c786534c91eee3dE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48478,7 +48478,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h2f133b472c485b87E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h2f133b472c485b87E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48492,7 +48492,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h30fb4ab40d93c162E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h30fb4ab40d93c162E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48506,7 +48506,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h314179ca779e25bcE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h314179ca779e25bcE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48520,7 +48520,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3476fdbd856df5aeE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3476fdbd856df5aeE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48534,7 +48534,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h36a003f133be4a89E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h36a003f133be4a89E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48548,7 +48548,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3b87edd4d5e9efb4E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3b87edd4d5e9efb4E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48562,7 +48562,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3ba2de2301db0b6cE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3ba2de2301db0b6cE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48576,7 +48576,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3ebe02b6972398b8E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3ebe02b6972398b8E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48590,7 +48590,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3ffa4182e697a2a9E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h3ffa4182e697a2a9E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48604,7 +48604,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h402b3e2a70a79837E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h402b3e2a70a79837E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 159
   br i1 %4, label %6, label %5
@@ -48618,7 +48618,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h41e8ee4b6054fc45E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h41e8ee4b6054fc45E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48632,7 +48632,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h4217a2e5a02cbaa3E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h4217a2e5a02cbaa3E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48646,7 +48646,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h43987080c93bea4fE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h43987080c93bea4fE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48660,7 +48660,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h4842464a95d0821bE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h4842464a95d0821bE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -48674,7 +48674,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h4c4338572daf6c1dE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h4c4338572daf6c1dE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 175
   br i1 %4, label %6, label %5
@@ -48688,7 +48688,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h50e4d76f645aa30eE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h50e4d76f645aa30eE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -48702,7 +48702,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h56eefc7ced05fba2E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h56eefc7ced05fba2E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48716,7 +48716,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h59081eaefeedc1a6E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h59081eaefeedc1a6E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48730,7 +48730,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h5d01938c091be091E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h5d01938c091be091E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48744,7 +48744,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h5d427df63238ccefE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h5d427df63238ccefE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48758,7 +48758,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h5ddd27d2abd9df48E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h5ddd27d2abd9df48E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48772,7 +48772,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h620d1edc00c45dfdE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h620d1edc00c45dfdE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48786,7 +48786,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h62c30afa9e5728e2E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h62c30afa9e5728e2E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 207
   br i1 %4, label %6, label %5
@@ -48800,7 +48800,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h64ea6e9e64963f3bE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h64ea6e9e64963f3bE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48814,7 +48814,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h65c11359f7175e95E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h65c11359f7175e95E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 159
   br i1 %4, label %6, label %5
@@ -48828,7 +48828,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h65db8d4183c5f01eE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h65db8d4183c5f01eE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48842,7 +48842,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h664e0571eada47eaE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h664e0571eada47eaE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48856,7 +48856,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h69266caed845195cE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h69266caed845195cE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48870,7 +48870,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h698fbf00bc6707c4E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h698fbf00bc6707c4E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48884,7 +48884,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h6b25dd2329fd9050E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h6b25dd2329fd9050E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 159
   br i1 %4, label %6, label %5
@@ -48898,7 +48898,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h6b4de51c9a18f151E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h6b4de51c9a18f151E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48912,7 +48912,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h6c6a945dc94b6292E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h6c6a945dc94b6292E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -48926,7 +48926,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h6f399c33007f647bE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h6f399c33007f647bE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48940,7 +48940,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h73951e81ff5d43ddE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h73951e81ff5d43ddE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48954,7 +48954,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7405a303f643679aE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7405a303f643679aE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -48968,7 +48968,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h749a9600b8f8e965E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h749a9600b8f8e965E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -48982,7 +48982,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h77b5ef95945ee9a1E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h77b5ef95945ee9a1E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 159
   br i1 %4, label %6, label %5
@@ -48996,7 +48996,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7880a11f81549e25E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7880a11f81549e25E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49010,7 +49010,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7890474354d08607E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7890474354d08607E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49024,7 +49024,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7b064af3bc4c8375E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7b064af3bc4c8375E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49038,7 +49038,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7ba592936c6c487bE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7ba592936c6c487bE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49052,7 +49052,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7bf8437249e94decE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7bf8437249e94decE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49066,7 +49066,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7d0cee054310a4d9E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7d0cee054310a4d9E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49080,7 +49080,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7d6f2d4ca2102e36E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7d6f2d4ca2102e36E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49094,7 +49094,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7d8d9b85f2dee78eE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h7d8d9b85f2dee78eE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49108,7 +49108,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h808c4e34d4153397E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h808c4e34d4153397E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 175
   br i1 %4, label %6, label %5
@@ -49122,7 +49122,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h80fe78e011e2935cE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h80fe78e011e2935cE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49136,7 +49136,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h85633029e629d36dE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h85633029e629d36dE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 207
   br i1 %4, label %6, label %5
@@ -49150,7 +49150,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h88247227f1ea0ff3E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h88247227f1ea0ff3E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49164,7 +49164,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h88b8bbcf2c7cb803E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h88b8bbcf2c7cb803E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49178,7 +49178,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h892e2c9207d1cb2fE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h892e2c9207d1cb2fE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49192,7 +49192,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h8a23facb48ee50d2E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h8a23facb48ee50d2E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49206,7 +49206,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h8a769626fc51ad38E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h8a769626fc51ad38E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49220,7 +49220,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h8f4f6ddf3290f304E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h8f4f6ddf3290f304E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49234,7 +49234,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9070e89278e86f8eE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9070e89278e86f8eE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49248,7 +49248,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h90a90126d5194d7fE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h90a90126d5194d7fE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49262,7 +49262,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h92a823546c4aad06E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h92a823546c4aad06E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 207
   br i1 %4, label %6, label %5
@@ -49276,7 +49276,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h946d6ca859f857f2E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h946d6ca859f857f2E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49290,7 +49290,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h948dcea33c33b3f0E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h948dcea33c33b3f0E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49304,7 +49304,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h94b317d9d5ba71f2E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h94b317d9d5ba71f2E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49318,7 +49318,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h94e2532d8652d1d5E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h94e2532d8652d1d5E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49332,7 +49332,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h95ddf421e77789c4E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h95ddf421e77789c4E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49346,7 +49346,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9726f0e279665d4dE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9726f0e279665d4dE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49360,7 +49360,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9977cb02ba456a81E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9977cb02ba456a81E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49374,7 +49374,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h99c3888d6d89752bE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h99c3888d6d89752bE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -49387,7 +49387,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h99ef185bd0e7b4f7E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h99ef185bd0e7b4f7E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 111
   br i1 %4, label %6, label %5
@@ -49401,7 +49401,7 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9c185db49c83f7c1E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9c185db49c83f7c1E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49415,7 +49415,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9d4bdcd5c58f0323E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9d4bdcd5c58f0323E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49429,7 +49429,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9df2ae913dc43c56E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9df2ae913dc43c56E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 175
   br i1 %4, label %6, label %5
@@ -49443,7 +49443,7 @@ define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9e3ff681a71ac58cE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9e3ff681a71ac58cE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -49456,7 +49456,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9ed83c65853694faE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17h9ed83c65853694faE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49470,7 +49470,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha1377c37587ca233E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha1377c37587ca233E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -49483,7 +49483,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha3136e9da125e5d7E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha3136e9da125e5d7E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 159
   br i1 %4, label %6, label %5
@@ -49497,7 +49497,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha3df765350d28155E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha3df765350d28155E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49511,7 +49511,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha56683017c8072bbE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha56683017c8072bbE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49525,7 +49525,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha595a0a21d460461E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha595a0a21d460461E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49539,7 +49539,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha69a11233c62293aE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha69a11233c62293aE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49553,7 +49553,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha77f8885e98ebd76E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17ha77f8885e98ebd76E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49567,7 +49567,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17haa702da36951f891E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17haa702da36951f891E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49581,7 +49581,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb0279dc687288f30E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb0279dc687288f30E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 207
   br i1 %4, label %6, label %5
@@ -49595,7 +49595,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb0eedc61e7b8ff53E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb0eedc61e7b8ff53E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49609,7 +49609,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb109a2e6bb87a12eE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb109a2e6bb87a12eE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49623,7 +49623,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb2fc84eaff2ee330E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb2fc84eaff2ee330E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49637,7 +49637,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb9019672307f4dbcE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hb9019672307f4dbcE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49651,7 +49651,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hba4919ecf3ea774eE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hba4919ecf3ea774eE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 159
   br i1 %4, label %6, label %5
@@ -49665,7 +49665,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbb3eb3cf3d6341ddE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbb3eb3cf3d6341ddE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49679,7 +49679,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbbafd2b59c941cf7E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbbafd2b59c941cf7E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49693,7 +49693,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbc86b8aab28ac567E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbc86b8aab28ac567E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49707,7 +49707,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbd754234b3f458d3E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbd754234b3f458d3E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49721,7 +49721,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbf84e83025e0d00dE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hbf84e83025e0d00dE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49735,7 +49735,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hc82156801a8f89a3E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hc82156801a8f89a3E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 207
   br i1 %4, label %6, label %5
@@ -49749,7 +49749,7 @@ define hidden noundef nonnull align 8 dereferenceable(208) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hc8d7937e137276dfE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hc8d7937e137276dfE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49763,7 +49763,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hc8f03f042c9b212aE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hc8f03f042c9b212aE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49777,7 +49777,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hc9f17df281f908b6E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hc9f17df281f908b6E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -49791,7 +49791,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcc0426344d955598E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcc0426344d955598E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -49804,7 +49804,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcc11951ddacae82bE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcc11951ddacae82bE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49818,7 +49818,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcc6492bb2895edf8E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcc6492bb2895edf8E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846968
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49832,7 +49832,7 @@ define hidden noundef nonnull align 8 dereferenceable(128) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcc75035736cf8679E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcc75035736cf8679E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49846,7 +49846,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcd07c78404a022e6E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcd07c78404a022e6E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49860,7 +49860,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcdd34c97a0cda7abE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcdd34c97a0cda7abE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49874,7 +49874,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcdea0477bb5ba8d6E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcdea0477bb5ba8d6E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49888,7 +49888,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcfde44a18b5d8888E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hcfde44a18b5d8888E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -49902,7 +49902,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd4278fb414c68011E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd4278fb414c68011E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 111
   br i1 %4, label %6, label %5
@@ -49916,7 +49916,7 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd4c2f1829312062bE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd4c2f1829312062bE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -49930,7 +49930,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd72a88c9c9287850E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd72a88c9c9287850E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 111
   br i1 %4, label %6, label %5
@@ -49944,7 +49944,7 @@ define hidden noundef nonnull align 8 dereferenceable(112) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd7e1a0eab739f7dcE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd7e1a0eab739f7dcE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -49957,7 +49957,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd88580ea27b8d548E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd88580ea27b8d548E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49971,7 +49971,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(224) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd8a20d5e95fbca73E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(224) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hd8a20d5e95fbca73E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 223
   br i1 %4, label %6, label %5
@@ -49985,7 +49985,7 @@ define hidden noundef nonnull align 8 dereferenceable(224) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hdb5c878452064778E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hdb5c878452064778E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -49999,7 +49999,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hdbeca227ba374610E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hdbeca227ba374610E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -50013,7 +50013,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hde9c232fa523adbfE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hde9c232fa523adbfE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -50027,7 +50027,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he02c461ab8d488edE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he02c461ab8d488edE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 159
   br i1 %4, label %6, label %5
@@ -50041,7 +50041,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he0c3607484a11659E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he0c3607484a11659E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 143
   br i1 %4, label %6, label %5
@@ -50055,7 +50055,7 @@ define hidden noundef nonnull align 8 dereferenceable(144) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he219561ba0a6e962E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he219561ba0a6e962E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50069,7 +50069,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he2da1d83d0c97856E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he2da1d83d0c97856E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -50082,7 +50082,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he472e0a6ef77ddc7E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he472e0a6ef77ddc7E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50096,7 +50096,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he710d6171db0f879E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he710d6171db0f879E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50110,7 +50110,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he72f5b03eb284982E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he72f5b03eb284982E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -50124,7 +50124,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he7be3fc1a3653277E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he7be3fc1a3653277E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -50138,7 +50138,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he8aa0e1be63e3c40E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he8aa0e1be63e3c40E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50152,7 +50152,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he99d434e3ef5da2fE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17he99d434e3ef5da2fE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50166,7 +50166,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hea5f4909f6202373E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hea5f4909f6202373E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50180,7 +50180,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17heac4b941dbd481b7E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17heac4b941dbd481b7E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -50194,7 +50194,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17heb116a8ade1569b5E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17heb116a8ade1569b5E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 79
   br i1 %4, label %6, label %5
@@ -50208,7 +50208,7 @@ define hidden noundef nonnull align 8 dereferenceable(80) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hecd7cf1fa3492821E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hecd7cf1fa3492821E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 239
   br i1 %4, label %6, label %5
@@ -50222,7 +50222,7 @@ define hidden noundef nonnull align 8 dereferenceable(240) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17heddc90478de1bfaeE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17heddc90478de1bfaeE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50236,7 +50236,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hee0223be2883a061E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hee0223be2883a061E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846972
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50250,7 +50250,7 @@ define hidden noundef nonnull align 8 dereferenceable(64) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hef1bb64154aaca14E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hef1bb64154aaca14E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %3, label %4
 
@@ -50263,7 +50263,7 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf14c4e70df42c47cE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf14c4e70df42c47cE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50277,7 +50277,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf1d56984d5195362E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf1d56984d5195362E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -50291,7 +50291,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf6984351bd98e334E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf6984351bd98e334E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = and i64 %1, 1152921504606846974
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %4, label %5
@@ -50305,7 +50305,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf6fb42d7610595d7E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf6fb42d7610595d7E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 95
   br i1 %4, label %6, label %5
@@ -50319,7 +50319,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf71cde6d08f2275dE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf71cde6d08f2275dE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 159
   br i1 %4, label %6, label %5
@@ -50333,7 +50333,7 @@ define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN8wasmtime7run
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf995f9c4194226b0E(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hf995f9c4194226b0E(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -50347,7 +50347,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hff0c898e1297ac5fE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hff0c898e1297ac5fE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 47
   br i1 %4, label %6, label %5
@@ -50361,7 +50361,7 @@ define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN8wasmtime7runt
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hff6fda851ebfcc8aE(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(176) ptr @_ZN8wasmtime7runtime9component7storage20slice_to_storage_mut17hff6fda851ebfcc8aE(ptr noalias noundef nonnull readnone returned align 8 %0, i64 noundef %1) unnamed_addr #0 {
   %3 = shl nsw i64 %1, 4
   %4 = icmp ugt i64 %3, 175
   br i1 %4, label %6, label %5
@@ -70892,7 +70892,7 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17hb509a14dff763c95E.llvm.12726036149210647513"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17hb509a14dff763c95E.llvm.12726036149210647513"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
   %4 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %5 = load ptr, ptr %0, align 8, !nonnull !5, !noundef !5
@@ -75744,7 +75744,7 @@ _ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capacity17he006961b1d73abe
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22clone_from_with_hasher17ha0c120f29eedd63cE.llvm.12726036149210647513"(ptr noalias noundef align 8 captures(address_is_null) dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 captures(none) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22clone_from_with_hasher17ha0c120f29eedd63cE.llvm.12726036149210647513"(ptr noalias noundef align 8 dereferenceable(32) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1, ptr noalias noundef nonnull readonly align 8 captures(none) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8

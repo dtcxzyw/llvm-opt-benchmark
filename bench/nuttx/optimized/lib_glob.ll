@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @glob(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @glob(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca %struct.match_s, align 8
   %6 = alloca ptr, align 8
   %7 = alloca [256 x i8], align 16

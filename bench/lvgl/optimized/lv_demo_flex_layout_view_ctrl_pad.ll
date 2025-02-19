@@ -291,7 +291,7 @@ declare void @lv_obj_set_style_pad_top(ptr noundef, i32 noundef, i32 noundef) lo
 declare void @lv_obj_add_style(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @spinbox_ctrl_create(ptr noundef %0, i8 noundef zeroext range(i8 1, -126) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @spinbox_ctrl_create(ptr noundef %0, i8 noundef zeroext range(i8 1, -126) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = tail call ptr @lv_obj_create(ptr noundef %0) #3
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5

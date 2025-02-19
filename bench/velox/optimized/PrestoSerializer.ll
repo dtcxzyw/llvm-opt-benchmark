@@ -7614,7 +7614,7 @@ sw.epilog:                                        ; preds = %for.body, %if.then,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde16createSerializerESt10shared_ptrIKNS0_7RowTypeEEiPNS0_11StreamArenaEPKNS0_11VectorSerde7OptionsE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %type, i32 noundef %numRows, ptr noundef %streamArena, ptr noundef readonly captures(address_is_null) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde16createSerializerESt10shared_ptrIKNS0_7RowTypeEEiPNS0_11StreamArenaEPKNS0_11VectorSerde7OptionsE(ptr noalias writeonly sret(%"class.std::unique_ptr") align 8 captures(none) %agg.result, ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %type, i32 noundef %numRows, ptr noundef %streamArena, ptr noundef readonly %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %types.i.i = alloca %"class.std::vector.48", align 8
   %cmp.i = icmp eq ptr %options, null
@@ -12365,7 +12365,7 @@ _ZNSt12__shared_ptrIKN8facebook5velox7RowTypeELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde11deserializeEPNS0_15ByteInputStreamEPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_7RowTypeEEPS9_INS0_9RowVectorEEiPKNS0_11VectorSerde7OptionsE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %source, ptr noundef %pool, ptr noundef readonly captures(none) %type, ptr noundef captures(none) %result, i32 noundef %resultOffset, ptr noundef readonly captures(address_is_null) %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8facebook5velox10serializer6presto17PrestoVectorSerde11deserializeEPNS0_15ByteInputStreamEPNS0_6memory10MemoryPoolESt10shared_ptrIKNS0_7RowTypeEEPS9_INS0_9RowVectorEEiPKNS0_11VectorSerde7OptionsE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %source, ptr noundef %pool, ptr noundef readonly captures(none) %type, ptr noundef captures(none) %result, i32 noundef %resultOffset, ptr noundef readonly %options) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %codecMarker.addr.i = alloca i32, align 4
   %numRows.addr.i = alloca i32, align 4
@@ -24551,7 +24551,7 @@ terminate.lpad:                                   ; preds = %if.then.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112rowsToRangesEN5folly5RangeIPKiEEPKmS7_S7_PPiRNS0_10ScratchPtrINS0_10IndexRangeELi0EEEPNSD_ISB_Li0EEEPNS3_12VectorStreamERNS0_7ScratchE(ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %rawNulls, ptr noundef readonly captures(none) %offsets, ptr noundef readonly captures(none) %sizes, ptr noundef readonly captures(address_is_null) %sizesPtr, ptr noundef nonnull align 8 dereferenceable(36) %rangesHolder, ptr noundef %sizesHolder, ptr noundef %stream, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112rowsToRangesEN5folly5RangeIPKiEEPKmS7_S7_PPiRNS0_10ScratchPtrINS0_10IndexRangeELi0EEEPNSD_ISB_Li0EEEPNS3_12VectorStreamERNS0_7ScratchE(ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %rawNulls, ptr noundef readonly captures(none) %offsets, ptr noundef readonly captures(none) %sizes, ptr noundef readonly %sizesPtr, ptr noundef nonnull align 8 dereferenceable(36) %rangesHolder, ptr noundef %sizesHolder, ptr noundef %stream, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %nonNullHolder = alloca %"class.facebook::velox::ScratchPtr.299", align 8
   %innerRowsHolder = alloca %"class.facebook::velox::ScratchPtr.299", align 8
@@ -37334,7 +37334,7 @@ for.end13:                                        ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %this, ptr readonly captures(address) %values.coerce0, ptr readnone captures(address) %values.coerce1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_112VectorStream6appendINS0_9TimestampEEEvN5folly5RangeIPKT_EE(ptr noundef nonnull align 8 dereferenceable(281) %this, ptr readonly %values.coerce0, ptr readnone %values.coerce1) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca i64, align 8
   %ref.tmp4 = alloca i64, align 8
@@ -65426,7 +65426,7 @@ declare void @_ZNSt13runtime_errorD1Ev(ptr noundef nonnull align 8 dereferenceab
 declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_113scatterVectorEiiPKiPKmRSt10shared_ptrINS0_10BaseVectorEEi(i32 noundef %size, i32 noundef %scatterSize, ptr noundef readonly captures(address_is_null) %scatter, ptr noundef %incomingNulls, ptr noundef nonnull align 8 dereferenceable(16) %vector, i32 noundef %offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_113scatterVectorEiiPKiPKmRSt10shared_ptrINS0_10BaseVectorEEi(i32 noundef %size, i32 noundef %scatterSize, ptr noundef readonly %scatter, ptr noundef %incomingNulls, ptr noundef nonnull align 8 dereferenceable(16) %vector, i32 noundef %offset) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::intrusive_ptr", align 8
   %values = alloca %"class.std::shared_ptr", align 8
@@ -83340,7 +83340,7 @@ return:                                           ; preds = %_ZN8facebook5velox1
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_113appendStringsEPKmN5folly5RangeIPKiEEPKNS0_10StringViewEPNS3_12VectorStreamERNS0_7ScratchE(ptr noundef readonly captures(address_is_null) %nulls, ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %views, ptr noundef %stream, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN8facebook5velox10serializer6presto12_GLOBAL__N_113appendStringsEPKmN5folly5RangeIPKiEEPKNS0_10StringViewEPNS3_12VectorStreamERNS0_7ScratchE(ptr noundef readonly %nulls, ptr %rows.coerce0, ptr %rows.coerce1, ptr noundef %views, ptr noundef %stream, ptr noundef nonnull align 8 dereferenceable(24) %scratch) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %nonNullHolder = alloca %"class.facebook::velox::ScratchPtr.299", align 8
   %tobool.not = icmp eq ptr %nulls, null

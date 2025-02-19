@@ -473,7 +473,7 @@ define internal void @timer_close_cb(ptr noundef %0) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local range(i32 -105, 1) i32 @uv_fs_poll_getpath(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

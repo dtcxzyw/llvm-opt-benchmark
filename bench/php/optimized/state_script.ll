@@ -39,7 +39,7 @@ define hidden noundef ptr @lxb_html_tokenizer_state_script_data_before(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %4, align 8, !tbaa !29
   %.not128 = icmp eq ptr %1, %2
@@ -432,7 +432,7 @@ lxb_html_tokenizer_temp_append_data.exit100:      ; preds = %192
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_less_than_sign(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr readnone captures(none) %2) #2 {
+define internal ptr @lxb_html_tokenizer_state_script_data_less_than_sign(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #2 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   switch i8 %4, label %9 [
     i8 47, label %5
@@ -468,7 +468,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare ptr @lexbor_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lxb_html_tokenizer_state_script_data_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal noundef ptr @lxb_html_tokenizer_state_script_data_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alpha_character, i64 0, i64 %5
@@ -539,7 +539,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_escape_start(ptr noundef captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_escape_start(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = icmp eq i8 %4, 45
   br i1 %5, label %6, label %8
@@ -597,7 +597,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %15
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_end_tag_name(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_end_tag_name(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %5, align 8, !tbaa !29
@@ -1088,7 +1088,7 @@ declare ptr @lxb_html_tokenizer_state_self_closing_start_tag(ptr noundef, ptr no
 declare ptr @lxb_html_tokenizer_state_data_before(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_escape_start_dash(ptr noundef captures(none) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_escape_start_dash(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = icmp eq i8 %4, 45
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1180,7 +1180,7 @@ lxb_html_tokenizer_temp_append.exit13:            ; preds = %34
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_escaped_dash_dash(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_escaped_dash_dash(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   switch i8 %4, label %59 [
     i8 45, label %5
@@ -1291,7 +1291,7 @@ lxb_html_tokenizer_temp_append.exit18:            ; preds = %37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_escaped_less_than_sign(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr readnone captures(none) %2) #2 {
+define internal ptr @lxb_html_tokenizer_state_script_data_escaped_less_than_sign(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #2 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = icmp eq i8 %4, 47
   br i1 %5, label %6, label %8
@@ -1331,7 +1331,7 @@ define internal ptr @lxb_html_tokenizer_state_script_data_escaped_less_than_sign
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_escaped(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_escaped(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %4, align 8, !tbaa !29
   %.not142 = icmp eq ptr %1, %2
@@ -1764,7 +1764,7 @@ lxb_html_tokenizer_temp_append_data.exit110:      ; preds = %221
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lxb_html_tokenizer_state_script_data_escaped_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal noundef ptr @lxb_html_tokenizer_state_script_data_escaped_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alpha_character, i64 0, i64 %5
@@ -1841,7 +1841,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lxb_html_tokenizer_state_script_data_double_escape_start(ptr noundef captures(none) initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
+define internal noundef ptr @lxb_html_tokenizer_state_script_data_double_escape_start(ptr noundef captures(none) initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %5, align 8, !tbaa !29
@@ -2053,7 +2053,7 @@ lxb_html_tokenizer_temp_append_data.exit41:       ; preds = %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_escaped_end_tag_name(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_escaped_end_tag_name(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %5, align 8, !tbaa !29
@@ -2585,7 +2585,7 @@ lxb_html_tokenizer_temp_append_data.exit182:      ; preds = %252
 declare zeroext i1 @lexbor_str_data_ncasecmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped(ptr noundef initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %4, align 8, !tbaa !29
   %.not140 = icmp eq ptr %1, %2
@@ -3014,7 +3014,7 @@ lxb_html_tokenizer_temp_append_data.exit108:      ; preds = %218
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped_dash(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped_dash(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   switch i8 %4, label %122 [
     i8 45, label %5
@@ -3228,7 +3228,7 @@ lxb_html_tokenizer_temp_append.exit53:            ; preds = %101
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped_less_than_sign(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr readnone captures(none) %2) #2 {
+define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped_less_than_sign(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #2 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = icmp eq i8 %4, 47
   %spec.select = select i1 %5, ptr @lxb_html_tokenizer_state_script_data_double_escaped_end_tag_open, ptr @lxb_html_tokenizer_state_script_data_double_escaped
@@ -3239,7 +3239,7 @@ define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped_less_th
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped_dash_dash(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_double_escaped_dash_dash(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   switch i8 %4, label %148 [
     i8 45, label %5
@@ -3499,7 +3499,7 @@ lxb_html_tokenizer_temp_append.exit61:            ; preds = %127
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lxb_html_tokenizer_state_script_data_double_escaped_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal noundef ptr @lxb_html_tokenizer_state_script_data_double_escaped_end_tag_open(ptr noundef captures(none) initializes((0, 8)) %0, ptr noundef readonly %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   %5 = zext i8 %4 to i64
   %6 = getelementptr inbounds nuw [256 x i64], ptr @lexbor_str_res_alpha_character, i64 0, i64 %5
@@ -3568,7 +3568,7 @@ lxb_html_tokenizer_temp_append.exit:              ; preds = %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @lxb_html_tokenizer_state_script_data_double_escape_end(ptr noundef captures(none) initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone captures(address, ret: address, provenance) %2) #1 {
+define internal noundef ptr @lxb_html_tokenizer_state_script_data_double_escape_end(ptr noundef captures(none) initializes((152, 160)) %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = ptrtoint ptr %1 to i64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 152
   store ptr %1, ptr %5, align 8, !tbaa !29
@@ -3780,7 +3780,7 @@ lxb_html_tokenizer_temp_append_data.exit41:       ; preds = %92
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_html_tokenizer_state_script_data_escaped_dash(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(ret: address, provenance) %2) #1 {
+define internal ptr @lxb_html_tokenizer_state_script_data_escaped_dash(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %4 = load i8, ptr %1, align 1, !tbaa !30
   switch i8 %4, label %125 [
     i8 45, label %5

@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._ZN10duckdb_hll12sdssplitargsEPKcPi.4 = private unnamed_addr constant [5 x i64] [i64 -2, i64 -4, i64 -6, i64 -10, i64 -18], align 8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @_ZN10duckdb_hll9sdsnewlenEPKvm(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define noalias noundef ptr @_ZN10duckdb_hll9sdsnewlenEPKvm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i64 %1, 32
   br i1 %3, label %_ZN10duckdb_hllL10sdsReqTypeEm.exit, label %4
 
@@ -161,7 +161,7 @@ _ZN10duckdb_hll9sdsnewlenEPKvm.exit:              ; preds = %0, %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @_ZN10duckdb_hll6sdsnewEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @_ZN10duckdb_hll6sdsnewEPKc(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN10duckdb_hll9sdsnewlenEPKvm.exit, label %.split
 
@@ -423,7 +423,7 @@ _ZN10duckdb_hll9sdsnewlenEPKvm.exit:              ; preds = %_ZN10duckdb_hllL10s
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN10duckdb_hll7sdsfreeEPc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define void @_ZN10duckdb_hll7sdsfreeEPc(ptr noundef %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -543,7 +543,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %1, %5, %6, %8, %10,
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @_ZN10duckdb_hll14sdsMakeRoomForEPcm(ptr noundef captures(ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #11 {
+define noundef ptr @_ZN10duckdb_hll14sdsMakeRoomForEPcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -1
   %4 = load i8, ptr %3, align 1, !tbaa !20
   %5 = and i8 %4, 7
@@ -1002,7 +1002,7 @@ _ZN10duckdb_hllL10sdsHdrSizeEc.exit:              ; preds = %_ZN10duckdb_hllL8sd
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN10duckdb_hll11sdsAllocPtrEPc(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #13 {
+define noundef ptr @_ZN10duckdb_hll11sdsAllocPtrEPc(ptr noundef readonly %0) local_unnamed_addr #13 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -1
   %3 = load i8, ptr %2, align 1, !tbaa !20
   %4 = and i8 %3, 7
@@ -1085,7 +1085,7 @@ define void @_ZN10duckdb_hll10sdsIncrLenEPcl(ptr noundef captures(none) %0, i64 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @_ZN10duckdb_hll11sdsgrowzeroEPcm(ptr noundef captures(address, ret: address, provenance) %0, i64 noundef %1) local_unnamed_addr #11 {
+define noundef ptr @_ZN10duckdb_hll11sdsgrowzeroEPcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %0, i64 -1
   %4 = load i8, ptr %3, align 1, !tbaa !20
   %5 = zext i8 %4 to i32
@@ -1187,7 +1187,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %46, %43, %40, %37, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @_ZN10duckdb_hll9sdscatlenEPcPKvm(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
+define noundef ptr @_ZN10duckdb_hll9sdscatlenEPcPKvm(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -1
   %5 = load i8, ptr %4, align 1, !tbaa !20
   %6 = zext i8 %5 to i32
@@ -1288,7 +1288,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %28, %34, %36, %39, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @_ZN10duckdb_hll6sdscatEPcPKc(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define noundef ptr @_ZN10duckdb_hll6sdscatEPcPKc(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %4 = getelementptr inbounds i8, ptr %0, i64 -1
   %5 = load i8, ptr %4, align 1, !tbaa !20
@@ -1390,7 +1390,7 @@ _ZN10duckdb_hll9sdscatlenEPcPKvm.exit:            ; preds = %_ZN10duckdb_hllL6sd
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @_ZN10duckdb_hll9sdscatsdsEPcS0_(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define noundef ptr @_ZN10duckdb_hll9sdscatsdsEPcS0_(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds i8, ptr %1, i64 -1
   %4 = load i8, ptr %3, align 1, !tbaa !20
   %5 = zext i8 %4 to i32
@@ -1533,7 +1533,7 @@ _ZN10duckdb_hll9sdscatlenEPcPKvm.exit:            ; preds = %_ZN10duckdb_hllL6sd
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @_ZN10duckdb_hll9sdscpylenEPcPKcm(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
+define noundef ptr @_ZN10duckdb_hll9sdscpylenEPcPKcm(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds i8, ptr %0, i64 -1
   %5 = load i8, ptr %4, align 1, !tbaa !20
   %6 = zext i8 %5 to i32
@@ -1679,7 +1679,7 @@ _ZN10duckdb_hllL9sdssetlenEPcm.exit:              ; preds = %65, %62, %59, %56, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @_ZN10duckdb_hll6sdscpyEPcPKc(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
+define noundef ptr @_ZN10duckdb_hll6sdscpyEPcPKc(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #29
   %4 = tail call noundef ptr @_ZN10duckdb_hll9sdscpylenEPcPKcm(ptr noundef %0, ptr noundef nonnull %1, i64 noundef %3)
   ret ptr %4
@@ -1934,7 +1934,7 @@ _ZN10duckdb_hll9sdsnewlenEPKvm.exit:              ; preds = %_ZN10duckdb_hllL10s
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN10duckdb_hll13sdscatvprintfEPcPKcP13__va_list_tag(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #16 {
+define noundef ptr @_ZN10duckdb_hll13sdscatvprintfEPcPKcP13__va_list_tag(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #16 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   %5 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #30
@@ -2103,7 +2103,7 @@ declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noun
 declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN10duckdb_hll12sdscatprintfEPcPKcz(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #16 {
+define noundef ptr @_ZN10duckdb_hll12sdscatprintfEPcPKcz(ptr noundef %0, ptr noundef readonly captures(none) %1, ...) local_unnamed_addr #16 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #30
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -3485,7 +3485,7 @@ _ZN10duckdb_hllL6sdslenEPc.exit17:                ; preds = %_ZN10duckdb_hllL6sd
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noalias noundef ptr @_ZN10duckdb_hll11sdssplitlenEPKclS1_iPi(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #16 {
+define noalias noundef ptr @_ZN10duckdb_hll11sdssplitlenEPKclS1_iPi(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #16 {
   %6 = icmp slt i32 %3, 1
   %7 = icmp slt i64 %1, 0
   %or.cond = or i1 %7, %6
@@ -3848,7 +3848,7 @@ _ZN10duckdb_hll7sdsfreeEPc.exit:                  ; preds = %.lr.ph111, %_ZN10du
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10duckdb_hll15sdsfreesplitresEPPci(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #16 {
+define void @_ZN10duckdb_hll15sdsfreesplitresEPPci(ptr noundef %0, i32 noundef %1) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %.preheader
 
@@ -5584,7 +5584,7 @@ _ZN10duckdb_hll7sdsfreeEPc.exit127:               ; preds = %367, %switch.lookup
 declare i32 @isspace(i32 noundef) local_unnamed_addr #21
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN10duckdb_hll11sdsmapcharsEPcPKcS2_m(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #14 {
+define noundef ptr @_ZN10duckdb_hll11sdsmapcharsEPcPKcS2_m(ptr noundef returned %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #14 {
   %5 = getelementptr inbounds i8, ptr %0, i64 -1
   %6 = load i8, ptr %5, align 1, !tbaa !20
   %7 = zext i8 %6 to i32

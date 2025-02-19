@@ -165,7 +165,7 @@ _inode_search.exit:                               ; preds = %_inode_compare.exit
 declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define noundef ptr @inode_nextname(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #2 {
+define noundef ptr @inode_nextname(ptr noundef readonly %0) local_unnamed_addr #2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %tailrecurse.backedge, %1

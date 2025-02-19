@@ -9870,7 +9870,7 @@ _ZNSt3setIN10open_spiel10backgammon11CheckerMoveESt4lessIS2_ESaIS2_EED2Ev.exit: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel10backgammon15BackgammonState17ProcessLegalMovesEiRKSt3setISt6vectorINS0_11CheckerMoveESaIS4_EESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel10backgammon15BackgammonState17ProcessLegalMovesEiRKSt3setISt6vectorINS0_11CheckerMoveESaIS4_EESt4lessIS6_ESaIS6_EE(ptr dead_on_unwind noalias writable sret(%"class.std::vector.41") align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(216) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.2 = private unnamed_addr constant [8 x i8] c"missing\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @u_skipWhitespace(ptr noundef readonly captures(ret: address, provenance) %s) local_unnamed_addr #0 {
+define noundef ptr @u_skipWhitespace(ptr noundef readonly %s) local_unnamed_addr #0 {
 entry:
   br label %while.cond
 
@@ -31,7 +31,7 @@ while.end:                                        ; preds = %while.cond
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite) uwtable
-define ptr @u_rtrim(ptr noundef captures(address, ret: address, provenance) %s) local_unnamed_addr #1 {
+define ptr @u_rtrim(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %s)
   %strchr = getelementptr inbounds i8, ptr %s, i64 %strlen
@@ -63,7 +63,7 @@ while.end:                                        ; preds = %while.body, %land.r
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @u_parseDelimitedFile(ptr noundef %filename, i8 noundef signext %delimiter, ptr noundef %fields, i32 noundef %fieldCount, ptr noundef readonly captures(address_is_null) %lineFn, ptr noundef %context, ptr noundef %pErrorCode) local_unnamed_addr #3 {
+define void @u_parseDelimitedFile(ptr noundef %filename, i8 noundef signext %delimiter, ptr noundef %fields, i32 noundef %fieldCount, ptr noundef readonly %lineFn, ptr noundef %context, ptr noundef %pErrorCode) local_unnamed_addr #3 {
 entry:
   %line = alloca [10000 x i8], align 16
   %0 = load i32, ptr %pErrorCode, align 4
@@ -379,7 +379,7 @@ declare ptr @T_FileStream_readLine(ptr noundef, ptr noundef, i32 noundef) local_
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseCodePoints(ptr noundef %s, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %destCapacity, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
+define i32 @u_parseCodePoints(ptr noundef %s, ptr noundef writeonly %dest, i32 noundef %destCapacity, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i32, ptr %pErrorCode, align 4
@@ -479,7 +479,7 @@ return:                                           ; preds = %while.cond.i, %whil
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseString(ptr noundef %s, ptr noundef writeonly captures(address_is_null) %dest, i32 noundef %destCapacity, ptr noundef writeonly captures(address) %pFirst, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
+define i32 @u_parseString(ptr noundef %s, ptr noundef writeonly %dest, i32 noundef %destCapacity, ptr noundef writeonly %pFirst, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i32, ptr %pErrorCode, align 4
@@ -639,7 +639,7 @@ return:                                           ; preds = %if.then17, %if.else
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %s, ptr noundef captures(address_is_null) %pStart, ptr noundef writeonly captures(address_is_null) %pEnd, ptr noundef writeonly captures(none) %terminator, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
+define i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %s, ptr noundef %pStart, ptr noundef writeonly %pEnd, ptr noundef writeonly captures(none) %terminator, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
 entry:
   %end = alloca ptr, align 8
   %0 = load i32, ptr %pErrorCode, align 4
@@ -769,7 +769,7 @@ return:                                           ; preds = %entry, %if.end31, %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define i32 @u_parseCodePointRange(ptr noundef %s, ptr noundef captures(address_is_null) %pStart, ptr noundef captures(address_is_null) %pEnd, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
+define i32 @u_parseCodePointRange(ptr noundef %s, ptr noundef %pStart, ptr noundef %pEnd, ptr noundef captures(none) %pErrorCode) local_unnamed_addr #5 {
 entry:
   %terminator = alloca ptr, align 8
   %call = call i32 @u_parseCodePointRangeAnyTerminator(ptr noundef %s, ptr noundef %pStart, ptr noundef %pEnd, ptr noundef nonnull %terminator, ptr noundef %pErrorCode)
@@ -807,7 +807,7 @@ return:                                           ; preds = %while.cond.i, %whil
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_parseUTF8(ptr noundef readonly captures(address) %source, i32 noundef %sLen, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #3 {
+define i32 @u_parseUTF8(ptr noundef readonly %source, i32 noundef %sLen, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %status) local_unnamed_addr #3 {
 entry:
   %value = alloca i32, align 4
   store i32 0, ptr %value, align 4

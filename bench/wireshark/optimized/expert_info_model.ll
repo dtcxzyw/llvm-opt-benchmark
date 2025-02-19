@@ -1055,7 +1055,7 @@ define noundef i32 @_ZNK16ExpertPacketItem10childCountEv(ptr noundef readonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i32 @_ZNK16ExpertPacketItem3rowEv(ptr noundef readonly align 8 captures(address) dereferenceable_or_null(136) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZNK16ExpertPacketItem3rowEv(ptr noundef readonly align 8 dereferenceable_or_null(136) %0) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8
   %.not = icmp eq ptr %3, null
@@ -3967,7 +3967,7 @@ define void @_ZN15ExpertInfoModel8tapResetEPv(ptr noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef range(i32 0, 2) i32 @_ZN15ExpertInfoModel9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 2) i32 @_ZN15ExpertInfoModel9tapPacketEPvP12_packet_infoP12epan_dissectPKvj(ptr noundef %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 align 2 {
   %6 = alloca i32, align 4
   %7 = icmp ne ptr %1, null
   %8 = icmp ne ptr %0, null

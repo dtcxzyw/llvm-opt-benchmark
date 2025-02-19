@@ -14390,7 +14390,7 @@ define hidden noundef zeroext i1 @_ZNK4cvc58internal5DType25involvesUninterprete
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal5DType15getConstructorsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(448) %0) local_unnamed_addr #14 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal5DType15getConstructorsEv(ptr noundef nonnull readnone align 8 dereferenceable(448) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }

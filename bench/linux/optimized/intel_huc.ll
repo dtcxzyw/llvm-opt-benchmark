@@ -84,7 +84,7 @@ define dso_local void @intel_huc_register_gsc_notifier(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr noundef readnone captures(address) %2) #0 align 16 {
+define internal noundef i32 @gsc_notifier(ptr noundef %0, i64 noundef %1, ptr noundef readnone %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 -2936
   %5 = getelementptr i8, ptr %0, i64 64
   %6 = load ptr, ptr %5, align 8

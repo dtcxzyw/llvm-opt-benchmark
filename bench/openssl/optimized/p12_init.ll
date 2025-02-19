@@ -92,7 +92,7 @@ define ptr @PKCS12_init(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_pkcs12_get0_pkcs7ctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @ossl_pkcs12_get0_pkcs7ctx(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

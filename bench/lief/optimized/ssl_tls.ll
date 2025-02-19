@@ -1088,7 +1088,7 @@ define hidden void @mbedtls_ssl_conf_session_cache(ptr noundef writeonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_set_session(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ssl_set_session(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1322,7 +1322,7 @@ define hidden void @mbedtls_ssl_set_verify(ptr noundef writeonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_conf_psk(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_conf_psk(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr i8, ptr %0, i64 296
   %.val = load ptr, ptr %6, align 8
   %.not.i.not = icmp eq ptr %.val, null
@@ -1385,7 +1385,7 @@ ssl_conf_remove_psk.exit:                         ; preds = %27, %23, %ssl_conf_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hs_psk(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hs_psk(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %33, label %5
 
@@ -1621,7 +1621,7 @@ define hidden void @mbedtls_ssl_conf_groups(ptr noundef writeonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hostname(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 -32512, 1) i32 @mbedtls_ssl_set_hostname(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -1861,7 +1861,7 @@ define hidden i32 @mbedtls_ssl_get_verify_result(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @mbedtls_ssl_get_ciphersuite_id_from_ssl(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define hidden i32 @mbedtls_ssl_get_ciphersuite_id_from_ssl(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -1882,7 +1882,7 @@ define hidden i32 @mbedtls_ssl_get_ciphersuite_id_from_ssl(ptr noundef readonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mbedtls_ssl_get_ciphersuite(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @mbedtls_ssl_get_ciphersuite(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -2374,7 +2374,7 @@ mbedtls_ssl_get_input_max_frag_len.exit.thread7:  ; preds = %switch.lookup, %10,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @mbedtls_ssl_get_peer_cert(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define hidden ptr @mbedtls_ssl_get_peer_cert(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -2395,7 +2395,7 @@ define hidden ptr @mbedtls_ssl_get_peer_cert(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_get_session(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ssl_get_session(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -5364,7 +5364,7 @@ define hidden i32 @mbedtls_ssl_derive_keys(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ssl_tls12_populate_transform(ptr noundef initializes((120, 128), (320, 384)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 256) %7, ptr noundef %8) unnamed_addr #0 {
+define internal fastcc i32 @ssl_tls12_populate_transform(ptr noundef initializes((120, 128), (320, 384)) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5, i32 noundef %6, i32 noundef range(i32 0, 256) %7, ptr noundef %8) unnamed_addr #0 {
   %10 = alloca [256 x i8], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 120
   store i32 %3, ptr %11, align 8

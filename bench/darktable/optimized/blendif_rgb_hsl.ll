@@ -302,7 +302,7 @@ declare void @dt_develop_blendif_process_parameters(ptr noundef, ptr noundef) lo
 declare i32 @dt_develop_blendif_init_masking_profile(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @_blendif_combine_channels(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef nonnull captures(none) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i32 noundef %3, ptr noalias noundef nonnull readonly %4, ptr noalias noundef readonly captures(address_is_null) %5) unnamed_addr #3 {
+define internal fastcc void @_blendif_combine_channels(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef nonnull captures(none) %1, i64 noundef range(i64 -2147483648, 2147483648) %2, i32 noundef %3, ptr noalias noundef nonnull readonly %4, ptr noalias noundef readonly %5) unnamed_addr #3 {
   %7 = alloca [4 x float], align 16
   %8 = alloca [4 x float], align 16
   %9 = alloca [3 x i32], align 16
@@ -2202,7 +2202,7 @@ declare float @llvm.fabs.f32(float) #5
 declare float @llvm.exp2.f32(float) #5
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc float @_rgb_luminance(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(address_is_null) %1) unnamed_addr #9 {
+define internal fastcc float @_rgb_luminance(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly %1) unnamed_addr #9 {
   %3 = alloca [4 x float], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %89, label %4

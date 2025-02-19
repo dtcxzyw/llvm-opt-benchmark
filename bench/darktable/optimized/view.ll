@@ -3086,7 +3086,7 @@ define ptr @dt_view_filter_get_sort_box(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_view_filter_get_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @dt_view_filter_get_count(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 

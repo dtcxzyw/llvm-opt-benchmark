@@ -526,7 +526,7 @@ _ZL30isPreprocessedEntityIfInFileIDPN5clang18PreprocessedEntityENS_6FileIDERNS_1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL30isPreprocessedEntityIfInFileIDPN5clang18PreprocessedEntityENS_6FileIDERNS_13SourceManagerE(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(696) %2) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL30isPreprocessedEntityIfInFileIDPN5clang18PreprocessedEntityENS_6FileIDERNS_13SourceManagerE(ptr noundef readonly %0, i32 %1, ptr noundef nonnull align 8 dereferenceable(696) %2) unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
 

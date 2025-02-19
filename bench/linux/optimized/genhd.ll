@@ -2078,7 +2078,7 @@ declare dso_local ptr @blk_alloc_queue(i32 noundef) local_unnamed_addr #1
 declare dso_local void @blk_put_queue(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @put_disk(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
+define dso_local void @put_disk(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -2201,7 +2201,7 @@ declare dso_local i32 @blk_dev_init() local_unnamed_addr #1
 declare dso_local i32 @add_uevent_var(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @disk_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 %2) #13 align 16 {
+define internal zeroext i16 @disk_visible(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2) #13 align 16 {
   %4 = icmp eq ptr %1, @dev_attr_badblocks
   br i1 %4, label %5, label %11
 

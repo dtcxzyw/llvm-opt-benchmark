@@ -560,7 +560,7 @@ define void @Aig_ObjCleanData_rec(ptr noundef captures(none) initializes((40, 48
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ObjCollectMulti_rec(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define void @Aig_ObjCollectMulti_rec(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = getelementptr i8, ptr %0, i64 24
   br label %tailrecurse
 
@@ -1925,7 +1925,7 @@ define void @Aig_ManDump(ptr noundef %0) local_unnamed_addr #1 {
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define void @Aig_ManDumpBlif(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #1 {
+define void @Aig_ManDumpBlif(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #1 {
   %5 = getelementptr i8, ptr %0, i64 140
   %.val228 = load i32, ptr %5, align 4, !tbaa !30
   %6 = icmp eq i32 %.val228, 0

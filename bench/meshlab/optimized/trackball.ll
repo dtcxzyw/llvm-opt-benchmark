@@ -865,7 +865,7 @@ _ZNSt8_Rb_treeIiSt4pairIKiPN3vcg9TrackModeEESt10_Select1stIS5_ESt4lessIiESaIS5_E
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg9Trackball11SetIdentityEv(ptr noundef nonnull align 8 captures(address) dereferenceable(597) initializes((0, 32)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN3vcg9Trackball11SetIdentityEv(ptr noundef nonnull align 8 dereferenceable(597) initializes((0, 32)) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store float 1.000000e+00, ptr %0, align 8
@@ -916,7 +916,7 @@ _ZN3vcg9Trackball5ResetEv.exit:                   ; preds = %._crit_edge.i, %18
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3vcg9Trackball5ResetEv(ptr noundef nonnull align 8 captures(address) dereferenceable(597) initializes((0, 32)) %0) local_unnamed_addr #6 align 2 {
+define void @_ZN3vcg9Trackball5ResetEv(ptr noundef nonnull align 8 dereferenceable(597) initializes((0, 32)) %0) local_unnamed_addr #6 align 2 {
   store float 1.000000e+00, ptr %0, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28

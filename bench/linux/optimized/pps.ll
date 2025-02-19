@@ -209,7 +209,7 @@ define dso_local void @pps_unregister_cdev(ptr noundef captures(none) initialize
 declare dso_local void @device_destroy(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pps_lookup_dev(ptr noundef readnone captures(address) %0) #0 align 16 {
+define dso_local ptr @pps_lookup_dev(ptr noundef readnone %0) #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #9
   tail call void @__rcu_read_lock() #9

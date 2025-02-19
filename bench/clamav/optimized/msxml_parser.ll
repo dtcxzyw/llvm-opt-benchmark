@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.msxml_error_handler = private unnamed_addr constant [4 x ptr] [ptr @.str.9, ptr @.str.10, ptr @.str.9, ptr @.str.10], align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define i32 @cli_msxml_parse_document(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.msxml_ctx, align 8
   %8 = alloca %struct.msxml_ictx, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #8

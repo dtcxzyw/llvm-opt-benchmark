@@ -283,7 +283,7 @@ define noundef ptr @IDACreate(ptr noundef %0) local_unnamed_addr #0 {
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @IDAProcessError(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ...) local_unnamed_addr #0 {
+define void @IDAProcessError(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ...) local_unnamed_addr #0 {
   %7 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #14
   call void @llvm.va_start.p0(ptr nonnull %7)
@@ -1374,7 +1374,7 @@ declare i32 @IDASetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_addr 
 declare i32 @SUNNonlinSolFree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -23, 1) i32 @IDAReInit(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @IDAReInit(ptr noundef %0, double noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -1451,7 +1451,7 @@ define range(i32 -23, 1) i32 @IDAReInit(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -23, 1) i32 @IDASStolerances(ptr noundef captures(address_is_null) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @IDASStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1574,7 +1574,7 @@ IDAEwtSetSS.exit:                                 ; preds = %IDAEwtSetSS.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -23, 1) i32 @IDASVtolerances(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @IDASVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1670,7 +1670,7 @@ declare double @N_VMin(ptr noundef) local_unnamed_addr #4
 declare ptr @N_VClone(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -23, 1) i32 @IDAWFtolerances(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -23, 1) i32 @IDAWFtolerances(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -1916,7 +1916,7 @@ define range(i32 -30, 1) i32 @IDAQuadReInit(ptr noundef %0, ptr noundef %1) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -30, 1) i32 @IDAQuadSStolerances(ptr noundef captures(address_is_null) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @IDAQuadSStolerances(ptr noundef %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1969,7 +1969,7 @@ define range(i32 -30, 1) i32 @IDAQuadSStolerances(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -30, 1) i32 @IDAQuadSVtolerances(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -30, 1) i32 @IDAQuadSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -2994,7 +2994,7 @@ declare i32 @idaNlsInitSensSim(ptr noundef) local_unnamed_addr #4
 declare i32 @idaNlsInitSensStg(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3113,7 +3113,7 @@ define range(i32 -40, 1) i32 @IDASensSStolerances(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3264,7 +3264,7 @@ define range(i32 -40, 1) i32 @IDASensSVtolerances(ptr noundef captures(address_i
 declare ptr @N_VCloneVectorArray(i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -40, 1) i32 @IDASensEEtolerances(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -40, 1) i32 @IDASensEEtolerances(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3534,7 +3534,7 @@ define range(i32 -40, 1) i32 @IDAQuadSensInit(ptr noundef %0, ptr noundef %1, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -3614,7 +3614,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensReInit(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef %0, double noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3743,7 +3743,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSStolerances(ptr noundef captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef captures(address_is_null) %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -3901,7 +3901,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensSVtolerances(ptr noundef captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @IDAQuadSensEEtolerances(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @IDAQuadSensEEtolerances(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -3940,7 +3940,7 @@ define range(i32 -50, 1) i32 @IDAQuadSensEEtolerances(ptr noundef captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -20, 1) i32 @IDASensToggleOff(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDASensToggleOff(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -4227,7 +4227,7 @@ define range(i32 -22, 1) i32 @IDARootInit(ptr noundef %0, i32 noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define range(i32 -99, 99) i32 @IDASolve(ptr noundef %0, double noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca i64, align 8
@@ -10018,7 +10018,7 @@ IDAQuadSensEwtSetEE.exit:                         ; preds = %80, %77, %52, %49, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef nonnull captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc range(i32 -99, -2) i32 @IDAHandleFailure(ptr noundef nonnull %0, i32 noundef %1) unnamed_addr #0 {
   switch i32 %1, label %56 [
     i32 -3, label %3
     i32 -4, label %8
@@ -10537,7 +10537,7 @@ define range(i32 -30, 1) i32 @IDAGetQuadDky(ptr noundef %0, double noundef %1, i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @IDAGetSens(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @IDAGetSens(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -10595,7 +10595,7 @@ define range(i32 -43, 1) i32 @IDAGetSens(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [6 x double], align 16
   %7 = alloca [6 x double], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
@@ -10818,7 +10818,7 @@ define range(i32 -43, 1) i32 @IDAGetSensDky1(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @IDAGetSensDky(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @IDAGetSensDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -10886,7 +10886,7 @@ define range(i32 -43, 1) i32 @IDAGetSensDky(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -43, 1) i32 @IDAGetSens1(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -43, 1) i32 @IDAGetSens1(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -10907,7 +10907,7 @@ define range(i32 -43, 1) i32 @IDAGetSens1(ptr noundef captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @IDAGetQuadSens(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @IDAGetQuadSens(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -10965,7 +10965,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef %0, double noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [6 x double], align 16
   %7 = alloca [6 x double], align 16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #14
@@ -11198,7 +11198,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky1(ptr noundef captures(address_is
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef captures(address_is_null) %0, double noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef %0, double noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -11276,7 +11276,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSensDky(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -50, 1) i32 @IDAGetQuadSens1(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define range(i32 -50, 1) i32 @IDAGetQuadSens1(ptr noundef %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -11325,7 +11325,7 @@ define range(i32 -50, 1) i32 @IDAGetQuadSens1(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -20, 1) i32 @IDAComputeY(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAComputeY(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -11347,7 +11347,7 @@ define range(i32 -20, 1) i32 @IDAComputeY(ptr noundef readonly captures(address_
 declare void @N_VLinearSum(double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -20, 1) i32 @IDAComputeYp(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAComputeYp(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -11369,7 +11369,7 @@ define range(i32 -20, 1) i32 @IDAComputeYp(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -20, 1) i32 @IDAComputeYSens(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAComputeYSens(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -11393,7 +11393,7 @@ define range(i32 -20, 1) i32 @IDAComputeYSens(ptr noundef readonly captures(addr
 declare i32 @N_VLinearSumVectorArray(i32 noundef, double noundef, ptr noundef, double noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -20, 1) i32 @IDAComputeYpSens(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -20, 1) i32 @IDAComputeYpSens(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -11507,7 +11507,7 @@ define void @IDAFree(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @IDAQuadFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @IDAQuadFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %49, label %3
 
@@ -11605,7 +11605,7 @@ IDAQuadFreeVectors.exit:                          ; preds = %._crit_edge.i, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define void @IDASensFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @IDASensFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %46, label %3
 
@@ -11710,7 +11710,7 @@ define void @IDASensFree(ptr noundef captures(address_is_null) %0) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define void @IDAQuadSensFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @IDAQuadSensFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %77, label %3
 

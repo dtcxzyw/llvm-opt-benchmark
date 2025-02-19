@@ -1393,7 +1393,7 @@ declare zeroext i1 @consume(ptr noundef, i32 noundef, ptr noundef, ...) local_un
 declare void @advance(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @parse_arg_list(ptr noundef %0, ptr noundef captures(none) initializes((0, 8)) %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %1, align 8
   %.not = icmp eq ptr %3, null

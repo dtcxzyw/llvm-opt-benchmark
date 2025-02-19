@@ -413,7 +413,7 @@ define internal i32 @be_ssl_ctrl(ptr noundef %0, i32 noundef %1, ptr noundef cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @bufferevent_ssl_upcast(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @bufferevent_ssl_upcast(ptr noundef readnone returned %0) local_unnamed_addr #1 {
   ret ptr %0
 }
 

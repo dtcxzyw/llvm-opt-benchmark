@@ -9768,7 +9768,7 @@ _ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE14AllocForBrotliEPv
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef captures(address_is_null) %pointer) #15 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_11ZlibContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef %pointer) #15 align 2 {
 entry:
   %cmp = icmp eq ptr %pointer, null
   br i1 %cmp, label %return, label %if.end
@@ -12422,7 +12422,7 @@ return:                                           ; preds = %entry, %_ZN4node15U
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef captures(address_is_null) %pointer) #15 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliEncoderContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef %pointer) #15 align 2 {
 entry:
   %cmp = icmp eq ptr %pointer, null
   br i1 %cmp, label %return, label %if.end
@@ -15162,7 +15162,7 @@ return:                                           ; preds = %entry, %_ZN4node15U
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef captures(address_is_null) %pointer) #15 align 2 {
+define internal void @_ZN4node12_GLOBAL__N_117CompressionStreamINS0_20BrotliDecoderContextEE11FreeForZlibEPvS4_(ptr noundef captures(none) %data, ptr noundef %pointer) #15 align 2 {
 entry:
   %cmp = icmp eq ptr %pointer, null
   br i1 %cmp, label %return, label %if.end

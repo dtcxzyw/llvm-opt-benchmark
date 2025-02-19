@@ -1468,7 +1468,7 @@ _ZN2cv5utilsL10dumpVectorIiPFRSoS2_EEENSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv5utilsL8noFormatERSo(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) #7 {
+define internal noundef nonnull align 8 dereferenceable(8) ptr @_ZN2cv5utilsL8noFormatERSo(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0) #7 {
   ret ptr %0
 }
 

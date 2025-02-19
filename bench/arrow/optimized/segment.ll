@@ -163,7 +163,7 @@ define hidden i64 @_mi_commit_mask_next_run(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define hidden ptr @_mi_segment_page_start(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !14
   %6 = add i32 %5, -8
@@ -198,7 +198,7 @@ define hidden void @_mi_segment_thread_collect(ptr noundef readnone captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address) %2) local_unnamed_addr #5 {
+define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #5 {
   %4 = ptrtoint ptr %0 to i64
   %5 = and i64 %4, -67108864
   %6 = inttoptr i64 %5 to ptr
@@ -227,7 +227,7 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_page_clear(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #5 {
+define internal fastcc ptr @mi_segment_page_clear(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -67108864
   %5 = inttoptr i64 %4 to ptr
@@ -834,7 +834,7 @@ define hidden void @_mi_segment_page_abandon(ptr noundef %0, ptr noundef capture
 declare void @_mi_stat_increase(ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #5 {
+define hidden void @_mi_abandoned_reclaim_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 {
   br label %3
 
 3:                                                ; preds = %53, %2
@@ -941,7 +941,7 @@ mi_abandoned_pop.exit.thread:                     ; preds = %9, %6, %mi_abandone
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 0, 33554433) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address) %4) unnamed_addr #5 {
+define internal fastcc noundef ptr @mi_segment_reclaim(ptr noundef nonnull %0, ptr noundef %1, i64 noundef range(i64 0, 33554433) %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #5 {
   %.not41 = icmp eq ptr %3, null
   br i1 %.not41, label %7, label %6
 
@@ -1161,7 +1161,7 @@ mi_page_has_any_available.exit:                   ; preds = %93
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_abandoned_collect(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address) %2) local_unnamed_addr #5 {
+define hidden void @_mi_abandoned_collect(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #5 {
   br i1 %1, label %4, label %mi_abandoned_visited_revisit.exit
 
 4:                                                ; preds = %3
@@ -1625,7 +1625,7 @@ _mi_segment_page_free.exit:                       ; preds = %34, %30, %29, %3
 declare ptr @mi_heap_get_default() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, ptr noundef captures(address) %2, ptr noundef %3) local_unnamed_addr #5 {
+define hidden ptr @_mi_segment_page_alloc(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = icmp ult i64 %1, 16385
   br i1 %6, label %7, label %9
@@ -1676,7 +1676,7 @@ mi_segment_huge_page_alloc.exit:                  ; preds = %17, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef range(i64 0, 33554433) %1, i64 noundef range(i64 0, 33554433) %2, ptr noundef captures(address) %3, ptr noundef %4) unnamed_addr #5 {
+define internal fastcc ptr @mi_segments_page_alloc(ptr noundef %0, i64 noundef range(i64 0, 33554433) %1, i64 noundef range(i64 0, 33554433) %2, ptr noundef %3, ptr noundef %4) unnamed_addr #5 {
   %6 = alloca i8, align 1
   %7 = icmp samesign ugt i64 %1, 524288
   %.neg = select i1 %7, i64 -524288, i64 -65536
@@ -2119,7 +2119,7 @@ declare zeroext i1 @_mi_os_reset(ptr noundef, i64 noundef, ptr noundef) local_un
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_span_free_coalesce(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #5 {
+define internal fastcc ptr @mi_segment_span_free_coalesce(ptr noundef %0, ptr noundef %1) unnamed_addr #5 {
   %3 = ptrtoint ptr %0 to i64
   %4 = and i64 %3, -67108864
   %5 = inttoptr i64 %4 to ptr
@@ -2337,7 +2337,7 @@ mi_segment_span_remove_from_queue.exit45:         ; preds = %101, %105
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mi_segment_span_free(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(address) %3) unnamed_addr #5 {
+define internal fastcc void @mi_segment_span_free(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) unnamed_addr #5 {
   %5 = alloca ptr, align 8
   %6 = alloca i64, align 8
   %7 = alloca %struct.mi_commit_mask_s, align 8
@@ -3105,7 +3105,7 @@ mi_segment_ensure_committed.exit.thread:          ; preds = %mi_commit_mask_is_e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @mi_segment_alloc(i64 noundef range(i64 33554433, 1) %0, ptr noundef captures(address) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #5 {
+define internal fastcc ptr @mi_segment_alloc(i64 noundef range(i64 33554433, 1) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) unnamed_addr #5 {
   %5 = alloca i8, align 1
   %6 = alloca i8, align 1
   %7 = alloca %struct.mi_commit_mask_s, align 8

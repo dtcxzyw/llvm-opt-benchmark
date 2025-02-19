@@ -476,7 +476,7 @@ define dso_local zeroext i1 @lzma_outq_is_readable(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias noundef writeonly captures(address_is_null) %5, ptr noalias noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
+define dso_local i32 @lzma_outq_read(ptr noalias noundef %0, ptr noalias noundef %1, ptr noalias noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noalias noundef writeonly %5, ptr noalias noundef writeonly %6) local_unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %9 = load i32, ptr %8, align 8, !tbaa !21
   %10 = icmp eq i32 %9, 0

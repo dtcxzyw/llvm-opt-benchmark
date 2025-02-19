@@ -839,7 +839,7 @@ define { i32, i32 } @"_ZN102_$LT$wasmtime_types..EntityIndex$u20$as$u20$core..co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZN14wasmtime_types10EntityType13unwrap_global17hd8de5b1b16298debE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #1 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZN14wasmtime_types10EntityType13unwrap_global17hd8de5b1b16298debE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = icmp eq i64 %3, 2
@@ -865,7 +865,7 @@ define noundef nonnull align 4 dereferenceable(16) ptr @_ZN14wasmtime_types10Ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN14wasmtime_types10EntityType13unwrap_memory17h580fe37b9f9c63ebE(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN14wasmtime_types10EntityType13unwrap_memory17h580fe37b9f9c63ebE(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = add nsw i64 %3, -2
@@ -893,7 +893,7 @@ define noundef nonnull align 8 dereferenceable(32) ptr @_ZN14wasmtime_types10Ent
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 4 dereferenceable(4) ptr @_ZN14wasmtime_types10EntityType10unwrap_tag17hcebbfd211970657aE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #1 {
+define noundef nonnull align 4 dereferenceable(4) ptr @_ZN14wasmtime_types10EntityType10unwrap_tag17hcebbfd211970657aE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = icmp eq i64 %3, 4
@@ -919,7 +919,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN14wasmtime_types10Enti
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZN14wasmtime_types10EntityType12unwrap_table17h63b1d39781e41effE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #1 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZN14wasmtime_types10EntityType12unwrap_table17h63b1d39781e41effE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #1 {
   %2 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %3 = load i64, ptr %0, align 8, !range !75, !noundef !5
   %4 = icmp eq i64 %3, 5

@@ -1416,7 +1416,7 @@ define hidden range(i32 -1, 1) i32 @_PyCode_Validate(ptr noundef readonly captur
 declare void @_PyErr_BadInternalCall(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @get_localsplus_counts(i64 %.16.val, ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #4 {
+define internal fastcc void @get_localsplus_counts(i64 %.16.val, ptr noundef readonly captures(none) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #4 {
   %5 = icmp sgt i64 %.16.val, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -2194,7 +2194,7 @@ Py_DECREF.exit:                                   ; preds = %7, %4, %2, %1
 declare ptr @PyErr_NoMemory() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef readonly captures(address_is_null) %10, ptr noundef readonly captures(address_is_null) %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17) local_unnamed_addr #0 {
+define dso_local ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef readonly %9, ptr noundef readonly %10, ptr noundef readonly %11, ptr noundef %12, ptr noundef %13, ptr noundef %14, i32 noundef %15, ptr noundef %16, ptr noundef %17) local_unnamed_addr #0 {
   %19 = alloca ptr, align 8
   %20 = alloca ptr, align 8
   %21 = alloca %struct._PyCodeConstructor, align 8
@@ -2621,7 +2621,7 @@ declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyUnstable_Code_New(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16) local_unnamed_addr #0 {
+define dso_local ptr @PyUnstable_Code_New(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16) local_unnamed_addr #0 {
   %18 = tail call ptr @PyUnstable_Code_NewWithPosOnlyArgs(i32 noundef %0, i32 noundef 0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13, i32 noundef %14, ptr noundef %15, ptr noundef %16)
   ret ptr %18
 }
@@ -5558,7 +5558,7 @@ Py_DECREF.exit88:                                 ; preds = %121, %.thread100, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @code_new(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
+define internal ptr @code_new(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = icmp eq ptr %0, @PyCode_Type
   br i1 %4, label %11, label %5
 
@@ -6236,7 +6236,7 @@ define hidden void @_PyCode_Fini(ptr noundef readnone captures(none) %0) local_u
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef range(i32 -1, 1) i32 @intern_constants(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc noundef range(i32 -1, 1) i32 @intern_constants(ptr noundef captures(none) %0, ptr noundef writeonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i32, align 4
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
@@ -7849,7 +7849,7 @@ declare i32 @_PyArg_NoKeywords(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @code_new_impl(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef readonly captures(address_is_null) %16, ptr noundef readonly captures(address_is_null) %17) unnamed_addr #0 {
+define internal fastcc ptr @code_new_impl(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef readonly captures(none) %8, ptr noundef readonly captures(none) %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, i32 noundef %13, ptr noundef %14, ptr noundef %15, ptr noundef readonly %16, ptr noundef readonly %17) unnamed_addr #0 {
   %19 = tail call i32 (ptr, ptr, ...) @PySys_Audit(ptr noundef nonnull @.str.69, ptr noundef nonnull @.str.70, ptr noundef %6, ptr noundef %10, ptr noundef %11, i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #14
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %Py_XDECREF.exit69, label %21

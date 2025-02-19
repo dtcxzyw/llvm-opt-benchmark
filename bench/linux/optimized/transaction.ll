@@ -1625,7 +1625,7 @@ define dso_local noundef range(i32 -30, 1) i32 @jbd2__journal_restart(ptr nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @stop_this_handle(ptr noundef captures(address) %0) unnamed_addr #3 align 16 {
+define internal fastcc void @stop_this_handle(ptr noundef %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = load ptr, ptr %2, align 8
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !10
@@ -3433,7 +3433,7 @@ define dso_local noundef range(i32 -30, 1) i32 @jbd2_journal_forget(ptr noundef 
 declare dso_local void @__bforget(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__jbd2_journal_temp_unlink_buffer(ptr noundef captures(address) %0) unnamed_addr #3 align 16 {
+define internal fastcc void @__jbd2_journal_temp_unlink_buffer(ptr noundef %0) unnamed_addr #3 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8

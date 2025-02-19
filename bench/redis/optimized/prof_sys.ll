@@ -195,7 +195,7 @@ malloc_mutex_lock.exit:                           ; preds = %4, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @je_prof_mdump_impl(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden noundef zeroext i1 @je_prof_mdump_impl(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @je_prof_dump_filename_mtx, i64 64)) #10

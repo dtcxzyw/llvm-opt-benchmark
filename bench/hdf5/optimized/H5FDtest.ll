@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [4 x i8] c"log\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define zeroext i1 @H5FD__supports_swmr_test(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define zeroext i1 @H5FD__supports_swmr_test(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7

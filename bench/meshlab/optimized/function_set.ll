@@ -6370,7 +6370,7 @@ declare void @_ZN7QString14toUpper_helperERKS_(ptr dead_on_unwind writable sret(
 declare noundef i32 @_ZN7QString14compare_helperEPK5QChariPKciN2Qt15CaseSensitivityE(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK9pymeshlab11FunctionSet25pythonFilterFunctionNamesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.256") align 8 %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(384) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK9pymeshlab11FunctionSet25pythonFilterFunctionNamesB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::list.256") align 8 %0, ptr noundef nonnull readonly align 8 dereferenceable(384) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %class.QString, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -8442,25 +8442,25 @@ _ZN7QStringD2Ev.exit22:                           ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK9pymeshlab11FunctionSet22filterFunctionIteratorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(384) %0) local_unnamed_addr #14 align 2 {
+define nonnull ptr @_ZNK9pymeshlab11FunctionSet22filterFunctionIteratorEv(ptr noundef nonnull readnone align 8 dereferenceable(384) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK9pymeshlab11FunctionSet24loadMeshFunctionIteratorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(384) %0) local_unnamed_addr #14 align 2 {
+define nonnull ptr @_ZNK9pymeshlab11FunctionSet24loadMeshFunctionIteratorEv(ptr noundef nonnull readnone align 8 dereferenceable(384) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 240
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK9pymeshlab11FunctionSet24saveMeshFunctionIteratorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(384) %0) local_unnamed_addr #14 align 2 {
+define nonnull ptr @_ZNK9pymeshlab11FunctionSet24saveMeshFunctionIteratorEv(ptr noundef nonnull readnone align 8 dereferenceable(384) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @_ZNK9pymeshlab11FunctionSet26loadRasterFunctionIteratorEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(384) %0) local_unnamed_addr #14 align 2 {
+define nonnull ptr @_ZNK9pymeshlab11FunctionSet26loadRasterFunctionIteratorEv(ptr noundef nonnull readnone align 8 dereferenceable(384) %0) local_unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   ret ptr %2
 }

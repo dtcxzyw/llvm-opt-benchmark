@@ -132,19 +132,19 @@ define internal ptr @ossl_aes_gcm_siv_dupctx(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_einit(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_einit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @ossl_aes_gcm_siv_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 1)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_dinit(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_dinit(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) #0 {
   %7 = tail call fastcc i32 @ossl_aes_gcm_siv_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef 0)
   ret i32 %7
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_cipher(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_cipher(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = tail call i32 @ossl_prov_is_running() #5
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %22, label %8
@@ -184,7 +184,7 @@ define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_cipher(ptr noundef %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_stream_final(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 %3) #0 {
+define internal range(i32 0, 2) i32 @ossl_aes_gcm_siv_stream_final(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i64 %3) #0 {
   %5 = tail call i32 @ossl_prov_is_running() #5
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %17, label %6
@@ -504,7 +504,7 @@ declare noalias ptr @CRYPTO_memdup(ptr noundef, i64 noundef, ptr noundef, i32 no
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ossl_aes_gcm_siv_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ossl_aes_gcm_siv_init(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly %3, i64 noundef %4, ptr noundef %5, i32 noundef range(i32 0, 2) %6) unnamed_addr #0 {
   %8 = tail call i32 @ossl_prov_is_running() #5
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %33, label %9

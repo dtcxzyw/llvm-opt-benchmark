@@ -2326,7 +2326,7 @@ connIsLocal.exit:                                 ; preds = %10, %6, %3, %2, %.f
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @restoreBackupConfig(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 -2147483647, 1073741823) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #3 {
+define internal fastcc void @restoreBackupConfig(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 -2147483647, 1073741823) %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #3 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca ptr, align 8
@@ -3399,7 +3399,7 @@ define dso_local void @rewriteConfigYesNoOption(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rewriteConfigStringOption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define dso_local void @rewriteConfigStringOption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %12
 
@@ -3443,7 +3443,7 @@ declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr
 declare ptr @sdscatrepr(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @rewriteConfigSdsOption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define dso_local void @rewriteConfigSdsOption(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %6, label %12
 
@@ -7698,7 +7698,7 @@ define internal ptr @getConfigSaveOption(ptr readnone captures(none) %0) #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @setConfigClientOutputBufferLimitOption(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #3 {
+define internal range(i32 0, 2) i32 @setConfigClientOutputBufferLimitOption(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3) #3 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -7853,7 +7853,7 @@ define internal ptr @getConfigClientOutputBufferLimitOption(ptr readnone capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @setConfigOOMScoreAdjValuesOption(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #3 {
+define internal range(i32 0, 3) i32 @setConfigOOMScoreAdjValuesOption(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef writeonly %3) #3 {
   %5 = alloca [3 x i32], align 4
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %5) #26

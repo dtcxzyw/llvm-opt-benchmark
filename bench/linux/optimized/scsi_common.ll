@@ -202,7 +202,7 @@ define dso_local void @int_to_scsilun(i64 noundef %0, ptr noundef writeonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) initializes((0, 8)) %2) #3 align 16 {
+define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly initializes((0, 8)) %2) #3 align 16 {
   store i64 0, ptr %2, align 1
   %4 = icmp ne ptr %0, null
   %5 = icmp ne i32 %1, 0
@@ -297,7 +297,7 @@ define dso_local noundef zeroext i1 @scsi_normalize_sense(ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: read)
-define dso_local ptr @scsi_sense_desc_find(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local ptr @scsi_sense_desc_find(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp slt i32 %1, 8
   br i1 %4, label %.thread3, label %5
 
@@ -382,7 +382,7 @@ define dso_local void @scsi_build_sense_buffer(i32 noundef %0, ptr noundef write
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_information(ptr noundef captures(address) %0, i32 noundef %1, i64 noundef %2) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_information(ptr noundef %0, i32 noundef %1, i64 noundef %2) #5 align 16 {
   %4 = load i8, ptr %0, align 1
   %5 = and i8 %4, 127
   switch i8 %5, label %57 [
@@ -481,7 +481,7 @@ define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_information(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_field_pointer(ptr noundef captures(address) %0, i32 noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, i1 noundef zeroext %4) #5 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @scsi_set_sense_field_pointer(ptr noundef %0, i32 noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, i1 noundef zeroext %4) #5 align 16 {
   %6 = load i8, ptr %0, align 1
   %7 = and i8 %6, 127
   switch i8 %7, label %72 [

@@ -1238,7 +1238,7 @@ define dso_local ptr @__alloc_skb(i32 noundef %0, i32 noundef %1, i32 noundef %2
 declare dso_local noalias ptr @kmem_cache_alloc_node(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noalias ptr @kmalloc_reserve(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
+define internal fastcc noalias ptr @kmalloc_reserve(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = load i32, ptr %0, align 4
   %6 = add i32 %5, 63
   %7 = and i32 %6, -64
@@ -6339,7 +6339,7 @@ define dso_local ptr @__pskb_copy_fclone(ptr noundef %0, i32 noundef %1, i32 nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @skb_zerocopy_clone(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @skb_zerocopy_clone(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread, label %5
 
@@ -7404,7 +7404,7 @@ define dso_local range(i32 -12, 1) i32 @__skb_pad(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pskb_put(ptr noundef captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2) #0 align 16 {
+define dso_local ptr @pskb_put(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp eq ptr %1, %0
   br i1 %4, label %12, label %5
 
@@ -8482,13 +8482,13 @@ define internal fastcc noundef zeroext i1 @__skb_splice_bits(ptr noundef readonl
 declare dso_local i64 @splice_to_pipe(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skb_send_sock_locked(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @skb_send_sock_locked(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = tail call fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @sendmsg_locked)
   ret i32 %5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.kvec, align 8
   %7 = alloca %struct.msghdr, align 8
   %8 = alloca %struct.bio_vec, align 8
@@ -8891,7 +8891,7 @@ define internal i32 @sendmsg_locked(ptr noundef %0, ptr noundef %1) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @skb_send_sock(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local i32 @skb_send_sock(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 align 16 {
   %5 = tail call fastcc i32 @__skb_send_sock(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull @sendmsg_unlocked)
   ret i32 %5
 }
@@ -10776,7 +10776,7 @@ define dso_local void @skb_append(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_split(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local void @skb_split(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load i32, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 116
@@ -12091,7 +12091,7 @@ define internal void @skb_ts_finish(ptr readnone captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -90, 1) i32 @skb_append_pagefrags(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
+define dso_local noundef range(i32 -90, 1) i32 @skb_append_pagefrags(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i64 noundef %3, i64 noundef %4) #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 188
@@ -15077,7 +15077,7 @@ define dso_local void @skb_complete_tx_timestamp(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @__skb_tstamp_tx(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @__skb_tstamp_tx(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i32 noundef %4) #0 align 16 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %.thread7, label %7
 
@@ -15350,7 +15350,7 @@ define dso_local void @__skb_tstamp_tx(ptr noundef %0, ptr noundef %1, ptr nound
 declare dso_local ptr @tcp_get_timestamping_opt_stats(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @skb_tstamp_tx(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 align 16 {
+define dso_local void @skb_tstamp_tx(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   tail call void @__skb_tstamp_tx(ptr noundef %0, ptr noundef null, ptr noundef %1, ptr noundef %4, i32 noundef 0)
@@ -16132,7 +16132,7 @@ __kfree_skb.exit:                                 ; preds = %30, %28, %26, %3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
+define dso_local noundef zeroext i1 @skb_try_coalesce(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 1)) %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %6 = load i32, ptr %5, align 8
   store i8 0, ptr %2, align 1
@@ -19787,7 +19787,7 @@ __kfree_skb.exit:                                 ; preds = %41, %39, %37, %66, 
 declare dso_local i32 @smp_call_function_single_async(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @skb_splice_from_iter(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, i32 %3) #0 align 16 {
+define dso_local i64 @skb_splice_from_iter(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 %3) #0 align 16 {
   %5 = alloca [8 x ptr], align 16
   %6 = alloca ptr, align 8
   %7 = alloca i64, align 8

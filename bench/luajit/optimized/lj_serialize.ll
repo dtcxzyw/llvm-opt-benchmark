@@ -1674,7 +1674,7 @@ declare hidden void @lj_err_callerv(ptr noundef, i32 noundef, ...) local_unnamed
 declare hidden ptr @lj_buf_more2(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc nonnull ptr @serialize_wu124_(ptr noundef writeonly captures(ret: address, provenance) initializes((1, 2)) %0, i32 noundef range(i32 224, 0) %1) unnamed_addr #8 {
+define internal fastcc nonnull ptr @serialize_wu124_(ptr noundef writeonly initializes((1, 2)) %0, i32 noundef range(i32 224, 0) %1) unnamed_addr #8 {
   %3 = icmp ult i32 %1, 8160
   br i1 %3, label %4, label %12
 
@@ -1711,7 +1711,7 @@ declare hidden ptr @lj_lightud_intern(ptr noundef, ptr noundef) local_unnamed_ad
 declare hidden ptr @lj_mem_newgco(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc ptr @serialize_ru124_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #9 {
+define internal fastcc ptr @serialize_ru124_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef nonnull captures(none) %2) unnamed_addr #9 {
   %4 = load i32, ptr %2, align 4, !tbaa !67
   %.not = icmp eq i32 %4, 255
   br i1 %.not, label %14, label %5

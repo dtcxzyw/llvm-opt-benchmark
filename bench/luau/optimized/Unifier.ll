@@ -36609,7 +36609,7 @@ declare { ptr, i8 } @_ZN4Luau16TypePackIterator4tailEv(ptr noundef nonnull align
 declare noundef ptr @_ZN4Luau6followEPKNS_11TypePackVarE(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN4LuauL15tryUnifyWithAnyERSt6vectorIPKNS_4TypeESaIS3_EERNS_7UnifierERNS_12DenseHashSetIS3_NS_16DenseHashPointerESt8equal_toIS3_EEERNS9_IPKNS_11TypePackVarESA_SB_ISH_EEEPKNS_9TypeArenaES3_SH_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(289) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef readnone captures(address) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
+define internal fastcc void @_ZN4LuauL15tryUnifyWithAnyERSt6vectorIPKNS_4TypeESaIS3_EERNS_7UnifierERNS_12DenseHashSetIS3_NS_16DenseHashPointerESt8equal_toIS3_EEERNS9_IPKNS_11TypePackVarESA_SB_ISH_EEEPKNS_9TypeArenaES3_SH_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(289) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(40) %3, ptr noundef readnone %4, ptr noundef %5, ptr noundef %6) unnamed_addr #1 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %0, align 8
   %10 = load ptr, ptr %8, align 8

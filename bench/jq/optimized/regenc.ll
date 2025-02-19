@@ -331,7 +331,7 @@ define dso_local ptr @onigenc_get_right_adjust_char_head(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #3 {
+define dso_local ptr @onigenc_get_right_adjust_char_head_with_prev(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = tail call ptr %6(ptr noundef %1, ptr noundef %2) #16
@@ -426,7 +426,7 @@ define dso_local ptr @onigenc_step_back(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @onigenc_step(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #3 {
+define dso_local ptr @onigenc_step(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #3 {
   %5 = icmp sgt i32 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
 
@@ -449,7 +449,7 @@ define dso_local ptr @onigenc_step(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onigenc_strlen(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 {
+define dso_local i32 @onigenc_strlen(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 {
   %4 = icmp ult ptr %1, %2
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -727,7 +727,7 @@ onigenc_ascii_apply_all_case_fold.exit.thread:    ; preds = %10, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4, ptr noundef readnone captures(address) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #11 {
+define dso_local range(i32 0, 5) i32 @onigenc_get_case_fold_codes_by_str_with_map(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readnone %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #11 {
   %8 = load i8, ptr %4, align 1, !tbaa !23
   %9 = add i8 %8, -65
   %or.cond106 = icmp ult i8 %9, 26
@@ -957,7 +957,7 @@ define dso_local noundef i32 @onigenc_not_support_get_ctype_code_range(i32 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @onigenc_is_mbc_newline_0x0a(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #12 {
   %3 = icmp ult ptr %0, %1
   br i1 %3, label %4, label %7
 
@@ -1015,7 +1015,7 @@ define dso_local noundef i32 @onigenc_single_byte_code_to_mbc(i32 noundef %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef readnone captures(none) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) local_unnamed_addr #9 {
+define dso_local noundef ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef readnone captures(none) %0, ptr noundef readnone returned %1) local_unnamed_addr #9 {
   ret ptr %1
 }
 
@@ -1035,7 +1035,7 @@ define dso_local noundef i32 @onigenc_always_true_is_valid_mbc_string(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @onigenc_length_check_is_valid_mbc_string(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @onigenc_length_check_is_valid_mbc_string(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 {
   %4 = icmp ult ptr %1, %2
   br i1 %4, label %.lr.ph, label %._crit_edge
 
@@ -1064,7 +1064,7 @@ define dso_local i32 @onigenc_is_valid_mbc_string(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onigenc_mbn_mbc_to_code(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #3 {
+define dso_local i32 @onigenc_mbn_mbc_to_code(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !26
   %5 = tail call i32 %4(ptr noundef %1) #16
   %6 = load i8, ptr %1, align 1, !tbaa !23

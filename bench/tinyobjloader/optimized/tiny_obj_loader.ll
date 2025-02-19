@@ -14395,7 +14395,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef readonly captures(address) %s, ptr noundef readnone captures(address) %s_end, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @_ZN7tinyobjL14tryParseDoubleEPKcS1_Pd(ptr noundef readonly %s, ptr noundef readnone %s_end, ptr noundef nonnull writeonly captures(none) %result) unnamed_addr #6 {
 entry:
   %cmp.not = icmp ult ptr %s, %s_end
   br i1 %cmp.not, label %if.end, label %return

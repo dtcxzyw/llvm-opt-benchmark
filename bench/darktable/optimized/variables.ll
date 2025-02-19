@@ -3890,7 +3890,7 @@ declare noalias ptr @g_path_get_dirname(ptr noundef) local_unnamed_addr #3
 declare noalias ptr @g_path_get_basename(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_get_parameters_n_m(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(address) initializes((0, 8)) %1, ptr noundef writeonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc void @_get_parameters_n_m(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly initializes((0, 8)) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   store ptr null, ptr %1, align 8, !tbaa !6
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4

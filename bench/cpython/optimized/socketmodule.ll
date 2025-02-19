@@ -3334,7 +3334,7 @@ declare ptr @PyUnicode_FromString(ptr noundef) local_unnamed_addr #1
 declare i32 @gethostbyname_r(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @gethost_common(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
+define internal fastcc ptr @gethost_common(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef range(i32 0, 65536) %3) unnamed_addr #0 {
   %5 = alloca [46 x i8], align 16
   %6 = alloca [16 x i8], align 16
   %7 = alloca %struct.sockaddr_in, align 4
@@ -9686,7 +9686,7 @@ define internal range(i32 0, 2) i32 @sock_accept_impl(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly captures(address_is_null) %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @sock_call_ex(ptr noundef %0, i32 noundef range(i32 0, 2) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef range(i32 0, 2) %4, ptr noundef writeonly %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.pollfd, align 4
   %9 = alloca %struct.pollfd, align 4
   %10 = icmp sgt i64 %6, 0

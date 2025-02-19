@@ -327,7 +327,7 @@ psa_extend_key_usage_flags.exit:                  ; preds = %.loopexit.i, %24, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 -151, 1) i32 @psa_unlock_key_slot(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define hidden range(i32 -151, 1) i32 @psa_unlock_key_slot(ptr noundef %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

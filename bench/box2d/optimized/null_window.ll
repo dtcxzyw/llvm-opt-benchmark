@@ -611,7 +611,7 @@ define hidden void @_glfwSetWindowSizeNull(ptr noundef %0, i32 noundef %1, i32 n
 declare void @_glfwInputWindowMonitor(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetWindowPosNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define hidden void @_glfwGetWindowPosNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -638,7 +638,7 @@ define hidden void @_glfwGetWindowPosNull(ptr noundef readonly captures(none) %0
 declare void @_glfwInputWindowPos(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetWindowSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define hidden void @_glfwGetWindowSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -869,7 +869,7 @@ _glfwSetWindowSizeNull.exit:                      ; preds = %applySizeLimits.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetFramebufferSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define hidden void @_glfwGetFramebufferSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 
@@ -894,7 +894,7 @@ define hidden void @_glfwGetFramebufferSizeNull(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetWindowFrameSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define hidden void @_glfwGetWindowFrameSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #4 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3400
   %7 = load i32, ptr %6, align 8, !tbaa !67
   %.not = icmp eq i32 %7, 0
@@ -972,7 +972,7 @@ define hidden void @_glfwGetWindowFrameSizeNull(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @_glfwGetWindowContentScaleNull(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define hidden void @_glfwGetWindowContentScaleNull(ptr noundef readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -1204,7 +1204,7 @@ define hidden void @_glfwHideWindowNull(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @_glfwWindowFocusedNull(ptr noundef readnone captures(address) %0) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @_glfwWindowFocusedNull(ptr noundef readnone %0) local_unnamed_addr #8 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 142760), align 8, !tbaa !82
   %3 = icmp eq ptr %2, %0
   %4 = zext i1 %3 to i32
@@ -1246,7 +1246,7 @@ define hidden void @_glfwPostEmptyEventNull() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @_glfwGetCursorPosNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define hidden void @_glfwGetCursorPosNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %4
 

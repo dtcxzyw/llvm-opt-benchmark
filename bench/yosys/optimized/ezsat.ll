@@ -13903,7 +13903,7 @@ _ZNSt6vectorIS_IiSaIiEESaIS1_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIPSt6v
 declare float @log10f(float noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK5ezSAT18printInternalStateEP8_IO_FILE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(284) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
+define void @_ZNK5ezSAT18printInternalStateEP8_IO_FILE(ptr noundef nonnull readonly align 8 dereferenceable(284) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

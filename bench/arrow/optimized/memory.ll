@@ -207,7 +207,7 @@ $_ZTSN5arrow8internal6FnOnceIFvRKNS_6StatusEEE4ImplE = comdat any
 @.str.12 = private unnamed_addr constant [26 x i8] c"vector::_M_realloc_insert\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN5arrow8internal11wrap_memcpyEPvPKvm(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define noundef ptr @_ZN5arrow8internal11wrap_memcpyEPvPKvm(ptr noundef returned writeonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %1, i64 %2, i1 false)
   ret ptr %0
 }

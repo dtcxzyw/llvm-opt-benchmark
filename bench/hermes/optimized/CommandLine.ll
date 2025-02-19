@@ -3129,7 +3129,7 @@ _ZN4llvh9StringMapIPNS_2cl6OptionENS_15MallocAllocatorEE5clearEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZNK4llvh2cl10SubCommandcvbEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(168) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZNK4llvh2cl10SubCommandcvbEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %this) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
@@ -12077,7 +12077,7 @@ _ZNSt6vectorISt8functionIFvRN4llvh11raw_ostreamEEESaIS5_EE9push_backERKS5_.exit:
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(25) ptr @_ZN4llvh2cl20getRegisteredOptionsERNS0_10SubCommandE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %Sub) local_unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(25) ptr @_ZN4llvh2cl20getRegisteredOptionsERNS0_10SubCommandE(ptr noundef nonnull readnone align 8 dereferenceable(168) %Sub) local_unnamed_addr #0 {
 entry:
   %0 = load atomic i64, ptr @_ZL12GlobalParser acquire, align 8
   %tobool.not.i.i = icmp eq i64 %0, 0
@@ -12147,7 +12147,7 @@ _ZN12_GLOBAL__N_117CommandLineParser24getRegisteredSubcommandsEv.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh2cl20HideUnrelatedOptionsERNS0_14OptionCategoryERNS0_10SubCommandE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(32) %Category, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %Sub) local_unnamed_addr #10 {
+define hidden void @_ZN4llvh2cl20HideUnrelatedOptionsERNS0_14OptionCategoryERNS0_10SubCommandE(ptr noundef nonnull readnone align 8 dereferenceable(32) %Category, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %Sub) local_unnamed_addr #10 {
 entry:
   %OptionsMap = getelementptr inbounds nuw i8, ptr %Sub, i64 128
   %0 = load ptr, ptr %OptionsMap, align 8
@@ -12225,7 +12225,7 @@ for.end:                                          ; preds = %for.cond.loopexit, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh2cl20HideUnrelatedOptionsENS_8ArrayRefIPKNS0_14OptionCategoryEEERNS0_10SubCommandE(ptr readonly captures(address) %Categories.coerce0, i64 %Categories.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %Sub) local_unnamed_addr #10 {
+define hidden void @_ZN4llvh2cl20HideUnrelatedOptionsENS_8ArrayRefIPKNS0_14OptionCategoryEEERNS0_10SubCommandE(ptr readonly %Categories.coerce0, i64 %Categories.coerce1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(168) %Sub) local_unnamed_addr #10 {
 entry:
   %add.ptr.i.idx12 = shl nsw i64 %Categories.coerce1, 3
   %add.ptr.i = getelementptr inbounds i8, ptr %Categories.coerce0, i64 %add.ptr.i.idx12
@@ -15601,7 +15601,7 @@ while.end:                                        ; preds = %_ZNSt8_Rb_treeIPN4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL8sortOptsRN4llvh9StringMapIPNS_2cl6OptionENS_15MallocAllocatorEEERNS_15SmallVectorImplISt4pairIPKcS3_EEEb(ptr readonly captures(address) %OptMap.0.val, i32 %OptMap.8.val, ptr noundef nonnull align 8 dereferenceable(16) %Opts, i1 noundef zeroext %ShowHidden) unnamed_addr #0 {
+define internal fastcc void @_ZL8sortOptsRN4llvh9StringMapIPNS_2cl6OptionENS_15MallocAllocatorEEERNS_15SmallVectorImplISt4pairIPKcS3_EEEb(ptr readonly %OptMap.0.val, i32 %OptMap.8.val, ptr noundef nonnull align 8 dereferenceable(16) %Opts, i1 noundef zeroext %ShowHidden) unnamed_addr #0 {
 entry:
   %OptionSet = alloca %"class.llvh::SmallPtrSet.205", align 8
   %SmallStorage.i = getelementptr inbounds nuw i8, ptr %OptionSet, i64 32

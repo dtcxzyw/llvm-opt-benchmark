@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [33 x i8] c"End of divisor profile printout\0A\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Fxu_MatrixPrint(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define void @Fxu_MatrixPrint(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 

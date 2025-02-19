@@ -7453,7 +7453,7 @@ all_zero.exit850:                                 ; preds = %247
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @get_member_types(i64 noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @get_member_types(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp sgt i64 %0, 0
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

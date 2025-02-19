@@ -3610,7 +3610,7 @@ define hidden noundef i32 @_Z5none1RK10NoneTester(ptr noundef nonnull readonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z5none2P10NoneTester(ptr noundef readonly captures(address_is_null) %0) #5 {
+define hidden noundef i32 @_Z5none2P10NoneTester(ptr noundef readonly %0) #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -3639,7 +3639,7 @@ define hidden noundef i32 @_Z5none3RSt10shared_ptrI10NoneTesterE(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_Z5none4PSt10shared_ptrI10NoneTesterE(ptr noundef readonly captures(address_is_null) %0) #6 {
+define hidden noundef i32 @_Z5none4PSt10shared_ptrI10NoneTesterE(ptr noundef readonly %0) #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -71578,7 +71578,7 @@ _ZN8pybind116detail15argument_loaderIJRKNS_6objectEEE9load_argsERNS0_13function_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ37test_submodule_methods_and_attributesRNS_7module_EE17MetaclassOverrideJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ37test_submodule_methods_and_attributesRNS_7module_EE17MetaclassOverrideJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ37test_submodule_methods_and_attributesRN8pybind117module_EE17MetaclassOverride, ptr %4, align 8
@@ -72136,7 +72136,7 @@ _ZN8pybind114noneD2Ev.exit.i:                     ; preds = %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ37test_submodule_methods_and_attributesRNS_7module_EE12DynamicClassJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ37test_submodule_methods_and_attributesRNS_7module_EE12DynamicClassJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ37test_submodule_methods_and_attributesRN8pybind117module_EE12DynamicClass, ptr %4, align 8
@@ -72854,7 +72854,7 @@ _Z21print_default_createdIZ37test_submodule_methods_and_attributesRN8pybind117mo
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ37test_submodule_methods_and_attributesRNS_7module_EE22CppDerivedDynamicClassJZ37test_submodule_methods_and_attributesS2_E12DynamicClassEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ37test_submodule_methods_and_attributesRNS_7module_EE22CppDerivedDynamicClassJZ37test_submodule_methods_and_attributesS2_E12DynamicClassEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ37test_submodule_methods_and_attributesRN8pybind117module_EE22CppDerivedDynamicClass, ptr %4, align 8
@@ -73166,7 +73166,7 @@ _ZN8pybind1111error_scopeD2Ev.exit:               ; preds = %_ZN8pybind116detail
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @_ZZN8pybind116class_IZ37test_submodule_methods_and_attributesRNS_7module_EE22CppDerivedDynamicClassJZ37test_submodule_methods_and_attributesS2_E12DynamicClassEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned captures(ret: address, provenance) %0) #21 align 2 {
+define internal noundef ptr @_ZZN8pybind116class_IZ37test_submodule_methods_and_attributesRNS_7module_EE22CppDerivedDynamicClassJZ37test_submodule_methods_and_attributesS2_E12DynamicClassEE8add_baseIS4_TnNSt9enable_ifIXsr7is_baseIT_EE5valueEiE4typeELi0EEEvRNS_6detail11type_recordEENUlPvE_8__invokeESE_(ptr noundef readnone returned %0) #21 align 2 {
   ret ptr %0
 }
 
@@ -80204,7 +80204,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK8StrIssueEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ37test_submodule_methods_and_attributesRNS_7module_EE4$_24EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESJ_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly captures(address_is_null) %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZNO8pybind116detail15argument_loaderIJRK8StrIssueEE4callINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS0_9void_typeERZ37test_submodule_methods_and_attributesRNS_7module_EE4$_24EENSt9enable_ifIXntsr3std7is_voidIT_EE5valueESJ_E4typeEOT1_"(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr readonly %.16.val) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %.not.i.i.i = icmp eq ptr %.16.val, null

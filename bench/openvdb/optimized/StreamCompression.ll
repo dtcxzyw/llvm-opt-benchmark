@@ -2390,7 +2390,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit3: ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(41) %this, ptr noundef %str, i64 noundef %n) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(41) ptr @_ZN7openvdb5v11_011compression17PagedOutputStream5writeEPKcl(ptr noundef nonnull returned align 8 dereferenceable(41) %this, ptr noundef %str, i64 noundef %n) local_unnamed_addr #4 align 2 {
 entry:
   %cmp = icmp sgt i64 %n, 1048576
   %mBytes.i = getelementptr inbounds nuw i8, ptr %this, i64 24

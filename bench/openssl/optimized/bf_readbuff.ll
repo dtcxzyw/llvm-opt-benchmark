@@ -22,7 +22,7 @@ define internal noundef i32 @readbuffer_write(ptr readnone captures(none) %0, pt
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @readbuffer_read(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #2 {
+define internal i32 @readbuffer_read(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %2, 0
   %or.cond = or i1 %4, %5
@@ -140,7 +140,7 @@ define internal noundef i32 @readbuffer_puts(ptr readnone captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @readbuffer_gets(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #2 {
+define internal i32 @readbuffer_gets(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #2 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %2, 0
   %or.cond = or i1 %4, %5
@@ -430,7 +430,7 @@ define internal range(i32 0, 2) i32 @readbuffer_new(ptr noundef writeonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @readbuffer_free(ptr noundef captures(address_is_null) %0) #2 {
+define internal range(i32 0, 2) i32 @readbuffer_free(ptr noundef %0) #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 

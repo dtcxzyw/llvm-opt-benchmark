@@ -167,7 +167,7 @@ define i32 @ssl_hmac_old_update(ptr noundef readonly captures(none) %0, ptr noun
 declare i32 @HMAC_Update(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_hmac_old_final(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_hmac_old_final(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -2498,7 +2498,7 @@ define void @_ZNK10open_spiel9cursor_go13CursorGoState17ObservationStringB5cxx11
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK10open_spiel9cursor_go13CursorGoState17ObservationTensorEiN4absl7debian24SpanIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8136) %0, i32 noundef %1, ptr writeonly captures(address) %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK10open_spiel9cursor_go13CursorGoState17ObservationTensorEiN4absl7debian24SpanIfEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8136) %0, i32 noundef %1, ptr writeonly %2, i64 %3) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

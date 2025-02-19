@@ -33,7 +33,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5_str_buf_blk_free_list = internal global { i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr } { i8 0, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, i64 0, ptr @.str.7, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @H5RS_create(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias ptr @H5RS_create(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5RS_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -878,7 +878,7 @@ define range(i32 -1, 1) i32 @H5RS_incr(ptr noundef captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @H5RS_dup(ptr noundef returned captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #7 {
+define noundef ptr @H5RS_dup(ptr noundef returned %0) local_unnamed_addr #7 {
   %2 = load i8, ptr @H5RS_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7

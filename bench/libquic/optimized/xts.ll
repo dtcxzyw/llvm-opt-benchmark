@@ -14,7 +14,7 @@ define hidden noundef nonnull ptr @EVP_aes_256_xts() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @aes_xts_init_key(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #1 {
+define internal noundef i32 @aes_xts_init_key(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) #1 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !6
   %7 = icmp ne ptr %2, null
@@ -74,7 +74,7 @@ define internal noundef i32 @aes_xts_init_key(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) #1 {
+define internal range(i32 0, 2) i32 @aes_xts_cipher(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) #1 {
   %5 = alloca %union.anon.0, align 8
   %6 = alloca %union.anon.0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16

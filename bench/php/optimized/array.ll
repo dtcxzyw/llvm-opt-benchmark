@@ -3489,7 +3489,7 @@ zend_parse_arg_func.exit:                         ; preds = %zend_gc_try_delref.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @php_array_walk(ptr noundef nonnull %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #2 {
+define internal fastcc i32 @php_array_walk(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #2 {
   %5 = alloca [3 x %struct._zval_struct], align 16
   %6 = alloca %struct._zval_struct, align 8
   %7 = alloca i32, align 4
@@ -23840,7 +23840,7 @@ zend_parse_arg_array.exit.thread170:              ; preds = %zend_parse_arg_long
 declare zeroext i1 @zend_is_true(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_find(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden void @zif_array_find(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zend_fcall_info, align 8
   %4 = alloca %struct._zend_fcall_info_cache, align 8
   %5 = alloca ptr, align 8
@@ -23919,7 +23919,7 @@ zend_parse_arg_func.exit:                         ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @php_array_find(ptr noundef readonly captures(none) %0, ptr noundef byval(%struct._zend_fcall_info) align 8 %1, ptr noundef byval(%struct._zend_fcall_info_cache) align 8 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @php_array_find(ptr noundef readonly captures(none) %0, ptr noundef byval(%struct._zend_fcall_info) align 8 %1, ptr noundef byval(%struct._zend_fcall_info_cache) align 8 %2, ptr noundef writeonly %3, ptr noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #2 {
   %7 = alloca %struct._zval_struct, align 8
   %8 = alloca [2 x %struct._zval_struct], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #21
@@ -24119,7 +24119,7 @@ define internal fastcc range(i32 -1, 1) i32 @php_array_find(ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_find_key(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden void @zif_array_find_key(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca [2 x %struct._zval_struct], align 16
   %5 = alloca %struct._zend_fcall_info_cache, align 8
@@ -24341,7 +24341,7 @@ zend_parse_arg_func.exit:                         ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_any(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden void @zif_array_any(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca [2 x %struct._zval_struct], align 16
   %5 = alloca %struct._zend_fcall_info_cache, align 8
@@ -24561,7 +24561,7 @@ zend_parse_arg_func.exit:                         ; preds = %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zif_array_all(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define hidden void @zif_array_all(ptr noundef %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca %struct._zval_struct, align 8
   %4 = alloca [2 x %struct._zval_struct], align 16
   %5 = alloca %struct._zend_fcall_info_cache, align 8

@@ -10669,7 +10669,7 @@ _ZNSt6vectorIN4cvc58internal12NodeTemplateILb1EEESaIS3_EED2Ev.exit: ; preds = %_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory7strings10BaseSolver31checkConstantEquivalenceClassesEPNS3_9TermIndexERSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EEbb(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory7strings10BaseSolver31checkConstantEquivalenceClassesEPNS3_9TermIndexERSt6vectorINS0_12NodeTemplateILb1EEESaIS8_EEbb(ptr noundef nonnull align 8 dereferenceable(292) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(24) %2, i1 noundef zeroext %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.596", align 8
   %7 = alloca %"class.std::tuple.591", align 1
   %8 = alloca %"class.cvc5::internal::NodeBuilder", align 8
@@ -17892,7 +17892,7 @@ _ZN4cvc58internal12NodeTemplateILb1EEC2ERKS2_.exit22: ; preds = %197, %195, %190
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory7strings10BaseSolver16getStringLikeEqcEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(292) %0) local_unnamed_addr #12 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4cvc58internal6theory7strings10BaseSolver16getStringLikeEqcEv(ptr noundef nonnull readnone align 8 dereferenceable(292) %0) local_unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   ret ptr %2
 }

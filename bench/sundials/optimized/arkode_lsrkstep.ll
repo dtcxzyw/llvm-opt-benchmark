@@ -286,7 +286,7 @@ lsrkStep_CheckNVector.exit.thread:                ; preds = %14, %20, %24, %28, 
 declare i32 @LSRKStepSetSTSMethod(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @lsrkStep_Free(ptr noundef captures(address_is_null) %0) #3 {
+define void @lsrkStep_Free(ptr noundef %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 

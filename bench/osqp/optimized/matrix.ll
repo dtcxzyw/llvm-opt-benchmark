@@ -385,7 +385,7 @@ declare void @csc_row_norm_inf(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @csc_row_norm_inf_sym_triu(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @OSQPMatrix_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @OSQPMatrix_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

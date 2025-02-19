@@ -478,7 +478,7 @@ define internal zeroext i1 @Gzip_open_write(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @Gzip_read(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #0 {
+define internal noundef zeroext i1 @Gzip_read(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 104
   %7 = load ptr, ptr %6, align 8

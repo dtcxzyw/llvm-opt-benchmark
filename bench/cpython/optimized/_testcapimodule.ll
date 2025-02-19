@@ -4080,7 +4080,7 @@ _null_to_none.exit:                               ; preds = %2, %4, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @meth_noargs(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr readnone captures(none) %1) #5 {
+define internal noundef ptr @meth_noargs(ptr noundef %0, ptr readnone captures(none) %1) #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_null_to_none.exit, label %4
 

@@ -528,7 +528,7 @@ Vec_IntGrow.exit10:                               ; preds = %.Vec_IntGrow.exit10
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @Bmc_SuperBuildTents(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @Bmc_SuperBuildTents(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %4, align 4, !tbaa !31

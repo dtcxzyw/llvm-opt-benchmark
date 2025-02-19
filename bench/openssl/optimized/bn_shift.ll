@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.BN_rshift = private unnamed_addr constant [10 x i8] c"BN_rshift\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_lshift1(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_lshift1(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %15, label %3
 
@@ -396,7 +396,7 @@ declare void @bn_correct_top(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @BN_rshift(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %6
 
@@ -489,7 +489,7 @@ bn_rshift_fixed_top.exit:                         ; preds = %10, %20, %._crit_ed
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bn_rshift_fixed_top(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @bn_rshift_fixed_top(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = sdiv i32 %2, 64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i32, ptr %5, align 8, !tbaa !10

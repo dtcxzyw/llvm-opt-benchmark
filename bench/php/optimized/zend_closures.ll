@@ -495,7 +495,7 @@ zend_unwrap_reference.exit:                       ; preds = %106, %129, %117, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @zend_valid_closure_binding(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @zend_valid_closure_binding(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 60
   %5 = load i32, ptr %4, align 4, !tbaa !15
   %6 = and i32 %5, 8388608
@@ -627,7 +627,7 @@ instanceof_function.exit.thread:                  ; preds = %14, %35, %.critedge
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_create_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local void @zend_create_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %7 = load i32, ptr %6, align 4, !tbaa !15
   %8 = and i32 %7, 8388608
@@ -778,7 +778,7 @@ zend_parse_arg_object.exit.thread101:             ; preds = %zend_parse_arg_obj_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @do_closure_bind(ptr noundef %0, ptr captures(none) %.0.val, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @do_closure_bind(ptr noundef %0, ptr captures(none) %.0.val, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %8, label %5
 
@@ -1314,7 +1314,7 @@ define dso_local noalias noundef ptr @zend_get_closure_invoke_method(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @zend_get_closure_method_def(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local nonnull ptr @zend_get_closure_method_def(ptr noundef readnone %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -1635,7 +1635,7 @@ zend_string_equals.exit.thread33:                 ; preds = %62, %zend_string_eq
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zend_closure_clone(ptr noundef captures(address_is_null) %0) #0 {
+define internal ptr @zend_closure_clone(ptr noundef %0) #0 {
   %2 = alloca %struct._zval_struct, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -2109,7 +2109,7 @@ define internal ptr @zend_closure_get_gc(ptr noundef %0, ptr noundef writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = load ptr, ptr @zend_ce_closure, align 8, !tbaa !28
   %8 = tail call i32 @object_init_ex(ptr noundef %0, ptr noundef %7) #13
   %9 = load ptr, ptr %0, align 8, !tbaa !15
@@ -2466,7 +2466,7 @@ zend_string_addref.exit162:                       ; preds = %157, %164
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_create_fake_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local void @zend_create_fake_closure(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   tail call fastcc void @zend_create_closure_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext true)
   %6 = load ptr, ptr %0, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 60

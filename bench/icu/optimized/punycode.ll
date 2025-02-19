@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_strToPunycode_75(ptr noundef readonly captures(address_is_null) %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef readonly captures(address_is_null) %caseFlags, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define i32 @u_strToPunycode_75(ptr noundef readonly %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef readonly %caseFlags, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cpBuffer = alloca [1000 x i32], align 16
   %cmp = icmp eq ptr %pErrorCode, null
@@ -598,7 +598,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_strFromPunycode_75(ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef captures(address_is_null) %caseFlags, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define i32 @u_strFromPunycode_75(ptr noundef %src, i32 noundef %srcLength, ptr noundef %dest, i32 noundef %destCapacity, ptr noundef %caseFlags, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false

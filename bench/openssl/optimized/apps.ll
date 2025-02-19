@@ -713,7 +713,7 @@ app_passwd.exit.thread.thread:                    ; preds = %4, %2, %app_passwd.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @app_passwd(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @app_passwd(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -1545,7 +1545,7 @@ declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64
 declare ptr @X509_load_http(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly captures(address) %6, ptr noundef writeonly captures(address) %7, ptr noundef writeonly captures(address) %8, ptr noundef writeonly captures(address) %9, ptr noundef captures(address_is_null) %10, ptr noundef writeonly captures(address) %11, ptr noundef captures(address_is_null) %12) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @load_key_certs_crls(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef %10, ptr noundef writeonly %11, ptr noundef %12) local_unnamed_addr #0 {
   %14 = alloca %struct.pw_cb_data, align 8
   %15 = alloca [2 x %struct.ossl_param_st], align 16
   %16 = alloca %struct.ossl_param_st, align 8
@@ -2553,7 +2553,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #9
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @next_item(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #10 {
+define dso_local ptr @next_item(ptr noundef %0) local_unnamed_addr #10 {
   %2 = load i8, ptr %0, align 1, !tbaa !13
   %.not19 = icmp eq i8 %2, 44
   %.pre = tail call ptr @__ctype_b_loc() #28
@@ -2612,7 +2612,7 @@ define dso_local ptr @next_item(ptr noundef captures(ret: address, provenance) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @load_cert_certs(ptr noundef %0, ptr noundef captures(address) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @load_cert_certs(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %5, null
   %9 = icmp eq ptr %2, null
   %10 = select i1 %9, ptr @.str.18, ptr @.str.33
@@ -2993,7 +2993,7 @@ next_item.exit:                                   ; preds = %.critedge.i, %.loop
 declare void @X509_STORE_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @load_certs(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @load_certs(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = load ptr, ptr %2, align 8, !tbaa !39
   %7 = icmp eq ptr %6, null
   %8 = icmp eq ptr %4, null
@@ -3014,7 +3014,7 @@ define dso_local range(i32 0, 2) i32 @load_certs(ptr noundef %0, i32 noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @load_crls(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @load_crls(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8, !tbaa !43
   %6 = icmp eq ptr %5, null
   %7 = icmp eq ptr %3, null
@@ -3542,7 +3542,7 @@ define dso_local i32 @index_name_cmp(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @load_serial(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @load_serial(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %5) #27
   %6 = tail call ptr @ASN1_INTEGER_new() #27
@@ -3704,7 +3704,7 @@ declare ptr @ASN1_INTEGER_to_BN(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @save_serial(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @save_serial(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca [1 x [256 x i8]], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %5) #27
   %6 = icmp eq ptr %1, null
@@ -3862,7 +3862,7 @@ declare ptr @__errno_location() local_unnamed_addr #2
 declare i32 @BN_rand(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noalias ptr @load_index(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local noalias ptr @load_index(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   %4 = alloca ptr, align 8
   %5 = alloca %struct.stat, align 8
@@ -4021,7 +4021,7 @@ declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_un
 declare ptr @TXT_DB_read(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @parse_yesno(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #16 {
+define dso_local noundef i32 @parse_yesno(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 

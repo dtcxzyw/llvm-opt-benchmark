@@ -33065,7 +33065,7 @@ declare void @_ZNK16cmLocalGenerator24AppendIncludeDirectoriesERSt6vectorINSt7__
 declare void @_ZNK16cmLocalGenerator13AppendDefinesERSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS6_ESaIS6_EERKS6_(ptr noundef nonnull align 8 dereferenceable(760), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK25cmMakefileTargetGenerator16MakeEchoProgressERN29cmLocalUnixMakefileGenerator312EchoProgressE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1064) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZNK25cmMakefileTargetGenerator16MakeEchoProgressERN29cmLocalUnixMakefileGenerator312EchoProgressE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1064) %0, ptr noundef nonnull align 8 dereferenceable(64) %1) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"struct.std::pair.1028"], align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -42201,7 +42201,7 @@ declare noundef nonnull align 8 dereferenceable(24) ptr @_ZNK15cmCustomCommand18
 declare void @_ZNK24cmCustomCommandGenerator14GetFullDepfileB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(352)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN25cmMakefileTargetGenerator20WriteObjectsVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1064) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN25cmMakefileTargetGenerator20WriteObjectsVariableERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES6_b(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1064) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2, i1 noundef zeroext %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8

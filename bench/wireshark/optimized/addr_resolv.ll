@@ -321,7 +321,7 @@ define ptr @try_serv_name_lookup(i32 noundef %0, i32 noundef %1) local_unnamed_a
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @_serv_name_lookup(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #3 {
+define internal fastcc ptr @_serv_name_lookup(i32 noundef %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #3 {
   %4 = alloca %struct._serv_port_custom_key, align 4
   %5 = load ptr, ptr @serv_port_hashtable, align 8
   %6 = zext i32 %1 to i64
@@ -535,7 +535,7 @@ declare ptr @g_hash_table_lookup(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @global_enterprises_lookup(i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define nonnull ptr @enterprises_lookup(i32 noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #3 {
+define nonnull ptr @enterprises_lookup(i32 noundef %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = load ptr, ptr @enterprises_hashtable, align 8
   %4 = zext i32 %0 to i64
   %5 = inttoptr i64 %4 to ptr
@@ -743,13 +743,13 @@ define zeroext i1 @get_hash_ether_used(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define nonnull ptr @get_hash_ether_hexaddr(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #9 {
+define nonnull ptr @get_hash_ether_hexaddr(ptr noundef readnone %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 7
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define nonnull ptr @get_hash_ether_resolved_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #9 {
+define nonnull ptr @get_hash_ether_resolved_name(ptr noundef readnone %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 25
   ret ptr %2
 }
@@ -1431,7 +1431,7 @@ define internal void @dnsserverlist_uats_udp_port_tostr_cb(ptr noundef readonly 
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @dns_server_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #3 {
+define internal noundef ptr @dns_server_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #3 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %5, ptr %0, align 8
@@ -4256,7 +4256,7 @@ define zeroext i1 @get_hash_manuf_used(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define nonnull ptr @get_hash_manuf_resolved_name(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #9 {
+define nonnull ptr @get_hash_manuf_resolved_name(ptr noundef readnone %0) local_unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 77
   ret ptr %2
 }
@@ -4453,7 +4453,7 @@ define zeroext i1 @get_host_ipaddr(ptr noundef %0, ptr noundef %1) local_unnamed
 declare void @ares_gethostbyname(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(readwrite, inaccessiblemem: none) uwtable
-define internal void @c_ares_ghi_cb(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(address_is_null) %3) #14 {
+define internal void @c_ares_ghi_cb(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef readonly %3) #14 {
   %5 = icmp eq i32 %1, 0
   %6 = icmp ne ptr %3, null
   %or.cond = and i1 %5, %6
@@ -4732,7 +4732,7 @@ parse_ether_address.exit:                         ; preds = %21
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parse_ether_address(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #16 {
+define internal fastcc noundef zeroext i1 @parse_ether_address(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2, i1 noundef zeroext %3) unnamed_addr #16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   %6 = load ptr, ptr @g_ascii_table, align 8
@@ -6709,7 +6709,7 @@ declare ptr @get_systemfile_dir() local_unnamed_addr #4
 declare zeroext i1 @file_exists(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @get_ethent(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @get_ethent(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #3 {
   %3 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #24
   %4 = load ptr, ptr @eth_p, align 8

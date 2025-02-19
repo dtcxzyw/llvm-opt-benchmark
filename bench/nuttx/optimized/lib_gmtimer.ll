@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @gmtime_r(ptr noundef readonly captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #0 {
+define noundef ptr @gmtime_r(ptr noundef readonly captures(none) %0, ptr noundef returned %1) local_unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8
   %4 = udiv i64 %3, 86400
   %5 = udiv i64 %3, 126230400
@@ -127,7 +127,7 @@ declare i32 @clock_daysbeforemonth(i32 noundef, i1 noundef zeroext) local_unname
 declare i32 @clock_isleapyear(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @localtime_r(ptr noundef readonly captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #0 {
+define noundef ptr @localtime_r(ptr noundef readonly captures(none) %0, ptr noundef returned %1) local_unnamed_addr #0 {
   %3 = tail call ptr @gmtime_r(ptr noundef %0, ptr noundef %1)
   ret ptr %1
 }

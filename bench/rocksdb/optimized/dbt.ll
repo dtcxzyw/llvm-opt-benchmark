@@ -9,7 +9,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZZ26toku_dbt_negative_infinityvE21negative_infinity_dbt = internal global %struct.__toku_dbt zeroinitializer, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 32)) %dbt) local_unnamed_addr #0 {
+define noundef ptr @_Z13toku_init_dbtP10__toku_dbt(ptr noundef returned writeonly initializes((0, 32)) %dbt) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   ret ptr %dbt
@@ -26,7 +26,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z19toku_init_dbt_flagsP10__toku_dbtj(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 32)) %dbt, i32 noundef %flags) local_unnamed_addr #0 {
+define noundef ptr @_Z19toku_init_dbt_flagsP10__toku_dbtj(ptr noundef returned writeonly initializes((0, 32)) %dbt, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   %flags1 = getelementptr inbounds nuw i8, ptr %dbt, i64 24
@@ -57,7 +57,7 @@ sw.epilog:                                        ; preds = %sw.bb, %entry
 declare void @_Z9toku_freePv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 32)) %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #0 {
+define noundef ptr @_Z13toku_fill_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly initializes((0, 32)) %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #0 {
 entry:
   %0 = getelementptr inbounds nuw i8, ptr %dbt, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
@@ -68,7 +68,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z15toku_memdup_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 32)) %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #2 {
+define noundef ptr @_Z15toku_memdup_dbtP10__toku_dbtPKvm(ptr noundef returned writeonly initializes((0, 32)) %dbt, ptr noundef %k, i64 noundef %len) local_unnamed_addr #2 {
 entry:
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %dbt, i8 0, i64 32, i1 false)
   %flags1.i = getelementptr inbounds nuw i8, ptr %dbt, i64 24
@@ -83,7 +83,7 @@ entry:
 declare noundef ptr @_Z12toku_xmemdupPKvm(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_Z16toku_copyref_dbtP10__toku_dbtS_(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 28)) %dst, ptr noundef readonly byval(%struct.__toku_dbt) align 8 captures(none) %src) local_unnamed_addr #4 {
+define noundef ptr @_Z16toku_copyref_dbtP10__toku_dbtS_(ptr noundef returned writeonly initializes((0, 28)) %dst, ptr noundef readonly byval(%struct.__toku_dbt) align 8 captures(none) %src) local_unnamed_addr #4 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %dst, i64 24
   store i32 0, ptr %flags, align 8
@@ -99,7 +99,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 32)) %dst, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %src) local_unnamed_addr #2 {
+define noundef ptr @_Z14toku_clone_dbtP10__toku_dbtRKS_(ptr noundef returned writeonly initializes((0, 32)) %dst, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %src) local_unnamed_addr #2 {
 entry:
   %0 = load ptr, ptr %src, align 8
   %size = getelementptr inbounds nuw i8, ptr %src, i64 8
@@ -144,7 +144,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef readnone captures(address) %dbt) local_unnamed_addr #5 {
+define noundef zeroext i1 @_Z20toku_dbt_is_infinitePK10__toku_dbt(ptr noundef readnone %dbt) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %dbt, @_ZZ26toku_dbt_positive_infinityvE21positive_infinity_dbt
   %cmp2 = icmp eq ptr %dbt, @_ZZ26toku_dbt_negative_infinityvE21negative_infinity_dbt
@@ -161,7 +161,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -1, 2) i32 @_Z25toku_dbt_infinite_comparePK10__toku_dbtS1_(ptr noundef readnone captures(address) %a, ptr noundef readnone captures(address) %b) local_unnamed_addr #5 {
+define noundef range(i32 -1, 2) i32 @_Z25toku_dbt_infinite_comparePK10__toku_dbtS1_(ptr noundef readnone %a, ptr noundef readnone %b) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %a, %b
   br i1 %cmp, label %return, label %if.else
@@ -183,7 +183,7 @@ return:                                           ; preds = %if.else3, %if.else,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_Z15toku_dbt_equalsPK10__toku_dbtS1_(ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) local_unnamed_addr #6 {
+define noundef zeroext i1 @_Z15toku_dbt_equalsPK10__toku_dbtS1_(ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #6 {
 entry:
   %cmp.i = icmp eq ptr %a, @_ZZ26toku_dbt_positive_infinityvE21positive_infinity_dbt
   %cmp2.i = icmp eq ptr %a, @_ZZ26toku_dbt_negative_infinityvE21negative_infinity_dbt

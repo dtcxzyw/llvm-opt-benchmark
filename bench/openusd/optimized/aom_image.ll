@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @aom_img_alloc(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define hidden noundef ptr @aom_img_alloc(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc ptr @img_alloc_helper(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %4, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef null, ptr noundef null)
   ret ptr %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @img_alloc_helper(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly captures(address_is_null) %9, ptr noundef %10) unnamed_addr #0 {
+define internal fastcc noundef ptr @img_alloc_helper(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly %9, ptr noundef %10) unnamed_addr #0 {
   %spec.store.select = tail call i32 @llvm.umax.i32(i32 %4, i32 1)
   %12 = add i32 %spec.store.select, -1
   %13 = tail call range(i32 1, 33) i32 @llvm.ctpop.i32(i32 %spec.store.select)
@@ -313,19 +313,19 @@ aom_img_set_rect.exit:                            ; preds = %.sink.split.i, %.th
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @aom_img_alloc_with_cb(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden noundef ptr @aom_img_alloc_with_cb(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc ptr @img_alloc_helper(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %4, i32 noundef 1, i32 noundef 0, ptr noundef null, ptr noundef %5, ptr noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @aom_img_wrap(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
+define hidden noundef ptr @aom_img_wrap(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = tail call fastcc ptr @img_alloc_helper(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef 1, i32 noundef %4, i32 noundef 1, i32 noundef 0, ptr noundef %5, ptr noundef null, ptr noundef null)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @aom_img_alloc_with_border(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define hidden noundef ptr @aom_img_alloc_with_border(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = tail call fastcc ptr @img_alloc_helper(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef null, ptr noundef null, ptr noundef null)
   ret ptr %8
 }
@@ -498,7 +498,7 @@ define hidden void @aom_img_flip(ptr noundef captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_img_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @aom_img_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %32, label %2
 
@@ -594,7 +594,7 @@ aom_img_remove_metadata.exit:                     ; preds = %2, %aom_img_metadat
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_img_remove_metadata(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @aom_img_remove_metadata(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %2
 
@@ -725,7 +725,7 @@ define hidden i32 @aom_img_plane_height(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden noalias noundef ptr @aom_img_metadata_alloc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
+define hidden noalias noundef ptr @aom_img_metadata_alloc(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %1, null
   %6 = icmp eq i64 %2, 0
   %or.cond = or i1 %5, %6
@@ -768,7 +768,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @aom_img_metadata_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define hidden void @aom_img_metadata_free(ptr noundef %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -824,7 +824,7 @@ aom_img_metadata_array_free.exit:                 ; preds = %4
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define hidden void @aom_img_metadata_array_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @aom_img_metadata_array_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %2
 
@@ -887,7 +887,7 @@ aom_img_metadata_free.exit:                       ; preds = %.lr.ph, %14
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden range(i32 -1, 1) i32 @aom_img_add_metadata(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define hidden range(i32 -1, 1) i32 @aom_img_add_metadata(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %aom_img_metadata_alloc.exit.thread, label %6
 
@@ -979,7 +979,7 @@ aom_img_metadata_alloc.exit.thread:               ; preds = %15, %11, %20, %aom_
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @aom_img_get_metadata(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #11 {
+define hidden ptr @aom_img_get_metadata(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -1007,7 +1007,7 @@ define hidden ptr @aom_img_get_metadata(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @aom_img_num_metadata(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
+define hidden i64 @aom_img_num_metadata(ptr noundef readonly %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

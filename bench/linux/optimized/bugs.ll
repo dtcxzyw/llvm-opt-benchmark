@@ -1442,7 +1442,7 @@ define dso_local void @x86_virt_spec_ctrl(i64 noundef %0, i1 noundef zeroext %1)
 declare dso_local void @speculation_ctrl_update(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef range(i32 -22, 1) i32 @mds_cmdline(ptr noundef readonly captures(address_is_null) %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @mds_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %3 = and i64 %2, 2251799813685248
   %4 = icmp eq i64 %3, 0
@@ -1486,7 +1486,7 @@ define internal noundef range(i32 -22, 1) i32 @mds_cmdline(ptr noundef readonly 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef range(i32 -22, 1) i32 @tsx_async_abort_parse_cmdline(ptr noundef readonly captures(address_is_null) %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @tsx_async_abort_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %3 = and i64 %2, 18014398509481984
   %4 = icmp eq i64 %3, 0
@@ -1530,7 +1530,7 @@ define internal noundef range(i32 -22, 1) i32 @tsx_async_abort_parse_cmdline(ptr
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef range(i32 -22, 1) i32 @mmio_stale_data_parse_cmdline(ptr noundef readonly captures(address_is_null) %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @mmio_stale_data_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %3 = and i64 %2, 144115188075855872
   %4 = icmp eq i64 %3, 0
@@ -1642,7 +1642,7 @@ define dso_local void @update_srbds_msr() local_unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef range(i32 -22, 1) i32 @srbds_parse_cmdline(ptr noundef readonly captures(address_is_null) %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @srbds_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 
@@ -1789,7 +1789,7 @@ default.unreachable:                              ; preds = %0
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef range(i32 -22, 1) i32 @gds_parse_cmdline(ptr noundef readonly captures(address_is_null) %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @gds_parse_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 
@@ -2585,7 +2585,7 @@ define internal fastcc void @x86_amd_ssb_disable() unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read)
-define internal noundef range(i32 -22, 1) i32 @l1tf_cmdline(ptr noundef readonly captures(address_is_null) %0) #6 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @l1tf_cmdline(ptr noundef readonly %0) #6 section ".init.text" align 16 {
   %2 = load volatile i64, ptr getelementptr inbounds nuw (i8, ptr @boot_cpu_data, i64 120), align 8
   %3 = and i64 %2, 1125899906842624
   %4 = icmp eq i64 %3, 0

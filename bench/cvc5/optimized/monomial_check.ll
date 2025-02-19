@@ -11524,7 +11524,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit51: ; preds = %_ZN4cvc58internal12
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl13MonomialCheck9cmp_holdsENS0_12NodeTemplateILb1EEES6_RSt3mapIS6_S7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES9_SaISA_ISB_SE_EEERSt6vectorIS6_SaIS6_EERS7_IS6_bS9_SaISA_ISB_bEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory5arith2nl13MonomialCheck9cmp_holdsENS0_12NodeTemplateILb1EEES6_RSt3mapIS6_S7_IS6_S6_St4lessIS6_ESaISt4pairIKS6_S6_EEES9_SaISA_ISB_SE_EEERSt6vectorIS6_SaIS6_EERS7_IS6_bS9_SaISA_ISB_bEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(208) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(48) %5) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::tuple.539", align 8
   %8 = alloca %"class.std::tuple.542", align 1
   %9 = alloca %"class.cvc5::internal::NodeTemplate", align 8

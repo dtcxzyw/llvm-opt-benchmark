@@ -537,7 +537,7 @@ BufferGetPage.exit:                               ; preds = %18, %24
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @visibilitymap_count(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @visibilitymap_count(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @vm_readbuf(ptr noundef %0, i32 noundef 0, i1 noundef zeroext false)
   %.not2829 = icmp eq i32 %4, 0
   br i1 %.not2829, label %._crit_edge, label %.lr.ph

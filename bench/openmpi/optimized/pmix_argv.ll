@@ -191,7 +191,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @pmix_argv_len(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i64 @pmix_argv_len(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -218,7 +218,7 @@ define i64 @pmix_argv_len(ptr noundef readonly captures(address_is_null) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #10
   %3 = icmp eq ptr %0, null
@@ -297,7 +297,7 @@ define noalias ptr @pmix_argv_copy_strip(ptr noundef readonly captures(address_i
 declare void @PMIx_Argv_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -27, 1) i32 @pmix_argv_delete(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -27, 1) i32 @pmix_argv_delete(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %40, label %6
 

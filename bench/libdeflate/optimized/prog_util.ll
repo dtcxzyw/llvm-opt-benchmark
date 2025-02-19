@@ -150,7 +150,7 @@ define dso_local void @begin_program(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @xopen_for_read(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1, ptr noundef captures(none) initializes((8, 17), (24, 40)) %2) local_unnamed_addr #3 {
+define dso_local range(i32 -1, 1) i32 @xopen_for_read(ptr noundef readonly %0, i1 noundef zeroext %1, ptr noundef captures(none) initializes((8, 17), (24, 40)) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = icmp eq ptr %0, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
@@ -232,7 +232,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 declare i32 @posix_fadvise64(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @xopen_for_write(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1, ptr noundef captures(none) initializes((8, 17), (24, 40)) %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2, 1) i32 @xopen_for_write(ptr noundef readonly %0, i1 noundef zeroext %1, ptr noundef captures(none) initializes((8, 17), (24, 40)) %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = icmp eq ptr %0, null
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)

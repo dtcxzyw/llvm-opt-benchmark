@@ -159,7 +159,7 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #3 {
+define internal range(i32 -268435456, 268435457) i32 @long_i2c(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3) #3 {
   %.0.copyload = load i64, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %6 = load i64, ptr %5, align 8, !tbaa !8

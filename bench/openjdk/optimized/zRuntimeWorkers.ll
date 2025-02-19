@@ -76,7 +76,7 @@ declare noundef i32 @_ZN13WorkerThreads18set_active_workersEj(ptr noundef nonnul
 declare void @_Z29vm_exit_during_initializationPKcS0_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN15ZRuntimeWorkers7workersEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(120) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull ptr @_ZN15ZRuntimeWorkers7workersEv(ptr noundef nonnull readnone returned align 8 dereferenceable(120) %0) local_unnamed_addr #2 align 2 {
   ret ptr %0
 }
 

@@ -431,7 +431,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden i32 @BN_hex2bn(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %bn_x2bn.exit, label %4
 
@@ -742,7 +742,7 @@ declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unna
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden i32 @BN_dec2bn(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %bn_x2bn.exit, label %4
 
@@ -869,7 +869,7 @@ bn_x2bn.exit:                                     ; preds = %2, %4, %17, %24, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1, !tbaa !14
   %4 = icmp eq i8 %3, 45
   %spec.select.idx = zext i1 %4 to i64
@@ -1042,7 +1042,7 @@ define hidden i64 @BN_get_word(ptr noundef readonly captures(none) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @BN_num_bits(ptr noundef %0) #9
   %4 = zext i32 %3 to i64
   %5 = add nuw nsw i64 %4, 7

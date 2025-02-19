@@ -92,7 +92,7 @@ define noundef nonnull ptr @epan_get_version() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define void @epan_get_version_number(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define void @epan_get_version_number(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -719,7 +719,7 @@ define ptr @epan_get_interface_description(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @epan_get_frame_ts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden ptr @epan_get_frame_ts(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -957,7 +957,7 @@ epan_dissect_init.exit:                           ; preds = %12, %17
 declare noalias ptr @g_malloc0(i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @epan_dissect_fake_protocols(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
+define void @epan_dissect_fake_protocols(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -1203,7 +1203,7 @@ declare void @col_custom_set_edt(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @col_fill_in(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #7
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @epan_dissect_packet_contains_field(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define zeroext i1 @epan_dissect_packet_contains_field(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %3
 

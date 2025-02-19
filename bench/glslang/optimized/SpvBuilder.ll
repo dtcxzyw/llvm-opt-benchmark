@@ -18812,7 +18812,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeEiii(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %_ZN3spv11Instruction15reserveOperandsEm.exit
 
@@ -18954,7 +18954,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder16addExecutionModeEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %5
 
@@ -19109,7 +19109,7 @@ _ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3spv7Builder18addExecutionModeIdEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
+define void @_ZN3spv7Builder18addExecutionModeIdEPNS_8FunctionENS_13ExecutionModeERKSt6vectorIjSaIjEE(ptr noundef nonnull align 8 captures(none) dereferenceable(1416) %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #3 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %_ZNSt10unique_ptrIN3spv11InstructionESt14default_deleteIS1_EED2Ev.exit, label %5
 

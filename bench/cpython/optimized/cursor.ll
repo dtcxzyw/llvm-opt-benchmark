@@ -87,7 +87,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.46 = private unnamed_addr constant [7 x i8] c"Cursor\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_pysqlite_query_execute(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden noundef ptr @_pysqlite_query_execute(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca [2 x ptr], align 16
   %7 = tail call fastcc i32 @check_cursor(ptr noundef %0)
@@ -3039,7 +3039,7 @@ pysqlite_cursor_close_impl.exit:                  ; preds = %check_cursor_locked
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_cursor_executemany(ptr noundef captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @pysqlite_cursor_executemany(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %or.cond = icmp eq i64 %2, 2
   br i1 %or.cond, label %6, label %4
 
@@ -3074,7 +3074,7 @@ define internal noundef ptr @pysqlite_cursor_executemany(ptr noundef captures(re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_cursor_executescript(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) #0 {
+define internal noundef ptr @pysqlite_cursor_executescript(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -3234,7 +3234,7 @@ pysqlite_cursor_executescript_impl.exit:          ; preds = %77, %75, %72, %30, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @pysqlite_cursor_execute(ptr noundef captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal noundef ptr @pysqlite_cursor_execute(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = add i64 %2, -1
   %or.cond = icmp ult i64 %4, 2
   br i1 %or.cond, label %7, label %5

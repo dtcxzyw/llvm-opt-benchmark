@@ -43,7 +43,7 @@ define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = tail call ptr @ENGINE_get_static_state() #8
   %5 = load ptr, ptr %2, align 8, !tbaa !3
   %6 = icmp eq ptr %4, %5
@@ -224,7 +224,7 @@ declare i32 @ENGINE_set_name(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ENGINE_set_digests(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ossltest_digests(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #1 {
+define internal i32 @ossltest_digests(ptr readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %51
 
@@ -374,7 +374,7 @@ ossltest_digest_nids.exit:                        ; preds = %._crit_edge14.i, %4
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @ossltest_ciphers(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #1 {
+define internal range(i32 0, 4) i32 @ossltest_ciphers(ptr readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %6
 

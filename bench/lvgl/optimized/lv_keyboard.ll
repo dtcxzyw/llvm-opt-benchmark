@@ -322,7 +322,7 @@ define void @lv_keyboard_set_map(ptr noundef %0, i32 noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_keyboard_get_textarea(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @lv_keyboard_get_textarea(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -336,7 +336,7 @@ define ptr @lv_keyboard_get_textarea(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @lv_keyboard_get_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define i32 @lv_keyboard_get_mode(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

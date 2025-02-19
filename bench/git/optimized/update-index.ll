@@ -2096,7 +2096,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @refresh_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @refresh_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 
@@ -2150,7 +2150,7 @@ refresh.exit:                                     ; preds = %7, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @really_refresh_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @really_refresh_callback(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 
@@ -2205,7 +2205,7 @@ refresh.exit:                                     ; preds = %7, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @cacheinfo_callback(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @cacheinfo_callback(ptr noundef captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone %2, i32 noundef %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
@@ -2416,7 +2416,7 @@ define internal range(i32 -1, 1) i32 @chmod_callback(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @stdin_callback(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @stdin_callback(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %.not = icmp eq i32 %3, 0
@@ -2456,7 +2456,7 @@ define internal range(i32 -1, 1) i32 @stdin_callback(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @stdin_cacheinfo_callback(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) #0 {
+define internal range(i32 -1, 1) i32 @stdin_cacheinfo_callback(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, i32 noundef %3) #0 {
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca ptr, align 8
@@ -2696,7 +2696,7 @@ read_index_info.exit:                             ; preds = %107, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @unresolve_callback(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) #0 {
+define internal noundef i32 @unresolve_callback(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, i32 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !22
   %7 = load ptr, ptr @startup_info, align 8, !tbaa !87
@@ -2760,7 +2760,7 @@ define internal noundef i32 @unresolve_callback(ptr noundef captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @reupdate_callback(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, i32 noundef %3) #0 {
+define internal noundef i32 @reupdate_callback(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, i32 noundef %3) #0 {
   %5 = alloca i16, align 2
   %6 = alloca %struct.object_id, align 4
   %7 = alloca %struct.pathspec, align 8
@@ -2998,7 +2998,7 @@ do_reupdate.exit:                                 ; preds = %.backedge.i, %.thre
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @resolve_undo_clear_callback(ptr readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @resolve_undo_clear_callback(ptr readnone captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %4
 

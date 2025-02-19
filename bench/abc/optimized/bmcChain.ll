@@ -1266,7 +1266,7 @@ declare ptr @Gia_ManCleanup(ptr noundef) local_unnamed_addr #2
 declare void @Gia_ManStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDeriveSatSolver(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @Gia_ManDeriveSatSolver(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Gia_ManToAigSimple(ptr noundef %0) #17
   %4 = getelementptr i8, ptr %3, i64 140
   %.val = load i32, ptr %4, align 4, !tbaa !43
@@ -1386,7 +1386,7 @@ declare ptr @Cnf_DataWriteIntoSolver(ptr noundef, i32 noundef, i32 noundef) loca
 declare void @Cnf_DataFree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Bmc_ChainFindFailedOutputs(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Bmc_ChainFindFailedOutputs(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #17
   %4 = tail call ptr @Gia_ManDupPosAndPropagateInit(ptr noundef %0)
@@ -1795,7 +1795,7 @@ define ptr @Bmc_ChainCleanup(ptr noundef %0, ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Bmc_ChainTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define noundef i32 @Bmc_ChainTest(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.timespec, align 8
   %8 = alloca %struct.timespec, align 8
   %9 = alloca %struct.timespec, align 8

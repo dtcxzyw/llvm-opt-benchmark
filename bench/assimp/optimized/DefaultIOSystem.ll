@@ -77,7 +77,7 @@ $_ZTSN6Assimp6Intern22AllocateFromAssimpHeapE = comdat any
 declare void @llvm.trap() #0
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef zeroext i1 @_ZNK6Assimp15DefaultIOSystem6ExistsEPKc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6Assimp15DefaultIOSystem6ExistsEPKc(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1) unnamed_addr #1 align 2 {
   %3 = alloca %struct.stat, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %11, label %5
@@ -109,7 +109,7 @@ declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captu
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6Assimp15DefaultIOSystem4OpenEPKcS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6Assimp15DefaultIOSystem4OpenEPKcS2_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -3901,7 +3901,7 @@ define internal ptr @odictitems_new(ptr noundef %0, ptr readnone captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @mutablemapping_update(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) #0 {
+define internal noundef ptr @mutablemapping_update(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread36, label %4
 
@@ -4530,7 +4530,7 @@ declare ptr @PyDict_GetItemWithError(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @PySequence_Contains(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_odict_popkey_hash(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null, ret: address, provenance) %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc ptr @_odict_popkey_hash(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #8
   store ptr null, ptr %5, align 8, !tbaa !53

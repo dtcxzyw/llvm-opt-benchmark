@@ -610,7 +610,7 @@ euclidianDistance.exit:                           ; preds = %17, %29, %31
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @invalidateJavaScaler(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @invalidateJavaScaler(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %freeNativeResources.exit, label %5
 
@@ -1785,7 +1785,7 @@ getFTOutline.exit.thread:                         ; preds = %17, %15, %6, %11, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getFTOutline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, float noundef %5, float noundef %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @getFTOutline(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, float noundef %5, float noundef %6) unnamed_addr #0 {
   %8 = icmp sgt i32 %4, 65533
   br i1 %8, label %35, label %9
 

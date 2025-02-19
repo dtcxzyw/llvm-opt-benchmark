@@ -616,7 +616,7 @@ define internal noundef i32 @ata_cmd_hash_matched(ptr noundef %0) #3 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @ata_cmd_equal_matched(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) #3 {
+define internal range(i32 0, 2) i32 @ata_cmd_equal_matched(ptr noundef readnone %0, ptr noundef readnone %1) #3 {
   %3 = icmp eq ptr %0, %1
   %4 = zext i1 %3 to i32
   ret i32 %4

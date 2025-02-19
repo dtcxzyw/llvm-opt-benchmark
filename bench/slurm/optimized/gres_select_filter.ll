@@ -2498,7 +2498,7 @@ declare i32 @slurm_bit_test(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @slurm_bit_ffs(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @_get_task_cnt_node(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) unnamed_addr #0 {
+define internal fastcc i32 @_get_task_cnt_node(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %.preheader
 
@@ -2536,7 +2536,7 @@ declare ptr @slurm_bit_alloc(i64 noundef) local_unnamed_addr #2
 declare zeroext i1 @gres_id_shared(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2073) i32 @_set_shared_task_bits(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2073) i32 @_set_shared_task_bits(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef readonly %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) unnamed_addr #0 {
   %10 = alloca i8, align 1
   %11 = alloca i64, align 8
   %12 = alloca ptr, align 8
@@ -2766,7 +2766,7 @@ _get_task_cnt_node.exit:                          ; preds = %_get_task_cnt_node.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_sock_bits(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
+define internal fastcc void @_set_sock_bits(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef readonly %5, i32 noundef %6, i32 noundef %7, i1 noundef zeroext %8) unnamed_addr #0 {
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8
   %12 = alloca ptr, align 8
@@ -3212,7 +3212,7 @@ define internal fastcc void @_set_sock_bits(i32 noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_set_task_bits(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @_set_task_bits(i32 noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
@@ -4098,7 +4098,7 @@ define internal i32 @_compare_gres_by_links(ptr noundef readonly captures(none) 
 declare zeroext i1 @gres_use_busy_dev(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pick_shared_gres(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly captures(address_is_null) %10, i32 noundef %11, ptr noundef nonnull writeonly captures(none) %12) unnamed_addr #0 {
+define internal fastcc void @_pick_shared_gres(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i32 noundef %8, i32 noundef %9, ptr noundef readonly %10, i32 noundef %11, ptr noundef nonnull writeonly captures(none) %12) unnamed_addr #0 {
   %14 = alloca ptr, align 8
   %15 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #8
@@ -4419,7 +4419,7 @@ _get_sorted_topo_by_least_loaded.exit:            ; preds = %71, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_pick_shared_gres_topo(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull captures(none) %6, ptr noundef readonly captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc void @_pick_shared_gres_topo(ptr noundef readonly captures(none) %0, i1 noundef zeroext %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef nonnull captures(none) %6, ptr noundef readonly %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 8

@@ -3027,7 +3027,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN25demodulator_rewriter_util22rewrite_visit_childrenEP3app(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef readonly captures(address) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN25demodulator_rewriter_util22rewrite_visit_childrenEP3app(ptr noundef nonnull align 8 dereferenceable(408) %this, ptr noundef readonly %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %e.addr.i = alloca ptr, align 8
   %ref.tmp.i = alloca %"struct.std::pair", align 8
@@ -5399,7 +5399,7 @@ _ZN11ast_manager7inc_refEP3ast.exit12:            ; preds = %_ZN11ast_manager7in
 declare noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20demodulator_rewriter14remove_fwd_idxEP9func_declP10quantifier(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly captures(address) %f, ptr noundef %demodulator) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN20demodulator_rewriter14remove_fwd_idxEP9func_declP10quantifier(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly %f, ptr noundef %demodulator) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i = alloca %"struct.obj_map<quantifier, std::pair<app *, expr *>>::key_data", align 8
   %demodulator.addr = alloca ptr, align 8
@@ -5988,7 +5988,7 @@ entry:
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN20demodulator_rewriter8rewrite1EP9func_declRK10ref_vectorI4expr11ast_managerER7obj_refIS3_S4_E(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly captures(address) %f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %args, ptr noundef nonnull align 8 dereferenceable(16) %np) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN20demodulator_rewriter8rewrite1EP9func_declRK10ref_vectorI4expr11ast_managerER7obj_refIS3_S4_E(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly %f, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %args, ptr noundef nonnull align 8 dereferenceable(16) %np) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i = alloca %class.expr_offset, align 8
   %ref.tmp2.i.i = alloca %class.expr_offset, align 8
@@ -6423,7 +6423,7 @@ return:                                           ; preds = %entry, %if.end, %_Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN20demodulator_rewriter22rewrite_visit_childrenEP3app(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly captures(address) %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN20demodulator_rewriter22rewrite_visit_childrenEP3app(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly %a) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %e.addr.i = alloca ptr, align 8
   %ref.tmp.i = alloca %"struct.std::pair", align 8
@@ -8546,7 +8546,7 @@ _Z13for_each_exprIN20demodulator_rewriter20remove_back_idx_procEEvRT_P4expr.exit
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20demodulator_rewriter20reschedule_processedEP9func_decl(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly captures(address) %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20demodulator_rewriter20reschedule_processedEP9func_decl(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %visited.i.i = alloca %class.obj_mark, align 8
   %proc.i = alloca %"class.demodulator_rewriter::remove_back_idx_proc", align 8
@@ -9084,7 +9084,7 @@ if.end55:                                         ; preds = %for.body, %for.inc3
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly captures(address) %f, ptr noundef readonly captures(none) %lhs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN20demodulator_rewriter23reschedule_demodulatorsEP9func_declP4expr(ptr noundef nonnull align 8 dereferenceable(872) %this, ptr noundef readonly %f, ptr noundef readonly captures(none) %lhs) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %visited.i.i = alloca %class.obj_mark, align 8
   %proc.i = alloca %"class.demodulator_rewriter::remove_back_idx_proc", align 8

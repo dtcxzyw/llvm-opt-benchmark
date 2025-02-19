@@ -490,7 +490,7 @@ define dso_local i32 @tool_setopt_slist(ptr noundef %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @libcurl_generate_slist(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
+define internal fastcc i32 @libcurl_generate_slist(ptr noundef readonly %0, ptr noundef nonnull captures(none) initializes((0, 4)) %1) unnamed_addr #0 {
   %3 = load i32, ptr @easysrc_slist_count, align 4, !tbaa !39
   %4 = add nsw i32 %3, 1
   store i32 %4, ptr @easysrc_slist_count, align 4, !tbaa !39

@@ -1103,7 +1103,7 @@ define hidden void @quic_add_grease_quic_bit(ptr noundef %0) local_unnamed_addr 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @quic_add_stateless_reset_token(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden void @quic_add_stateless_reset_token(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = tail call ptr @wmem_file_scope()
   %6 = load i32, ptr @proto_quic, align 4
   %7 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 0)
@@ -2943,7 +2943,7 @@ quic_create_decoders.exit.i:                      ; preds = %661, %652, %quic_ar
   %692 = load i32, ptr %26, align 4
   %.0165.val.i = load ptr, ptr %.0165.i, align 8
   %693 = call fastcc zeroext i1 @quic_decrypt_header(ptr noundef %.3.i, i32 noundef %689, ptr %.0165.val.i, i32 noundef %692, ptr noundef nonnull %22, ptr noundef nonnull %25, i1 noundef zeroext false)
-  br i1 %693, label %quic_create_decoders.exit.thread.sink.split.i, label %quic_create_decoders.exit.thread.thread223.i
+  br i1 %693, label %quic_create_decoders.exit.thread.i, label %quic_create_decoders.exit.thread.thread223.i
 
 694:                                              ; preds = %715, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %715 ]
@@ -2996,7 +2996,7 @@ quic_is_hp_cipher_initialized.exit.i:             ; preds = %.critedge.i.i, %qui
 712:                                              ; preds = %quic_is_hp_cipher_initialized.exit.i
   %713 = load i32, ptr %26, align 4
   %714 = call fastcc zeroext i1 @quic_decrypt_header(ptr noundef %.3.i, i32 noundef %689, ptr nonnull %711, i32 noundef %713, ptr noundef nonnull %22, ptr noundef nonnull %25, i1 noundef zeroext false)
-  br i1 %714, label %quic_create_decoders.exit.thread.sink.split.i, label %715
+  br i1 %714, label %quic_create_decoders.exit.thread.i, label %715
 
 715:                                              ; preds = %712, %quic_is_hp_cipher_initialized.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3014,11 +3014,7 @@ quic_create_decoders.exit.thread.thread223.i:     ; preds = %quic_create_0rtt_de
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #18
   br label %.thread219.i
 
-quic_create_decoders.exit.thread.sink.split.i:    ; preds = %712, %691
-  store ptr null, ptr %23, align 8
-  br label %quic_create_decoders.exit.thread.i
-
-quic_create_decoders.exit.thread.i:               ; preds = %quic_create_decoders.exit.thread.sink.split.i, %quic_create_0rtt_decoder.exit.i
+quic_create_decoders.exit.thread.i:               ; preds = %712, %quic_create_0rtt_decoder.exit.i, %691
   %716 = load i64, ptr %268, align 8
   %717 = load i8, ptr %22, align 1
   %718 = load i32, ptr %25, align 4
@@ -5508,7 +5504,7 @@ declare ptr @proto_tree_add_item_ret_varint(ptr noundef, i32 noundef, ptr nounde
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @quic_process_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef captures(none) %6, i1 noundef zeroext %7, ptr noundef readonly captures(address_is_null) %8, i8 noundef zeroext %9, i32 noundef range(i32 0, 256) %10) unnamed_addr #0 {
+define internal fastcc void @quic_process_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef captures(none) %6, i1 noundef zeroext %7, ptr noundef readonly %8, i8 noundef zeroext %9, i32 noundef range(i32 0, 256) %10) unnamed_addr #0 {
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8
   %14 = alloca i64, align 8
@@ -7950,7 +7946,7 @@ dissect_quic_frame_type.exit:                     ; preds = %proto_item_set_gene
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @quic_max_packet_number(ptr noundef nonnull captures(ret: address, provenance) %0, i64 noundef %1, i1 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc ptr @quic_max_packet_number(ptr noundef nonnull %0, i64 noundef %1, i1 noundef zeroext %2, i8 noundef zeroext %3) unnamed_addr #0 {
   %5 = alloca i64, align 8
   store i64 %1, ptr %5, align 8
   %.not = icmp sgt i8 %3, -1
@@ -8698,7 +8694,7 @@ define internal range(i32 0, 2) i32 @quic_stream_equal(ptr noundef readonly capt
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noalias noundef ptr @quic_stream_persistent_key(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal noalias noundef ptr @quic_stream_persistent_key(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef readonly %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %4, label %5
 

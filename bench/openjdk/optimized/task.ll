@@ -138,7 +138,7 @@ define hidden void @_ZN12PeriodicTaskC2Em(ptr noundef nonnull writeonly align 8 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PeriodicTaskD2Ev(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define hidden void @_ZN12PeriodicTaskD2Ev(ptr noundef nonnull writeonly align 8 dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTV12PeriodicTask, i64 16), ptr %0, align 8
   %2 = load ptr, ptr @PeriodicTask_lock, align 8
   %3 = tail call noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #8
@@ -211,7 +211,7 @@ _ZN12PeriodicTask9disenrollEv.exit:               ; preds = %.loopexit.i, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN12PeriodicTask9disenrollEv(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN12PeriodicTask9disenrollEv(ptr noundef nonnull readnone align 8 dereferenceable(16) %0) local_unnamed_addr #0 align 2 {
   %2 = load ptr, ptr @PeriodicTask_lock, align 8
   %3 = tail call noundef zeroext i1 @_ZNK5Mutex13owned_by_selfEv(ptr noundef nonnull align 8 dereferenceable(104) %2) #8
   br i1 %3, label %_ZN22ConditionalMutexLockerC2EP5MutexbNS0_18SafepointCheckFlagE.exit, label %4

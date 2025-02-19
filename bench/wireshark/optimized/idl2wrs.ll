@@ -6557,7 +6557,7 @@ declare void @g_print(ptr noundef, ...) local_unnamed_addr #7
 declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @str_read_string(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc ptr @str_read_string(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #15
   %4 = load i8, ptr %0, align 1

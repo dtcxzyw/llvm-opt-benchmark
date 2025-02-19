@@ -3569,7 +3569,7 @@ Cba_StrCmpInt.exit:                               ; preds = %96, %._crit_edge.i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cba_NtkObjOrder(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define void @Cba_NtkObjOrder(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = alloca [1000 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %4) #25
   %5 = getelementptr i8, ptr %1, i64 4
@@ -7089,7 +7089,7 @@ Cba_ObjSetCopy.exit:                              ; preds = %3, %._crit_edge.i.i
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Cba_ObjSetAttrs(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) unnamed_addr #7 {
+define internal fastcc void @Cba_ObjSetAttrs(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) unnamed_addr #7 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %Vec_IntPushArray.exit, label %5
 
@@ -13034,7 +13034,7 @@ Vec_IntFree.exit58:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Cba_ManDeriveFromGia(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define noundef ptr @Cba_ManDeriveFromGia(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !148

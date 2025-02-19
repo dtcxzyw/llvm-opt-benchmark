@@ -680,7 +680,7 @@ define dso_local void @_ZN5clang4ento18StackHintGeneratorD0Ev(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento27StackHintGeneratorForSymbol10getMessageB5cxx11EPKNS0_12ExplodedNodeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento27StackHintGeneratorForSymbol10getMessageB5cxx11EPKNS0_12ExplodedNodeE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef readonly %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.clang::ento::EnvironmentEntry", align 8
   %5 = alloca %"class.clang::ento::EnvironmentEntry", align 8
   %6 = alloca %"class.clang::ento::SVal", align 8
@@ -4876,7 +4876,7 @@ _ZN4llvm11SmallVectorIPN5clang4ento9BugReportELj10EED2Ev.exit: ; preds = %_ZNK4l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter23generatePathDiagnosticsEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEERNS3_IPNS0_22PathSensitiveBugReportEEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.738") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter23generatePathDiagnosticsEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEERNS3_IPNS0_22PathSensitiveBugReportEEE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.738") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr readonly %2, i64 %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %4) local_unnamed_addr #3 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
@@ -9190,7 +9190,7 @@ declare void @_ZN5clang19AnalysisDeclContext15getFunctionNameB5cxx11EPKNS_4DeclE
 declare void @_ZN5clang4ento22PathDiagnosticConsumer20HandlePathDiagnosticESt10unique_ptrINS0_14PathDiagnosticESt14default_deleteIS3_EE(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento11BugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.738") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr noundef %2, ptr readonly captures(address) %3, i64 %4, ptr noundef readnone byval(%"class.llvm::ArrayRef.851") align 8 captures(none) %5) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento11BugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::unique_ptr.738") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %1, ptr noundef %2, ptr readonly %3, i64 %4, ptr noundef readnone byval(%"class.llvm::ArrayRef.851") align 8 captures(none) %5) unnamed_addr #3 align 2 {
   %7 = alloca %"class.llvm::StringRef", align 8
   %8 = alloca %"class.llvm::StringRef", align 8
   %9 = alloca %"class.llvm::StringRef", align 8
@@ -9333,7 +9333,7 @@ _ZNSt10unique_ptrIN5clang4ento14PathDiagnosticESt14default_deleteIS2_EED2Ev.exit
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.738") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %2, ptr captures(address) %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.851") align 8 captures(none) %5) unnamed_addr #3 align 2 {
+define dso_local void @_ZN5clang4ento24PathSensitiveBugReporter32generateDiagnosticForConsumerMapEPNS0_9BugReportEN4llvm8ArrayRefIPNS0_22PathDiagnosticConsumerEEENS5_IS3_EE(ptr dead_on_unwind noalias writable sret(%"class.std::unique_ptr.738") align 8 captures(none) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef %2, ptr %3, i64 %4, ptr noundef readonly byval(%"class.llvm::ArrayRef.851") align 8 captures(none) %5) unnamed_addr #3 align 2 {
   %7 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %8 = alloca %"class.llvm::SmallString.1536", align 8
   %9 = alloca %"class.llvm::raw_svector_ostream", align 8
@@ -13501,7 +13501,7 @@ _ZSt11__push_heapIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12Explode
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #23
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr readonly captures(none) %2) unnamed_addr #22 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPN5clang4ento22PathSensitiveBugReportEPKNS2_12ExplodedNodeEEN9__gnu_cxx5__ops15_Iter_comp_iterIN12_GLOBAL__N_113BugPathGetter15PriorityCompareILb1EEEEEEvT_SI_T0_(ptr noundef %0, ptr noundef readnone %1, ptr readonly captures(none) %2) unnamed_addr #22 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -19449,7 +19449,7 @@ _ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19adjustCallLocationsRN5clang4ento10PathPiecesEPNS0_22PathDiagnosticLocationE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #3 {
+define internal fastcc void @_ZL19adjustCallLocationsRN5clang4ento10PathPiecesEPNS0_22PathDiagnosticLocationE(ptr noundef nonnull readonly align 8 dereferenceable(24) %0, ptr noundef readonly %1) unnamed_addr #3 {
   %.sroa.049.058 = load ptr, ptr %0, align 8, !tbaa !906
   %.not5359 = icmp eq ptr %.sroa.049.058, %0
   br i1 %.not5359, label %._crit_edge, label %.lr.ph
@@ -19604,7 +19604,7 @@ _ZL15hasImplicitBodyPKN5clang4DeclE.exit40:       ; preds = %51
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32removePiecesWithInvalidLocationsRN5clang4ento10PathPiecesE(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) unnamed_addr #3 {
+define internal fastcc void @_ZL32removePiecesWithInvalidLocationsRN5clang4ento10PathPiecesE(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 {
   %2 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %3 = alloca %"class.clang::ento::PathDiagnosticLocation", align 8
   %4 = load ptr, ptr %0, align 8, !tbaa !906
@@ -21837,7 +21837,7 @@ _ZNSt12__shared_ptrIN5clang4ento19PathDiagnosticPieceELN9__gnu_cxx12_Lock_policy
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL32removeEdgesToDefaultInitializersRN5clang4ento10PathPiecesE(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0) unnamed_addr #3 {
+define internal fastcc void @_ZL32removeEdgesToDefaultInitializersRN5clang4ento10PathPiecesE(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #3 {
   %2 = load ptr, ptr %0, align 8, !tbaa !906
   %.not6369 = icmp eq ptr %2, %0
   br i1 %.not6369, label %._crit_edge, label %.lr.ph
@@ -25831,7 +25831,7 @@ _ZNSt8_Rb_treeIN4llvm16FoldingSetNodeIDES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE
 declare void @_ZNSt8__detail15_List_node_base9_M_unhookEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL24isConditionForTerminatorPKN5clang4StmtES2_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #3 {
+define internal fastcc noundef zeroext i1 @_ZL24isConditionForTerminatorPKN5clang4StmtES2_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #3 {
   %3 = load i16, ptr %0, align 8
   %4 = and i16 %3, 511
   switch i16 %4, label %85 [
@@ -27557,7 +27557,7 @@ declare noundef i32 @_ZNK5clang13FullSourceLoc13getLineNumberEPb(ptr noundef non
 declare void @_ZNK5clang4ento10PathPieces9flattenToERS1_S2_b(ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), ptr noundef nonnull align 8 dereferenceable(24), i1 noundef zeroext) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL31getFirstStackedCallToHeaderFilePN5clang4ento23PathDiagnosticCallPieceERKNS_13SourceManagerE(ptr noundef nonnull readonly captures(address, ret: address, provenance) %0, ptr noundef nonnull align 8 dereferenceable(696) %1) unnamed_addr #3 {
+define internal fastcc noundef ptr @_ZL31getFirstStackedCallToHeaderFilePN5clang4ento23PathDiagnosticCallPieceERKNS_13SourceManagerE(ptr noundef nonnull readonly %0, ptr noundef nonnull align 8 dereferenceable(696) %1) unnamed_addr #3 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %12, %2

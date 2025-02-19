@@ -291,7 +291,7 @@ define hidden range(i32 0, 2) i32 @_glfwIsValidContextConfig(ptr noundef readonl
 declare void @_glfwInputError(i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden ptr @_glfwChooseFBConfig(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, i32 noundef %2) local_unnamed_addr #2 {
+define hidden ptr @_glfwChooseFBConfig(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %.not171 = icmp eq i32 %2, 0
   br i1 %.not171, label %._crit_edge, label %.lr.ph
 

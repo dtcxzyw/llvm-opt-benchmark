@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.wc_Sha = type { i32, i32, i32, [16 x i32], [5 x i32], ptr }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha_ex(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha_ex(ptr noundef writeonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %14, label %5
 
@@ -42,7 +42,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_ShaUpdate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_ShaUpdate(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %60, label %5
 
@@ -1218,7 +1218,7 @@ define internal fastcc void @Transform(ptr noundef nonnull captures(none) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_ShaFinalRaw(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 -173, 1) i32 @wc_ShaFinalRaw(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = alloca [5 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -1266,7 +1266,7 @@ ByteReverseWords.exit:                            ; preds = %.lr.ph.i, %.lr.ph26
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1432,7 +1432,7 @@ ByteReverseWords.exit71:                          ; preds = %.lr.ph.i62, %.lr.ph
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -173, 1) i32 @wc_InitSha(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @wc_InitSha(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %wc_InitSha_ex.exit, label %3
 
@@ -1467,7 +1467,7 @@ define void @wc_ShaFree(ptr noundef readnone captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -192, 1) i32 @wc_ShaGetHash(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 -192, 1) i32 @wc_ShaGetHash(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = alloca [1 x %struct.wc_Sha], align 16
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -1487,7 +1487,7 @@ define range(i32 -192, 1) i32 @wc_ShaGetHash(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @wc_ShaCopy(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define range(i32 -173, 1) i32 @wc_ShaCopy(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

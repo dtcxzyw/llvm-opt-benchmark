@@ -203,7 +203,7 @@ define hidden void @_ZN7ciKlassC2EP8ciSymbol9BasicType(ptr noundef nonnull align
 declare void @_ZN6ciTypeC2E9BasicType(ptr noundef nonnull align 8 dereferenceable(25), i8 noundef zeroext) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(44) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ciKlass13is_subtype_ofEPS_(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZNK5Klass13is_subtype_ofEPS_.exit, label %4
 
@@ -336,7 +336,7 @@ _ZNK5Klass13is_subtype_ofEPS_.exit:               ; preds = %18, %17, %6, %_ZN17
 declare noundef zeroext i1 @_ZN5ciEnv8is_in_vmEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(44) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN7ciKlass14is_subclass_ofEPS_(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %52, label %4
 
@@ -698,7 +698,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %29, %36
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN7ciKlass21least_common_ancestorEPS_(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(44) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN7ciKlass21least_common_ancestorEPS_(ptr noundef nonnull readonly align 8 dereferenceable(44) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %54, label %4
 

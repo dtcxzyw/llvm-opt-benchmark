@@ -61,7 +61,7 @@ define hidden void @_ZN21ThreadCrashProtection7restoreEv(ptr noundef nonnull ali
 declare void @siglongjmp(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21ThreadCrashProtection22check_crash_protectionEiP6Thread(i32 noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN21ThreadCrashProtection22check_crash_protectionEiP6Thread(i32 noundef %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %3
 

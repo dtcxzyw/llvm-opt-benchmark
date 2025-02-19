@@ -475,7 +475,7 @@ NCONF_get_number_e.exit:                          ; preds = %30, %27
 declare i32 @ERR_set_mark() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @NCONF_get_number_e(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @NCONF_get_number_e(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %7
 
@@ -987,7 +987,7 @@ define noalias noundef ptr @OPENSSL_INIT_new() local_unnamed_addr #7 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_filename(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_filename(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -1022,7 +1022,7 @@ define void @OPENSSL_INIT_set_config_file_flags(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_appname(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_appname(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -1045,7 +1045,7 @@ define range(i32 0, 2) i32 @OPENSSL_INIT_set_config_appname(ptr noundef captures
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @OPENSSL_INIT_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @OPENSSL_INIT_free(ptr noundef %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

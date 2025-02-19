@@ -331,7 +331,7 @@ define void @lv_switch_set_orientation(ptr noundef %0, i32 noundef %1) local_unn
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 8) i32 @lv_switch_get_orientation(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 8) i32 @lv_switch_get_orientation(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

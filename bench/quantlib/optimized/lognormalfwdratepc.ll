@@ -2094,7 +2094,7 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18LogNormalFwdRatePc10numerairesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(608) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18LogNormalFwdRatePc10numerairesEv(ptr noundef nonnull readnone align 8 dereferenceable(608) %this) unnamed_addr #8 align 2 {
 entry:
   %numeraires_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %numeraires_
@@ -2492,7 +2492,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK8QuantLib18LogNormalFwdRatePc12currentStateEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(608) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK8QuantLib18LogNormalFwdRatePc12currentStateEv(ptr noundef nonnull readnone align 8 dereferenceable(608) %this) unnamed_addr #8 align 2 {
 entry:
   %curveState_ = getelementptr inbounds nuw i8, ptr %this, i64 112
   ret ptr %curveState_

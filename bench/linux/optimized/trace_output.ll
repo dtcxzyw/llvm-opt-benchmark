@@ -499,7 +499,7 @@ define dso_local ptr @trace_print_hex_seq(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @trace_print_array_seq(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
+define dso_local ptr @trace_print_array_seq(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, i64 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8176
   %6 = load i64, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8168

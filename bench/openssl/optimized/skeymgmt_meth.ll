@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.skeymgmt_from_algorithm = private unnamed_addr constant [24 x i8] c"skeymgmt_from_algorithm\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_skeymgmt_generate(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @evp_skeymgmt_generate(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %EVP_SKEYMGMT_get0_provider.exit, label %3
 
@@ -36,7 +36,7 @@ EVP_SKEYMGMT_get0_provider.exit:                  ; preds = %2, %3
 declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_SKEYMGMT_get0_provider(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @EVP_SKEYMGMT_get0_provider(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -51,7 +51,7 @@ define ptr @EVP_SKEYMGMT_get0_provider(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evp_skeymgmt_import(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @evp_skeymgmt_import(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %EVP_SKEYMGMT_get0_provider.exit, label %4
 
@@ -349,7 +349,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @ossl_provider_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_SKEYMGMT_get0_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @EVP_SKEYMGMT_get0_description(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -364,7 +364,7 @@ define ptr @EVP_SKEYMGMT_get0_description(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_SKEYMGMT_get0_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @EVP_SKEYMGMT_get0_name(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -379,7 +379,7 @@ define ptr @EVP_SKEYMGMT_get0_name(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_SKEYMGMT_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_SKEYMGMT_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -408,7 +408,7 @@ define void @EVP_SKEYMGMT_do_all_provided(ptr noundef %0, ptr noundef %1, ptr no
 declare void @evp_generic_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_SKEYMGMT_names_do_all(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @EVP_SKEYMGMT_names_do_all(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %11, label %5
 
@@ -431,7 +431,7 @@ define i32 @EVP_SKEYMGMT_names_do_all(ptr noundef readonly captures(address_is_n
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_SKEYMGMT_get0_gen_settable_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_SKEYMGMT_get0_gen_settable_params(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %EVP_SKEYMGMT_get0_provider.exit
 
@@ -454,7 +454,7 @@ EVP_SKEYMGMT_get0_provider.exit:                  ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_SKEYMGMT_get0_imp_settable_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_SKEYMGMT_get0_imp_settable_params(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %EVP_SKEYMGMT_get0_provider.exit
 

@@ -311,7 +311,7 @@ define hidden void @_ZN14CompressedOops28set_use_implicit_null_checksEb(i1 nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inEPv(ptr noundef readnone captures(address) %0) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inEPv(ptr noundef readnone %0) local_unnamed_addr #3 align 2 {
   %2 = load ptr, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
   %.not.i = icmp uge ptr %0, %2
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8
@@ -322,7 +322,7 @@ define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inEPv(ptr noundef readn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inE9MemRegion(ptr readnone captures(address) %0, i64 %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN14CompressedOops5is_inE9MemRegion(ptr readnone %0, i64 %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @_ZN14CompressedOops19_heap_address_rangeE, align 8
   %.not.i = icmp ule ptr %3, %0
   %4 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN14CompressedOops19_heap_address_rangeE, i64 8), align 8

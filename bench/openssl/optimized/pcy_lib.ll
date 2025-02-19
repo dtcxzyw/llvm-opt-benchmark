@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.X509_POLICY_LEVEL_st = type { ptr, ptr, ptr, i32 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @X509_policy_tree_level_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @X509_policy_tree_level_count(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -21,7 +21,7 @@ define i32 @X509_policy_tree_level_count(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_policy_tree_get0_level(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @X509_policy_tree_get0_level(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %or.cond = or i1 %3, %4
@@ -46,7 +46,7 @@ define ptr @X509_policy_tree_get0_level(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_policy_tree_get0_policies(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @X509_policy_tree_get0_policies(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -61,7 +61,7 @@ define ptr @X509_policy_tree_get0_policies(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_policy_tree_get0_user_policies(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @X509_policy_tree_get0_user_policies(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %.sink.split
 
@@ -81,7 +81,7 @@ define ptr @X509_policy_tree_get0_user_policies(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_policy_level_node_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define i32 @X509_policy_level_node_count(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 
@@ -108,7 +108,7 @@ define i32 @X509_policy_level_node_count(ptr noundef readonly captures(address_i
 declare i32 @OPENSSL_sk_num(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_policy_level_get0_node(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @X509_policy_level_get0_node(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %3
 
@@ -141,7 +141,7 @@ define ptr @X509_policy_level_get0_node(ptr noundef readonly captures(address_is
 declare ptr @OPENSSL_sk_value(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @X509_policy_node_get0_policy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @X509_policy_node_get0_policy(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -157,7 +157,7 @@ define ptr @X509_policy_node_get0_policy(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @X509_policy_node_get0_qualifiers(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @X509_policy_node_get0_qualifiers(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -173,7 +173,7 @@ define ptr @X509_policy_node_get0_qualifiers(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @X509_policy_node_get0_parent(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @X509_policy_node_get0_parent(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

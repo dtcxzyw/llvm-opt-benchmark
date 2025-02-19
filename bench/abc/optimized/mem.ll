@@ -42,7 +42,7 @@ define noalias noundef ptr @Mem_FixedStart(i32 noundef %0) local_unnamed_addr #0
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @Mem_FixedStop(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Mem_FixedStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %40, label %4
 
@@ -125,7 +125,7 @@ declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unna
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Mem_FlexStop2(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @Mem_FlexStop2(ptr noundef %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %Mem_FlexStop.exit, label %3
 
@@ -180,7 +180,7 @@ Mem_FlexStop.exit:                                ; preds = %1, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Mem_FlexStop(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @Mem_FlexStop(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %36, label %4
 

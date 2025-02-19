@@ -209,7 +209,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @faiss_Clustering_centroids(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
+define void @faiss_Clustering_centroids(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %5
@@ -239,7 +239,7 @@ define void @faiss_Clustering_centroids(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @faiss_Clustering_iteration_stats(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 {
+define void @faiss_Clustering_iteration_stats(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %5
@@ -1199,7 +1199,7 @@ define void @faiss_Clustering_free(ptr noundef %0) local_unnamed_addr #11 {
 }
 
 ; Function Attrs: uwtable
-define range(i32 -4, 1) i32 @faiss_kmeans_clustering(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define range(i32 -4, 1) i32 @faiss_kmeans_clustering(i64 noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %8 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %9 = alloca %"class.std::__exception_ptr::exception_ptr", align 8

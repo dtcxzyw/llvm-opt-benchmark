@@ -1267,7 +1267,7 @@ dsa_get_address.exit39:                           ; preds = %231, %check_for_fre
 declare i32 @errdetail(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @get_best_segment(ptr noundef captures(ret: address, provenance) %0, i64 noundef range(i64 0, 4503599627370496) %1) unnamed_addr #0 {
+define internal fastcc ptr @get_best_segment(ptr noundef %0, i64 noundef range(i64 0, 4503599627370496) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 6160
   %5 = load i64, ptr %4, align 8
@@ -1522,7 +1522,7 @@ select.unfold:                                    ; preds = %rebin_segment.exit,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @make_new_segment(ptr noundef captures(ret: address, provenance) %0, i64 noundef range(i64 0, 4503599627370496) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @make_new_segment(ptr noundef %0, i64 noundef range(i64 0, 4503599627370496) %1) unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 60
   br label %5
@@ -2070,7 +2070,7 @@ add_span_to_fullness_class.exit:                  ; preds = %dsa_get_address.exi
 declare zeroext i1 @FreePageManagerGet(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_span(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 0, 4503599627370496) %4, i16 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @init_span(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef range(i64 0, 4503599627370496) %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %.not.i = icmp eq i64 %1, 0
   br i1 %.not.i, label %dsa_get_address.exit, label %7
 
@@ -2222,7 +2222,7 @@ dsa_get_address.exit41:                           ; preds = %check_for_freed_seg
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @dsa_get_address(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @dsa_get_address(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %25, label %3
 
@@ -2274,7 +2274,7 @@ check_for_freed_segments.exit:                    ; preds = %3, %9
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef captures(ret: address, provenance) %0, i64 noundef range(i64 0, -1) %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @get_segment_by_index(ptr noundef %0, i64 noundef range(i64 0, -1) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw [1024 x %struct.dsa_segment_map], ptr %3, i64 0, i64 %1
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -2446,7 +2446,7 @@ unlink_segment.exit:                              ; preds = %34, %38
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @unlink_span(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc void @unlink_span(ptr noundef %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8
   %.not = icmp eq i64 %4, 0
@@ -3050,7 +3050,7 @@ dsa_get_address.exit:                             ; preds = %check_for_freed_seg
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @dsa_dump(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+define dso_local void @dsa_dump(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 6172
   %4 = tail call zeroext i1 @LWLockAcquire(ptr noundef nonnull %3, i32 noundef 0) #11
@@ -3568,7 +3568,7 @@ declare void @FreePageManagerInitialize(ptr noundef, ptr noundef) local_unnamed_
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @transfer_first_span(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 3) %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @transfer_first_span(ptr noundef %0, ptr noundef captures(none) %1, i32 noundef range(i32 0, 3) %2, i32 noundef range(i32 1, 4) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = zext nneg i32 %2 to i64
   %7 = getelementptr inbounds nuw [4 x i64], ptr %5, i64 0, i64 %6

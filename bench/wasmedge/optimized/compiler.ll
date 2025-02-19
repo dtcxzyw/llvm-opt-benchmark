@@ -5676,7 +5676,7 @@ declare void @LLVMPositionBuilderAtEnd(ptr noundef, ptr noundef) local_unnamed_a
 declare ptr @LLVMAppendBasicBlockInContext(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 24)) %0, ptr %1, ptr readonly captures(address) %2, i64 %3) unnamed_addr #0 {
+define internal fastcc void @_ZN12_GLOBAL__N_116toLLVMTypeVectorEN8WasmEdge4LLVM7ContextEN5cxx204spanIKNS0_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) initializes((0, 24)) %0, ptr %1, ptr readonly %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %"class.WasmEdge::LLVM::Type", align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %6 = icmp ugt i64 %3, 1152921504606846975

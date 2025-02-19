@@ -109,7 +109,7 @@ define noalias noundef ptr @If_LibBoxDup(ptr noundef readnone captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_LibBoxFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define void @If_LibBoxFree(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %.preheader
 
@@ -198,7 +198,7 @@ define ptr @If_LibBoxReadBox(ptr noundef readonly captures(none) %0, i32 noundef
 }
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @If_LibBoxFindBox(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
+define ptr @If_LibBoxFindBox(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %.preheader
 

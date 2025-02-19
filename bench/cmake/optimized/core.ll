@@ -185,7 +185,7 @@ define dso_local void @uv__make_close_pending(ptr noundef initializes((80, 88)) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv__socket_sockopt(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__socket_sockopt(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #22
   %5 = icmp eq ptr %0, null
@@ -336,7 +336,7 @@ uv__backend_timeout.exit:                         ; preds = %32, %28, %23, %19, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @uv_loop_alive(ptr noundef readonly captures(address) %0) local_unnamed_addr #7 {
+define dso_local range(i32 0, 2) i32 @uv_loop_alive(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !30
   %.not.i = icmp eq i32 %3, 0
@@ -1150,7 +1150,7 @@ define dso_local i64 @uv__recvmsg(i32 noundef %0, ptr noundef %1, i32 noundef %2
 declare i64 @recvmsg(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cwd(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_cwd(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4097 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 4097, ptr nonnull %3) #22
   %4 = icmp eq ptr %0, null
@@ -1894,7 +1894,7 @@ define dso_local i32 @uv__dup2_cloexec(i32 noundef %0, i32 noundef %1) local_unn
 declare i32 @dup3(i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_homedir(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_homedir(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.uv_passwd_s, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #22
   %4 = icmp eq ptr %0, null
@@ -1962,7 +1962,7 @@ uv_os_getenv.exit.thread:                         ; preds = %.sink.split.i, %2, 
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local range(i32 -105, 1) i32 @uv_os_getenv(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #17 {
+define dso_local range(i32 -105, 1) i32 @uv_os_getenv(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #17 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -2002,7 +2002,7 @@ define dso_local range(i32 -105, 1) i32 @uv_os_getenv(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca %struct.passwd, align 8
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %2) #22
@@ -2115,7 +2115,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv__getpwuid_r(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_os_free_passwd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @uv_os_free_passwd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -2135,7 +2135,7 @@ define dso_local void @uv_os_free_passwd(ptr noundef captures(address_is_null) %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #18
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: read) uwtable
-define dso_local range(i32 -105, 1) i32 @uv_os_tmpdir(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #17 {
+define dso_local range(i32 -105, 1) i32 @uv_os_tmpdir(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #17 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -2222,7 +2222,7 @@ declare i32 @getpwuid_r(i32 noundef, ptr noundef, ptr noundef, i64 noundef, ptr 
 declare void @uv__free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_passwd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_get_passwd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @uv__getpwuid_r(ptr noundef %0)
   ret i32 %2
 }
@@ -2375,7 +2375,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_setenv(ptr nound
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_unsetenv(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_unsetenv(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -2399,7 +2399,7 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_unsetenv(ptr nou
 declare noundef i32 @unsetenv(ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_gethostname(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_gethostname(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [65 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 65, ptr nonnull %3) #22
   %4 = icmp eq ptr %0, null
@@ -2484,7 +2484,7 @@ define dso_local i32 @uv_os_getppid() local_unnamed_addr #0 {
 declare i32 @getppid() local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_getpriority(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_os_getpriority(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %13, label %4
 
@@ -2666,7 +2666,7 @@ uv_fileno.exit.thread:                            ; preds = %switch.hole_check, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_gettimeofday(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_gettimeofday(ptr noundef writeonly %0) local_unnamed_addr #8 {
   %2 = alloca %struct.timeval, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #22
   %3 = icmp eq ptr %0, null
@@ -2735,7 +2735,7 @@ define dso_local void @uv_sleep(i32 noundef %0) local_unnamed_addr #0 {
 declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv__search_path(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv__search_path(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4096 x i8], align 16
   %5 = alloca [4096 x i8], align 16
   %6 = alloca ptr, align 8

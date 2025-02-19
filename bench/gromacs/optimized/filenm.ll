@@ -55,7 +55,7 @@ $_ZZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8
 @.str.13 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @_Z6opt2fnPKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond.i = or i1 %4, %5
@@ -121,7 +121,7 @@ declare noundef ptr @_Z10ftp2defopti(i32 noundef) local_unnamed_addr #3
 declare void @_ZN3gmx8internal13assertHandlerEPKcS2_S2_S2_i(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define { ptr, ptr } @_Z7opt2fnsB5cxx11PKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond.i = or i1 %4, %5
@@ -183,7 +183,7 @@ _ZL13getFileOptionPKciPK8t_filenm.exit:           ; preds = %14, %11
 }
 
 ; Function Attrs: mustprogress uwtable
-define { ptr, ptr } @_Z18opt2fnsIfOptionSetB5cxx11PKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define { ptr, ptr } @_Z18opt2fnsIfOptionSetB5cxx11PKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef %0, i32 noundef %1, ptr noundef %2)
   br i1 %4, label %5, label %9
 
@@ -202,7 +202,7 @@ define { ptr, ptr } @_Z18opt2fnsIfOptionSetB5cxx11PKciPK8t_filenm(ptr noundef re
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z8opt2bSetPKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond.i = or i1 %4, %5
@@ -362,7 +362,7 @@ define noundef zeroext i1 @_Z8ftp2bSetiiPK8t_filenm(i32 noundef %0, i32 noundef 
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @_Z11opt2fn_nullPKciPK8t_filenm(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq i32 %1, 0
   %5 = icmp ne ptr %2, null
   %or.cond.i = or i1 %4, %5

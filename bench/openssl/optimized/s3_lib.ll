@@ -3320,7 +3320,7 @@ define i32 @ssl3_peek(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ssl3_renegotiate(ptr noundef captures(address_is_null) %0) local_unnamed_addr #14 {
+define range(i32 0, 2) i32 @ssl3_renegotiate(ptr noundef %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.thread, label %3
 

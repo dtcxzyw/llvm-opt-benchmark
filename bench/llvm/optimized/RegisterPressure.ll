@@ -312,7 +312,7 @@ define dso_local void @_ZN4llvm16IntervalPressure7openTopENS_9SlotIndexE(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm14RegionPressure7openTopENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(328) %0, ptr readnone captures(address) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm14RegionPressure7openTopENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(328) %0, ptr readnone %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %4 = load ptr, ptr %3, align 8, !tbaa !247
   %.not = icmp eq ptr %4, %1
@@ -362,7 +362,7 @@ define dso_local void @_ZN4llvm16IntervalPressure10openBottomENS_9SlotIndexE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4llvm14RegionPressure10openBottomENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(328) %0, ptr readnone captures(address) %1) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm14RegionPressure10openBottomENS_26MachineInstrBundleIteratorIKNS_12MachineInstrELb0EEE(ptr noundef nonnull align 8 captures(none) dereferenceable(328) %0, ptr readnone %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 320
   %4 = load ptr, ptr %3, align 8, !tbaa !247
   %.not = icmp eq ptr %4, %1
@@ -3352,7 +3352,7 @@ select.unfold:                                    ; preds = %.critedge4, %60
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18RegPressureTracker11addLiveRegsENS_8ArrayRefINS_14VRegMaskOrUnitEEE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18RegPressureTracker11addLiveRegsENS_8ArrayRefINS_14VRegMaskOrUnitEEE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw %"struct.llvm::VRegMaskOrUnit", ptr %1, i64 %2
   %.not20 = icmp eq i64 %2, 0
   br i1 %.not20, label %._crit_edge, label %.lr.ph
@@ -3795,7 +3795,7 @@ define dso_local void @_ZN4llvm18RegPressureTracker15discoverLiveOutENS_14VRegMa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18RegPressureTracker12bumpDeadDefsENS_8ArrayRefINS_14VRegMaskOrUnitEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm18RegPressureTracker12bumpDeadDefsENS_8ArrayRefINS_14VRegMaskOrUnitEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(352) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw %"struct.llvm::VRegMaskOrUnit", ptr %1, i64 %2
   %.not61 = icmp eq i64 %2, 0
   br i1 %.not61, label %._crit_edge, label %.lr.ph

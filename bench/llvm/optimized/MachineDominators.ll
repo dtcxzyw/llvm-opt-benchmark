@@ -9358,7 +9358,7 @@ _ZN4llvm17DominatorTreeBaseINS_17MachineBasicBlockELb0EED2Ev.exit: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm31MachineDominatorTreeWrapperPass13releaseMemoryEv(ptr noundef nonnull align 8 captures(address) dereferenceable(192) %0) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm31MachineDominatorTreeWrapperPass13releaseMemoryEv(ptr noundef nonnull align 8 dereferenceable(192) %0) unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load i8, ptr %3, align 8, !tbaa !397, !range !54, !noundef !55

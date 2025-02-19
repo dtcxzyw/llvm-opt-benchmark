@@ -119,7 +119,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str.2 = private unnamed_addr constant [105 x i8] c"Warning:  Case-statement with 1-bit control is treated as a 2:1 MUX (correct for unsigned signals only).\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Wlc_PrsStart(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noalias noundef ptr @Wlc_PrsStart(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -2440,7 +2440,7 @@ Wlc_PrsIsChar.exit32.thread.i:                    ; preds = %133
 }
 
 ; Function Attrs: inlinehint nofree nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @Wlc_PrsFindWord(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #14 {
+define internal fastcc ptr @Wlc_PrsFindWord(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #14 {
   store i32 0, ptr %2, align 4, !tbaa !36
   br label %4
 
@@ -2469,7 +2469,7 @@ Wlc_PrsSkipSpaces.exit:                           ; preds = %4
 }
 
 ; Function Attrs: inlinehint nofree nounwind uwtable
-define internal fastcc ptr @Wlc_PrsFindRange(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 {
+define internal fastcc ptr @Wlc_PrsFindRange(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %2) unnamed_addr #15 {
   store i32 0, ptr %2, align 4, !tbaa !36
   store i32 0, ptr %1, align 4, !tbaa !36
   br label %4
@@ -2611,7 +2611,7 @@ Wlc_PrsFindSymbol.exit43.thread:                  ; preds = %4, %23, %43, %Wlc_P
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @Wlc_PrsFindName(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #16 {
+define internal fastcc noundef ptr @Wlc_PrsFindName(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %1) unnamed_addr #16 {
   store ptr @Wlc_PrsFindName.Buffer, ptr %1, align 8, !tbaa !56
   br label %3
 
@@ -9611,7 +9611,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Wlc_ReadVer(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @Wlc_ReadVer(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @Wlc_PrsStart(ptr noundef %0, ptr noundef %1)
   %5 = icmp eq ptr %4, null
   br i1 %5, label %105, label %6

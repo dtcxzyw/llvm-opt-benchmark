@@ -55,13 +55,13 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.32 = private unnamed_addr constant [37 x i8] c"o->encoding == OBJ_ENCODING_LISTPACK\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeTryConversion(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local void @listTypeTryConversion(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %0, i32 noundef %1, ptr noundef null, i32 noundef 0, i32 noundef 0, ptr noundef %2, ptr noundef %3)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @listTypeTryConversionRaw(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @listTypeTryConversionRaw(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca i32, align 4
   %10 = load i32, ptr %0, align 8
@@ -324,7 +324,7 @@ listTypeTryConvertListpack.exit:                  ; preds = %121, %99, %56, %13,
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listTypeTryConversionAppend(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local void @listTypeTryConversionAppend(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   tail call fastcc void @listTypeTryConversionRaw(ptr noundef %0, i32 noundef 1, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5)
   ret void
 }
@@ -2285,7 +2285,7 @@ define dso_local void @lsetCommand(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listPopRangeAndReplyWithKey(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local void @listPopRangeAndReplyWithKey(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = load i32, ptr %1, align 8
   %9 = lshr i32 %8, 4
   %10 = and i32 %9, 15
@@ -2441,7 +2441,7 @@ listTypeLength.exit:                              ; preds = %9, %13
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @listElementsRemoved(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local void @listElementsRemoved(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(none) %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = icmp eq i32 %2, 0
   %9 = select i1 %8, ptr @.str.13, ptr @.str.14
   %10 = load i32, ptr %3, align 8
@@ -3939,7 +3939,7 @@ listTypeLength.exit:                              ; preds = %107, %111
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @lmoveHandlePush(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local void @lmoveHandlePush(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr %3, ptr %6, align 8, !tbaa !48
   %.not = icmp eq ptr %2, null

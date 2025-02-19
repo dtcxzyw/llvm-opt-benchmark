@@ -572,7 +572,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN8facebook5velox6common10SpillStatspLERKS2_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(104) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %other) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN8facebook5velox6common10SpillStatspLERKS2_(ptr noundef nonnull returned align 8 dereferenceable(104) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(104) %other) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i64, ptr %other, align 8
   %1 = load i64, ptr %this, align 8

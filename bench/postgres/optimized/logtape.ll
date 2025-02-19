@@ -1033,7 +1033,7 @@ ltsReleaseBlock.exit:                             ; preds = %.thread.i, %40, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LogicalTapeFreeze(ptr noundef captures(none) initializes((8, 10), (64, 68)) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @LogicalTapeFreeze(ptr noundef captures(none) initializes((8, 10), (64, 68)) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 10
   %5 = load i8, ptr %4, align 2, !range !4, !noundef !5

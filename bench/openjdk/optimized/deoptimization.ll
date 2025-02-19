@@ -2218,7 +2218,7 @@ _ZL24restore_eliminated_locksP10JavaThreadP13GrowableArrayIP14compiledVFrameEbR5
 declare void @_ZN11RegisterMapC1EPKS_(ptr noundef nonnull align 8 dereferenceable(4983), ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL21rematerialize_objectsP10JavaThreadiP7nmethodR5frameR11RegisterMapP13GrowableArrayIP14compiledVFrameERb(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL21rematerialize_objectsP10JavaThreadiP7nmethodR5frameR11RegisterMapP13GrowableArrayIP14compiledVFrameERb(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull align 8 dereferenceable(4983) %4, ptr noundef readonly captures(none) %5, ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(1) %6) unnamed_addr #0 {
   %8 = alloca %class.stringStream, align 8
   %9 = alloca %class.fieldDescriptor, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -5733,7 +5733,7 @@ define hidden noundef ptr @_ZN14Deoptimization15get_method_dataEP10JavaThreadRK1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN14Deoptimization25deoptimize_frame_internalEP10JavaThreadPlNS_11DeoptReasonE(ptr noundef %0, ptr noundef readnone captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN14Deoptimization25deoptimize_frame_internalEP10JavaThreadPlNS_11DeoptReasonE(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %class.frame, align 8
   %5 = alloca %class.RegisterMap, align 8
   %6 = alloca %class.frame, align 8
@@ -7799,7 +7799,7 @@ define hidden noundef i32 @_ZN14Deoptimization26total_deoptimization_countEv() l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN14Deoptimization20deoptimization_countEPKcS1_(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZN14Deoptimization20deoptimization_countEPKcS1_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = and i1 %3, %4

@@ -23351,7 +23351,7 @@ return:                                           ; preds = %if.then.i.i.i376, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3smt10theory_str41estimate_automata_intersection_difficultyEP9automatonI8sym_expr16sym_expr_managerES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1800) %this, ptr noundef readonly captures(address_is_null) %aut1, ptr noundef readonly captures(address_is_null) %aut2) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN3smt10theory_str41estimate_automata_intersection_difficultyEP9automatonI8sym_expr16sym_expr_managerES5_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(1800) %this, ptr noundef readonly %aut1, ptr noundef readonly %aut2) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq ptr %aut1, null
   br i1 %cmp.not, label %if.then, label %if.end

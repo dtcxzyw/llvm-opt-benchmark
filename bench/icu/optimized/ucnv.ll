@@ -775,7 +775,7 @@ return:                                           ; preds = %ucnv_setFromUCallBa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_setFromUCallBack_75(ptr noundef captures(none) %converter, ptr noundef %newAction, ptr noundef %newContext, ptr noundef writeonly captures(address_is_null) %oldAction, ptr noundef writeonly captures(address_is_null) %oldContext, ptr noundef readonly captures(none) %err) local_unnamed_addr #6 {
+define void @ucnv_setFromUCallBack_75(ptr noundef captures(none) %converter, ptr noundef %newAction, ptr noundef %newContext, ptr noundef writeonly %oldAction, ptr noundef writeonly %oldContext, ptr noundef readonly captures(none) %err) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1404,7 +1404,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_setToUCallBack_75(ptr noundef captures(none) %converter, ptr noundef %newAction, ptr noundef %newContext, ptr noundef writeonly captures(address_is_null) %oldAction, ptr noundef writeonly captures(address_is_null) %oldContext, ptr noundef readonly captures(none) %err) local_unnamed_addr #6 {
+define void @ucnv_setToUCallBack_75(ptr noundef captures(none) %converter, ptr noundef %newAction, ptr noundef %newContext, ptr noundef writeonly %oldAction, ptr noundef writeonly %oldContext, ptr noundef readonly captures(none) %err) local_unnamed_addr #6 {
 entry:
   %0 = load i32, ptr %err, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1442,7 +1442,7 @@ return:                                           ; preds = %entry, %if.end7
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_fromUnicode_75(ptr noundef %cnv, ptr noundef captures(address_is_null) %target, ptr noundef %targetLimit, ptr noundef captures(address_is_null) %source, ptr noundef %sourceLimit, ptr noundef %offsets, i8 noundef signext %flush, ptr noundef %err) local_unnamed_addr #0 {
+define void @ucnv_fromUnicode_75(ptr noundef %cnv, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %offsets, i8 noundef signext %flush, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %offsets.addr = alloca ptr, align 8
   %args = alloca %struct.UConverterFromUnicodeArgs, align 8
@@ -1561,7 +1561,7 @@ return:                                           ; preds = %land.lhs.true42, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr noundef nonnull captures(none) %cnv, ptr noundef nonnull captures(none) %target, ptr noundef readnone captures(address) %targetLimit, ptr noundef captures(address_is_null) %pOffsets, ptr noundef nonnull writeonly captures(none) %err) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL30ucnv_outputOverflowFromUnicodeP10UConverterPPcPKcPPiP10UErrorCode(ptr noundef nonnull captures(none) %cnv, ptr noundef nonnull captures(none) %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr noundef nonnull writeonly captures(none) %err) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp.not = icmp eq ptr %pOffsets, null
@@ -2018,7 +2018,7 @@ return:                                           ; preds = %if.else114, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_toUnicode_75(ptr noundef %cnv, ptr noundef captures(address_is_null) %target, ptr noundef %targetLimit, ptr noundef captures(address_is_null) %source, ptr noundef %sourceLimit, ptr noundef %offsets, i8 noundef signext %flush, ptr noundef %err) local_unnamed_addr #0 {
+define void @ucnv_toUnicode_75(ptr noundef %cnv, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %offsets, i8 noundef signext %flush, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %offsets.addr = alloca ptr, align 8
   %args = alloca %struct.UConverterToUnicodeArgs, align 8
@@ -2137,7 +2137,7 @@ return:                                           ; preds = %land.lhs.true42, %l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr noundef nonnull captures(none) %cnv, ptr noundef nonnull captures(none) %target, ptr noundef readnone captures(address) %targetLimit, ptr noundef captures(address_is_null) %pOffsets, ptr noundef nonnull writeonly captures(none) %err) unnamed_addr #11 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZL28ucnv_outputOverflowToUnicodeP10UConverterPPDsPKDsPPiP10UErrorCode(ptr noundef nonnull captures(none) %cnv, ptr noundef nonnull captures(none) %target, ptr noundef readnone %targetLimit, ptr noundef %pOffsets, ptr noundef nonnull writeonly captures(none) %err) unnamed_addr #11 {
 entry:
   %0 = load ptr, ptr %target, align 8
   %cmp.not = icmp eq ptr %pOffsets, null
@@ -2797,7 +2797,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 declare i32 @u_terminateUChars_75(ptr noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_75(ptr noundef %cnv, ptr noundef captures(address_is_null) %source, ptr noundef %sourceLimit, ptr noundef %err) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @ucnv_getNextUChar_75(ptr noundef %cnv, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %args = alloca %struct.UConverterToUnicodeArgs, align 8
   %buffer = alloca [2 x i16], align 2
@@ -3139,7 +3139,7 @@ return:                                           ; preds = %if.else, %if.end47,
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_convertEx_75(ptr noundef %targetCnv, ptr noundef %sourceCnv, ptr noundef captures(address_is_null) %target, ptr noundef %targetLimit, ptr noundef captures(address_is_null) %source, ptr noundef %sourceLimit, ptr noundef %pivotStart, ptr noundef captures(address_is_null) %pivotSource, ptr noundef captures(address_is_null) %pivotTarget, ptr noundef %pivotLimit, i8 noundef signext %reset, i8 noundef signext %flush, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define void @ucnv_convertEx_75(ptr noundef %targetCnv, ptr noundef %sourceCnv, ptr noundef %target, ptr noundef %targetLimit, ptr noundef %source, ptr noundef %sourceLimit, ptr noundef %pivotStart, ptr noundef %pivotSource, ptr noundef %pivotTarget, ptr noundef %pivotLimit, i8 noundef signext %reset, i8 noundef signext %flush, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %pivotBuffer = alloca [1024 x i16], align 16
   %myPivotSource = alloca ptr, align 8
@@ -3955,7 +3955,7 @@ if.end6:                                          ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_fixFileSeparator_75(ptr noundef %cnv, ptr noundef captures(address_is_null) %source, i32 noundef %sourceLength) local_unnamed_addr #0 {
+define void @ucnv_fixFileSeparator_75(ptr noundef %cnv, ptr noundef %source, i32 noundef %sourceLength) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %cnv, null
   %cmp1 = icmp eq ptr %source, null
@@ -4108,7 +4108,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @ucnv_getInvalidChars_75(ptr noundef readonly captures(address_is_null) %converter, ptr noundef writeonly captures(address_is_null) %errBytes, ptr noundef captures(address_is_null) %len, ptr noundef captures(address_is_null) %err) local_unnamed_addr #6 {
+define void @ucnv_getInvalidChars_75(ptr noundef readonly %converter, ptr noundef writeonly %errBytes, ptr noundef %len, ptr noundef %err) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %err, null
   br i1 %cmp, label %if.end17, label %lor.lhs.false
@@ -4157,7 +4157,7 @@ if.end17:                                         ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_getInvalidUChars_75(ptr noundef %converter, ptr noundef %errChars, ptr noundef captures(address_is_null) %len, ptr noundef captures(address_is_null) %err) local_unnamed_addr #0 {
+define void @ucnv_getInvalidUChars_75(ptr noundef %converter, ptr noundef %errChars, ptr noundef %len, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %err, null
   br i1 %cmp, label %if.end18, label %lor.lhs.false
@@ -4208,7 +4208,7 @@ if.end18:                                         ; preds = %entry, %lor.lhs.fal
 declare ptr @u_memcpy_75(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @ucnv_detectUnicodeSignature_75(ptr noundef readonly captures(address_is_null) %source, i32 noundef %sourceLength, ptr noundef writeonly captures(address_is_null) %signatureLength, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #13 {
+define noundef ptr @ucnv_detectUnicodeSignature_75(ptr noundef readonly %source, i32 noundef %sourceLength, ptr noundef writeonly %signatureLength, ptr noundef %pErrorCode) local_unnamed_addr #13 {
 entry:
   %start = alloca [5 x i8], align 1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %start, i8 -91, i64 5, i1 false)
@@ -4436,7 +4436,7 @@ return:                                           ; preds = %if.end161.else, %if
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -127, 130) i32 @ucnv_fromUCountPending_75(ptr noundef readonly captures(address_is_null) %cnv, ptr noundef captures(address_is_null) %status) local_unnamed_addr #6 {
+define range(i32 -127, 130) i32 @ucnv_fromUCountPending_75(ptr noundef readonly %cnv, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -4493,7 +4493,7 @@ return:                                           ; preds = %if.else14, %entry, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -1, 129) i32 @ucnv_toUCountPending_75(ptr noundef readonly captures(address_is_null) %cnv, ptr noundef captures(address_is_null) %status) local_unnamed_addr #6 {
+define range(i32 -1, 129) i32 @ucnv_toUCountPending_75(ptr noundef readonly %cnv, ptr noundef %status) local_unnamed_addr #6 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false

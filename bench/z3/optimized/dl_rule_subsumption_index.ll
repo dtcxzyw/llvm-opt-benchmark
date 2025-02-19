@@ -223,7 +223,7 @@ if.end:                                           ; preds = %if.then, %_ZN15ref_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN7datalog22rule_subsumption_index11is_subsumedEP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly captures(address) %query) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN7datalog22rule_subsumption_index11is_subsumedEP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %this, ptr noundef readonly %query) local_unnamed_addr #4 align 2 {
 entry:
   %m_decl.i = getelementptr inbounds nuw i8, ptr %query, i64 16
   %0 = load ptr, ptr %m_decl.i, align 8

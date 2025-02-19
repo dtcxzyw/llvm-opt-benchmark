@@ -286,7 +286,7 @@ declare ptr @cli_safer_strdup(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @fmap_duplicate(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define noalias noundef ptr @fmap_duplicate(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -399,7 +399,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @free_duplicate_fmap(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @free_duplicate_fmap(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -438,7 +438,7 @@ declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #10
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @unmap_handle(ptr noundef captures(address_is_null) %0) #0 {
+define internal void @unmap_handle(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %2
 
@@ -704,7 +704,7 @@ fmap_unneed_page.exit:                            ; preds = %52, %56, %57, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1, ptr noundef captures(none) %2, i64 noundef %3) #0 {
+define internal noundef ptr @handle_gets(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef captures(none) %2, i64 noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -961,7 +961,7 @@ define noalias noundef ptr @fmap_open_memory(ptr noundef %0, i64 noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @unmap_malloc(ptr noundef captures(address_is_null) %0) #8 {
+define internal void @unmap_malloc(ptr noundef %0) #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1067,7 +1067,7 @@ define internal ptr @mem_need_offstr(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @mem_gets(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(ret: address, provenance) %1, ptr noundef captures(none) %2, i64 noundef %3) #13 {
+define internal noundef ptr @mem_gets(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef captures(none) %2, i64 noundef %3) #13 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1362,7 +1362,7 @@ declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_a
 declare i64 @lseek(i32 noundef, i64 noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @fmap_fd(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef i32 @fmap_fd(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1397,7 +1397,7 @@ define void @cl_fmap_close(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @fmap_set_hash(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @fmap_set_hash(ptr noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 

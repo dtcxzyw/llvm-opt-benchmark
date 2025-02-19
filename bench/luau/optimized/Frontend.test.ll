@@ -47430,7 +47430,7 @@ define linkonce_odr dso_local void @_ZN4Luau16NullFileResolver10readSourceERKNSt
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_117NaiveFileResolver13resolveModuleEPKN4Luau10ModuleInfoEPNS1_7AstExprE(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_117NaiveFileResolver13resolveModuleEPKN4Luau10ModuleInfoEPNS1_7AstExprE(ptr dead_on_unwind noalias writable sret(%"class.std::optional") align 8 %0, ptr nonnull readnone align 8 captures(none) %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"struct.Luau::ModuleInfo", align 8
   %6 = alloca %"class.std::allocator.1", align 1
   %7 = alloca %"struct.Luau::ModuleInfo", align 8

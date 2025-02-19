@@ -1928,7 +1928,7 @@ dissect_mswsp_smb.exit:                           ; preds = %37, %4, %10, %13, %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal zeroext i1 @dissect_mswsp_smb2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal zeroext i1 @dissect_mswsp_smb2_heur(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -3281,7 +3281,7 @@ declare ptr @proto_tree_add_checksum(ptr noundef, ptr noundef, i32 noundef, i32 
 declare void @proto_item_set_text(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @find_or_create_message_data(ptr noundef captures(address_is_null) %0, ptr noundef %1, i16 noundef zeroext range(i16 200, 209) %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc ptr @find_or_create_message_data(ptr noundef %0, ptr noundef %1, i16 noundef zeroext range(i16 200, 209) %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca %struct.message_data, align 8
   %7 = zext i1 %3 to i8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #11
@@ -3768,7 +3768,7 @@ declare ptr @guid_to_str(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr readnone captures(none) %6, ...) unnamed_addr #0 {
+define internal noundef i32 @parse_CDbProp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr readnone captures(none) %6, ...) unnamed_addr #0 {
   %8 = alloca %struct._e_guid_t, align 4
   %9 = alloca ptr, align 8
   %10 = alloca %struct.CBaseStorageVariant, align 8

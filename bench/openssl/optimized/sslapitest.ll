@@ -21102,7 +21102,7 @@ declare i32 @test_int_le(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32
 declare void @SSL_CTX_set_psk_use_session_callback(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @use_session_cb(ptr readnone captures(none) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #1 {
+define internal range(i32 0, 2) i32 @use_session_cb(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) #1 {
   %6 = load i32, ptr @use_session_cb_cnt, align 4, !tbaa !14
   %7 = add nsw i32 %6, 1
   store i32 %7, ptr @use_session_cb_cnt, align 4, !tbaa !14
@@ -21965,7 +21965,7 @@ declare i32 @test_ulong_eq(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i
 declare i32 @test_ptr_ne(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @setupearly_data_test(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, i64 noundef range(i64 32, 49) %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @setupearly_data_test(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef %4, i32 noundef %5, i64 noundef range(i64 32, 49) %6) unnamed_addr #1 {
   %8 = load i32, ptr @artificial_ticket_time, align 4, !tbaa !14
   %9 = icmp sgt i32 %8, 0
   %10 = load ptr, ptr %1, align 8, !tbaa !19

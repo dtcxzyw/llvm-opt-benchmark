@@ -108,7 +108,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare noundef i32 @_ZNK6icu_7517RuleBasedCollator11cloneBinaryEPhiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(272), ptr noundef, i32 noundef, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucol_safeClone_75(ptr noundef %coll, ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %pBufferSize, ptr noundef captures(address_is_null) %status) local_unnamed_addr #0 {
+define noundef ptr @ucol_safeClone_75(ptr noundef %coll, ptr noundef readnone captures(none) %0, ptr noundef %pBufferSize, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -154,7 +154,7 @@ return:                                           ; preds = %if.end9, %return.si
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucol_clone_75(ptr noundef %coll, ptr noundef captures(address_is_null) %status) local_unnamed_addr #0 {
+define noundef ptr @ucol_clone_75(ptr noundef %coll, ptr noundef %status) local_unnamed_addr #0 {
 entry:
   %cmp.i = icmp eq ptr %status, null
   br i1 %cmp.i, label %ucol_safeClone_75.exit, label %lor.lhs.false.i
@@ -204,7 +204,7 @@ if.end:                                           ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @ucol_mergeSortkeys_75(ptr noundef readonly captures(address_is_null) %src1, i32 noundef %src1Length, ptr noundef readonly captures(address_is_null) %src2, i32 noundef %src2Length, ptr noundef %dest, i32 noundef %destCapacity) local_unnamed_addr #3 {
+define i32 @ucol_mergeSortkeys_75(ptr noundef readonly %src1, i32 noundef %src1Length, ptr noundef readonly %src2, i32 noundef %src2Length, ptr noundef %dest, i32 noundef %destCapacity) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %src1, null
   %cmp1 = icmp slt i32 %src1Length, -1
@@ -419,7 +419,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, -2147483648) i32 @ucol_getBound_75(ptr noundef readonly captures(address_is_null) %source, i32 noundef %sourceLength, i32 noundef %boundType, i32 noundef %noOfLevels, ptr noundef writeonly captures(address_is_null) %result, i32 noundef %resultLength, ptr noundef captures(address_is_null) %status) local_unnamed_addr #5 {
+define range(i32 -2147483647, -2147483648) i32 @ucol_getBound_75(ptr noundef readonly %source, i32 noundef %sourceLength, i32 noundef %boundType, i32 noundef %noOfLevels, ptr noundef writeonly %result, i32 noundef %resultLength, ptr noundef %status) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false

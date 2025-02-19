@@ -161,7 +161,7 @@ define range(i32 0, 2) i32 @SSL_in_before(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @ossl_statem_get_state(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i32 @ossl_statem_get_state(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

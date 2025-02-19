@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0, ptr noundef readonly captures(address) %1, i64 noundef %2, ptr noundef nonnull readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_shorthash_siphashx24(ptr noundef nonnull %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef nonnull readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = load i64, ptr %3, align 1
   %6 = getelementptr i8, ptr %3, i64 8
   %7 = load i64, ptr %6, align 1

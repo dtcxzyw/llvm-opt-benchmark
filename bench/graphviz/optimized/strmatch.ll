@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.11 = private unnamed_addr constant [7 x i8] c"xdigit\00", align 1
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @strgrpmatch(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.Match_t, align 8
   call void @llvm.lifetime.start.p0(i64 368, ptr nonnull %6) #7
   %7 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #8
@@ -372,7 +372,7 @@ strgrpmatch.exit:                                 ; preds = %18, %2
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 2) i32 @onematch(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 2) i32 @onematch(ptr noundef nonnull captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %8
 

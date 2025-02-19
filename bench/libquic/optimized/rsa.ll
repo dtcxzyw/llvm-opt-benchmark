@@ -108,7 +108,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @RSA_additional_prime_free(ptr noundef captures(address_is_null) %0) #0 {
+define hidden void @RSA_additional_prime_free(ptr noundef %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.16 = private unnamed_addr constant [8 x i8] c"poll(2)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @redisNetClose(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @redisNetClose(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -539,7 +539,7 @@ redisContextUpdateCommandTimeout.exit:            ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextUpdateCommandTimeout(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextUpdateCommandTimeout(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %4 = load ptr, ptr %3, align 8, !tbaa !27
   %5 = icmp eq ptr %4, %1
@@ -567,7 +567,7 @@ define range(i32 -1, 1) i32 @redisContextUpdateCommandTimeout(ptr noundef captur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %4 = load ptr, ptr %3, align 8, !tbaa !30
   %5 = icmp eq ptr %4, %1
@@ -598,13 +598,13 @@ define range(i32 -1, 1) i32 @redisContextUpdateConnectTimeout(ptr noundef captur
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @_redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @_redisContextConnectTcp(ptr noundef initializes((168, 172), (208, 212)) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca [6 x i8], align 1
   %8 = alloca %struct.addrinfo, align 8
@@ -1027,13 +1027,13 @@ redisContextUpdateConnectTimeout.exit:            ; preds = %131, %34, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextConnectBindTcp(ptr noundef initializes((168, 172), (208, 212)) %0, ptr noundef %1, i32 noundef %2, ptr noundef captures(address) %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectBindTcp(ptr noundef initializes((168, 172), (208, 212)) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call fastcc i32 @_redisContextConnectTcp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisContextConnectUnix(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisContextConnectUnix(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca [128 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load i32, ptr %5, align 8, !tbaa !19

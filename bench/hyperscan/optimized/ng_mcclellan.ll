@@ -451,7 +451,7 @@ for.end:                                          ; preds = %for.inc.i.i27, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue217calculateAlphabetERKNS_8NGHolderERSt5arrayItLm257EES5_Pt(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %g, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(514) %alpha, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(514) %unalpha, ptr noundef writeonly captures(none) %alphasize) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue217calculateAlphabetERKNS_8NGHolderERSt5arrayItLm257EES5_Pt(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(514) %alpha, ptr noundef nonnull writeonly align 2 captures(none) dereferenceable(514) %unalpha, ptr noundef writeonly captures(none) %alphasize) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %t = alloca %"class.ue2::CharReach", align 8
   %ref.tmp32 = alloca %"class.ue2::CharReach", align 8
@@ -869,7 +869,7 @@ for.end:                                          ; preds = %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3ue218markToppableStartsERKNS_8NGHolderERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessISA_ESaISA_EEEbRKSt6vectorISH_INS_9CharReachESaISI_EESaISK_EEPN5boost14dynamic_bitsetImSaImEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %unused, i1 noundef zeroext %single_trigger, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %triggers, ptr noundef readonly captures(none) %out) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3ue218markToppableStartsERKNS_8NGHolderERKNS_8flat_setINS_12graph_detail17vertex_descriptorINS_9ue2_graphIS0_NS_19NFAGraphVertexPropsENS_17NFAGraphEdgePropsEEEEESt4lessISA_ESaISA_EEEbRKSt6vectorISH_INS_9CharReachESaISI_EESaISK_EEPN5boost14dynamic_bitsetImSaImEEE(ptr noundef nonnull readonly align 8 dereferenceable(136) %g, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %unused, i1 noundef zeroext %single_trigger, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %triggers, ptr noundef readonly captures(none) %out) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp9.i.i = alloca %"class.ue2::CharReach", align 8
   %curr.i = alloca %"class.ue2::flat_set.14", align 8
@@ -14558,7 +14558,7 @@ _ZNSt10_HashtableIN3ue28bitfieldILm256EEESt4pairIKS2_tESaIS5_ENSt8__detail10_Sel
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE9reports_iERKNS_8bitfieldILm256EEEbRNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1420) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %in, i1 noundef zeroext %eod, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %rv) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_12Graph_TraitsEE9reports_iERKNS_8bitfieldILm256EEEbRNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1420) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %in, i1 noundef zeroext %eod, ptr noundef nonnull align 8 dereferenceable(32) %rv) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %acc = alloca %"class.ue2::bitfield", align 8
   %cond-lvalue.v = select i1 %eod, i64 240, i64 208
@@ -17337,7 +17337,7 @@ unreachable:                                      ; preds = %invoke.cont2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_10Big_TraitsEE9reports_iERKN5boost14dynamic_bitsetImSaImEEEbRNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull align 8 dereferenceable(1420) %this, ptr noundef nonnull align 8 dereferenceable(32) %in, i1 noundef zeroext %eod, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %rv) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN3ue212_GLOBAL__N_114Automaton_BaseINS0_10Big_TraitsEE9reports_iERKN5boost14dynamic_bitsetImSaImEEEbRNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull align 8 dereferenceable(1420) %this, ptr noundef nonnull align 8 dereferenceable(32) %in, i1 noundef zeroext %eod, ptr noundef nonnull align 8 dereferenceable(32) %rv) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %acc = alloca %"class.boost::dynamic_bitset", align 8
   %cond-lvalue.v = select i1 %eod, i64 240, i64 208

@@ -1398,7 +1398,7 @@ define internal fastcc double @ddCountPathAux(ptr noundef %0, ptr noundef nonnul
 declare i32 @st__foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define noundef i32 @cuddStCountfree(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2) #8 {
+define noundef i32 @cuddStCountfree(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -2637,7 +2637,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @Cudd_bddPickOneCube(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #9 {
   %4 = icmp eq ptr %2, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %4
@@ -5198,7 +5198,7 @@ Cudd_BddToCubeArray.exit:                         ; preds = %72, %.preheader.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = ptrtoint ptr %6 to i64
@@ -5288,7 +5288,7 @@ define ptr @Cudd_bddComputeCube(ptr noundef %0, ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Cudd_addComputeCube(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !25
   %7 = ptrtoint ptr %6 to i64
@@ -5596,7 +5596,7 @@ define range(i32 0, 2) i32 @Cudd_NextNode(ptr noundef captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Cudd_GenFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef i32 @Cudd_GenFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -5668,7 +5668,7 @@ define noundef i32 @Cudd_GenFree(ptr noundef captures(address_is_null) %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Cudd_IsGenEmpty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #14 {
+define range(i32 0, 2) i32 @Cudd_IsGenEmpty(ptr noundef readonly %0) local_unnamed_addr #14 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -5750,7 +5750,7 @@ define void @Cudd_PrintVersion(ptr noundef captures(none) %0) local_unnamed_addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define double @Cudd_AverageDistance(ptr noundef readonly captures(address) %0) local_unnamed_addr #15 {
+define double @Cudd_AverageDistance(ptr noundef readonly %0) local_unnamed_addr #15 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %3 = load i32, ptr %2, align 8, !tbaa !26
   %4 = icmp eq i32 %3, 0

@@ -6179,7 +6179,7 @@ psr_irq_control.exit:                             ; preds = %49, %.thread.i
 declare dso_local i32 @mutex_lock_interruptible(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_psr_invalidate(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_psr_invalidate(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = icmp eq i32 %2, 2
   br i1 %4, label %.loopexit, label %5
 
@@ -6344,7 +6344,7 @@ define dso_local void @intel_psr_invalidate(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_psr_flush(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local void @intel_psr_flush(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
   %5 = load ptr, ptr %4, align 8
   %6 = icmp eq ptr %5, %4
@@ -7898,7 +7898,7 @@ declare dso_local i32 @simple_attr_release(ptr noundef, ptr noundef) #3
 declare dso_local i32 @simple_attr_open(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define internal noundef range(i32 -19, 1) i32 @i915_edp_psr_debug_get(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1) #8 align 16 {
+define internal noundef range(i32 -19, 1) i32 @i915_edp_psr_debug_get(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) #8 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28

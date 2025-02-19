@@ -1090,7 +1090,7 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @date_mii(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i64 @date2timestamp_opt_overflow(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local noundef i64 @date2timestamp_opt_overflow(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -1137,7 +1137,7 @@ define dso_local noundef i64 @date2timestamp_opt_overflow(i32 noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @date2timestamptz_opt_overflow(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i64 -211813488000000000, -9223372036854775807) i64 @date2timestamptz_opt_overflow(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.pg_tm, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3) #16
   %.not = icmp eq ptr %1, null
@@ -5039,7 +5039,7 @@ define dso_local i64 @timetz_out(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @timetz2tm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #4 {
+define dso_local noundef i32 @timetz2tm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 12)) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, ptr noundef writeonly %3) local_unnamed_addr #4 {
   %5 = load i64, ptr %0, align 8
   %6 = sdiv i64 %5, 3600000000
   %7 = trunc i64 %6 to i32

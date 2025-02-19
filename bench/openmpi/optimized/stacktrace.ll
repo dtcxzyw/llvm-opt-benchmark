@@ -531,7 +531,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 ; Function Attrs: nounwind uwtable
-define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr readnone captures(none) %2) #0 {
+define internal void @show_stackframe(i32 noundef %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #0 {
   %4 = alloca [1024 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #15
   %5 = load i32, ptr @prte_stacktrace_output_fileno, align 4, !tbaa !3

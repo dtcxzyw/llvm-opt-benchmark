@@ -144,7 +144,7 @@ define void @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..Fn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h92fb3879d7d3faeeE"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 captures(ret: address, provenance) %1) unnamed_addr #1 {
+define nonnull align 8 ptr @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h92fb3879d7d3faeeE"(ptr readnone align 1 captures(none) %0, ptr readnone align 8 %1) unnamed_addr #1 {
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   ret ptr %.sroa.0.0.i
 }

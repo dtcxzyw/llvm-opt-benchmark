@@ -2448,7 +2448,7 @@ _ZNSt8_Rb_treeIjSt4pairIKjSt3setIN3ue212graph_detail17vertex_descriptorINS3_9ue2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK3ue217RoseDedupeAuxImpl19hasSafeMultiReportsERKNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %reports) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK3ue217RoseDedupeAuxImpl19hasSafeMultiReportsERKNS_8flat_setIjSt4lessIjESaIjEEE(ptr noundef nonnull readonly align 8 dereferenceable(312) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %reports) local_unnamed_addr #9 align 2 {
 entry:
   %m_size.i.i = getelementptr inbounds nuw i8, ptr %reports, i64 8
   %0 = load i64, ptr %m_size.i.i, align 8
@@ -4186,7 +4186,7 @@ ehcleanup466:                                     ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN3ue2L14requiresDedupeERKNS_8NGHolderERKNS_8flat_setIjSt4lessIjESaIjEEERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr readonly captures(address) %reports.0.val, i64 %reports.8.val, i32 %grey.100.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN3ue2L14requiresDedupeERKNS_8NGHolderERKNS_8flat_setIjSt4lessIjESaIjEEERKNS_4GreyE(ptr noundef nonnull align 8 dereferenceable(136) %h, ptr readonly %reports.0.val, i64 %reports.8.val, i32 %grey.100.val) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %repeats = alloca %"class.std::vector.358", align 8
   %reports.8.val.fr = freeze i64 %reports.8.val

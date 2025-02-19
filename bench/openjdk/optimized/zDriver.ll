@@ -334,7 +334,7 @@ declare void @_Z12report_fatal11VMErrorTypePKciS1_z(i32 noundef, ptr noundef, i3
 declare noundef ptr @_ZN7GCCause9to_stringENS_5CauseE(i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN12ZDriverMinor10jfr_tracerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1264) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN12ZDriverMinor10jfr_tracerEv(ptr noundef nonnull readnone align 8 dereferenceable(1264) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   ret ptr %2
 }
@@ -596,7 +596,7 @@ define hidden void @_ZN12ZDriverMajor7collectERK14ZDriverRequest(ptr noundef non
 declare void @_ZN11ZBreakpoint8start_gcEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN12ZDriverMajor10jfr_tracerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1264) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef nonnull ptr @_ZN12ZDriverMajor10jfr_tracerEv(ptr noundef nonnull readnone align 8 dereferenceable(1264) %0) local_unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1176
   ret ptr %2
 }

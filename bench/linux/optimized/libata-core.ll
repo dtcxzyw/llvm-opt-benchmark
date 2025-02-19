@@ -4941,7 +4941,7 @@ define dso_local i32 @sata_std_hardreset(ptr noundef %0, ptr readnone captures(n
 declare dso_local i64 @__modver_version_show(ptr noundef, ptr noundef, ptr noundef) #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ata_link_next(ptr noundef readnone captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, i32 noundef %2) #1 align 16 {
+define dso_local ptr @ata_link_next(ptr noundef readnone %0, ptr noundef readonly %1, i32 noundef %2) #1 align 16 {
   %4 = icmp ult i32 %2, 3
   br i1 %4, label %6, label %5
 
@@ -5036,7 +5036,7 @@ default.unreachable:                              ; preds = %21
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @ata_dev_next(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address, ret: address, provenance) %1, i32 noundef %2) #1 align 16 {
+define dso_local ptr @ata_dev_next(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #1 align 16 {
   %4 = icmp ult i32 %2, 4
   br i1 %4, label %6, label %5
 
@@ -5793,7 +5793,7 @@ define dso_local range(i32 0, 1048576) i32 @ata_pack_xfermask(i32 noundef %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local void @ata_unpack_xfermask(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 align 16 {
+define dso_local void @ata_unpack_xfermask(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #8 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %8, label %6
 
@@ -6064,7 +6064,7 @@ define dso_local void @ata_id_string(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @ata_id_c_string(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
+define dso_local void @ata_id_c_string(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #1 align 16 {
   %5 = add i32 %3, -1
   %6 = and i32 %5, 1
   %7 = icmp eq i32 %6, 0
@@ -6270,7 +6270,7 @@ define dso_local range(i32 0, 1048576) i32 @ata_id_xfermask(ptr noundef readonly
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 16 {
+define dso_local i32 @ata_exec_internal(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #1 align 16 {
   %8 = alloca %struct.completion, align 8
   %9 = alloca %struct.scatterlist, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #31
@@ -18178,7 +18178,7 @@ define internal noundef i32 @ata_port_runtime_resume(ptr noundef %0) #1 align 16
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal noundef range(i32 -16, 1) i32 @ata_port_runtime_idle(ptr noundef readonly captures(address) %0) #30 align 16 {
+define internal noundef range(i32 -16, 1) i32 @ata_port_runtime_idle(ptr noundef readonly %0) #30 align 16 {
   %2 = getelementptr i8, ptr %0, i64 -6536
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.thread, label %4

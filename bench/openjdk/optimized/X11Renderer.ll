@@ -479,7 +479,7 @@ declare void @JNU_ThrowNullPointerException(ptr noundef, ptr noundef) local_unna
 declare void @JNU_ThrowArrayIndexOutOfBoundsException(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull captures(ret: address, provenance) %5, ptr noundef nonnull captures(none) %6, i32 noundef range(i32 0, 256) %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @transformPoints(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, i32 noundef %3, i32 noundef %4, ptr noundef nonnull %5, ptr noundef nonnull captures(none) %6, i32 noundef range(i32 0, 256) %7) unnamed_addr #0 {
   %9 = load i32, ptr %6, align 4
   %10 = load ptr, ptr %0, align 8
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 1776

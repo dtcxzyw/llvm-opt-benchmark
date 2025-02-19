@@ -165,7 +165,7 @@ define range(i32 -1, -2147483648) i32 @EVP_CIPHER_asn1_to_param(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @evp_cipher_asn1_to_param_ex(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @evp_cipher_asn1_to_param_ex(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.X509_algor_st, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread.thread34.sink.split, label %6
@@ -448,7 +448,7 @@ declare void @OPENSSL_die(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare i32 @ASN1_TYPE_set_octetstring(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @EVP_CIPHER_get_flags(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i64 @EVP_CIPHER_get_flags(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -463,7 +463,7 @@ define i64 @EVP_CIPHER_get_flags(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 983048) i32 @EVP_CIPHER_get_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 983048) i32 @EVP_CIPHER_get_mode(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %EVP_CIPHER_get_flags.exit, label %3
 
@@ -480,7 +480,7 @@ EVP_CIPHER_get_flags.exit:                        ; preds = %1, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_CIPHER_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @EVP_CIPHER_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %17, label %4
 
@@ -645,7 +645,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @evp_cipher_get_asn1_aead_params(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @evp_cipher_get_asn1_aead_params(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [16 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
@@ -725,7 +725,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @ossl_asn1_type_set_octetstring_int(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 659, 656) i32 @EVP_CIPHER_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 659, 656) i32 @EVP_CIPHER_get_type(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %EVP_CIPHER_get_nid.exit.thread, label %EVP_CIPHER_get_nid.exit
 
@@ -784,7 +784,7 @@ EVP_CIPHER_get_nid.exit.thread:                   ; preds = %1, %EVP_CIPHER_get_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_get_nid(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @EVP_CIPHER_get_nid(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1017,7 +1017,7 @@ declare ptr @OSSL_PARAM_locate_const(ptr noundef, ptr noundef) local_unnamed_add
 declare ptr @EVP_CIPHER_gettable_ctx_params(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_get_block_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @EVP_CIPHER_get_block_size(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1032,7 +1032,7 @@ define i32 @EVP_CIPHER_get_block_size(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @EVP_CIPHER_CTX_get_block_size(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %EVP_CIPHER_get_block_size.exit, label %3
 
@@ -1146,7 +1146,7 @@ EVP_CIPHER_CTX_get_block_size.exit:               ; preds = %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_CIPHER_CTX_cipher(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @EVP_CIPHER_CTX_cipher(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1160,7 +1160,7 @@ define ptr @EVP_CIPHER_CTX_cipher(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -1174,7 +1174,7 @@ define ptr @EVP_CIPHER_CTX_get0_cipher(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_CIPHER_CTX_get1_cipher(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_CIPHER_CTX_get1_cipher(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -1233,7 +1233,7 @@ define ptr @EVP_CIPHER_CTX_set_cipher_data(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @EVP_CIPHER_get_iv_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @EVP_CIPHER_get_iv_length(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1366,7 +1366,7 @@ define range(i32 0, 2) i32 @EVP_CIPHER_CTX_get_original_iv(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #10 {
+define nonnull ptr @EVP_CIPHER_CTX_buf_noconst(ptr noundef readnone %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
@@ -1579,7 +1579,7 @@ define ptr @EVP_CIPHER_get0_provider(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MD_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @EVP_MD_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %18, label %4
 
@@ -1617,7 +1617,7 @@ EVP_MD_get0_name.exit:                            ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MD_get0_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_MD_get0_name(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1700,7 +1700,7 @@ define i32 @EVP_MD_get_pkey_type(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MD_get_block_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @EVP_MD_get_block_size(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1721,7 +1721,7 @@ define i32 @EVP_MD_get_block_size(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_MD_get_size(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @EVP_MD_get_size(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1742,7 +1742,7 @@ define i32 @EVP_MD_get_size(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @EVP_MD_xof(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @EVP_MD_xof(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -2091,7 +2091,7 @@ define ptr @EVP_MD_meth_get_ctrl(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_CTX_md(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @EVP_MD_CTX_md(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2105,7 +2105,7 @@ define ptr @EVP_MD_CTX_md(ptr noundef readonly captures(address_is_null) %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @EVP_MD_CTX_get0_md(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @EVP_MD_CTX_get0_md(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -2119,7 +2119,7 @@ define ptr @EVP_MD_CTX_get0_md(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_MD_CTX_get1_md(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_MD_CTX_get1_md(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

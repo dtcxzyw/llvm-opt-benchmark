@@ -59,7 +59,7 @@ for.end:                                          ; preds = %for.end.loopexit, %
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr noundef writeonly captures(address) %destination, ptr noundef captures(none) %indices, i64 noundef %index_count, ptr noundef readonly captures(address) %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define dso_local range(i64 0, 4294967296) i64 @meshopt_optimizeVertexFetch(ptr noundef writeonly %destination, ptr noundef captures(none) %indices, i64 noundef %index_count, ptr noundef readonly %vertices, i64 noundef %vertex_count, i64 noundef %vertex_size) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
 entry:
   %allocator = alloca %class.meshopt_Allocator, align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(200) %allocator, i8 0, i64 200, i1 false)

@@ -784,7 +784,7 @@ define internal noundef i32 @aes_gcm_cipher(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @aes_gcm_cleanup(ptr noundef readonly captures(address) %0) #2 {
+define internal void @aes_gcm_cleanup(ptr noundef readonly %0) #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !10
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256

@@ -1771,7 +1771,7 @@ define { double, double } @"_ZN79_$LT$statrs..distribution..normal..Normal$u20$a
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN6statrs10statistics16slice_statistics16handle_rank_ties17hcf6583636d2b4b50E(ptr noalias noundef nonnull writeonly align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i8 noundef %6) unnamed_addr #3 {
+define void @_ZN6statrs10statistics16slice_statistics16handle_rank_ties17hcf6583636d2b4b50E(ptr noalias noundef nonnull writeonly align 8 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, i8 noundef %6) unnamed_addr #3 {
   switch i8 %6, label %8 [
     i8 0, label %9
     i8 1, label %16

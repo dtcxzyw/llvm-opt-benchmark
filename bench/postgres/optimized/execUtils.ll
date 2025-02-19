@@ -530,7 +530,7 @@ define dso_local ptr @ExecGetResultType(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define dso_local ptr @ExecGetResultSlotOps(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 199
   %4 = load i8, ptr %3, align 1, !range !8, !noundef !9
   %5 = trunc nuw i8 %4 to i1
@@ -1284,7 +1284,7 @@ declare ptr @bms_intersect(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @bms_join(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @executor_errposition(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @executor_errposition(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %1, 0
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -1330,7 +1330,7 @@ define dso_local void @RegisterExprContextCallback(ptr noundef captures(none) %0
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @UnregisterExprContextCallback(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @UnregisterExprContextCallback(ptr noundef captures(none) %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8
   %.not10 = icmp eq ptr %5, null
@@ -1675,7 +1675,7 @@ define dso_local i64 @GetAttributeByNum(ptr noundef %0, i16 noundef signext %1, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @ExecTargetListLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define dso_local i32 @ExecTargetListLength(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %list_length.exit, label %2
 
@@ -1690,7 +1690,7 @@ list_length.exit:                                 ; preds = %1, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 

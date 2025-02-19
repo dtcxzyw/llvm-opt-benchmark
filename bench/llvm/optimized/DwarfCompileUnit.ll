@@ -1402,7 +1402,7 @@ _ZNK4llvm6DIFile9getSourceEv.exit:                ; preds = %_ZNK4llvm6DIFile11g
 declare void @_ZNK4llvm10DwarfDebug13getMD5AsBytesEPKNS_6DIFileE(ptr dead_on_unwind writable sret(%"class.std::optional") align 1, ptr noundef nonnull align 8 dereferenceable(5876), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm16DwarfCompileUnit28getOrCreateGlobalVariableDIEEPKNS_16DIGlobalVariableENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm16DwarfCompileUnit28getOrCreateGlobalVariableDIEEPKNS_16DIGlobalVariableENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef ptr @_ZNK4llvm9DwarfUnit6getDIEEPKNS_6DINodeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) #26
   %.not.not = icmp eq ptr %5, null
   br i1 %.not.not, label %6, label %159
@@ -1725,7 +1725,7 @@ _ZNK4llvm16DIGlobalVariable17getTemplateParamsEv.exit: ; preds = %147, %150
 declare noundef ptr @_ZNK4llvm9DwarfUnit6getDIEEPKNS_6DINodeE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm16DwarfCompileUnit22getOrCreateCommonBlockEPKNS_13DICommonBlockENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm16DwarfCompileUnit22getOrCreateCommonBlockEPKNS_13DICommonBlockENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #1 align 2 {
   %5 = tail call noundef ptr @_ZNK4llvm9DwarfUnit6getDIEEPKNS_6DINodeE(ptr noundef nonnull align 8 dereferenceable(328) %0, ptr noundef %1) #26
   %.not.not = icmp eq ptr %5, null
   br i1 %.not.not, label %6, label %92
@@ -2064,7 +2064,7 @@ declare void @_ZN4llvm9DwarfUnit7addFlagERNS_3DIEENS_5dwarf9AttributeE(ptr nound
 declare void @_ZN4llvm9DwarfUnit13addSourceLineERNS_3DIEEPKNS_16DIGlobalVariableE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DwarfCompileUnit13addGlobalNameENS_9StringRefERKNS_3DIEEPKNS_7DIScopeE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4) unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16DwarfCompileUnit13addGlobalNameENS_9StringRefERKNS_3DIEEPKNS_7DIScopeE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr readonly %1, i64 %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr noundef %4) unnamed_addr #1 align 2 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2375,7 +2375,7 @@ declare void @_ZN4llvm9DwarfUnit7addUIntERNS_12DIEValueListENS_5dwarf9AttributeE
 declare void @_ZN4llvm9DwarfUnit17addTemplateParamsERNS_3DIEENS_24MDTupleTypedArrayWrapperINS_6DINodeEEE(ptr noundef nonnull align 8 dereferenceable(328), ptr noundef nonnull align 8 dereferenceable(48), ptr) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DwarfCompileUnit20addLocationAttributeEPNS_3DIEEPKNS_16DIGlobalVariableENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16DwarfCompileUnit20addLocationAttributeEPNS_3DIEEPKNS_16DIGlobalVariableENS_8ArrayRefINS0_10GlobalExprEEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr readonly %3, i64 %4) local_unnamed_addr #1 align 2 {
   %6 = alloca %"class.llvm::DIEValue", align 8
   %7 = alloca %"class.llvm::DIEValue", align 8
   %8 = alloca i32, align 4
@@ -8217,7 +8217,7 @@ declare noundef nonnull align 8 dereferenceable(48) ptr @_ZNK4llvm3Loc3MMI18getF
 declare noundef zeroext i1 @_ZN4llvm15DwarfExpression23addMachineRegExpressionERKNS_18TargetRegisterInfoERNS_18DIExpressionCursorENS_8RegisterEj(ptr noundef nonnull align 8 dereferenceable(104), ptr noundef nonnull align 8 dereferenceable(308), ptr noundef nonnull align 8 dereferenceable(16), i32, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc10EntryValueERKNS_11DbgVariableERNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16DwarfCompileUnit34applyConcreteDbgVariableAttributesERKNS_3Loc10EntryValueERKNS_11DbgVariableERNS_3DIEE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1, ptr nonnull readnone align 8 captures(none) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"class.llvm::DIEDwarfExpression", align 8
   %6 = alloca %"class.llvm::DIExpressionCursor", align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -10923,7 +10923,7 @@ _ZNK4llvm16DwarfCompileUnit26includeMinimalInlineScopesEv.exit.thread: ; preds =
 declare void @_ZNK4llvm9DwarfUnit22getParentContextStringB5cxx11EPKNS_7DIScopeE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(328), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16DwarfCompileUnit24addGlobalNameForTypeUnitENS_9StringRefEPKNS_7DIScopeE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4llvm16DwarfCompileUnit24addGlobalNameForTypeUnitENS_9StringRefEPKNS_7DIScopeE(ptr noundef nonnull align 8 dereferenceable(688) %0, ptr readonly %1, i64 %2, ptr noundef %3) local_unnamed_addr #1 align 2 {
   %5 = alloca %"struct.std::pair.800", align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.std::__cxx11::basic_string", align 8

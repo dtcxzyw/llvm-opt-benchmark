@@ -200,7 +200,7 @@ $_ZTTN3irr3gui11IGUIElementE = comdat any
 @_ZTTN3irr3gui11IGUIElementE = linkonce_odr unnamed_addr constant [2 x ptr] [ptr getelementptr inbounds inrange(-24, 288) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 0, i32 3), ptr getelementptr inbounds inrange(-24, 16) ({ [39 x ptr], [5 x ptr] }, ptr @_ZTVN3irr3gui11IGUIElementE, i32 0, i32 1, i32 3)], comdat, align 8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui18CGUIFileOpenDialogC2EPKwPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEibPc(ptr noundef nonnull align 8 dereferenceable(609) %this, ptr noundef %vtt, ptr noundef readonly %title, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i1 noundef zeroext %restoreCWD, ptr noundef readonly captures(address_is_null) %startDir) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui18CGUIFileOpenDialogC2EPKwPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEibPc(ptr noundef nonnull align 8 dereferenceable(609) %this, ptr noundef %vtt, ptr noundef readonly %title, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i1 noundef zeroext %restoreCWD, ptr noundef readonly %startDir) unnamed_addr #0 align 2 {
 entry:
   %title436 = ptrtoint ptr %title to i64
   %empty.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -1184,7 +1184,7 @@ cleanup:                                          ; preds = %_ZN3irr4core6string
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui18CGUIFileOpenDialogC1EPKwPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEibPc(ptr noundef nonnull align 8 dereferenceable(609) initializes((616, 636)) %this, ptr noundef readonly %title, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i1 noundef zeroext %restoreCWD, ptr noundef readonly captures(address_is_null) %startDir) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui18CGUIFileOpenDialogC1EPKwPNS0_15IGUIEnvironmentEPNS0_11IGUIElementEibPc(ptr noundef nonnull align 8 dereferenceable(609) initializes((616, 636)) %this, ptr noundef readonly %title, ptr noundef %environment, ptr noundef %parent, i32 noundef %id, i1 noundef zeroext %restoreCWD, ptr noundef readonly %startDir) unnamed_addr #0 align 2 {
 entry:
   %title433 = ptrtoint ptr %title to i64
   %empty.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -2272,14 +2272,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr3gui18CGUIFileOpenDialog12getFileNamePEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(609) %this) unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr3gui18CGUIFileOpenDialog12getFileNamePEv(ptr noundef nonnull readnone align 8 dereferenceable(609) %this) unnamed_addr #6 align 2 {
 entry:
   %FileName = getelementptr inbounds nuw i8, ptr %this, i64 320
   ret ptr %FileName
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr3gui18CGUIFileOpenDialog16getDirectoryNameEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(609) %this) unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK3irr3gui18CGUIFileOpenDialog16getDirectoryNameEv(ptr noundef nonnull readnone align 8 dereferenceable(609) %this) unnamed_addr #6 align 2 {
 entry:
   %FileDirectoryFlat = getelementptr inbounds nuw i8, ptr %this, i64 416
   ret ptr %FileDirectoryFlat

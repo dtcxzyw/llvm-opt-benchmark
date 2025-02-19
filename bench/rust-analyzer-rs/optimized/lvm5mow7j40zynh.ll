@@ -28755,7 +28755,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h31075cbcef4f1c2aE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h31075cbcef4f1c2aE"(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
 _ZN8smallvec10infallible17h7538e96c459630deE.exit:
   %3 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %3)
@@ -30470,37 +30470,37 @@ define hidden { i64, i64 } @"_ZN4core3num23_$LT$impl$u20$usize$GT$25checked_next
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h23e5bb9a7678a51eE.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h23e5bb9a7678a51eE.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h755c58d5d2009537E.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h755c58d5d2009537E.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h7a94c10818cb231aE.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17h7a94c10818cb231aE.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hadeb3609f5eba291E.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hadeb3609f5eba291E.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hb426829269359f62E.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hb426829269359f62E.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hb5a159744fdcc0daE.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hb5a159744fdcc0daE.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hb5ecef39ffccb4e6E.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hb5ecef39ffccb4e6E.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -30522,7 +30522,7 @@ define hidden { i64, i64 } @_ZN4core3ops8function6FnOnce9call_once17hb829eb40e75
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hfb51ed19e174d5c9E.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hfb51ed19e174d5c9E.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -31568,7 +31568,7 @@ define hidden { i64, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h98b17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h88f9a28921e32b6dE.llvm.8225647753450622592"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #7 {
+define hidden noundef nonnull align 4 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h88f9a28921e32b6dE.llvm.8225647753450622592"(ptr noalias noundef readonly returned align 4 dereferenceable(24) %0) unnamed_addr #7 {
   ret ptr %0
 }
 
@@ -32712,7 +32712,7 @@ define hidden noundef zeroext i1 @"_ZN70_$LT$core..option..Option$LT$T$GT$$u20$a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7fbe1744771b025bE.llvm.8225647753450622592"(i64 noundef %0, ptr noalias noundef nonnull readonly align 8 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h7fbe1744771b025bE.llvm.8225647753450622592"(i64 noundef %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
   %5 = icmp ult i64 %0, %2
   br i1 %5, label %6, label %8, !prof !4985
 
@@ -32726,7 +32726,7 @@ define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN75_$LT$usize$
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h29ed98610c6f5ee4E.llvm.8225647753450622592"(i64 noundef %0, ptr noalias noundef nonnull readnone align 4 captures(ret: address, provenance) %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17h29ed98610c6f5ee4E.llvm.8225647753450622592"(i64 noundef %0, ptr noalias noundef nonnull readnone align 4 %1, i64 noundef %2, ptr noalias noundef readonly align 8 dereferenceable(24) %3) unnamed_addr #1 {
   %5 = icmp ult i64 %0, %2
   br i1 %5, label %6, label %8, !prof !4985
 
@@ -32755,7 +32755,7 @@ define hidden { ptr, i64 } @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5a308b9bb027af63E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17h5a308b9bb027af63E"(ptr noalias noundef readonly align 8 dereferenceable(48) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = load i64, ptr %0, align 8, !alias.scope !4991, !noalias !4994, !noundef !118
   %5 = icmp ugt i64 %4, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -33043,7 +33043,7 @@ define hidden { ptr, i64 } @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$co
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf44348c1a9e186e2E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 4 dereferenceable(4) ptr @"_ZN83_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hf44348c1a9e186e2E"(ptr noalias noundef readonly align 8 dereferenceable(24) %0, i64 noundef %1, ptr noalias noundef readonly align 8 dereferenceable(24) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !alias.scope !5083, !noalias !5086, !noundef !118
   %6 = icmp ugt i64 %5, 1
@@ -37040,42 +37040,42 @@ define hidden void @_ZN8smallvec10infallible17h7538e96c459630deE(i64 noundef %0,
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h410dc6307d016a3eE.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h410dc6307d016a3eE.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h5326dced1309502eE.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h5326dced1309502eE.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h5431423bce386bfaE.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h5431423bce386bfaE.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h76207b04a55f3018E.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h76207b04a55f3018E.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h874f69bf0bebde5fE.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h874f69bf0bebde5fE.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h8fa172fc62f11018E.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17h8fa172fc62f11018E.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17ha2700baedd97c6aeE.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17ha2700baedd97c6aeE.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17hccb7b6cb2ed1df57E.llvm.8225647753450622592(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @_ZN8smallvec12ConstNonNull17hccb7b6cb2ed1df57E.llvm.8225647753450622592(ptr noundef nonnull readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -39055,97 +39055,97 @@ define hidden void @"_ZN8smallvec17SmallVec$LT$A$GT$9from_elem17h6f4c4227ac50485
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h0d63b269093f5384E.llvm.8225647753450622592"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h0d63b269093f5384E.llvm.8225647753450622592"(ptr noundef readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h3ff4b79985de6fd9E.llvm.8225647753450622592"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h3ff4b79985de6fd9E.llvm.8225647753450622592"(ptr noundef readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h4dbe36e92886b765E.llvm.8225647753450622592"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h4dbe36e92886b765E.llvm.8225647753450622592"(ptr noundef readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h55a3154b12a429cdE.llvm.8225647753450622592"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h55a3154b12a429cdE.llvm.8225647753450622592"(ptr noundef readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h85b0dae1e6fd7709E.llvm.8225647753450622592"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h85b0dae1e6fd7709E.llvm.8225647753450622592"(ptr noundef readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17ha546682309b3e6d0E.llvm.8225647753450622592"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17ha546682309b3e6d0E.llvm.8225647753450622592"(ptr noundef readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17hdfe07e06b2713c67E.llvm.8225647753450622592"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17hdfe07e06b2713c67E.llvm.8225647753450622592"(ptr noundef readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17he272dff975cbb201E.llvm.8225647753450622592"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #3 {
+define hidden noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17he272dff975cbb201E.llvm.8225647753450622592"(ptr noundef readnone returned %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h267c096d38490d7dE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h267c096d38490d7dE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(40) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h282262fbc97faee4E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h282262fbc97faee4E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h3c757db2183a855aE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h3c757db2183a855aE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h516067fbd1f39b22E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h516067fbd1f39b22E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h57c3f1377b2a1f4cE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h57c3f1377b2a1f4cE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h91f8a36b697ecf3fE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h91f8a36b697ecf3fE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h93298e445c1c9635E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h93298e445c1c9635E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h9a087cd6f29f1fb1E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17h9a087cd6f29f1fb1E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(32) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17hab2d6c2053184c18E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17hab2d6c2053184c18E.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(24) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17hf8cd4ba565b8925fE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17hf8cd4ba565b8925fE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(24) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17hfc945d65f2863cbbE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #3 {
+define hidden noundef nonnull ptr @"_ZN8smallvec21SmallVecData$LT$A$GT$10inline_mut17hfc945d65f2863cbbE.llvm.8225647753450622592"(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -40831,7 +40831,7 @@ define hidden noundef zeroext i1 @"_ZN97_$LT$salsa..derived..AlwaysMemoizeValue$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7hir_def4body5scope10ScopeEntry4name17hcc2ad71058a3b6a8E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #7 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7hir_def4body5scope10ScopeEntry4name17hcc2ad71058a3b6a8E(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #7 {
   ret ptr %0
 }
 
@@ -41271,7 +41271,7 @@ define { i32, i32 } @_ZN7hir_def4body5scope10ExprScopes9scope_for17h32f2869be8a6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7hir_def4body5scope10ExprScopes13scope_by_expr17h70e48e0ff16fad13E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(72) %0) unnamed_addr #7 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN7hir_def4body5scope10ExprScopes13scope_by_expr17h70e48e0ff16fad13E(ptr noalias noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -41801,7 +41801,7 @@ define hidden void @_ZN7hir_def4body5scope10ExprScopes13shrink_to_fit17h059d3ae6
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN7hir_def4body5scope20compute_block_scopes17hc0e5f114f407ef21E(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i32 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull align 4 dereferenceable(4) %6) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN7hir_def4body5scope20compute_block_scopes17hc0e5f114f407ef21E(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, i32 noundef range(i32 0, 2) %2, i32 %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(184) %4, ptr noalias noundef nonnull align 8 dereferenceable(72) %5, ptr noalias noundef nonnull align 4 dereferenceable(4) %6) unnamed_addr #0 personality ptr @rust_eh_personality {
   %8 = alloca { ptr, ptr, ptr }, align 8
   %9 = alloca i32, align 4
   %10 = alloca { { i32, [1 x i32] }, { [8 x i8], i8, [23 x i8] }, { { i32, i32 }, {} }, i32, [1 x i32] }, align 8
@@ -59939,7 +59939,7 @@ define { i1, i8 } @"_ZN75_$LT$hir_def.._..InternalBitFlags$u20$as$u20$core..str.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN79_$LT$hir_def.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17ha47c62df9c2eeac0E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #7 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN79_$LT$hir_def.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17ha47c62df9c2eeac0E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #7 {
   ret ptr %0
 }
 

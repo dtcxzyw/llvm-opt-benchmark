@@ -607,7 +607,7 @@ declare i32 @FT_Select_Size(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i64 @FT_MulFix(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_freetype_font_delete(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_freetype_font_delete(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

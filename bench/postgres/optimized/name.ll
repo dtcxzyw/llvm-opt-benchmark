@@ -391,7 +391,7 @@ define dso_local void @namestrcpy(ptr noundef %0, ptr noundef readonly captures(
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @namestrcmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define dso_local i32 @namestrcmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.not13 = and i1 %3, %4

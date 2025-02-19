@@ -13306,7 +13306,7 @@ if.end:                                           ; preds = %for.body.i.i.i, %fo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK8datatype4decl6plugin14is_value_visitEbP4exprR10ptr_bufferI3appLj16EE(ptr noundef nonnull align 8 captures(none) dereferenceable(101) %this, i1 noundef zeroext %unique, ptr noundef %arg, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %todo) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZNK8datatype4decl6plugin14is_value_visitEbP4exprR10ptr_bufferI3appLj16EE(ptr noundef nonnull align 8 captures(none) dereferenceable(101) %this, i1 noundef zeroext %unique, ptr noundef %arg, ptr noundef nonnull align 8 dereferenceable(144) %todo) local_unnamed_addr #3 align 2 {
 entry:
   %ref.tmp.i.i.i = alloca %class.symbol, align 8
   %m_kind.i.i = getelementptr inbounds nuw i8, ptr %arg, i64 4
@@ -13496,7 +13496,7 @@ declare noundef zeroext i1 @_ZNK11ast_manager15is_unique_valueEP4expr(ptr nounde
 declare noundef zeroext i1 @_ZNK11ast_manager8is_valueEP4expr(ptr noundef nonnull align 8 dereferenceable(976), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK8datatype4decl6plugin12is_value_auxEbP3app(ptr noundef nonnull align 8 captures(none) dereferenceable(101) %this, i1 noundef zeroext %unique, ptr noundef readonly captures(address) %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZNK8datatype4decl6plugin12is_value_auxEbP3app(ptr noundef nonnull align 8 captures(none) dereferenceable(101) %this, i1 noundef zeroext %unique, ptr noundef readonly %e) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i = alloca %class.symbol, align 8
   %todo = alloca %class.ptr_buffer, align 8
@@ -20970,7 +20970,7 @@ cleanup:                                          ; preds = %invoke.cont13, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @"_ZZN8datatype4util12are_siblingsEP4sortS2_ENK3$_0clES2_"(ptr readonly captures(none) %this.0.val, ptr readonly captures(none) %this.8.val, ptr noundef readonly captures(ret: address, provenance) %s) unnamed_addr #3 align 2 {
+define internal fastcc noundef ptr @"_ZZN8datatype4util12are_siblingsEP4sortS2_ENK3$_0clES2_"(ptr readonly captures(none) %this.0.val, ptr readonly captures(none) %this.8.val, ptr noundef readonly %s) unnamed_addr #3 align 2 {
 entry:
   %m_info.i.i.i.i9 = getelementptr inbounds nuw i8, ptr %s, i64 24
   %0 = load ptr, ptr %m_info.i.i.i.i9, align 8

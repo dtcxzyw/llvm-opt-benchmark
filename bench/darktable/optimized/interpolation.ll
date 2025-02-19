@@ -648,7 +648,7 @@ declare ptr @dt_conf_get_string_const(ptr noundef) local_unnamed_addr #4
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @dt_interpolation_resample(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #6 {
+define void @dt_interpolation_resample(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4) local_unnamed_addr #6 {
   %6 = alloca %struct.rusage, align 8
   %7 = alloca %struct.timeval, align 8
   %8 = alloca %struct.rusage, align 8
@@ -1156,7 +1156,7 @@ _interpolation_resample_plain.exit:               ; preds = %._crit_edge.i, %231
 declare void @dt_print_ext(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @dt_interpolation_resample_roi(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define void @dt_interpolation_resample_roi(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct.dt_iop_roi_t, align 4
   %7 = alloca %struct.dt_iop_roi_t, align 4
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #13
@@ -2219,7 +2219,7 @@ declare void @dt_print_pipe_ext(ptr noundef, ptr noundef, ptr noundef, i32 nound
 declare void @dt_show_times_f(ptr noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_prepare_resampling_plan(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %7, ptr noundef writeonly captures(address_is_null) %8) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_prepare_resampling_plan(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %5, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %7, ptr noundef writeonly %8) unnamed_addr #0 {
   store ptr null, ptr %5, align 8, !tbaa !27
   store ptr null, ptr %6, align 8, !tbaa !29
   store ptr null, ptr %7, align 8, !tbaa !27

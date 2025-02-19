@@ -417,7 +417,7 @@ declare i32 @Nwk_ManPoNum(ptr noundef) local_unnamed_addr #4
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef ptr @Nwk_FileNameGeneric(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define noundef ptr @Nwk_FileNameGeneric(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %Abc_UtilStrsav.exit, label %2
 

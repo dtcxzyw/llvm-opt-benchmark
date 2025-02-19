@@ -7046,7 +7046,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i64 @llvm.cttz.i64(i64, i1 immarg) #9
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @deflate_flush_block(ptr noundef initializes((6060, 6064)) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #11 {
+define internal fastcc void @deflate_flush_block(ptr noundef initializes((6060, 6064)) %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i1 noundef zeroext %5) unnamed_addr #11 {
   %7 = zext i32 %3 to i64
   %8 = load i64, ptr %1, align 8, !tbaa !54
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -9944,7 +9944,7 @@ deflate_set_costs_from_codes.exit200:             ; preds = %.preheader.i193, %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @deflate_find_min_cost_path(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
+define internal fastcc void @deflate_find_min_cost_path(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2) unnamed_addr #4 {
   %4 = zext i32 %1 to i64
   %.idx = shl nuw nsw i64 %4, 3
   %.add63 = add nuw nsw i64 %.idx, 6532420

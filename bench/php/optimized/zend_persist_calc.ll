@@ -4419,7 +4419,7 @@ zend_persist_op_array_calc.exit:                  ; preds = %29, %66, %12, %zend
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_persist_type_calc(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @zend_persist_type_calc(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8, !tbaa !178
   %4 = and i32 %3, 4194304

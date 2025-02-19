@@ -122,7 +122,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull align 8 dereferenceable(560) ptr @_ZN5cmsys17RegularExpressionaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(560) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(560) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(560) ptr @_ZN5cmsys17RegularExpressionaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(560) %0, ptr noundef nonnull readonly align 8 dereferenceable(560) %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %49, label %4
 
@@ -221,7 +221,7 @@ define dso_local noundef nonnull align 8 dereferenceable(560) ptr @_ZN5cmsys17Re
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpressioneqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(560) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(560) %1) local_unnamed_addr #5 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5cmsys17RegularExpressioneqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(560) %0, ptr noundef nonnull readonly align 8 dereferenceable(560) %1) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %0, %1
   br i1 %.not, label %.thread, label %3
 
@@ -2968,7 +2968,7 @@ _ZN5cmsys13RegExpCompile4regcEc.exit79:           ; preds = %217, %220
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5cmsys13RegExpCompile9reginsertEcPc(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i8 noundef signext %1, ptr noundef writeonly captures(address) %2) local_unnamed_addr #9 align 2 {
+define dso_local void @_ZN5cmsys13RegExpCompile9reginsertEcPc(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i8 noundef signext %1, ptr noundef writeonly %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !30
   %6 = icmp eq ptr %5, @_ZN5cmsysL8regdummyE

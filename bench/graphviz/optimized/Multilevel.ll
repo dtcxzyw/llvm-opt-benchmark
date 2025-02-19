@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Multilevel_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @Multilevel_delete(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %common.ret12, label %2
 
@@ -703,7 +703,7 @@ Multilevel_init.exit:                             ; preds = %Multilevel_coarsen.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @Multilevel_get_coarsest(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @Multilevel_get_coarsest(ptr noundef readonly %0) local_unnamed_addr #5 {
   br label %2
 
 2:                                                ; preds = %2, %1

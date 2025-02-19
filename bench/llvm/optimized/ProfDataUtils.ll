@@ -43,7 +43,7 @@ _ZNK4llvm11Instruction11hasMetadataEj.exit:       ; preds = %1, %5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj.exit, label %3
 
@@ -102,7 +102,7 @@ _ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj.exit: ; preds = %1, %_ZNK4llv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm16isValueProfileMDEPKNS_6MDNodeE(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN12_GLOBAL__N_110isTargetMDEPKN4llvm6MDNodeEPKcj.exit, label %3
 
@@ -622,7 +622,7 @@ _ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit: ; preds = %1, %_ZNK4llvm11In
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread, label %3
 
@@ -707,7 +707,7 @@ _ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread: ; preds = %_ZN4llvm9String
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef range(i32 1, 3) i32 @_ZN4llvm21getBranchWeightOffsetEPKNS_6MDNodeE(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN4llvm21hasBranchWeightOriginEPKNS_6MDNodeE.exit.thread, label %3
 
@@ -1332,7 +1332,7 @@ _ZN12_GLOBAL__N_125extractFromBranchWeightMDImSt9enable_ifILb1EvEEEvPKN4llvm6MDN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm20extractBranchWeightsEPKNS_6MDNodeERNS_15SmallVectorImplIjEE(ptr noundef readonly %0, ptr noundef nonnull align 8 dereferenceable(16) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %_ZN4llvm16isBranchWeightMDEPKNS_6MDNodeE.exit.thread, label %4
 
@@ -1568,7 +1568,7 @@ _ZN4llvm11SmallVectorIjLj2EED2Ev.exit:            ; preds = %_ZN4llvm20extractBr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightEPKNS_6MDNodeERm(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN4llvm22extractProfTotalWeightEPKNS_6MDNodeERm(ptr noundef readonly %0, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1) local_unnamed_addr #0 {
   store i64 0, ptr %1, align 8, !tbaa !35
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit32.thread51, label %3

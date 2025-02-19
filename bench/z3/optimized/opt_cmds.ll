@@ -1174,7 +1174,7 @@ declare void @_ZNK10params_ref7get_ratERK6symbolRK8rational(ptr sret(%class.rati
 declare ptr @_ZNK10params_ref7get_symERK6symbolS2_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(792) ptr @_ZL7get_optR11cmd_contextPN3opt7contextE(ptr noundef nonnull align 8 dereferenceable(872) %cmd, ptr noundef readnone captures(address_is_null, ret: address, provenance) %opt) unnamed_addr #3 {
+define internal fastcc noundef nonnull align 8 dereferenceable(792) ptr @_ZL7get_optR11cmd_contextPN3opt7contextE(ptr noundef nonnull align 8 dereferenceable(872) %cmd, ptr noundef readnone %opt) unnamed_addr #3 {
 entry:
   %tobool.not = icmp eq ptr %opt, null
   br i1 %tobool.not, label %if.end, label %return

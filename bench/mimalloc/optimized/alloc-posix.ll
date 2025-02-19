@@ -43,7 +43,7 @@ declare zeroext i1 @mi_is_in_heap_region(ptr noundef) local_unnamed_addr #1
 declare void @mi_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 23) i32 @mi_posix_memalign(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 23) i32 @mi_posix_memalign(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = and i64 %1, 7
   %.not = icmp eq i64 %5, 0
@@ -149,7 +149,7 @@ declare ptr @mi_reallocn(ptr noundef, i64 noundef, i64 noundef) local_unnamed_ad
 declare ptr @__errno_location() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 23) i32 @mi_reallocarr(ptr noundef captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 23) i32 @mi_reallocarr(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %7
 
@@ -196,7 +196,7 @@ define hidden ptr @mi__expand(ptr noundef %0, i64 noundef %1) local_unnamed_addr
 declare ptr @mi_expand(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias ptr @mi_wcsdup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden noalias ptr @mi_wcsdup(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %.preheader
 
@@ -235,7 +235,7 @@ define hidden noalias ptr @mi_mbsdup(ptr noundef %0) local_unnamed_addr #0 {
 declare noalias ptr @mi_strdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 23) i32 @mi_dupenv_s(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5
@@ -282,7 +282,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #3
 declare i64 @_mi_strlen(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef i32 @mi_wdupenv_s(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readnone captures(address_is_null) %2) local_unnamed_addr #4 {
+define hidden noundef i32 @mi_wdupenv_s(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef readnone %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

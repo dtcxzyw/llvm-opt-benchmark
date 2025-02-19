@@ -66,7 +66,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__setup_acpi_force_32bit_fadt_addr, ptr @__setup_acpi_force_table_verification_setup, ptr @__setup_acpi_parse_apic_instance], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_table_print_madt_entry(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %122, label %3
 
@@ -331,7 +331,7 @@ define dso_local i32 @acpi_table_parse_madt(i32 noundef %0, ptr noundef %1, i32 
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local noundef range(i32 -22, 1) i32 @acpi_table_parse(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 section ".init.text" align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_table_parse(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 section ".init.text" align 16 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #14
   store ptr null, ptr %3, align 8
@@ -744,7 +744,7 @@ define dso_local noundef i32 @acpi_os_physical_table_override(ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef range(i32 0, 4098) i32 @acpi_os_table_override(ptr noundef readnone captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_table_override(ptr noundef readnone %0, ptr noundef writeonly %1) local_unnamed_addr #8 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4

@@ -3542,7 +3542,7 @@ agxbsizeof.exit:                                  ; preds = %agxblen.exit, %5
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @agxbuse(ptr noundef captures(ret: address, provenance) %0) unnamed_addr #5 {
+define internal fastcc ptr @agxbuse(ptr noundef %0) unnamed_addr #5 {
   %2 = getelementptr i8, ptr %0, i64 31
   %.val = load i8, ptr %2, align 1, !tbaa !28
   switch i8 %.val, label %agxblen.exit.i [

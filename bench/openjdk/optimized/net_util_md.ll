@@ -218,7 +218,7 @@ define noundef i32 @NET_EnableFastTcpLoopback(i32 noundef %0) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @NET_InetAddressToSockaddr(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4, i8 noundef zeroext %5) local_unnamed_addr #0 {
   %7 = alloca [16 x i8], align 16
   %8 = tail call i32 @getInetAddress_family(ptr noundef %0, ptr noundef %1) #13
   %9 = load ptr, ptr %0, align 8

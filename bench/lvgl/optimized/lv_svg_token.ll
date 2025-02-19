@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [8 x i8] c"DOCTYPE\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_lv_svg_tokenizer(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define noundef zeroext i1 @_lv_svg_tokenizer(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct._lv_svg_token_t, align 8
   %6 = alloca %struct._lv_svg_parser_state_t, align 8
   %.not = icmp eq ptr %0, null

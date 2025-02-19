@@ -802,7 +802,7 @@ define range(i32 -1, 1) i32 @H5Ewalk1(i32 noundef %0, ptr noundef %1, ptr nounde
 declare i32 @H5E__walk(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Eget_auto1(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Eget_auto1(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5E_auto_op_t, align 8
   %4 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #6

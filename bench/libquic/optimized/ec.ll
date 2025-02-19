@@ -255,7 +255,7 @@ EC_POINT_copy.exit.thread22:                      ; preds = %21, %EC_POINT_copy.
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @EC_POINT_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden noundef ptr @EC_POINT_new(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -966,7 +966,7 @@ define hidden ptr @EC_GROUP_get0_generator(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @EC_GROUP_get0_order(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define hidden nonnull ptr @EC_GROUP_get0_order(ptr noundef readnone %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -1034,7 +1034,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #0
 declare i32 @ec_GFp_simple_point_copy(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @EC_POINT_dup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define hidden noundef ptr @EC_POINT_dup(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %EC_POINT_copy.exit.thread16, label %4
 

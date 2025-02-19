@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.ASN1_item_unpack_ex = private unnamed_addr constant [20 x i8] c"ASN1_item_unpack_ex\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @ASN1_item_pack(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noundef ptr @ASN1_item_pack(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 

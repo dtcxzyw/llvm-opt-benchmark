@@ -523,7 +523,7 @@ define hidden void @_ZN11G1Allocator29release_mutator_alloc_regionsEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef zeroext i1 @_ZN11G1Allocator22is_retained_old_regionEP12G1HeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN11G1Allocator22is_retained_old_regionEP12G1HeapRegion(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %1

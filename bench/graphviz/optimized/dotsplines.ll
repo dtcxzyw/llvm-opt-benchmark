@@ -6828,7 +6828,7 @@ define internal fastcc void @makeSimpleFlat(ptr readonly captures(none) %.16.val
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @make_flat_bottom_edges(ptr noundef captures(address) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #1 {
+define internal fastcc void @make_flat_bottom_edges(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, i1 noundef zeroext %7) unnamed_addr #1 {
   %9 = alloca %struct.pathend_t, align 8
   %10 = alloca %struct.pathend_t, align 8
   %11 = alloca [3 x %struct.boxf], align 16
@@ -7149,7 +7149,7 @@ makeBottomFlatEnd.exit120:                        ; preds = %makeBottomFlatEnd.e
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @makeFlatEnd(ptr noundef captures(address) %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull initializes((0, 32), (48, 52)) %5, i1 noundef zeroext %6) unnamed_addr #1 {
+define internal fastcc void @makeFlatEnd(ptr noundef %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull %2, ptr noundef readonly captures(none) %3, ptr noundef %4, ptr noundef nonnull initializes((0, 32), (48, 52)) %5, i1 noundef zeroext %6) unnamed_addr #1 {
   %8 = alloca %struct.boxf, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
   %9 = getelementptr i8, ptr %3, i64 16
@@ -7662,7 +7662,7 @@ declare void @dot_cleanup(ptr noundef) local_unnamed_addr #4
 declare i32 @agclose(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @maximal_bbox(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly captures(address) %1, ptr noundef nonnull readonly captures(none) %2, ptr readonly captures(none) %.16.val, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #19 {
+define internal fastcc void @maximal_bbox(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 32)) %0, ptr noundef readonly %1, ptr noundef nonnull readonly captures(none) %2, ptr readonly captures(none) %.16.val, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #19 {
   %6 = getelementptr inbounds nuw i8, ptr %.16.val, i64 32
   %7 = load double, ptr %6, align 8, !tbaa !78
   %8 = getelementptr inbounds nuw i8, ptr %.16.val, i64 104
@@ -7868,7 +7868,7 @@ declare void @beginpath(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 n
 declare void @endpath(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @neighbor(ptr readonly captures(none) %.16.val.264.val, ptr readonly captures(none) %.16.val1, ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #13 {
+define internal fastcc ptr @neighbor(ptr readonly captures(none) %.16.val.264.val, ptr readonly captures(none) %.16.val1, ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef range(i32 -1, 2) %2) unnamed_addr #13 {
   %4 = getelementptr inbounds nuw i8, ptr %.16.val1, i64 364
   %5 = load i32, ptr %4, align 4, !tbaa !108
   %.04 = add nsw i32 %5, %2
@@ -8093,7 +8093,7 @@ pathscross.exit:                                  ; preds = %56, %109
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @cl_bound(ptr noundef readnone captures(address) %0, ptr readonly captures(none) %.16.val, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #14 {
+define internal fastcc ptr @cl_bound(ptr noundef readnone %0, ptr readonly captures(none) %.16.val, ptr noundef nonnull readonly captures(none) %1) unnamed_addr #14 {
   %3 = getelementptr inbounds nuw i8, ptr %.16.val, i64 216
   %4 = load i8, ptr %3, align 8, !tbaa !62
   %5 = icmp eq i8 %4, 0

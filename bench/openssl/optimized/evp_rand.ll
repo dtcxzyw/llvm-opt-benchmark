@@ -467,7 +467,7 @@ evp_rand_free.exit:                               ; preds = %19, %CRYPTO_DOWN_RE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @evp_rand_up_ref(ptr noundef captures(address_is_null) %0) #2 {
+define internal noundef i32 @evp_rand_up_ref(ptr noundef %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -513,7 +513,7 @@ CRYPTO_DOWN_REF.exit:                             ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef i32 @EVP_RAND_up_ref(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define noundef i32 @EVP_RAND_up_ref(ptr noundef %0) local_unnamed_addr #2 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %evp_rand_up_ref.exit, label %2
 
@@ -580,7 +580,7 @@ define ptr @EVP_RAND_get0_description(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_RAND_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_RAND_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 

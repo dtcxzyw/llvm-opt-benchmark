@@ -150,7 +150,7 @@ define void @lv_calendar_set_day_names(ptr noundef %0, ptr noundef readonly capt
 declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @lv_calendar_set_today_date(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @lv_calendar_set_today_date(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %5
 
@@ -282,7 +282,7 @@ define internal fastcc void @highlight_update(ptr noundef nonnull readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_calendar_set_highlighted_dates(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define void @lv_calendar_set_highlighted_dates(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.preheader, label %4
 
@@ -576,7 +576,7 @@ declare ptr @lv_obj_get_child(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare i32 @lv_obj_send_event(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_calendar_get_btnmatrix(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @lv_calendar_get_btnmatrix(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -590,7 +590,7 @@ define ptr @lv_calendar_get_btnmatrix(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define nonnull ptr @lv_calendar_get_today_date(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_calendar_get_today_date(ptr noundef readnone %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -603,7 +603,7 @@ define nonnull ptr @lv_calendar_get_today_date(ptr noundef readnone captures(add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -616,7 +616,7 @@ define nonnull ptr @lv_calendar_get_showed_date(ptr noundef readnone captures(ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_calendar_get_highlighted_dates(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @lv_calendar_get_highlighted_dates(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -630,7 +630,7 @@ define ptr @lv_calendar_get_highlighted_dates(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @lv_calendar_get_highlighted_dates_num(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define i64 @lv_calendar_get_highlighted_dates_num(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -644,7 +644,7 @@ define i64 @lv_calendar_get_highlighted_dates_num(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @lv_calendar_get_pressed_date(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 

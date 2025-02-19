@@ -530,7 +530,7 @@ _ZNSt8_Rb_treeIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN3ue214findMaxBAWidthERKNS_13RoseBuildImplE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(780) %tbi) local_unnamed_addr #0 {
+define hidden noundef i32 @_ZN3ue214findMaxBAWidthERKNS_13RoseBuildImplE(ptr noundef nonnull readonly align 8 dereferenceable(780) %tbi) local_unnamed_addr #0 {
 entry:
   %ref.tmp54 = alloca %"struct.ue2::suffix_id", align 8
   %ref.tmp61 = alloca %"struct.ue2::suffix_id", align 8

@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.perform_pruning_combine_step = private unnamed_addr constant [29 x i8] c"perform_pruning_combine_step\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @make_partition_pruneinfo(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @make_partition_pruneinfo(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.GeneratePruningStepsContext, align 8
   %7 = alloca i32, align 4
@@ -822,7 +822,7 @@ list_length.exit:                                 ; preds = %31
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_matching_partitions(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @get_matching_partitions(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
   %5 = alloca [32 x i8], align 16

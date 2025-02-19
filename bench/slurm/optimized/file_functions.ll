@@ -247,7 +247,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table._mod_assoc.16 = private unnamed_addr constant [3 x ptr] [ptr @.str.53, ptr @.str.90, ptr @.str.93], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @print_file_add_limits_to_line(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @print_file_add_limits_to_line(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
@@ -570,7 +570,7 @@ declare ptr @get_qos_complete_str(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @file_print_qos(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local noundef i32 @file_print_qos(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
   %.not = icmp eq ptr %0, null
@@ -4420,7 +4420,7 @@ declare void @slurmdb_destroy_qos_rec(ptr noundef) #2
 declare void @slurmdb_destroy_user_rec(ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_destory_local_mod_qos(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal void @_destory_local_mod_qos(ptr noundef readonly %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -5967,7 +5967,7 @@ thread-pre-split.thread.thread:                   ; preds = %._crit_edge, %236, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @_mod_user(ptr noundef nonnull readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @_mod_user(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8

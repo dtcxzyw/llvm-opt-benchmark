@@ -2445,7 +2445,7 @@ define hidden noundef ptr @tcapsrt_razinfo() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @tcapsrt_close(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden void @tcapsrt_close(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %109, label %3
 

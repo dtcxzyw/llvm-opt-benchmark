@@ -568,7 +568,7 @@ define range(i32 0, 2) i32 @cli_strbcasestr(ptr noundef readonly captures(none) 
 declare i32 @strcasecmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define range(i32 -2147483647, -2147483648) i32 @cli_chomp(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
+define range(i32 -2147483647, -2147483648) i32 @cli_chomp(ptr noundef %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.critedge, label %3
 
@@ -836,7 +836,7 @@ define noundef ptr @cli_strtokbuf(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define ptr @cli_memstr(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #11 {
+define ptr @cli_memstr(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #11 {
   %5 = add i64 %3, -1
   %.not48 = icmp ult i64 %5, %1
   br i1 %.not48, label %6, label %.loopexit
@@ -900,7 +900,7 @@ define ptr @cli_memstr(ptr noundef readonly %0, i64 noundef %1, ptr noundef read
 declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @cli_strrcpy(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define noundef ptr @cli_strrcpy(ptr noundef writeonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -926,7 +926,7 @@ define noundef ptr @cli_strrcpy(ptr noundef writeonly captures(address_is_null, 
 }
 
 ; Function Attrs: nofree nounwind memory(read) uwtable
-define noundef ptr @__cli_strcasestr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
+define noundef ptr @__cli_strcasestr(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #12 {
   %3 = alloca [3 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 3, ptr nonnull %3) #24
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #23
@@ -986,7 +986,7 @@ declare i64 @strcspn(ptr noundef captures(none), ptr noundef captures(none)) loc
 declare i32 @strncasecmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noalias noundef ptr @__cli_strndup(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #14 {
+define noalias noundef ptr @__cli_strndup(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -1037,7 +1037,7 @@ define i64 @__cli_strnlen(ptr noundef readonly captures(none) %0, i64 noundef %1
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define ptr @__cli_strnstr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
+define ptr @__cli_strnstr(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #11 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %5 = load i8, ptr %1, align 1, !tbaa !3
   %.not = icmp eq i8 %5, 0
@@ -1130,7 +1130,7 @@ define i64 @cli_strtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #18 {
+define i64 @cli_strntol(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %.thread152, label %.preheader
 
@@ -1331,7 +1331,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #13
 declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #18 {
+define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #18 {
   %5 = tail call ptr @__ctype_b_loc() #25
   %6 = load ptr, ptr %5, align 8, !tbaa !15
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -1521,7 +1521,7 @@ define i64 @cli_strntoul(ptr noundef %0, i64 noundef %1, ptr noundef writeonly c
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 28) i32 @cli_strntol_wrap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #18 {
+define range(i32 0, 28) i32 @cli_strntol_wrap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #18 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   store ptr null, ptr %6, align 8, !tbaa !13
@@ -1573,7 +1573,7 @@ define range(i32 0, 28) i32 @cli_strntol_wrap(ptr noundef %0, i64 noundef %1, i3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 28) i32 @cli_strntoul_wrap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #18 {
+define range(i32 0, 28) i32 @cli_strntoul_wrap(ptr noundef %0, i64 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #18 {
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #24
   store ptr null, ptr %6, align 8, !tbaa !13
@@ -1719,7 +1719,7 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @cli_isnumber(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @cli_isnumber(ptr noundef readonly %0) local_unnamed_addr #16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 
@@ -2245,7 +2245,7 @@ define range(i32 0, 2) i32 @cli_hexnibbles(ptr noundef captures(none) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 27) i32 @cli_basename(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 0, 27) i32 @cli_basename(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %2, null
   %or.cond = or i1 %4, %5

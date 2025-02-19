@@ -18,7 +18,7 @@ define noundef i32 @ossl_rio_poll_builder_init(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_rio_poll_builder_cleanup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @ossl_rio_poll_builder_cleanup(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 

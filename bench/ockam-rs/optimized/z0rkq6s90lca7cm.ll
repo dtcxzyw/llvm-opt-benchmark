@@ -995,7 +995,7 @@ define hidden void @"_ZN13generic_array25ArrayBuilder$LT$T$C$N$GT$13iter_positio
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_iter17h3f3d2eb2ea7b081cE"(ptr noalias noundef writeonly sret({ i8, [16 x i8] }) align 1 captures(none) dereferenceable(17) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_iter17h3f3d2eb2ea7b081cE"(ptr noalias noundef writeonly sret({ i8, [16 x i8] }) align 1 captures(none) dereferenceable(17) %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #10 personality ptr @rust_eh_personality {
 .lr.ph.i.i:
   %3 = alloca { { [16 x i8] }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3)
@@ -1038,7 +1038,7 @@ _ZN4core4iter6traits8iterator8Iterator8for_each17h384609ea6fa0e007E.exit.thread:
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_iter17h4e099648186203d6E"(ptr noalias noundef writeonly sret({ i8, [32 x i8] }) align 1 captures(none) dereferenceable(33) %0, ptr noundef nonnull readonly captures(address) %1, ptr noundef readnone captures(address) %2) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden void @"_ZN13generic_array25GenericArray$LT$T$C$N$GT$15from_exact_iter17h4e099648186203d6E"(ptr noalias noundef writeonly sret({ i8, [32 x i8] }) align 1 captures(none) dereferenceable(33) %0, ptr noundef nonnull readonly %1, ptr noundef readnone %2) unnamed_addr #10 personality ptr @rust_eh_personality {
 .lr.ph.i.i:
   %3 = alloca { { [32 x i8] }, i64 }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3)
@@ -1522,7 +1522,7 @@ define hidden noundef range(i8 -1, 2) i8 @_ZN4core3ops8function6FnOnce9call_once
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc void @"_ZN4core3ptr1038drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$u5b$u8$u5d$$C$ockam_vault..types..secrets..SecretBufferHandle$C$$LP$$RP$$C$$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$..hkdf..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_vault..types..secrets..SecretBufferHandle$C$alloc..vec..Vec$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Chunks$LT$u8$GT$$C$$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$..hkdf..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6b493c6c0b9a30cE"(ptr writeonly captures(address_is_null) %.0.val, i64 %.8.val) unnamed_addr #7 {
+define internal fastcc void @"_ZN4core3ptr1038drop_in_place$LT$core..iter..adapters..map..map_fold$LT$$RF$$u5b$u8$u5d$$C$ockam_vault..types..secrets..SecretBufferHandle$C$$LP$$RP$$C$$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$..hkdf..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$core..iter..traits..iterator..Iterator..for_each..call$LT$ockam_vault..types..secrets..SecretBufferHandle$C$alloc..vec..Vec$LT$ockam_vault..types..secrets..SecretBufferHandle$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..slice..iter..Chunks$LT$u8$GT$$C$$LT$ockam_vault..software..vault_for_secure_channels..vault_for_secure_channels..SoftwareVaultForSecureChannels$u20$as$u20$ockam_vault..traits..vault_for_secure_channels..VaultForSecureChannels$GT$..hkdf..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hf6b493c6c0b9a30cE"(ptr writeonly %.0.val, i64 %.8.val) unnamed_addr #7 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   store i64 %.8.val, ptr %.0.val, align 8
@@ -4408,7 +4408,7 @@ define void @_ZN11ockam_vault8software25vault_for_secure_channels5types15X25519S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(32) ptr @_ZN11ockam_vault8software25vault_for_secure_channels5types15X25519SecretKey3key17h2fe6241812594583E(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 1 dereferenceable(32) ptr @_ZN11ockam_vault8software25vault_for_secure_channels5types15X25519SecretKey3key17h2fe6241812594583E(ptr noalias noundef readonly returned align 1 dereferenceable(32) %0) unnamed_addr #4 {
   ret ptr %0
 }
 

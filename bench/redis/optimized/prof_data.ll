@@ -169,7 +169,7 @@ define hidden noundef i64 @je_prof_bt_count() local_unnamed_addr #5 {
 declare i64 @je_ckh_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @je_prof_thread_name_alloc(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden ptr @je_prof_thread_name_alloc(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.rtree_ctx_s, align 8
   %4 = alloca %struct.rtree_ctx_s, align 8
   %5 = icmp eq ptr %1, null

@@ -210,7 +210,7 @@ while.end:                                        ; preds = %if.end183, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC13UTF8IncrementEPKcm(ptr noundef readonly captures(ret: address, provenance) %p, i64 noundef %n) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN2EA4StdC13UTF8IncrementEPKcm(ptr noundef readonly %p, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %tobool.not15 = icmp eq i64 %n, 0
   br i1 %tobool.not15, label %while.end, label %while.body
@@ -256,7 +256,7 @@ while.end:                                        ; preds = %if.end26, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC13UTF8DecrementEPKcm(ptr noundef readonly captures(ret: address, provenance) %p, i64 noundef %n) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN2EA4StdC13UTF8DecrementEPKcm(ptr noundef readonly %p, i64 noundef %n) local_unnamed_addr #0 {
 entry:
   %tobool.not3 = icmp eq i64 %n, 0
   br i1 %tobool.not3, label %while.end, label %while.body
@@ -451,7 +451,7 @@ return:                                           ; preds = %if.else12, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i16 @_ZN2EA4StdC12UTF8ReadCharEPKcPS2_(ptr noundef %p, ptr noundef writeonly captures(address_is_null) %ppEnd) local_unnamed_addr #2 {
+define dso_local noundef zeroext i16 @_ZN2EA4StdC12UTF8ReadCharEPKcPS2_(ptr noundef %p, ptr noundef writeonly %ppEnd) local_unnamed_addr #2 {
 entry:
   %0 = load i8, ptr %p, align 1
   %conv = zext i8 %0 to i32
@@ -533,7 +533,7 @@ if.end67:                                         ; preds = %if.then66, %if.end6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN2EA4StdC13UTF8WriteCharEPcDs(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %p, i16 noundef zeroext %c) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @_ZN2EA4StdC13UTF8WriteCharEPcDs(ptr noundef writeonly initializes((0, 1)) %p, i16 noundef zeroext %c) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ult i16 %c, 128
   %incdec.ptr = getelementptr inbounds nuw i8, ptr %p, i64 1
@@ -584,7 +584,7 @@ if.end29:                                         ; preds = %if.then4, %if.else1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef nonnull ptr @_ZN2EA4StdC13UTF8WriteCharEPcDi(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 1)) %p, i32 noundef zeroext %c) local_unnamed_addr #3 {
+define dso_local noundef nonnull ptr @_ZN2EA4StdC13UTF8WriteCharEPcDi(ptr noundef writeonly initializes((0, 1)) %p, i32 noundef zeroext %c) local_unnamed_addr #3 {
 entry:
   %cmp = icmp ult i32 %c, 128
   br i1 %cmp, label %if.then, label %if.else
@@ -693,7 +693,7 @@ while.end:                                        ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC22UTF8ReplaceInvalidCharEPKcmPcc(ptr noundef readonly captures(none) %pIn, i64 noundef %nLength, ptr noundef writeonly captures(ret: address, provenance) %pOut, i8 noundef signext %replaceWith) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN2EA4StdC22UTF8ReplaceInvalidCharEPKcmPcc(ptr noundef readonly captures(none) %pIn, i64 noundef %nLength, ptr noundef writeonly %pOut, i8 noundef signext %replaceWith) local_unnamed_addr #4 {
 entry:
   %cmp22.not = icmp eq i64 %nLength, 0
   br i1 %cmp22.not, label %while.end, label %while.body
@@ -1136,7 +1136,7 @@ declare noundef ptr @_ZN2EA4StdC6StrcpyEPDiPKDi(ptr noundef, ptr noundef) local_
 declare noundef ptr @_ZN2EA4StdC6StrlwrEPDi(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC11GetTextLineEPKcS2_PS2_(ptr noundef %pText, ptr noundef %pTextEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #8 {
+define dso_local noundef ptr @_ZN2EA4StdC11GetTextLineEPKcS2_PS2_(ptr noundef %pText, ptr noundef %pTextEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #8 {
 entry:
   %cmp = icmp ult ptr %pText, %pTextEnd
   br i1 %cmp, label %land.lhs.true.preheader, label %if.else
@@ -1202,7 +1202,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC11GetTextLineEPKDsS2_PS2_(ptr noundef %pText, ptr noundef %pTextEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #8 {
+define dso_local noundef ptr @_ZN2EA4StdC11GetTextLineEPKDsS2_PS2_(ptr noundef %pText, ptr noundef %pTextEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #8 {
 entry:
   %cmp = icmp ult ptr %pText, %pTextEnd
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -1261,7 +1261,7 @@ if.end21:                                         ; preds = %if.end21.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC11GetTextLineEPKDiS2_PS2_(ptr noundef %pText, ptr noundef %pTextEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #8 {
+define dso_local noundef ptr @_ZN2EA4StdC11GetTextLineEPKDiS2_PS2_(ptr noundef %pText, ptr noundef %pTextEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #8 {
 entry:
   %cmp = icmp ult ptr %pText, %pTextEnd
   br i1 %cmp, label %land.lhs.true, label %if.else
@@ -1320,7 +1320,7 @@ if.end18:                                         ; preds = %if.end18.sink.split
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKcS2_cRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone captures(address) %pTextEnd, i8 noundef signext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKcS2_cRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i8 noundef signext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
   %cmp48 = icmp ult ptr %pText, %pTextEnd
@@ -1512,7 +1512,7 @@ return:                                           ; preds = %for.end72, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDsS2_DsRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone captures(address) %pTextEnd, i16 noundef zeroext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDsS2_DsRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i16 noundef zeroext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
   %cmp48 = icmp ult ptr %pText, %pTextEnd
@@ -1697,7 +1697,7 @@ return:                                           ; preds = %for.end72, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDiS2_DiRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone captures(address) %pTextEnd, i32 noundef zeroext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly captures(address_is_null) %ppNewText) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC18ParseDelimitedTextEPKDiS2_DiRS2_S3_PS2_(ptr noundef %pText, ptr noundef readnone %pTextEnd, i32 noundef zeroext %cDelimiter, ptr noundef nonnull align 8 captures(none) dereferenceable(8) initializes((0, 8)) %pToken, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %pTokenEnd, ptr noundef writeonly %ppNewText) local_unnamed_addr #4 {
 entry:
   store ptr %pText, ptr %pToken, align 8
   %cmp51 = icmp ult ptr %pText, %pTextEnd
@@ -1882,7 +1882,7 @@ return:                                           ; preds = %for.end60, %if.then
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC29ConvertBinaryDataToASCIIArrayEPKvmPc(ptr noundef readonly captures(address) %pBinaryData_, i64 noundef %nBinaryDataLength, ptr noundef writeonly captures(none) %pASCIIArray) local_unnamed_addr #8 {
+define dso_local void @_ZN2EA4StdC29ConvertBinaryDataToASCIIArrayEPKvmPc(ptr noundef readonly %pBinaryData_, i64 noundef %nBinaryDataLength, ptr noundef writeonly captures(none) %pASCIIArray) local_unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pBinaryData_, i64 %nBinaryDataLength
   %cmp15 = icmp sgt i64 %nBinaryDataLength, 0
@@ -1918,7 +1918,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC29ConvertBinaryDataToASCIIArrayEPKvmPDs(ptr noundef readonly captures(address) %pBinaryData_, i64 noundef %nBinaryDataLength, ptr noundef writeonly captures(none) %pASCIIArray) local_unnamed_addr #8 {
+define dso_local void @_ZN2EA4StdC29ConvertBinaryDataToASCIIArrayEPKvmPDs(ptr noundef readonly %pBinaryData_, i64 noundef %nBinaryDataLength, ptr noundef writeonly captures(none) %pASCIIArray) local_unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pBinaryData_, i64 %nBinaryDataLength
   %cmp15 = icmp sgt i64 %nBinaryDataLength, 0
@@ -1956,7 +1956,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_ZN2EA4StdC29ConvertBinaryDataToASCIIArrayEPKvmPDi(ptr noundef readonly captures(address) %pBinaryData_, i64 noundef %nBinaryDataLength, ptr noundef writeonly captures(none) %pASCIIArray) local_unnamed_addr #8 {
+define dso_local void @_ZN2EA4StdC29ConvertBinaryDataToASCIIArrayEPKvmPDi(ptr noundef readonly %pBinaryData_, i64 noundef %nBinaryDataLength, ptr noundef writeonly captures(none) %pASCIIArray) local_unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pBinaryData_, i64 %nBinaryDataLength
   %cmp14 = icmp sgt i64 %nBinaryDataLength, 0
@@ -1994,7 +1994,7 @@ while.end:                                        ; preds = %while.body, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC29ConvertASCIIArrayToBinaryDataEPKcmPv(ptr noundef readonly captures(address) %pASCIIArray, i64 noundef %nASCIIArrayLength, ptr noundef writeonly captures(none) %pBinaryData) local_unnamed_addr #8 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC29ConvertASCIIArrayToBinaryDataEPKcmPv(ptr noundef readonly %pASCIIArray, i64 noundef %nASCIIArrayLength, ptr noundef writeonly captures(none) %pBinaryData) local_unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pASCIIArray, i64 %nASCIIArrayLength
   %cmp26 = icmp sgt i64 %nASCIIArrayLength, 0
@@ -2064,7 +2064,7 @@ while.end:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC29ConvertASCIIArrayToBinaryDataEPKDsmPv(ptr noundef readonly captures(address) %pASCIIArray, i64 noundef %nASCIIArrayLength, ptr noundef writeonly captures(none) %pBinaryData) local_unnamed_addr #8 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC29ConvertASCIIArrayToBinaryDataEPKDsmPv(ptr noundef readonly %pASCIIArray, i64 noundef %nASCIIArrayLength, ptr noundef writeonly captures(none) %pBinaryData) local_unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds i16, ptr %pASCIIArray, i64 %nASCIIArrayLength
   %cmp26 = icmp sgt i64 %nASCIIArrayLength, 0
@@ -2134,7 +2134,7 @@ while.end:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC29ConvertASCIIArrayToBinaryDataEPKDimPv(ptr noundef readonly captures(address) %pASCIIArray, i64 noundef %nASCIIArrayLength, ptr noundef writeonly captures(none) %pBinaryData) local_unnamed_addr #8 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC29ConvertASCIIArrayToBinaryDataEPKDimPv(ptr noundef readonly %pASCIIArray, i64 noundef %nASCIIArrayLength, ptr noundef writeonly captures(none) %pBinaryData) local_unnamed_addr #8 {
 entry:
   %add.ptr = getelementptr inbounds i32, ptr %pASCIIArray, i64 %nASCIIArrayLength
   %cmp26 = icmp sgt i64 %nASCIIArrayLength, 0
@@ -2203,7 +2203,7 @@ while.end:                                        ; preds = %for.end, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKcmcPcmPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i8 noundef signext %cDelimiter, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKcmcPcmPS2_(ptr noundef readonly %pSource, i64 noundef %nSourceLength, i8 noundef signext %cDelimiter, ptr noundef writeonly %pToken, i64 noundef %nTokenLength, ptr noundef %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
   %tobool1 = icmp ne i64 %nTokenLength, 0
@@ -2303,7 +2303,7 @@ return:                                           ; preds = %if.end20, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKDsmDsPDsmPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i16 noundef zeroext %cDelimiter, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKDsmDsPDsmPS2_(ptr noundef readonly %pSource, i64 noundef %nSourceLength, i16 noundef zeroext %cDelimiter, ptr noundef writeonly %pToken, i64 noundef %nTokenLength, ptr noundef %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
   %tobool1 = icmp ne i64 %nTokenLength, 0
@@ -2403,7 +2403,7 @@ return:                                           ; preds = %if.end20, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKDimDiPDimPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i32 noundef zeroext %cDelimiter, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenDelimitedEPKDimDiPDimPS2_(ptr noundef readonly %pSource, i64 noundef %nSourceLength, i32 noundef zeroext %cDelimiter, ptr noundef writeonly %pToken, i64 noundef %nTokenLength, ptr noundef %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
   %tobool1 = icmp ne i64 %nTokenLength, 0
@@ -2503,7 +2503,7 @@ return:                                           ; preds = %if.end19, %for.body
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKcmcPcmPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i8 noundef signext %c, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKcmcPcmPS2_(ptr noundef readonly %pSource, i64 noundef %nSourceLength, i8 noundef signext %c, ptr noundef writeonly %pToken, i64 noundef %nTokenLength, ptr noundef %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
   %tobool1 = icmp ne i64 %nTokenLength, 0
@@ -2636,7 +2636,7 @@ return:                                           ; preds = %if.then9, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKDsmDsPDsmPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i16 noundef zeroext %c, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKDsmDsPDsmPS2_(ptr noundef readonly %pSource, i64 noundef %nSourceLength, i16 noundef zeroext %c, ptr noundef writeonly %pToken, i64 noundef %nTokenLength, ptr noundef %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
   %tobool1 = icmp ne i64 %nTokenLength, 0
@@ -2769,7 +2769,7 @@ return:                                           ; preds = %if.then9, %if.then9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKDimDiPDimPS2_(ptr noundef readonly captures(address_is_null) %pSource, i64 noundef %nSourceLength, i32 noundef zeroext %c, ptr noundef writeonly captures(address) %pToken, i64 noundef %nTokenLength, ptr noundef captures(address_is_null) %ppNewSource) local_unnamed_addr #9 {
+define dso_local noundef zeroext i1 @_ZN2EA4StdC19SplitTokenSeparatedEPKDimDiPDimPS2_(ptr noundef readonly %pSource, i64 noundef %nSourceLength, i32 noundef zeroext %c, ptr noundef writeonly %pToken, i64 noundef %nTokenLength, ptr noundef %ppNewSource) local_unnamed_addr #9 {
 entry:
   %tobool = icmp ne ptr %pToken, null
   %tobool1 = icmp ne i64 %nTokenLength, 0

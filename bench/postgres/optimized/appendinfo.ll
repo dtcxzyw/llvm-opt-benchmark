@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.12 = private unnamed_addr constant [41 x i8] c"cannot translate to multiple leaf relids\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @make_append_rel_info(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef ptr @palloc0(i64 noundef 56) #8
   store i32 321, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -998,7 +998,7 @@ adjust_child_relids.exit259:                      ; preds = %342, %adjust_child_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
+define dso_local ptr @adjust_appendrel_attrs_multilevel(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.adjust_appendrel_attrs_context, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 344
   %7 = load ptr, ptr %6, align 8
@@ -1158,7 +1158,7 @@ declare ptr @bms_del_member(ptr noundef, i32 noundef) local_unnamed_addr #3
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @adjust_child_relids_multilevel(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address) %3) local_unnamed_addr #0 {
+define dso_local ptr @adjust_child_relids_multilevel(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #8
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1249,7 +1249,7 @@ adjust_child_relids.exit:                         ; preds = %38, %18
 declare zeroext i1 @bms_overlap(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @adjust_inherited_attnums(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local ptr @adjust_inherited_attnums(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -1339,7 +1339,7 @@ declare ptr @get_rel_name(i32 noundef) local_unnamed_addr #3
 declare ptr @lappend_int(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @adjust_inherited_attnums_multilevel(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local ptr @adjust_inherited_attnums_multilevel(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = load ptr, ptr %5, align 8
   %7 = zext i32 %2 to i64
@@ -1372,7 +1372,7 @@ define dso_local ptr @adjust_inherited_attnums_multilevel(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_translated_update_targetlist(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local void @get_translated_update_targetlist(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40

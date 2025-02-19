@@ -2411,7 +2411,7 @@ _ZNK6HandleclEv.exit65:                           ; preds = %176, %_ZNK6Handlecl
 declare void @_ZN13ArgumentCountC1EP6Symbol(ptr noundef nonnull align 8 dereferenceable(28), ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL19get_parameter_typesRK12methodHandleiPP7oopDescP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL19get_parameter_typesRK12methodHandleiPP7oopDescP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %class.ResolvingSignatureStream, align 8
   %6 = icmp eq i32 %1, 0
   br i1 %6, label %7, label %9
@@ -3313,7 +3313,7 @@ declare noundef ptr @_ZNK15fieldDescriptor11annotationsEv(ptr noundef nonnull al
 declare void @_ZN23java_lang_reflect_Field15set_annotationsEP7oopDescS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10Reflection13new_parameterE6HandleiP6SymboliP10JavaThread(ptr readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN10Reflection13new_parameterE6HandleiP6SymboliP10JavaThread(ptr readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 align 2 {
   %6 = tail call ptr @_ZN27java_lang_reflect_Parameter6createEP10JavaThread(ptr noundef %4) #13
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8

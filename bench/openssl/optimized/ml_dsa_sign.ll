@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [39 x i8] c"../openssl/crypto/ml_dsa/ml_dsa_sign.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_ml_dsa_sign(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef writeonly captures(address_is_null) %10, i64 noundef %11) local_unnamed_addr #0 {
+define i32 @ossl_ml_dsa_sign(ptr noundef %0, i32 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, ptr noundef %6, i64 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef writeonly %10, i64 noundef %11) local_unnamed_addr #0 {
   %13 = alloca [66 x i8], align 16
   %14 = alloca %struct.vector_st, align 8
   %15 = alloca %struct.vector_st, align 8

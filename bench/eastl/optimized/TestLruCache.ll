@@ -2918,9 +2918,9 @@ invoke.cont667:                                   ; preds = %invoke.cont653
   store i32 0, ptr %fooCreator, align 4
   %mMgrFuncPtr.i.i1220 = getelementptr inbounds nuw i8, ptr %agg.tmp661, i64 16
   %mInvokeFuncPtr.i.i1221 = getelementptr inbounds nuw i8, ptr %agg.tmp661, i64 24
-  %491 = ptrtoint ptr %fooCreator to i64
   store ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE7ManagerEPvS9_NS2_17ManagerOperationsE", ptr %mMgrFuncPtr.i.i1220, align 8
   store ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE7InvokerEiRKNS0_15functor_storageILi16EEE", ptr %mInvokeFuncPtr.i.i1221, align 8
+  %491 = ptrtoint ptr %fooCreator to i64
   store i64 %491, ptr %agg.tmp661, align 8
   %mMgrFuncPtr.i.i1222 = getelementptr inbounds nuw i8, ptr %agg.tmp663, i64 16
   %mInvokeFuncPtr.i.i1223 = getelementptr inbounds nuw i8, ptr %agg.tmp663, i64 24
@@ -6981,7 +6981,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE7ManagerEPvS9_NS2_17ManagerOperationsE"(ptr noundef writeonly captures(ret: address, provenance) %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_0PN20TestLruCacheInternal3FooEJiEE7ManagerEPvS9_NS2_17ManagerOperationsE"(ptr noundef writeonly %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return
@@ -7031,7 +7031,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_1vJRKPN20TestLruCacheInternal3FooEEE7ManagerEPvSB_NS2_17ManagerOperationsE"(ptr noundef writeonly captures(ret: address, provenance) %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @"_ZN5eastl8internal20function_base_detailILi16EE16function_managerIZ12TestLruCachevE3$_1vJRKPN20TestLruCacheInternal3FooEEE7ManagerEPvSB_NS2_17ManagerOperationsE"(ptr noundef writeonly %to, ptr noundef readonly captures(none) %from, i32 noundef %ops) #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   switch i32 %ops, label %sw.default [
     i32 3, label %return

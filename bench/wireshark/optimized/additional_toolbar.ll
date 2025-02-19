@@ -1936,7 +1936,7 @@ define void @_ZN29AdditionalToolbarWidgetAction15onButtonClickedEv(ptr noundef a
 declare void @ext_toolbar_register_update_cb(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define internal void @_ZL17toolbar_button_cbPvS_S_(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL17toolbar_button_cbPvS_S_(ptr noundef readnone %0, ptr noundef %1, ptr noundef readonly %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = icmp ne ptr %0, null
@@ -2076,7 +2076,7 @@ define void @_ZN29AdditionalToolbarWidgetAction17onCheckBoxCheckedEi(ptr noundef
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define internal void @_ZL18toolbar_boolean_cbPvS_S_(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @_ZL18toolbar_boolean_cbPvS_S_(ptr noundef readnone %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -2132,7 +2132,7 @@ define internal void @_ZL18toolbar_boolean_cbPvS_S_(ptr noundef readnone capture
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef ptr @_ZN29AdditionalToolbarWidgetAction16createLabelFrameEP14_ext_toolbar_tP7QWidget(ptr readnone align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN29AdditionalToolbarWidgetAction16createLabelFrameEP14_ext_toolbar_tP7QWidget(ptr readnone align 8 captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = alloca %class.QString, align 8
@@ -2549,7 +2549,7 @@ _ZN7QStringD2Ev.exit38:                           ; preds = %66, %_ZN17QArrayDat
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define internal void @_ZL17toolbar_string_cbPvS_S_(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL17toolbar_string_cbPvS_S_(ptr noundef readnone %0, ptr noundef %1, ptr noundef readonly %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8
   %6 = icmp ne ptr %0, null
@@ -2806,7 +2806,7 @@ define void @_ZN29AdditionalToolbarWidgetAction26onSelectionInWidgetChangedEi(pt
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define internal void @_ZL19toolbar_selector_cbPvS_S_(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL19toolbar_selector_cbPvS_S_(ptr noundef readnone %0, ptr noundef %1, ptr noundef readonly %2) #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.QString, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %class.QList.18, align 8

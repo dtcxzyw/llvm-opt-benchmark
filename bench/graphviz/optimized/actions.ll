@@ -3948,7 +3948,7 @@ declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #6
 declare ptr @exstring(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -1, 2) i32 @compare(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #10 {
+define range(i32 -1, 2) i32 @compare(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #10 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 

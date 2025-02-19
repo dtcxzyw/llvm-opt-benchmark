@@ -142,7 +142,7 @@ define dso_local i32 @assoc_array_iterate(ptr noundef %0, ptr noundef readonly c
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @assoc_array_subtree_iterate(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @assoc_array_subtree_iterate(ptr noundef %0, ptr noundef readnone %1, ptr noundef captures(none) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   br label %.loopexit
@@ -498,7 +498,7 @@ define internal fastcc noundef range(i32 0, 3) i32 @assoc_array_walk(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @assoc_array_destroy(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @assoc_array_destroy(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   tail call fastcc void @assoc_array_destroy_subtree(ptr noundef %3, ptr noundef %1)
   store ptr null, ptr %0, align 8
@@ -506,7 +506,7 @@ define dso_local void @assoc_array_destroy(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @assoc_array_destroy_subtree(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit10, label %4
 

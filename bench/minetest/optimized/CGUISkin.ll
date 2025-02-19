@@ -456,7 +456,7 @@ if.end:                                           ; preds = %entry, %if.else
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUISkinD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(616) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUISkinD2Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -764,14 +764,14 @@ _ZN3irr4core6stringIwED2Ev.exit.7:                ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr3gui8CGUISkinD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(616) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr3gui8CGUISkinD1Ev(ptr noundef nonnull align 8 dereferenceable(616) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr3gui8CGUISkinD2Ev(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr noundef nonnull @_ZTTN3irr3gui8CGUISkinE) #16
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr3gui8CGUISkinD1Ev(ptr noundef captures(address) %this) unnamed_addr #3 align 2 {
+define void @_ZTv0_n24_N3irr3gui8CGUISkinD1Ev(ptr noundef %this) unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -1697,7 +1697,7 @@ return:                                           ; preds = %if.end235, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define { i64, i64 } @_ZN3irr3gui8CGUISkin22draw3DWindowBackgroundEPNS0_11IGUIElementEbNS_5video6SColorERKNS_4core4rectIiEEPS9_PS8_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr readnone captures(none) %element, i1 noundef zeroext %drawTitleBar, i32 %titleBarColor.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %r, ptr noundef %clip, ptr noundef writeonly captures(address_is_null) %checkClientArea) unnamed_addr #0 align 2 {
+define { i64, i64 } @_ZN3irr3gui8CGUISkin22draw3DWindowBackgroundEPNS0_11IGUIElementEbNS_5video6SColorERKNS_4core4rectIiEEPS9_PS8_(ptr noundef nonnull align 8 dereferenceable(616) %this, ptr readnone captures(none) %element, i1 noundef zeroext %drawTitleBar, i32 %titleBarColor.coerce, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %r, ptr noundef %clip, ptr noundef writeonly %checkClientArea) unnamed_addr #0 align 2 {
 entry:
   %retval = alloca %"class.irr::core::rect", align 16
   %Driver = getelementptr inbounds nuw i8, ptr %this, i64 600

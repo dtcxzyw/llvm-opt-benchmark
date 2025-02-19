@@ -497,7 +497,7 @@ define internal fastcc range(i32 -29184, 1) i32 @ssl_parse_record_header(ptr nou
 declare void @mbedtls_debug_print_ret(ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ssl_decrypt_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca [46 x i8], align 16
   %6 = alloca [12 x i8], align 1
@@ -943,7 +943,7 @@ ssl_build_record_nonce.exit:                      ; preds = %53
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_ssl_encrypt_buf(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [46 x i8], align 16
   %7 = alloca [48 x i8], align 16
   %8 = alloca [12 x i8], align 1
@@ -1938,7 +1938,7 @@ mbedtls_ssl_update_out_pointers.exit:             ; preds = %52, %56
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @mbedtls_ssl_update_out_pointers(ptr noundef captures(none) initializes((344, 368)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define hidden void @mbedtls_ssl_update_out_pointers(ptr noundef captures(none) initializes((344, 368)) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 9
   %5 = load i8, ptr %4, align 1
@@ -1982,7 +1982,7 @@ define hidden void @mbedtls_ssl_update_out_pointers(ptr noundef captures(none) i
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mbedtls_ssl_flight_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @mbedtls_ssl_flight_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %._crit_edge, label %.lr.ph
 

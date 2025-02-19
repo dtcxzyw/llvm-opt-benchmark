@@ -2493,7 +2493,7 @@ define internal zeroext i16 @int_cache_hit_posted_is_visible(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @iommu_pmu_cpu_online(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
+define internal noundef i32 @iommu_pmu_cpu_online(i32 noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr i8, ptr %1, i64 -920
   %5 = select i1 %3, ptr null, ptr %4

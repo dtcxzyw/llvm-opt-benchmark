@@ -382,7 +382,7 @@ define ptr @Mio_GateReadNext(ptr noundef readonly captures(none) %0) local_unnam
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @Mio_LibraryReadGateByName(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define ptr @Mio_LibraryReadGateByName(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #7 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -571,7 +571,7 @@ define i64 @Mio_GateReadTruth(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @Mio_GateReadTruthP(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @Mio_GateReadTruthP(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %3 = load i32, ptr %2, align 4, !tbaa !51
   %4 = icmp slt i32 %3, 7

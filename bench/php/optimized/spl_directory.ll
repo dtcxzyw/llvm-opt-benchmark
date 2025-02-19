@@ -6919,7 +6919,7 @@ define hidden void @zim_SplFileObject_getChildren(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_SplFileObject_fgetcsv(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) #0 {
+define hidden void @zim_SplFileObject_fgetcsv(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
@@ -7072,7 +7072,7 @@ spl_csv_enclosure_param_handling.exit.thread:     ; preds = %spl_csv_enclosure_p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_csv(ptr noundef %0, i8 noundef signext %1, i8 noundef signext %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @spl_filesystem_file_read_csv(ptr noundef %0, i8 noundef signext %1, i8 noundef signext %2, i32 noundef %3, ptr noundef writeonly %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %.pre = load ptr, ptr %7, align 8, !tbaa !18
@@ -10662,7 +10662,7 @@ define internal range(i32 -1, 1) i32 @spl_filesystem_dir_it_valid(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @spl_filesystem_dir_it_current_data(ptr noundef readnone captures(ret: address, provenance) %0) #14 {
+define internal nonnull ptr @spl_filesystem_dir_it_current_data(ptr noundef readnone %0) #14 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }

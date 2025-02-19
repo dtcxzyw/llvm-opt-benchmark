@@ -1091,7 +1091,7 @@ declare ptr @lookup_tree(ptr noundef, ptr noundef) local_unnamed_addr #4
 declare ptr @hashmap_iter_next(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @mark_parents_uninteresting(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
+define dso_local void @mark_parents_uninteresting(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #2 {
   %3 = alloca %struct.commit_stack, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, i8 0, i64 24, i1 false)
@@ -1158,7 +1158,7 @@ commit_stack_pop.exit:                            ; preds = %._crit_edge, %commi
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_one_parent_uninteresting(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 {
+define internal fastcc void @mark_one_parent_uninteresting(ptr noundef readonly %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #2 {
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 32
   %.not = icmp eq i32 %5, 0
@@ -2690,7 +2690,7 @@ define dso_local void @parse_revision_opt(ptr noundef %0, ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @handle_revision_opt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #2 {
+define internal fastcc i32 @handle_revision_opt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(none) %3, ptr noundef writeonly captures(none) %4, ptr noundef readonly %5) unnamed_addr #2 {
   %7 = alloca ptr, align 8
   %8 = alloca %struct.object_id, align 4
   %9 = alloca i32, align 4
@@ -4716,7 +4716,7 @@ define dso_local void @revision_opts_finish(ptr noundef captures(none) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @setup_revisions(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #2 {
+define dso_local i32 @setup_revisions(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.object_id, align 4
   %7 = alloca %struct.strbuf, align 8
@@ -10598,7 +10598,7 @@ declare ptr @pop_commit(ptr noundef) local_unnamed_addr #4
 declare void @graph_update(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local nonnull ptr @get_revision_mark(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
+define dso_local nonnull ptr @get_revision_mark(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #18 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 512
   %.not = icmp eq i32 %4, 0
@@ -10649,7 +10649,7 @@ define dso_local nonnull ptr @get_revision_mark(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @put_revision_mark(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
+define dso_local void @put_revision_mark(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #19 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 512
   %.not.i = icmp eq i32 %4, 0
@@ -11242,7 +11242,7 @@ declare ptr @lookup_commit_reference(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @repo_get_merge_bases(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_rev_cmdline_list(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @add_rev_cmdline_list(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 {
   %.not7 = icmp eq ptr %1, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -11306,7 +11306,7 @@ add_rev_cmdline.exit:                             ; preds = %._crit_edge.i, %st_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @add_pending_commit_list(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #2 {
+define internal fastcc void @add_pending_commit_list(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #2 {
   %.not7 = icmp eq ptr %1, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 

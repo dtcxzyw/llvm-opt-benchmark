@@ -1355,7 +1355,7 @@ define hidden i32 @X509_cmp_current_time(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden i32 @X509_cmp_time(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca %struct.asn1_string_st, align 8
   %5 = alloca [24 x i8], align 16
@@ -1656,7 +1656,7 @@ X509_time_adj.exit:                               ; preds = %92, %94, %96
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_time_adj(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @X509_time_adj(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
   store i64 0, ptr %4, align 8, !tbaa !103
@@ -1761,7 +1761,7 @@ X509_time_adj.exit:                               ; preds = %12, %15, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_time_adj_ex(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden ptr @X509_time_adj_ex(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
   store i64 0, ptr %5, align 8, !tbaa !103

@@ -1546,7 +1546,7 @@ _ZNSt8_Rb_treeIN4cvc58internal12NodeTemplateILb1EEES3_St9_IdentityIS3_ESt4lessIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory9ExtTheory19getSubstitutedTermsEiRKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EERS7_RS3_IS7_SaIS7_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(584) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory9ExtTheory19getSubstitutedTermsEiRKSt6vectorINS0_12NodeTemplateILb1EEESaIS5_EERS7_RS3_IS7_SaIS7_EE(ptr noundef nonnull readonly align 8 dereferenceable(584) %0, i32 noundef %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::unordered_map.550", align 8
   %7 = alloca %"class.std::vector.413", align 8
   %8 = alloca %"class.std::vector.413", align 8

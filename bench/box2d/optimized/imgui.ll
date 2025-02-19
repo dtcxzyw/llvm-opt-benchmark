@@ -1842,7 +1842,7 @@ _ZN7ImGuiIO17AddInputCharacterEj.exit12:          ; preds = %50, %47, %42, %2, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN7ImGuiIO22AddInputCharactersUTF8EPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2944) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN7ImGuiIO22AddInputCharactersUTF8EPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2944) %0, ptr noundef %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %struct.ImGuiInputEvent, align 4
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2921
@@ -1906,7 +1906,7 @@ _ZN7ImGuiIO17AddInputCharacterEj.exit:            ; preds = %14, %21, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -128, 129) i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef writeonly captures(none) initializes((0, 4)) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #8 {
   %4 = load i8, ptr %1, align 1, !tbaa !206
   %5 = lshr i8 %4, 3
   %6 = zext nneg i8 %5 to i64
@@ -2482,7 +2482,7 @@ _ZN5ImGui10GetKeyDataEP12ImGuiContext8ImGuiKey.exit: ; preds = %45, %switch.hole
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN5ImGui10GetKeyDataEP12ImGuiContext8ImGuiKey(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #9 {
+define dso_local noundef nonnull ptr @_ZN5ImGui10GetKeyDataEP12ImGuiContext8ImGuiKey(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = and i32 %1, 61440
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %_ZN5ImGui25ConvertSingleModFlagToKeyE8ImGuiKey.exit, label %4
@@ -3846,7 +3846,7 @@ _ZN5ImGui14DebugAllocHookEP19ImGuiDebugAllocInfoiPvm.exit: ; preds = %32, %26, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z11ImStrdupcpyPcPmPKc(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @_Z11ImStrdupcpyPcPmPKc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %4
 
@@ -4097,7 +4097,7 @@ define dso_local noundef ptr @_Z13ImStreolRangePKcS0_(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z8ImStrbolPKcS0_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #16 {
+define dso_local noundef ptr @_Z8ImStrbolPKcS0_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #16 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -4116,7 +4116,7 @@ define dso_local noundef ptr @_Z8ImStrbolPKcS0_(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z9ImStristrPKcS0_S0_S0_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #20 {
+define dso_local noundef ptr @_Z9ImStristrPKcS0_S0_S0_(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readnone %3) local_unnamed_addr #20 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %8
 
@@ -4295,7 +4295,7 @@ define dso_local void @_Z15ImStrTrimBlanksPc(ptr noundef %0) local_unnamed_addr 
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #16 {
+define dso_local noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef readonly %0) local_unnamed_addr #16 {
   br label %2
 
 2:                                                ; preds = %.critedge, %1
@@ -4315,7 +4315,7 @@ define dso_local noundef ptr @_Z14ImStrSkipBlankPKc(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_Z14ImFormatStringPcmPKcz(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #22 {
+define dso_local noundef i32 @_Z14ImFormatStringPcmPKcz(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #22 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #44
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -4352,7 +4352,7 @@ declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noun
 declare void @llvm.va_end.p0(ptr) #23
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_Z15ImFormatStringVPcmPKcP13__va_list_tag(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #22 {
+define dso_local noundef i32 @_Z15ImFormatStringVPcmPKcP13__va_list_tag(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #22 {
   %5 = tail call i32 @vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #44
   %6 = icmp eq ptr %0, null
   br i1 %6, label %13, label %7
@@ -4375,7 +4375,7 @@ define dso_local noundef i32 @_Z15ImFormatStringVPcmPKcP13__va_list_tag(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_Z26ImFormatStringToTempBufferPPKcS1_S0_z(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #22 {
+define dso_local void @_Z26ImFormatStringToTempBufferPPKcS1_S0_z(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ...) local_unnamed_addr #22 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #44
   call void @llvm.va_start.p0(ptr nonnull %4)
@@ -4386,7 +4386,7 @@ define dso_local void @_Z26ImFormatStringToTempBufferPPKcS1_S0_z(ptr noundef wri
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_Z27ImFormatStringToTempBufferVPPKcS1_S0_P13__va_list_tag(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #22 {
+define dso_local void @_Z27ImFormatStringToTempBufferVPPKcS1_S0_P13__va_list_tag(ptr noundef writeonly captures(none) initializes((0, 8)) %0, ptr noundef writeonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #22 {
   %5 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %6 = load i8, ptr %2, align 1, !tbaa !206
   %7 = icmp eq i8 %6, 37
@@ -4747,7 +4747,7 @@ define dso_local noundef i64 @_Z11ImFileWritePKvyyP8_IO_FILE(ptr noundef capture
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
 
@@ -4937,7 +4937,7 @@ _ZN5ImGui7MemFreeEPv.exit:                        ; preds = %63, %_ZN5ImGui14Deb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_Z17ImTextStrFromUtf8PtiPKcS1_PS1_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #25 {
+define dso_local noundef i32 @_Z17ImTextStrFromUtf8PtiPKcS1_PS1_(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4) local_unnamed_addr #25 {
   %6 = alloca i32, align 4
   %7 = sext i32 %1 to i64
   %8 = getelementptr inbounds i16, ptr %0, i64 %7
@@ -5014,7 +5014,7 @@ define dso_local noundef i32 @_Z17ImTextStrFromUtf8PtiPKcS1_PS1_(ptr noundef %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_Z24ImTextCountCharsFromUtf8PKcS0_(ptr noundef captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #25 {
+define dso_local noundef i32 @_Z24ImTextCountCharsFromUtf8PKcS0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #25 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   %4 = icmp ult ptr %0, %1
@@ -5065,7 +5065,7 @@ define dso_local noundef i32 @_Z24ImTextCountCharsFromUtf8PKcS0_(ptr noundef cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef ptr @_Z16ImTextCharToUtf8Pcj(ptr noundef returned writeonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #10 {
+define dso_local noundef ptr @_Z16ImTextCharToUtf8Pcj(ptr noundef returned writeonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = icmp ult i32 %1, 128
   br i1 %3, label %4, label %6
 
@@ -5148,7 +5148,7 @@ _ZL23ImTextCharToUtf8_inlinePcij.exit:            ; preds = %4, %8, %18, %31, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef range(i32 -128, 129) i32 @_Z28ImTextCountUtf8BytesFromCharPKcS0_(ptr noundef captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #8 {
+define dso_local noundef range(i32 -128, 129) i32 @_Z28ImTextCountUtf8BytesFromCharPKcS0_(ptr noundef %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #44
   %4 = call noundef i32 @_Z18ImTextCharFromUtf8PjPKcS1_(ptr noundef nonnull %3, ptr noundef %0, ptr noundef %1)
@@ -5157,7 +5157,7 @@ define dso_local noundef range(i32 -128, 129) i32 @_Z28ImTextCountUtf8BytesFromC
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @_Z15ImTextStrToUtf8PciPKtS1_(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #21 {
+define dso_local noundef i32 @_Z15ImTextStrToUtf8PciPKtS1_(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readnone %3) local_unnamed_addr #21 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = getelementptr inbounds i8, ptr %6, i64 -1
@@ -5332,7 +5332,7 @@ _ZL23ImTextCharToUtf8_inlinePcij.exit:            ; preds = %_ZL23ImTextCharToUt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef i32 @_Z27ImTextCountUtf8BytesFromStrPKtS0_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #16 {
+define dso_local noundef i32 @_Z27ImTextCountUtf8BytesFromStrPKtS0_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #16 {
   %.not = icmp eq ptr %1, null
   %3 = icmp ult ptr %0, %1
   %or.cond14 = or i1 %.not, %3
@@ -5383,7 +5383,7 @@ define dso_local noundef i32 @_Z27ImTextCountUtf8BytesFromStrPKtS0_(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_Z31ImTextFindPreviousUtf8CodepointPKcS0_(ptr noundef readnone captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address, ret: address, provenance) %1) local_unnamed_addr #16 {
+define dso_local noundef ptr @_Z31ImTextFindPreviousUtf8CodepointPKcS0_(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #16 {
   br label %3
 
 3:                                                ; preds = %5, %2
@@ -6522,7 +6522,7 @@ define dso_local void @_ZN12ImGuiStorage9SetAllIntEi(ptr noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15ImGuiTextFilterC2EPKc(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 1), (256, 276)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN15ImGuiTextFilterC2EPKc(ptr noundef nonnull align 8 dereferenceable(276) initializes((0, 1), (256, 276)) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 256
   store i8 0, ptr %0, align 8, !tbaa !206
   %.not = icmp eq ptr %1, null
@@ -7158,7 +7158,7 @@ _ZN8ImVectorIN15ImGuiTextFilter14ImGuiTextRangeEE7reserveEi.exit: ; preds = %._Z
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK15ImGuiTextFilter10PassFilterEPKcS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #26 align 2 {
+define dso_local noundef zeroext i1 @_ZNK15ImGuiTextFilter10PassFilterEPKcS1_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(276) %0, ptr noundef readonly %1, ptr noundef readnone %2) local_unnamed_addr #26 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 256
   %5 = load i32, ptr %4, align 8, !tbaa !295
   %6 = icmp eq i32 %5, 0
@@ -10511,7 +10511,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN5ImGui19FindRenderedTextEndEPKcS1_(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #16 {
+define dso_local noundef ptr @_ZN5ImGui19FindRenderedTextEndEPKcS1_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #16 {
   %.not = icmp eq ptr %1, null
   %spec.store.select = select i1 %.not, ptr inttoptr (i64 -1 to ptr), ptr %1
   %3 = icmp ult ptr %0, %spec.store.select
@@ -10671,7 +10671,7 @@ _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit.thread: ; preds = %9, %22, %70, %_ZN5
 declare void @_ZN10ImDrawList7AddTextEPK6ImFontfRK6ImVec2jPKcS7_fPK6ImVec4(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef, float noundef, ptr noundef nonnull align 4 dereferenceable(8), i32 noundef, ptr noundef, ptr noundef, float noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5ImGui15LogRenderedTextEPK6ImVec2PKcS4_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not64 = icmp eq ptr %0, null
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   br label %tailrecurse
@@ -10899,7 +10899,7 @@ define dso_local void @_ZN5ImGui17RenderTextWrappedE6ImVec2PKcS2_f(<2 x float> %
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui19RenderTextClippedExEP10ImDrawListRK6ImVec2S4_PKcS6_PS3_S4_PK6ImRect(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #12 {
+define dso_local void @_ZN5ImGui19RenderTextClippedExEP10ImDrawListRK6ImVec2S4_PKcS6_PS3_S4_PK6ImRect(ptr noundef %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %6, ptr noundef readonly %7) local_unnamed_addr #12 {
   %9 = alloca %struct.ImVec2, align 8
   %10 = alloca %struct.ImVec4, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #44
@@ -11209,7 +11209,7 @@ _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit:       ; preds = %.critedge2.i, %13, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui17RenderTextClippedERK6ImVec2S2_PKcS4_PS1_S2_PK6ImRect(ptr noundef nonnull align 4 captures(address_is_null) dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local void @_ZN5ImGui17RenderTextClippedERK6ImVec2S2_PKcS4_PS1_S2_PK6ImRect(ptr noundef nonnull align 4 dereferenceable(8) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %5, ptr noundef %6) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   %spec.store.select.i = select i1 %.not.i, ptr inttoptr (i64 -1 to ptr), ptr %3
   %8 = icmp ult ptr %2, %spec.store.select.i
@@ -11280,7 +11280,7 @@ _ZN5ImGui19FindRenderedTextEndEPKcS1_.exit:       ; preds = %._ZN5ImGui19FindRen
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui18RenderTextEllipsisEP10ImDrawListRK6ImVec2S4_ffPKcS6_PS3_(ptr noundef %0, ptr noundef nonnull align 4 captures(address_is_null) dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #12 {
+define dso_local void @_ZN5ImGui18RenderTextEllipsisEP10ImDrawListRK6ImVec2S4_ffPKcS6_PS3_(ptr noundef %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %2, float noundef %3, float noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef readonly %7) local_unnamed_addr #12 {
   %9 = alloca i32, align 4
   %10 = alloca %struct.ImVec2, align 8
   %11 = alloca ptr, align 8
@@ -19145,7 +19145,7 @@ _ZN8ImVectorIP14ImGuiViewportPE7reserveEi.exit:   ; preds = %._ZN8ImVectorIP14Im
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui21SaveIniSettingsToDiskEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN5ImGui21SaveIniSettingsToDiskEPKc(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 9540
   store float 0.000000e+00, ptr %3, align 4, !tbaa !635
@@ -23728,7 +23728,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui24IsWindowContentHoverableEP11ImGu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #31 {
+define dso_local noundef zeroext i1 @_ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #31 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 912
   %4 = load ptr, ptr %3, align 8, !tbaa !772
   %5 = icmp eq ptr %4, %1
@@ -26136,7 +26136,7 @@ define dso_local void @_ZN5ImGui11KeepAliveIDEj(i32 noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui15IsMousePosValidEPK6ImVec2(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #31 {
+define dso_local noundef zeroext i1 @_ZN5ImGui15IsMousePosValidEPK6ImVec2(ptr noundef readonly %0) local_unnamed_addr #31 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @GImGui, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 224
@@ -26701,7 +26701,7 @@ define dso_local noundef ptr @_ZN5ImGui20GetTopMostPopupModalEv() local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui13IsWindowAboveEP11ImGuiWindowS1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #31 {
+define dso_local noundef zeroext i1 @_ZN5ImGui13IsWindowAboveEP11ImGuiWindowS1_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #31 {
   %3 = getelementptr i8, ptr %0, i64 20
   %.val = load i32, ptr %3, align 4, !tbaa !681
   %4 = lshr i32 %.val, 25
@@ -26749,7 +26749,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui13IsWindowAboveEP11ImGuiWindowS1_(
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui21ClosePopupsOverWindowEP11ImGuiWindowb(ptr noundef readonly captures(address) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @_ZN5ImGui21ClosePopupsOverWindowEP11ImGuiWindowb(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7728
   %5 = load i32, ptr %4, align 8, !tbaa !808
@@ -27111,7 +27111,7 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %26, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5ImGui19FindHoveredWindowExERK6ImVec2bPP11ImGuiWindowS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #46 {
+define dso_local void @_ZN5ImGui19FindHoveredWindowExERK6ImVec2bPP11ImGuiWindowS5_(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(8) %0, i1 noundef zeroext %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #46 {
   %5 = alloca %struct.ImVec2, align 8
   %6 = load ptr, ptr @GImGui, align 8, !tbaa !211
   br i1 %1, label %14, label %7
@@ -35538,7 +35538,7 @@ declare void @_ZN5ImGui30TableGcCompactTransientBuffersEP10ImGuiTable(ptr nounde
 declare void @_ZN5ImGui30TableGcCompactTransientBuffersEP18ImGuiTableTempData(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui26FocusTopMostWindowUnderOneEP11ImGuiWindowS1_P13ImGuiViewporti(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @_ZN5ImGui26FocusTopMostWindowUnderOneEP11ImGuiWindowS1_P13ImGuiViewporti(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readnone captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4848
   %7 = load i32, ptr %6, align 8, !tbaa !930
@@ -36215,7 +36215,7 @@ define dso_local void @_ZN5ImGui17SetNextWindowSizeERK6ImVec2i(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %4 = alloca %struct.ImGuiStackLevelInfo, align 4
   %5 = alloca %struct.ImGuiStackLevelInfo, align 4
   %6 = alloca %struct.ImVec2, align 4
@@ -42804,7 +42804,7 @@ define dso_local void @_ZN5ImGui11PopClipRectEv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5ImGui43FindBottomMostVisibleWindowWithinBeginStackEP11ImGuiWindow(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #31 {
+define dso_local noundef ptr @_ZN5ImGui43FindBottomMostVisibleWindowWithinBeginStackEP11ImGuiWindow(ptr noundef readonly %0) local_unnamed_addr #31 {
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4832
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4840
@@ -42903,7 +42903,7 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit: ; preds = %_ZL24Is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow(ptr noundef readnone captures(address) %0) local_unnamed_addr #31 {
+define dso_local noundef i32 @_ZN5ImGui22FindWindowDisplayIndexEP11ImGuiWindow(ptr noundef readnone %0) local_unnamed_addr #31 {
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 4832
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4840
@@ -46915,7 +46915,7 @@ _ZN5ImGui21GetContentRegionAvailEv.exit:          ; preds = %6, %12
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui13NavInitWindowEP11ImGuiWindowb(ptr noundef readonly captures(address) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @_ZN5ImGui13NavInitWindowEP11ImGuiWindowb(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !681
@@ -47298,7 +47298,7 @@ _ZN5ImGui8SameLineEff.exit:                       ; preds = %._crit_edge
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #12 {
+define dso_local noundef zeroext i1 @_ZN5ImGui7ItemAddERK6ImRectjPS1_i(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #12 {
   %5 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4928
   %7 = load ptr, ptr %6, align 8, !tbaa !308
@@ -49208,7 +49208,7 @@ define dso_local void @_ZN5ImGui30UpdateWindowParentAndRootLinksEP11ImGuiWindowi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5ImGui23UpdateWindowSkipRefreshEP11ImGuiWindow(ptr noundef captures(address) initializes((208, 209)) %0) local_unnamed_addr #48 {
+define dso_local void @_ZN5ImGui23UpdateWindowSkipRefreshEP11ImGuiWindow(ptr noundef initializes((208, 209)) %0) local_unnamed_addr #48 {
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 208
   store i8 0, ptr %3, align 8, !tbaa !1062
@@ -49320,7 +49320,7 @@ _ZN5ImGui26IsWindowWithinBeginStackOfEP11ImGuiWindowS1_.exit.thread: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN5ImGui17FindBlockingModalEP11ImGuiWindow(ptr noundef readonly captures(address) %0) local_unnamed_addr #31 {
+define dso_local noundef ptr @_ZN5ImGui17FindBlockingModalEP11ImGuiWindow(ptr noundef readonly %0) local_unnamed_addr #31 {
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 7728
   %4 = load i32, ptr %3, align 8, !tbaa !808
@@ -52884,7 +52884,7 @@ define dso_local void @_ZN5ImGui14PopTextWrapPosEv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui15IsWindowChildOfEP11ImGuiWindowS1_b(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #31 {
+define dso_local noundef zeroext i1 @_ZN5ImGui15IsWindowChildOfEP11ImGuiWindowS1_b(ptr noundef readonly %0, ptr noundef readnone %1, i1 noundef zeroext %2) local_unnamed_addr #31 {
   %.not7.i = icmp eq ptr %0, null
   br i1 %.not7.i, label %_ZL21GetCombinedRootWindowP11ImGuiWindowb.exit.thread, label %.lr.ph.i
 
@@ -53238,7 +53238,7 @@ _ZN5ImGui15IsWindowChildOfEP11ImGuiWindowS1_b.exit: ; preds = %31, %.lr.ph.i18, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow(ptr noundef readonly captures(address) %0) local_unnamed_addr #16 {
+define dso_local noundef zeroext i1 @_ZN5ImGui20IsWindowNavFocusableEP11ImGuiWindow(ptr noundef readonly %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 203
   %3 = load i8, ptr %2, align 1, !tbaa !431, !range !92, !noundef !93
   %4 = trunc nuw i8 %3 to i1
@@ -53718,7 +53718,7 @@ define dso_local void @_ZN5ImGui14SetWindowFocusEv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui14SetWindowFocusEPKc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @_ZN5ImGui14SetWindowFocusEPKc(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN5ImGui16FindWindowByNameEPKc.exit.thread.sink.split, label %2
 
@@ -63204,7 +63204,7 @@ _ZN11ImGuiWindow5GetIDEPKcS1_.exit:               ; preds = %65, %69, %68, %51, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_ZN5ImGui15BeginPopupModalEPKcPbi(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #12 {
+define dso_local noundef zeroext i1 @_ZN5ImGui15BeginPopupModalEPKcPbi(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = alloca %struct.ImGuiStackLevelInfo, align 4
   %5 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4928
@@ -63517,7 +63517,7 @@ _ZN5ImGui8EndPopupEv.exit26:                      ; preds = %_ZN5ImGui25NavMoveR
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5ImGui25NavMoveRequestTryWrappingEP11ImGuiWindowi(ptr noundef readnone captures(address) %0, i32 noundef %1) local_unnamed_addr #34 {
+define dso_local void @_ZN5ImGui25NavMoveRequestTryWrappingEP11ImGuiWindowi(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #34 {
   %3 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7792
   %5 = load ptr, ptr %4, align 8, !tbaa !390
@@ -66613,7 +66613,7 @@ define dso_local noundef zeroext i1 @_ZN5ImGui30IsDragDropPayloadBeingAcceptedEv
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5ImGui21AcceptDragDropPayloadEPKci(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN5ImGui21AcceptDragDropPayloadEPKci(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ImRect, align 4
   %4 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8352
@@ -67401,7 +67401,7 @@ _ZN5ImGui8LogBeginE12ImGuiLogTypei.exit:          ; preds = %6, %16
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN5ImGui9LogToFileEiPKc(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #22 {
+define dso_local void @_ZN5ImGui9LogToFileEiPKc(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #22 {
   %3 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 9712
   %5 = load i8, ptr %4, align 8, !tbaa !388, !range !92, !noundef !93
@@ -68635,7 +68635,7 @@ _ZN5ImGui19FindSettingsHandlerEPKc.exit:          ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5ImGui23SaveIniSettingsToMemoryEPm(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @_ZN5ImGui23SaveIniSettingsToMemoryEPm(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 9540
   store float 0.000000e+00, ptr %3, align 4, !tbaa !635
@@ -69188,7 +69188,7 @@ _ZN5ImGui26FindWindowSettingsByWindowEP11ImGuiWindow.exit.thread: ; preds = %sel
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZL24InitOrLoadWindowSettingsP11ImGuiWindowP19ImGuiWindowSettings(ptr noundef captures(none) initializes((40, 64), (228, 229), (296, 320)) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #52 {
+define internal fastcc void @_ZL24InitOrLoadWindowSettingsP11ImGuiWindowP19ImGuiWindowSettings(ptr noundef captures(none) initializes((40, 64), (228, 229), (296, 320)) %0, ptr noundef readonly %1) unnamed_addr #52 {
   %3 = load ptr, ptr @GImGui, align 8, !tbaa !211
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 7784
   %5 = load ptr, ptr %4, align 8, !tbaa !432
@@ -70848,7 +70848,7 @@ declare noundef zeroext i1 @_ZN5ImGui8CheckboxEPKcPb(ptr noundef, ptr noundef) l
 declare void @_ZN5ImGui5ImageEPvRK6ImVec2S3_S3_RK6ImVec4S6_(ptr noundef, ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(8), ptr noundef nonnull align 4 dereferenceable(16), ptr noundef nonnull align 4 dereferenceable(16)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui17ShowMetricsWindowEPb(ptr noundef captures(address_is_null) %0) local_unnamed_addr #12 {
+define dso_local void @_ZN5ImGui17ShowMetricsWindowEPb(ptr noundef %0) local_unnamed_addr #12 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.ImRect, align 8
   %4 = alloca %struct.ImVec2, align 8
@@ -75309,7 +75309,7 @@ _ZZN5ImGui17ShowMetricsWindowEPbEN5Funcs12GetTableRectEP10ImGuiTableii.exit824: 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui18ShowDebugLogWindowEPb(ptr noundef captures(address_is_null) %0) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5ImGui18ShowDebugLogWindowEPb(ptr noundef %0) local_unnamed_addr #12 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca %struct.ImVec2, align 4
   %4 = alloca %struct.ImGuiListClipper, align 8
@@ -76090,7 +76090,7 @@ _ZN16ImGuiListClipperD2Ev.exit47:                 ; preds = %394
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui21ShowIDStackToolWindowEPb(ptr noundef captures(address_is_null) %0) local_unnamed_addr #12 {
+define dso_local void @_ZN5ImGui21ShowIDStackToolWindowEPb(ptr noundef %0) local_unnamed_addr #12 {
   %2 = alloca %struct.ImVec4, align 4
   %3 = alloca [256 x i8], align 16
   %4 = alloca %struct.ImVec2, align 4
@@ -76889,7 +76889,7 @@ define internal noundef range(i32 -65535, 65536) i32 @_ZZN5ImGui17ShowMetricsWin
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui38DebugNodeWindowsListByBeginStackParentEPP11ImGuiWindowiS1_(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5ImGui38DebugNodeWindowsListByBeginStackParentEPP11ImGuiWindowiS1_(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca [20 x i8], align 16
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -80730,7 +80730,7 @@ _ZN8ImVectorI19ImGuiStackLevelInfoE7reserveEi.exit: ; preds = %81, %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibPcm(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef captures(address_is_null) %3, i64 noundef range(i64 -2147483648, 2147483648) %4) unnamed_addr #22 {
+define internal fastcc void @_ZL24StackToolFormatLevelInfoP16ImGuiIDStackToolibPcm(ptr noundef readonly captures(none) %0, i32 noundef %1, i1 noundef zeroext %2, ptr noundef %3, i64 noundef range(i64 -2147483648, 2147483648) %4) unnamed_addr #22 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !656

@@ -2015,7 +2015,7 @@ define dso_local noundef zeroext i1 @PageIndexTupleOverwrite(ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local ptr @PageSetChecksumCopy(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = getelementptr i8, ptr %0, i64 14
   %.val = load i16, ptr %3, align 2
   %4 = icmp eq i16 %.val, 0

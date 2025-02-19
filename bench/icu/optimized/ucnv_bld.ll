@@ -488,7 +488,7 @@ declare void @umtx_lock_75(ptr noundef) local_unnamed_addr #1
 declare void @umtx_unlock_75(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @ucnv_incrementRefCount_75(ptr noundef captures(address_is_null) %sharedData) local_unnamed_addr #0 {
+define void @ucnv_incrementRefCount_75(ptr noundef %sharedData) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq ptr %sharedData, null
   br i1 %cmp.not, label %if.end, label %land.lhs.true

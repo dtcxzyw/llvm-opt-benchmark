@@ -343,7 +343,7 @@ define hidden { i64, ptr } @"_ZN3std4sync6rwlock15RwLock$LT$T$GT$7get_mut17h7d31
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN3std4sync6rwlock15RwLock$LT$T$GT$7get_mut28_$u7b$$u7b$closure$u7d$$u7d$17habd791b4f59367e3E.llvm.180552711213681523"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(56) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN3std4sync6rwlock15RwLock$LT$T$GT$7get_mut28_$u7b$$u7b$closure$u7d$$u7d$17habd791b4f59367e3E.llvm.180552711213681523"(ptr noalias noundef readnone returned align 8 dereferenceable(56) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

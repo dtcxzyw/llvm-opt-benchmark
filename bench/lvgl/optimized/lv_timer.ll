@@ -370,7 +370,7 @@ lv_timer_handler_resume.exit:                     ; preds = %5, %17
 declare ptr @lv_ll_ins_head(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_timer_set_cb(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @lv_timer_set_cb(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -396,7 +396,7 @@ declare void @lv_ll_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_timer_pause(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @lv_timer_pause(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -412,7 +412,7 @@ define void @lv_timer_pause(ptr noundef captures(address_is_null) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_timer_resume(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_timer_resume(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -439,7 +439,7 @@ lv_timer_handler_resume.exit:                     ; preds = %2, %7
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_timer_set_period(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @lv_timer_set_period(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -452,7 +452,7 @@ define void @lv_timer_set_period(ptr noundef writeonly captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_timer_ready(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_timer_ready(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -470,7 +470,7 @@ define void @lv_timer_ready(ptr noundef captures(address_is_null) %0) local_unna
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_timer_set_repeat_count(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @lv_timer_set_repeat_count(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -484,7 +484,7 @@ define void @lv_timer_set_repeat_count(ptr noundef writeonly captures(address_is
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_timer_set_auto_delete(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
+define void @lv_timer_set_auto_delete(ptr noundef %0, i1 noundef zeroext %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -502,7 +502,7 @@ define void @lv_timer_set_auto_delete(ptr noundef captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define void @lv_timer_set_user_data(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #2 {
+define void @lv_timer_set_user_data(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -516,7 +516,7 @@ define void @lv_timer_set_user_data(ptr noundef writeonly captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_timer_reset(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_timer_reset(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorC1EPKcm = unnamed_addr alias void (ptr, ptr, i64), ptr @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorC2EPKcm
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef range(i32 0, 3) i32 @_ZN6duckdb8Utf8Proc7AnalyzeEPKcmPNS_20UnicodeInvalidReasonEPm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 {
+define noundef range(i32 0, 3) i32 @_ZN6duckdb8Utf8Proc7AnalyzeEPKcmPNS_20UnicodeInvalidReasonEPm(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 {
   %.not129.not = icmp eq i64 %1, 0
   br i1 %.not129.not, label %_ZN6duckdbL23AssignInvalidUTF8ReasonEPNS_20UnicodeInvalidReasonEPmmS0_.exit.thread, label %.lr.ph
 
@@ -934,7 +934,7 @@ define { i64, i64 } @_ZNK6duckdb16GraphemeIterator23GraphemeClusterIteratordeEv(
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN6duckdb16GraphemeIterator23GraphemeClusterIteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(32) %0) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !23
   %.not.i.i = icmp eq ptr %2, null
   br i1 %.not.i.i, label %3, label %8

@@ -25,7 +25,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.10 = private unnamed_addr constant [25 x i8] c"Failed to process frame.\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 8) i32 @_Z27alts_create_frame_protectorPKhmbbPmPP19tsi_frame_protector(ptr noundef %key, i64 noundef %key_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_rekey, ptr noundef captures(address_is_null) %max_protected_frame_size, ptr noundef writeonly captures(address_is_null) %self) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 8) i32 @_Z27alts_create_frame_protectorPKhmbbPmPP19tsi_frame_protector(ptr noundef %key, i64 noundef %key_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_rekey, ptr noundef %max_protected_frame_size, ptr noundef writeonly %self) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %aead_crypter_seal.i = alloca ptr, align 8
   %aead_crypter_unseal.i = alloca ptr, align 8
@@ -256,7 +256,7 @@ declare void @_ZN9grpc_core7GsecKeyC1EN4absl12lts_202308024SpanIKhEEb(ptr nounde
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 8) i32 @_ZL12alts_protectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef captures(address_is_null) %self, ptr noundef readonly captures(address_is_null) %unprotected_bytes, ptr noundef captures(address_is_null) %unprotected_bytes_size, ptr noundef %protected_output_frames, ptr noundef captures(address_is_null) %protected_output_frames_size) #0 {
+define internal noundef range(i32 0, 8) i32 @_ZL12alts_protectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef %self, ptr noundef readonly %unprotected_bytes, ptr noundef %unprotected_bytes_size, ptr noundef %protected_output_frames, ptr noundef %protected_output_frames_size) #0 {
 entry:
   %still_pending_size = alloca i64, align 8
   %cmp = icmp eq ptr %self, null
@@ -335,7 +335,7 @@ return:                                           ; preds = %if.else33, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 8) i32 @_ZL18alts_protect_flushP19tsi_frame_protectorPhPmS2_(ptr noundef captures(address_is_null) %self, ptr noundef %protected_output_frames, ptr noundef captures(address_is_null) %protected_output_frames_size, ptr noundef writeonly captures(address_is_null) %still_pending_size) #0 {
+define internal noundef range(i32 0, 8) i32 @_ZL18alts_protect_flushP19tsi_frame_protectorPhPmS2_(ptr noundef %self, ptr noundef %protected_output_frames, ptr noundef %protected_output_frames_size, ptr noundef writeonly %still_pending_size) #0 {
 entry:
   %error_details.i = alloca ptr, align 8
   %output_size.i = alloca i64, align 8
@@ -440,7 +440,7 @@ return:                                           ; preds = %_ZL4sealP20alts_fra
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef range(i32 0, 9) i32 @_ZL14alts_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef captures(address_is_null) %self, ptr noundef %protected_frames_bytes, ptr noundef captures(address_is_null) %protected_frames_bytes_size, ptr noundef writeonly captures(address_is_null) %unprotected_bytes, ptr noundef captures(address_is_null) %unprotected_bytes_size) #0 {
+define internal noundef range(i32 0, 9) i32 @_ZL14alts_unprotectP19tsi_frame_protectorPKhPmPhS3_(ptr noundef %self, ptr noundef %protected_frames_bytes, ptr noundef %protected_frames_bytes_size, ptr noundef writeonly %unprotected_bytes, ptr noundef %unprotected_bytes_size) #0 {
 entry:
   %error_details.i = alloca ptr, align 8
   %output_size.i = alloca i64, align 8

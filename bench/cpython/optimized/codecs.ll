@@ -1034,7 +1034,7 @@ declare i32 @PyList_Append(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 2, 1) i32 @PyCodec_Unregister(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 2, 1) i32 @PyCodec_Unregister(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)
   %3 = load ptr, ptr %2, align 8, !tbaa !4
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 16

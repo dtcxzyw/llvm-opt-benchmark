@@ -5260,7 +5260,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg6actionEOSt8functionIFvRS1_NS_4spanIKPKcLln1EEEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %action) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg6actionEOSt8functionIFvRS1_NS_4spanIKPKcLln1EEEEE(ptr noundef nonnull returned align 8 dereferenceable(8) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(32) %action) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__tmp.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %ref.tmp.i = alloca %"class.std::function", align 8
@@ -5326,7 +5326,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg6hiddenEv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(8) initializes((357, 358)) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg6hiddenEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) initializes((357, 358)) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_hidden = getelementptr inbounds nuw i8, ptr %this, i64 357
   store i8 1, ptr %m_hidden, align 1
@@ -5334,7 +5334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg10always_runEv(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(8) initializes((358, 359)) %this) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN18OpenImageIO_v2_6_08ArgParse3Arg10always_runEv(ptr noundef nonnull returned writeonly align 8 dereferenceable(8) initializes((358, 359)) %this) local_unnamed_addr #13 align 2 {
 entry:
   %m_always_run = getelementptr inbounds nuw i8, ptr %this, i64 358
   store i8 1, ptr %m_always_run, align 2
@@ -5375,7 +5375,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse5introENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse5introENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_intro = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -5387,7 +5387,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse5usageENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse5usageENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_usage = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -5399,7 +5399,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse11descriptionENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse11descriptionENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_description = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -5411,7 +5411,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse6epilogENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse6epilogENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_epilog = getelementptr inbounds nuw i8, ptr %0, i64 168
@@ -5423,7 +5423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse4progENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse4progENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef readonly captures(none) %str) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_prog = getelementptr inbounds nuw i8, ptr %0, i64 200
@@ -5435,7 +5435,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse14print_defaultsEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i1 noundef zeroext %print) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse14print_defaultsEb(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, i1 noundef zeroext %print) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %print to i8
   %0 = load ptr, ptr %this, align 8
@@ -5445,7 +5445,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse8add_helpEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i1 noundef zeroext %add_help) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse8add_helpEb(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, i1 noundef zeroext %add_help) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %add_help to i8
   %0 = load ptr, ptr %this, align 8
@@ -5455,7 +5455,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse11add_versionENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef readonly captures(none) %version) local_unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse11add_versionENS_17basic_string_viewIcSt11char_traitsIcEEE(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, ptr noundef readonly captures(none) %version) local_unnamed_addr #5 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %m_version = getelementptr inbounds nuw i8, ptr %0, i64 360
@@ -5467,7 +5467,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse13exit_on_errorEb(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, i1 noundef zeroext %exit_on_error) local_unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ArgParse13exit_on_errorEb(ptr noundef nonnull readonly returned align 8 dereferenceable(16) %this, i1 noundef zeroext %exit_on_error) local_unnamed_addr #8 align 2 {
 entry:
   %frombool = zext i1 %exit_on_error to i8
   %0 = load ptr, ptr %this, align 8

@@ -2322,31 +2322,31 @@ define noundef ptr @_ZN12colvarmodule4mainEv() local_unnamed_addr #14 align 2 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule9variablesEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule16variables_activeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule16variables_activeEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule20variables_active_smpEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule20variables_active_smpEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule26variables_active_smp_itemsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule26variables_active_smp_itemsEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN12colvarmodule13biases_activeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
+define noundef nonnull ptr @_ZN12colvarmodule13biases_activeEv(ptr noundef nonnull readnone align 8 dereferenceable(616) %0) local_unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 200
   ret ptr %2
 }
@@ -12246,7 +12246,7 @@ _ZNSt6vectorIPN12colvarmodule10atom_groupESaIS2_EE9push_backERKS2_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN12colvarmodule27unregister_named_atom_groupEPNS_10atom_groupE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #19 align 2 {
+define void @_ZN12colvarmodule27unregister_named_atom_groupEPNS_10atom_groupE(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %0, ptr noundef readnone %1) local_unnamed_addr #19 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -22638,7 +22638,7 @@ _ZNSt6vectorIN12colvarmodule7rvectorESaIS1_EED2Ev.exit52: ; preds = %119, %117, 
 declare noundef i32 @_ZN12colvarmodule10atom_group17create_sorted_idsEv(ptr noundef nonnull align 8 dereferenceable(1440)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN12colvarmodule15load_coords_xyzEPKcPSt6vectorINS_7rvectorESaIS3_EEPNS_10atom_groupEb(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12colvarmodule15load_coords_xyzEPKcPSt6vectorINS_7rvectorESaIS3_EEPNS_10atom_groupEb(ptr noundef nonnull align 8 captures(none) dereferenceable(616) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %7 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

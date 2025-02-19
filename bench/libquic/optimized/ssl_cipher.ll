@@ -478,7 +478,7 @@ declare ptr @EVP_sha256() local_unnamed_addr #3
 declare ptr @EVP_sha384() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
+define hidden ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #2 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
@@ -3943,7 +3943,7 @@ define hidden zeroext range(i16 768, 772) i16 @SSL_CIPHER_get_min_version(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @SSL_CIPHER_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define hidden ptr @SSL_CIPHER_get_name(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -3957,7 +3957,7 @@ define hidden ptr @SSL_CIPHER_get_name(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden nonnull ptr @SSL_CIPHER_get_kx_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define hidden nonnull ptr @SSL_CIPHER_get_kx_name(ptr noundef readonly %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -4003,7 +4003,7 @@ switch.lookup:                                    ; preds = %9
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @SSL_CIPHER_get_rfc_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define hidden noundef ptr @SSL_CIPHER_get_rfc_name(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %52, label %3
 
@@ -4160,7 +4160,7 @@ declare i64 @BUF_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_ad
 declare i64 @BUF_strlcat(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 257) i32 @SSL_CIPHER_get_bits(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #11 {
+define hidden range(i32 0, 257) i32 @SSL_CIPHER_get_bits(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #11 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 

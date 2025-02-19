@@ -489,7 +489,7 @@ gc_sweepstr.exit:                                 ; preds = %.lr.ph, %._crit_edg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @gc_sweep(ptr noundef %0, ptr noundef captures(ret: address, provenance) %1, i32 noundef range(i32 -1, 41) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @gc_sweep(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 -1, 41) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8, !tbaa !35
   %6 = xor i8 %5, 3

@@ -877,7 +877,7 @@ define internal range(i32 0, 2) i32 @buffer_new(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @buffer_free(ptr noundef captures(address_is_null) %0) #2 {
+define internal range(i32 0, 2) i32 @buffer_free(ptr noundef %0) #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

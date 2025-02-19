@@ -122,7 +122,7 @@ define void @PBMAC1PARAM_free(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS5_pbe2_set_iv_ex(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
+define ptr @PKCS5_pbe2_set_iv_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #1 {
   %8 = alloca i32, align 4
   %9 = alloca [16 x i8], align 16
   store i32 %5, ptr %8, align 4, !tbaa !3
@@ -337,7 +337,7 @@ declare i32 @EVP_CIPHER_get_key_length(ptr noundef) local_unnamed_addr #2
 declare void @X509_ALGOR_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS5_pbkdf2_set_ex(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define ptr @PKCS5_pbkdf2_set_ex(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @ASN1_item_new(ptr noundef nonnull @PBKDF2PARAM_it.local_it) #5
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.sink.split, label %9
@@ -465,13 +465,13 @@ declare ptr @ASN1_TYPE_pack_sequence(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS5_pbe2_set_iv(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 {
+define ptr @PKCS5_pbe2_set_iv(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call ptr @PKCS5_pbe2_set_iv_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef null)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS5_pbe2_set(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 {
+define ptr @PKCS5_pbe2_set(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = tail call ptr @PKCS5_pbe2_set_iv_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef null, i32 noundef -1, ptr noundef null)
   ret ptr %5
 }
@@ -487,7 +487,7 @@ declare ptr @ASN1_INTEGER_new() local_unnamed_addr #2
 declare ptr @ossl_X509_ALGOR_from_nid(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS5_pbkdf2_set(i32 noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define ptr @PKCS5_pbkdf2_set(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = tail call ptr @PKCS5_pbkdf2_set_ex(i32 noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef null)
   ret ptr %6
 }

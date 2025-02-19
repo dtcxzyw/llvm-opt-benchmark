@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [2 x i8] c"w\00", align 1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noalias noundef ptr @_Z12textFileReadPc(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @_Z12textFileReadPc(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %2
 
@@ -68,7 +68,7 @@ declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef,
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 0, 2) i32 @_Z13textFileWritePcS_(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z13textFileWritePcS_(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %3
 

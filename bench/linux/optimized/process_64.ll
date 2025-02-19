@@ -515,7 +515,7 @@ define internal fastcc void @__wrgsbase_inactive(i64 noundef %0) unnamed_addr #5
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !31
   %3 = inttoptr i64 %2 to ptr
   %4 = icmp eq ptr %0, %3
@@ -634,7 +634,7 @@ define dso_local i64 @x86_fsbase_read_task(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 align 16 {
+define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly %0) local_unnamed_addr #4 align 16 {
   %2 = alloca i64, align 8
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !31
   %4 = inttoptr i64 %3 to ptr
@@ -766,7 +766,7 @@ define dso_local i64 @x86_gsbase_read_task(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @x86_fsbase_write_task(ptr noundef writeonly captures(address) %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local void @x86_fsbase_write_task(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !31
   %4 = inttoptr i64 %3 to ptr
   %5 = icmp eq ptr %0, %4
@@ -785,7 +785,7 @@ define dso_local void @x86_fsbase_write_task(ptr noundef writeonly captures(addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @x86_gsbase_write_task(ptr noundef writeonly captures(address) %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
+define dso_local void @x86_gsbase_write_task(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #4 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !31
   %4 = inttoptr i64 %3 to ptr
   %5 = icmp eq ptr %0, %4
@@ -804,13 +804,13 @@ define dso_local void @x86_gsbase_write_task(ptr noundef writeonly captures(addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @start_thread(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) #4 align 16 {
+define dso_local void @start_thread(ptr noundef %0, i64 noundef %1, i64 noundef %2) #4 align 16 {
   tail call fastcc void @start_thread_common(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 51, i32 noundef 0)
   ret void
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @start_thread_common(ptr noundef writeonly captures(address) %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 35, 52) %3, i32 noundef range(i32 0, 44) %4) unnamed_addr #4 align 16 {
+define internal fastcc void @start_thread_common(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 35, 52) %3, i32 noundef range(i32 0, 44) %4) unnamed_addr #4 align 16 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #13, !srcloc !31
@@ -903,7 +903,7 @@ define internal fastcc void @start_thread_common(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @compat_start_thread(ptr noundef captures(address) %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 16 {
+define dso_local void @compat_start_thread(ptr noundef %0, i32 noundef %1, i32 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #4 align 16 {
   %5 = zext i32 %1 to i64
   %6 = zext i32 %2 to i64
   %7 = select i1 %3, i32 51, i32 35
@@ -1459,7 +1459,7 @@ define dso_local void @set_personality_ia32(i1 noundef zeroext %0) #4 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @do_arch_prctl_64(ptr noundef captures(address) %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @do_arch_prctl_64(ptr noundef %0, i32 noundef %1, i64 noundef %2) local_unnamed_addr #4 align 16 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   switch i32 %1, label %93 [

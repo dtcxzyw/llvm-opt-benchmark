@@ -632,7 +632,7 @@ declare void @php_dom_throw_error_with_message(i32 noundef, ptr noundef, i1 noun
 declare ptr @zend_throw_exception_ex(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc zeroext i1 @php_is_stream_path(ptr noundef nonnull readonly captures(address) %0) unnamed_addr #6 {
+define internal fastcc zeroext i1 @php_is_stream_path(ptr noundef nonnull readonly %0) unnamed_addr #6 {
   br label %2
 
 2:                                                ; preds = %.critedge, %1

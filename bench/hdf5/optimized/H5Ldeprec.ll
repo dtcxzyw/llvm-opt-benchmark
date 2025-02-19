@@ -294,7 +294,7 @@ declare ptr @H5VL_vol_object(i64 noundef) local_unnamed_addr #3
 declare i32 @H5VL_object_is_native(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5L__iterate2_shim(i64 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #0 {
+define internal i32 @H5L__iterate2_shim(i64 noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) #0 {
   %5 = alloca %struct.H5L_info1_t, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #4
   %6 = load i8, ptr @H5L_init_g, align 1, !tbaa !3, !range !7, !noundef !8

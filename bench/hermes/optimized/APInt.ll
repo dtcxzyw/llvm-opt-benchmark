@@ -304,7 +304,7 @@ _ZN4llvh5APInt13initFromArrayENS_8ArrayRefImEE.exit: ; preds = %if.then.i.i, %if
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh5APIntC2EjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %numbits, ptr captures(address) %Str.coerce0, i64 %Str.coerce1, i8 noundef zeroext %radix) unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh5APIntC2EjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 12)) %this, i32 noundef %numbits, ptr %Str.coerce0, i64 %Str.coerce1, i8 noundef zeroext %radix) unnamed_addr #0 align 2 {
 entry:
   %BitWidth = getelementptr inbounds nuw i8, ptr %this, i64 8
   store i32 %numbits, ptr %BitWidth, align 8
@@ -313,7 +313,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh5APInt10fromStringEjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %this, i32 %numbits, ptr readonly captures(address) %str.coerce0, i64 %str.coerce1, i8 noundef zeroext %radix) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh5APInt10fromStringEjNS_9StringRefEh(ptr noundef nonnull align 8 dereferenceable(12) initializes((0, 8)) %this, i32 %numbits, ptr readonly %str.coerce0, i64 %str.coerce1, i8 noundef zeroext %radix) local_unnamed_addr #0 align 2 {
 entry:
   %0 = load i8, ptr %str.coerce0, align 1
   %cmp = icmp eq i8 %0, 45
@@ -573,7 +573,7 @@ if.end12:                                         ; preds = %if.then8, %if.end5,
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh5APInt14AssignSlowCaseERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(12) %RHS) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh5APInt14AssignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %this, ptr noundef nonnull readonly align 8 dereferenceable(12) %RHS) local_unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %RHS
   br i1 %cmp, label %if.end8, label %if.end
@@ -678,7 +678,7 @@ declare void @_ZN4llvh16FoldingSetNodeID10AddIntegerEj(ptr noundef nonnull align
 declare void @_ZN4llvh16FoldingSetNodeID10AddIntegerEm(ptr noundef nonnull align 8 dereferenceable(144), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntppEv(ptr noundef nonnull returned align 8 dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
 entry:
   %BitWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
@@ -750,7 +750,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmmEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmmEv(ptr noundef nonnull returned align 8 dereferenceable(12) %this) local_unnamed_addr #4 align 2 {
 entry:
   %BitWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
@@ -822,7 +822,7 @@ _ZN4llvh5APInt15clearUnusedBitsEv.exit:           ; preds = %if.then.i, %if.else
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntpLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %RHS) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntpLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %RHS) local_unnamed_addr #4 align 2 {
 entry:
   %BitWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
@@ -947,7 +947,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntpLEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntpLEm(ptr noundef nonnull returned align 8 dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #4 align 2 {
 entry:
   %BitWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
@@ -1050,7 +1050,7 @@ return:                                           ; preds = %for.body, %for.cond
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmIERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %RHS) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmIERKS0_(ptr noundef nonnull returned align 8 dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %RHS) local_unnamed_addr #4 align 2 {
 entry:
   %BitWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
@@ -1186,7 +1186,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmIEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmIEm(ptr noundef nonnull returned align 8 dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #4 align 2 {
 entry:
   %BitWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
@@ -1665,7 +1665,7 @@ for.end:                                          ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmLERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %RHS) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmLERKS0_(ptr noundef nonnull returned align 8 dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %RHS) local_unnamed_addr #0 align 2 {
 entry:
   %BitWidth.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i.i, align 8, !noalias !16
@@ -1740,7 +1740,7 @@ _ZN4llvh5APIntD2Ev.exit:                          ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmLEm(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntmLEm(ptr noundef nonnull returned align 8 dereferenceable(12) %this, i64 noundef %RHS) local_unnamed_addr #4 align 2 {
 entry:
   %BitWidth.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth.i, align 8
@@ -2995,7 +2995,7 @@ return:                                           ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN4llvh5APInt13getBitsNeededENS_9StringRefEh(ptr captures(address) %str.coerce0, i64 %str.coerce1, i8 noundef zeroext %radix) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN4llvh5APInt13getBitsNeededENS_9StringRefEh(ptr %str.coerce0, i64 %str.coerce1, i8 noundef zeroext %radix) local_unnamed_addr #0 align 2 {
 entry:
   %tmp = alloca %"class.llvh::APInt", align 8
   %0 = load i8, ptr %str.coerce0, align 1
@@ -7557,7 +7557,7 @@ return:                                           ; preds = %entry, %if.end17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntlSERKS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %shiftAmt) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(12) ptr @_ZN4llvh5APIntlSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(12) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %shiftAmt) local_unnamed_addr #4 align 2 {
 entry:
   %BitWidth = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i32, ptr %BitWidth, align 8
@@ -14772,7 +14772,7 @@ _ZN4llvh5APIntD2Ev.exit1953:                      ; preds = %_ZN4llvh5APIntD2Ev.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh5APInt6divideEPKmjS2_jPmS3_(ptr noundef readonly captures(none) %LHS, i32 noundef %lhsWords, ptr noundef readonly captures(none) %RHS, i32 noundef %rhsWords, ptr noundef writeonly captures(address_is_null) %Quotient, ptr noundef writeonly captures(address_is_null) %Remainder) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh5APInt6divideEPKmjS2_jPmS3_(ptr noundef readonly captures(none) %LHS, i32 noundef %lhsWords, ptr noundef readonly captures(none) %RHS, i32 noundef %rhsWords, ptr noundef writeonly %Quotient, ptr noundef writeonly %Remainder) local_unnamed_addr #0 align 2 {
 entry:
   %SPACE = alloca [128 x i32], align 16
   %mul = shl i32 %rhsWords, 1
@@ -16666,7 +16666,7 @@ if.end:                                           ; preds = %if.else, %_ZN4llvh5
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4llvh5APInt7udivremERKS0_mRS0_Rm(ptr noundef nonnull align 8 dereferenceable(12) %LHS, i64 noundef %RHS, ptr noundef nonnull align 8 dereferenceable(12) %Quotient, ptr noundef nonnull align 8 captures(address_is_null) dereferenceable(8) %Remainder) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN4llvh5APInt7udivremERKS0_mRS0_Rm(ptr noundef nonnull align 8 dereferenceable(12) %LHS, i64 noundef %RHS, ptr noundef nonnull align 8 dereferenceable(12) %Quotient, ptr noundef nonnull align 8 dereferenceable(8) %Remainder) local_unnamed_addr #0 align 2 {
 entry:
   %RHS.addr = alloca i64, align 8
   store i64 %RHS, ptr %RHS.addr, align 8

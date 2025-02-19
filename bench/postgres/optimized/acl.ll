@@ -325,7 +325,7 @@ define dso_local noundef ptr @aclconcat(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @aclmerge(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local ptr @aclmerge(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -1138,7 +1138,7 @@ define internal range(i32 -1, 2) i32 @aclitemComparator(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @aclequal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
+define dso_local zeroext i1 @aclequal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -2332,7 +2332,7 @@ aclitem_match.exit.thread:                        ; preds = %61, %aclitem_match.
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @aclmask(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local i64 @aclmask(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %10
 
@@ -2573,7 +2573,7 @@ define dso_local zeroext i1 @has_privs_of_role(i32 noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @aclmembers(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define dso_local i32 @aclmembers(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %8, label %4
 
@@ -7302,7 +7302,7 @@ declare zeroext i1 @superuser_arg(i32 noundef) local_unnamed_addr #3
 declare zeroext i1 @list_member_oid(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc ptr @roles_is_member_of(i32 noundef %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -7799,7 +7799,7 @@ define dso_local i32 @select_best_admin(i32 noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
+define dso_local void @select_best_grantor(i32 noundef %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((0, 4)) %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #0 {
   %7 = shl i64 %1, 32
   %8 = icmp eq i32 %0, %3
   br i1 %8, label %.thread.sink.split, label %9
@@ -8123,7 +8123,7 @@ define dso_local ptr @get_rolespec_name(ptr noundef readonly captures(none) %0) 
 declare ptr @pstrdup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @check_rolespec_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @check_rolespec_name(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %3
 
@@ -8168,7 +8168,7 @@ declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #3
 declare ptr @palloc0(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @getid(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @getid(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call ptr @__ctype_b_loc() #16
   %5 = load ptr, ptr %4, align 8
   br label %6

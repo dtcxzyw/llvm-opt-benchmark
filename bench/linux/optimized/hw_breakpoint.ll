@@ -215,7 +215,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #3
 declare dso_local void @amd_set_dr_addr_mask(i64 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @arch_uninstall_hw_breakpoint(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @arch_uninstall_hw_breakpoint(ptr noundef readonly %0) local_unnamed_addr #2 align 16 {
   br label %2
 
 2:                                                ; preds = %11, %1

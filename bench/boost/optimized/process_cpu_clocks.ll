@@ -222,7 +222,7 @@ _ZN5boost6chrono10time_pointINS0_22process_real_cpu_clockENS0_8durationIlSt5rati
 declare noundef i64 @times(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN5boost6chrono22process_real_cpu_clock3nowERNS_6system10error_codeE(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN5boost6chrono22process_real_cpu_clock3nowERNS_6system10error_codeE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.tms, align 8
   %3 = alloca %"class.boost::system::system_error", align 8
   %4 = alloca %"class.boost::system::system_error", align 8
@@ -915,7 +915,7 @@ _ZN5boost6chrono10time_pointINS0_22process_user_cpu_clockENS0_8durationIlSt5rati
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN5boost6chrono22process_user_cpu_clock3nowERNS_6system10error_codeE(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN5boost6chrono22process_user_cpu_clock3nowERNS_6system10error_codeE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.tms, align 8
   %3 = alloca %"class.boost::system::system_error", align 8
   %4 = alloca %"class.boost::system::system_error", align 8
@@ -1116,7 +1116,7 @@ _ZN5boost6chrono10time_pointINS0_24process_system_cpu_clockENS0_8durationIlSt5ra
 }
 
 ; Function Attrs: mustprogress uwtable
-define i64 @_ZN5boost6chrono24process_system_cpu_clock3nowERNS_6system10error_codeE(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(24) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define i64 @_ZN5boost6chrono24process_system_cpu_clock3nowERNS_6system10error_codeE(ptr noundef nonnull writeonly align 8 dereferenceable(24) %0) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %struct.tms, align 8
   %3 = alloca %"class.boost::system::system_error", align 8
   %4 = alloca %"class.boost::system::system_error", align 8
@@ -1323,7 +1323,7 @@ _ZN5boost6chrono10time_pointINS0_17process_cpu_clockENS0_8durationINS0_13process
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost6chrono17process_cpu_clock3nowERNS_6system10error_codeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::chrono::time_point.5") align 8 captures(none) %0, ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost6chrono17process_cpu_clock3nowERNS_6system10error_codeE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::chrono::time_point.5") align 8 captures(none) %0, ptr noundef nonnull writeonly align 8 dereferenceable(24) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %struct.tms, align 8
   %4 = alloca %"class.boost::system::system_error", align 8
   %5 = alloca %"class.boost::system::system_error", align 8

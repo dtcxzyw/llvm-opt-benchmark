@@ -392,7 +392,7 @@ _ZN4llvm11SmallVectorISt4pairINS_3LLTES2_ELj4EED2Ev.exit: ; preds = %"_ZZN4llvm1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function") align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #3 {
+define dso_local void @_ZN4llvm18LegalityPredicates14typeTupleInSetEjjjSt16initializer_listISt5tupleIJNS_3LLTES3_S3_EEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::function") align 8 captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr readonly %4, i64 %5) local_unnamed_addr #3 {
   %7 = alloca i64, align 8
   %8 = alloca %"class.llvm::SmallVector.9", align 8
   %9 = alloca %class.anon.14, align 8

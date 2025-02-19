@@ -1841,7 +1841,7 @@ declare void @InvalidateSystemCaches() local_unnamed_addr #1
 declare void @pg_re_throw() local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i64 @LogicalSlotAdvanceAndCheckSnapState(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.LogicalErrorCallbackState, align 8
   %4 = alloca %struct.ErrorContextCallback, align 8
   %5 = alloca [1 x %struct.__jmp_buf_tag], align 16

@@ -239,7 +239,7 @@ declare void @lv_cache_set_name(ptr noundef, ptr noundef) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_freetype_set_cbs_glyph(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define void @lv_freetype_set_cbs_glyph(ptr noundef %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -261,7 +261,7 @@ define void @lv_freetype_set_cbs_glyph(ptr noundef captures(address_is_null) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal noundef zeroext i1 @freetype_get_glyph_dsc_cb(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = alloca %struct._lv_freetype_glyph_cache_data_t, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %6

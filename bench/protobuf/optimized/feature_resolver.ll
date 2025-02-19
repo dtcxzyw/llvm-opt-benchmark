@@ -165,7 +165,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf15FeatureResolver15CompileDefaultsEPKNS0_10DescriptorEN4absl12lts_202308024SpanIKPKNS0_15FieldDescriptorEEENS0_7EditionESD_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr noundef %feature_set, ptr readonly captures(address) %extensions.coerce0, i64 %extensions.coerce1, i32 noundef %minimum_edition, i32 noundef %maximum_edition) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf15FeatureResolver15CompileDefaultsEPKNS0_10DescriptorEN4absl12lts_202308024SpanIKPKNS0_15FieldDescriptorEEENS0_7EditionESD_(ptr noalias sret(%"class.absl::lts_20230802::StatusOr") align 8 %agg.result, ptr noundef %feature_set, ptr readonly %extensions.coerce0, i64 %extensions.coerce1, i32 noundef %minimum_edition, i32 noundef %maximum_edition) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i23.i = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp2.i.i = alloca %"class.absl::lts_20230802::AlphaNum", align 8
@@ -2571,7 +2571,7 @@ _ZN4absl12lts_202308028StatusOrIN6google8protobuf18FeatureSetDefaultsEEC2IJS4_EE
 declare void @_ZN6google8protobuf18FeatureSetDefaultsD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf15FeatureResolver6CreateENS0_7EditionERKNS0_18FeatureSetDefaultsE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.40") align 8 %agg.result, i32 noundef %edition, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %compiled_defaults) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6google8protobuf15FeatureResolver6CreateENS0_7EditionERKNS0_18FeatureSetDefaultsE(ptr noalias sret(%"class.absl::lts_20230802::StatusOr.40") align 8 %agg.result, i32 noundef %edition, ptr noundef nonnull readonly align 8 dereferenceable(56) %compiled_defaults) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i.i.i.i.i96 = alloca [1 x %"class.absl::lts_20230802::str_format_internal::FormatArgImpl"], align 8
   %ref.tmp1.i.i.i.i97 = alloca %"class.std::basic_string_view", align 8
@@ -5771,7 +5771,7 @@ declare void @_ZN6google8protobuf8internal11GenericSwapEPNS0_7MessageES3_(ptr no
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #13
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr readnone captures(address) %__last.coerce) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPN6google8protobuf27FieldOptions_EditionDefaultESt6vectorIS4_SaIS4_EEEENS0_5__ops15_Iter_comp_iterIZNS3_12_GLOBAL__N_112FillDefaultsENS3_7EditionERNS3_7MessageEE3$_0EEEvT_SI_T0_"(ptr %__first.coerce, ptr readnone %__last.coerce) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %__val = alloca %"class.google::protobuf::FieldOptions_EditionDefault", align 8
   %cmp.i = icmp eq ptr %__first.coerce, %__last.coerce

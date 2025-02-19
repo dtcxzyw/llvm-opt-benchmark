@@ -855,7 +855,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang7CodeGen17TargetCodeGen
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZNK12_GLOBAL__N_127CommonSPIRTargetCodeGenInfo13getOpenCLTypeERN5clang7CodeGen13CodeGenModuleEPKNS1_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZNK12_GLOBAL__N_127CommonSPIRTargetCodeGenInfo13getOpenCLTypeERN5clang7CodeGen13CodeGenModuleEPKNS1_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::ArrayRef.826", align 8
   %5 = alloca [1 x i32], align 4
   %6 = alloca %"class.llvm::ArrayRef.826", align 8
@@ -1198,7 +1198,7 @@ define internal noundef ptr @_ZNK12_GLOBAL__N_127CommonSPIRTargetCodeGenInfo13ge
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef ptr @_ZNK12_GLOBAL__N_127CommonSPIRTargetCodeGenInfo11getHLSLTypeERN5clang7CodeGen13CodeGenModuleEPKNS1_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 2 {
+define internal noundef ptr @_ZNK12_GLOBAL__N_127CommonSPIRTargetCodeGenInfo11getHLSLTypeERN5clang7CodeGen13CodeGenModuleEPKNS1_4TypeE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::SmallVector.838", align 8
   %5 = alloca [1 x ptr], align 8
   %6 = alloca %"class.llvm::ArrayRef.826", align 8
@@ -1629,7 +1629,7 @@ _ZN4llvm16dyn_cast_or_nullIN5clang12FunctionDeclEKNS1_4DeclEEEDaPT0_.exit.thread
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef i32 @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo24getGlobalVarAddressSpaceERN5clang7CodeGen13CodeGenModuleEPKNS1_7VarDeclE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 2 {
+define internal noundef i32 @_ZNK12_GLOBAL__N_122SPIRVTargetCodeGenInfo24getGlobalVarAddressSpaceERN5clang7CodeGen13CodeGenModuleEPKNS1_7VarDeclE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %1, ptr noundef readonly %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !817
   %6 = tail call noundef i32 @_ZNK5clang10ASTContext21getTargetAddressSpaceENS_6LangASE(ptr noundef nonnull align 8 dereferenceable(23216) %5, i32 noundef 11) #13

@@ -136,7 +136,7 @@ define hidden noundef ptr @_ZN2os5Linux15ucontext_get_fpEPK10ucontext_t(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN2os24fetch_frame_from_contextEPKvPPlS3_(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN2os24fetch_frame_from_contextEPKvPPlS3_(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %4
 
@@ -188,7 +188,7 @@ define hidden noundef ptr @_ZN2os24fetch_frame_from_contextEPKvPPlS3_(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os24fetch_frame_from_contextEPKv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os24fetch_frame_from_contextEPKv(ptr dead_on_unwind noalias writable sret(%class.frame) align 8 initializes((0, 32), (36, 37), (40, 56)) %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZN2os24fetch_frame_from_contextEPKvPPlS3_.exit, label %3
 
@@ -821,7 +821,7 @@ _ZN2os22get_sender_for_C_frameEP5frame.exit:      ; preds = %99, %98, %92, %48
 declare noundef zeroext i1 @_ZN2os16is_first_C_frameEP5frame(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEiP9siginfo_tP10ucontext_tP10JavaThread(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN12PosixSignals25pd_hotspot_signal_handlerEiP9siginfo_tP10ucontext_tP10JavaThread(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #5 align 2 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %6 = icmp ne ptr %1, null
@@ -1204,7 +1204,7 @@ define hidden noundef range(i64 1048576, 4194305) i64 @_ZN2os5Posix18default_sta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os13print_contextEP12outputStreamPKv(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os13print_contextEP12outputStreamPKv(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %47, label %4
 
@@ -1293,7 +1293,7 @@ declare void @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferen
 declare void @_ZN12outputStream2crEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os12print_tos_pcEP12outputStreamPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os12print_tos_pcEP12outputStreamPKv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #5 align 2 {
   %3 = alloca %class.frame, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %11, label %5
@@ -1320,7 +1320,7 @@ declare void @_ZN2os9print_tosEP12outputStreamPh(ptr noundef, ptr noundef) local
 declare void @_ZN2os18print_instructionsEP12outputStreamPhi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN2os19print_register_infoEP12outputStreamPKvRi(ptr noundef %0, ptr noundef readonly %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2) local_unnamed_addr #5 align 2 {
   %4 = load i32, ptr %2, align 4
   %5 = icmp ne ptr %1, null
   %6 = icmp slt i32 %4, 16

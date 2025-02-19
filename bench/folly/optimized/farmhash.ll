@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN5folly8external8farmhash4test25returnZeroIfMisconfiguredE = local_unnamed_addr global i8 0, align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i64 %1, 33
   br i1 %3, label %4, label %99
 
@@ -381,7 +381,7 @@ _ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit: ; preds = %50,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashna14Hash64WithSeedEPKcmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashna14Hash64WithSeedEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
   %5 = add i64 %4, 7286425919675154353
   %6 = xor i64 %5, %2
@@ -397,7 +397,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashna14Hash64WithSeedEPKcm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashna15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashna15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
   %6 = sub i64 %5, %2
   %7 = xor i64 %6, %3
@@ -413,7 +413,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashna15Hash64WithSeedsEPKc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i64 %1, 65
   br i1 %5, label %6, label %18
 
@@ -622,7 +622,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 65
   br i1 %4, label %5, label %17
 
@@ -650,7 +650,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashuo14Hash64WithSeedEPKcm
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i64 %1, 65
   br i1 %3, label %4, label %6
 
@@ -668,7 +668,7 @@ define noundef i64 @_ZN5folly8external8farmhash10farmhashuo6Hash64EPKcm(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ult i64 %1, 33
   br i1 %3, label %4, label %99
 
@@ -979,13 +979,13 @@ _ZN5folly8external8farmhash10farmhashnaL12HashLen0to16EPKcm.exit: ; preds = %50,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashxo15Hash64WithSeedsEPKcmmm(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashxo15Hash64WithSeedsEPKcmmm(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashuo15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash10farmhashxo14Hash64WithSeedEPKcmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash10farmhashxo14Hash64WithSeedEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i64 %1, 65
   br i1 %4, label %5, label %17
 
@@ -2732,19 +2732,19 @@ define noundef i32 @_ZN5folly8external8farmhash14Hash32WithSeedEPKcmj(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash6Hash64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash6Hash64EPKcm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash4HashEPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash4HashEPKcm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashxo6Hash64EPKcm(ptr noundef readonly %0, i64 noundef %1)
   ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash14Hash64WithSeedEPKcmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash14Hash64WithSeedEPKcmm(ptr noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
   %5 = add i64 %4, 7286425919675154353
   %6 = xor i64 %5, %2
@@ -2760,7 +2760,7 @@ define noundef i64 @_ZN5folly8external8farmhash14Hash64WithSeedEPKcmm(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash15Hash64WithSeedsEPKcmmm(ptr noundef captures(address) %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash15Hash64WithSeedsEPKcmmm(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
   %6 = sub i64 %5, %2
   %7 = xor i64 %6, %3
@@ -2812,7 +2812,7 @@ define noundef i32 @_ZN5folly8external8farmhash13Fingerprint32EPKcm(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN5folly8external8farmhash13Fingerprint64EPKcm(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define noundef i64 @_ZN5folly8external8farmhash13Fingerprint64EPKcm(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN5folly8external8farmhash10farmhashna6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
   ret i64 %3
 }

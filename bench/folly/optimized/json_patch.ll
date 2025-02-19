@@ -3414,7 +3414,7 @@ _ZNSt12_Vector_baseIN5folly10json_patch15patch_operationESaIS2_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly10json_patch3opsEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) local_unnamed_addr #17 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly10json_patch3opsEv(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) local_unnamed_addr #17 align 2 {
   ret ptr %0
 }
 

@@ -370,7 +370,7 @@ declare i32 @H5PL__find_plugin_in_cache(ptr noundef, ptr noundef, ptr noundef) l
 declare i32 @H5PL__find_plugin_in_path_table(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #3 {
+define range(i32 -1, 1) i32 @H5PL__open(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #3 {
   %7 = alloca %union.H5PL_key_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #7
   %8 = load i8, ptr @H5PL_init_g, align 1, !tbaa !3, !range !7, !noundef !8

@@ -12,7 +12,7 @@ define dso_local i32 @onig_capture_tree_traverse(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @capture_tree_traverse(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc i32 @capture_tree_traverse(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %.loopexit, label %7
 

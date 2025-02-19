@@ -9108,7 +9108,7 @@ define dso_local void @_ZN5ImGui15ShowAboutWindowEPb(ptr noundef %0) local_unnam
 declare noundef zeroext i1 @_ZN5ImGui5BeginEPKcPbi(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN5ImGui15ShowStyleEditorEP10ImGuiStyle(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN5ImGui15ShowStyleEditorEP10ImGuiStyle(ptr noundef %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = alloca i8, align 1
   %3 = alloca i8, align 1
   %4 = alloca i8, align 1
@@ -28151,7 +28151,7 @@ _ZL22ExampleTree_CreateNodePKciP15ExampleTreeNode.exit31: ; preds = %._ZN8ImVect
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN16ExampleTreeFuncs22ApplySelectionRequestsEP18ImGuiMultiSelectIOP15ExampleTreeNodeP26ImGuiSelectionBasicStorage(i32 %.0.val, ptr readonly captures(address) %.8.val, ptr noundef readonly captures(none) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZZL25ShowDemoWindowMultiSelectP19ImGuiDemoWindowDataEN16ExampleTreeFuncs22ApplySelectionRequestsEP18ImGuiMultiSelectIOP15ExampleTreeNodeP26ImGuiSelectionBasicStorage(i32 %.0.val, ptr readonly %.8.val, ptr noundef readonly captures(none) %0) unnamed_addr #2 align 2 {
   %2 = sext i32 %.0.val to i64
   %3 = getelementptr inbounds %struct.ImGuiSelectionRequest, ptr %.8.val, i64 %2
   %.not5 = icmp eq i32 %.0.val, 0

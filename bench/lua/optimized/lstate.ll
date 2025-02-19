@@ -412,7 +412,7 @@ declare hidden void @luaD_seterrorobj(ptr noundef, i32 noundef, ptr noundef) loc
 declare hidden i32 @luaD_reallocstack(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @lua_closethread(ptr noundef initializes((176, 180)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define dso_local i32 @lua_closethread(ptr noundef initializes((176, 180)) %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 

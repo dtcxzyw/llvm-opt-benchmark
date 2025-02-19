@@ -360,7 +360,7 @@ define internal range(i32 0, 2) i32 @fcfcs_equal(ptr noundef readonly captures(n
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_fcfcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct._fc_ct_preamble, align 4
   %6 = alloca %struct._fcfcs_conv_key, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #6

@@ -9875,7 +9875,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_132NonMutatingTest_FindFirstOf_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_132NonMutatingTest_FindFirstOf_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -10063,7 +10063,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_FindFirstOfWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_145NonMutatingTest_FindFirstOfWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.std::array", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -15570,7 +15570,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Equal_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_126NonMutatingTest_Equal_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -16867,7 +16867,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_139NonMutatingTest_EqualWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_139NonMutatingTest_EqualWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -19507,7 +19507,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_147NonMutatingTest_IsPermutationWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_147NonMutatingTest_IsPermutationWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -21873,7 +21873,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_140NonMutatingTest_SearchWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #20 align 2 {
+define internal void @_ZN12_GLOBAL__N_140NonMutatingTest_SearchWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #20 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = load ptr, ptr %2, align 8, !tbaa !24
@@ -22868,7 +22868,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_150NonMutatingTest_ContainsSubrangeWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_150NonMutatingTest_ContainsSubrangeWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -23660,7 +23660,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_SearchN_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #20 align 2 {
+define internal void @_ZN12_GLOBAL__N_128NonMutatingTest_SearchN_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #20 align 2 {
 _ZN4absl10c_search_nINSt7__cxx114listIiSaIiEEEiiEEDTcl5beginclsr3stdE7declvalIRT_EEEES6_T0_OT1_.exit:
   ret void
 }
@@ -23757,7 +23757,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_SearchNWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #20 align 2 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_SearchNWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #20 align 2 {
 _ZN4absl10c_search_nINSt7__cxx114listIiSaIiEEEiiRFbiiEEEDTcl5beginclsr3stdE7declvalIRT_EEEES8_T0_OT1_OT2_.exit:
   ret void
 }
@@ -23854,7 +23854,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_LowerBound_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_LowerBound_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -25587,7 +25587,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_UpperBound_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_UpperBound_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -29730,7 +29730,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MinElement_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MinElement_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -30159,7 +30159,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MinElementWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MinElementWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -30588,7 +30588,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MaxElement_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_MaxElement_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -31017,7 +31017,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MaxElementWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_144NonMutatingTest_MaxElementWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -31446,7 +31446,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_LexicographicalCompare_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_LexicographicalCompare_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -32271,7 +32271,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_LexicographicalCopmareWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_LexicographicalCopmareWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -35008,7 +35008,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_Accumulate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_131NonMutatingTest_Accumulate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -35265,7 +35265,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_AccumulateWithBinaryOp_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_AccumulateWithBinaryOp_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -35522,7 +35522,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_AccumulateLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_141NonMutatingTest_AccumulateLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -35779,7 +35779,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_153NonMutatingTest_AccumulateWithBinaryOpLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_153NonMutatingTest_AccumulateWithBinaryOpLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -36036,7 +36036,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_InnerProduct_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_133NonMutatingTest_InnerProduct_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -36302,7 +36302,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_InnerProductWithBinaryOps_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_146NonMutatingTest_InnerProductWithBinaryOps_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -36568,7 +36568,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_InnerProductLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_143NonMutatingTest_InnerProductLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -36834,7 +36834,7 @@ _ZN12_GLOBAL__N_115NonMutatingTestD2Ev.exit:      ; preds = %_ZNSt10_HashtableIi
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_InnerProductWithBinaryOpsLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_156NonMutatingTest_InnerProductWithBinaryOpsLvalueInit_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(132) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
@@ -43429,7 +43429,7 @@ _ZN12_GLOBAL__N_111SortingTestD2Ev.exit:          ; preds = %.lr.ph.i.i7.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_125SortingTest_IsSorted_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_125SortingTest_IsSorted_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8
@@ -44057,7 +44057,7 @@ _ZN12_GLOBAL__N_111SortingTestD2Ev.exit:          ; preds = %.lr.ph.i.i7.i, %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_138SortingTest_IsSortedWithPredicate_Test8TestBodyEv(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.testing::AssertionResult", align 8
   %3 = alloca %"class.testing::Message", align 8
   %4 = alloca %"class.testing::internal::AssertHelper", align 8

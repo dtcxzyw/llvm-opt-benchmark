@@ -297,7 +297,7 @@ define internal range(i32 0, 2) i32 @dsa_digest_sign_init(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_digest_signverify_update(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i32 @dsa_digest_signverify_update(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %5
 
@@ -653,7 +653,7 @@ ossl_param_is_empty.exit.thread:                  ; preds = %13, %8, %.critedge,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef nonnull ptr @dsa_settable_ctx_params(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #2 {
+define internal noundef nonnull ptr @dsa_settable_ctx_params(ptr noundef readonly %0, ptr readnone captures(none) %1) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 
@@ -749,7 +749,7 @@ define internal range(i32 0, 2) i32 @dsa_sha1_sign_message_init(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_signverify_message_update(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i32 @dsa_signverify_message_update(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -892,7 +892,7 @@ define internal range(i32 0, 2) i32 @dsa_sha1_verify_message_init(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa_verify_message_final(ptr noundef readonly captures(address_is_null) %0) #0 {
+define internal i32 @dsa_verify_message_final(ptr noundef readonly %0) #0 {
   %2 = alloca [64 x i8], align 16
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #9
@@ -1019,7 +1019,7 @@ ossl_param_is_empty.exit.thread:                  ; preds = %9, %4, %17, %ossl_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef ptr @dsa_sigalg_settable_ctx_params(ptr noundef readonly captures(address_is_null) %0, ptr readnone captures(none) %1) #2 {
+define internal noundef ptr @dsa_sigalg_settable_ctx_params(ptr noundef readonly %0, ptr readnone captures(none) %1) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3
 

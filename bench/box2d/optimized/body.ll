@@ -3189,7 +3189,7 @@ declare void @b2LinkJoint(ptr noundef, ptr noundef, i1 noundef zeroext) local_un
 declare void @b2MergeAwakeIslands(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @b2Body_SetName(i64 %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @b2Body_SetName(i64 %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %4 = and i32 %3, 65535

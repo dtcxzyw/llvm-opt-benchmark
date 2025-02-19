@@ -149,7 +149,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #6
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost6fibers4algo11shared_work9pick_nextEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(122) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5boost6fibers4algo11shared_work9pick_nextEv(ptr noundef nonnull readonly align 8 dereferenceable(122) %0) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN5boost6fibers4algo11shared_work11rqueue_mtx_E) #16
   %.not.i.i.i = icmp eq i32 %2, 0
   br i1 %.not.i.i.i, label %_ZNSt11unique_lockISt5mutexEC2ERS0_.exit, label %3

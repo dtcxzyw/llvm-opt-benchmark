@@ -635,7 +635,7 @@ _ZN4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE.exit:
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZN4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE(ptr noundef nonnull readnone align 8 dereferenceable(336) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   switch i32 %1, label %11 [
     i32 0, label %13
     i32 1, label %3
@@ -849,7 +849,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit:   ; preds = %_ZNSt6vectorIN4cvc5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(336) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @_ZNK4cvc58internal4prop9LearnedDb13getLiteralSetENS_5modes14LearnedLitTypeE(ptr noundef nonnull readnone align 8 dereferenceable(336) %0, i32 noundef %1) local_unnamed_addr #6 align 2 {
   switch i32 %1, label %11 [
     i32 0, label %13
     i32 1, label %3

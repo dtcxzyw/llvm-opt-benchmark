@@ -47,7 +47,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [9 x i8] c"[string]\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @lj_debug_frame(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define hidden ptr @lj_debug_frame(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = inttoptr i64 %5 to ptr
@@ -652,7 +652,7 @@ lj_debug_uvname.exit:                             ; preds = %131, %.split110.us,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
+define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = inttoptr i64 %5 to ptr
@@ -747,7 +747,7 @@ define hidden noundef ptr @lj_debug_funcname(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc i32 @debug_framepc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2) unnamed_addr #3 {
+define internal fastcc i32 @debug_framepc(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 10
   %5 = load i8, ptr %4, align 2, !tbaa !15
   %6 = icmp eq i8 %5, 0
@@ -1031,7 +1031,7 @@ declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_debug_addloc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address) %3) local_unnamed_addr #4 {
+define hidden void @lj_debug_addloc(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = alloca [60 x i8], align 16
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge.thread, label %6
@@ -1276,7 +1276,7 @@ lj_debug_line.exit:                               ; preds = %3, %21, %25, %32, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @lua_getlocal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #4 {
+define dso_local ptr @lua_getlocal(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #4 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
@@ -2098,7 +2098,7 @@ define dso_local range(i32 0, 2) i32 @lua_getinfo(ptr noundef %0, ptr noundef re
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly %0, i32 noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load i64, ptr %4, align 8, !tbaa !4
   %6 = inttoptr i64 %5 to ptr
@@ -2196,7 +2196,7 @@ define dso_local range(i32 0, 2) i32 @lua_getstack(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_debug_dumpstack(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
+define hidden void @lj_debug_dumpstack(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca ptr, align 8
   %6 = icmp sgt i32 %3, -1
   %.063 = select i1 %6, i32 1, i32 -1

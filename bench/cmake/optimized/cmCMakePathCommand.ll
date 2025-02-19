@@ -15362,7 +15362,7 @@ _ZNSt14_Function_base13_Base_managerIZN16cmArgumentParserIN12_GLOBAL__N_115Norma
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc i8 @_ZNK16cmArgumentParserIN12_GLOBAL__N_115NormalizeOptionEE5ParseI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorISC_SaISC_EEEEEEES1_RKT_PSH_m(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr readonly %.0.val, ptr readnone %.8.val, ptr noundef %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.ArgumentParser::Instance", align 8
   %4 = alloca %"struct.(anonymous namespace)::NormalizeOption", align 1
   store i8 0, ptr %4, align 1, !tbaa !334

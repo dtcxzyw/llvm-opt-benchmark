@@ -89,7 +89,7 @@ define internal void @dsa2pvk_free_object(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa2pvk_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal i32 @dsa2pvk_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -163,7 +163,7 @@ define internal void @dsa2msblob_free_object(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @dsa2msblob_encode(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
+define internal i32 @dsa2msblob_encode(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -235,7 +235,7 @@ define internal void @rsa2pvk_free_object(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa2pvk_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
+define internal i32 @rsa2pvk_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 
@@ -309,7 +309,7 @@ define internal void @rsa2msblob_free_object(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @rsa2msblob_encode(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone captures(address_is_null) %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
+define internal i32 @rsa2msblob_encode(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3, i32 noundef %4, ptr readnone captures(none) %5, ptr readnone captures(none) %6) #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %9, label %8
 

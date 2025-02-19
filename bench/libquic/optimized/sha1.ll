@@ -28,7 +28,7 @@ define hidden noundef i32 @SHA1_Init(ptr noundef writeonly captures(none) initia
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA1(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #2 {
+define hidden noundef nonnull ptr @SHA1(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca %struct.sha_state_st, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20

@@ -4292,7 +4292,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit4:                ; preds = %31, %33
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter31VisitResolvedUnexpandedPackExprEPN5clang26ResolvedUnexpandedPackExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter31VisitResolvedUnexpandedPackExprEPN5clang26ResolvedUnexpandedPackExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !386
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !389
@@ -4483,7 +4483,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %97, %99
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitRequiresExprEPN5clang12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitRequiresExprEPN5clang12RequiresExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::QualType", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !386
@@ -5089,7 +5089,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit96:               ; preds = %345, %347
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitRecoveryExprEPN5clang12RecoveryExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter17VisitRecoveryExprEPN5clang12RecoveryExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !386
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !389
@@ -8296,7 +8296,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit36:               ; preds = %205, %203, %_ZN12_G
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitOMPArrayShapingExprEPN5clang19OMPArrayShapingExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter24VisitOMPArrayShapingExprEPN5clang19OMPArrayShapingExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !386
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !389
@@ -11140,7 +11140,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %36, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitGenericSelectionExprEPN5clang20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitGenericSelectionExprEPN5clang20GenericSelectionExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::QualType", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = alloca %"class.clang::QualType", align 8
@@ -16522,7 +16522,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit8:                ; preds = %62, %64
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter31VisitCXXUnresolvedConstructExprEPN5clang26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter31VisitCXXUnresolvedConstructExprEPN5clang26CXXUnresolvedConstructExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::QualType", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
@@ -17372,7 +17372,7 @@ _ZN4llvm11raw_ostreamlsENS_9StringRefE.exit:      ; preds = %98, %97, %95, %101
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPN5clang20CXXParenListInitExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitCXXParenListInitExprEPN5clang20CXXParenListInitExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !386
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !389
@@ -19111,7 +19111,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit27:               ; preds = %86, %84, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter27VisitCXXTemporaryObjectExprEPN5clang22CXXTemporaryObjectExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter27VisitCXXTemporaryObjectExprEPN5clang22CXXTemporaryObjectExprE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.clang::QualType", align 8
   %4 = alloca %"class.llvm::Twine", align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
@@ -21588,7 +21588,7 @@ _ZN12_GLOBAL__N_111StmtPrinter9PrintExprEPN5clang4ExprE.exit4: ; preds = %68, %6
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitAttributedStmtEPN5clang14AttributedStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter19VisitAttributedStmtEPN5clang14AttributedStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load i32, ptr %1, align 8
   %4 = lshr i32 %3, 6
   %5 = and i32 %4, 67108856
@@ -22897,7 +22897,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %81, %83
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitOpenACCWaitConstructEPN5clang20OpenACCWaitConstructE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter25VisitOpenACCWaitConstructEPN5clang20OpenACCWaitConstructE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::StringRef", align 8
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca %"class.clang::OpenACCClausePrinter", align 8
@@ -23756,7 +23756,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %30, %32
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitObjCAtTryStmtEPN5clang13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter18VisitObjCAtTryStmtEPN5clang13ObjCAtTryStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !375
   %5 = icmp sgt i32 %4, 0
@@ -32965,7 +32965,7 @@ declare void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef n
 declare void @_ZNK5clang13StringLiteral12outputStringERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(48)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter20PrintRawCompoundStmtEPN5clang12CompoundStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_111StmtPrinter20PrintRawCompoundStmtEPN5clang12CompoundStmtE(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !386
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !389

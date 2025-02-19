@@ -3203,7 +3203,7 @@ _ZN7testing8internal11MatcherBaseIRKPcED2Ev.exit: ; preds = %339, %_ZNK7testing8
 declare noundef ptr @_ZN4absl18debugging_internal18DecodeRustPunycodeENS0_25DecodeRustPunycodeOptionsE(ptr noundef byval(%"struct.absl::debugging_internal::DecodeRustPunycodeOptions") align 8) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJNS0_14PointeeMatcherINS0_9EqMatcherIcEEEENS0_15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISI_EEEEEEEEEED2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal29PredicateFormatterFromMatcherINS0_15VariadicMatcherINS0_16AllOfMatcherImplEJNS0_14PointeeMatcherINS0_9EqMatcherIcEEEENS0_15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISI_EEEEEEEEEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3247,7 +3247,7 @@ _ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS0_14PointeeMatch
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS0_14PointeeMatcherINS0_9EqMatcherIcEEEENS0_15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISH_EEEEEEEED2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal15VariadicMatcherINS0_16AllOfMatcherImplEJNS0_14PointeeMatcherINS0_9EqMatcherIcEEEENS0_15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISH_EEEEEEEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(88) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4323,7 +4323,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN7testing8internal15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISB_EEEEED2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN7testing8internal15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISB_EEEEED2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -6309,7 +6309,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13find_first_ofEPKcmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISB_EEEEE4ImplIRKPcED2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(72) initializes((0, 8), (48, 56)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN7testing8internal15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISB_EEEEE4ImplIRKPcED2Ev(ptr noundef nonnull align 8 dereferenceable(72) initializes((0, 8), (48, 56)) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN7testing8internal15ResultOfMatcherIZN4absl18debugging_internal12_GLOBAL__N_122DecodeRustPunycodeTest19PointsToTheNulAfterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlPKcE_NS_18PolymorphicMatcherINS0_18StrEqualityMatcherISB_EEEEE4ImplIRKPcEE, i64 16), ptr %0, align 8, !tbaa !14
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIPKcEE, i64 16), ptr %2, align 8, !tbaa !14

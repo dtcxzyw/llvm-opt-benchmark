@@ -1783,7 +1783,7 @@ declare noundef ptr @_Z23grpc_call_stack_elementP15grpc_call_stackm(ptr noundef,
 declare void @_Z16grpc_call_log_opPKci16gpr_log_severityP17grpc_call_elementP30grpc_transport_stream_op_batch(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN9grpc_core14SubchannelCall12GetCallStackEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(72) %this) local_unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZN9grpc_core14SubchannelCall12GetCallStackEv(ptr noundef nonnull readnone align 8 dereferenceable(72) %this) local_unnamed_addr #12 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 80
   ret ptr %add.ptr
@@ -2205,7 +2205,7 @@ _ZNSt4pairIPN9grpc_core10Subchannel33ConnectivityStateWatcherInterfaceENS0_13Ref
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core10Subchannel28ConnectivityStateWatcherList19RemoveWatcherLockedEPNS0_33ConnectivityStateWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readnone captures(address) %watcher) local_unnamed_addr #3 align 2 {
+define void @_ZN9grpc_core10Subchannel28ConnectivityStateWatcherList19RemoveWatcherLockedEPNS0_33ConnectivityStateWatcherInterfaceE(ptr noundef nonnull align 8 dereferenceable(56) %this, ptr noundef readnone %watcher) local_unnamed_addr #3 align 2 {
 entry:
   %_M_parent.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %add.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 16
@@ -2281,7 +2281,7 @@ _ZNSt3mapIPN9grpc_core10Subchannel33ConnectivityStateWatcherInterfaceENS0_13RefC
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core10Subchannel28ConnectivityStateWatcherList12NotifyLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %this, i32 noundef %state, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core10Subchannel28ConnectivityStateWatcherList12NotifyLockedE23grpc_connectivity_stateRKN4absl12lts_202308026StatusE(ptr noundef nonnull readonly align 8 dereferenceable(56) %this, i32 noundef %state, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %status) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"class.std::function", align 8
   %ref.tmp = alloca %class.anon.71, align 8

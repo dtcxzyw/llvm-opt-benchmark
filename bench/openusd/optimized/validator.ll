@@ -586,7 +586,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__12UsdValidatorC2ERKNS_20UsdVal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetValidateLayerTaskEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetValidateLayerTaskEv(ptr noundef nonnull readonly align 8 dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i8, ptr %3, align 8
@@ -596,7 +596,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetVa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetValidateStageTaskEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetValidateStageTaskEv(ptr noundef nonnull readonly align 8 dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i8, ptr %3, align 8
@@ -606,7 +606,7 @@ define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator21_GetVa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator20_GetValidatePrimTaskEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK32pxrInternal_v0_24__pxrReserved__12UsdValidator20_GetValidatePrimTaskEv(ptr noundef nonnull readonly align 8 dereferenceable(152) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i8, ptr %3, align 8

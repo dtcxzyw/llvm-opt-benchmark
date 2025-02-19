@@ -671,7 +671,7 @@ lv_anim_resolve_speed.exit21:                     ; preds = %lv_anim_resolve_spe
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @remove_concurrent_anims(ptr noundef nonnull readonly captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @remove_concurrent_anims(ptr noundef nonnull readonly %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !46
   %4 = icmp eq ptr %3, null
@@ -796,7 +796,7 @@ define i32 @lv_anim_get_playtime(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_anim_delete(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define zeroext i1 @lv_anim_delete(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
   %.not19 = icmp eq ptr %3, null
   br i1 %.not19, label %._crit_edge, label %.lr.ph
@@ -1025,7 +1025,7 @@ declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @lv_ll_clear_custom(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_anim_get(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define noundef ptr @lv_anim_get(ptr noundef readnone %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 304)) #10
   %.not11 = icmp eq ptr %3, null
   br i1 %.not11, label %._crit_edge, label %.lr.ph
@@ -1522,7 +1522,7 @@ define ptr @lv_anim_get_user_data(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @lv_anim_custom_delete(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define zeroext i1 @lv_anim_custom_delete(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1537,7 +1537,7 @@ define zeroext i1 @lv_anim_custom_delete(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_anim_custom_get(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define noundef ptr @lv_anim_custom_get(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1615,7 +1615,7 @@ define range(i32 0, -2147483648) i32 @lv_anim_resolve_speed(i32 noundef %0, i32 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @lv_anim_is_paused(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define zeroext i1 @lv_anim_is_paused(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1631,7 +1631,7 @@ define zeroext i1 @lv_anim_is_paused(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_anim_pause(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_anim_pause(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1652,7 +1652,7 @@ define void @lv_anim_pause(ptr noundef captures(address_is_null) %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_anim_pause_for(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @lv_anim_pause_for(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1673,7 +1673,7 @@ define void @lv_anim_pause_for(ptr noundef captures(address_is_null) %0, i32 nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @lv_anim_resume(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @lv_anim_resume(ptr noundef %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

@@ -3956,7 +3956,7 @@ _upgrade_camera_table.exit:                       ; preds = %.lr.ph.i, %.thread
 declare i32 @sqlite3_shutdown() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @dt_database_get(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #11 {
+define ptr @dt_database_get(ptr noundef readonly %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -6355,7 +6355,7 @@ declare i32 @g_queue_is_empty(ptr noundef) local_unnamed_addr #1
 declare ptr @g_ptr_array_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @dt_database_start_transaction(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @dt_database_start_transaction(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [32 x i8], align 16
   %3 = atomicrmw add ptr @_trxid, i32 1 seq_cst, align 4
   %4 = icmp eq i32 %3, 0
@@ -6464,7 +6464,7 @@ dt_database_get.exit14:                           ; preds = %35, %38
 declare i32 @g_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @dt_database_release_transaction(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @dt_database_release_transaction(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = atomicrmw sub ptr @_trxid, i32 1 seq_cst, align 4
   %4 = icmp slt i32 %3, 1
@@ -6575,7 +6575,7 @@ dt_database_get.exit14:                           ; preds = %38, %41
 }
 
 ; Function Attrs: nounwind uwtable
-define void @dt_database_rollback_transaction(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @dt_database_rollback_transaction(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [64 x i8], align 16
   %3 = atomicrmw sub ptr @_trxid, i32 1 seq_cst, align 4
   %4 = icmp slt i32 %3, 1

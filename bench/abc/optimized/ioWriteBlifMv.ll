@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @str = private unnamed_addr constant [42 x i8] c"Io_NtkWriteBlifMv(): EXDC is not written.\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Io_WriteBlifMv(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define void @Io_WriteBlifMv(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %5, label %8

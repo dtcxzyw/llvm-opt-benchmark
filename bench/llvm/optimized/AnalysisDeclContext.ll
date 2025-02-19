@@ -532,7 +532,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang26AnalysisDeclContextManager11getBodyFarmEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(169) %0) local_unnamed_addr #5 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(40) ptr @_ZN5clang26AnalysisDeclContextManager11getBodyFarmEv(ptr noundef nonnull readnone align 8 dereferenceable(169) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }
@@ -3143,7 +3143,7 @@ _ZN5clang22BlockInvocationContext7ProfileERN4llvm16FoldingSetNodeIDEPNS_19Analys
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(48) %0) local_unnamed_addr #12 align 2 {
+define dso_local noundef ptr @_ZNK5clang15LocationContext13getStackFrameEv(ptr noundef nonnull readonly align 8 dereferenceable(48) %0) local_unnamed_addr #12 align 2 {
   br label %2
 
 2:                                                ; preds = %1, %5
@@ -3190,7 +3190,7 @@ _ZNK5clang15LocationContext13getStackFrameEv.exit: ; preds = %.lr.ph, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(48) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #12 align 2 {
+define dso_local noundef zeroext i1 @_ZNK5clang15LocationContext10isParentOfEPKS0_(ptr noundef nonnull readnone align 8 dereferenceable(48) %0, ptr noundef readonly %1) local_unnamed_addr #12 align 2 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -7037,7 +7037,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Start
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly captures(address) %1) unnamed_addr #3 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125FindBlockDeclRefExprsVals21VisitPseudoObjectExprEPN5clang16PseudoObjectExprE(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readonly %1) unnamed_addr #3 align 2 {
   %3 = load i64, ptr %1, align 8
   %4 = lshr i64 %3, 29
   %.idx = and i64 %4, 524280

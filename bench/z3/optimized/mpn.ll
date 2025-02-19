@@ -656,7 +656,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZNK11mpn_manager13div_normalizeEPKjjS1_jR7sbufferIjLj16EES4_(ptr nonnull readnone align 1 captures(none) %this, ptr noundef readonly captures(none) %numer, i32 noundef %lnum, ptr noundef readonly captures(none) %denom, i32 noundef %lden, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %n_numer, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %n_denom) local_unnamed_addr #7 align 2 {
+define hidden noundef i32 @_ZNK11mpn_manager13div_normalizeEPKjjS1_jR7sbufferIjLj16EES4_(ptr nonnull readnone align 1 captures(none) %this, ptr noundef readonly captures(none) %numer, i32 noundef %lnum, ptr noundef readonly captures(none) %denom, i32 noundef %lden, ptr noundef nonnull align 8 dereferenceable(80) %n_numer, ptr noundef nonnull align 8 dereferenceable(80) %n_denom) local_unnamed_addr #7 align 2 {
 entry:
   %cmp.not = icmp eq i32 %lden, 0
   br i1 %cmp.not, label %while.end, label %land.rhs.lr.ph
@@ -1040,7 +1040,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZNK11mpn_manager5div_nER7sbufferIjLj16EERKS1_PjS5_S2_S2_(ptr nonnull readnone align 1 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %numer, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %denom, ptr noundef writeonly captures(none) %quot, ptr readnone captures(none) %rem, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %ms, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %ab) local_unnamed_addr #7 align 2 {
+define hidden noundef zeroext i1 @_ZNK11mpn_manager5div_nER7sbufferIjLj16EERKS1_PjS5_S2_S2_(ptr nonnull readnone align 1 captures(none) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %numer, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(80) %denom, ptr noundef writeonly captures(none) %quot, ptr readnone captures(none) %rem, ptr noundef nonnull align 8 dereferenceable(80) %ms, ptr noundef nonnull align 8 dereferenceable(80) %ab) local_unnamed_addr #7 align 2 {
 entry:
   %m_pos.i = getelementptr inbounds nuw i8, ptr %numer, i64 8
   %0 = load i32, ptr %m_pos.i, align 8
@@ -1518,7 +1518,7 @@ _ZN6bufferIjLb0ELj16EED2Ev.exit:                  ; preds = %entry, %if.end.i.i.
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZNK11mpn_manager9to_stringEPKjjPcj(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(none) %a, i32 noundef %lng, ptr noundef returned captures(ret: address, provenance) %buf, i32 noundef %lbuf) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK11mpn_manager9to_stringEPKjjPcj(ptr noundef nonnull readnone align 1 captures(none) dereferenceable(1) %this, ptr noundef readonly captures(none) %a, i32 noundef %lng, ptr noundef returned %buf, i32 noundef %lbuf) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %temp = alloca %class.sbuffer, align 8
   %t_numer = alloca %class.sbuffer, align 8

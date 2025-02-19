@@ -1134,7 +1134,7 @@ define internal fastcc void @print_entry(ptr noundef nonnull readonly captures(n
 declare ptr @SRP_get_default_gN(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483648, 2147483647) i32 @get_index(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef signext range(i8 73, 86) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -2147483648, 2147483647) i32 @get_index(ptr noundef nonnull readonly captures(none) %0, ptr noundef readonly %1, i8 noundef signext range(i8 73, 86) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 

@@ -47,7 +47,7 @@ declare i32 @wctomb(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @ungetwc(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef i32 @ungetwc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %0, -1

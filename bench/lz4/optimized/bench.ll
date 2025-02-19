@@ -135,7 +135,7 @@ define dso_local void @BMK_skipChecksums(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @BMK_benchFiles(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @BMK_benchFiles(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #3 {
   %6 = alloca i64, align 8
   %7 = alloca %struct.stat, align 8
   %spec.store.select = tail call i32 @llvm.smin.i32(i32 %2, i32 12)

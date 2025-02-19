@@ -225,7 +225,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define hidden nonnull ptr @lj_strfmt_wint(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #2 {
+define hidden nonnull ptr @lj_strfmt_wint(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %4, label %7
 
@@ -397,7 +397,7 @@ define hidden nonnull ptr @lj_strfmt_wint(ptr noundef writeonly captures(ret: ad
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 2)) %0, ptr noundef %1) local_unnamed_addr #3 {
+define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly initializes((0, 2)) %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = ptrtoint ptr %1 to i64
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %10
@@ -464,7 +464,7 @@ define hidden nonnull ptr @lj_strfmt_wptr(ptr noundef writeonly captures(ret: ad
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden nonnull ptr @lj_strfmt_wuleb128(ptr noundef writeonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #3 {
+define hidden nonnull ptr @lj_strfmt_wuleb128(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = icmp ugt i32 %1, 127
   br i1 %3, label %.lr.ph, label %._crit_edge
 
@@ -1994,7 +1994,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
 7:                                                ; preds = %2
   %8 = and i64 %4, 140737488355327
   %9 = inttoptr i64 %8 to ptr
-  br label %79
+  br label %80
 
 10:                                               ; preds = %2
   %11 = icmp ult i64 %5, -13
@@ -2002,7 +2002,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 12:                                               ; preds = %10
   %13 = tail call ptr @lj_strfmt_num(ptr noundef %0, ptr noundef nonnull %1) #13
-  br label %79
+  br label %80
 
 14:                                               ; preds = %10
   %15 = icmp eq i64 %4, -1
@@ -2010,7 +2010,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 16:                                               ; preds = %14
   %17 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull @.str.2, i64 noundef 3) #13
-  br label %79
+  br label %80
 
 18:                                               ; preds = %14
   switch i64 %5, label %23 [
@@ -2020,11 +2020,11 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 19:                                               ; preds = %18
   %20 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull @.str.3, i64 noundef 5) #13
-  br label %79
+  br label %80
 
 21:                                               ; preds = %18
   %22 = tail call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull @.str.4, i64 noundef 4) #13
-  br label %79
+  br label %80
 
 23:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 28, ptr nonnull %3) #13
@@ -2041,7 +2041,7 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
   store i8 32, ptr %30, align 1, !tbaa !13
   %.mask = and i64 %4, -140737488355328
   %32 = icmp eq i64 %.mask, -1266637395197952
-  br i1 %32, label %33, label %43
+  br i1 %32, label %33, label %44
 
 33:                                               ; preds = %23
   %34 = and i64 %4, 140737488355327
@@ -2049,88 +2049,89 @@ define hidden ptr @lj_strfmt_obj(ptr noundef %0, ptr noundef %1) local_unnamed_a
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 10
   %37 = load i8, ptr %36, align 2, !tbaa !13
   %38 = icmp ugt i8 %37, 1
-  br i1 %38, label %39, label %43
+  br i1 %38, label %39, label %44
 
 39:                                               ; preds = %33
   store i64 2553093987521623394, ptr %31, align 1
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 10
-  %41 = zext i8 %37 to i32
-  %42 = call ptr @lj_strfmt_wint(ptr noundef nonnull %40, i32 noundef %41)
+  %41 = load i8, ptr %36, align 2, !tbaa !13
+  %42 = zext i8 %41 to i32
+  %43 = call ptr @lj_strfmt_wint(ptr noundef nonnull %40, i32 noundef %42)
   br label %lj_strfmt_wptr.exit
 
-43:                                               ; preds = %33, %23
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load i64, ptr %44, align 8, !tbaa !28
-  %46 = inttoptr i64 %45 to ptr
-  %47 = tail call ptr @lj_obj_ptr(ptr noundef %46, ptr noundef nonnull %1) #13
-  %48 = ptrtoint ptr %47 to i64
-  %49 = icmp eq ptr %47, null
-  br i1 %49, label %50, label %55
+44:                                               ; preds = %33, %23
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %46 = load i64, ptr %45, align 8, !tbaa !28
+  %47 = inttoptr i64 %46 to ptr
+  %48 = tail call ptr @lj_obj_ptr(ptr noundef %47, ptr noundef nonnull %1) #13
+  %49 = ptrtoint ptr %48 to i64
+  %50 = icmp eq ptr %48, null
+  br i1 %50, label %51, label %56
 
-50:                                               ; preds = %43
-  %51 = getelementptr inbounds nuw i8, ptr %29, i64 3
+51:                                               ; preds = %44
+  %52 = getelementptr inbounds nuw i8, ptr %29, i64 3
   store i8 78, ptr %31, align 1, !tbaa !13
-  %52 = getelementptr inbounds nuw i8, ptr %29, i64 4
-  store i8 85, ptr %51, align 1, !tbaa !13
-  %53 = getelementptr inbounds nuw i8, ptr %29, i64 5
-  store i8 76, ptr %52, align 1, !tbaa !13
-  %54 = getelementptr inbounds nuw i8, ptr %29, i64 6
+  %53 = getelementptr inbounds nuw i8, ptr %29, i64 4
+  store i8 85, ptr %52, align 1, !tbaa !13
+  %54 = getelementptr inbounds nuw i8, ptr %29, i64 5
   store i8 76, ptr %53, align 1, !tbaa !13
+  %55 = getelementptr inbounds nuw i8, ptr %29, i64 6
+  store i8 76, ptr %54, align 1, !tbaa !13
   br label %lj_strfmt_wptr.exit
 
-55:                                               ; preds = %43
-  %.not.i = icmp ult ptr %47, inttoptr (i64 4294967296 to ptr)
-  br i1 %.not.i, label %.lr.ph.preheader.i, label %56
+56:                                               ; preds = %44
+  %.not.i = icmp ult ptr %48, inttoptr (i64 4294967296 to ptr)
+  br i1 %.not.i, label %.lr.ph.preheader.i, label %57
 
-56:                                               ; preds = %55
-  %57 = lshr i64 %48, 32
-  %58 = trunc nuw i64 %57 to i32
-  %59 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %58, i1 true)
-  %60 = lshr i32 %59, 2
-  %61 = and i32 %60, 6
-  %62 = xor i32 %61, 6
-  %63 = add nuw nsw i32 %62, 12
+57:                                               ; preds = %56
+  %58 = lshr i64 %49, 32
+  %59 = trunc nuw i64 %58 to i32
+  %60 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %59, i1 true)
+  %61 = lshr i32 %60, 2
+  %62 = and i32 %61, 6
+  %63 = xor i32 %62, 6
+  %64 = add nuw nsw i32 %63, 12
   br label %.lr.ph.preheader.i
 
-.lr.ph.preheader.i:                               ; preds = %56, %55
-  %64 = phi i32 [ %63, %56 ], [ 10, %55 ]
+.lr.ph.preheader.i:                               ; preds = %57, %56
+  %65 = phi i32 [ %64, %57 ], [ 10, %56 ]
   store i8 48, ptr %31, align 1, !tbaa !13
-  %65 = getelementptr inbounds nuw i8, ptr %29, i64 3
-  store i8 120, ptr %65, align 1, !tbaa !13
-  %.024.i = add nsw i32 %64, -1
-  %66 = zext nneg i32 %.024.i to i64
+  %66 = getelementptr inbounds nuw i8, ptr %29, i64 3
+  store i8 120, ptr %66, align 1, !tbaa !13
+  %.024.i = add nsw i32 %65, -1
+  %67 = zext nneg i32 %.024.i to i64
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %indvars.iv.i = phi i64 [ %66, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %.02025.i = phi i64 [ %48, %.lr.ph.preheader.i ], [ %71, %.lr.ph.i ]
-  %67 = and i64 %.02025.i, 15
-  %68 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %67
-  %69 = load i8, ptr %68, align 1, !tbaa !13
-  %70 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i
-  store i8 %69, ptr %70, align 1, !tbaa !13
-  %71 = ashr i64 %.02025.i, 4
+  %indvars.iv.i = phi i64 [ %67, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
+  %.02025.i = phi i64 [ %49, %.lr.ph.preheader.i ], [ %72, %.lr.ph.i ]
+  %68 = and i64 %.02025.i, 15
+  %69 = getelementptr inbounds nuw [17 x i8], ptr @.str, i64 0, i64 %68
+  %70 = load i8, ptr %69, align 1, !tbaa !13
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 %indvars.iv.i
+  store i8 %70, ptr %71, align 1, !tbaa !13
+  %72 = ashr i64 %.02025.i, 4
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -1
-  %72 = and i64 %indvars.iv.next.i, 4294967294
-  %.not28.i = icmp eq i64 %72, 0
+  %73 = and i64 %indvars.iv.next.i, 4294967294
+  %.not28.i = icmp eq i64 %73, 0
   br i1 %.not28.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !19
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %73 = zext nneg i32 %64 to i64
-  %74 = getelementptr inbounds nuw i8, ptr %31, i64 %73
+  %74 = zext nneg i32 %65 to i64
+  %75 = getelementptr inbounds nuw i8, ptr %31, i64 %74
   br label %lj_strfmt_wptr.exit
 
-lj_strfmt_wptr.exit:                              ; preds = %._crit_edge.i, %50, %39
-  %.0 = phi ptr [ %42, %39 ], [ %54, %50 ], [ %74, %._crit_edge.i ]
-  %75 = ptrtoint ptr %.0 to i64
-  %76 = ptrtoint ptr %3 to i64
-  %77 = sub i64 %75, %76
-  %78 = call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %77) #13
+lj_strfmt_wptr.exit:                              ; preds = %._crit_edge.i, %51, %39
+  %.0 = phi ptr [ %43, %39 ], [ %55, %51 ], [ %75, %._crit_edge.i ]
+  %76 = ptrtoint ptr %.0 to i64
+  %77 = ptrtoint ptr %3 to i64
+  %78 = sub i64 %76, %77
+  %79 = call ptr @lj_str_new(ptr noundef %0, ptr noundef nonnull %3, i64 noundef %78) #13
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %3) #13
-  br label %79
+  br label %80
 
-79:                                               ; preds = %lj_strfmt_wptr.exit, %21, %19, %16, %12, %7
-  %.029 = phi ptr [ %9, %7 ], [ %13, %12 ], [ %17, %16 ], [ %20, %19 ], [ %22, %21 ], [ %78, %lj_strfmt_wptr.exit ]
+80:                                               ; preds = %lj_strfmt_wptr.exit, %21, %19, %16, %12, %7
+  %.029 = phi ptr [ %9, %7 ], [ %13, %12 ], [ %17, %16 ], [ %20, %19 ], [ %22, %21 ], [ %79, %lj_strfmt_wptr.exit ]
   ret ptr %.029
 }
 

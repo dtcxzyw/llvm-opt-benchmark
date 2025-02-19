@@ -110,7 +110,7 @@ define void @lv_animimg_set_repeat_count(ptr noundef %0, i32 noundef %1) local_u
 declare void @lv_anim_set_repeat_count(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_animimg_get_src(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @lv_animimg_get_src(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -124,7 +124,7 @@ define ptr @lv_animimg_get_src(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i8 @lv_animimg_get_src_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define zeroext i8 @lv_animimg_get_src_count(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -170,7 +170,7 @@ define i32 @lv_animimg_get_repeat_count(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @lv_anim_get_repeat_count(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define nonnull ptr @lv_animimg_get_anim(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
+define nonnull ptr @lv_animimg_get_anim(ptr noundef readnone %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

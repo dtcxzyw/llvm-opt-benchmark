@@ -1886,7 +1886,7 @@ define dso_local noundef zeroext i1 @virtqueue_kick(ptr noundef %0) #0 align 16 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define dso_local ptr @virtqueue_get_buf_ctx(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i8, ptr %4, align 8, !range !9, !noundef !10
   %6 = icmp eq i8 %5, 0
@@ -4327,7 +4327,7 @@ define dso_local i64 @virtqueue_get_used_addr(ptr noundef readonly captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local nonnull ptr @virtqueue_get_vring(ptr noundef readnone captures(ret: address, provenance) %0) #11 align 16 {
+define dso_local nonnull ptr @virtqueue_get_vring(ptr noundef readnone %0) #11 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
@@ -4619,7 +4619,7 @@ declare dso_local i64 @dma_map_page_attrs(ptr noundef, ptr noundef, i64 noundef,
 declare dso_local void @_dev_err(ptr noundef, ptr noundef, ...) local_unnamed_addr #14
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64
@@ -4750,7 +4750,7 @@ define internal fastcc void @detach_buf_packed(ptr noundef captures(none) %0, i3
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @detach_buf_split(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8
   %6 = zext i32 %1 to i64

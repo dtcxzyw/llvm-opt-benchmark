@@ -1027,7 +1027,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @PyModuleDef_Init(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @PyModuleDef_Init(ptr noundef returned %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8, !tbaa !21
   %4 = icmp eq i64 %3, 0

@@ -9263,7 +9263,7 @@ define linkonce_odr dso_local void @_ZN7doctest6detail14Expression_lhsIRmEeqIRKm
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @"_ZZL19DOCTEST_ANON_FUNC_5vEN3$_08__invokeEPvS0_mS0_m"(ptr noundef captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i64 noundef %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4) #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZZL19DOCTEST_ANON_FUNC_5vEN3$_08__invokeEPvS0_mS0_m"(ptr noundef captures(none) %0, ptr noundef readnone %1, i64 noundef %2, ptr noundef readnone %3, i64 noundef %4) #2 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"struct.doctest::detail::ResultBuilder", align 8

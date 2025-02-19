@@ -927,7 +927,7 @@ define dso_local zeroext i1 @efi_is_table_address(i64 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define dso_local noundef ptr @efi_systab_show_arch(ptr noundef writeonly captures(ret: address, provenance) %0) local_unnamed_addr #7 align 16 {
+define dso_local noundef ptr @efi_systab_show_arch(ptr noundef writeonly %0) local_unnamed_addr #7 align 16 {
   %2 = load i64, ptr @uga_phys, align 8
   %3 = icmp eq i64 %2, -1
   br i1 %3, label %8, label %4
@@ -971,7 +971,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @config_table_sho
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nounwind null_pointer_is_valid willreturn memory(readwrite, argmem: read)
-define dso_local zeroext i16 @efi_attr_is_visible(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
+define dso_local zeroext i16 @efi_attr_is_visible(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #9 align 16 {
   %4 = icmp eq ptr %1, @efi_attr_fw_vendor
   br i1 %4, label %5, label %12
 

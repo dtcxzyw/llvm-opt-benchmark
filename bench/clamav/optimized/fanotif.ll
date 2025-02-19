@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [51 x i8] c"ClamFanotif: fd already closed ... recovering ...\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @onas_setup_fanotif(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @onas_setup_fanotif(ptr noundef readonly %0) local_unnamed_addr #0 {
   store i64 0, ptr @ddd_pid, align 8, !tbaa !4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2

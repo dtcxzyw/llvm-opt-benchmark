@@ -233,7 +233,7 @@ declare i32 @dt_shortcut_tooltip_callback(ptr noundef, i32 noundef, i32 noundef,
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_get_selected_style_names(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define hidden ptr @_get_selected_style_names(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = alloca %struct._GValue, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #14

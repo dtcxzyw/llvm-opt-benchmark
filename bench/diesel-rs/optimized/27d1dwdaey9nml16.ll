@@ -3120,7 +3120,7 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hc63c2925a12e59aeE.llvm.2648289344551647319(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function6FnOnce9call_once17hc63c2925a12e59aeE.llvm.2648289344551647319(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -7171,7 +7171,7 @@ define hidden void @_ZN6diesel2pg10connection3raw18last_error_message17hf05a1dfc
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN6diesel2pg10connection3raw9RawResult17hb0f802ace537d76bE.llvm.2648289344551647319(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define hidden noundef nonnull ptr @_ZN6diesel2pg10connection3raw9RawResult17hb0f802ace537d76bE.llvm.2648289344551647319(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -9963,22 +9963,22 @@ define internal noundef zeroext i1 @"_ZN81_$LT$diesel..pg..backend..FailedToLook
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls13date_and_time1_124_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$std..time..SystemTime$GT$13as_expression17h501471e81a73b24cE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls13date_and_time1_124_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$std..time..SystemTime$GT$13as_expression17h501471e81a73b24cE"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls13date_and_time1_159_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Timestamp$GT$$GT$$u20$for$u20$$RF$std..time..SystemTime$GT$13as_expression17h169234f6a7059b71E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(16) ptr @"_ZN6diesel10type_impls13date_and_time1_159_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Timestamp$GT$$GT$$u20$for$u20$$RF$std..time..SystemTime$GT$13as_expression17h169234f6a7059b71E"(ptr noalias noundef readonly returned align 8 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time1_128_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$$RF$std..time..SystemTime$GT$13as_expression17h0d5baafade8da909E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time1_128_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$$RF$std..time..SystemTime$GT$13as_expression17h0d5baafade8da909E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time1_163_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Timestamp$GT$$GT$$u20$for$u20$$RF$$RF$std..time..SystemTime$GT$13as_expression17h9c27dac73fb3af41E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time1_163_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Timestamp$GT$$GT$$u20$for$u20$$RF$$RF$std..time..SystemTime$GT$13as_expression17h9c27dac73fb3af41E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -9997,22 +9997,22 @@ define { i64, i32 } @"_ZN6diesel10type_impls13date_and_time1_155_$LT$impl$u20$di
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_141_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h9096afcb3e21a346E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(12) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_141_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h9096afcb3e21a346E"(ptr noalias noundef readonly returned align 4 dereferenceable(12) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_176_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Timestamp$GT$$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h385190e88d2d6065E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(12) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_176_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Timestamp$GT$$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h385190e88d2d6065E"(ptr noalias noundef readonly returned align 4 dereferenceable(12) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_145_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17hf1a3e3bd855aa34bE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_145_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Timestamp$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17hf1a3e3bd855aa34bE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_180_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Timestamp$GT$$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17hac643ae5510792acE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_180_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Timestamp$GT$$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17hac643ae5510792acE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -10029,22 +10029,22 @@ define void @"_ZN6diesel10type_impls13date_and_time6chrono1_172_$LT$impl$u20$die
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_154_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Timestamptz$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17he8592e9418f52a37E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(12) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_154_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Timestamptz$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17he8592e9418f52a37E"(ptr noalias noundef readonly returned align 4 dereferenceable(12) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_189_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Timestamptz$GT$$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h37a077d6941c4457E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(12) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_189_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Timestamptz$GT$$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h37a077d6941c4457E"(ptr noalias noundef readonly returned align 4 dereferenceable(12) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_158_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Timestamptz$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h7ea66dd6059d9eb7E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_158_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Timestamptz$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h7ea66dd6059d9eb7E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_193_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Timestamptz$GT$$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h06b837096685a305E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_193_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Timestamptz$GT$$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h06b837096685a305E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -10061,22 +10061,22 @@ define void @"_ZN6diesel10type_impls13date_and_time6chrono1_185_$LT$impl$u20$die
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_143_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..mysql..types..Datetime$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17hb38ba866c5eb06beE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(12) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_143_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..mysql..types..Datetime$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17hb38ba866c5eb06beE"(ptr noalias noundef readonly returned align 4 dereferenceable(12) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_178_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..mysql..types..Datetime$GT$$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h9aeeabb36772300bE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(12) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(12) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_178_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..mysql..types..Datetime$GT$$GT$$u20$for$u20$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h9aeeabb36772300bE"(ptr noalias noundef readonly returned align 4 dereferenceable(12) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_147_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..mysql..types..Datetime$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h2622a423e6bbf847E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_147_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..mysql..types..Datetime$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17h2622a423e6bbf847E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_182_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..mysql..types..Datetime$GT$$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17hb1007f71736293f8E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_182_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..mysql..types..Datetime$GT$$GT$$u20$for$u20$$RF$$RF$chrono..naive..datetime..NaiveDateTime$GT$13as_expression17hb1007f71736293f8E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 

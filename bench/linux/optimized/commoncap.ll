@@ -62,7 +62,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.compiler.used = appending global [1 x ptr] [ptr @__lsm_capability], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local range(i32 -1, 1) i32 @cap_capable(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, i32 noundef %2, i32 %3) #0 align 16 {
+define dso_local range(i32 -1, 1) i32 @cap_capable(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i32 %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %1

@@ -873,7 +873,7 @@ blob_close_impl.exit:                             ; preds = %2, %6, %9, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @blob_enter(ptr noundef captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #0 {
+define internal noundef ptr @blob_enter(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !39
   %5 = tail call i32 @pysqlite_check_connection(ptr noundef %4) #5

@@ -809,7 +809,7 @@ _ZN4Copy14disjoint_wordsEPKP12HeapWordImplPS1_m.exit: ; preds = %56, %54, %_ZN11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN11ThreadsList24find_index_of_JavaThreadEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
+define hidden noundef i32 @_ZN11ThreadsList24find_index_of_JavaThreadEP10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -944,7 +944,7 @@ declare noundef ptr @_ZNK10JavaThread9threadObjEv(ptr noundef nonnull align 8 de
 declare noundef ptr @_ZN13ThreadIdTable10add_threadElP10JavaThread(i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.loopexit, label %.preheader
 
@@ -976,7 +976,7 @@ define hidden noundef zeroext i1 @_ZNK11ThreadsList8includesEPK10JavaThread(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN11ThreadsList13remove_threadEPS_P10JavaThread(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 align 2 {
+define hidden noundef ptr @_ZN11ThreadsList13remove_threadEPS_P10JavaThread(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #1 align 2 {
   %3 = icmp eq ptr %1, null
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.pre = load i32, ptr %.phi.trans.insert, align 4
@@ -1322,7 +1322,7 @@ declare void @_ZN12elapsedTimer4stopEv(ptr noundef nonnull align 8 dereferenceab
 declare noundef i64 @_ZNK12elapsedTimer12millisecondsEv(ptr noundef nonnull align 8 dereferenceable(17)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN17ThreadsListHandle32cv_internal_thread_to_JavaThreadEP8_jobjectPP10JavaThreadPP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 2 {
+define hidden noundef zeroext i1 @_ZN17ThreadsListHandle32cv_internal_thread_to_JavaThreadEP8_jobjectPP10JavaThreadPP7oopDesc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 2 {
   %5 = ptrtoint ptr %1 to i64
   %6 = and i64 %5, 3
   switch i64 %6, label %15 [
@@ -1404,7 +1404,7 @@ _ZN17ThreadsListHandle8includesEP10JavaThread.exit.thread: ; preds = %30, %.preh
 declare noundef ptr @_ZN16java_lang_Thread14thread_acquireEP7oopDesc(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN21FastThreadsListHandleC2EP7oopDescP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 34)) %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2) unnamed_addr #1 align 2 {
+define hidden void @_ZN21FastThreadsListHandleC2EP7oopDescP10JavaThread(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 34)) %0, ptr noundef %1, ptr noundef readnone %2) unnamed_addr #1 align 2 {
   store ptr null, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
@@ -2090,7 +2090,7 @@ _ZN19ThreadScanHashtableD2Ev.exit:                ; preds = %_ZN19ThreadScanHash
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN17ThreadsSMRSupport13remove_threadEP10JavaThread(ptr noundef captures(address) %0) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN17ThreadsSMRSupport13remove_threadEP10JavaThread(ptr noundef %0) local_unnamed_addr #1 align 2 {
   %2 = load volatile ptr, ptr @_ZN17ThreadsSMRSupport17_java_thread_listE, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %3 = tail call noundef ptr @_ZN11ThreadsList13remove_threadEPS_P10JavaThread(ptr noundef %2, ptr noundef %0)
@@ -2418,7 +2418,7 @@ _ZNK11ThreadsList10threads_doI13ThreadClosureEEvPT_.exit: ; preds = %.lr.ph.i, %
 declare void @_ZN7Threads19non_java_threads_doEP13ThreadClosure(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18SafeThreadsListPtr8print_onEP12outputStream(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(26) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
+define hidden void @_ZN18SafeThreadsListPtr8print_onEP12outputStream(ptr noundef nonnull readonly align 8 dereferenceable(26) %0, ptr noundef nonnull %1) local_unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 392

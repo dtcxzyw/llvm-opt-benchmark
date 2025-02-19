@@ -652,7 +652,7 @@ define noundef ptr @stats_tree_register_plugin(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define void @stats_tree_set_group(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define void @stats_tree_set_group(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -666,7 +666,7 @@ define void @stats_tree_set_group(ptr noundef writeonly captures(address_is_null
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @stats_tree_set_first_column_name(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @stats_tree_set_first_column_name(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 

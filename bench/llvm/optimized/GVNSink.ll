@@ -3387,7 +3387,7 @@ _ZN12_GLOBAL__N_111ModelledPHIC2ERN4llvm15SmallVectorImplIPNS1_11InstructionEEER
   %1098 = load i32, ptr %616, align 8, !tbaa !18, !noalias !204
   %1099 = zext i32 %1098 to i64
   %1100 = getelementptr inbounds nuw i8, ptr %1094, i64 8
-  %1101 = load i32, ptr %1100, align 8, !tbaa !18
+  %1101 = load i32, ptr %1100, align 8, !tbaa !18, !noalias !204
   %1102 = zext i32 %1101 to i64
   %.not.i.i.i.i.i169.i = icmp ult i32 %1101, %1098
   br i1 %.not.i.i.i.i.i169.i, label %1107, label %1103
@@ -3399,20 +3399,20 @@ _ZN12_GLOBAL__N_111ModelledPHIC2ERN4llvm15SmallVectorImplIPNS1_11InstructionEEER
 1104:                                             ; preds = %1103
   %1105 = load ptr, ptr %9, align 8, !tbaa !15, !noalias !204
   %.idx.i.i.i.i.i.i = shl nuw nsw i64 %1099, 3
-  %1106 = load ptr, ptr %1094, align 8, !tbaa !15
+  %1106 = load ptr, ptr %1094, align 8, !tbaa !15, !noalias !204
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %1106, ptr align 8 %1105, i64 %.idx.i.i.i.i.i.i, i1 false), !noalias !204
   br label %1125
 
 1107:                                             ; preds = %1097
   %1108 = getelementptr inbounds nuw i8, ptr %1094, i64 12
-  %1109 = load i32, ptr %1108, align 4, !tbaa !19
+  %1109 = load i32, ptr %1108, align 4, !tbaa !19, !noalias !204
   %1110 = icmp ult i32 %1109, %1098
   br i1 %1110, label %1111, label %1113
 
 1111:                                             ; preds = %1107
-  store i32 0, ptr %1100, align 8, !tbaa !18
+  store i32 0, ptr %1100, align 8, !tbaa !18, !noalias !204
   %1112 = getelementptr inbounds nuw i8, ptr %1094, i64 16
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(96) %1094, ptr noundef nonnull %1112, i64 noundef %1099, i64 noundef 8) #23
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(96) %1094, ptr noundef nonnull %1112, i64 noundef %1099, i64 noundef 8) #23, !noalias !204
   br label %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i
 
 1113:                                             ; preds = %1107
@@ -3422,7 +3422,7 @@ _ZN12_GLOBAL__N_111ModelledPHIC2ERN4llvm15SmallVectorImplIPNS1_11InstructionEEER
 1114:                                             ; preds = %1113
   %1115 = load ptr, ptr %9, align 8, !tbaa !15, !noalias !204
   %.idx33.i.i.i.i.i.i = shl nuw nsw i64 %1102, 3
-  %1116 = load ptr, ptr %1094, align 8, !tbaa !15
+  %1116 = load ptr, ptr %1094, align 8, !tbaa !15, !noalias !204
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %1116, ptr align 8 %1115, i64 %.idx33.i.i.i.i.i.i, i1 false), !noalias !204
   br label %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i
 
@@ -3437,7 +3437,7 @@ _ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i: ; preds = %1114, 
   %1120 = load ptr, ptr %9, align 8, !tbaa !15, !noalias !204
   %.idx36.i.i.i.i.i.i = shl nuw nsw i64 %.022.i.i.i.i.i.i, 3
   %1121 = getelementptr inbounds nuw i8, ptr %1120, i64 %.idx36.i.i.i.i.i.i
-  %1122 = load ptr, ptr %1094, align 8, !tbaa !15
+  %1122 = load ptr, ptr %1094, align 8, !tbaa !15, !noalias !204
   %1123 = getelementptr inbounds nuw ptr, ptr %1122, i64 %.022.i.i.i.i.i.i
   %1124 = sub nsw i64 %1118, %.022.i.i.i.i.i.i
   %gepdiff.i.i.i.i.i.i = shl nsw i64 %1124, 3
@@ -3445,12 +3445,12 @@ _ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i: ; preds = %1114, 
   br label %1125
 
 1125:                                             ; preds = %1119, %_ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i, %1104, %1103
-  store i32 %1098, ptr %1100, align 8, !tbaa !18
+  store i32 %1098, ptr %1100, align 8, !tbaa !18, !noalias !204
   %1126 = getelementptr inbounds nuw i8, ptr %1094, i64 48
   %1127 = load i32, ptr %618, align 8, !tbaa !18, !noalias !204
   %1128 = zext i32 %1127 to i64
   %1129 = getelementptr inbounds nuw i8, ptr %1094, i64 56
-  %1130 = load i32, ptr %1129, align 8, !tbaa !18
+  %1130 = load i32, ptr %1129, align 8, !tbaa !18, !noalias !204
   %1131 = zext i32 %1130 to i64
   %.not.i.i3.i.i.i.i = icmp ult i32 %1130, %1127
   br i1 %.not.i.i3.i.i.i.i, label %1136, label %1132
@@ -3462,20 +3462,20 @@ _ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i: ; preds = %1114, 
 1133:                                             ; preds = %1132
   %1134 = load ptr, ptr %617, align 8, !tbaa !15, !noalias !204
   %.idx.i.i5.i.i.i.i = shl nuw nsw i64 %1128, 3
-  %1135 = load ptr, ptr %1126, align 8, !tbaa !15
+  %1135 = load ptr, ptr %1126, align 8, !tbaa !15, !noalias !204
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %1135, ptr align 8 %1134, i64 %.idx.i.i5.i.i.i.i, i1 false), !noalias !204
   br label %.sink.split.i.i6.i.i.i.i
 
 1136:                                             ; preds = %1125
   %1137 = getelementptr inbounds nuw i8, ptr %1094, i64 60
-  %1138 = load i32, ptr %1137, align 4, !tbaa !19
+  %1138 = load i32, ptr %1137, align 4, !tbaa !19, !noalias !204
   %1139 = icmp ult i32 %1138, %1127
   br i1 %1139, label %1140, label %1142
 
 1140:                                             ; preds = %1136
-  store i32 0, ptr %1129, align 8, !tbaa !18
+  store i32 0, ptr %1129, align 8, !tbaa !18, !noalias !204
   %1141 = getelementptr inbounds nuw i8, ptr %1094, i64 64
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %1126, ptr noundef nonnull %1141, i64 noundef %1128, i64 noundef 8) #23
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(48) %1126, ptr noundef nonnull %1141, i64 noundef %1128, i64 noundef 8) #23, !noalias !204
   br label %_ZSt4copyIPKPN4llvm10BasicBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i
 
 1142:                                             ; preds = %1136
@@ -3485,7 +3485,7 @@ _ZSt4copyIPKPN4llvm5ValueEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i: ; preds = %1114, 
 1143:                                             ; preds = %1142
   %1144 = load ptr, ptr %617, align 8, !tbaa !15, !noalias !204
   %.idx33.i.i8.i.i.i.i = shl nuw nsw i64 %1131, 3
-  %1145 = load ptr, ptr %1126, align 8, !tbaa !15
+  %1145 = load ptr, ptr %1126, align 8, !tbaa !15, !noalias !204
   call void @llvm.memmove.p0.p0.i64(ptr align 8 %1145, ptr align 8 %1144, i64 %.idx33.i.i8.i.i.i.i, i1 false), !noalias !204
   br label %_ZSt4copyIPKPN4llvm10BasicBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i
 
@@ -3500,7 +3500,7 @@ _ZSt4copyIPKPN4llvm10BasicBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i: ; preds = %
   %1149 = load ptr, ptr %617, align 8, !tbaa !15, !noalias !204
   %.idx36.i.i11.i.i.i.i = shl nuw nsw i64 %.022.i.i9.i.i.i.i, 3
   %1150 = getelementptr inbounds nuw i8, ptr %1149, i64 %.idx36.i.i11.i.i.i.i
-  %1151 = load ptr, ptr %1126, align 8, !tbaa !15
+  %1151 = load ptr, ptr %1126, align 8, !tbaa !15, !noalias !204
   %1152 = getelementptr inbounds nuw ptr, ptr %1151, i64 %.022.i.i9.i.i.i.i
   %1153 = sub nsw i64 %1147, %.022.i.i9.i.i.i.i
   %gepdiff.i.i12.i.i.i.i = shl nsw i64 %1153, 3
@@ -3508,7 +3508,7 @@ _ZSt4copyIPKPN4llvm10BasicBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i: ; preds = %
   br label %.sink.split.i.i6.i.i.i.i
 
 .sink.split.i.i6.i.i.i.i:                         ; preds = %1148, %_ZSt4copyIPKPN4llvm10BasicBlockEPS2_ET0_T_S7_S6_.exit31.i.i.i.i.i.i, %1133, %1132
-  store i32 %1127, ptr %1129, align 8, !tbaa !18
+  store i32 %1127, ptr %1129, align 8, !tbaa !18, !noalias !204
   br label %_ZN12_GLOBAL__N_111ModelledPHIaSERKS0_.exit.i.i.i
 
 _ZN12_GLOBAL__N_111ModelledPHIaSERKS0_.exit.i.i.i: ; preds = %.sink.split.i.i6.i.i.i.i, %1095
@@ -3578,15 +3578,13 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %1178, %1173
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #23, !noalias !204
   %.val4.i.i170.i = load i32, ptr %577, align 8, !tbaa !201, !noalias !204
   %1179 = icmp eq i32 %.val4.i.i170.i, 0
-  %.val5.i.i171.i = load ptr, ptr %39, align 8, !tbaa !226, !noalias !204
-  %.val6.i.i172.i = load i32, ptr %586, align 8, !tbaa !227, !noalias !204
-  %1180 = zext i32 %.val6.i.i172.i to i64
-  %1181 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.146", ptr %.val5.i.i171.i, i64 %1180
+  %1180 = zext i32 %.val7.i.i.i to i64
+  %1181 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.146", ptr %.val.i.i.i, i64 %1180
   br i1 %1179, label %._crit_edge350.i, label %_ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111ModelledPHIENS_8DenseMapIS3_NS0_13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit179.i
 
 _ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111ModelledPHIENS_8DenseMapIS3_NS0_13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit179.i: ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !204
-  store ptr %.val5.i.i171.i, ptr %8, align 8, !tbaa !228, !noalias !204
+  store ptr %.val.i.i.i, ptr %8, align 8, !tbaa !228, !noalias !204
   store ptr %1181, ptr %621, align 8, !tbaa !230, !noalias !204
   call fastcc void @_ZN4llvm16DenseMapIteratorIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS1_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EELb0EE23AdvancePastEmptyBucketsEv(ptr noundef nonnull align 8 dereferenceable(16) %8), !noalias !204
   %.fca.0.load.pre.i.i.i173.i = load ptr, ptr %8, align 8, !noalias !204
@@ -8540,7 +8538,7 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPKNS_10BasicBlockEjNS_12DenseMapInfoIS4_vEE
 declare i64 @llvm.ctlz.i64(i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_17GVNSink6sinkBBES2_E3$_0EEEvT_SB_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr readonly captures(none) %2) unnamed_addr #10 {
+define internal fastcc void @"_ZSt16__insertion_sortIPPN4llvm10BasicBlockEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_17GVNSink6sinkBBES2_E3$_0EEEvT_SB_T0_"(ptr noundef %0, ptr noundef readnone %1, ptr readonly captures(none) %2) unnamed_addr #10 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -9893,7 +9891,7 @@ _ZN12_GLOBAL__N_111ModelledPHIC2ERKS0_.exit:      ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind willreturn uwtable
-define internal void @_ZN12_GLOBAL__N_111ModelledPHID2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %0) unnamed_addr #12 align 2 {
+define internal void @_ZN12_GLOBAL__N_111ModelledPHID2Ev(ptr noundef nonnull readonly align 8 dereferenceable(96) %0) unnamed_addr #12 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !tbaa !15
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -9930,7 +9928,7 @@ declare void @__cxa_guard_release(ptr) local_unnamed_addr #13
 declare { ptr, ptr } @_ZN4llvm10BasicBlock4phisEv(ptr noundef nonnull align 8 dereferenceable(80)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111ModelledPHIENS_8DenseMapIS3_NS0_13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 17)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(96) %2) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111ModelledPHIENS_8DenseMapIS3_NS0_13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS0_12DenseSetPairIS3_EEEES7_E6insertERKS3_(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 17)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(96) %2) unnamed_addr #2 align 2 {
   %4 = alloca ptr, align 8
   %5 = alloca %"class.(anonymous namespace)::ModelledPHI", align 8
   %6 = alloca ptr, align 8
@@ -11179,7 +11177,7 @@ _ZSt11__push_heapIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEElS6_N9__gnu_cxx5__op
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_ST_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #2 {
+define internal fastcc void @_ZSt16__insertion_sortIPSt4pairIPN4llvm10BasicBlockEPNS1_5ValueEEN9__gnu_cxx5__ops15_Iter_comp_iterIZN12_GLOBAL__N_111ModelledPHIC1EPKNS1_7PHINodeERKNS1_8DenseMapIPKS2_jNS1_12DenseMapInfoISI_vEENS1_6detail12DenseMapPairISI_jEEEEEUlS6_S6_E_EEEvT_ST_T0_(ptr noundef %0, ptr noundef readnone %1, ptr noundef nonnull readonly captures(none) %2) unnamed_addr #2 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -12662,7 +12660,7 @@ _ZN12_GLOBAL__N_111ModelledPHID2Ev.exit39:        ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(96) ptr @_ZN12_GLOBAL__N_111ModelledPHIaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1) unnamed_addr #5 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(96) ptr @_ZN12_GLOBAL__N_111ModelledPHIaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #5 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZN4llvm11SmallVectorIPNS_10BasicBlockELj4EEaSERKS3_.exit, label %4
 
@@ -17494,7 +17492,7 @@ _ZN12_GLOBAL__N_111ModelledPHID2Ev.exit27:        ; preds = %_ZN4llvm11SmallVect
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_(ptr readonly captures(ret: address, provenance) %.0.val, i32 %.16.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
+define internal fastcc noundef ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_(ptr readonly %.0.val, i32 %.16.val, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0) unnamed_addr #2 align 2 {
   %2 = alloca %"class.(anonymous namespace)::ModelledPHI", align 8
   %3 = icmp eq i32 %.16.val, 0
   br i1 %3, label %79, label %4
@@ -17879,7 +17877,7 @@ _ZSt4copyIPKPN4llvm10BasicBlockEPS2_ET0_T_S7_S6_.exit: ; preds = %76, %._crit_ed
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_127SinkingInstructionCandidateELb0EE18growAndEmplaceBackIJRS2_EEES5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %1) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN4llvm23SmallVectorTemplateBaseIN12_GLOBAL__N_127SinkingInstructionCandidateELb0EE18growAndEmplaceBackIJRS2_EEES5_DpOT_(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(72) %1) unnamed_addr #2 align 2 {
   %3 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #23
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -18083,7 +18081,7 @@ define internal fastcc void @_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_127Sink
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_127SinkingInstructionCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS1_EEEEvT_S9_T0_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 {
+define internal fastcc void @_ZSt16__insertion_sortIPN12_GLOBAL__N_127SinkingInstructionCandidateEN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterIS1_EEEEvT_S9_T0_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #2 {
   %3 = alloca %"struct.(anonymous namespace)::SinkingInstructionCandidate", align 8
   %4 = alloca %"struct.(anonymous namespace)::SinkingInstructionCandidate", align 8
   %5 = icmp eq ptr %0, %1

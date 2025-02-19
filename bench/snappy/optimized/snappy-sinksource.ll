@@ -43,13 +43,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN6snappy4Sink15GetAppendBufferEmPc(ptr nonnull readnone align 8 captures(none) %this, i64 %length, ptr noundef readnone returned captures(ret: address, provenance) %scratch) unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN6snappy4Sink15GetAppendBufferEmPc(ptr nonnull readnone align 8 captures(none) %this, i64 %length, ptr noundef readnone returned %scratch) unnamed_addr #0 align 2 {
 entry:
   ret ptr %scratch
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef ptr @_ZN6snappy4Sink23GetAppendBufferVariableEmmPcmPm(ptr nonnull readnone align 8 captures(none) %this, i64 %min_size, i64 %desired_size_hint, ptr noundef readnone returned captures(ret: address, provenance) %scratch, i64 noundef %scratch_size, ptr noundef writeonly captures(none) initializes((0, 8)) %allocated_size) unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN6snappy4Sink23GetAppendBufferVariableEmmPcmPm(ptr nonnull readnone align 8 captures(none) %this, i64 %min_size, i64 %desired_size_hint, ptr noundef readnone returned %scratch, i64 noundef %scratch_size, ptr noundef writeonly captures(none) initializes((0, 8)) %allocated_size) unnamed_addr #3 align 2 {
 entry:
   store i64 %scratch_size, ptr %allocated_size, align 8
   ret ptr %scratch
@@ -129,7 +129,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN6snappy22UncheckedByteArraySink6AppendEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly captures(address) %data, i64 noundef %n) unnamed_addr #8 align 2 {
+define dso_local void @_ZN6snappy22UncheckedByteArraySink6AppendEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %this, ptr noundef readonly %data, i64 noundef %n) unnamed_addr #8 align 2 {
 entry:
   %dest_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %dest_, align 8

@@ -504,7 +504,7 @@ define hidden void @"_ZN116_$LT$serde..__private..de..content..ContentDeserializ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN119_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..IntoDeserializer$LT$E$GT$$GT$17into_deserializer17hc635d337a1ba319bE.llvm.4274486045284728278"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN119_$LT$serde..__private..de..content..ContentRefDeserializer$LT$E$GT$$u20$as$u20$serde..de..IntoDeserializer$LT$E$GT$$GT$17into_deserializer17hc635d337a1ba319bE.llvm.4274486045284728278"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #6 {
   ret ptr %0
 }
 

@@ -111,7 +111,7 @@ $_ZNSt8_Rb_treeIjjSt9_IdentityIjESt4lessIjESaIjEE8_M_eraseEPSt13_Rb_tree_nodeIjE
 @.str.47 = private unnamed_addr constant [35 x i8] c"ownKeys trap result has duplicate \00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN6hermes2vm6detail5slotsEPNS0_8JSObjectE(ptr noundef readonly captures(address, ret: address, provenance) %self) local_unnamed_addr #0 {
+define hidden noundef nonnull align 4 dereferenceable(8) ptr @_ZN6hermes2vm6detail5slotsEPNS0_8JSObjectE(ptr noundef readonly %self) local_unnamed_addr #0 {
 entry:
   %bf.load.i.i.i.i.i.i.i.i.i.i = load i32, ptr %self, align 4
   %bf.lshr.i.i.mask.i.i.i.i.i.i.i.i = and i32 %bf.load.i.i.i.i.i.i.i.i.i.i, -16777216

@@ -507,7 +507,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %this) unnamed_addr #2 align 2 {
+define dso_local void @_ZN2EA4StdC15CallbackManager14CallbackVectorD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(88) %this) unnamed_addr #2 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %mLocalBuffer = getelementptr inbounds nuw i8, ptr %this, i64 24
@@ -548,7 +548,7 @@ entry:
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef nonnull ptr @_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %this, ptr noundef %value) local_unnamed_addr #1 align 2 {
+define dso_local noundef nonnull ptr @_ZN2EA4StdC15CallbackManager14CallbackVector9push_backEPNS0_8CallbackE(ptr noundef nonnull align 8 dereferenceable(88) %this, ptr noundef %value) local_unnamed_addr #1 align 2 {
 entry:
   %mpEnd = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %mpEnd, align 8
@@ -1722,7 +1722,7 @@ if.end17:                                         ; preds = %if.then.i.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN2EA4StdC15CallbackManager9GetThreadEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(296) %this) local_unnamed_addr #14 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN2EA4StdC15CallbackManager9GetThreadEv(ptr noundef nonnull readnone align 8 dereferenceable(296) %this) local_unnamed_addr #14 align 2 {
 entry:
   %mThread = getelementptr inbounds nuw i8, ptr %this, i64 232
   ret ptr %mThread

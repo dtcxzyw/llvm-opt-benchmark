@@ -805,7 +805,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3smt5enode25get_eq_enode_with_min_genEv(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(112) %this) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN3smt5enode25get_eq_enode_with_min_genEv(ptr noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #6 align 2 {
 entry:
   %m_generation = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %m_generation, align 4

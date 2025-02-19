@@ -5443,7 +5443,7 @@ declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN4node12SnapshotData19FromEmbedderWrapperEPKNS_20EmbedderSnapshotDataE(ptr noundef readonly captures(address_is_null) %data) local_unnamed_addr #8 align 2 {
+define dso_local noundef ptr @_ZN4node12SnapshotData19FromEmbedderWrapperEPKNS_20EmbedderSnapshotDataE(ptr noundef readonly %data) local_unnamed_addr #8 align 2 {
 entry:
   %cmp.not = icmp eq ptr %data, null
   br i1 %cmp.not, label %cond.end, label %cond.true

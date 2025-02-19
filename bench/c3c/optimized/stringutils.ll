@@ -136,7 +136,7 @@ char_is_lower_alphanum_.exit.thread:              ; preds = %char_is_lower_alpha
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local ptr @str_unescape(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #3 {
+define dso_local ptr @str_unescape(ptr noundef %0) local_unnamed_addr #3 {
   br label %2
 
 2:                                                ; preds = %8, %1
@@ -338,7 +338,7 @@ scan_past_underscore.exit.thread:                 ; preds = %2, %.preheader, %9,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define dso_local zeroext i1 @str_eq(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
+define dso_local zeroext i1 @str_eq(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %7, label %4
 
@@ -685,7 +685,7 @@ define dso_local void @slice_trim(ptr noundef captures(none) %0) local_unnamed_a
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @str_trim(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #13 {
+define dso_local noundef ptr @str_trim(ptr noundef %0) local_unnamed_addr #13 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #20
   %.not10.i = icmp eq i64 %2, 0
   br i1 %.not10.i, label %str_trim_end.exit.preheader, label %.lr.ph.preheader.i
@@ -772,7 +772,7 @@ define dso_local void @str_trim_end(ptr noundef captures(none) %0) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef ptr @str_trim_start(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #2 {
+define dso_local noundef ptr @str_trim_start(ptr noundef readonly %0) local_unnamed_addr #2 {
   br label %2
 
 2:                                                ; preds = %4, %1

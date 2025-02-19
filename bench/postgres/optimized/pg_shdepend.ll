@@ -1694,7 +1694,7 @@ declare ptr @get_database_name(i32 noundef) local_unnamed_addr #2
 declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @shdepDropOwned(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @shdepDropOwned(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca %struct.ObjectAddress, align 4
@@ -1906,7 +1906,7 @@ declare void @performMultipleDeletions(ptr noundef, i32 noundef, i32 noundef) lo
 declare void @free_object_addresses(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @shdepReassignOwned(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @shdepReassignOwned(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca [2 x %struct.ScanKeyData], align 16
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = tail call ptr @table_open(i32 noundef 1214, i32 noundef 3) #8

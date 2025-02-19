@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.TT_GaspRangeRec_ = type { i16, i16 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 65536) i32 @FT_Get_Gasp(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @FT_Get_Gasp(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 

@@ -1333,7 +1333,7 @@ define linkonce_odr hidden void @_ZN9LogStreamD2Ev(ptr noundef nonnull align 8 d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer9enter_forE6HandleP9BasicLockP10JavaThread(ptr readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer9enter_forE6HandleP9BasicLockP10JavaThread(ptr readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN18ObjectSynchronizer15enter_fast_implE6HandleP9BasicLockP10JavaThread(ptr %0, ptr noundef %1, ptr noundef %2)
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1527,7 +1527,7 @@ define hidden noundef ptr @_ZN18ObjectSynchronizer11inflate_forEP10JavaThreadP7o
 declare noundef zeroext i1 @_ZN13ObjectMonitor9enter_forEP10JavaThread(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer5enterE6HandleP9BasicLockP10JavaThread(ptr readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer5enterE6HandleP9BasicLockP10JavaThread(ptr readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = tail call noundef zeroext i1 @_ZN18ObjectSynchronizer15enter_fast_implE6HandleP9BasicLockP10JavaThread(ptr %0, ptr noundef %1, ptr noundef %2)
   br i1 %4, label %.loopexit, label %.preheader
 
@@ -1952,7 +1952,7 @@ _ZNK6HandleclEv.exit.thread:                      ; preds = %1, %_ZNK6HandleclEv
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN18ObjectSynchronizer4waitE6HandlelP10JavaThread(ptr readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden noundef i32 @_ZN18ObjectSynchronizer4waitE6HandlelP10JavaThread(ptr readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp slt i64 %1, 0
   br i1 %4, label %5, label %7
 
@@ -2113,7 +2113,7 @@ declare void @_ZN10Exceptions10_throw_msgEP10JavaThreadPKciP6SymbolS3_(ptr nound
 declare void @_ZN13ObjectMonitor4waitElbP10JavaThread(ptr noundef nonnull align 8 dereferenceable(200), i64 noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer19waitUninterruptiblyE6HandlelP10JavaThread(ptr readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer19waitUninterruptiblyE6HandlelP10JavaThread(ptr readonly %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %4 = icmp slt i64 %1, 0
   br i1 %4, label %5, label %7
 
@@ -2682,7 +2682,7 @@ declare void @_ZN13ObjectMonitor36install_displaced_markword_in_objectEP7oopDesc
 declare i64 @_ZNK8markWord21displaced_mark_helperEv(ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer25current_thread_holds_lockEP10JavaThread6Handle(ptr noundef %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN18ObjectSynchronizer25current_thread_holds_lockEP10JavaThread6Handle(ptr noundef %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK6HandleclEv.exit, label %4
 
@@ -2805,7 +2805,7 @@ _ZNK9LockStack8containsEP7oopDesc.exit:           ; preds = %49, %47, %27, %25, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN18ObjectSynchronizer14get_lock_ownerEP11ThreadsList6Handle(ptr noundef %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZN18ObjectSynchronizer14get_lock_ownerEP11ThreadsList6Handle(ptr noundef %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK6HandleclEv.exit, label %4
 
@@ -2874,7 +2874,7 @@ declare noundef ptr @_ZN7Threads25owning_thread_from_objectEP11ThreadsListP7oopD
 declare noundef ptr @_ZN7Threads26owning_thread_from_monitorEP11ThreadsListP13ObjectMonitor(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN18ObjectSynchronizer22owned_monitors_iterateEP14MonitorClosureP10JavaThread(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN18ObjectSynchronizer22owned_monitors_iterateEP14MonitorClosureP10JavaThread(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = load volatile ptr, ptr @_ZN18ObjectSynchronizer12_in_use_listE, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !10
   %.not3.i.i = icmp eq ptr %3, null

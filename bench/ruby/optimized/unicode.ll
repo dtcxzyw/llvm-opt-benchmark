@@ -2324,7 +2324,7 @@ onigenc_unicode_CaseUnfold_13_lookup.exit321.thread: ; preds = %613, %553, %591,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @onigenc_unicode_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr noundef %5) local_unnamed_addr #0 {
+define dso_local i32 @onigenc_unicode_case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef readnone %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = load i32, ptr %0, align 4, !tbaa !14
   %8 = getelementptr i8, ptr %4, i64 -12
   %9 = shl i32 %7, 3

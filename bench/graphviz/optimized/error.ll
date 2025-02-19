@@ -240,7 +240,7 @@ declare void @llvm.va_start.p0(ptr) #8
 declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nounwind uwtable
-define void @errorf(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ...) local_unnamed_addr #2 {
+define void @errorf(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ...) local_unnamed_addr #2 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   call void @llvm.va_start.p0(ptr nonnull %5)

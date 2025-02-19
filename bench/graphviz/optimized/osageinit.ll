@@ -125,7 +125,7 @@ cluster_init_graph.exit:                          ; preds = %._crit_edge27.i, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @mkClusters(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.clist_t, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %3, i8 0, i64 32, i1 false)

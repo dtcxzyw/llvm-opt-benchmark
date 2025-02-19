@@ -1496,7 +1496,7 @@ lpad:                                             ; preds = %.noexc3, %.noexc, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_Z15grpc_cq_pollsetP21grpc_completion_queue(ptr noundef readonly captures(ret: address, provenance) %cq) local_unnamed_addr #9 {
+define noundef ptr @_Z15grpc_cq_pollsetP21grpc_completion_queue(ptr noundef readonly %cq) local_unnamed_addr #9 {
 entry:
   %poller_vtable = getelementptr inbounds nuw i8, ptr %cq, i64 216
   %0 = load ptr, ptr %poller_vtable, align 8
@@ -1846,7 +1846,7 @@ return:                                           ; preds = %return.sink.split, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZL15cq_destroy_nextPv(ptr noundef readonly captures(address) %data) #10 personality ptr @__gxx_personality_v0 {
+define internal void @_ZL15cq_destroy_nextPv(ptr noundef readonly %data) #10 personality ptr @__gxx_personality_v0 {
 entry:
   %num_queue_items_.i.i = getelementptr inbounds nuw i8, ptr %data, i64 88
   %0 = load atomic i64, ptr %num_queue_items_.i.i monotonic, align 8
@@ -4324,7 +4324,7 @@ declare noundef ptr @_ZN9grpc_core32MultiProducerSingleConsumerQueue14PopAndChec
 declare noundef zeroext i1 @_ZN4absl12lts_202308026Status10EqualsSlowERKS1_S3_(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr noundef captures(none) %cq, ptr noundef readnone captures(address) %tag, ptr noundef nonnull readnone captures(address) %worker) unnamed_addr #7 {
+define internal fastcc void @_ZL11del_pluckerP21grpc_completion_queuePvPP19grpc_pollset_worker(ptr noundef captures(none) %cq, ptr noundef readnone %tag, ptr noundef nonnull readnone %worker) unnamed_addr #7 {
 entry:
   %__tmp.i = alloca %"struct.(anonymous namespace)::plucker", align 8
   %num_pluckers = getelementptr inbounds nuw i8, ptr %cq, i64 332
@@ -4851,7 +4851,7 @@ if.end6:                                          ; preds = %if.then2, %if.then3
 }
 
 ; Function Attrs: uwtable
-define internal void @_ZN12_GLOBAL__N_123non_polling_poller_workEP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, ptr noundef %pollset, ptr noundef writeonly captures(address_is_null) %worker, i64 %deadline.coerce) #5 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN12_GLOBAL__N_123non_polling_poller_workEP12grpc_pollsetPP19grpc_pollset_workerN9grpc_core9TimestampE(ptr noalias writeonly sret(%"class.absl::lts_20230802::Status") align 8 captures(none) %agg.result, ptr noundef %pollset, ptr noundef writeonly %worker, i64 %deadline.coerce) #5 personality ptr @__gxx_personality_v0 {
 entry:
   %deadline = alloca %"class.grpc_core::Timestamp", align 8
   %w = alloca %"struct.(anonymous namespace)::non_polling_worker", align 8

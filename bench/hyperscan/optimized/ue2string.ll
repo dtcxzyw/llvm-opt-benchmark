@@ -287,7 +287,7 @@ cleanup:                                          ; preds = %for.body, %_ZN3ue23
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN3ue23cmpEPKcS1_mb(ptr noundef readonly captures(address) %a, ptr noundef readonly captures(none) %b, i64 noundef %len, i1 noundef zeroext %nocase) local_unnamed_addr #3 {
+define hidden noundef i32 @_ZN3ue23cmpEPKcS1_mb(ptr noundef readonly %a, ptr noundef readonly captures(none) %b, i64 noundef %len, i1 noundef zeroext %nocase) local_unnamed_addr #3 {
 entry:
   br i1 %nocase, label %if.end, label %if.then
 
@@ -868,7 +868,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue29case_iterppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN3ue29case_iterppEv(ptr noundef nonnull returned align 8 dereferenceable(104) %this) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_string_length.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %_M_string_length.i, align 8

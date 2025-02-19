@@ -5980,7 +5980,7 @@ _ZN12_GLOBAL__N_110ExtTSPImplD2Ev.exit:           ; preds = %_ZSt8_DestroyIPSt6v
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4llvm10codelayout15calcExtTspScoreENS_8ArrayRefImEES2_NS1_INS0_9EdgeCountEEE(ptr readonly captures(none) %0, i64 %1, ptr readonly captures(none) %2, i64 %3, ptr readonly captures(address) %4, i64 %5) local_unnamed_addr #1 {
+define dso_local noundef double @_ZN4llvm10codelayout15calcExtTspScoreENS_8ArrayRefImEES2_NS1_INS0_9EdgeCountEEE(ptr readonly captures(none) %0, i64 %1, ptr readonly captures(none) %2, i64 %3, ptr readonly %4, i64 %5) local_unnamed_addr #1 {
   %7 = alloca %"class.llvm::SmallVector.64", align 8
   %8 = alloca %"class.llvm::SmallVector.64", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #24
@@ -6185,7 +6185,7 @@ _ZN12_GLOBAL__N_111extTSPScoreEmmmmb.exit:        ; preds = %68, %74, %77, %85, 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN4llvm10codelayout15calcExtTspScoreENS_8ArrayRefImEENS1_INS0_9EdgeCountEEE(ptr readonly captures(none) %0, i64 %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #1 {
+define dso_local noundef double @_ZN4llvm10codelayout15calcExtTspScoreENS_8ArrayRefImEENS1_INS0_9EdgeCountEEE(ptr readonly captures(none) %0, i64 %1, ptr %2, i64 %3) local_unnamed_addr #1 {
   %5 = alloca %"class.llvm::SmallVector.64", align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #24
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 16
@@ -9991,7 +9991,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_110ExtTSPImpl11mergeChainsEPNS_6ChainTES2_mNS_10MergeTypeTE(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, ptr noundef %1, ptr noundef captures(address) %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_110ExtTSPImpl11mergeChainsEPNS_6ChainTES2_mNS_10MergeTypeTE(ptr noundef nonnull align 8 captures(none) dereferenceable(176) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) unnamed_addr #1 align 2 {
   %6 = alloca %"struct.(anonymous namespace)::MergedNodesT", align 8
   %7 = alloca %"class.std::vector", align 8
   %8 = alloca %"struct.(anonymous namespace)::MergedJumpsT", align 8
@@ -10415,7 +10415,7 @@ _ZNSt6vectorIPN12_GLOBAL__N_15NodeTESaIS2_EE7reserveEm.exit: ; preds = %24, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_16ChainT10mergeEdgesEPS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_16ChainT10mergeEdgesEPS0_(ptr noundef nonnull align 8 dereferenceable(80) %0, ptr noundef readonly %1) unnamed_addr #1 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.val35 = load ptr, ptr %3, align 8, !tbaa !210
   %4 = getelementptr i8, ptr %1, i64 64
@@ -13708,7 +13708,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKN12_GLOBAL__N_16ChainTEdNS_12DenseMapInfoI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_(ptr %0, ptr readnone captures(address) %1, ptr captures(none) %2) unnamed_addr #1 {
+define internal fastcc void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPPKN12_GLOBAL__N_16ChainTESt6vectorIS5_SaIS5_EEEENS0_5__ops15_Iter_comp_iterIZNS2_10CDSortImpl12concatChainsEvEUlS5_S5_E_EEEvT_SG_T0_(ptr %0, ptr readnone %1, ptr captures(none) %2) unnamed_addr #1 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %.preheader
 

@@ -507,7 +507,7 @@ _ZNKR5folly7dynamic9getStringB5cxx11Ev.exit45:    ; preds = %69
 declare noundef i64 @_ZNK5folly7dynamic4sizeEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIN5folly7dynamic19const_item_iteratorEZNS0_28compareDynamicWithNestedJsonERKS1_S4_jE3$_0EbT_S6_T0_"(ptr readonly captures(address) %0, i64 %1, ptr readnone captures(address) %2, ptr nonnull %3, i32 %.0.val) unnamed_addr #6 {
+define internal fastcc noundef zeroext i1 @"_ZSt6all_ofIN5folly7dynamic19const_item_iteratorEZNS0_28compareDynamicWithNestedJsonERKS1_S4_jE3$_0EbT_S6_T0_"(ptr readonly %0, i64 %1, ptr readnone %2, ptr nonnull %3, i32 %.0.val) unnamed_addr #6 {
   %.not28 = icmp eq ptr %0, %2
   br i1 %.not28, label %"_ZSt13__find_if_notIN5folly7dynamic19const_item_iteratorEN9__gnu_cxx5__ops10_Iter_predIZNS0_28compareDynamicWithNestedJsonERKS1_S7_jE3$_0EEET_SA_SA_T0_.exit", label %.lr.ph
 

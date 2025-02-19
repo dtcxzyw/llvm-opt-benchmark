@@ -11256,7 +11256,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef i32 @_ZNK9struct_pb8compiler14OneofGenerator9get_indexEPKN6google8protobuf15FieldDescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readnone captures(address) %f) local_unnamed_addr #6 align 2 {
+define dso_local noundef i32 @_ZNK9struct_pb8compiler14OneofGenerator9get_indexEPKN6google8protobuf15FieldDescriptorE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %this, ptr noundef readnone %f) local_unnamed_addr #6 align 2 {
 entry:
   %d_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   %0 = load ptr, ptr %d_, align 8

@@ -2423,7 +2423,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7grobner6var_ltclEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly captures(address) %v1, ptr noundef readonly captures(address) %v2) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK7grobner6var_ltclEP4exprS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %this, ptr noundef readonly %v1, ptr noundef readonly %v2) local_unnamed_addr #9 align 2 {
 entry:
   %cmp = icmp eq ptr %v1, %v2
   br i1 %cmp, label %return, label %if.end
@@ -4490,7 +4490,7 @@ terminate.lpad:                                   ; preds = %.noexc, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7grobner17extract_monomialsEP4exprR10ptr_bufferIS0_Lj16EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %lhs, ptr noundef nonnull align 8 captures(address) dereferenceable(144) %monomials) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7grobner17extract_monomialsEP4exprR10ptr_bufferIS0_Lj16EE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %lhs, ptr noundef nonnull align 8 dereferenceable(144) %monomials) local_unnamed_addr #3 align 2 {
 entry:
   %m_kind.i.i.i37 = getelementptr inbounds nuw i8, ptr %lhs, i64 4
   %bf.load.i.i.i38 = load i32, ptr %m_kind.i.i.i37, align 4
@@ -7735,7 +7735,7 @@ return:                                           ; preds = %for.body, %do.end
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN7grobner16is_better_choiceEPNS_8equationES1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(228) %this, ptr noundef readonly captures(none) %eq1, ptr noundef readonly captures(address_is_null) %eq2) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZN7grobner16is_better_choiceEPNS_8equationES1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(228) %this, ptr noundef readonly captures(none) %eq1, ptr noundef readonly %eq2) local_unnamed_addr #9 align 2 {
 entry:
   %tobool.not = icmp eq ptr %eq2, null
   br i1 %tobool.not, label %return, label %if.end

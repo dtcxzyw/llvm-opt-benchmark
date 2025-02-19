@@ -596,7 +596,7 @@ define range(i32 0, 2) i32 @tls1_generate_master_secret(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls1_export_keying_material(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(address_is_null) %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls1_export_keying_material(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly %5, i64 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp ugt i64 %6, 65535
   br i1 %9, label %10, label %11
 

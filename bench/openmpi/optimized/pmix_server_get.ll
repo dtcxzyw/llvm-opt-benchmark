@@ -2147,7 +2147,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal void @relfn(ptr noundef captures(address_is_null) %0) #8 {
+define internal void @relfn(ptr noundef %0) #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -2700,7 +2700,7 @@ pmix_obj_run_destructors.exit81:                  ; preds = %.lr.ph.i118, %.lr.p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -64, 1) i32 @defer_response(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %8) unnamed_addr #1 {
+define internal fastcc range(i32 -64, 1) i32 @defer_response(ptr noundef nonnull %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i1 noundef zeroext %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %8) unnamed_addr #1 {
   store ptr null, ptr %8, align 8, !tbaa !76
   br i1 %4, label %10, label %19
 
@@ -3966,7 +3966,7 @@ pmix_obj_new_tma.exit:                            ; preds = %.lr.ph.i.i, %12, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pmix_pending_nspace_requests(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
+define void @pmix_pending_nspace_requests(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 1216), align 8, !tbaa !166
   %.not79 = icmp eq ptr %2, getelementptr inbounds nuw (i8, ptr @pmix_server_globals, i64 1096)
   br i1 %.not79, label %._crit_edge85, label %.lr.ph84

@@ -3029,7 +3029,7 @@ define internal void @_ZN7testing8internal11MatcherBaseIRKSt5tupleIJN12_GLOBAL__
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull ptr @_ZN7testing8internal11MatcherBaseIRKSt5tupleIJN12_GLOBAL__N_18FunctionEPKvN4absl13base_internal10ObjectKindEEEE16GetDescriberImplINSD_11ValuePolicyINS0_9EqMatcherISA_EELb0EEEEEPKNS_25MatcherDescriberInterfaceERKSD_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) #16 align 2 personality ptr @__gxx_personality_v0 {
+define internal noundef nonnull ptr @_ZN7testing8internal11MatcherBaseIRKSt5tupleIJN12_GLOBAL__N_18FunctionEPKvN4absl13base_internal10ObjectKindEEEE16GetDescriberImplINSD_11ValuePolicyINS0_9EqMatcherISA_EELb0EEEEEPKNS_25MatcherDescriberInterfaceERKSD_(ptr noundef nonnull readnone returned align 8 dereferenceable(24) %0) #16 align 2 personality ptr @__gxx_personality_v0 {
   ret ptr %0
 }
 

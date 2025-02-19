@@ -39,7 +39,7 @@ define hidden void @png_error(ptr noalias noundef %0, ptr noundef %1) local_unna
 }
 
 ; Function Attrs: cold noreturn nounwind uwtable
-define internal fastcc void @png_default_error(ptr noalias noundef captures(address_is_null) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @png_default_error(ptr noalias noundef %0, ptr noundef %1) unnamed_addr #1 {
   %3 = load ptr, ptr @stderr, align 8
   %.not = icmp eq ptr %1, null
   %4 = select i1 %.not, ptr @.str.5, ptr %1
@@ -51,7 +51,7 @@ define internal fastcc void @png_default_error(ptr noalias noundef captures(addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden i64 @png_safecat(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
+define hidden i64 @png_safecat(ptr noundef writeonly %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly %3) local_unnamed_addr #2 {
   %.not = icmp ne ptr %0, null
   %5 = icmp ult i64 %2, %1
   %or.cond = and i1 %.not, %5
@@ -95,7 +95,7 @@ define hidden i64 @png_safecat(ptr noundef writeonly captures(address_is_null) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define hidden nonnull ptr @png_format_number(ptr noundef readnone captures(address) %0, ptr noundef writeonly captures(address, ret: address, provenance) initializes((-1, 0)) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
+define hidden nonnull ptr @png_format_number(ptr noundef readnone %0, ptr noundef writeonly initializes((-1, 0)) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -1
   store i8 0, ptr %5, align 1
   %6 = icmp ugt ptr %5, %0
@@ -300,7 +300,7 @@ define internal fastcc void @png_default_warning(ptr noundef %0) unnamed_addr #5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden void @png_warning_parameter(ptr noundef writeonly captures(address) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden void @png_warning_parameter(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = add i32 %1, -1
   %or.cond = icmp ult i32 %4, 8
   br i1 %or.cond, label %5, label %png_safecat.exit
@@ -346,7 +346,7 @@ png_safecat.exit:                                 ; preds = %.loopexit.i, %5, %3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_warning_parameter_unsigned(ptr noundef writeonly captures(address) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
+define hidden void @png_warning_parameter_unsigned(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = alloca [24 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 24
@@ -395,7 +395,7 @@ png_warning_parameter.exit:                       ; preds = %4, %9, %.loopexit.i
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_warning_parameter_signed(ptr noundef writeonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define hidden void @png_warning_parameter_signed(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = alloca [24 x i8], align 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %5, i8 0, i64 24, i1 false)
   %6 = icmp slt i32 %3, 0
@@ -455,7 +455,7 @@ png_warning_parameter.exit:                       ; preds = %13, %15, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
+define hidden void @png_formatted_warning(ptr noalias noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #4 {
   %4 = alloca [192 x i8], align 16
   %.not37.not = icmp eq ptr %1, null
   br i1 %.not37.not, label %.split.us, label %.split
@@ -971,7 +971,7 @@ png_warning.exit:                                 ; preds = %.split14.i, %17
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @png_format_buffer(i32 %.456.val, ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #2 {
+define internal fastcc void @png_format_buffer(i32 %.456.val, ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #2 {
   br label %3
 
 3:                                                ; preds = %2, %32
@@ -1111,7 +1111,7 @@ png_chunk_benign_error.exit:                      ; preds = %5, %3
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden void @png_fixed_error(ptr noalias noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca [220 x i8], align 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(24) %3, ptr noundef nonnull align 1 dereferenceable(24) @.str, i64 24, i1 false)
   %.not = icmp eq ptr %1, null
@@ -1276,7 +1276,7 @@ declare void @longjmp(ptr noundef, i32 noundef) #12
 declare void @png_free(ptr noundef, ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @png_longjmp(ptr noalias noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @png_longjmp(ptr noalias noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -1305,7 +1305,7 @@ define hidden void @png_longjmp(ptr noalias noundef readonly captures(address_is
 declare void @abort() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden void @png_set_error_fn(ptr noalias noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 {
+define hidden void @png_set_error_fn(ptr noalias noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #14 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %10, label %6
 
@@ -1323,7 +1323,7 @@ define hidden void @png_set_error_fn(ptr noalias noundef writeonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden ptr @png_get_error_ptr(ptr noalias noundef readonly captures(address_is_null) %0) local_unnamed_addr #15 {
+define hidden ptr @png_get_error_ptr(ptr noalias noundef readonly %0) local_unnamed_addr #15 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -1338,7 +1338,7 @@ define hidden ptr @png_get_error_ptr(ptr noalias noundef readonly captures(addre
 }
 
 ; Function Attrs: noreturn nounwind uwtable
-define hidden void @png_safe_error(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden void @png_safe_error(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -1441,7 +1441,7 @@ png_safecat.exit28:                               ; preds = %.lr.ph.i25, %30, %.
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @png_safe_warning(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define hidden void @png_safe_warning(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32

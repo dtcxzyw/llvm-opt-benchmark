@@ -723,7 +723,7 @@ define internal void @storage_return_cb(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @storage_finalize_cb(ptr noundef captures(address) %0) #0 {
+define internal void @storage_finalize_cb(ptr noundef %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !117
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80

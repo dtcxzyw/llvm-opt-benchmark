@@ -171,7 +171,7 @@ declare dso_local void @__mutex_init(ptr noundef, ptr noundef, ptr noundef) loca
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unregister_stat_tracer(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @unregister_stat_tracer(ptr noundef readnone %0) local_unnamed_addr #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @all_stat_sessions_mutex) #6
   %2 = load ptr, ptr @all_stat_sessions, align 8
   br label %3
@@ -636,7 +636,7 @@ define internal ptr @stat_seq_next(ptr noundef readonly captures(none) %0, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @stat_seq_show(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal i32 @stat_seq_show(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, inttoptr (i64 1 to ptr)

@@ -1145,7 +1145,7 @@ sema_analyse_attributes_for_var.exit.thread:      ; preds = %.thread270, %186
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @expand_(ptr noundef captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
+define internal fastcc nonnull ptr @expand_(ptr noundef %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %5
 
@@ -2525,7 +2525,7 @@ define dso_local void @sema_display_deprecated_warning_on_use(ptr readnone captu
 declare zeroext i1 @sema_expr_analyse_assign_right_side(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @sema_analyse_parameterized_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local ptr @sema_analyse_parameterized_identifier(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [127 x ptr], align 16
   %7 = alloca %struct.NameResolve, align 8
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -3106,7 +3106,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare ptr @unit_resolve_parameterized_symbol(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   br i1 %3, label %5, label %12
 
 5:                                                ; preds = %4
@@ -6356,7 +6356,7 @@ define internal fastcc noundef ptr @type_flatten(ptr noundef readonly captures(n
 declare void @sema_error_prev_at(i64, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 1, 131073) %3, ptr noundef captures(address) %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_analyse_attributes_inner(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 1, 131073) %3, ptr noundef %4, ptr noundef nonnull captures(none) %5) unnamed_addr #0 {
   %7 = alloca %struct.SemaContext_, align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %9 = load i32, ptr %8, align 4
@@ -7763,7 +7763,7 @@ declare ptr @copy_decl_list_single_for_unit(ptr noundef) local_unnamed_addr #1
 declare i32 @sema_check_comp_time_bool(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_resolve_implemented_interfaces(ptr noundef %0, ptr readonly captures(address_is_null) %.80.val, i1 noundef zeroext %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_resolve_implemented_interfaces(ptr noundef %0, ptr readonly %.80.val, i1 noundef zeroext %1) unnamed_addr #0 {
   %.not = icmp eq ptr %.80.val, null
   br i1 %.not, label %.thread, label %3
 
@@ -9880,7 +9880,7 @@ sema_find_main_type.exit.thread:                  ; preds = %84, %134, %129, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_analyse_doc_header(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_analyse_doc_header(i32 noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %.not113 = icmp eq i32 %0, 0
   br i1 %.not113, label %.loopexit83, label %.lr.ph117
 
@@ -10175,7 +10175,7 @@ switch.early.test:                                ; preds = %23, %21, %3
 }
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sema_interface_method_by_name(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #5 {
+define internal fastcc ptr @sema_interface_method_by_name(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8
@@ -10243,7 +10243,7 @@ define internal fastcc ptr @sema_interface_method_by_name(ptr noundef readonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(ptr noundef readonly captures(none) %0, i32 %.96.val, ptr readonly captures(address_is_null) %.104.val) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @sema_compare_method_with_interface(ptr noundef readonly captures(none) %0, i32 %.96.val, ptr readonly %.104.val) unnamed_addr #0 {
   %.sroa.1.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.sroa.1.0.copyload = load i32, ptr %.sroa.1.0..sroa_idx, align 8
   %.sroa.335.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 104

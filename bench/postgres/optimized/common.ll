@@ -624,7 +624,7 @@ define dso_local range(i32 -1, 2) i32 @PSQLexecWatch(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @ExecQueryAndProcessResults(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef captures(address_is_null) %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @ExecQueryAndProcessResults(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, i1 noundef zeroext %3, i32 noundef %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca %struct.timespec, align 8
   %10 = alloca ptr, align 8
@@ -3014,7 +3014,7 @@ define dso_local ptr @session_username() local_unnamed_addr #0 {
 declare ptr @PQuser(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @expand_tilde(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @expand_tilde(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %3

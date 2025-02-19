@@ -415,7 +415,7 @@ define internal i32 @option_parse_if_missing(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @parse_opt_parse(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @parse_opt_parse(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !18
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8

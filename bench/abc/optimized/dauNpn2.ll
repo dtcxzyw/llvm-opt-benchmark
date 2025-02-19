@@ -67,7 +67,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.Dtt_Check.18 = private unnamed_addr constant [6 x i32] [i32 9, i32 6, i32 5, i32 3, i32 2, i32 4], align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @Dau_ParseFormulaEndToken(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @Dau_ParseFormulaEndToken(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %12, %1
@@ -115,7 +115,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @Dau_ParseFormula_rec(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 {
+define i64 @Dau_ParseFormula_rec(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #2 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %34, %2
@@ -328,7 +328,7 @@ define void @Dau_ParseFormulaTest() local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Dau_ParseFormulaAig_rec(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #5 {
+define i32 @Dau_ParseFormulaAig_rec(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #5 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %32, %3
@@ -1915,7 +1915,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Dtt_ManCollect(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef returned captures(ret: address, provenance) initializes((4, 8)) %2) local_unnamed_addr #5 {
+define noundef ptr @Dtt_ManCollect(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef returned initializes((4, 8)) %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4

@@ -344,7 +344,7 @@ default.unreachable:                              ; preds = %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden noundef i32 @_Z15RGBE_ReadHeaderP8_IO_FILEPiS1_P16rgbe_header_info(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca [128 x i8], align 16
   %6 = alloca float, align 4
   %7 = icmp ne ptr %3, null

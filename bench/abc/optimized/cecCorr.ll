@@ -3988,7 +3988,7 @@ declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #2
 declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Cec_ManRefinedClassPrintStats(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define void @Cec_ManRefinedClassPrintStats(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 24
   %.val = load i32, ptr %5, align 8, !tbaa !3
   %6 = icmp sgt i32 %.val, 1

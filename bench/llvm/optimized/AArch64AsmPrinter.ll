@@ -4334,7 +4334,7 @@ define linkonce_odr hidden void @_ZN4llvm10AsmPrinter21emitFunctionBodyStartEv(p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter19emitFunctionBodyEndEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1056) %0) unnamed_addr #1 align 2 {
+define internal void @_ZN12_GLOBAL__N_117AArch64AsmPrinter19emitFunctionBodyEndEv(ptr noundef nonnull readonly align 8 dereferenceable(1056) %0) unnamed_addr #1 align 2 {
   %2 = alloca %"class.llvm::SmallVector.824", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1000
   %4 = load ptr, ptr %3, align 8, !tbaa !376
@@ -9553,7 +9553,7 @@ _ZN12_GLOBAL__N_117AArch64AsmPrinter18printAsmRegInClassERKN4llvm14MachineOperan
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter21PrintAsmMemoryOperandEPKN4llvm12MachineInstrEjPKcRNS1_11raw_ostreamE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #1 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_117AArch64AsmPrinter21PrintAsmMemoryOperandEPKN4llvm12MachineInstrEjPKcRNS1_11raw_ostreamE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef nonnull align 8 dereferenceable(48) %4) unnamed_addr #1 align 2 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %6
 

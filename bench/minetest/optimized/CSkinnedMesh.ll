@@ -1694,7 +1694,7 @@ if.end100:                                        ; preds = %if.else, %if.then51
 declare float @llvm.fmuladd.f32(float, float, float) #12
 
 ; Function Attrs: mustprogress nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3irr5scene12CSkinnedMesh30buildAllGlobalAnimatedMatricesEPNS0_12ISkinnedMesh6SJointES4_(ptr noundef nonnull align 8 dereferenceable(186) %this, ptr noundef %joint, ptr noundef readonly captures(address_is_null) %parentJoint) local_unnamed_addr #13 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh30buildAllGlobalAnimatedMatricesEPNS0_12ISkinnedMesh6SJointES4_(ptr noundef nonnull align 8 dereferenceable(186) %this, ptr noundef %joint, ptr noundef readonly %parentJoint) local_unnamed_addr #13 align 2 {
 entry:
   %tobool.not = icmp eq ptr %joint, null
   br i1 %tobool.not, label %for.cond.preheader, label %if.else
@@ -2733,7 +2733,7 @@ cleanup:                                          ; preds = %for.cond, %if.then,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene12CSkinnedMesh14getBoundingBoxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(186) %this) unnamed_addr #14 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene12CSkinnedMesh14getBoundingBoxEv(ptr noundef nonnull readnone align 8 dereferenceable(186) %this) unnamed_addr #14 align 2 {
 entry:
   %BoundingBox = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %BoundingBox
@@ -3473,21 +3473,21 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(25) ptr @_ZN3irr5scene12CSkinnedMesh14getMeshBuffersEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(186) %this) unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(25) ptr @_ZN3irr5scene12CSkinnedMesh14getMeshBuffersEv(ptr noundef nonnull readnone align 8 dereferenceable(186) %this) unnamed_addr #14 align 2 {
 entry:
   %LocalBuffers = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %LocalBuffers
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(25) ptr @_ZN3irr5scene12CSkinnedMesh12getAllJointsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(186) %this) unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(25) ptr @_ZN3irr5scene12CSkinnedMesh12getAllJointsEv(ptr noundef nonnull readnone align 8 dereferenceable(186) %this) unnamed_addr #14 align 2 {
 entry:
   %AllJoints = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %AllJoints
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3irr5scene12CSkinnedMesh12getAllJointsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(186) %this) unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(25) ptr @_ZNK3irr5scene12CSkinnedMesh12getAllJointsEv(ptr noundef nonnull readnone align 8 dereferenceable(186) %this) unnamed_addr #14 align 2 {
 entry:
   %AllJoints = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %AllJoints
@@ -3808,7 +3808,7 @@ for.body8:                                        ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5scene12CSkinnedMesh23calculateGlobalMatricesEPNS0_12ISkinnedMesh6SJointES4_(ptr noundef nonnull align 8 dereferenceable(186) %this, ptr noundef %joint, ptr noundef readonly captures(address_is_null) %parentJoint) local_unnamed_addr #2 align 2 {
+define void @_ZN3irr5scene12CSkinnedMesh23calculateGlobalMatricesEPNS0_12ISkinnedMesh6SJointES4_(ptr noundef nonnull align 8 dereferenceable(186) %this, ptr noundef %joint, ptr noundef readonly %parentJoint) local_unnamed_addr #2 align 2 {
 entry:
   %temp.i = alloca %"class.irr::core::CMatrix4", align 4
   %tobool = icmp eq ptr %joint, null
@@ -7543,7 +7543,7 @@ _ZN3irr4core5arrayIPNS_5scene15SSkinMeshBufferEE9push_backERKS4_.exit: ; preds =
 declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull ptr @_ZN3irr5scene12CSkinnedMesh8addJointEPNS0_12ISkinnedMesh6SJointE(ptr noundef nonnull align 8 captures(none) dereferenceable(186) %this, ptr noundef captures(address_is_null) %parent) unnamed_addr #2 align 2 {
+define noundef nonnull ptr @_ZN3irr5scene12CSkinnedMesh8addJointEPNS0_12ISkinnedMesh6SJointE(ptr noundef nonnull align 8 captures(none) dereferenceable(186) %this, ptr noundef %parent) unnamed_addr #2 align 2 {
 entry:
   %call = tail call noalias noundef nonnull dereferenceable(616) ptr @_Znwm(i64 noundef 616) #34
   %_M_engaged.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call, i64 32
@@ -7773,7 +7773,7 @@ if.end:                                           ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene12CSkinnedMesh14addPositionKeyEPNS0_12ISkinnedMesh6SJointE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(address_is_null) %joint) unnamed_addr #2 align 2 {
+define noundef ptr @_ZN3irr5scene12CSkinnedMesh14addPositionKeyEPNS0_12ISkinnedMesh6SJointE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %joint) unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %joint, null
   br i1 %tobool.not, label %return, label %if.end
@@ -7862,7 +7862,7 @@ return:                                           ; preds = %_ZN3irr4core5arrayI
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene12CSkinnedMesh11addScaleKeyEPNS0_12ISkinnedMesh6SJointE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(address_is_null) %joint) unnamed_addr #2 align 2 {
+define noundef ptr @_ZN3irr5scene12CSkinnedMesh11addScaleKeyEPNS0_12ISkinnedMesh6SJointE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %joint) unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %joint, null
   br i1 %tobool.not, label %return, label %if.end
@@ -7948,7 +7948,7 @@ return:                                           ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene12CSkinnedMesh14addRotationKeyEPNS0_12ISkinnedMesh6SJointE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(address_is_null) %joint) unnamed_addr #2 align 2 {
+define noundef ptr @_ZN3irr5scene12CSkinnedMesh14addRotationKeyEPNS0_12ISkinnedMesh6SJointE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %joint) unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %joint, null
   br i1 %tobool.not, label %return, label %if.end
@@ -8038,7 +8038,7 @@ return:                                           ; preds = %_ZN3irr4core5arrayI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN3irr5scene12CSkinnedMesh9addWeightEPNS0_12ISkinnedMesh6SJointE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(address_is_null) %joint) unnamed_addr #2 align 2 {
+define noundef ptr @_ZN3irr5scene12CSkinnedMesh9addWeightEPNS0_12ISkinnedMesh6SJointE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %joint) unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq ptr %joint, null
   br i1 %tobool.not, label %return, label %if.end

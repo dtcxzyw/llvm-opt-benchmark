@@ -653,7 +653,7 @@ _ZNK4llvm16FixedStreamArrayINS_7support6detail31packed_endian_specific_integralI
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(30) ptr @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorpLEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(30) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(30) ptr @_ZN4llvm3pdb28DbiModuleSourceFilesIteratorpLEl(ptr noundef nonnull returned align 8 dereferenceable(30) %0, i64 noundef %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i16, ptr %3, align 4, !tbaa !15
   %5 = trunc i64 %1 to i16
@@ -664,7 +664,7 @@ define dso_local noundef nonnull align 8 dereferenceable(30) ptr @_ZN4llvm3pdb28
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(30) ptr @_ZN4llvm3pdb28DbiModuleSourceFilesIteratormIEl(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(30) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(30) ptr @_ZN4llvm3pdb28DbiModuleSourceFilesIteratormIEl(ptr noundef nonnull returned align 8 dereferenceable(30) %0, i64 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i16, ptr %3, align 4, !tbaa !15
   %5 = trunc i64 %1 to i16

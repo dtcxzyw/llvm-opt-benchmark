@@ -248,7 +248,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_sig_sign_init(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_sig_sign(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(none) %2, i64 noundef %3, ptr readnone captures(none) %4, i64 %5) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_sig_sign(ptr noundef %0, ptr noundef writeonly %1, ptr noundef captures(none) %2, i64 noundef %3, ptr readnone captures(none) %4, i64 %5) #1 {
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 339, ptr noundef nonnull @.str.19, ptr noundef %0) #12
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %18, label %8
@@ -336,7 +336,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_update(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3) #1 {
   %5 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 441, ptr noundef nonnull @.str.19, ptr noundef %0) #12
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %31, label %6
@@ -400,7 +400,7 @@ define internal range(i32 0, 2) i32 @fake_rsa_dgstsgnvfy_final(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr readnone captures(none) %4, i64 %5) #1 {
+define internal range(i32 0, 2) i32 @fake_rsa_dgstsgn(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i64 noundef %3, ptr readnone captures(none) %4, i64 %5) #1 {
   %7 = tail call i32 @test_ptr(ptr noundef nonnull @.str.9, i32 noundef 425, ptr noundef nonnull @.str.19, ptr noundef %0) #12
   %.not.i = icmp eq i32 %7, 0
   br i1 %.not.i, label %fake_rsa_dgstsgnvfy_final.exit, label %8
@@ -799,7 +799,7 @@ fake_rsa_st_open_ex.exit:                         ; preds = %4, %2, %7, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #1 {
+define internal noundef ptr @fake_rsa_st_open_ex(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly %3, ptr noundef %4) #1 {
   %6 = alloca [20 x i8], align 16
   %7 = alloca i64, align 8
   %8 = alloca [2 x %struct.ossl_param_st], align 16

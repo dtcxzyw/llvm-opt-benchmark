@@ -25,7 +25,7 @@ $__clang_call_terminate = comdat any
 @grpc__gcp__RpcProtocolVersions__Version_msg_init = external local_unnamed_addr global %struct.upb_MiniTable, align 8
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z38grpc_gcp_rpc_protocol_versions_set_maxP29_grpc_gcp_RpcProtocolVersionsjj(ptr noundef writeonly captures(address_is_null) %versions, i32 noundef %max_major, i32 noundef %max_minor) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z38grpc_gcp_rpc_protocol_versions_set_maxP29_grpc_gcp_RpcProtocolVersionsjj(ptr noundef writeonly %versions, i32 noundef %max_major, i32 noundef %max_minor) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %versions, null
   br i1 %cmp, label %if.end, label %if.then
@@ -47,7 +47,7 @@ return:                                           ; preds = %if.end, %if.then
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj(ptr noundef writeonly captures(address_is_null) %versions, i32 noundef %min_major, i32 noundef %min_minor) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z38grpc_gcp_rpc_protocol_versions_set_minP29_grpc_gcp_RpcProtocolVersionsjj(ptr noundef writeonly %versions, i32 noundef %min_major, i32 noundef %min_minor) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ne ptr %versions, null
   br i1 %cmp, label %if.end, label %if.then
@@ -68,7 +68,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK29_grpc_gcp_RpcProtocolVersionsP10grpc_slice(ptr noundef readonly captures(address_is_null) %versions, ptr noundef writeonly captures(address_is_null) %slice) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK29_grpc_gcp_RpcProtocolVersionsP10grpc_slice(ptr noundef readonly %versions, ptr noundef writeonly %slice) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr.i.i = alloca ptr, align 8
   %buf_length.i = alloca i64, align 8
@@ -299,7 +299,7 @@ grpc_gcp_RpcProtocolVersions_mutable_min_rpc_version.exit: ; preds = %grpc_gcp_R
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK28grpc_gcp_RpcProtocolVersionsP9upb_ArenaP10grpc_slice(ptr noundef %versions, ptr noundef %arena, ptr noundef writeonly captures(address_is_null) %slice) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_encodePK28grpc_gcp_RpcProtocolVersionsP9upb_ArenaP10grpc_slice(ptr noundef %versions, ptr noundef %arena, ptr noundef writeonly %slice) local_unnamed_addr #0 {
 entry:
   %ptr.i = alloca ptr, align 8
   %buf_length = alloca i64, align 8
@@ -340,7 +340,7 @@ declare void @grpc_slice_from_copied_buffer(ptr sret(%struct.grpc_slice) align 8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_decodeRK10grpc_sliceP29_grpc_gcp_RpcProtocolVersions(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef writeonly captures(address_is_null) %versions) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_Z37grpc_gcp_rpc_protocol_versions_decodeRK10grpc_sliceP29_grpc_gcp_RpcProtocolVersions(ptr noundef nonnull align 8 dereferenceable(32) %slice, ptr noundef writeonly %versions) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %versions, null
   br i1 %cmp, label %if.then, label %if.end
@@ -534,7 +534,7 @@ if.end21:                                         ; preds = %if.else16, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z35grpc_gcp_rpc_protocol_versions_copyPK29_grpc_gcp_RpcProtocolVersionsPS_(ptr noundef readonly captures(address_is_null) %src, ptr noundef writeonly captures(address_is_null) %dst) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z35grpc_gcp_rpc_protocol_versions_copyPK29_grpc_gcp_RpcProtocolVersionsPS_(ptr noundef readonly %src, ptr noundef writeonly %dst) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %src, null
   %cmp1 = icmp ne ptr %dst, null
@@ -621,7 +621,7 @@ return:                                           ; preds = %if.end.thread, %lan
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_Z36grpc_gcp_rpc_protocol_versions_checkPK29_grpc_gcp_RpcProtocolVersionsS1_P37_grpc_gcp_RpcProtocolVersions_Version(ptr noundef readonly captures(address_is_null) %local_versions, ptr noundef readonly captures(address_is_null) %peer_versions, ptr noundef writeonly captures(address_is_null) %highest_common_version) local_unnamed_addr #0 {
+define noundef zeroext i1 @_Z36grpc_gcp_rpc_protocol_versions_checkPK29_grpc_gcp_RpcProtocolVersionsS1_P37_grpc_gcp_RpcProtocolVersions_Version(ptr noundef readonly %local_versions, ptr noundef readonly %peer_versions, ptr noundef writeonly %highest_common_version) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %local_versions, null
   %cmp1 = icmp eq ptr %peer_versions, null

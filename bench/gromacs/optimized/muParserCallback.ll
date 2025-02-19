@@ -1380,7 +1380,7 @@ define void @_ZN2mu14ParserCallbackC2Ev(ptr noundef nonnull writeonly align 8 ca
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallbackC2ERKS0_(ptr noundef nonnull writeonly align 8 captures(address) dereferenceable(32) initializes((0, 29)) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN2mu14ParserCallbackC2ERKS0_(ptr noundef nonnull writeonly align 8 dereferenceable(32) initializes((0, 29)) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   store ptr null, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %3, align 8
@@ -1442,7 +1442,7 @@ _ZN2mu14ParserCallback6AssignERKS0_.exit:         ; preds = %18, %2
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2mu14ParserCallback6AssignERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
+define void @_ZN2mu14ParserCallback6AssignERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %40, label %4
 
@@ -1537,7 +1537,7 @@ define void @_ZN2mu14ParserCallbackD2Ev(ptr noundef nonnull readonly align 8 cap
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2mu14ParserCallbackaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN2mu14ParserCallbackaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef nonnull readonly align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZN2mu14ParserCallback6AssignERKS0_.exit, label %4
 

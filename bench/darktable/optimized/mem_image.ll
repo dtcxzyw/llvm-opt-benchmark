@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [11 x i8] c"\FF\E1  Exif\00\00\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_thumbEPi(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef writeonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %struct.tiff_hdr, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 193352
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 193368
@@ -876,7 +876,7 @@ declare void @_ZN6LibRaw11gamma_curveEddii(ptr noundef nonnull align 8 dereferen
 declare noundef i32 @_ZN6LibRaw10flip_indexEii(ptr noundef nonnull align 8 dereferenceable(767680), i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_imageEPi(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define noalias noundef ptr @_ZN6LibRaw20dcraw_make_mem_imageEPi(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef writeonly %1) unnamed_addr #0 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3)
@@ -1018,7 +1018,7 @@ _ZNK6LibRaw20get_mem_image_formatEPiS0_S0_S0_.exit: ; preds = %.sink.split.i, %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @_ZN6LibRaw15dcraw_clear_memEP24libraw_processed_image_t(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 align 2 {
+define void @_ZN6LibRaw15dcraw_clear_memEP24libraw_processed_image_t(ptr noundef %0) local_unnamed_addr #8 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

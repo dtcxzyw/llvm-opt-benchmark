@@ -541,7 +541,7 @@ define dso_local noundef range(i32 -22, 1) i32 @sock_diag_register(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @sock_diag_unregister(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local void @sock_diag_unregister(ptr noundef readonly %0) #0 align 16 {
   %2 = load i8, ptr %0, align 8
   %3 = icmp ugt i8 %2, 45
   br i1 %3, label %11, label %4

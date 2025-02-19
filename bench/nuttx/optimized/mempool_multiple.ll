@@ -511,7 +511,7 @@ define internal fastcc void @mempool_multiple_free_chunk(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mempool_multiple_alloc(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define ptr @mempool_multiple_alloc(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %mempool_multiple_find.exit.thread, label %4
 
@@ -601,7 +601,7 @@ mempool_multiple_find.exit.thread:                ; preds = %38, %36, %._crit_ed
 declare ptr @mempool_alloc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @mempool_multiple_realloc(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @mempool_multiple_realloc(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq ptr %0, null
   br i1 %4, label %6, label %44
@@ -870,7 +870,7 @@ mempool_multiple_alloc.exit:                      ; preds = %107, %41, %39, %._c
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @mempool_multiple_free(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @mempool_multiple_free(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -938,7 +938,7 @@ mempool_multiple_get_dict.exit.thread:            ; preds = %30, %15, %24, %5, %
 declare void @mempool_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i64 @mempool_multiple_alloc_size(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
+define i64 @mempool_multiple_alloc_size(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond.i = or i1 %3, %4
@@ -995,7 +995,7 @@ mempool_multiple_get_dict.exit.thread:            ; preds = %30, %15, %24, %5, %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @mempool_multiple_memalign(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define ptr @mempool_multiple_memalign(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = add i64 %2, %1
   %5 = icmp eq ptr %0, null
   br i1 %5, label %mempool_multiple_find.exit.thread, label %6

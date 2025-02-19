@@ -2133,7 +2133,7 @@ declare noalias ptr @wmem_alloc0(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare i32 @dissect_ndr_nt_PSID_cb(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @device_sid_callback_fnct(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, i32 %5, i32 %6, ptr noundef captures(address_is_null) %7) #0 {
+define internal void @device_sid_callback_fnct(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr readnone captures(none) %4, i32 %5, i32 %6, ptr noundef %7) #0 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 64
   %10 = load ptr, ptr %9, align 8
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -5796,7 +5796,7 @@ dissect_ndr_lm_nt_hash_cb.exit:                   ; preds = %8, %17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal void @dissect_ndr_lm_nt_byte_array(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #0 {
+define internal void @dissect_ndr_lm_nt_byte_array(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) #0 {
   %9 = icmp eq ptr %7, null
   br i1 %9, label %dissect_LOGON_INFO_STATE_finish.exit, label %10
 

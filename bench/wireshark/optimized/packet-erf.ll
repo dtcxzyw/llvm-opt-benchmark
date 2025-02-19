@@ -1350,7 +1350,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1103 = private unnamed_addr constant [18 x i8] c".section_hdr_rsvd\00", align 1
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @erf_get_ehdr(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @erf_get_ehdr(ptr noundef readonly %0, i8 noundef zeroext %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %4
 

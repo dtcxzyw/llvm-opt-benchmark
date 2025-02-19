@@ -571,7 +571,7 @@ define dso_local ptr @plugin_get_name(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @plugin_context_create(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @plugin_context_create(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef readonly %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %11

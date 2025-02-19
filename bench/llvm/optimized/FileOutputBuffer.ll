@@ -530,7 +530,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc void @_ZL20createInMemoryBufferN4llvm9StringRefEmj(ptr dead_on_unwind noalias nonnull writable align 8 captures(none) %0, ptr readonly %1, i64 %2, i64 noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::sys::MemoryBlock", align 8
   %8 = alloca %"class.std::error_code", align 8

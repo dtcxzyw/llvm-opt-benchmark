@@ -186,7 +186,7 @@ declare ptr @X509_chain_up_ref(ptr noundef) local_unnamed_addr #3
 declare void @X509_STORE_up_ref(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_cert_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden void @ssl_cert_free(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %ssl_cert_clear_certs.exit
 
@@ -222,7 +222,7 @@ ssl_cert_clear_certs.exit:                        ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @ssl_cert_clear_certs(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden void @ssl_cert_clear_certs(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

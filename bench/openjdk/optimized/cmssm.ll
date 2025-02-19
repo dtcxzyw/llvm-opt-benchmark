@@ -46,7 +46,7 @@ define hidden void @cmsGBDFree(ptr noundef %0) local_unnamed_addr #0 {
 declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cmsSpherical, align 8
   %4 = call fastcc ptr @GetPoint(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = icmp eq ptr %4, null
@@ -75,7 +75,7 @@ define hidden range(i32 0, 2) i32 @cmsGDBAddPoint(ptr noundef captures(address) 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @GetPoint(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc ptr @GetPoint(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = alloca %struct.cmsVEC3, align 8
   %5 = load double, ptr %1, align 8
   %6 = fadd double %5, -5.000000e+01
@@ -205,7 +205,7 @@ QuantizeToSector.exit:                            ; preds = %45, %.thread26
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsGDBCheckPoint(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsGDBCheckPoint(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca %struct.cmsSpherical, align 8
   %4 = call fastcc ptr @GetPoint(ptr noundef %0, ptr noundef %1, ptr noundef %3)
   %5 = icmp eq ptr %4, null

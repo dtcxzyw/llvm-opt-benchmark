@@ -1099,7 +1099,7 @@ define noundef i32 @pmix_ptl_base_setup_fork(ptr noundef readnone captures(none)
 declare i32 @PMIx_Setenv(ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -47, 1) i32 @pmix_ptl_base_parse_uri(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -47, 1) i32 @pmix_ptl_base_parse_uri(ptr noundef %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = tail call ptr @PMIx_Argv_split(ptr noundef %0, i32 noundef 59) #20
   %6 = tail call i32 @PMIx_Argv_count(ptr noundef %5) #20
   %.not = icmp eq i32 %6, 2

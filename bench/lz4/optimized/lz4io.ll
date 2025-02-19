@@ -5407,7 +5407,7 @@ thread-pre-split:                                 ; preds = %38, %30
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local noundef ptr @LZ4IO_blockTypeID(i32 noundef %0, i32 noundef %1, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4)) %2) local_unnamed_addr #8 {
+define dso_local noundef ptr @LZ4IO_blockTypeID(i32 noundef %0, i32 noundef %1, ptr noundef returned writeonly initializes((0, 4)) %2) local_unnamed_addr #8 {
   store i8 66, ptr %2, align 1, !tbaa !40
   %4 = trunc i32 %0 to i8
   %5 = add i8 %4, 48
@@ -7557,7 +7557,7 @@ declare i64 @LZ4F_createDecompressionContext(ptr noundef, i32 noundef) local_unn
 declare i64 @LZ4F_freeDecompressionContext(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @selectDecoder(ptr noundef readonly byval(%struct.dRess_t) align 8 captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(none) %3) unnamed_addr #11 {
+define internal fastcc i64 @selectDecoder(ptr noundef readonly byval(%struct.dRess_t) align 8 captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #11 {
   %5 = alloca [8192 x i64], align 16
   %6 = alloca [16384 x i8], align 16
   %7 = alloca %struct.LZ4F_decompressOptions_t, align 4
@@ -8927,7 +8927,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #6
 declare i64 @LZ4F_decompress_usingDict(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @LZ4IO_fwriteSparse(ptr noundef captures(address) %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #11 {
+define internal fastcc i32 @LZ4IO_fwriteSparse(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3, i32 noundef %4) unnamed_addr #11 {
   %6 = lshr i64 %2, 3
   %7 = getelementptr inbounds nuw i64, ptr %1, i64 %6
   %8 = load ptr, ptr @stdout, align 8, !tbaa !8

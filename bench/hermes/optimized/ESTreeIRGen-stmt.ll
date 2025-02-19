@@ -55,7 +55,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.7 = private unnamed_addr constant [50 x i8] c"default class declaration exports are unsupported\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %Body) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen7genBodyERN4llvh12simple_ilistINS_6ESTree4NodeEJEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef nonnull readonly align 8 dereferenceable(16) %Body) local_unnamed_addr #0 align 2 {
 entry:
   %__begin2.sroa.0.0.in4 = getelementptr inbounds nuw i8, ptr %Body, i64 8
   %__begin2.sroa.0.05 = load ptr, ptr %__begin2.sroa.0.0.in4, align 8
@@ -1133,7 +1133,7 @@ return:                                           ; preds = %if.then.i.i37, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen22genVariableDeclarationEPNS_6ESTree23VariableDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %declaration) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen22genVariableDeclarationEPNS_6ESTree23VariableDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %declaration) local_unnamed_addr #0 align 2 {
 entry:
   %lref.i = alloca %"class.hermes::irgen::LReference", align 8
   %_declarations = getelementptr inbounds nuw i8, ptr %declaration, i64 56
@@ -1326,7 +1326,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder17getInsertionBlockEv(ptr noundef nonnu
 declare noundef ptr @_ZN6hermes9IRBuilder18createDebuggerInstEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen20genImportDeclarationEPNS_6ESTree21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %importDecl) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen20genImportDeclarationEPNS_6ESTree21ImportDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %importDecl) local_unnamed_addr #0 align 2 {
 entry:
   %ref.tmp9 = alloca [1 x ptr], align 8
   %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -1589,7 +1589,7 @@ for.end:                                          ; preds = %for.inc, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen25genExportNamedDeclarationEPNS_6ESTree26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %exportDecl) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen25genExportNamedDeclarationEPNS_6ESTree26ExportNamedDeclarationNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %exportDecl) local_unnamed_addr #0 align 2 {
 entry:
   %lref.i = alloca %"class.hermes::irgen::LReference", align 8
   %ref.tmp = alloca %"class.llvh::Twine", align 8
@@ -2086,7 +2086,7 @@ entry:
 declare noundef ptr @_ZN6hermes9IRBuilder20createStoreStackInstEPNS_5ValueEPNS_14AllocStackInstE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readnone captures(address) %kind, ptr noundef readonly captures(none) %declarator) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes5irgen11ESTreeIRGen21genVariableDeclaratorEPNS_12UniqueStringEPNS_6ESTree22VariableDeclaratorNodeE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readnone %kind, ptr noundef readonly captures(none) %declarator) local_unnamed_addr #0 align 2 {
 entry:
   %lref = alloca %"class.hermes::irgen::LReference", align 8
   %Builder = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -2176,7 +2176,7 @@ declare noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_1
 declare noundef ptr @_ZN6hermes9IRBuilder16createReturnInstEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes5irgen11ESTreeIRGen19areAllCasesConstantEPNS_6ESTree19SwitchStatementNodeERN4llvh15SmallVectorImplIPNS_7LiteralEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly captures(address) %switchStmt, ptr noundef nonnull align 8 dereferenceable(16) %caseLiterals) local_unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes5irgen11ESTreeIRGen19areAllCasesConstantEPNS_6ESTree19SwitchStatementNodeERN4llvh15SmallVectorImplIPNS_7LiteralEEE(ptr noundef nonnull align 8 dereferenceable(200) %this, ptr noundef readonly %switchStmt, ptr noundef nonnull align 8 dereferenceable(16) %caseLiterals) local_unnamed_addr #0 align 2 {
 entry:
   %_cases = getelementptr inbounds nuw i8, ptr %switchStmt, i64 64
   %Next.i.i.i.i = getelementptr inbounds nuw i8, ptr %switchStmt, i64 72

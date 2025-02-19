@@ -2292,7 +2292,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %96, %84, %59, %34, 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_111ActionRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8
@@ -2718,7 +2718,7 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %80, %55, %30
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel9coin_game12_GLOBAL__N_115ActionProbRangeESt3setIiSt4lessIiESaIiEE(ptr dead_on_unwind noalias writable align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly %1) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load i64, ptr %3, align 8

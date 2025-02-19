@@ -158,7 +158,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @SplittingStepCoefficients_Destroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @SplittingStepCoefficients_Destroy(ptr noundef %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %22, label %3
 
@@ -219,7 +219,7 @@ define void @SplittingStepCoefficients_Destroy(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @SplittingStepCoefficients_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define noalias noundef ptr @SplittingStepCoefficients_Create(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %4, null
   %8 = icmp eq ptr %5, null
   %or.cond = or i1 %7, %8
@@ -263,7 +263,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @SplittingStepCoefficients_Copy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noalias noundef ptr @SplittingStepCoefficients_Copy(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %37, label %3
 
@@ -1123,7 +1123,7 @@ SplittingStepCoefficients_ComposeStrang.exit:     ; preds = %2, %5, %14
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @SplittingStepCoefficients_Write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #8 {
+define void @SplittingStepCoefficients_Write(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3

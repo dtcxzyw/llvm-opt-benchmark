@@ -472,7 +472,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define noundef zeroext i1 @_ZNK6icu_7521TimeZoneNamesDelegateeqERKNS_13TimeZoneNamesE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %other) unnamed_addr #10 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7521TimeZoneNamesDelegateeqERKNS_13TimeZoneNamesE(ptr noundef nonnull readonly align 8 dereferenceable(16) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %other) unnamed_addr #10 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %dynamic_cast.notnull

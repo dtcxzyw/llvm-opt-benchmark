@@ -113,7 +113,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_crypto_thread_native_perform_join(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_crypto_thread_native_perform_join(ptr noundef readonly %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
   %4 = icmp eq ptr %0, null
@@ -240,7 +240,7 @@ define void @ossl_crypto_mutex_unlock(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_crypto_mutex_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @ossl_crypto_mutex_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -344,7 +344,7 @@ define void @ossl_crypto_condvar_signal(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_crypto_condvar_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @ossl_crypto_condvar_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

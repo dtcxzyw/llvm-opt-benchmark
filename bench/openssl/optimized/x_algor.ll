@@ -81,7 +81,7 @@ define ptr @X509_ALGOR_dup(ptr noundef %0) local_unnamed_addr #1 {
 declare ptr @ASN1_item_dup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_ALGOR_set0(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_ALGOR_set0(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %21, label %6
 
@@ -208,7 +208,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @X509_ALGOR_get0(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
+define void @X509_ALGOR_get0(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %5
 
@@ -248,7 +248,7 @@ define void @X509_ALGOR_get0(ptr noundef writeonly captures(address_is_null) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @X509_ALGOR_set_md(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @X509_ALGOR_set_md(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i64, ptr %3, align 8, !tbaa !18
   %5 = tail call i32 @EVP_MD_get_type(ptr noundef %1) #5
@@ -329,7 +329,7 @@ declare i32 @OBJ_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_TYPE_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_ALGOR_copy(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @X509_ALGOR_copy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3
@@ -428,7 +428,7 @@ define range(i32 0, 2) i32 @ossl_x509_algor_new_from_md(ptr noundef writeonly ca
 declare i32 @EVP_MD_is_a(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_x509_algor_get_md(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define ptr @ossl_x509_algor_get_md(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 

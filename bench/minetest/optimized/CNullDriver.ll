@@ -3542,7 +3542,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video11CNullDriver12getTransformENS0_22E_TRANSFORMATION_STATEE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1164) %this, i32 %state) unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(64) ptr @_ZNK3irr5video11CNullDriver12getTransformENS0_22E_TRANSFORMATION_STATEE(ptr noundef nonnull readnone align 8 dereferenceable(1164) %this, i32 %state) unnamed_addr #12 align 2 {
 entry:
   %TransformationMatrix = getelementptr inbounds nuw i8, ptr %this, i64 328
   ret ptr %TransformationMatrix
@@ -5861,7 +5861,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDriver11getViewPortEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1164) %this) unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDriver11getViewPortEv(ptr noundef nonnull readnone align 8 dereferenceable(1164) %this) unnamed_addr #12 align 2 {
 entry:
   %ViewPort = getelementptr inbounds nuw i8, ptr %this, i64 304
   ret ptr %ViewPort
@@ -6101,7 +6101,7 @@ for.body:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef %texture, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %destRect, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef %clipRect, ptr noundef readonly captures(address_is_null) %colors, i1 noundef zeroext %useAlphaChannelOfTexture) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video11CNullDriver11draw2DImageEPKNS0_8ITextureERKNS_4core4rectIiEES9_PS8_PKNS0_6SColorEb(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef %texture, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %destRect, ptr noundef nonnull align 4 dereferenceable(16) %sourceRect, ptr noundef %clipRect, ptr noundef readonly %colors, i1 noundef zeroext %useAlphaChannelOfTexture) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp = alloca %"class.irr::core::vector2d", align 8
   %LowerRightCorner.i = getelementptr inbounds nuw i8, ptr %destRect, i64 8
@@ -6175,7 +6175,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver13getScreenSizeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1164) %this) unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver13getScreenSizeEv(ptr noundef nonnull readnone align 8 dereferenceable(1164) %this) unnamed_addr #12 align 2 {
 entry:
   %ScreenSize = getelementptr inbounds nuw i8, ptr %this, i64 320
   ret ptr %ScreenSize
@@ -6190,7 +6190,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver26getCurrentRenderTargetSizeEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(1164) %this) unnamed_addr #9 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5video11CNullDriver26getCurrentRenderTargetSizeEv(ptr noundef nonnull readonly align 8 dereferenceable(1164) %this) unnamed_addr #9 align 2 {
 entry:
   %CurrentRenderTargetSize = getelementptr inbounds nuw i8, ptr %this, i64 160
   %0 = load i32, ptr %CurrentRenderTargetSize, align 8, !tbaa !206
@@ -6251,7 +6251,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDriver15getAmbientLightEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1164) %this) unnamed_addr #12 align 2 {
+define noundef nonnull align 4 dereferenceable(16) ptr @_ZNK3irr5video11CNullDriver15getAmbientLightEv(ptr noundef nonnull readnone align 8 dereferenceable(1164) %this) unnamed_addr #12 align 2 {
 entry:
   %AmbientLight = getelementptr inbounds nuw i8, ptr %this, i64 1148
   ret ptr %AmbientLight
@@ -8994,7 +8994,7 @@ if.end:                                           ; preds = %delete.notnull.i, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef i32 @_ZN3irr5video11CNullDriver19addMaterialRendererEPNS0_17IMaterialRendererEPKc(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef %renderer, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN3irr5video11CNullDriver19addMaterialRendererEPNS0_17IMaterialRendererEPKc(ptr noundef nonnull align 8 dereferenceable(1164) %this, ptr noundef %renderer, ptr noundef readonly %name) unnamed_addr #0 align 2 {
 entry:
   %empty.i.i24 = alloca %"class.std::__cxx11::basic_string", align 8
   %empty.i.i = alloca %"class.std::__cxx11::basic_string", align 8
@@ -9288,7 +9288,7 @@ return:                                           ; preds = %_ZN3irr5video11CNul
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr5video11CNullDriver23setMaterialRendererNameEjPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1164) %this, i32 noundef %idx, ptr noundef readonly captures(address_is_null) %name) unnamed_addr #0 align 2 {
+define void @_ZN3irr5video11CNullDriver23setMaterialRendererNameEjPKc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1164) %this, i32 noundef %idx, ptr noundef readonly %name) unnamed_addr #0 align 2 {
 entry:
   %empty.i.i = alloca %"class.std::__cxx11::basic_string", align 8
   %cmp = icmp ult i32 %idx, 5
@@ -9492,7 +9492,7 @@ if.end16:                                         ; preds = %_ZN3irr4core4swapIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3irr5video11CNullDriver19getExposedVideoDataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1164) %this) unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN3irr5video11CNullDriver19getExposedVideoDataEv(ptr noundef nonnull readnone align 8 dereferenceable(1164) %this) unnamed_addr #12 align 2 {
 entry:
   %ExposedData = getelementptr inbounds nuw i8, ptr %this, i64 448
   ret ptr %ExposedData
@@ -9572,7 +9572,7 @@ return:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN3irr5video11CNullDriver25getGPUProgrammingServicesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1164) %this) unnamed_addr #12 align 2 {
+define noundef nonnull ptr @_ZN3irr5video11CNullDriver25getGPUProgrammingServicesEv(ptr noundef nonnull readnone align 8 dereferenceable(1164) %this) unnamed_addr #12 align 2 {
 entry:
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %add.ptr
@@ -10364,14 +10364,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(240) ptr @_ZN3irr5video11CNullDriver19getOverrideMaterialEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1164) %this) unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(240) ptr @_ZN3irr5video11CNullDriver19getOverrideMaterialEv(ptr noundef nonnull readnone align 8 dereferenceable(1164) %this) unnamed_addr #12 align 2 {
 entry:
   %OverrideMaterial = getelementptr inbounds nuw i8, ptr %this, i64 488
   ret ptr %OverrideMaterial
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video11CNullDriver13getMaterial2DEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1164) %this) unnamed_addr #12 align 2 {
+define noundef nonnull align 8 dereferenceable(178) ptr @_ZN3irr5video11CNullDriver13getMaterial2DEv(ptr noundef nonnull readnone align 8 dereferenceable(1164) %this) unnamed_addr #12 align 2 {
 entry:
   %OverrideMaterial2D = getelementptr inbounds nuw i8, ptr %this, i64 728
   ret ptr %OverrideMaterial2D

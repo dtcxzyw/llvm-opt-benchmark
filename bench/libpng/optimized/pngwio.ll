@@ -65,7 +65,7 @@ define void @png_flush(ptr noalias noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @png_default_flush(ptr noundef readonly captures(address_is_null) %0) #3 {
+define void @png_default_flush(ptr noundef readonly %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

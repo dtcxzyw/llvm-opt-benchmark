@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.NETSCAPE_SPKI_b64_decode = private unnamed_addr constant [25 x i8] c"NETSCAPE_SPKI_b64_decode\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @NETSCAPE_SPKI_set_pubkey(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @NETSCAPE_SPKI_set_pubkey(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -28,7 +28,7 @@ define i32 @NETSCAPE_SPKI_set_pubkey(ptr noundef readonly captures(address_is_nu
 declare i32 @X509_PUBKEY_set(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @NETSCAPE_SPKI_get_pubkey(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @NETSCAPE_SPKI_get_pubkey(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

@@ -417,7 +417,7 @@ define dso_local i32 @log_alter_with_fp(ptr noundef readonly byval(%struct.log_o
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @log_set_prefix(ptr noundef captures(address_is_null) %0) #2 {
+define dso_local void @log_set_prefix(ptr noundef %0) #2 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @log_lock) #20
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %5, label %3
@@ -2597,7 +2597,7 @@ declare void @llvm.va_copy.p0(ptr, ptr) #11
 declare void @llvm.va_end.p0(ptr) #11
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef nonnull ptr @_jobid2fmt(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull writeonly captures(ret: address, provenance) %1) unnamed_addr #3 {
+define internal fastcc noundef nonnull ptr @_jobid2fmt(ptr noundef readonly %0, ptr noundef nonnull writeonly %1) unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %34, label %4
 
@@ -2661,7 +2661,7 @@ define internal fastcc noundef nonnull ptr @_jobid2fmt(ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local noundef ptr @log_build_step_id_str(ptr noundef readonly captures(address_is_null) %0, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 1)) %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #3 {
+define dso_local noundef ptr @log_build_step_id_str(ptr noundef readonly %0, ptr noundef returned writeonly initializes((0, 1)) %1, i32 noundef %2, i16 noundef zeroext %3) local_unnamed_addr #3 {
   %5 = zext i16 %3 to i32
   %6 = and i32 %5, 8
   %7 = trunc nuw nsw i32 %6 to i8
@@ -3582,7 +3582,7 @@ define internal void @xlogfmtcat(ptr noundef nonnull %0, ptr noundef %1, ...) un
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_log_printf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ...) unnamed_addr #2 {
+define internal void @_log_printf(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ...) unnamed_addr #2 {
   %5 = alloca %struct.pollfd, align 4
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   %7 = alloca ptr, align 8

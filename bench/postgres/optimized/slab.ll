@@ -131,7 +131,7 @@ declare void @MemoryContextCreate(ptr noundef, i32 noundef, i32 noundef, ptr nou
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SlabReset(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @SlabReset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
@@ -218,7 +218,7 @@ define dso_local void @SlabReset(ptr noundef captures(address) %0) local_unnamed
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SlabDelete(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @SlabDelete(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
@@ -859,7 +859,7 @@ define dso_local zeroext i1 @SlabIsEmpty(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @SlabStats(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [200 x i8], align 16
   %7 = getelementptr i8, ptr %0, i64 120
   %.val54 = load i32, ptr %7, align 8

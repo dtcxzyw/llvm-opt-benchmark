@@ -414,7 +414,7 @@ pac_ns_until_purge.exit20:                        ; preds = %malloc_mutex_tryloc
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @je_pac_retain_grow_limit_get_set(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden noundef zeroext i1 @je_pac_retain_grow_limit_get_set(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %sz_psz2ind.exit.thread, label %5
 

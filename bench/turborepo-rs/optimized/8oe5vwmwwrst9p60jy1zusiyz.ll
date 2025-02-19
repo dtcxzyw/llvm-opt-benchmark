@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @__rust_no_alloc_shim_is_unstable = external global i8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCseG2FYMysgNb_3wax5token5TokenE7or_elseNCNvXs_NtNtNtB5_4iter8adapters5chainINtB1x_5ChainIB21_INtNtNtB1B_7sources4once4OnceBI_EB2i_EQINtNtB1z_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtBL_8PositionINtBL_4WalkTjjEENCNvNtBN_4rule8boundary0ENCNCB4u_s_00EENtNtNtB1B_6traits8iterator8Iterator4next0EBN_.llvm.15969390215716056838(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable_or_null(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef align 8 dereferenceable_or_null(64) ptr @_RINvMNtCs1LoaDTb72WA_4core6optionINtB3_6OptionRNtNtCseG2FYMysgNb_3wax5token5TokenE7or_elseNCNvXs_NtNtNtB5_4iter8adapters5chainINtB1x_5ChainIB21_INtNtNtB1B_7sources4once4OnceBI_EB2i_EQINtNtB1z_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtBL_8PositionINtBL_4WalkTjjEENCNvNtBN_4rule8boundary0ENCNCB4u_s_00EENtNtNtB1B_6traits8iterator8Iterator4next0EBN_.llvm.15969390215716056838(ptr noalias noundef readonly align 8 dereferenceable_or_null(64) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [32 x i8], align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %_RNCNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB6_5ChainIBQ_INtNtNtBa_7sources4once4OnceRNtNtCseG2FYMysgNb_3wax5token5TokenEB15_EQINtNtB8_3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtB1A_8PositionINtB1A_4WalkTjjEENCNvNtB1C_4rule8boundary0ENCNCB3N_s_00EENtNtNtBa_6traits8iterator8Iterator4next0B1C_.llvm.15969390215716056838.exit
@@ -3178,7 +3178,7 @@ _RNvYINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterINtNtCseG2FYMysgNb_3wax5token5Tok
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNvMs1_NtCseG2FYMysgNb_3wax5tokenNtBU_5Token4kindINtB7_6FnOnceTRB1k_EE9call_onceBW_(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(64) %1) unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_RNvXs2_NtNtNtCs1LoaDTb72WA_4core3ops8function5implsQNvMs1_NtCseG2FYMysgNb_3wax5tokenNtBU_5Token4kindINtB7_6FnOnceTRB1k_EE9call_onceBW_(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 dereferenceable(64) %1) unnamed_addr #13 {
   ret ptr %1
 }
 
@@ -3393,7 +3393,7 @@ define hidden void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter6traits7collectINtNtNtB
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter6traits7collectQINtNtNtB8_8adapters3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB23_4WalkTjjEENCNvNtB25_4rule8boundary0ENCNCB2V_s_00ENtB4_12IntoIterator9into_iterB25_.llvm.15969390215716056838(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter6traits7collectQINtNtNtB8_8adapters3map3MapINtNtCslyFhtC9DD08_9itertools11groupbylazy5GroupNtNtCseG2FYMysgNb_3wax5token8PositionINtB23_4WalkTjjEENCNvNtB25_4rule8boundary0ENCNCB2V_s_00ENtB4_12IntoIterator9into_iterB25_.llvm.15969390215716056838(ptr noalias noundef readnone returned align 8 dereferenceable(48) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -3657,7 +3657,7 @@ define hidden void @_RNvYINvNtCseG2FYMysgNb_3wax5token8literalsTjjERINtNtCs68wO5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_RNvYNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB8_5Token4kindINtNtNtCs1LoaDTb72WA_4core3ops8function5FnMutTRBy_EE8call_mutBa_.llvm.15969390215716056838(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(64) %1) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_RNvYNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB8_5Token4kindINtNtNtCs1LoaDTb72WA_4core3ops8function5FnMutTRBy_EE8call_mutBa_.llvm.15969390215716056838(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly returned align 8 dereferenceable(64) %1) unnamed_addr #5 {
   ret ptr %1
 }
 
@@ -3921,7 +3921,7 @@ _RINvYINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters3map3MapINtNtB8_6copied6CopiedIN
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXs2_NtNtCseG2FYMysgNb_3wax5token8varianceINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied6CopiedINtNtNtBP_5slice4iter4IterRINtB7_5TokenuEEENtB5_14CompositeDepth15composite_depthB9_(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_RNvXs2_NtNtCseG2FYMysgNb_3wax5token8varianceINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied6CopiedINtNtNtBP_5slice4iter4IterRINtB7_5TokenuEEENtB5_14CompositeDepth15composite_depthB9_(ptr noundef nonnull readonly %0, ptr noundef readnone %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -3990,7 +3990,7 @@ _RNvXs7_NtNtCs1LoaDTb72WA_4core3ops12control_flowINtB5_11ControlFlowuENtNtB9_3cm
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef zeroext i1 @_RNvXs2_NtNtCseG2FYMysgNb_3wax5token8varianceINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied6CopiedINtNtNtBP_5slice4iter4IterRNtB7_5TokenEENtB5_14CompositeDepth15composite_depthB9_(ptr noundef nonnull readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_RNvXs2_NtNtCseG2FYMysgNb_3wax5token8varianceINtNtNtNtCs1LoaDTb72WA_4core4iter8adapters6copied6CopiedINtNtNtBP_5slice4iter4IterRNtB7_5TokenEENtB5_14CompositeDepth15composite_depthB9_(ptr noundef nonnull readonly %0, ptr noundef readnone %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = alloca [16 x i8], align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -4200,17 +4200,17 @@ define noundef zeroext i1 @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB5_5Token6unrootB
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenINtB5_5TokenuE4kindB7_(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenINtB5_5TokenuE4kindB7_(ptr noalias noundef readonly returned align 8 dereferenceable(48) %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB5_5Token4kindB7_(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB5_5Token4kindB7_(ptr noalias noundef readonly returned align 8 dereferenceable(64) %0) unnamed_addr #13 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB5_5Token10annotationB7_(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #13 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_RNvMs1_NtCseG2FYMysgNb_3wax5tokenNtB5_5Token10annotationB7_(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #13 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }

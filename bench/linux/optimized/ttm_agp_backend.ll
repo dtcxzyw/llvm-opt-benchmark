@@ -137,7 +137,7 @@ declare dso_local i32 @agp_unbind_memory(ptr noundef) local_unnamed_addr #1
 declare dso_local void @agp_free_memory(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local zeroext i1 @ttm_agp_is_bound(ptr noundef readonly captures(address_is_null) %0) #3 align 16 {
+define dso_local zeroext i1 @ttm_agp_is_bound(ptr noundef readonly %0) #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

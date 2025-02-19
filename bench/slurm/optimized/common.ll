@@ -122,7 +122,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.visible_to_str = private unnamed_addr constant [6 x ptr] [ptr @.str.50, ptr @.str.51, ptr @.str.52, ptr @.str.53, ptr @.str.54, ptr @.str.55], align 8
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @replspace(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @replspace(ptr noundef returned %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -153,7 +153,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @replus(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local noundef ptr @replus(ptr noundef returned %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %6, %1
@@ -501,7 +501,7 @@ declare i32 @gtk_tree_model_get_iter(ptr noundef, ptr noundef, ptr noundef) loca
 declare void @gtk_tree_model_get(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local i32 @find_col(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local i32 @find_col(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %.not9 = icmp eq ptr %0, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph.preheader
 
@@ -532,7 +532,7 @@ define dso_local i32 @find_col(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local ptr @find_col_name(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #5 {
+define dso_local ptr @find_col_name(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   br label %3
 
 3:                                                ; preds = %9, %2

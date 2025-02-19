@@ -37,7 +37,7 @@ target triple = "x86_64-pc-linux-gnu"
 @column_process = internal global { %struct.strvec, %struct.strvec, i32, i32, i64, ptr, ptr, i32, i32, i32, [4 x i8], ptr, i8, i8, [6 x i8], ptr } { %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, %struct.strvec { ptr @empty_strvec, i64 0, i64 0 }, i32 0, i32 0, i64 0, ptr null, ptr null, i32 0, i32 0, i32 0, [4 x i8] zeroinitializer, ptr null, i8 0, i8 0, [6 x i8] zeroinitializer, ptr null }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @print_columns(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @print_columns(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %9, label %4
 
@@ -777,7 +777,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #4
 declare i32 @pager_in_use() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @git_column_config(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @git_column_config(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %scevgep.i = getelementptr i8, ptr %0, i64 7
   br label %5
 
@@ -1095,7 +1095,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @run_column_filter(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @run_column_filter(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
 

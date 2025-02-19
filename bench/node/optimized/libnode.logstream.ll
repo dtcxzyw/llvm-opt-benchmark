@@ -762,13 +762,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN4node4quic9LogStream12GetAsyncWrapEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(216) %this) unnamed_addr #11 align 2 {
+define dso_local noundef nonnull ptr @_ZN4node4quic9LogStream12GetAsyncWrapEv(ptr noundef nonnull readnone returned align 8 dereferenceable(216) %this) unnamed_addr #11 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZThn56_N4node4quic9LogStream12GetAsyncWrapEv(ptr noundef readnone captures(ret: address, provenance) %this) unnamed_addr #11 align 2 {
+define dso_local noundef nonnull ptr @_ZThn56_N4node4quic9LogStream12GetAsyncWrapEv(ptr noundef readnone %this) unnamed_addr #11 align 2 {
 entry:
   %0 = getelementptr inbounds i8, ptr %this, i64 -56
   ret ptr %0

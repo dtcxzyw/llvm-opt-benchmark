@@ -759,7 +759,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.745 = private unnamed_addr constant [35 x i8] c"ERROR: optaddarg: malloc() failed\0A\00", align 1
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @optget(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define noundef ptr @optget(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %.not17 = icmp eq ptr %0, null
   br i1 %.not17, label %._crit_edge, label %.lr.ph
 
@@ -800,7 +800,7 @@ define noundef ptr @optget(ptr noundef readonly captures(address_is_null, ret: a
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @optfree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @optfree(ptr noundef %0) local_unnamed_addr #2 {
   %cond = icmp eq ptr %0, null
   br i1 %cond, label %._crit_edge44, label %2
 
@@ -2052,7 +2052,7 @@ sub_0:                                            ; preds = %435
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal fastcc range(i32 -1, 1) i32 @optadd(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #5 {
+define internal fastcc range(i32 -1, 1) i32 @optadd(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4, i64 noundef %5, i32 noundef %6, i32 noundef %7) unnamed_addr #5 {
   %9 = tail call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #23
   %.not = icmp eq ptr %9, null
   br i1 %.not, label %50, label %10
@@ -2198,7 +2198,7 @@ declare i32 @my_getopt_long(i32 noundef, ptr noundef, ptr noundef, ptr noundef, 
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @optaddarg(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) unnamed_addr #2 {
+define internal fastcc range(i32 -1, 1) i32 @optaddarg(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i64 noundef %3) unnamed_addr #2 {
   %.not17.i = icmp eq ptr %0, null
   br i1 %.not17.i, label %.loopexit, label %.lr.ph.i
 

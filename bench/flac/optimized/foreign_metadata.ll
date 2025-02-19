@@ -161,7 +161,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define dso_local void @flac__foreign_metadata_delete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define dso_local void @flac__foreign_metadata_delete(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -187,7 +187,7 @@ define dso_local void @flac__foreign_metadata_delete(ptr noundef captures(addres
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_aiff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_aiff(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca [12 x i8], align 1
   %5 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.3)
   %.not = icmp eq ptr %5, null
@@ -544,7 +544,7 @@ declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr no
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_wave(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_wave(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca [12 x i8], align 1
   %5 = alloca [28 x i8], align 16
   %6 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.3)
@@ -1090,7 +1090,7 @@ read_from_wave_.exit:                             ; preds = %12, %13, %20, %21, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_wave64(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_wave64(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca [40 x i8], align 16
   %5 = tail call noalias ptr @fopen64(ptr noundef %1, ptr noundef nonnull @.str.3)
   %.not = icmp eq ptr %5, null
@@ -1400,7 +1400,7 @@ read_from_wave64_.exit:                           ; preds = %11, %17, %24, %safe
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_flac(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca [4 x i8], align 1
   %7 = tail call ptr @FLAC__metadata_simple_iterator_new() #14
@@ -1681,7 +1681,7 @@ declare i32 @FLAC__metadata_simple_iterator_init(ptr noundef, ptr noundef, i32 n
 declare void @FLAC__metadata_simple_iterator_delete(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_flac(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_read_from_flac(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [32 x i8], align 16
   %6 = tail call ptr @FLAC__metadata_simple_iterator_new() #14
@@ -2259,7 +2259,7 @@ read_from_flac_.exit:                             ; preds = %53, %70, %73, %85, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_write_to_iff(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #5 {
   %8 = alloca [4096 x i8], align 16
   %9 = alloca [4096 x i8], align 16
   %10 = alloca [4096 x i8], align 16
@@ -2697,7 +2697,7 @@ write_to_iff_.exit:                               ; preds = %copy_data_.exit118.
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #5 {
+define dso_local range(i32 0, 2) i32 @flac__foreign_metadata_compare_with_iff(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #5 {
   %6 = alloca [4096 x i8], align 16
   %7 = alloca [4096 x i8], align 16
   %8 = alloca [4096 x i8], align 16

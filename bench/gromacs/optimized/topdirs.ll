@@ -2352,7 +2352,7 @@ define void @_Z7DS_PushPP8DirStack9Directive(ptr noundef captures(none) %0, i32 
 declare noundef ptr @_Z11save_callocPKcS0_imm(ptr noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z9DS_SearchP8DirStack9Directive(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
+define noundef range(i32 0, 2) i32 @_Z9DS_SearchP8DirStack9Directive(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #14 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %.critedge, label %.lr.ph
 
@@ -2374,7 +2374,7 @@ define noundef range(i32 0, 2) i32 @_Z9DS_SearchP8DirStack9Directive(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef range(i32 0, 2) i32 @_Z14DS_Check_OrderP8DirStack9Directive(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #14 {
+define noundef range(i32 0, 2) i32 @_Z14DS_Check_OrderP8DirStack9Directive(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #14 {
   %3 = icmp sgt i32 %1, 10
   %.not8.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not8.i, %3

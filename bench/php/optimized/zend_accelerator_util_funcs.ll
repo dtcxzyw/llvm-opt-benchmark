@@ -1583,7 +1583,7 @@ _zend_accel_class_hash_copy.exit:                 ; preds = %36, %._crit_edge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #6 {
+define hidden i32 @zend_adler32(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = and i32 %0, 65535
   %5 = lshr i32 %0, 16
   %6 = icmp ugt i32 %2, 5551

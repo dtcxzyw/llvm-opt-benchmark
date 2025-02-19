@@ -979,7 +979,7 @@ define ptr @Gia_SweeperCondVector(ptr noundef readonly captures(none) %0) local_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_SweeperExtractUserLogic(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define ptr @Gia_SweeperExtractUserLogic(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   tail call void @Gia_ManIncrementTravId(ptr noundef %0) #23
   %5 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #25
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 4
@@ -4059,7 +4059,7 @@ Abc_Clock.exit133:                                ; preds = %.critedge, %459
 declare i32 @sat_solver_solve(ptr noundef, ptr noundef, ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @Gia_ManGetCex(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef returned captures(ret: address, provenance) initializes((4, 8)) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @Gia_ManGetCex(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef returned initializes((4, 8)) %3) unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 4
   store i32 0, ptr %5, align 4, !tbaa !3
   %6 = getelementptr i8, ptr %0, i64 32
@@ -4640,7 +4640,7 @@ Abc_Clock.exit61:                                 ; preds = %177, %180
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_SweeperGraft(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_SweeperGraft(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr i8, ptr %2, i64 16
   %.val45 = load i32, ptr %4, align 8, !tbaa !73
   %5 = getelementptr i8, ptr %2, i64 64

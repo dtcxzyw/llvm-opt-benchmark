@@ -404,7 +404,7 @@ define hidden void @_ZN17MemoryFileTracker9free_fileEPNS_10MemoryFileE(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN17MemoryFileTracker5filesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN17MemoryFileTracker5filesEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }

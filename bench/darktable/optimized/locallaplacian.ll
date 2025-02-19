@@ -65,13 +65,13 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define void @local_laplacian(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
+define void @local_laplacian(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   tail call void @local_laplacian_internal(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef %8)
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @local_laplacian_internal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
+define void @local_laplacian_internal(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, float noundef %4, float noundef %5, float noundef %6, float noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca [30 x ptr], align 16
@@ -1950,7 +1950,7 @@ pad_by_replication.exit:                          ; preds = %132, %.lr.ph66.spli
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #5
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0, i32 noundef range(i32 2, -2147483648) %1, i32 noundef range(i32 2, -2147483648) %2, i32 noundef range(i32 1, 536870913) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4, ptr noundef nonnull captures(none) initializes((0, 4)) %5, ptr noundef readonly captures(address_is_null) %6) unnamed_addr #6 {
+define internal fastcc ptr @ll_pad_input(ptr noundef readonly captures(none) %0, i32 noundef range(i32 2, -2147483648) %1, i32 noundef range(i32 2, -2147483648) %2, i32 noundef range(i32 1, 536870913) %3, ptr noundef nonnull captures(none) initializes((0, 4)) %4, ptr noundef nonnull captures(none) initializes((0, 4)) %5, ptr noundef readonly %6) unnamed_addr #6 {
   %8 = shl nuw nsw i32 %3, 1
   %9 = add nuw nsw i32 %8, %1
   store i32 %9, ptr %4, align 4, !tbaa !17

@@ -5805,7 +5805,7 @@ define internal void @per_op_tick_obj(ptr noundef readonly captures(none) %0) #1
 declare i32 @SSL_handle_events(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @SRDR_print_one(ptr noundef nonnull captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @SRDR_print_one(ptr noundef nonnull captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) unnamed_addr #1 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %5
 

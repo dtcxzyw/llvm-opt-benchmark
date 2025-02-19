@@ -1479,7 +1479,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @g_string_append_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @dtd_location(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @dtd_location(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @dtd_location.loc, align 8
   tail call void @g_free(ptr noundef %2)
   %.not = icmp eq ptr %0, null
@@ -1760,7 +1760,7 @@ define hidden void @Dtd_PreParse__switch_to_buffer(ptr noundef %0, ptr noundef c
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind null_pointer_is_valid sspstrong willreturn uwtable
-define hidden void @Dtd_PreParse__delete_buffer(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define hidden void @Dtd_PreParse__delete_buffer(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %19, label %3
 
@@ -1806,7 +1806,7 @@ define hidden void @Dtd_PreParse__delete_buffer(ptr noundef captures(address) %0
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @Dtd_PreParse__flush_buffer(ptr noundef captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
+define hidden void @Dtd_PreParse__flush_buffer(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -2429,7 +2429,7 @@ define hidden void @Dtd_PreParse_set_debug(i32 noundef %0, ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @Dtd_PreParse_lex_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @Dtd_PreParse_lex_init(ptr noundef writeonly %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.sink.split, label %3
 
@@ -2454,7 +2454,7 @@ define hidden range(i32 0, 2) i32 @Dtd_PreParse_lex_init(ptr noundef writeonly c
 declare ptr @__errno_location() local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid sspstrong willreturn memory(write, inaccessiblemem: readwrite) uwtable
-define hidden range(i32 0, 2) i32 @Dtd_PreParse_lex_init_extra(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #12 {
+define hidden range(i32 0, 2) i32 @Dtd_PreParse_lex_init_extra(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #12 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 

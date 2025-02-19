@@ -1037,7 +1037,7 @@ define dso_local void @rcu_gp_slow_register(ptr noundef %0) #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @rcu_gp_slow_unregister(ptr noundef readnone captures(address) %0) #1 align 16 {
+define dso_local void @rcu_gp_slow_unregister(ptr noundef readnone %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -6514,7 +6514,7 @@ define dso_local void @rcu_cpu_stall_reset() local_unnamed_addr #14 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local zeroext i1 @rcu_check_boost_fail(i64 %0, ptr noundef writeonly captures(address_is_null) %1) #1 align 16 {
+define dso_local zeroext i1 @rcu_check_boost_fail(i64 %0, ptr noundef writeonly %1) #1 align 16 {
   %3 = load i32, ptr @rcu_num_lvls, align 4
   %4 = add i32 %3, -1
   %5 = sext i32 %4 to i64

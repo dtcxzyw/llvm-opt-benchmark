@@ -776,7 +776,7 @@ define void @Pla_End(ptr noundef readonly captures(none) %0) local_unnamed_addr 
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @Pla_AbcFreeMan(ptr captures(address_is_null) %.544.val) unnamed_addr #2 {
+define internal fastcc void @Pla_AbcFreeMan(ptr %.544.val) unnamed_addr #2 {
   %.not = icmp eq ptr %.544.val, null
   br i1 %.not, label %69, label %1
 

@@ -54,7 +54,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [224 x i8] c"vec3 fragCoord =    vec3(gl_FragCoord.x, precalc.y - gl_FragCoord.y, 1.0);float x = dot(fragCoord, m0);float y = dot(fragCoord, m1);float xfx = x - precalc.x;dist = (precalc.x*xfx + sqrt(xfx*xfx + y*y*precalc.z))*precalc.w;\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLPaints_ResetPaint(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @OGLPaints_ResetPaint(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %32, label %3
 
@@ -139,7 +139,7 @@ declare void @OGLRenderQueue_CheckPreviousOp(i32 noundef) local_unnamed_addr #1
 declare float @llvm.fmuladd.f32(float, float, float) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLPaints_SetColor(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @OGLPaints_SetColor(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %27, label %4
 
@@ -200,7 +200,7 @@ define hidden void @OGLPaints_SetColor(ptr noundef captures(address_is_null) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLPaints_SetGradientPaint(ptr noundef captures(address_is_null) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define hidden void @OGLPaints_SetGradientPaint(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca float, align 4
   %10 = alloca [4 x double], align 16
   %11 = alloca [2 x i32], align 4
@@ -302,7 +302,7 @@ define hidden void @OGLPaints_SetGradientPaint(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLPaints_SetTexturePaint(ptr noundef captures(address_is_null) %0, i8 noundef zeroext %1, i64 noundef %2, i8 noundef zeroext %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #0 {
+define hidden void @OGLPaints_SetTexturePaint(ptr noundef %0, i8 noundef zeroext %1, i64 noundef %2, i8 noundef zeroext %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9) local_unnamed_addr #0 {
   %11 = alloca [4 x double], align 16
   %12 = alloca [4 x double], align 16
   %13 = inttoptr i64 %2 to ptr
@@ -410,7 +410,7 @@ define hidden void @OGLPaints_SetTexturePaint(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLPaints_SetLinearGradientPaint(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define hidden void @OGLPaints_SetLinearGradientPaint(ptr noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, ptr noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = icmp eq ptr %0, null
   %13 = icmp eq ptr %1, null
   %or.cond = or i1 %12, %13
@@ -574,7 +574,7 @@ define internal fastcc void @OGLPaints_SetMultiGradientPaint(i32 noundef %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 {
+define hidden void @OGLPaints_SetRadialGradientPaint(ptr noundef %0, ptr noundef readonly %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, float noundef %6, float noundef %7, float noundef %8, float noundef %9, float noundef %10, float noundef %11, float noundef %12, ptr noundef %13, ptr noundef %14) local_unnamed_addr #0 {
   %16 = icmp eq ptr %0, null
   %17 = icmp eq ptr %1, null
   %or.cond = or i1 %16, %17

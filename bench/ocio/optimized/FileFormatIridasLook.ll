@@ -1896,7 +1896,7 @@ declare void @XML_SetUserData(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare void @XML_SetElementHandler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115XMLParserHelper19StartElementHandlerEPvPKcPS4_(ptr noundef %userData, ptr noundef readonly captures(address_is_null) %name, ptr readnone captures(none) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115XMLParserHelper19StartElementHandlerEPvPKcPS4_(ptr noundef %userData, ptr noundef readonly %name, ptr readnone captures(none) %0) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp6 = alloca %"class.std::allocator", align 1
@@ -2139,7 +2139,7 @@ eh.resume:                                        ; preds = %ehcleanup52, %ehcle
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115XMLParserHelper17EndElementHandlerEPvPKc(ptr noundef %userData, ptr noundef readonly captures(address_is_null) %name) #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_115XMLParserHelper17EndElementHandlerEPvPKc(ptr noundef %userData, ptr noundef readonly %name) #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8
   %ref.tmp10 = alloca %"class.std::allocator", align 1

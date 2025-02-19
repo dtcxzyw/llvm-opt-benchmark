@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.make_rel_from_joinlist = private unnamed_addr constant [23 x i8] c"make_rel_from_joinlist\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @make_one_rel(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @make_one_rel(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load ptr, ptr %4, align 8
@@ -245,7 +245,7 @@ declare zeroext i1 @is_dummy_rel(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_rel_from_joinlist(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc ptr @make_rel_from_joinlist(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit
 
@@ -341,7 +341,7 @@ list_length.exit.thread:                          ; preds = %2, %list_length.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_paths_to_append_rel(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @add_paths_to_append_rel(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %6 = alloca ptr, align 8
@@ -1657,7 +1657,7 @@ list_length.exit279.thread:                       ; preds = %573, %552, %.lr.ph4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @accumulate_append_subpath(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @accumulate_append_subpath(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4
   switch i32 %4, label %35 [
     i32 289, label %5
@@ -4003,7 +4003,7 @@ declare void @set_baserel_size_estimates(ptr noundef, ptr noundef) local_unnamed
 declare ptr @copyObjectImpl(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @subquery_is_pushdown_safe(ptr noundef readonly %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 216
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -4415,7 +4415,7 @@ declare ptr @make_tlist_from_pathtarget(ptr noundef) local_unnamed_addr #2
 declare ptr @create_subqueryscan_path(ptr noundef, ptr noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @recurse_pushdown_safe(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(none) %2) unnamed_addr #0 {
   br label %tailrecurse
 
 tailrecurse:                                      ; preds = %26, %3
@@ -4538,7 +4538,7 @@ declare void @set_opfuncid(ptr noundef) local_unnamed_addr #2
 declare zeroext i1 @func_strict(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr noundef readonly captures(none) %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i1 noundef zeroext %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @find_window_run_conditions(ptr noundef readonly captures(none) %0, i16 noundef signext %1, ptr noundef %2, ptr noundef readonly %3, i1 noundef zeroext %4, ptr noundef nonnull writeonly captures(none) initializes((0, 1)) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.SupportRequestWFuncMonotonic, align 8
   %9 = zext i1 %4 to i8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #9

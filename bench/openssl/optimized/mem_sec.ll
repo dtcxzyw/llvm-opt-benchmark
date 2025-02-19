@@ -1014,7 +1014,7 @@ CRYPTO_secure_allocated.exit.thread:              ; preds = %5, %CRYPTO_secure_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @CRYPTO_secure_allocated(ptr noundef readnone captures(address) %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @CRYPTO_secure_allocated(ptr noundef readnone %0) local_unnamed_addr #2 {
   %.b = load i1, ptr @secure_mem_initialized, align 4
   br i1 %.b, label %2, label %10
 

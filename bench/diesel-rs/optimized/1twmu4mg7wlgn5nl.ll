@@ -48,7 +48,7 @@ define hidden void @_ZN4core3fmt9Arguments6new_v117h14574ab706dc1eb0E.llvm.80199
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Result$LT$migrations_internals..TomlMetadata$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$17ha916fa9fb6b4b31cE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr137drop_in_place$LT$core..result..Result$LT$migrations_internals..TomlMetadata$C$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$$GT$17ha916fa9fb6b4b31cE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp eq ptr %.0.val, null
   br i1 %1, label %"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17h6849e5ee245c16b1E.exit", label %2
 

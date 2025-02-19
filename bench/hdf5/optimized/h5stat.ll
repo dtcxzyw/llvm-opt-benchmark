@@ -1145,7 +1145,7 @@ declare i32 @H5Pget_file_space_page_size(i64 noundef, ptr noundef) local_unnamed
 declare i32 @h5trav_visit(i64 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @obj_stats(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) #6 {
+define internal range(i32 -1, 1) i32 @obj_stats(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) #6 {
   %5 = alloca [32 x i64], align 16
   %6 = alloca %struct.H5G_info_t, align 8
   %7 = alloca %struct.H5O_native_info_t, align 8

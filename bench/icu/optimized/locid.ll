@@ -2281,7 +2281,7 @@ declare noundef nonnull align 8 dereferenceable(60) ptr @_ZN6icu_7510CharString6
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756LocaleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(217) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756LocaleC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %this, ptr noundef nonnull align 8 dereferenceable(217) %other) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_756LocaleE, i64 16), ptr %this, align 8
   %fullName = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2303,7 +2303,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(217) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(217) %other) local_unnamed_addr #1 align 2 {
+define noundef nonnull align 8 dereferenceable(217) ptr @_ZN6icu_756LocaleaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(217) %this, ptr noundef nonnull readonly align 8 dereferenceable(217) %other) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %other
   br i1 %cmp, label %return, label %if.end
@@ -6798,7 +6798,7 @@ declare ptr @uloc_toLegacyKey_75(ptr noundef) local_unnamed_addr #6
 declare ptr @uloc_toUnicodeLocaleType_75(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756Locale15setKeywordValueEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 captures(address) dereferenceable(217) %this, ptr noundef %keywordName, ptr noundef %keywordValue, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
+define void @_ZN6icu_756Locale15setKeywordValueEPKcS2_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr noundef %keywordName, ptr noundef %keywordValue, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -6928,7 +6928,7 @@ declare i32 @uprv_max_75(i32 noundef, i32 noundef) local_unnamed_addr #6
 declare i32 @uloc_setKeywordValue_75(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756Locale15setKeywordValueENS_11StringPieceES1_R10UErrorCode(ptr noundef nonnull align 8 captures(address) dereferenceable(217) %this, ptr %keywordName.coerce0, i32 %keywordName.coerce1, ptr %keywordValue.coerce0, i32 %keywordValue.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756Locale15setKeywordValueENS_11StringPieceES1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr %keywordName.coerce0, i32 %keywordName.coerce1, ptr %keywordValue.coerce0, i32 %keywordValue.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keywordName_nul = alloca %"class.icu_75::CharString", align 8
   %keywordValue_nul = alloca %"class.icu_75::CharString", align 8
@@ -6992,7 +6992,7 @@ lpad3:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_756Locale22setUnicodeKeywordValueENS_11StringPieceES1_R10UErrorCode(ptr noundef nonnull align 8 captures(address) dereferenceable(217) %this, ptr %keywordName.coerce0, i32 %keywordName.coerce1, ptr %keywordValue.coerce0, i32 %keywordValue.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_756Locale22setUnicodeKeywordValueENS_11StringPieceES1_R10UErrorCode(ptr noundef nonnull align 8 dereferenceable(217) %this, ptr %keywordName.coerce0, i32 %keywordName.coerce1, ptr %keywordValue.coerce0, i32 %keywordValue.coerce1, ptr noundef nonnull align 4 dereferenceable(4) %status) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %keywordName_nul = alloca %"class.icu_75::CharString", align 8
   %keywordValue_nul = alloca %"class.icu_75::CharString", align 8

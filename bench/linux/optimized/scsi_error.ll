@@ -1426,7 +1426,7 @@ define dso_local void @scsi_eh_done(ptr noundef readonly captures(none) %0) loca
 declare dso_local void @complete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_eh_prep_cmnd(ptr noundef captures(none) %0, ptr noundef initializes((0, 54), (56, 80)) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
+define dso_local void @scsi_eh_prep_cmnd(ptr noundef captures(none) %0, ptr noundef initializes((0, 54), (56, 80)) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4) #0 align 16 {
   %6 = load ptr, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %8 = load i16, ptr %7, align 4
@@ -3032,7 +3032,7 @@ scsi_eh_offline_sdevs.exit:                       ; preds = %.preheader, %._crit
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_eh_flush_done_q(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local void @scsi_eh_flush_done_q(ptr noundef readonly %0) #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %.loopexit, label %.preheader
@@ -3461,7 +3461,7 @@ declare dso_local i32 @scsi_autopm_get_host(ptr noundef) local_unnamed_addr #1
 declare dso_local void @scsi_autopm_put_host(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @scsi_report_bus_reset(ptr noundef readonly captures(address) %0, i32 noundef %1) #8 align 16 {
+define dso_local void @scsi_report_bus_reset(ptr noundef readonly %0, i32 noundef %1) #8 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = icmp eq ptr %3, %0
   br i1 %4, label %.loopexit, label %.preheader
@@ -3499,7 +3499,7 @@ define internal void @__scsi_report_device_reset(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define dso_local void @scsi_report_device_reset(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
+define dso_local void @scsi_report_device_reset(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #8 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %4, %0
   br i1 %5, label %.loopexit, label %.preheader
@@ -3961,7 +3961,7 @@ declare dso_local i32 @__SCT__might_resched() local_unnamed_addr #1
 declare dso_local zeroext i1 @queue_work_on(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 8193, 8196) i32 @scsi_send_eh_cmnd(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 7) %2, i32 noundef %3, i32 noundef range(i32 -1, 1) %4) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 8193, 8196) i32 @scsi_send_eh_cmnd(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 7) %2, i32 noundef %3, i32 noundef range(i32 -1, 1) %4) unnamed_addr #0 align 16 {
   %6 = alloca %struct.completion, align 8
   %7 = alloca %struct.scsi_eh_save, align 8
   %8 = load ptr, ptr %0, align 8

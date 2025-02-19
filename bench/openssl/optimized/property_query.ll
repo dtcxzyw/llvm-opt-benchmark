@@ -56,7 +56,7 @@ define i32 @ossl_property_get_type(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_property_get_string_value(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @ossl_property_get_string_value(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %3
 
@@ -80,7 +80,7 @@ define ptr @ossl_property_get_string_value(ptr noundef %0, ptr noundef readonly 
 declare ptr @ossl_property_value_str(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @ossl_property_get_number_value(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define i64 @ossl_property_get_number_value(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

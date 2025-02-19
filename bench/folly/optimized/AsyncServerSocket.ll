@@ -15954,7 +15954,7 @@ _ZN5folly8toAppendINS_14basic_fbstringIcSt11char_traitsIcESaIcENS_13fbstring_cor
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket20removeAcceptCallbackEPNS0_14AcceptCallbackEPNS_9EventBaseE(ptr noundef nonnull align 8 captures(address) dereferenceable(352) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17AsyncServerSocket20removeAcceptCallbackEPNS0_14AcceptCallbackEPNS_9EventBaseE(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.folly::Function", align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8, !tbaa !224
@@ -17477,7 +17477,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit28: ; preds = %_ZStl
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly17AsyncServerSocket13dispatchErrorEPKci(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly17AsyncServerSocket13dispatchErrorEPKci(ptr noundef nonnull align 8 dereferenceable(352) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.anon.370, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

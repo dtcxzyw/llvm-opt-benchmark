@@ -6540,7 +6540,7 @@ define dso_local void @tcg_op_remove(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @tcg_remove_ops_after(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @tcg_remove_ops_after(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @tcg_ctx)
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 29352

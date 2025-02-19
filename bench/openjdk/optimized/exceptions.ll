@@ -697,7 +697,7 @@ _ZN12ResourceMarkD2Ev.exit:                       ; preds = %126, %128
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Exceptions17debug_check_abortE6HandlePKc(ptr captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10Exceptions17debug_check_abortE6HandlePKc(ptr %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = load ptr, ptr @AbortVMOnException, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %5, label %4
@@ -713,7 +713,7 @@ define hidden void @_ZN10Exceptions17debug_check_abortE6HandlePKc(ptr captures(a
 declare void @_ZN10JavaThread25clear_scopedValueBindingsEv(ptr noundef nonnull align 8 dereferenceable(1800)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Exceptions30count_out_of_memory_exceptionsE6Handle(ptr readonly captures(address_is_null) %0) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10Exceptions30count_out_of_memory_exceptionsE6Handle(ptr readonly %0) local_unnamed_addr #3 align 2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZNK6HandleclEv.exit, label %_ZNK6HandleclEv.exit.thread
 
@@ -1897,7 +1897,7 @@ define hidden void @_ZN10Exceptions17debug_check_abortEPKcS1_(ptr noundef %0, pt
 declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Exceptions24debug_check_abort_helperE6HandlePKc(ptr readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10Exceptions24debug_check_abort_helperE6HandlePKc(ptr readonly %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
@@ -2037,7 +2037,7 @@ declare noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef
 declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 dereferenceable(196)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10Exceptions13log_exceptionE6HandlePKc(ptr readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN10Exceptions13log_exceptionE6HandlePKc(ptr readonly %0, ptr noundef %1) local_unnamed_addr #3 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800

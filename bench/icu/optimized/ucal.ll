@@ -626,7 +626,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString7extractENS_9Char16PtrEiR10UError
 declare void @_ZN6icu_7513UnicodeStringD1Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define void @ucal_setDefaultTimeZone_75(ptr noundef %zoneID, ptr noundef captures(address_is_null) %ec) local_unnamed_addr #1 {
+define void @ucal_setDefaultTimeZone_75(ptr noundef %zoneID, ptr noundef %ec) local_unnamed_addr #1 {
 entry:
   %call = tail call fastcc noundef ptr @_ZL15_createTimeZonePKDsiP10UErrorCode(ptr noundef %zoneID, i32 noundef -1, ptr noundef %ec)
   %cmp.not = icmp eq ptr %call, null
@@ -641,7 +641,7 @@ if.end:                                           ; preds = %if.then, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15_createTimeZonePKDsiP10UErrorCode(ptr noundef %zoneID, i32 noundef %len, ptr noundef captures(address_is_null) %ec) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZL15_createTimeZonePKDsiP10UErrorCode(ptr noundef %zoneID, i32 noundef %len, ptr noundef %ec) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %zoneStrID = alloca %"class.icu_75::UnicodeString", align 8
   %agg.tmp = alloca %"class.icu_75::ConstChar16Ptr", align 8
@@ -1056,7 +1056,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucal_setTimeZone_75(ptr noundef %cal, ptr noundef %zoneID, i32 noundef %len, ptr noundef captures(address_is_null) %status) local_unnamed_addr #1 {
+define void @ucal_setTimeZone_75(ptr noundef %cal, ptr noundef %zoneID, i32 noundef %len, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1
@@ -1877,7 +1877,7 @@ entry:
 declare noundef ptr @_ZN6icu_758TimeZone16getTZDataVersionER10UErrorCode(ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @ucal_getCanonicalTimeZoneID_75(ptr noundef %id, i32 noundef %len, ptr noundef %result, i32 noundef %resultCapacity, ptr noundef writeonly captures(address_is_null) %isSystemID, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef i32 @ucal_getCanonicalTimeZoneID_75(ptr noundef %id, i32 noundef %len, ptr noundef %result, i32 noundef %resultCapacity, ptr noundef writeonly %isSystemID, ptr noundef %status) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
 entry:
   %canonical = alloca %"class.icu_75::UnicodeString", align 8
   %systemID = alloca i8, align 1

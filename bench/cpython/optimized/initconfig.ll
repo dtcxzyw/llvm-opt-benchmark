@@ -8707,7 +8707,7 @@ declare ptr @_PyErr_GetRaisedException(ptr noundef) local_unnamed_addr #6
 declare void @PySys_WriteStderr(ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_dump_ascii_wstr(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #5 {
+define internal fastcc void @init_dump_ascii_wstr(ptr noundef readonly %0) unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 
@@ -8825,7 +8825,7 @@ define dso_local noundef ptr @PyInitConfig_Create() local_unnamed_addr #5 {
 declare void @PyPreConfig_InitIsolatedConfig(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @PyInitConfig_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #12 {
+define dso_local void @PyInitConfig_Free(ptr noundef %0) local_unnamed_addr #12 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

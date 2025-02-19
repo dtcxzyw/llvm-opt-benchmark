@@ -1167,7 +1167,7 @@ _ZL9_box_meanILm1ELb0EEvPfmmmj.exit:              ; preds = %_ZL9_box_meanILm1EL
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @dt_box_mean_horizontal(ptr noalias noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr noalias noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define void @dt_box_mean_horizontal(ptr noalias noundef captures(none) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, ptr noalias noundef %4) local_unnamed_addr #0 {
   %6 = alloca [9 x float], align 64
   %7 = alloca [9 x float], align 64
   switch i32 %2, label %155 [

@@ -1115,7 +1115,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @timelib_strtotime(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define hidden ptr @timelib_strtotime(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = alloca %struct._Scanner, align 8
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %1
@@ -45963,13 +45963,13 @@ alloc_error_message.exit:                         ; preds = %3, %11
 declare i32 @timelib_valid_date(i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @timelib_parse_from_format(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
+define hidden ptr @timelib_parse_from_format(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readonly captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call ptr @timelib_parse_from_format_with_map(ptr noundef %0, ptr noundef %1, i64 poison, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef nonnull @default_format_config)
   ret ptr %7
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @timelib_parse_from_format_with_map(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
+define hidden ptr @timelib_parse_from_format_with_map(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 %2, ptr noundef writeonly %3, ptr noundef %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct._Scanner, align 8
   %10 = alloca i32, align 4
@@ -50295,7 +50295,7 @@ define internal fastcc void @timelib_skip_day_suffix(ptr noundef nonnull capture
 declare void @timelib_do_normalize(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @timelib_get_nr_ex(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, 7) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc i64 @timelib_get_nr_ex(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 1, 7) %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %.promoted = load ptr, ptr %0, align 8, !tbaa !8
   %4 = load i8, ptr %.promoted, align 1, !tbaa !11
   %5 = add i8 %4, -58

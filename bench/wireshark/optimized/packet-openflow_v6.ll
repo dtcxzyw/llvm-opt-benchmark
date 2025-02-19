@@ -5824,7 +5824,7 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef i32 @dissect_openflow_oxm_header_v6(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc noundef i32 @dissect_openflow_oxm_header_v6(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i8, align 1
   %7 = alloca i32, align 4

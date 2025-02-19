@@ -1408,7 +1408,7 @@ define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @H5LTyy_init_buffer(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @H5LTyy_init_buffer(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call ptr @__errno_location() #29
   %4 = load i32, ptr %3, align 4, !tbaa !22
   %.not.i = icmp eq ptr %0, null
@@ -1605,7 +1605,7 @@ define noalias noundef ptr @H5LTyyalloc(i64 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @H5LTyy_delete_buffer(ptr noundef captures(address) %0) local_unnamed_addr #5 {
+define void @H5LTyy_delete_buffer(ptr noundef %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -1652,7 +1652,7 @@ define void @H5LTyyfree(ptr noundef captures(none) %0) local_unnamed_addr #6 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @H5LTyy_flush_buffer(ptr noundef captures(address) %0) local_unnamed_addr #7 {
+define void @H5LTyy_flush_buffer(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 

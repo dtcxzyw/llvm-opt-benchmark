@@ -71,7 +71,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.55 = private unnamed_addr constant [13 x i8] c"%ld.%ld %-3s\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_counter_increase(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @_mi_stat_counter_increase(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp uge ptr %0, @_mi_stats_main
   %4 = icmp ult ptr %0, getelementptr inbounds nuw (i8, ptr @_mi_stats_main, i64 688)
   %5 = select i1 %3, i1 %4, i1 false
@@ -97,7 +97,7 @@ define hidden void @_mi_stat_counter_increase(ptr noundef captures(address) %0, 
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_increase(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden void @_mi_stat_increase(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %mi_stat_update.exit, label %4
 
@@ -175,7 +175,7 @@ mi_stat_update.exit:                              ; preds = %2, %21, %23, %36, %
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_decrease(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #1 {
+define hidden void @_mi_stat_decrease(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = sub nsw i64 0, %1
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %mi_stat_update.exit, label %5
@@ -253,7 +253,7 @@ mi_stat_update.exit:                              ; preds = %2, %22, %24, %36, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_adjust_increase(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @_mi_stat_adjust_increase(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i64 %1, 0
   br i1 %3, label %mi_stat_adjust.exit, label %4
 
@@ -289,7 +289,7 @@ mi_stat_adjust.exit:                              ; preds = %2, %9, %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_mi_stat_adjust_decrease(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define hidden void @_mi_stat_adjust_decrease(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = sub nsw i64 0, %1
   %4 = icmp eq i64 %1, 0
   br i1 %4, label %mi_stat_adjust.exit, label %5
@@ -1080,7 +1080,7 @@ define hidden i64 @_mi_clock_end(i64 noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mi_process_info(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #2 {
+define hidden void @mi_process_info(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #2 {
   %9 = alloca %struct.mi_process_info_s, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #10
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -1191,7 +1191,7 @@ declare void @_mi_prim_process_info(ptr noundef) local_unnamed_addr #6
 declare ptr @mi_heap_get_default() local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal void @mi_buffered_out(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #2 {
+define internal void @mi_buffered_out(ptr noundef readonly %0, ptr noundef %1) #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4

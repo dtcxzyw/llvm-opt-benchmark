@@ -650,7 +650,7 @@ define i32 @wtap_file_get_num_shbs(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @wtap_file_get_shb(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @wtap_file_get_shb(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -679,7 +679,7 @@ define ptr @wtap_file_get_shb(ptr noundef readonly captures(address_is_null) %0,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @wtap_file_get_shb_global_interface_id(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @wtap_file_get_shb_global_interface_id(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %12, label %5
 
@@ -718,7 +718,7 @@ define i32 @wtap_file_get_shb_global_interface_id(ptr noundef readonly captures(
 declare void @ws_log_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @wtap_file_get_shb_for_new_file(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @wtap_file_get_shb_for_new_file(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
   %3 = icmp eq ptr %0, null
@@ -777,7 +777,7 @@ declare ptr @wtap_block_make_copy(ptr noundef) local_unnamed_addr #1
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_write_shb_comment(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @wtap_write_shb_comment(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
@@ -873,7 +873,7 @@ define i32 @wtap_file_get_num_dsbs(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @wtap_file_get_dsb(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @wtap_file_get_dsb(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 
@@ -1414,7 +1414,7 @@ declare i32 @wtap_block_get_nth_string_option_value(ptr noundef, i32 noundef, i3
 declare ptr @g_string_free(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @wtap_file_get_nrb(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @wtap_file_get_nrb(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 
@@ -1441,7 +1441,7 @@ define ptr @wtap_file_get_nrb(ptr noundef readonly captures(address_is_null) %0)
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @wtap_file_get_nrb_for_new_file(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @wtap_file_get_nrb_for_new_file(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
   %3 = icmp eq ptr %0, null
@@ -1491,7 +1491,7 @@ define hidden ptr @wtap_file_get_nrb_for_new_file(ptr noundef readonly captures(
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_dump_params_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @wtap_dump_params_init(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(80) %0, i8 noundef 0, i64 noundef 80, i1 noundef false) #19
   %4 = icmp eq ptr %1, null
@@ -1582,7 +1582,7 @@ wtap_file_get_shb_for_new_file.exit:              ; preds = %.lr.ph.i, %5, %17, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_dump_params_init_no_idbs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @wtap_dump_params_init_no_idbs(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 dereferenceable(80) %0, i8 noundef 0, i64 noundef 80, i1 noundef false) #19
   %4 = icmp eq ptr %1, null
@@ -2033,7 +2033,7 @@ define void @wtap_cleareof(ptr noundef readonly captures(none) %0) local_unnamed
 declare void @file_clearerr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_set_cb_new_ipv4(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @wtap_set_cb_new_ipv4(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -2093,7 +2093,7 @@ wtapng_process_nrb_ipv4.exit:                     ; preds = %.lr.ph.i, %.lr.ph, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_set_cb_new_ipv6(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @wtap_set_cb_new_ipv6(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -2206,7 +2206,7 @@ wtapng_process_nrb_ipv6.exit:                     ; preds = %.lr.ph.i6, %wtapng_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_set_cb_new_secrets(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @wtap_set_cb_new_secrets(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -2806,7 +2806,7 @@ define hidden noundef zeroext i1 @wtap_full_file_seek_read(ptr noundef readonly 
 declare i64 @file_seek(ptr noundef, i64 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_buffer_append_epdu_tag(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
+define void @wtap_buffer_append_epdu_tag(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = icmp ne i16 %1, 0
   %6 = icmp ne ptr %2, null
   %or.cond = and i1 %5, %6
@@ -2905,7 +2905,7 @@ define void @wtap_buffer_append_epdu_uint(ptr noundef %0, i16 noundef zeroext %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @wtap_buffer_append_epdu_string(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef %2) #20
   %5 = icmp ne i16 %1, 0
   %6 = icmp ne ptr %2, null

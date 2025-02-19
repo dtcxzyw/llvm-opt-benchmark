@@ -641,7 +641,7 @@ define dso_local void @pgstat_clear_backend_activity_snapshot() local_unnamed_ad
 declare void @MemoryContextDelete(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @pgstat_report_activity(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = alloca i32, align 4
   %5 = load ptr, ptr @MyBEEntry, align 8

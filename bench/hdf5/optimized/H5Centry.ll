@@ -3203,7 +3203,7 @@ H5C__mark_flush_dep_serialized.exit.thread:       ; preds = %46, %14, %48, %55, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C_move_entry(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -7425,7 +7425,7 @@ define range(i32 -1, 1) i32 @H5C_unsettle_entry_ring(ptr noundef readonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C_create_flush_dependency(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C_create_flush_dependency(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -7982,7 +7982,7 @@ define internal fastcc void @H5C__unpin_entry_real(ptr noundef captures(none) %0
 declare ptr @H5FL_seq_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5C_expunge_entry(ptr noundef %0, ptr noundef readnone captures(address) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5C_expunge_entry(ptr noundef %0, ptr noundef readnone %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = load i8, ptr @H5C_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !7

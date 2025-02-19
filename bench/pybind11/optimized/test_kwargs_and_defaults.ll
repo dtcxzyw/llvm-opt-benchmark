@@ -1635,7 +1635,7 @@ _ZN8pybind1118gil_scoped_acquire7dec_refEv.exit:  ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z34test_submodule_kwargs_and_defaultsRN8pybind117module_E(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) #1 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z34test_submodule_kwargs_and_defaultsRN8pybind117module_E(ptr noundef nonnull align 8 dereferenceable(8) %0) #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca ptr, align 8
   %3 = alloca %"class.pybind11::handle", align 8
   %4 = alloca i8, align 1
@@ -14240,7 +14240,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noun
 declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8pybind117module_3defIRZ34test_submodule_kwargs_and_defaultsRS0_E3$_0JNS_3argENS_5arg_vEEEES2_PKcOT_DpRKT0_"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN8pybind117module_3defIRZ34test_submodule_kwargs_and_defaultsRS0_E3$_0JNS_3argENS_5arg_vEEEES2_PKcOT_DpRKT0_"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(9) %2, ptr noundef nonnull align 8 dereferenceable(32) %3) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::unique_ptr", align 8
   %6 = alloca %"class.pybind11::cpp_function", align 8
   %7 = alloca %"class.pybind11::object", align 8
@@ -35035,7 +35035,7 @@ _ZN8pybind116detail13string_casterINSt7__cxx1112basic_stringIcSt11char_traitsIcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ34test_submodule_kwargs_and_defaultsRNS_7module_EE10CustomReprJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ34test_submodule_kwargs_and_defaultsRNS_7module_EE10CustomReprJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ34test_submodule_kwargs_and_defaultsRN8pybind117module_EE10CustomRepr, ptr %4, align 8
@@ -51521,7 +51521,7 @@ _ZN8pybind116detail15pyobject_casterINS_5tupleEE4castERKNS_6handleENS_19return_v
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ34test_submodule_kwargs_and_defaultsRNS_7module_EE7KWClassJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ34test_submodule_kwargs_and_defaultsRNS_7module_EE7KWClassJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ34test_submodule_kwargs_and_defaultsRN8pybind117module_EE7KWClass, ptr %4, align 8
@@ -52491,7 +52491,7 @@ _ZNSt5tupleIJN8pybind116detail11type_casterINS0_6objectEvEEEED2Ev.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN8pybind116class_IZ34test_submodule_kwargs_and_defaultsRNS_7module_EE17first_arg_kw_onlyJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN8pybind116class_IZ34test_submodule_kwargs_and_defaultsRNS_7module_EE17first_arg_kw_onlyJEE13init_instanceEPNS_6detail8instanceEPKv(ptr noundef %0, ptr noundef %1) #1 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.pybind11::detail::value_and_holder", align 8
   %4 = alloca %"struct.std::type_index", align 8
   store ptr @_ZTIZ34test_submodule_kwargs_and_defaultsRN8pybind117module_EE17first_arg_kw_only, ptr %4, align 8

@@ -3665,7 +3665,7 @@ declare void @col_add_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_a
 declare ptr @val_to_str_ext(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 {
+define internal fastcc void @find_rsvp_session_tempfilt(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) unnamed_addr #1 {
   %4 = tail call zeroext i1 @tvb_bytes_exist(ptr noundef %0, i32 noundef 6, i32 noundef 2)
   br i1 %4, label %5, label %.critedge
 

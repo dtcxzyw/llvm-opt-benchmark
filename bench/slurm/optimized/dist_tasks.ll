@@ -661,7 +661,7 @@ _lllp_map_abstract_mask.exit:                     ; preds = %53, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_match_masks_to_ldom(i32 noundef range(i32 0, 65536) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @_match_masks_to_ldom(i32 noundef range(i32 0, 65536) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit27, label %3
 

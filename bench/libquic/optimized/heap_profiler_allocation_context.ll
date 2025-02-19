@@ -47,7 +47,7 @@ define void @_ZN4base11trace_event9BacktraceC2Ev(ptr noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 dereferenceable(776) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %4 = load i64, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 768
@@ -80,7 +80,7 @@ _ZSt5equalIPKN4base11trace_event10StackFrameES4_EbT_S5_T0_.exit: ; preds = %.lr.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(776) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_9BacktraceES3_(ptr noundef nonnull readonly align 8 dereferenceable(776) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(776) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %4 = load i64, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 768
@@ -132,7 +132,7 @@ define void @_ZN4base11trace_event17AllocationContextC2ERKNS0_9BacktraceEPKc(ptr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(784) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN4base11trace_eventeqERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 dereferenceable(784) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %4 = load i64, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 768
@@ -171,7 +171,7 @@ _ZN4base11trace_eventeqERKNS0_9BacktraceES3_.exit: ; preds = %.lr.ph.i.i.i.i.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(784) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN4base11trace_eventneERKNS0_17AllocationContextES3_(ptr noundef nonnull readonly align 8 dereferenceable(784) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(784) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %4 = load i64, ptr %3, align 8, !tbaa !9
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 768

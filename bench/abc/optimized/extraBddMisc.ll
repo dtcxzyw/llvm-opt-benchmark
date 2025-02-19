@@ -593,7 +593,7 @@ define void @Extra_bddPrintSupport(ptr noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_bddSuppSize(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #6 {
+define i32 @Extra_bddSuppSize(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !34
   %.not5 = icmp eq ptr %1, %4
@@ -614,7 +614,7 @@ define i32 @Extra_bddSuppSize(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Extra_bddSuppContainVar(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @Extra_bddSuppContainVar(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8, !tbaa !34
   %.not6 = icmp eq ptr %1, %5
@@ -698,7 +698,7 @@ define range(i32 0, 2) i32 @Extra_bddSuppOverlapping(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Extra_bddSuppDifferentVars(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #6 {
+define i32 @Extra_bddSuppDifferentVars(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #6 {
   %5 = load i32, ptr %1, align 8, !tbaa !35
   %.not6268 = icmp eq i32 %5, 2147483647
   br i1 %.not6268, label %.outer._crit_edge, label %.lr.ph.lr.ph
@@ -1276,7 +1276,7 @@ define noundef ptr @Extra_bddComputeRangeCube(ptr noundef %0, i32 noundef %1, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef ptr @Extra_bddBitsToCube(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %7 = load ptr, ptr %6, align 8, !tbaa !34
   tail call void @Cudd_Ref(ptr noundef %7) #19

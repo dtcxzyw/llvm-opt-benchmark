@@ -230,7 +230,7 @@ declare i32 @Abc_SopGetCubeNum(ptr noundef) local_unnamed_addr #4
 declare i32 @Abc_SopGetVarNum(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define noundef ptr @Abc_ConvertSopToBdd(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = tail call i32 @Abc_SopGetVarNum(ptr noundef %1) #17
   %5 = tail call ptr @Cudd_ReadLogicZero(ptr noundef %0) #17
   tail call void @Cudd_Ref(ptr noundef %5) #17

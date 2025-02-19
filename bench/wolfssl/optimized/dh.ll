@@ -501,7 +501,7 @@ _ffc_pairwise_consistency_test.exit:              ; preds = %5, %14, %.critedge.
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhGenerateKeyPair(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #1 {
+define i32 @wc_DhGenerateKeyPair(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca [1 x %struct.sp_int], align 16
   %8 = alloca [1 x %struct.sp_int], align 16
   %9 = alloca [1 x %struct.sp_int], align 16
@@ -797,7 +797,7 @@ wc_DhGenerateKeyPair_Sync.exit:                   ; preds = %GeneratePublicDh.ex
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhAgree(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define i32 @wc_DhAgree(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %1, null
   %or.cond = or i1 %8, %9
@@ -918,7 +918,7 @@ define internal fastcc i32 @wc_DhAgree_Sync(ptr noundef nonnull %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_DhAgree_ct(ptr noundef %0, ptr noundef writeonly captures(address) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 {
+define i32 @wc_DhAgree_ct(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %1, null
   %or.cond = or i1 %8, %9
@@ -1234,7 +1234,7 @@ define range(i32 0, 2) i32 @wc_DhCmpNamedKey(i32 noundef %0, i32 noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #7 {
+define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #7 {
   %cond = icmp eq i32 %0, 256
   %spec.select = zext i1 %cond to i32
   %.not = icmp eq ptr %1, null
@@ -1266,7 +1266,7 @@ define noundef i32 @wc_DhGetNamedKeyParamSize(i32 noundef %0, ptr noundef writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @wc_DhCopyNamedKey(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef readnone captures(none) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #8 {
+define noundef i32 @wc_DhCopyNamedKey(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef readnone captures(none) %5, ptr noundef writeonly %6) local_unnamed_addr #8 {
   %cond = icmp eq i32 %0, 256
   br i1 %cond, label %8, label %.thread
 

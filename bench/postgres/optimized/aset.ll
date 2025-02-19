@@ -982,7 +982,7 @@ define dso_local zeroext i1 @AllocSetIsEmpty(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @AllocSetStats(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca [200 x i8], align 16
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %.04454 = load ptr, ptr %7, align 8

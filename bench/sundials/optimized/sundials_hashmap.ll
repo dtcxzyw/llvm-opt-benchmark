@@ -38,7 +38,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define noundef i32 @SUNHashMap_Destroy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -119,7 +119,7 @@ define noundef i32 @SUNHashMap_Destroy(ptr noundef captures(address_is_null) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @SUNHashMap_Iterate(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #3 {
+define i32 @SUNHashMap_Iterate(ptr noundef readonly %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
@@ -159,7 +159,7 @@ define i32 @SUNHashMap_Iterate(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -2, 1) i32 @SUNHashMap_Insert(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @SUNHashMap_Insert(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -259,7 +259,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %27, %SUNHashMap_Ite
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define range(i32 -2, 1) i32 @SUNHashMap_GetValue(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -363,7 +363,7 @@ SUNHashMap_Iterate.exit:                          ; preds = %sunHashMapLinearPro
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 -9999, 1) i32 @SUNHashMap_Sort(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5

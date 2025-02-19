@@ -105,7 +105,7 @@ declare void @lv_obj_invalidate(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @lv_obj_get_parent(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @lv_obj_get_parent(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -120,7 +120,7 @@ define ptr @lv_obj_get_parent(ptr noundef readonly captures(address_is_null) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_obj_get_display(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define ptr @lv_obj_get_display(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -666,7 +666,7 @@ lv_obj_get_child_count.exit33:                    ; preds = %._crit_edge, %30
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 65536) i32 @lv_obj_get_child_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 65536) i32 @lv_obj_get_child_count(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -912,7 +912,7 @@ lv_obj_get_child_count.exit54:                    ; preds = %39, %43
 declare void @lv_obj_allocate_spec_attr(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 65535) i32 @lv_obj_get_index(ptr noundef readonly captures(address) %0) local_unnamed_addr #4 {
+define range(i32 -1, 65535) i32 @lv_obj_get_index(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_obj_get_parent.exit
 
@@ -1230,7 +1230,7 @@ lv_obj_get_index.exit52:                          ; preds = %lv_obj_get_parent.e
 declare void @lv_group_swap_obj(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define nonnull ptr @lv_obj_get_screen(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #4 {
+define nonnull ptr @lv_obj_get_screen(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %.preheader8
 
@@ -1253,7 +1253,7 @@ declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_obj_get_child(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @lv_obj_get_child(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1296,7 +1296,7 @@ define ptr @lv_obj_get_child(ptr noundef readonly captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @lv_obj_get_child_by_type(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #4 {
+define noundef ptr @lv_obj_get_child_by_type(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %4
 
@@ -1385,7 +1385,7 @@ define noundef ptr @lv_obj_get_child_by_type(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @lv_obj_get_sibling(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #4 {
+define ptr @lv_obj_get_sibling(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.preheader.i, label %lv_obj_get_parent.exit.i
 
@@ -1468,7 +1468,7 @@ lv_obj_get_child.exit:                            ; preds = %lv_obj_get_index.ex
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @lv_obj_get_sibling_by_type(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #4 {
+define noundef ptr @lv_obj_get_sibling_by_type(ptr noundef readonly %0, i32 noundef %1, ptr noundef readnone %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_obj_get_parent.exit.i
 
@@ -1582,7 +1582,7 @@ lv_obj_get_child_by_type.exit:                    ; preds = %43, %39, %lv_obj_ge
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_obj_get_index_by_type(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
+define i32 @lv_obj_get_index_by_type(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %lv_obj_get_parent.exit
 
@@ -1637,7 +1637,7 @@ lv_obj_get_parent.exit:                           ; preds = %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @lv_obj_get_child_count_by_type(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
+define i32 @lv_obj_get_child_count_by_type(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -1768,7 +1768,7 @@ lv_obj_get_child.exit:                            ; preds = %lv_obj_get_child_co
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_obj_dump_tree(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @lv_obj_dump_tree(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %13
 

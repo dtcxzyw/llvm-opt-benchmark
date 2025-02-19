@@ -2861,7 +2861,7 @@ _ZN6duckdb10shared_ptrINS_12MetaPipelineELb1EE13AssertNotNullEb.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb12MetaPipeline15GetDependenciesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(280) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZNK6duckdb12MetaPipeline15GetDependenciesEv(ptr noundef nonnull readnone align 8 dereferenceable(280) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   ret ptr %2
 }
@@ -3808,7 +3808,7 @@ define void @_ZN6duckdb18PipelineBuildState15SetPipelineSinkERNS_8PipelineENS_12
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MetaPipeline19AddDependenciesFromERNS_8PipelineERKS1_b(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(224) %2, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(224) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MetaPipeline19AddDependenciesFromERNS_8PipelineERKS1_b(ptr dead_on_unwind noalias writable sret(%"class.duckdb::vector.38") align 8 %0, ptr noundef nonnull align 8 dereferenceable(280) %1, ptr noundef nonnull align 8 dereferenceable(224) %2, ptr noundef nonnull readnone align 8 dereferenceable(224) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::reference_wrapper.196", align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %8 = load ptr, ptr %7, align 8, !tbaa !149
@@ -4032,7 +4032,7 @@ _ZNSt6vectorISt17reference_wrapperIN6duckdb8PipelineEESaIS3_EE9push_backEOS3_.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MetaPipeline24AddRecursiveDependenciesERKNS_6vectorINS_10shared_ptrINS_8PipelineELb1EEELb1EEERKS0_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(280) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MetaPipeline24AddRecursiveDependenciesERKNS_6vectorINS_10shared_ptrINS_8PipelineELb1EEELb1EEERKS0_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %1, ptr noundef nonnull readnone align 8 dereferenceable(280) %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = alloca %"class.std::allocator.272", align 1
@@ -5422,7 +5422,7 @@ _ZN6duckdb6vectorISt17reference_wrapperINS_16PhysicalOperatorEELb1EEC2ERKS4_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb12MetaPipeline19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorES2_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 captures(address) dereferenceable(224) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb12MetaPipeline19CreateChildPipelineERNS_8PipelineERNS_16PhysicalOperatorES2_(ptr noundef nonnull align 8 dereferenceable(280) %0, ptr noundef nonnull align 8 dereferenceable(224) %1, ptr noundef nonnull align 8 dereferenceable(128) %2, ptr noundef nonnull align 8 dereferenceable(224) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.duckdb::shared_ptr", align 8
   %6 = alloca %"class.std::reference_wrapper.196", align 8
   %7 = alloca %"class.duckdb::vector.38", align 8
@@ -13952,7 +13952,7 @@ _ZNK6duckdb6vectorISt17reference_wrapperINS_5EventEELb1EE3getILb1EEERKS3_m.exit:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb5Event22GetParentsVerificationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(113) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK6duckdb5Event22GetParentsVerificationEv(ptr noundef nonnull readnone align 8 dereferenceable(113) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
@@ -20556,7 +20556,7 @@ define noundef nonnull align 8 dereferenceable(648) ptr @_ZN6duckdb8Pipeline16Ge
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6duckdb16PipelineExecutor20SetTaskForInterruptsENS_8weak_ptrINS_4TaskELb1EEE(ptr noundef nonnull align 8 captures(address) dereferenceable(505) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb16PipelineExecutor20SetTaskForInterruptsENS_8weak_ptrINS_4TaskELb1EEE(ptr noundef nonnull align 8 dereferenceable(505) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.duckdb::InterruptState", align 8
   %4 = alloca %"class.duckdb::weak_ptr.343", align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #35

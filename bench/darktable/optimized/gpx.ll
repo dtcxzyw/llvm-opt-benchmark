@@ -256,7 +256,7 @@ declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, pt
 declare void @g_list_free_full(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @dt_gpx_get_location(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5, !prof !28
 
@@ -585,7 +585,7 @@ define void @dt_gpx_geodesic_intermediate_point(double noundef %0, double nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @dt_gpx_get_trkseg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define ptr @dt_gpx_get_trkseg(ptr noundef readonly %0) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -600,7 +600,7 @@ define ptr @dt_gpx_get_trkseg(ptr noundef readonly captures(address_is_null) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_gpx_get_trkpts(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @dt_gpx_get_trkpts(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %4
 

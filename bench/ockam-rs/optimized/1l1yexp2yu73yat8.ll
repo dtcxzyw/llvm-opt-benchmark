@@ -13497,7 +13497,7 @@ define hidden { ptr, i64 } @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h25dd4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(48) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h54a693a6c302e5e5E.llvm.10997783940595946757"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable_or_null(48) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable(48) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h54a693a6c302e5e5E.llvm.10997783940595946757"(ptr noalias noundef readonly returned align 1 dereferenceable_or_null(48) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5
@@ -13511,7 +13511,7 @@ define hidden noundef nonnull align 1 dereferenceable(48) ptr @"_ZN4core6result1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef nonnull align 1 dereferenceable(32) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8554a7a3329d69d3E.llvm.10997783940595946757"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 1 dereferenceable(32) ptr @"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h8554a7a3329d69d3E.llvm.10997783940595946757"(ptr noalias noundef readonly returned align 1 dereferenceable_or_null(32) %0, ptr noalias noundef readonly align 8 dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { {} }, align 1
   %4 = icmp eq ptr %0, null
   br i1 %4, label %6, label %5

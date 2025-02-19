@@ -180,7 +180,7 @@ module asm ".previous\09\09\09\09\09"
 @llvm.compiler.used = appending global [6 x ptr] [ptr @__UNIQUE_ID___addressable_crash_hotplug_init400, ptr @__UNIQUE_ID___addressable_crash_notes_memory_init397, ptr @__UNIQUE_ID___addressable_crash_save_vmcoreinfo_init392, ptr @__UNIQUE_ID___addressable_insert_crashkernel_resources383, ptr @__UNIQUE_ID___addressable_paddr_vmcoreinfo_note390, ptr @__setup_parse_crashkernel_dummy], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define dso_local range(i32 -22, 1) i32 @parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 section ".init.text" align 16 {
+define dso_local range(i32 -22, 1) i32 @parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 section ".init.text" align 16 {
   %7 = tail call fastcc i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null) #18
   %8 = icmp ne ptr %5, null
   %9 = icmp eq i32 %7, -2
@@ -231,7 +231,7 @@ define dso_local range(i32 -22, 1) i32 @parse_crashkernel(ptr noundef %0, i64 no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal fastcc noundef range(i32 -22, 1) i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 section ".init.text" align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__parse_crashkernel(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4) unnamed_addr #0 section ".init.text" align 16 {
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %3, null
   %8 = or i1 %6, %7
@@ -752,7 +752,7 @@ define dso_local noundef range(i32 -12, 1) i32 @crash_exclude_mem_range(ptr noun
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: readwrite)
-define dso_local ptr @append_elf_note(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #10 align 16 {
+define dso_local ptr @append_elf_note(ptr noundef writeonly initializes((0, 12)) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #10 align 16 {
   %6 = tail call i64 @strlen(ptr noundef %1) #19
   %7 = trunc i64 %6 to i32
   %8 = add i32 %7, 1
@@ -1105,7 +1105,7 @@ define internal i32 @crash_hotplug_init() #0 section ".init.text" align 16 {
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree nounwind null_pointer_is_valid optsize memory(read, inaccessiblemem: none)
-define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #14 section ".init.text" align 16 {
+define internal fastcc ptr @get_last_crashkernel(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #14 section ".init.text" align 16 {
   %3 = tail call ptr @strstr(ptr noundef %0, ptr noundef nonnull dereferenceable(1) @.str.9) #19
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit5, label %5

@@ -2920,7 +2920,7 @@ define dso_local void @client_io_handler_abort(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @client_io_handler_send_test_message(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.io_hdr_t, align 4
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 160

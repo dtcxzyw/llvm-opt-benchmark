@@ -626,7 +626,7 @@ BitWriterResize.exit:                             ; preds = %12
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8BitWriterWipeOut(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @VP8BitWriterWipeOut(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -763,7 +763,7 @@ VP8LBitWriterResize.exit:                         ; preds = %22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @VP8LBitWriterWipeOut(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @VP8LBitWriterWipeOut(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

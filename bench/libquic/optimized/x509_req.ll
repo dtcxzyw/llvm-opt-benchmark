@@ -95,7 +95,7 @@ declare void @X509_REQ_free(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_REQ_get_pubkey(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @X509_REQ_get_pubkey(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -118,7 +118,7 @@ define hidden ptr @X509_REQ_get_pubkey(ptr noundef readonly captures(address_is_
 declare ptr @X509_PUBKEY_get(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_REQ_check_private_key(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_REQ_check_private_key(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %X509_REQ_get_pubkey.exit, label %4
 
@@ -220,7 +220,7 @@ define hidden void @X509_REQ_set_extension_nids(ptr noundef %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @X509_REQ_get_extensions(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #7
   %3 = icmp eq ptr %0, null

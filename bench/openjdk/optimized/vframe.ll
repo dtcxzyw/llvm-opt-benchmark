@@ -828,7 +828,7 @@ _ZNK11MonitorInfo5ownerEv.exit.thread:            ; preds = %48, %54, %_ZNK11Mon
 declare noundef ptr @_ZNK13ObjectMonitor6objectEv(ptr noundef nonnull align 8 dereferenceable(200)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN10javaVFrame30print_locked_object_class_nameEP12outputStream6HandlePKc(ptr noundef %0, ptr readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN10javaVFrame30print_locked_object_class_nameEP12outputStream6HandlePKc(ptr noundef %0, ptr readonly %1, ptr noundef %2) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %26, label %_ZNK6HandleclEv.exit
 
@@ -2275,7 +2275,7 @@ declare void @_ZN6Method8mask_forEiP17InterpreterOopMap(ptr noundef nonnull alig
 declare void @_ZN17InterpreterOopMapD1Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZNK17interpretedVFrame10set_localsEP20StackValueCollection(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define hidden void @_ZNK17interpretedVFrame10set_localsEP20StackValueCollection(ptr noundef nonnull align 8 dereferenceable(5064) %0, ptr noundef readonly %1) unnamed_addr #0 align 2 {
   %3 = alloca %class.frame, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5

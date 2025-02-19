@@ -132,7 +132,7 @@ search_list_edges.exit:                           ; preds = %7, %8, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local i32 @qos_graph_edge_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local i32 @qos_graph_edge_get_type(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -146,7 +146,7 @@ define dso_local i32 @qos_graph_edge_get_type(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_dest(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_dest(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -161,7 +161,7 @@ define dso_local ptr @qos_graph_edge_get_dest(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_arg(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_arg(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -176,7 +176,7 @@ define dso_local ptr @qos_graph_edge_get_arg(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_after_cmd_line(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_after_cmd_line(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -191,7 +191,7 @@ define dso_local ptr @qos_graph_edge_get_after_cmd_line(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_before_cmd_line(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_before_cmd_line(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -206,7 +206,7 @@ define dso_local ptr @qos_graph_edge_get_before_cmd_line(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_extra_device_opts(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_extra_device_opts(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -221,7 +221,7 @@ define dso_local ptr @qos_graph_edge_get_extra_device_opts(ptr noundef readonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: read) uwtable
-define dso_local ptr @qos_graph_edge_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local ptr @qos_graph_edge_get_name(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -706,7 +706,7 @@ define dso_local void @qos_edge_destroy(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qos_add_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local void @qos_add_test(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.QOSGraphTestOptions, align 8
   %6 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.1, ptr noundef %1, ptr noundef %0) #12
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #12
@@ -786,7 +786,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @add_edge(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @add_edge(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 0, 3) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = load ptr, ptr @edge_table, align 8
   %6 = tail call ptr @g_hash_table_lookup(ptr noundef %5, ptr noundef %0) #12
   %.not = icmp eq ptr %6, null
@@ -1046,7 +1046,7 @@ build_driver_cmd_line.exit:                       ; preds = %create_node.exit, %
 declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qos_node_contains(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ...) local_unnamed_addr #0 {
+define dso_local void @qos_node_contains(ptr noundef %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
   %5 = icmp eq ptr %2, null
@@ -1158,7 +1158,7 @@ create_node.exit:                                 ; preds = %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qos_node_consumes(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @qos_node_consumes(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @create_interface(ptr noundef %1)
   tail call fastcc void @add_edge(ptr noundef %1, ptr noundef %0, i32 noundef 2, ptr noundef %2)
   ret void
@@ -1382,7 +1382,7 @@ define dso_local void @qos_object_start_hw(ptr noundef %0) local_unnamed_addr #0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef nonnull ptr @qos_get_machine_type(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @qos_get_machine_type(ptr noundef readonly %0) local_unnamed_addr #0 {
   br label %2
 
 2:                                                ; preds = %4, %1

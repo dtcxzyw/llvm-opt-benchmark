@@ -824,7 +824,7 @@ define i32 @LSRKStepSetNumSSPStages(ptr noundef %0, i32 noundef %1) local_unname
 declare i32 @lsrkStep_TakeStepSSP43(ptr noundef, ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @LSRKStepGetNumDomEigUpdates(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @LSRKStepGetNumDomEigUpdates(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
@@ -857,7 +857,7 @@ define i32 @LSRKStepGetNumDomEigUpdates(ptr noundef %0, ptr noundef writeonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @LSRKStepGetMaxNumStages(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @LSRKStepGetMaxNumStages(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #8
@@ -1188,7 +1188,7 @@ define i32 @lsrkStep_WriteParameters(ptr noundef %0, ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lsrkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @lsrkStep_GetNumRhsEvals(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8
   store ptr null, ptr %4, align 8, !tbaa !19

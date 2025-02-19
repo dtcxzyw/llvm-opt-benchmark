@@ -552,7 +552,7 @@ define dso_local noundef range(i32 -22, 2) i32 @snd_pcm_lib_malloc_pages(ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_lib_free_pages(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_lib_free_pages(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %38, label %3
 
@@ -703,7 +703,7 @@ define internal fastcc i32 @do_alloc_pages(ptr noundef %0, i32 noundef %1, ptr n
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 2) i32 @_snd_pcm_lib_alloc_vmalloc_buffer(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
+define dso_local noundef range(i32 -22, 2) i32 @_snd_pcm_lib_alloc_vmalloc_buffer(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %23, label %5
 
@@ -752,7 +752,7 @@ declare dso_local void @vfree(ptr noundef) local_unnamed_addr #3
 declare dso_local noalias ptr @__vmalloc(i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_lib_free_vmalloc_buffer(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_pcm_lib_free_vmalloc_buffer(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 

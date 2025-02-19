@@ -786,7 +786,7 @@ declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #1
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.x509_revoked_st, align 8
   %6 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #11

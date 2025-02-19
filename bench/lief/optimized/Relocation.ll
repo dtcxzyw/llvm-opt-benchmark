@@ -107,7 +107,7 @@ define void @_ZN4LIEF5MachO10RelocationC2Emh(ptr noundef nonnull align 8 derefer
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF5MachO10RelocationaSERKS1_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(56) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(56) %1) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN4LIEF5MachO10RelocationaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(56) %0, ptr noundef nonnull readonly align 8 dereferenceable(56) %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, %0
   br i1 %.not, label %16, label %3
 

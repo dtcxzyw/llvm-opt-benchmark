@@ -94,7 +94,7 @@ define range(i64 0, 2) i64 @csc_is_eq(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @csc_cumsum(ptr noundef writeonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
+define i64 @csc_cumsum(ptr noundef writeonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -208,7 +208,7 @@ csc_spfree.exit:                                  ; preds = %18, %28, %29
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @csc_spfree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #4 {
+define void @csc_spfree(ptr noundef %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -421,7 +421,7 @@ define noalias noundef ptr @csc_submatrix_byrows(ptr noundef readonly captures(n
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define noalias noundef ptr @triplet_to_csc(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !3
@@ -607,7 +607,7 @@ csc_done.exit:                                    ; preds = %csc_done.exit.sink.
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef ptr @csc_done(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
+define noundef ptr @csc_done(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3) local_unnamed_addr #4 {
   tail call void @free(ptr noundef %1) #17
   tail call void @free(ptr noundef %2) #17
   %.not = icmp eq i64 %3, 0
@@ -657,7 +657,7 @@ csc_spfree.exit:                                  ; preds = %18, %5, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define noalias noundef ptr @triplet_to_csr(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %3 = load i64, ptr %0, align 8, !tbaa !21
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !3
@@ -901,7 +901,7 @@ define void @csc_extract_diag(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: read, inaccessiblemem: readwrite) uwtable
-define noalias noundef ptr @csc_pinv(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #9 {
+define noalias noundef ptr @csc_pinv(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -931,7 +931,7 @@ define noalias noundef ptr @csc_pinv(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #6 {
+define noalias noundef ptr @csc_symperm(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #6 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i64, ptr %5, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16

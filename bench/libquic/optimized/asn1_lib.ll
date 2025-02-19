@@ -596,7 +596,7 @@ define hidden range(i32 0, 2) i32 @asn1_GetSequence(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %16, label %4
 
@@ -625,7 +625,7 @@ define hidden range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define hidden range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %10
 
@@ -706,7 +706,7 @@ define hidden range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @ASN1_STRING_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden noalias noundef ptr @ASN1_STRING_dup(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %2
 
@@ -789,7 +789,7 @@ ASN1_STRING_type_new.exit:                        ; preds = %3, %4
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define hidden void @ASN1_STRING_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define hidden void @ASN1_STRING_free(ptr noundef %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 

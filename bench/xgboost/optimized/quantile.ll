@@ -10610,7 +10610,7 @@ _ZN4dmlc12OMPExceptionD2Ev.exit:                  ; preds = %42, %.body, %38
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef float @_ZN7xgboost6common13AddCategoriesERKSt3setIfSt4lessIfESaIfEEPNS0_13HistogramCutsE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define noundef float @_ZN7xgboost6common13AddCategoriesERKSt3setIfSt4lessIfESaIfEEPNS0_13HistogramCutsE(ptr noundef nonnull readonly align 8 dereferenceable(48) %0, ptr noundef %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

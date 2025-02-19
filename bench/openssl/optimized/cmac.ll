@@ -492,7 +492,7 @@ define range(i32 0, 2) i32 @CMAC_Update(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @CMAC_Final(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %6 = icmp eq i32 %5, -1

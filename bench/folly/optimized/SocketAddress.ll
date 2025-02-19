@@ -439,7 +439,7 @@ _ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo.exit: ; preds = %._crit_e
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly13SocketAddress16setFromLocalAddrEPK8addrinfo(ptr noundef nonnull align 8 captures(none) dereferenceable(27) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %.not14 = icmp eq ptr %1, null
   br i1 %.not14, label %._crit_edge, label %.lr.ph
 
@@ -894,7 +894,7 @@ define noundef range(i32 -1, 65536) i32 @_ZN5folly13SocketAddress11getPortFromEP
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef ptr @_ZN5folly13SocketAddress17getFamilyNameFromEPK8sockaddrPKc(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #13 align 2 {
+define noundef ptr @_ZN5folly13SocketAddress17getFamilyNameFromEPK8sockaddrPKc(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #13 align 2 {
   %3 = load i16, ptr %0, align 2, !tbaa !56
   switch i16 %3, label %7 [
     i16 2, label %8
@@ -1399,7 +1399,7 @@ define void @_ZN5folly13SocketAddress23updateUnixAddressLengthEj(ptr noundef non
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #15
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 4 dereferenceable(22) ptr @_ZNK5folly13SocketAddress12getIPAddressEv(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(27) %0) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 4 dereferenceable(22) ptr @_ZNK5folly13SocketAddress12getIPAddressEv(ptr noundef nonnull readonly returned align 8 dereferenceable(27) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %3 = load i8, ptr %2, align 2, !tbaa !7, !range !13, !noundef !14
   %4 = trunc nuw i8 %3 to i1

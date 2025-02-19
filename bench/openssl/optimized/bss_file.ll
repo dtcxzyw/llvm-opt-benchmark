@@ -125,7 +125,7 @@ declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #7 {
+define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !7
   %6 = icmp ne i32 %5, 0
@@ -151,7 +151,7 @@ define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, 
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !7
   %6 = icmp ne i32 %5, 0
@@ -445,7 +445,7 @@ define internal noundef i32 @file_new(ptr noundef writeonly captures(none) initi
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @file_free(ptr noundef captures(address_is_null) %0) #7 {
+define internal range(i32 0, 2) i32 @file_free(ptr noundef %0) #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 

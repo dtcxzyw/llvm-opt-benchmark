@@ -300,7 +300,7 @@ define dso_local noundef range(i32 -17, 1) i32 @arch_check_optimized_kprobe(ptr 
 declare dso_local zeroext i1 @kprobe_disarmed(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2) i32 @arch_within_optimized_kprobe(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 align 16 {
+define dso_local range(i32 0, 2) i32 @arch_within_optimized_kprobe(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = icmp ugt ptr %4, %1
@@ -617,7 +617,7 @@ declare dso_local ptr @text_poke(ptr noundef, ptr noundef, i64 noundef) local_un
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @arch_optimize_kprobes(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @arch_optimize_kprobes(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = alloca [5 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %2) #10
   %3 = load ptr, ptr %0, align 8
@@ -715,7 +715,7 @@ define dso_local void @arch_unoptimize_kprobe(ptr noundef readonly captures(none
 declare dso_local void @text_poke_sync() local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @arch_unoptimize_kprobes(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @arch_unoptimize_kprobes(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca [5 x i8], align 1
   %4 = alloca [5 x i8], align 1
   %5 = load ptr, ptr %0, align 8

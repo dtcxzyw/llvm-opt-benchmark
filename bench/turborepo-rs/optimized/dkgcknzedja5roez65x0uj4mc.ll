@@ -434,12 +434,12 @@ define void @_RNvXs0_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMapI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_RNvXs1_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMapNtNtNtCs1LoaDTb72WA_4core3ops5deref5Deref5deref(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_RNvXs1_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMapNtNtNtCs1LoaDTb72WA_4core3ops5deref5Deref5deref(ptr noalias noundef readonly returned align 8 dereferenceable(48) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(48) ptr @_RNvXs2_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMapNtNtNtCs1LoaDTb72WA_4core3ops5deref8DerefMut9deref_mut(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(48) ptr @_RNvXs2_Csff1zCjKRl2o_13turborepo_envNtB5_22EnvironmentVariableMapNtNtNtCs1LoaDTb72WA_4core3ops5deref8DerefMut9deref_mut(ptr noalias noundef readnone returned align 8 dereferenceable(48) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

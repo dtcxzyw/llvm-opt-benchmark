@@ -42,7 +42,7 @@ define hidden void @RotatingTree_Add(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @RotatingTree_Get(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
+define hidden ptr @RotatingTree_Get(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = cmpxchg ptr @random_mutex, i8 0, i8 1 seq_cst seq_cst, align 1
   %4 = extractvalue { i8, i1 } %3, 1
   br i1 %4, label %_PyMutex_Lock.exit.i, label %5

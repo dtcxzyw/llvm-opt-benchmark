@@ -88,7 +88,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Saig_ManBmcTerSimCount01(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #5 {
+define i32 @Saig_ManBmcTerSimCount01(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr i8, ptr %0, i64 104
   %.val = load i32, ptr %4, align 8, !tbaa !3
@@ -154,7 +154,7 @@ define i32 @Saig_ManBmcTerSimCount01(ptr noundef readonly captures(none) %0, ptr
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @Saig_ManBmcTerSimOne(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define noalias noundef ptr @Saig_ManBmcTerSimOne(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr i8, ptr %0, i64 32
   %.val90 = load ptr, ptr %3, align 8, !tbaa !31
   %4 = getelementptr i8, ptr %.val90, i64 4

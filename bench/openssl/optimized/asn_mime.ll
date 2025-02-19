@@ -675,7 +675,7 @@ define range(i32 0, 2) i32 @SMIME_write_ASN1(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @SMIME_read_ASN1_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define ptr @SMIME_read_ASN1_ex(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [1024 x i8], align 16
   %9 = alloca %struct.mime_param_st, align 8
   %10 = alloca %struct.mime_header_st, align 8
@@ -1823,7 +1823,7 @@ define internal fastcc ptr @b64_read_asn1(ptr noundef %0, ptr noundef %1, ptr no
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @SMIME_read_ASN1(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @SMIME_read_ASN1(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @SMIME_read_ASN1_ex(ptr noundef %0, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, ptr noundef null)
   ret ptr %4
 }

@@ -35,7 +35,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [35 x i8] c"Error Loading LoAL at line: %i, %s\00", align 1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dbg_print(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ...) local_unnamed_addr #0 {
+define hidden void @dbg_print(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ...) local_unnamed_addr #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #13
   %.not = icmp eq ptr %0, null
@@ -1088,7 +1088,7 @@ get_next_avp.exit:                                ; preds = %.split, %36
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @match_avp(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
+define hidden ptr @match_avp(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8
   %4 = load ptr, ptr %1, align 8
   %.not = icmp eq ptr %3, %4
@@ -1629,7 +1629,7 @@ define hidden void @delete_avpl_transform(ptr noundef %0) local_unnamed_addr #0 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @avpl_transform(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden void @avpl_transform(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not48 = icmp eq ptr %1, null
   br i1 %.not48, label %.loopexit, label %.lr.ph
 
@@ -2450,7 +2450,7 @@ declare noalias ptr @g_malloc(i64 noundef) local_unnamed_addr #5
 declare i32 @getuid() local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @load_loal_error(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ...) unnamed_addr #0 {
+define internal noundef ptr @load_loal_error(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4, ...) unnamed_addr #0 {
   %6 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #13
   call void @llvm.va_start.p0(ptr nonnull %6)

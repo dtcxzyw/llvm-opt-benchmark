@@ -3601,7 +3601,7 @@ declare i32 @pthread_attr_init(ptr noundef) local_unnamed_addr #5
 declare i32 @pthread_attr_setdetachstate(ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @reload_th(ptr noundef captures(address_is_null) %0) #0 {
+define internal noalias noundef ptr @reload_th(ptr noundef %0) #0 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #15
   store i32 0, ptr %2, align 4, !tbaa !4

@@ -1624,7 +1624,7 @@ define hidden noundef i64 @_ZNK8CodeHeap25heap_unallocated_capacityEv(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_ZN8CodeHeap15following_blockEP9FreeBlock(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #9 align 2 {
+define hidden noundef ptr @_ZN8CodeHeap15following_blockEP9FreeBlock(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(336) %0, ptr noundef readonly %1) local_unnamed_addr #9 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %4 = load i64, ptr %3, align 8
   %5 = load i32, ptr %1, align 8

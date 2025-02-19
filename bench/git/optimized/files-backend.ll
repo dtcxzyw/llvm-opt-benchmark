@@ -177,7 +177,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.145 = private unnamed_addr constant [28 x i8] c"failed to iterate over '%s'\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @parse_loose_ref_contents(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_loose_ref_contents(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4, ptr noundef writeonly %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #18
   %scevgep = getelementptr i8, ptr %1, i64 4

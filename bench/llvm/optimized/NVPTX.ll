@@ -145,7 +145,7 @@ $_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12Allo
 @.str.8 = private unnamed_addr constant [15 x i8] c"texsurf_handle\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen13CodeGenModule26handleCUDALaunchBoundsAttrEPN4llvm8FunctionEPKNS_20CUDALaunchBoundsAttrEPiS8_S8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen13CodeGenModule26handleCUDALaunchBoundsAttrEPN4llvm8FunctionEPKNS_20CUDALaunchBoundsAttrEPiS8_S8_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3608) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 align 2 {
 _ZN4llvm5APIntD2Ev.exit:
   %6 = alloca %"class.llvm::APSInt", align 8
   %7 = alloca %"class.llvm::APSInt", align 8

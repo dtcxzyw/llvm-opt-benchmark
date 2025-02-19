@@ -1065,12 +1065,12 @@ declare i32 @g_direct_hash(ptr noundef) #5
 declare i32 @g_direct_equal(ptr noundef, ptr noundef) #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @udpcp_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #6 {
+define internal noundef ptr @udpcp_temporary_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned %2) #6 {
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal noundef ptr @udpcp_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned captures(ret: address, provenance) %2) #6 {
+define internal noundef ptr @udpcp_persistent_key(ptr readnone captures(none) %0, i32 %1, ptr noundef readnone returned %2) #6 {
   ret ptr %2
 }
 

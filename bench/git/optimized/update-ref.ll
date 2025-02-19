@@ -752,7 +752,7 @@ declare i32 @ref_transaction_abort(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_update(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #0 {
+define internal void @parse_cmd_update(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.object_id, align 4
@@ -823,7 +823,7 @@ define internal void @parse_cmd_update(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_create(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #0 {
+define internal void @parse_cmd_create(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.object_id, align 4
@@ -897,7 +897,7 @@ define internal void @parse_cmd_create(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_delete(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #0 {
+define internal void @parse_cmd_delete(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.object_id, align 4
@@ -966,7 +966,7 @@ define internal void @parse_cmd_delete(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @parse_cmd_verify(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) #0 {
+define internal void @parse_cmd_verify(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.object_id, align 4
@@ -1704,7 +1704,7 @@ define internal fastcc ptr @parse_refname(ptr noundef nonnull captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr noundef nonnull captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @parse_next_oid(ptr noundef nonnull captures(none) %0, ptr noundef readnone %1, ptr noundef nonnull %2, ptr noundef %3, ptr noundef nonnull %4, i32 noundef range(i32 0, 3) %5) unnamed_addr #0 {
   %7 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #11
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %7, ptr noundef nonnull align 8 dereferenceable(24) @__const.parse_cmd_commit.error, i64 24, i1 false)

@@ -1931,7 +1931,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_758Collator14setMaxVariableE15UColReorderCodeR10UErrorCode(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %this, i32 %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_758Collator14setMaxVariableE15UColReorderCodeR10UErrorCode(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %this, i32 %0, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %errorCode) unnamed_addr #7 align 2 {
 entry:
   %1 = load i32, ptr %errorCode, align 4
   %cmp.i = icmp sgt i32 %1, 0

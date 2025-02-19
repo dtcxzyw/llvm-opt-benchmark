@@ -18,7 +18,7 @@ define hidden void @VP8FiltersInitSSE2() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 1)) %2, i32 noundef %3) #1 {
+define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 1)) %2, i32 noundef %3) #1 {
   %5 = load i8, ptr %1, align 1, !tbaa !7
   %6 = icmp eq ptr %0, null
   br i1 %6, label %9, label %7
@@ -105,7 +105,7 @@ define internal void @HorizontalUnfilter_SSE2(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @VerticalUnfilter_SSE2(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) #1 {
+define internal void @VerticalUnfilter_SSE2(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) #1 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %38
 
@@ -243,7 +243,7 @@ HorizontalUnfilter_SSE2.exit:                     ; preds = %.lr.ph38, %.lr.ph42
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @GradientUnfilter_SSE2(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 1)) %2, i32 noundef %3) #1 {
+define internal void @GradientUnfilter_SSE2(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 1)) %2, i32 noundef %3) #1 {
   %5 = icmp eq ptr %0, null
   %6 = load i8, ptr %1, align 1, !tbaa !7
   br i1 %5, label %7, label %38

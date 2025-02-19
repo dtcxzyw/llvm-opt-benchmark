@@ -20618,7 +20618,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairINS_11AssertingVHINS_11InstructionEEENS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19computeLiveInValuesRN4llvm13DominatorTreeERNS_8FunctionERN12_GLOBAL__N_117GCPtrLivenessDataEPNS_10GCStrategyE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %2) unnamed_addr #1 {
+define internal fastcc void @_ZL19computeLiveInValuesRN4llvm13DominatorTreeERNS_8FunctionERN12_GLOBAL__N_117GCPtrLivenessDataEPNS_10GCStrategyE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %"struct.std::pair.434", align 8
@@ -23293,7 +23293,7 @@ _ZN4llvm9SetVectorIPNS_10BasicBlockENS_11SmallVectorIS2_Lj32EEENS_8DenseSetIS2_N
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_117GCPtrLivenessDataD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %0) unnamed_addr #2 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_117GCPtrLivenessDataD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(160) %0) unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load ptr, ptr %3, align 8, !tbaa !25
@@ -23631,7 +23631,7 @@ _ZN4llvm9SetVectorIPNS_5ValueENS_11SmallVectorIS2_Lj0EEENS_8DenseSetIS2_NS_12Den
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL19computeLiveInValuesN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb1ELb0EEES6_RNS_9SetVectorIPNS_5ValueENS_11SmallVectorIS9_Lj0EEENS_8DenseSetIS9_NS_12DenseMapInfoIS9_vEEEELj0EEEPNS_10GCStrategyE(ptr %0, ptr readnone captures(address) %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3) unnamed_addr #1 {
+define internal fastcc void @_ZL19computeLiveInValuesN4llvm21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsINS_11InstructionELb0ELb0EvLb1ENS_10BasicBlockEEELb1ELb0EEES6_RNS_9SetVectorIPNS_5ValueENS_11SmallVectorIS9_Lj0EEENS_8DenseSetIS9_NS_12DenseMapInfoIS9_vEEEELj0EEEPNS_10GCStrategyE(ptr %0, ptr readnone %1, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %.not5665 = icmp eq ptr %0, %1
   br i1 %.not5665, label %._crit_edge, label %.lr.ph67
@@ -26751,7 +26751,7 @@ declare noundef ptr @_ZN4llvm5Value24getUniqueUndroppableUserEv(ptr noundef nonn
 declare noundef i32 @_ZNK4llvm5Value10getNumUsesEv(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL18rematerializeChainN4llvm8ArrayRefIPNS_11InstructionEEENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS1_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPNS_5ValueESB_(ptr readonly captures(address) %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
+define internal fastcc noundef ptr @_ZL18rematerializeChainN4llvm8ArrayRefIPNS_11InstructionEEENS_21ilist_iterator_w_bitsINS_12ilist_detail12node_optionsIS1_Lb0ELb0EvLb1ENS_10BasicBlockEEELb0ELb0EEEPNS_5ValueESB_(ptr readonly %0, i64 %1, ptr %2, i64 %3, ptr noundef %4, ptr noundef %5) unnamed_addr #1 {
   %7 = alloca %"class.llvm::Twine", align 8
   %.not3435 = icmp eq i64 %1, 0
   br i1 %.not3435, label %._crit_edge, label %.lr.ph
@@ -28874,7 +28874,7 @@ _ZNK4llvm8CallBase20getNumOperandBundlesEv.exit.i: ; preds = %8, %_ZNK4llvm8Call
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL22insertRelocationStoresN4llvm14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEERNS_8DenseMapIPS1_PNS_10AllocaInstENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_S9_EEEERNS_8DenseSetIS7_SB_EE(ptr readonly captures(address) %0, ptr readnone captures(address) %1, ptr noundef nonnull align 8 dereferenceable(20) %2) unnamed_addr #1 {
+define internal fastcc void @_ZL22insertRelocationStoresN4llvm14iterator_rangeINS_5Value18user_iterator_implINS_4UserEEEEERNS_8DenseMapIPS1_PNS_10AllocaInstENS_12DenseMapInfoIS7_vEENS_6detail12DenseMapPairIS7_S9_EEEERNS_8DenseSetIS7_SB_EE(ptr readonly %0, ptr readnone %1, ptr noundef nonnull align 8 dereferenceable(20) %2) unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %.not9 = icmp eq ptr %0, %1
   br i1 %.not9, label %._crit_edge, label %.lr.ph

@@ -196,7 +196,7 @@ define internal i32 @b64_write(ptr noundef %0, ptr noundef %1, i32 noundef %2) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal i32 @b64_read(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #11
   %5 = icmp eq ptr %1, null
@@ -866,7 +866,7 @@ define internal range(i32 0, 2) i32 @b64_new(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal range(i32 0, 2) i32 @b64_free(ptr noundef captures(address_is_null) %0) #3 {
+define internal range(i32 0, 2) i32 @b64_free(ptr noundef %0) #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 

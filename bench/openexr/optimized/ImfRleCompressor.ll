@@ -179,7 +179,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_213RleCompressor8compressEPKciiRS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly captures(address) %inPtr, i32 noundef %inSize, i32 %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7Imf_3_213RleCompressor8compressEPKciiRS2_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly %inPtr, i32 noundef %inSize, i32 %minY, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %outPtr) unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq i32 %inSize, 0
   br i1 %cmp, label %if.then, label %if.end

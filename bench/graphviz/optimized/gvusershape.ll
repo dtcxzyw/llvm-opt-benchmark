@@ -175,7 +175,7 @@ define void @gvusershape_file_release(ptr noundef captures(none) %0) local_unnam
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @gvusershape_size_dpi(ptr noundef readonly captures(address_is_null) %0, double %1, double %2) local_unnamed_addr #7 {
+define i64 @gvusershape_size_dpi(ptr noundef readonly %0, double %1, double %2) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %22, label %4
 

@@ -722,7 +722,7 @@ _ZN4absl12lts_2023080217internal_statusor12StatusOrDataIN9grpc_core3URIEED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN9grpc_core11RetryFilter14GetRetryPolicyEPK25grpc_call_context_element(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly captures(address_is_null) %context) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN9grpc_core11RetryFilter14GetRetryPolicyEPK25grpc_call_context_element(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %this, ptr noundef readonly %context) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %context, null
   br i1 %cmp, label %return, label %if.end

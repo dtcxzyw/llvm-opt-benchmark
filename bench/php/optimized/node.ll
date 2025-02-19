@@ -188,7 +188,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 declare void @zend_str_toupper(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef zeroext i1 @php_dom_is_node_connected(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define hidden noundef zeroext i1 @php_dom_is_node_connected(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   br label %3
@@ -7719,7 +7719,7 @@ declare ptr @xmlAllocOutputBuffer(ptr noundef) local_unnamed_addr #4
 declare i32 @xmlC14NExecute(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @dom_canonicalize_node_parent_lookup_cb(ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(address) %2) #8 {
+define internal range(i32 0, 2) i32 @dom_canonicalize_node_parent_lookup_cb(ptr noundef readnone %0, ptr noundef readnone %1, ptr noundef readonly %2) #8 {
   %4 = icmp eq ptr %1, %0
   br i1 %4, label %.loopexit, label %.preheader
 

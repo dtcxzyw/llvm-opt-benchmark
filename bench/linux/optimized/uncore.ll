@@ -3428,7 +3428,7 @@ define internal i32 @uncore_pci_probe(ptr noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @uncore_pci_remove(ptr noundef captures(address) %0) #0 align 16 {
+define internal void @uncore_pci_remove(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8
   tail call void @_raw_spin_lock(ptr noundef nonnull @pci2phy_map_lock) #19
@@ -3735,7 +3735,7 @@ define internal range(i64 -2147483648, 2147483648) i64 @uncore_get_attr_cpumask(
 declare dso_local i32 @bitmap_print_to_pagebuf(i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #16 align 16 {
+define internal fastcc ptr @uncore_pci_find_dev_pmu(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #16 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %4
 
@@ -4952,7 +4952,7 @@ define internal noundef range(i32 0, 2) i32 @uncore_pci_bus_notify(ptr readnone 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address) %2) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 0, 2) i32 @uncore_bus_notify(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 align 16 {
   %4 = icmp eq i64 %0, 1
   br i1 %4, label %5, label %62
 

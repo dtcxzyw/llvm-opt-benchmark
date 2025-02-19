@@ -2884,7 +2884,7 @@ _ZNSt8optionalIN4Luau18FunctionDefinitionEED2Ev.exit: ; preds = %_ZNSt6vectorIPK
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @_ZN4Luau13Instantiation5cleanEPKNS_11TypePackVarE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) unnamed_addr #4 align 2 {
+define dso_local noundef ptr @_ZN4Luau13Instantiation5cleanEPKNS_11TypePackVarE(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone returned %1) unnamed_addr #4 align 2 {
   ret ptr %1
 }
 

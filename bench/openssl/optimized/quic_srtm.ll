@@ -669,7 +669,7 @@ srtm_remove_from_rev.exit28:                      ; preds = %45, %srtm_check_lh.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_srtm_lookup(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca %struct.srtm_item_st, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #9

@@ -149,7 +149,7 @@ readBytes.exit:                                   ; preds = %1, %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @inStream_readBytes(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef returned writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #6 {
+define hidden noundef ptr @inStream_readBytes(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef returned writeonly %2) local_unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i16, ptr %4, align 4
   %.not.i = icmp eq i16 %5, 0

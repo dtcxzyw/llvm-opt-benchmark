@@ -401,7 +401,7 @@ WebPInitConvertARGBToYUV_body.exit:               ; preds = %12, %9, %5, %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToRgbRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(address) %3, i32 noundef %4) #2 {
+define internal void @YuvToRgbRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly %3, i32 noundef %4) #2 {
   %6 = and i32 %4, -2
   %7 = mul nsw i32 %6, 3
   %8 = sext i32 %7 to i64
@@ -565,7 +565,7 @@ define internal void @YuvToRgbRow(ptr noalias noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToRgbaRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(address) %3, i32 noundef %4) #2 {
+define internal void @YuvToRgbaRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 2
   %7 = and i32 %6, -8
   %8 = sext i32 %7 to i64
@@ -735,7 +735,7 @@ define internal void @YuvToRgbaRow(ptr noalias noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToBgrRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(address) %3, i32 noundef %4) #2 {
+define internal void @YuvToBgrRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly %3, i32 noundef %4) #2 {
   %6 = and i32 %4, -2
   %7 = mul nsw i32 %6, 3
   %8 = sext i32 %7 to i64
@@ -899,7 +899,7 @@ define internal void @YuvToBgrRow(ptr noalias noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToBgraRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(address) %3, i32 noundef %4) #2 {
+define internal void @YuvToBgraRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 2
   %7 = and i32 %6, -8
   %8 = sext i32 %7 to i64
@@ -1069,7 +1069,7 @@ define internal void @YuvToBgraRow(ptr noalias noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToArgbRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(address) %3, i32 noundef %4) #2 {
+define internal void @YuvToArgbRow(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 2
   %7 = and i32 %6, -8
   %8 = sext i32 %7 to i64
@@ -1239,7 +1239,7 @@ define internal void @YuvToArgbRow(ptr noalias noundef readonly captures(none) %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToRgba4444Row(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(address) %3, i32 noundef %4) #2 {
+define internal void @YuvToRgba4444Row(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 1
   %7 = and i32 %6, -4
   %8 = sext i32 %7 to i64
@@ -1403,7 +1403,7 @@ define internal void @YuvToRgba4444Row(ptr noalias noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @YuvToRgb565Row(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly captures(address) %3, i32 noundef %4) #2 {
+define internal void @YuvToRgb565Row(ptr noalias noundef readonly captures(none) %0, ptr noalias noundef readonly captures(none) %1, ptr noalias noundef readonly captures(none) %2, ptr noalias noundef writeonly %3, i32 noundef %4) #2 {
   %6 = shl i32 %4, 1
   %7 = and i32 %6, -4
   %8 = sext i32 %7 to i64

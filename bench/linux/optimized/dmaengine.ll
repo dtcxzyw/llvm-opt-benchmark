@@ -651,7 +651,7 @@ define dso_local ptr @dma_get_any_slave_channel(ptr noundef %0) #1 align 16 {
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @find_candidate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #1 align 16 {
+define internal fastcc ptr @find_candidate(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #1 align 16 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %14, label %6
 
@@ -790,7 +790,7 @@ define internal fastcc ptr @find_candidate(ptr noundef %0, ptr noundef readonly 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__dma_request_channel(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef readnone captures(address) %3) #1 align 16 {
+define dso_local ptr @__dma_request_channel(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readnone %3) #1 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @dma_list_mutex) #12
   %5 = load ptr, ptr @dma_device_list, align 8
   %6 = icmp eq ptr %5, @dma_device_list
@@ -1039,7 +1039,7 @@ declare dso_local i32 @sysfs_create_link(ptr noundef, ptr noundef, ptr noundef) 
 declare dso_local void @_dev_warn(ptr noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @dma_request_chan_by_mask(ptr noundef captures(address_is_null) %0) #1 align 16 {
+define dso_local ptr @dma_request_chan_by_mask(ptr noundef %0) #1 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -2707,7 +2707,7 @@ define dso_local i32 @dmaengine_desc_set_metadata_len(ptr noundef %0, i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 2, 1) i32 @dma_wait_for_async_tx(ptr noundef readonly captures(address_is_null) %0) #1 align 16 {
+define dso_local range(i32 2, 1) i32 @dma_wait_for_async_tx(ptr noundef readonly %0) #1 align 16 {
   %2 = alloca %struct.dma_tx_state, align 4
   %3 = load volatile i64, ptr @jiffies, align 64
   %4 = icmp eq ptr %0, null

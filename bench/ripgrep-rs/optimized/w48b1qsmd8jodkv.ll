@@ -3326,7 +3326,7 @@ _ZN6ignore8pathutil9is_hidden17h5acc531578d28e6bE.llvm.5691774266493119662.exit:
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN6ignore3dir6Ignore14matched_ignore17h894e173dbac2a9c1E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(address) dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
+define hidden void @_ZN6ignore3dir6Ignore14matched_ignore17h894e173dbac2a9c1E(ptr noalias noundef writeonly sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 dereferenceable(8) %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, i1 noundef zeroext %4) unnamed_addr #1 personality ptr @rust_eh_personality {
   %6 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %7 = alloca { i64, [2 x i64] }, align 8
   %8 = alloca { i64, [2 x i64] }, align 8
@@ -4107,7 +4107,7 @@ _ZN6ignore9gitignore9Gitignore7matched17h504d5d77e3b87c11E.exit233: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @_ZN6ignore3dir6Ignore7parents17ha24205b7fa35942aE(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable_or_null(8) ptr @_ZN6ignore3dir6Ignore7parents17ha24205b7fa35942aE(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -5348,7 +5348,7 @@ define noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder6hidden17h9453f4b6bf2e27b0E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(96) initializes((72, 73)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder6hidden17h9453f4b6bf2e27b0E(ptr noalias noundef returned writeonly align 8 dereferenceable(96) initializes((72, 73)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -5356,7 +5356,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder6ignore17h06b71c508760b870E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(96) initializes((73, 74)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder6ignore17h06b71c508760b870E(ptr noalias noundef returned writeonly align 8 dereferenceable(96) initializes((73, 74)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 73
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -5364,7 +5364,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder7parents17ha16189d3f219ebb3E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(96) initializes((74, 75)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder7parents17ha16189d3f219ebb3E(ptr noalias noundef returned writeonly align 8 dereferenceable(96) initializes((74, 75)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 74
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 2
@@ -5372,7 +5372,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder10git_global17h95870679c25d943bE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(96) initializes((75, 76)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder10git_global17h95870679c25d943bE(ptr noalias noundef returned writeonly align 8 dereferenceable(96) initializes((75, 76)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 75
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -5380,7 +5380,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder10git_ignore17hf26eafad23eb98b0E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(96) initializes((76, 77)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder10git_ignore17hf26eafad23eb98b0E(ptr noalias noundef returned writeonly align 8 dereferenceable(96) initializes((76, 77)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 76
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 4
@@ -5388,7 +5388,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder11git_exclude17h5ab0c9ba6f511955E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(96) initializes((77, 78)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder11git_exclude17h5ab0c9ba6f511955E(ptr noalias noundef returned writeonly align 8 dereferenceable(96) initializes((77, 78)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 77
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -5396,7 +5396,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder11require_git17hf495d2387732b138E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(96) initializes((79, 80)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder11require_git17hf495d2387732b138E(ptr noalias noundef returned writeonly align 8 dereferenceable(96) initializes((79, 80)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 79
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -5404,7 +5404,7 @@ define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13I
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder23ignore_case_insensitive17he709158eea680259E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(96) initializes((78, 79)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN6ignore3dir13IgnoreBuilder23ignore_case_insensitive17he709158eea680259E(ptr noalias noundef returned writeonly align 8 dereferenceable(96) initializes((78, 79)) %0, i1 noundef zeroext %1) unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 78
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 2

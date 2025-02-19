@@ -603,7 +603,7 @@ define ptr @Fraig_NodeVecPop(ptr noundef captures(none) %0) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Fraig_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #11 {
+define void @Fraig_NodeVecRemove(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !3
   %5 = icmp sgt i32 %4, 0

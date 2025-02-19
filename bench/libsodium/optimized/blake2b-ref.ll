@@ -88,7 +88,7 @@ _sodium_blake2b_init_param.exit:                  ; preds = %12
 declare void @sodium_misuse() local_unnamed_addr #3
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_init_salt_personal(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #2 {
+define hidden noundef i32 @_sodium_blake2b_init_salt_personal(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #2 {
   %5 = alloca [1 x %struct.blake2b_param_], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
   %6 = add i8 %1, -65
@@ -159,7 +159,7 @@ _sodium_blake2b_init_param.exit:                  ; preds = %22
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_init_key(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
+define hidden noundef i32 @_sodium_blake2b_init_key(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly %2, i8 noundef zeroext %3) local_unnamed_addr #2 {
   %5 = alloca [1 x %struct.blake2b_param_], align 16
   %6 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
@@ -287,7 +287,7 @@ define hidden noundef i32 @_sodium_blake2b_update(ptr noundef %0, ptr noundef re
 declare void @sodium_memzero(ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_init_key_salt_personal(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i8 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #2 {
+define hidden noundef i32 @_sodium_blake2b_init_key_salt_personal(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly %2, i8 noundef zeroext %3, ptr noundef readonly %4, ptr noundef readonly %5) local_unnamed_addr #2 {
   %7 = alloca [1 x %struct.blake2b_param_], align 16
   %8 = alloca [128 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #8
@@ -504,7 +504,7 @@ blake2b_set_lastblock.exit:                       ; preds = %32, %49
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i8 noundef zeroext %3, i64 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #2 {
+define hidden noundef i32 @_sodium_blake2b(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i64 noundef %4, i8 noundef zeroext %5) local_unnamed_addr #2 {
   %7 = alloca [1 x %struct.blake2b_param_], align 16
   %8 = alloca [1 x %struct.blake2b_state], align 64
   call void @llvm.lifetime.start.p0(i64 361, ptr nonnull %8) #8
@@ -600,7 +600,7 @@ _sodium_blake2b_init.exit:                        ; preds = %34
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define hidden noundef i32 @_sodium_blake2b_salt_personal(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i8 noundef zeroext %3, i64 noundef %4, i8 noundef zeroext %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #2 {
+define hidden noundef i32 @_sodium_blake2b_salt_personal(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i8 noundef zeroext %3, i64 noundef %4, i8 noundef zeroext %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #2 {
   %9 = alloca [1 x %struct.blake2b_param_], align 16
   %10 = alloca [1 x %struct.blake2b_state], align 64
   call void @llvm.lifetime.start.p0(i64 361, ptr nonnull %10) #8

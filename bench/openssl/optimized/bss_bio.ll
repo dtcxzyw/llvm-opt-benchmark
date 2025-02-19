@@ -227,7 +227,7 @@ define i32 @BIO_nwrite(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unn
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_write(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal i32 @bio_write(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #1 {
   %4 = sext i32 %2 to i64
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -311,7 +311,7 @@ define internal i32 @bio_write(ptr noundef %0, ptr noundef readonly captures(add
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 {
   %4 = sext i32 %2 to i64
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -405,7 +405,7 @@ define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_puts(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 {
+define internal i32 @bio_puts(ptr noundef %0, ptr noundef %1) #1 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #9
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @bio_write(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
@@ -771,7 +771,7 @@ define internal range(i32 0, 2) i32 @bio_new(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @bio_free(ptr noundef captures(address_is_null) %0) #1 {
+define internal range(i32 0, 2) i32 @bio_free(ptr noundef %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 
@@ -822,7 +822,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @bio_nread0(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #1 {
+define internal fastcc i64 @bio_nread0(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #1 {
   %3 = alloca i8, align 1
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -949,7 +949,7 @@ bio_read.exit:                                    ; preds = %53, %16, %27, %30
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @bio_nwrite0(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #1 {
+define internal fastcc i64 @bio_nwrite0(ptr noundef %0, ptr noundef writeonly %1) unnamed_addr #1 {
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !8

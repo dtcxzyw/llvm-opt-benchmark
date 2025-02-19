@@ -674,7 +674,7 @@ zend_string_release_ex.exit:                      ; preds = %43, %47, %52
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define hidden range(i32 -1, 1) i32 @ps_validate_sid_files(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #1 {
   %3 = alloca [4096 x i8], align 16
   %4 = alloca %struct.stat, align 8
   %5 = load ptr, ptr %0, align 8, !tbaa !24

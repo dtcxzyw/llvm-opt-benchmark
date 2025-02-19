@@ -511,7 +511,7 @@ rb_threadptr_add_event_hook.exit:                 ; preds = %5
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_thread_remove_event_hook(i64 noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define dso_local i32 @rb_thread_remove_event_hook(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #5
@@ -522,7 +522,7 @@ define dso_local i32 @rb_thread_remove_event_hook(i64 noundef %0, ptr noundef ca
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_thread_remove_event_hook_with_data(i64 noundef %0, ptr noundef captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local i32 @rb_thread_remove_event_hook_with_data(i64 noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %5 = load ptr, ptr %4, align 8, !tbaa !33
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #5
@@ -533,7 +533,7 @@ define dso_local i32 @rb_thread_remove_event_hook_with_data(i64 noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_remove_event_hook(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define dso_local i32 @rb_remove_event_hook(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %3 = load ptr, ptr %2, align 8, !tbaa !33
   %4 = getelementptr i8, ptr %3, i64 48
@@ -632,7 +632,7 @@ remove_event_hook.exit:                           ; preds = %._crit_edge.i, %36,
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @remove_event_hook(ptr readonly captures(address_is_null) %.48.val, ptr noundef readnone captures(address) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc i32 @remove_event_hook(ptr readonly %.48.val, ptr noundef readnone %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %.48.val, null
   br i1 %.not.i.i, label %rb_ec_ractor_hooks.exit, label %4
 
@@ -902,7 +902,7 @@ clean_hooks_check.exit:                           ; preds = %._crit_edge, %102, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_remove_event_hook_with_data(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local i32 @rb_remove_event_hook_with_data(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %4 = load ptr, ptr %3, align 8, !tbaa !33
   %5 = getelementptr i8, ptr %4, i64 48
@@ -5431,7 +5431,7 @@ declare i64 @rb_define_class(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @rb_undef_alloc_func(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden i64 @rb_vm_memsize_workqueue(ptr noundef readonly captures(address) %0) local_unnamed_addr #11 {
+define hidden i64 @rb_vm_memsize_workqueue(ptr noundef readonly %0) local_unnamed_addr #11 {
   br label %2
 
 2:                                                ; preds = %2, %1

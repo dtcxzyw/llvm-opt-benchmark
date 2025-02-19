@@ -458,7 +458,7 @@ define dso_local void @udp_v6_rehash(ptr noundef %0) #0 align 16 {
 declare dso_local void @udp_lib_rehash(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__udp6_lib_lookup(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address) %7, ptr noundef %8) #0 align 16 {
+define dso_local ptr @__udp6_lib_lookup(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, i16 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7, ptr noundef %8) #0 align 16 {
   %10 = tail call i16 @llvm.bswap.i16(i16 %4)
   %11 = zext i16 %10 to i32
   %12 = getelementptr i8, ptr %0, i64 336
@@ -1308,7 +1308,7 @@ define dso_local void @udpv6_encap_enable() #0 align 16 {
 declare dso_local zeroext i1 @static_key_slow_inc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @__udp6_lib_err(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef captures(address) %6) local_unnamed_addr #0 align 16 {
+define dso_local i32 @__udp6_lib_err(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 align 16 {
   %8 = alloca i32, align 4
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %10 = load ptr, ptr %9, align 8
@@ -1639,7 +1639,7 @@ declare dso_local void @ipv6_icmp_error(ptr noundef, ptr noundef, i32 noundef, i
 declare dso_local void @sk_error_report(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, -2147483648) i32 @__udp6_lib_rcv(ptr noundef %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 0, -2147483648) i32 @__udp6_lib_rcv(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 272
@@ -2323,7 +2323,7 @@ define internal fastcc range(i32 0, -2147483648) i32 @udp6_unicast_rcv_skb(ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__udp6_lib_mcast_deliver(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 align 16 {
+define internal fastcc void @__udp6_lib_mcast_deliver(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #0 align 16 {
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 192
   %8 = load ptr, ptr %7, align 8
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 178
@@ -2577,7 +2577,7 @@ define internal fastcc void @__udp6_lib_mcast_deliver(ptr noundef readonly captu
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc ptr @__udp6_lib_lookup_skb(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef captures(address) %3) unnamed_addr #0 align 16 {
+define internal fastcc ptr @__udp6_lib_lookup_skb(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3) unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 180

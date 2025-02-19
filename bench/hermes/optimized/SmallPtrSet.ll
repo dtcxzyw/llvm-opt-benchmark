@@ -691,7 +691,7 @@ _ZN4llvh19SmallPtrSetImplBase10MoveHelperEjOS0_.exit: ; preds = %if.then.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden void @_ZN4llvh19SmallPtrSetImplBase4swapERS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(28) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(28) %RHS) local_unnamed_addr #6 align 2 {
+define hidden void @_ZN4llvh19SmallPtrSetImplBase4swapERS0_(ptr noundef nonnull align 8 dereferenceable(28) %this, ptr noundef nonnull align 8 dereferenceable(28) %RHS) local_unnamed_addr #6 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %RHS
   br i1 %cmp, label %return, label %if.end

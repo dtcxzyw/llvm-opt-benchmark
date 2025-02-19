@@ -3694,7 +3694,7 @@ define hidden noundef i8 @_ZN4core4sync6atomic11atomic_load17h9fa882a72942a2fbE.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 16 dereferenceable(16) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h6e71513414d12d15E.llvm.10699824007728741731"(ptr noalias noundef readonly returned align 16 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 16 dereferenceable(16) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h6e71513414d12d15E.llvm.10699824007728741731"(ptr noalias noundef readonly returned align 16 dereferenceable(16) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
@@ -7301,7 +7301,7 @@ define void @"_ZN91_$LT$awc..error..WsClientError$u20$as$u20$core..convert..From
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 ptr @_ZN3awc7request13ClientRequest7get_uri17h2404490126d13941E(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
+define noundef nonnull align 8 ptr @_ZN3awc7request13ClientRequest7get_uri17h2404490126d13941E(ptr noundef nonnull readnone align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   ret ptr %2
 }
@@ -7315,19 +7315,19 @@ define void @_ZN3awc7request13ClientRequest7address17hf0de75c8a2ad51bfE(ptr noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3awc7request13ClientRequest10get_method17h694ed9f36eed3784E(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN3awc7request13ClientRequest10get_method17h694ed9f36eed3784E(ptr noundef nonnull readnone align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @_ZN3awc7request13ClientRequest11get_version17hb59fbac0ff1d3637E(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
+define noundef nonnull align 1 dereferenceable(1) ptr @_ZN3awc7request13ClientRequest11get_version17hb59fbac0ff1d3637E(ptr noundef nonnull readnone align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 264
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(32) ptr @_ZN3awc7request13ClientRequest13get_peer_addr17hf21a63772a7041a7E(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
+define noundef nonnull align 4 dereferenceable(32) ptr @_ZN3awc7request13ClientRequest13get_peer_addr17hf21a63772a7041a7E(ptr noundef nonnull readnone align 8 %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }

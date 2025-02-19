@@ -4788,12 +4788,12 @@ H5VM_power2up.exit:                               ; preds = %30
 declare ptr @H5O_msg_read(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @H5D_oloc(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #6 {
+define noundef ptr @H5D_oloc(ptr noundef readnone returned %0) local_unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @H5D_nameof(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #6 {
+define ptr @H5D_nameof(ptr noundef readnone %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = select i1 %.not, ptr null, ptr %2
@@ -7282,7 +7282,7 @@ define range(i32 -1, 1) i32 @H5D_flush_all(ptr noundef %0) local_unnamed_addr #0
 declare i32 @H5I_iterate(i32 noundef, ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5D__flush_all_cb(ptr noundef %0, i64 %1, ptr noundef readnone captures(address) %2) #0 {
+define internal range(i32 -1, 1) i32 @H5D__flush_all_cb(ptr noundef %0, i64 %1, ptr noundef readnone %2) #0 {
   %4 = alloca i64, align 8
   %5 = load i8, ptr @H5D_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1

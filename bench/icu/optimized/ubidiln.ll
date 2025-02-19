@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 %struct.Point = type { i32, i32 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_setLine_75(ptr noundef %pParaBiDi, i32 noundef %start, i32 noundef %limit, ptr noundef captures(address_is_null) %pLineBiDi, ptr noundef %pErrorCode) local_unnamed_addr #0 {
+define void @ubidi_setLine_75(ptr noundef %pParaBiDi, i32 noundef %start, i32 noundef %limit, ptr noundef %pLineBiDi, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -452,7 +452,7 @@ return:                                           ; preds = %cond.true, %cond.fa
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ubidi_getLevels_75(ptr noundef %pBiDi, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define ptr @ubidi_getLevels_75(ptr noundef %pBiDi, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -561,7 +561,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_getLogicalRun_75(ptr noundef %pBiDi, i32 noundef %logicalPosition, ptr noundef writeonly captures(address_is_null) %pLogicalLimit, ptr noundef writeonly captures(address_is_null) %pLevel) local_unnamed_addr #0 {
+define void @ubidi_getLogicalRun_75(ptr noundef %pBiDi, i32 noundef %logicalPosition, ptr noundef writeonly %pLogicalLimit, ptr noundef writeonly %pLevel) local_unnamed_addr #0 {
 entry:
   %cmp = icmp slt i32 %logicalPosition, 0
   br i1 %cmp, label %if.end37, label %lor.lhs.false
@@ -695,7 +695,7 @@ if.end37:                                         ; preds = %if.end37.sink.split
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubidi_countRuns_75(ptr noundef %pBiDi, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define i32 @ubidi_countRuns_75(ptr noundef %pBiDi, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1260,7 +1260,7 @@ return:                                           ; preds = %for.inc162, %if.the
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 0, 2) i32 @ubidi_getVisualRun_75(ptr noundef %pBiDi, i32 noundef %runIndex, ptr noundef writeonly captures(address_is_null) %pLogicalStart, ptr noundef writeonly captures(address_is_null) %pLength) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ubidi_getVisualRun_75(ptr noundef %pBiDi, i32 noundef %runIndex, ptr noundef writeonly %pLogicalStart, ptr noundef writeonly %pLength) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %pBiDi, null
   br i1 %tobool.not, label %return, label %land.lhs.true
@@ -1342,7 +1342,7 @@ return:                                           ; preds = %do.body12, %lor.lhs
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ubidi_reorderLogical_75(ptr noundef readonly captures(address_is_null) %levels, i32 noundef %length, ptr noundef captures(address_is_null) %indexMap) local_unnamed_addr #5 {
+define void @ubidi_reorderLogical_75(ptr noundef readonly %levels, i32 noundef %length, ptr noundef %indexMap) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %indexMap, null
   br i1 %cmp, label %do.end43, label %lor.lhs.false
@@ -1477,7 +1477,7 @@ do.end43:                                         ; preds = %for.body.i, %do.con
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ubidi_reorderVisual_75(ptr noundef readonly captures(address_is_null) %levels, i32 noundef %length, ptr noundef captures(address_is_null) %indexMap) local_unnamed_addr #5 {
+define void @ubidi_reorderVisual_75(ptr noundef readonly %levels, i32 noundef %length, ptr noundef %indexMap) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %indexMap, null
   br i1 %cmp, label %do.end, label %lor.lhs.false
@@ -1613,7 +1613,7 @@ do.end:                                           ; preds = %for.body.i, %do.con
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubidi_getVisualIndex_75(ptr noundef %pBiDi, i32 noundef %logicalIndex, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define i32 @ubidi_getVisualIndex_75(ptr noundef %pBiDi, i32 noundef %logicalIndex, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1887,7 +1887,7 @@ return:                                           ; preds = %for.cond, %if.else,
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ubidi_getLogicalIndex_75(ptr noundef %pBiDi, i32 noundef %visualIndex, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define i32 @ubidi_getLogicalIndex_75(ptr noundef %pBiDi, i32 noundef %visualIndex, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -2254,7 +2254,7 @@ return:                                           ; preds = %if.then67, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_getLogicalMap_75(ptr noundef %pBiDi, ptr noundef captures(address_is_null) %indexMap, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define void @ubidi_getLogicalMap_75(ptr noundef %pBiDi, ptr noundef %indexMap, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %if.end178, label %lor.lhs.false
@@ -2555,7 +2555,7 @@ if.end178:                                        ; preds = %for.inc171, %if.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ubidi_getVisualMap_75(ptr noundef %pBiDi, ptr noundef captures(address_is_null) %indexMap, ptr noundef captures(address_is_null) %pErrorCode) local_unnamed_addr #0 {
+define void @ubidi_getVisualMap_75(ptr noundef %pBiDi, ptr noundef %indexMap, ptr noundef %pErrorCode) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %pErrorCode, null
   br i1 %cmp, label %if.end197, label %lor.lhs.false
@@ -2969,7 +2969,7 @@ if.end197:                                        ; preds = %for.inc191, %for.in
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @ubidi_invertMap_75(ptr noundef readonly captures(address) %srcMap, ptr noundef writeonly captures(address_is_null) %destMap, i32 noundef %length) local_unnamed_addr #5 {
+define void @ubidi_invertMap_75(ptr noundef readonly %srcMap, ptr noundef writeonly %destMap, i32 noundef %length) local_unnamed_addr #5 {
 entry:
   %cmp = icmp ne ptr %srcMap, null
   %cmp1 = icmp ne ptr %destMap, null

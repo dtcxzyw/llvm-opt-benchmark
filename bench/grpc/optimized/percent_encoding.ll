@@ -23,7 +23,7 @@ $__clang_call_terminate = comdat any
 @.str.5 = private unnamed_addr constant [11 x i8] c"return 255\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeE(ptr noalias writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) %agg.result, ptr noundef captures(address) %slice, i32 noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core18PercentEncodeSliceENS_5SliceENS_19PercentEncodingTypeE(ptr noalias writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) %agg.result, ptr noundef %slice, i32 noundef %type) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i48 = alloca %struct.grpc_slice, align 8
   %ref.tmp.i = alloca %struct.grpc_slice, align 8
@@ -227,7 +227,7 @@ terminate.lpad:                                   ; preds = %if.then.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr noalias writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) %agg.result, ptr noundef captures(address) %slice_in) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core28PermissivePercentDecodeSliceENS_5SliceE(ptr noalias writeonly sret(%"class.grpc_core::Slice") align 8 captures(none) %agg.result, ptr noundef %slice_in) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i65 = alloca %struct.grpc_slice, align 8
   %ref.tmp.i62 = alloca %struct.grpc_slice, align 8

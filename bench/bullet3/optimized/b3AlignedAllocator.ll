@@ -49,7 +49,7 @@ define internal noundef ptr @_ZL21b3AlignedAllocDefaultmi(i64 noundef %0, i32 no
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @_ZL20b3AlignedFreeDefaultPv(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal void @_ZL20b3AlignedFreeDefaultPv(ptr noundef readonly %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 

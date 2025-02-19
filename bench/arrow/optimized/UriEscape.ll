@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @uriEscapeA(ptr noundef captures(address) %0, ptr noundef captures(address, ret: address, provenance) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @uriEscapeA(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @uriEscapeExA(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(address, ret: address, provenance) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef ptr @uriEscapeExA(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %0, %2
   %or.cond = or i1 %6, %7
@@ -905,13 +905,13 @@ define noundef ptr @uriEscapeExA(ptr noundef readonly captures(address) %0, ptr 
 declare signext i8 @uriHexToLetterA(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @uriUnescapeInPlaceA(ptr noundef captures(address, ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @uriUnescapeInPlaceA(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @uriUnescapeInPlaceExA(ptr noundef %0, i32 noundef 0, i32 noundef 3)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @uriUnescapeInPlaceExA(ptr noundef captures(address, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @uriUnescapeInPlaceExA(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %73, label %.preheader
 
@@ -1157,13 +1157,13 @@ define ptr @uriUnescapeInPlaceExA(ptr noundef captures(address, ret: address, pr
 declare zeroext i8 @uriHexdigToIntA(i8 noundef signext) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @uriEscapeW(ptr noundef captures(address) %0, ptr noundef captures(address, ret: address, provenance) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define noundef ptr @uriEscapeW(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @uriEscapeExW(ptr noundef %0, ptr noundef null, ptr noundef %1, i32 noundef %2, i32 noundef %3)
   ret ptr %5
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(address, ret: address, provenance) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define noundef ptr @uriEscapeExW(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %2, null
   %7 = icmp eq ptr %0, %2
   %or.cond = or i1 %6, %7
@@ -2058,13 +2058,13 @@ define noundef ptr @uriEscapeExW(ptr noundef readonly captures(address) %0, ptr 
 declare i32 @uriHexToLetterW(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @uriUnescapeInPlaceW(ptr noundef captures(address, ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @uriUnescapeInPlaceW(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call ptr @uriUnescapeInPlaceExW(ptr noundef %0, i32 noundef 0, i32 noundef 3)
   ret ptr %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @uriUnescapeInPlaceExW(ptr noundef captures(address, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @uriUnescapeInPlaceExW(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %72, label %.preheader
 

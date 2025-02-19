@@ -10588,7 +10588,7 @@ _ZN6vectorIN3sat9lookahead6binaryELb0EjE9push_backEOS2_.exit35: ; preds = %lor.l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat9lookahead10add_clauseERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(1160) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat9lookahead10add_clauseERKNS_6clauseE(ptr noundef nonnull align 8 dereferenceable(1160) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
 entry:
   %m_allocator = getelementptr inbounds nuw i8, ptr %this, i64 256
   %m_size.i = getelementptr inbounds nuw i8, ptr %c, i64 4
@@ -12643,7 +12643,7 @@ for.end98:                                        ; preds = %_ZN3sat9lookahead16
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat9lookahead16remove_clause_atENS_7literalERNS0_4naryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1160) %this, i32 %l.coerce, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(20) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat9lookahead16remove_clause_atENS_7literalERNS0_4naryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1160) %this, i32 %l.coerce, ptr noundef nonnull readonly align 8 dereferenceable(20) %n) local_unnamed_addr #3 align 2 {
 entry:
   %m_obj_size.i.i = getelementptr inbounds nuw i8, ptr %n, i64 8
   %0 = load i64, ptr %m_obj_size.i.i, align 8
@@ -13029,7 +13029,7 @@ for.end123:                                       ; preds = %for.inc121, %for.bo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat9lookahead13remove_clauseENS_7literalERNS0_4naryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1160) %this, i32 %l.coerce, ptr noundef nonnull readnone align 8 captures(address) dereferenceable(20) %n) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat9lookahead13remove_clauseENS_7literalERNS0_4naryE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1160) %this, i32 %l.coerce, ptr noundef nonnull readnone align 8 dereferenceable(20) %n) local_unnamed_addr #3 align 2 {
 entry:
   %m_nary = getelementptr inbounds nuw i8, ptr %this, i64 776
   %0 = load ptr, ptr %m_nary, align 8
@@ -13095,7 +13095,7 @@ sw.epilog:                                        ; preds = %sw.default, %sw.bb
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3sat9lookahead25update_nary_clause_rewardERKNS_6clauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(1160) %this, ptr noundef nonnull readonly align 4 captures(address) dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3sat9lookahead25update_nary_clause_rewardERKNS_6clauseE(ptr noundef nonnull align 8 captures(none) dereferenceable(1160) %this, ptr noundef nonnull readonly align 4 dereferenceable(20) %c) local_unnamed_addr #3 align 2 {
 entry:
   %m_reward_type = getelementptr inbounds nuw i8, ptr %this, i64 112
   %0 = load i32, ptr %m_reward_type, align 8

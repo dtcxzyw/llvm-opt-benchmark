@@ -173,7 +173,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN4dmlc2io12LineSplitter19FindLastRecordBeginEPKcS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone captures(address, ret: address, provenance) %1, ptr noundef readonly captures(address, ret: address, provenance) %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN4dmlc2io12LineSplitter19FindLastRecordBeginEPKcS3_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readnone %1, ptr noundef readonly %2) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.dmlc::LogMessageFatal", align 1
   %5 = icmp eq ptr %1, %2
   br i1 %5, label %6, label %.preheader

@@ -487,7 +487,7 @@ define internal fastcc void @serio_destroy_port(ptr noundef %0) unnamed_addr #0 
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @serio_unregister_child_port(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local void @serio_unregister_child_port(ptr noundef readonly %0) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @serio_mutex) #10
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8

@@ -239,7 +239,7 @@ define dso_local ptr @scriptGetCaller() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 1, 3) i32 @scriptInterrupt(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 1, 3) i32 @scriptInterrupt(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i32, ptr %2, align 8, !tbaa !43
   %4 = and i32 %3, 8
@@ -584,7 +584,7 @@ declare void @addReplyErrorObject(ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @selectDb(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @scriptResetRun(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @scriptResetRun(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @curr_run_ctx, align 8, !tbaa !41
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %3, label %scriptIsTimedout.exit, !prof !45

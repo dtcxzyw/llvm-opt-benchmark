@@ -922,7 +922,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std4sync5mutex14Mutex$LT$T$GT$7get_mut28_$u7b$$u7b$closure$u7d$$u7d$17h427a86ef8377f0b4E.llvm.3137788602124067365"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @"_ZN3std4sync5mutex14Mutex$LT$T$GT$7get_mut28_$u7b$$u7b$closure$u7d$$u7d$17h427a86ef8377f0b4E.llvm.3137788602124067365"(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #2 {
   ret ptr %0
 }
 

@@ -803,25 +803,25 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN7datalog30finite_product_relation_plugin3getERNS_13relation_baseE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(28) %r) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN7datalog30finite_product_relation_plugin3getERNS_13relation_baseE(ptr noundef nonnull readnone returned align 8 dereferenceable(28) %r) local_unnamed_addr #4 align 2 {
 entry:
   ret ptr %r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN7datalog30finite_product_relation_plugin3getERKNS_13relation_baseE(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(28) %r) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(160) ptr @_ZN7datalog30finite_product_relation_plugin3getERKNS_13relation_baseE(ptr noundef nonnull readnone returned align 8 dereferenceable(28) %r) local_unnamed_addr #4 align 2 {
 entry:
   ret ptr %r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin3getEPNS_13relation_baseE(ptr noundef readnone returned captures(ret: address, provenance) %r) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin3getEPNS_13relation_baseE(ptr noundef readnone returned %r) local_unnamed_addr #4 align 2 {
 entry:
   ret ptr %r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin3getEPKNS_13relation_baseE(ptr noundef readnone returned captures(ret: address, provenance) %r) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin3getEPKNS_13relation_baseE(ptr noundef readnone returned %r) local_unnamed_addr #4 align 2 {
 entry:
   ret ptr %r
 }
@@ -3604,7 +3604,7 @@ declare noundef ptr @_ZN7datalog16relation_manager14mk_empty_tableERKNS_15table_
 declare noundef ptr @_ZN7datalog16relation_manager10mk_join_fnERKNS_10table_baseES3_jPKjS5_(ptr noundef nonnull align 8 dereferenceable(200), ptr noundef nonnull align 8 dereferenceable(36), ptr noundef nonnull align 8 dereferenceable(36), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog23finite_product_relation4initERKNS_10table_baseERK10ptr_vectorINS_13relation_baseEEb(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(36) %table_vals, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %others, i1 noundef zeroext %contiguous) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN7datalog23finite_product_relation4initERKNS_10table_baseERK10ptr_vectorINS_13relation_baseEEb(ptr noundef nonnull align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(36) %table_vals, ptr noundef nonnull readonly align 8 dereferenceable(8) %others, i1 noundef zeroext %contiguous) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %table_union = alloca %class.scoped_ptr.47, align 8
   %m_others = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -4910,7 +4910,7 @@ for.end174:                                       ; preds = %for.inc172, %for.co
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin13mk_project_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin13mk_project_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, i32 noundef %col_cnt, ptr noundef %removed_cols) unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %rb, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
@@ -5223,7 +5223,7 @@ for.end45:                                        ; preds = %for.inc43, %for.end
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin12mk_rename_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, i32 noundef %permutation_cycle_len, ptr noundef %permutation_cycle) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin12mk_rename_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, i32 noundef %permutation_cycle_len, ptr noundef %permutation_cycle) unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %rb, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
@@ -5523,7 +5523,7 @@ ehcleanup:                                        ; preds = %lpad18, %lpad14
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noalias noundef ptr @_ZN7datalog30finite_product_relation_plugin11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %tgtb, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %srcb, ptr noundef readonly captures(address_is_null) %deltab) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noalias noundef ptr @_ZN7datalog30finite_product_relation_plugin11mk_union_fnERKNS_13relation_baseES3_PS2_(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %tgtb, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %srcb, ptr noundef readonly %deltab) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %srcb, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
@@ -5582,7 +5582,7 @@ return:                                           ; preds = %_ZN7datalog30finite
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin22mk_filter_identical_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, i32 noundef %col_cnt, ptr noundef %identical_cols) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin22mk_filter_identical_fnERKNS_13relation_baseEjPKj(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, i32 noundef %col_cnt, ptr noundef %identical_cols) unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %rb, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
@@ -5828,7 +5828,7 @@ if.end64:                                         ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin18mk_filter_equal_fnERKNS_13relation_baseERKP3appj(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin18mk_filter_equal_fnERKNS_13relation_baseERKP3appj(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, ptr noundef nonnull align 8 dereferenceable(8) %value, i32 noundef %col) unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %rb, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
@@ -5941,7 +5941,7 @@ if.end:                                           ; preds = %_Z7deallocIN7datalo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, ptr noundef %condition) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin24mk_filter_interpreted_fnERKNS_13relation_baseEP3app(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, ptr noundef %condition) unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %rb, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8
@@ -6768,7 +6768,7 @@ ehcleanup136:                                     ; preds = %lpad30.loopexit.loo
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin24mk_filter_by_negation_fnERKNS_13relation_baseES3_jPKjS5_(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, ptr noundef nonnull align 8 dereferenceable(28) %negb, i32 noundef %joined_col_cnt, ptr noundef %r_cols, ptr noundef %negated_cols) unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7datalog30finite_product_relation_plugin24mk_filter_by_negation_fnERKNS_13relation_baseES3_jPKjS5_(ptr noundef nonnull readnone align 8 dereferenceable(112) %this, ptr noundef nonnull align 8 dereferenceable(28) %rb, ptr noundef nonnull align 8 dereferenceable(28) %negb, i32 noundef %joined_col_cnt, ptr noundef %r_cols, ptr noundef %negated_cols) unnamed_addr #3 align 2 {
 entry:
   %m_plugin.i = getelementptr inbounds nuw i8, ptr %rb, i64 8
   %0 = load ptr, ptr %m_plugin.i, align 8

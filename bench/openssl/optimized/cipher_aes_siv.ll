@@ -182,7 +182,7 @@ siv_init.exit:                                    ; preds = %6, %15, %16, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @siv_cipher(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
+define internal range(i32 0, 2) i32 @siv_cipher(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i64 noundef %3, ptr noundef %4, i64 noundef %5) #0 {
   %7 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %25, label %8
@@ -236,7 +236,7 @@ define internal range(i32 0, 2) i32 @siv_cipher(ptr noundef %0, ptr noundef %1, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @siv_stream_final(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 %3) #0 {
+define internal range(i32 0, 2) i32 @siv_stream_final(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, i64 %3) #0 {
   %5 = tail call i32 @ossl_prov_is_running() #4
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %14, label %6

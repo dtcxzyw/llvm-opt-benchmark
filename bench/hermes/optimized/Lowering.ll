@@ -147,7 +147,7 @@ $_ZN4llvh8DenseMapIPN6hermes14CondBranchInstEPNS1_17CompareBranchInstENS_12Dense
 @.str = private unnamed_addr constant [18 x i8] c"Allocation failed\00", align 1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes14SwitchLowering13runOnFunctionEPNS_8FunctionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes14SwitchLowering13runOnFunctionEPNS_8FunctionE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
   %switches = alloca %"class.llvh::SmallVector", align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %switches, i64 16
@@ -526,7 +526,7 @@ declare noundef ptr @_ZNK6hermes10SwitchInst13getInputValueEv(ptr noundef nonnul
 declare noundef ptr @_ZN6hermes9IRBuilder20createCondBranchInstEPNS_5ValueEPNS_10BasicBlockES4_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes14SwitchLowering13copyPhiTargetEPNS_10BasicBlockES2_S2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address) %block, ptr noundef readnone captures(address) %previousBlock, ptr noundef %newBlock) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes14SwitchLowering13copyPhiTargetEPNS_10BasicBlockES2_S2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %block, ptr noundef readnone %previousBlock, ptr noundef %newBlock) local_unnamed_addr #0 align 2 {
 entry:
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %block, i64 64
   %InstList.i = getelementptr inbounds nuw i8, ptr %block, i64 56
@@ -580,7 +580,7 @@ for.end19:                                        ; preds = %for.inc17, %for.bod
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes14SwitchLowering14erasePhiTargetEPNS_10BasicBlockES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(address) %block, ptr noundef readnone captures(address) %toDelete) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes14SwitchLowering14erasePhiTargetEPNS_10BasicBlockES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly %block, ptr noundef readnone %toDelete) local_unnamed_addr #0 align 2 {
 entry:
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %block, i64 64
   %InstList.i = getelementptr inbounds nuw i8, ptr %block, i64 56
@@ -2393,7 +2393,7 @@ declare void @_ZN6hermes11Instruction10setOperandEPNS_5ValueEj(ptr noundef nonnu
 declare noundef ptr @_ZN6hermes9IRBuilder16getLiteralNumberEd(ptr noundef nonnull align 8 dereferenceable(40), double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes22LowerNumericProperties13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes22LowerNumericProperties13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
   %builder = alloca %"class.hermes::IRBuilder", align 8
   %destroyer = alloca %"class.hermes::IRBuilder::InstructionDestroyer", align 8
@@ -2877,7 +2877,7 @@ _ZN6hermes9IRBuilder20InstructionDestroyerD2Ev.exit: ; preds = %entry, %for.end.
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes15LimitAllocArray13runOnFunctionEPNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes15LimitAllocArray13runOnFunctionEPNS_8FunctionE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(36) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
   %builder = alloca %"class.hermes::IRBuilder", align 8
   %Next.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %F, i64 88
@@ -3043,7 +3043,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes15LowerCondBranch13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes15LowerCondBranch13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
   %builder = alloca %"class.hermes::IRBuilder", align 8
   %condToCompMap = alloca %"class.llvh::DenseMap.95", align 8
@@ -3777,7 +3777,7 @@ declare noundef zeroext i1 @_ZNK6hermes5Value10hasOneUserEv(ptr noundef nonnull 
 declare noundef ptr @_ZN6hermes9IRBuilder23createCompareBranchInstEPNS_5ValueES2_NS_18BinaryOperatorInst6OpKindEPNS_10BasicBlockES6_(ptr noundef nonnull align 8 dereferenceable(40), ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN6hermes27LowerExponentiationOperator13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(address) %F) unnamed_addr #0 align 2 {
+define hidden noundef zeroext i1 @_ZN6hermes27LowerExponentiationOperator13runOnFunctionEPNS_8FunctionE(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly %F) unnamed_addr #0 align 2 {
 entry:
   %ref.tmp1.i = alloca [2 x ptr], align 8
   %builder = alloca %"class.hermes::IRBuilder", align 8

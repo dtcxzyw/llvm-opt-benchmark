@@ -18,7 +18,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @agfstout(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define ptr @agfstout(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %0, %4
@@ -61,7 +61,7 @@ agsubrep.exit:                                    ; preds = %2
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @agsubrep(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
+define ptr @agsubrep(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %0, %4
@@ -92,7 +92,7 @@ declare ptr @dtextract(ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @agnxtout(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @agnxtout(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 3
@@ -139,7 +139,7 @@ agsubrep.exit:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agfstin(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define ptr @agfstin(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %0, %4
@@ -179,7 +179,7 @@ agsubrep.exit:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agnxtin(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @agnxtin(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %1, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 2
@@ -226,7 +226,7 @@ agsubrep.exit:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agfstedge(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
+define ptr @agfstedge(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = icmp eq ptr %0, %4
@@ -300,7 +300,7 @@ agfstin.exit:                                     ; preds = %32, %agsubrep.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agnxtedge(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define ptr @agnxtedge(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 3
   %6 = icmp eq i32 %5, 2
@@ -686,7 +686,7 @@ agfindedge_by_id.exit46:                          ; preds = %agsubrep.exit.threa
 declare i32 @agisundirected(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc zeroext i1 @ok_to_make_edge(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ok_to_make_edge(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.Agedge_s, align 8
   %5 = tail call i32 @agisstrict(ptr noundef %0) #11
   %.not = icmp eq i32 %5, 0
@@ -1111,7 +1111,7 @@ declare i32 @agisstrict(ptr noundef) local_unnamed_addr #2
 declare void @agregister(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @agdeledgeimage(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
+define void @agdeledgeimage(ptr noundef readonly %0, ptr noundef %1, ptr readnone captures(none) %2) #0 {
   %4 = load i32, ptr %1, align 8
   %5 = and i32 %4, 3
   %6 = icmp eq i32 %5, 3
@@ -1672,7 +1672,7 @@ define internal range(i32 -1, 2) i32 @agedgeidcmpf(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = load i32, ptr %0, align 8
   %4 = and i32 %3, 3
   %5 = icmp eq i32 %4, 2
@@ -1689,7 +1689,7 @@ define range(i32 0, 2) i32 @ageqedge(ptr noundef readonly captures(address) %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @agmkout(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @agmkout(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 2
@@ -1699,7 +1699,7 @@ define ptr @agmkout(ptr noundef readonly captures(ret: address, provenance) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @agmkin(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define ptr @agmkin(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3
@@ -1733,7 +1733,7 @@ define ptr @aghead(ptr noundef readonly captures(none) %0) local_unnamed_addr #5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define nonnull ptr @agopp(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define nonnull ptr @agopp(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = load i32, ptr %0, align 8
   %3 = and i32 %2, 3
   %4 = icmp eq i32 %3, 3

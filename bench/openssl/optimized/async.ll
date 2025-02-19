@@ -85,7 +85,7 @@ define internal fastcc void @async_fibre_swapcontext(ptr noundef initializes((11
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @ASYNC_start_job(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 4) i32 @ASYNC_start_job(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef readonly %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = tail call i32 @OPENSSL_init_crypto(i64 noundef 256, ptr noundef null) #8
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %async_ctx_new.exit.thread, label %8

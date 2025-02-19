@@ -3814,7 +3814,7 @@ declare i64 @_ZN5clang4Sema25PerformCopyInitializationERKNS_17InitializedEntityE
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang9SemaRISCV19checkRVVTypeSupportENS_8QualTypeENS_14SourceLocationEPNS_4DeclERKN4llvm9StringMapIbNS5_15MallocAllocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, i32 %2, ptr noundef readnone captures(address_is_null) %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang9SemaRISCV19checkRVVTypeSupportENS_8QualTypeENS_14SourceLocationEPNS_4DeclERKN4llvm9StringMapIbNS5_15MallocAllocatorEEE(ptr noundef nonnull align 8 dereferenceable(24) %0, i64 %1, i32 %2, ptr noundef readnone %3, ptr noundef nonnull align 8 dereferenceable(24) %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -8662,7 +8662,7 @@ _ZNSt16allocator_traitsISaINSt8__detail10_Hash_nodeISt4pairIKmN5clang5RISCV7RVVT
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS3_4sema21RISCVIntrinsicManager13IntrinsicKindE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr readonly captures(address) %1, i64 %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl22ConstructRVVIntrinsicsEN4llvm8ArrayRefIN5clang5RISCV18RVVIntrinsicRecordEEENS3_4sema21RISCVIntrinsicManager13IntrinsicKindE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr readonly %1, i64 %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::SmallVector.1180", align 8
   %6 = alloca %"class.llvm::SmallVector.1180", align 8
   %7 = alloca %"class.llvm::SmallVector.1180", align 8
@@ -9450,7 +9450,7 @@ declare void @_ZN5clang5RISCV12RVVTypeCache12computeTypesENS0_9BasicTypeEijN4llv
 declare void @_ZN5clang5RISCV12RVVIntrinsic12getSuffixStrB5cxx11ERNS0_12RVVTypeCacheENS0_9BasicTypeEiN4llvm8ArrayRefINS0_19PrototypeDescriptorEEE(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(104), i8 noundef zeroext, i32 noundef, ptr, i64) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl16InitRVVIntrinsicERKN5clang5RISCV18RVVIntrinsicRecordEN4llvm9StringRefES7_bRSt6vectorIPNS2_7RVVTypeESaISA_EEbNS2_6PolicyE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr readonly captures(address_is_null) %2, i64 %3, ptr readonly captures(address_is_null) %4, i64 %5, i1 noundef zeroext %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, i1 noundef zeroext %8, i64 %9) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_125RISCVIntrinsicManagerImpl16InitRVVIntrinsicERKN5clang5RISCV18RVVIntrinsicRecordEN4llvm9StringRefES7_bRSt6vectorIPNS2_7RVVTypeESaISA_EEbNS2_6PolicyE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, ptr readonly %2, i64 %3, ptr readonly %4, i64 %5, i1 noundef zeroext %6, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %7, i1 noundef zeroext %8, i64 %9) unnamed_addr #0 align 2 {
   %11 = alloca %"struct.std::pair.1208", align 8
   %12 = alloca i64, align 8
   %13 = alloca i64, align 8

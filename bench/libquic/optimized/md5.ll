@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @MD5.digest = internal global [16 x i8] zeroinitializer, align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @MD5(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @MD5(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.md5_state_st, align 4
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

@@ -454,7 +454,7 @@ return:                                           ; preds = %_ZNK17array_recogni
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK7datalog14mk_array_blast10get_selectEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef readonly captures(ret: address, provenance) %e) local_unnamed_addr #7 align 2 {
+define hidden noundef ptr @_ZNK7datalog14mk_array_blast10get_selectEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(540) %this, ptr noundef readonly %e) local_unnamed_addr #7 align 2 {
 entry:
   %a = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %a, align 8

@@ -91,7 +91,7 @@ define dso_local ptr @pte_alloc_one(ptr noundef readnone captures(none) %0) loca
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(readwrite, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @setup_userpte(ptr noundef readonly captures(address_is_null) %0) #1 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @setup_userpte(ptr noundef readonly %0) #1 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.env_md_ctx_st = type { ptr, ptr, ptr, ptr }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address) %6, ptr noundef writeonly captures(address) %7) local_unnamed_addr #0 {
+define hidden i32 @EVP_BytesToKey(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef writeonly %6, ptr noundef writeonly %7) local_unnamed_addr #0 {
   %9 = alloca %struct.env_md_ctx_st, align 8
   %10 = alloca [64 x i8], align 16
   %11 = alloca i32, align 4

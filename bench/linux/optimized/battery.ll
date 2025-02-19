@@ -2255,7 +2255,7 @@ declare dso_local void @power_supply_unregister(ptr noundef) local_unnamed_addr 
 declare dso_local void @acpi_dev_remove_notify_handler(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @acpi_battery_resume(ptr noundef readonly captures(address_is_null) %0) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @acpi_battery_resume(ptr noundef readonly %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %23, label %3
 

@@ -3814,7 +3814,7 @@ entry:
 declare noundef zeroext i1 @_ZNK7datalog12rule_manager7is_factEP3app(ptr noundef nonnull align 8 dereferenceable(1368), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK7datalog7context15has_sort_domainEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly captures(address) %s) local_unnamed_addr #10 align 2 {
+define hidden noundef zeroext i1 @_ZNK7datalog7context15has_sort_domainEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly %s) local_unnamed_addr #10 align 2 {
 entry:
   %m_sorts = getelementptr inbounds nuw i8, ptr %this, i64 2792
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -3885,7 +3885,7 @@ _ZNK7obj_mapIK4sortPN7datalog7context11sort_domainEE8containsEPS1_.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog7context15get_sort_domainEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly captures(address) %s) local_unnamed_addr #11 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN7datalog7context15get_sort_domainEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly %s) local_unnamed_addr #11 align 2 {
 entry:
   %m_sorts = getelementptr inbounds nuw i8, ptr %this, i64 2792
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -3954,7 +3954,7 @@ _ZN7obj_mapIK4sortPN7datalog7context11sort_domainEE4findEPS1_.exit: ; preds = %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7datalog7context15get_sort_domainEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly captures(address) %s) local_unnamed_addr #11 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZNK7datalog7context15get_sort_domainEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly %s) local_unnamed_addr #11 align 2 {
 entry:
   %m_sorts = getelementptr inbounds nuw i8, ptr %this, i64 2792
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -4960,7 +4960,7 @@ for.end:                                          ; preds = %while.body.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7datalog7context19get_constant_numberEP4sort6symbol(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly captures(address) %srt, ptr %sym.coerce) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7datalog7context19get_constant_numberEP4sort6symbol(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly %srt, ptr %sym.coerce) local_unnamed_addr #3 align 2 {
 entry:
   %m_sorts.i = getelementptr inbounds nuw i8, ptr %this, i64 2792
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %srt, i64 12
@@ -5166,7 +5166,7 @@ unreachable:                                      ; preds = %invoke.cont19
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7datalog7context19get_constant_numberEP4sortm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly captures(address) %srt, i64 noundef %el) local_unnamed_addr #3 align 2 {
+define hidden noundef i32 @_ZN7datalog7context19get_constant_numberEP4sortm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly %srt, i64 noundef %el) local_unnamed_addr #3 align 2 {
 entry:
   %m_sorts.i = getelementptr inbounds nuw i8, ptr %this, i64 2792
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %srt, i64 12
@@ -5385,7 +5385,7 @@ unreachable:                                      ; preds = %invoke.cont18
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN7datalog7context19print_constant_nameEP4sortmRSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly captures(address) %srt, i64 noundef %num, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN7datalog7context19print_constant_nameEP4sortmRSo(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly %srt, i64 noundef %num, ptr noundef nonnull align 8 dereferenceable(8) %out) local_unnamed_addr #3 align 2 {
 entry:
   %m_sorts.i = getelementptr inbounds nuw i8, ptr %this, i64 2792
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %srt, i64 12
@@ -5519,7 +5519,7 @@ if.end:                                           ; preds = %if.else, %_ZN7datal
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEm(ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN7datalog7context27try_get_sort_constant_countEP4sortRm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly captures(address) %srt, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %constant_count) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN7datalog7context27try_get_sort_constant_countEP4sortRm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly %srt, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %constant_count) local_unnamed_addr #3 align 2 {
 entry:
   %m_sorts.i = getelementptr inbounds nuw i8, ptr %this, i64 2792
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %srt, i64 12
@@ -5649,7 +5649,7 @@ return:                                           ; preds = %for.body.i.i.i.i, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN7datalog7context22get_sort_size_estimateEP4sort(ptr noundef nonnull align 8 dereferenceable(3556) %this, ptr noundef captures(address) %srt) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZN7datalog7context22get_sort_size_estimateEP4sort(ptr noundef nonnull align 8 dereferenceable(3556) %this, ptr noundef %srt) local_unnamed_addr #3 align 2 {
 entry:
   %res = alloca i64, align 8
   %m_decl_util.i = getelementptr inbounds nuw i8, ptr %this, i64 56
@@ -5782,7 +5782,7 @@ lpad:                                             ; preds = %_ZN7obj_mapIK9func_
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden ptr @_ZN7datalog7context17get_argument_nameEPK9func_declj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly captures(address) %pred, i32 noundef %arg_index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden ptr @_ZN7datalog7context17get_argument_nameEPK9func_declj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(3556) %this, ptr noundef readonly %pred, i32 noundef %arg_index) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %retval = alloca %class.symbol, align 8
   %name_stm = alloca %"class.std::__cxx11::basic_stringstream", align 8

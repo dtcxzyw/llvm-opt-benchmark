@@ -259,7 +259,7 @@ define dso_local void @snd_hda_sequence_write(ptr noundef %0, ptr noundef readon
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_get_conn_list(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2) #0 align 16 {
+define dso_local i32 @snd_hda_get_conn_list(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly %2) #0 align 16 {
   %4 = alloca [32 x i16], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1200
   %6 = icmp eq ptr %2, null
@@ -412,7 +412,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @snd_hda_get_connections(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 align 16 {
+define dso_local i32 @snd_hda_get_connections(ptr noundef %0, i16 noundef zeroext %1, ptr noundef writeonly %2, i32 noundef %3) #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
   store ptr null, ptr %5, align 8, !annotation !9
@@ -1238,7 +1238,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare dso_local noalias ptr @kvasprintf(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hda_codec_disconnect_pcms(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @snd_hda_codec_disconnect_pcms(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1072
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -1914,7 +1914,7 @@ define dso_local i32 @snd_hda_codec_new(ptr noundef %0, ptr noundef %1, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @snd_hda_codec_device_new(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i1 noundef zeroext %4) #0 align 16 {
   %6 = alloca [31 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 31, ptr nonnull %6) #24
   %7 = icmp eq ptr %0, null
@@ -4140,7 +4140,7 @@ define dso_local noundef range(i32 -22, 1) i32 @snd_hda_add_nid(ptr noundef %0, 
 declare dso_local i32 @snd_ctl_remove(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -22, 1) i32 @snd_hda_lock_devices(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local range(i32 -22, 1) i32 @snd_hda_lock_devices(ptr noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1320
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 624
@@ -4308,7 +4308,7 @@ snd_hda_lock_devices.exit.thread:                 ; preds = %.thread.i, %1, %.lo
 declare dso_local void @device_release_driver(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @__snd_hda_add_vmaster(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7) #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @__snd_hda_add_vmaster(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(none) %3, ptr noundef %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef writeonly %7) #0 align 16 {
   %9 = alloca [44 x i8], align 16
   %10 = alloca [44 x i8], align 16
   %11 = alloca %struct.follower_init_arg, align 8
@@ -7248,7 +7248,7 @@ declare dso_local void @pm_runtime_set_autosuspend_delay(ptr noundef, i32 nounde
 declare dso_local void @pm_runtime_allow(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hda_set_power_save(ptr noundef readonly captures(address) %0, i32 noundef %1) #0 align 16 {
+define dso_local void @snd_hda_set_power_save(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -8439,7 +8439,7 @@ snd_hda_correct_pin_ctl.exit:                     ; preds = %4, %7, %26, %33, %.
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @snd_hda_add_imux_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @snd_hda_add_imux_item(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) #0 align 16 {
   %6 = load i32, ptr %1, align 4
   %7 = icmp ugt i32 %6, 35
   br i1 %7, label %14, label %8
@@ -8525,7 +8525,7 @@ declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(n
 declare dso_local i64 @strscpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @snd_hda_bus_reset_codecs(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @snd_hda_bus_reset_codecs(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2

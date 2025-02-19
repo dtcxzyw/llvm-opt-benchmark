@@ -868,7 +868,7 @@ curl_url_cleanup.exit:                            ; preds = %68, %61, %54, %47, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 32) i32 @curl_url_get(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [7 x i8], align 1
   %6 = alloca ptr, align 8
   %7 = alloca [45 x i8], align 16
@@ -1687,7 +1687,7 @@ switch.early.test.thread.thread:                  ; preds = %32, %switch.early.t
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 32) i32 @curl_url_set(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 32) i32 @curl_url_set(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8

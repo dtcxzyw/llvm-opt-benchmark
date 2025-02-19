@@ -70,7 +70,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.41 = private unnamed_addr constant [6 x i8] c"false\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineTSParser(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 8
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca ptr, align 8
@@ -451,7 +451,7 @@ declare void @heap_freetuple(ptr noundef) local_unnamed_addr #2
 declare void @table_close(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineTSDictionary(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 8
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca [6 x i64], align 16
@@ -703,7 +703,7 @@ define internal fastcc void @verify_dictoptions(i32 noundef %0, ptr noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @serialize_deflist(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @serialize_deflist(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.StringInfoData, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #10
   call void @initStringInfo(ptr noundef nonnull %2) #10
@@ -1388,7 +1388,7 @@ declare void @RunObjectPostAlterHook(i32 noundef, i32 noundef, i32 noundef, i32 
 declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineTSTemplate(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.ObjectAddress, align 8
   %4 = alloca %struct.ObjectAddress, align 4
   %5 = alloca [5 x i64], align 16
@@ -1608,7 +1608,7 @@ define internal fastcc range(i64 0, 4294967296) i64 @get_ts_template_func(ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local { i64, i32 } @DefineTSConfiguration(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca [5 x i64], align 16
   %5 = alloca [5 x i8], align 1
   %6 = alloca ptr, align 8
@@ -2786,7 +2786,7 @@ declare void @deleteSharedDependencyRecordsFor(i32 noundef, i32 noundef, i32 nou
 declare void @CommandCounterIncrement() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getTokenTypes(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc ptr @getTokenTypes(i32 noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @lookup_ts_parser_cache(i32 noundef %0) #10
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %list_length.exit.thread, label %list_length.exit

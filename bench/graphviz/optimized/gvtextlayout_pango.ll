@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.23 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define internal zeroext i1 @pango_textlayout(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
+define internal zeroext i1 @pango_textlayout(ptr noundef captures(none) %0, ptr noundef writeonly %1) #0 {
   %3 = alloca %struct.agxbuf, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8

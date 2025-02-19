@@ -469,7 +469,7 @@ define ptr @EC_GROUP_new_by_curve_name(i32 noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define noundef i64 @EC_get_builtin_curves(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #3 {
+define noundef i64 @EC_get_builtin_curves(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i64 %1, 0
   %or.cond = or i1 %3, %4

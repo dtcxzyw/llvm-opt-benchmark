@@ -404,7 +404,7 @@ eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ed25519_digest_signverify_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @ed25519_digest_signverify_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -1069,7 +1069,7 @@ eddsa_setup_instance.exit.thread:                 ; preds = %5, %10, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ed448_digest_signverify_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @ed448_digest_signverify_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 

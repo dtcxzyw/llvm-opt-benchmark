@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.md4_state_st = type { [4 x i32], i32, i32, [64 x i8], i32 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @MD4(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @MD4(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef returned writeonly initializes((0, 16)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.md4_state_st, align 4
   call void @llvm.lifetime.start.p0(i64 92, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16

@@ -169,7 +169,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slurm_step_launch(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local i32 @slurm_step_launch(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #3 {
   %4 = alloca i32, align 4
   %5 = alloca i16, align 2
   %6 = alloca %union.pthread_attr_t, align 8
@@ -1454,7 +1454,7 @@ declare void @list_destroy(ptr noundef) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slurm_step_launch_add(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
+define dso_local i32 @slurm_step_launch_add(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #3 {
   %5 = alloca [4096 x i8], align 16
   %6 = alloca %struct.launch_tasks_request_msg, align 8
   %7 = alloca ptr, align 8
@@ -2203,7 +2203,7 @@ declare i32 @pthread_cond_timedwait(ptr noundef, ptr noundef, ptr noundef) local
 declare i32 @pthread_cond_broadcast(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slurm_step_launch_wait_finish(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define dso_local void @slurm_step_launch_wait_finish(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = alloca %struct.timespec, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false)
@@ -2586,7 +2586,7 @@ declare void @client_io_handler_destroy(ptr noundef) local_unnamed_addr #5
 declare i32 @mpi_g_client_fini(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slurm_step_launch_abort(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define dso_local void @slurm_step_launch_abort(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %2
 

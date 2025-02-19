@@ -158,7 +158,7 @@ define internal noundef zeroext i1 @uint64_from_charconst(ptr noundef writeonly 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint8_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint8_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp ult i64 %2, 256
   br i1 %5, label %9, label %6
 
@@ -181,7 +181,7 @@ _uint64_from_uinteger64.exit:                     ; preds = %6, %7, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint8_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint8_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -473,7 +473,7 @@ define internal noundef i32 @uint64_bitwise_and(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal range(i32 0, 5) i32 @uint64_unary_minus(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
+define internal range(i32 0, 5) i32 @uint64_unary_minus(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = icmp slt i64 %5, 0
@@ -714,7 +714,7 @@ define internal noundef ptr @uinteger64_to_repr(ptr noundef %0, ptr noundef read
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint16_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint16_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp ult i64 %2, 65536
   br i1 %5, label %9, label %6
 
@@ -737,7 +737,7 @@ _uint64_from_uinteger64.exit:                     ; preds = %6, %7, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint16_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint16_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -774,7 +774,7 @@ _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint24_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint24_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp ult i64 %2, 16777216
   br i1 %5, label %9, label %6
 
@@ -797,7 +797,7 @@ _uint64_from_uinteger64.exit:                     ; preds = %6, %7, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint24_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint24_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -834,7 +834,7 @@ _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint32_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint32_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp ult i64 %2, 4294967296
   br i1 %5, label %9, label %6
 
@@ -857,7 +857,7 @@ _uint64_from_uinteger64.exit:                     ; preds = %6, %7, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint32_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint32_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -901,7 +901,7 @@ define internal void @int64_fvalue_new(ptr noundef writeonly captures(none) init
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint40_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint40_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp ult i64 %2, 1099511627776
   br i1 %5, label %9, label %6
 
@@ -924,7 +924,7 @@ _uint64_from_uinteger64.exit:                     ; preds = %6, %7, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint40_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint40_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -975,7 +975,7 @@ define internal i64 @get_uinteger64(ptr noundef readonly captures(none) %0) #4 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint48_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint48_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp ult i64 %2, 281474976710656
   br i1 %5, label %9, label %6
 
@@ -998,7 +998,7 @@ _uint64_from_uinteger64.exit:                     ; preds = %6, %7, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint48_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint48_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1035,7 +1035,7 @@ _uint64_from_sinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint56_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint56_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp ult i64 %2, 72057594037927936
   br i1 %5, label %9, label %6
 
@@ -1058,7 +1058,7 @@ _uint64_from_uinteger64.exit:                     ; preds = %6, %7, %9
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint56_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint56_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1102,7 +1102,7 @@ define internal noundef zeroext i1 @uint64_from_uinteger64(ptr noundef writeonly
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @uint64_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @uint64_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr readnone captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, -1
   br i1 %5, label %9, label %6
 
@@ -1132,7 +1132,7 @@ define internal noundef zeroext i1 @sint64_from_charconst(ptr noundef writeonly 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint8_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint8_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1169,7 +1169,7 @@ _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint8_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint8_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, 127
   br i1 %5, label %6, label %9
 
@@ -1513,7 +1513,7 @@ psnip_safe_int64_mod.exit.thread:                 ; preds = %10
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint16_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint16_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1550,7 +1550,7 @@ _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint16_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint16_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, 32767
   br i1 %5, label %6, label %9
 
@@ -1587,7 +1587,7 @@ _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint24_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint24_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1624,7 +1624,7 @@ _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint24_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint24_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, 8388607
   br i1 %5, label %6, label %9
 
@@ -1661,7 +1661,7 @@ _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint32_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint32_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1698,7 +1698,7 @@ _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint32_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint32_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, 2147483647
   br i1 %5, label %6, label %9
 
@@ -1735,7 +1735,7 @@ _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint40_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint40_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1772,7 +1772,7 @@ _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint40_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint40_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, 549755813887
   br i1 %5, label %6, label %9
 
@@ -1823,7 +1823,7 @@ define internal i64 @get_sinteger64(ptr noundef readonly captures(none) %0) #4 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint48_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint48_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1860,7 +1860,7 @@ _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint48_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint48_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, 140737488355327
   br i1 %5, label %6, label %9
 
@@ -1897,7 +1897,7 @@ _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint56_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint56_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %9
 
@@ -1934,7 +1934,7 @@ _sint64_from_uinteger64.exit:                     ; preds = %6, %7, %10, %11, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint56_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint56_from_sinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, 36028797018963967
   br i1 %5, label %6, label %9
 
@@ -1971,7 +1971,7 @@ _sint64_from_sinteger64.exit:                     ; preds = %6, %7, %11, %12, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @sint64_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @sint64_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp sgt i64 %2, -1
   br i1 %5, label %9, label %6
 
@@ -2001,7 +2001,7 @@ define internal noundef zeroext i1 @sint64_from_sinteger64(ptr noundef writeonly
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @boolean_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @boolean_from_literal(ptr noundef writeonly captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call i32 @g_ascii_strcasecmp(ptr noundef %1, ptr noundef nonnull @.str.60)
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %9
@@ -2120,7 +2120,7 @@ define internal i32 @boolean_hash(ptr noundef readonly captures(none) %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @ipxnet_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @ipxnet_from_uinteger64(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = icmp ult i64 %2, 4294967296
   br i1 %5, label %uint32_from_uinteger64.exit.thread, label %uint32_from_uinteger64.exit
 

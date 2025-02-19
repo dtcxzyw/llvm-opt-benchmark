@@ -57,7 +57,7 @@ define void @_ZN13duckdb_brotli26BrotliWipeOutMemoryManagerEPNS_13MemoryManagerE
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN13duckdb_brotli20BrotliBootstrapAllocEmPFPvS0_mEPFvS0_S0_ES0_(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #2 {
+define noundef ptr @_ZN13duckdb_brotli20BrotliBootstrapAllocEmPFPvS0_mEPFvS0_S0_ES0_(i64 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef %3) local_unnamed_addr #2 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne ptr %2, null
   %or.cond = or i1 %5, %6

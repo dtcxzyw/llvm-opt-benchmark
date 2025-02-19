@@ -4455,7 +4455,7 @@ _ZN15EditAlignPlugin7endEditER9MeshModelP6GLAreaP26MLSceneGLSharedDataContext.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditAlignPlugin19hideRevealGluedMeshEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1056) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN15EditAlignPlugin19hideRevealGluedMeshEv(ptr noundef nonnull readonly align 8 dereferenceable(1056) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -4504,7 +4504,7 @@ declare void @_ZN7QWidget6updateEv(ptr noundef nonnull align 8 dereferenceable(4
 declare void @_ZN11AlignDialog25updateMeshSetVisibilitiesEv(ptr noundef nonnull align 8 dereferenceable(376)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditAlignPlugin11setBaseMeshEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1056) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN15EditAlignPlugin11setBaseMeshEv(ptr noundef nonnull readonly align 8 dereferenceable(1056) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.vcg::Matrix44.180", align 8
   %3 = alloca %"class.vcg::Matrix44.180", align 8
   %4 = alloca %"class.vcg::Matrix44.180", align 8
@@ -18184,7 +18184,7 @@ _ZN7QStringD2Ev.exit9:                            ; preds = %_ZN7QStringD2Ev.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditAlignPlugin8glueHereEv(ptr noundef nonnull align 8 captures(address) dereferenceable(1056) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN15EditAlignPlugin8glueHereEv(ptr noundef nonnull align 8 dereferenceable(1056) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %3 = load ptr, ptr %2, align 8
   %4 = tail call noundef ptr @_ZN12MeshDocument2mmEv(ptr noundef nonnull align 8 dereferenceable(192) %3)
@@ -18485,7 +18485,7 @@ _ZN3vcg9AlignPair4StataSEOS1_.exit:               ; preds = %_ZN3vcg9HistogramIf
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN15EditAlignPlugin15glueHereVisibleEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1056) %0) local_unnamed_addr #10 align 2 {
+define void @_ZN15EditAlignPlugin15glueHereVisibleEv(ptr noundef nonnull readonly align 8 dereferenceable(1056) %0) local_unnamed_addr #10 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 704
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 688

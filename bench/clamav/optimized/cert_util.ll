@@ -124,7 +124,7 @@ cert_store_free_cert_list_int.exit7:              ; preds = %cert_store_free_cer
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cert_store_free_cert_list_int(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @cert_store_free_cert_list_int(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -214,7 +214,7 @@ declare void @mprintf(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 declare i32 @pthread_mutex_unlock(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @x509_get_cert_name(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 0, 21) i32 @x509_get_cert_name(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %4 = icmp eq ptr %0, null
@@ -291,7 +291,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 9) i32 @cert_store_export_pem(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -696,7 +696,7 @@ define internal fastcc range(i32 0, 21) i32 @x509_cert_name_cmp(ptr noundef %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 9) i32 @cert_store_set_trusted_int(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i64 %1, 0
   %or.cond = or i1 %3, %4
@@ -811,7 +811,7 @@ declare i32 @X509_cmp(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @X509_dup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 9) i32 @cert_store_set_trusted(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 9) i32 @cert_store_set_trusted(ptr noundef %0, i64 noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_cert_store) #15
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %6, label %4
@@ -911,7 +911,7 @@ cert_store_free_cert_list_int.exit:               ; preds = %._crit_edge.i, %7, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @cert_fill_X509_store(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
+define void @cert_fill_X509_store(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null

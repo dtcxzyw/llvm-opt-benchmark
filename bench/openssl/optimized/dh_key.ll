@@ -448,7 +448,7 @@ declare i32 @DH_set0_key(ptr noundef, ptr noundef, ptr noundef) local_unnamed_ad
 declare void @BN_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i64 -268435455, 268435456) i64 @ossl_dh_key2buf(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9

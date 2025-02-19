@@ -12,7 +12,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.6 = private unnamed_addr constant [45 x i8] c"Opaque data given invalid negative size (%d)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_init(ptr noundef %ctxt, ptr noundef writeonly captures(address_is_null) %u, i64 noundef %b) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_init(ptr noundef %ctxt, ptr noundef writeonly %u, i64 noundef %b) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -76,7 +76,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_create(ptr noundef %ctxt, ptr noundef captures(address_is_null) %u, i64 noundef %b, ptr noundef readonly captures(address_is_null) %d) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_create(ptr noundef %ctxt, ptr noundef %u, i64 noundef %b, ptr noundef readonly %d) local_unnamed_addr #0 {
 entry:
   %tobool.not.i = icmp eq ptr %ctxt, null
   br i1 %tobool.not.i, label %if.end4, label %if.end.i
@@ -151,7 +151,7 @@ if.end4:                                          ; preds = %entry, %land.lhs.tr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 3) i32 @exr_attr_opaquedata_destroy(ptr noundef %ctxt, ptr noundef captures(address_is_null) %ud) local_unnamed_addr #0 {
+define hidden range(i32 0, 3) i32 @exr_attr_opaquedata_destroy(ptr noundef %ctxt, ptr noundef %ud) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -206,7 +206,7 @@ return:                                           ; preds = %if.end, %if.end13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_copy(ptr noundef %ctxt, ptr noundef captures(address_is_null) %ud, ptr noundef readonly captures(address_is_null) %srcud) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_copy(ptr noundef %ctxt, ptr noundef %ud, ptr noundef readonly %srcud) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %srcud, null
   br i1 %tobool.not, label %return, label %if.end
@@ -338,7 +338,7 @@ return:                                           ; preds = %if.end14.i, %if.end
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_set_unpacked(ptr noundef %ctxt, ptr noundef captures(address_is_null) %u, ptr noundef %unpacked, i32 noundef %sz) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_set_unpacked(ptr noundef %ctxt, ptr noundef %u, ptr noundef %unpacked, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end
@@ -414,7 +414,7 @@ return:                                           ; preds = %if.end14, %if.end22
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_unpack(ptr noundef %ctxt, ptr noundef captures(address_is_null) %u, ptr noundef writeonly captures(address_is_null) %sz, ptr noundef writeonly captures(address_is_null) %unpacked) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_unpack(ptr noundef %ctxt, ptr noundef %u, ptr noundef writeonly %sz, ptr noundef writeonly %unpacked) local_unnamed_addr #0 {
 entry:
   %tmpusz = alloca i32, align 4
   %tmpuptr = alloca ptr, align 8
@@ -515,7 +515,7 @@ return:                                           ; preds = %if.end24, %if.then3
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_pack(ptr noundef %ctxt, ptr noundef captures(address_is_null) %u, ptr noundef writeonly captures(address_is_null) %sz, ptr noundef writeonly captures(address_is_null) %packed) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_pack(ptr noundef %ctxt, ptr noundef %u, ptr noundef writeonly %sz, ptr noundef writeonly %packed) local_unnamed_addr #0 {
 entry:
   %nsize = alloca i32, align 4
   store i32 0, ptr %nsize, align 4
@@ -681,7 +681,7 @@ return:                                           ; preds = %if.end30, %if.end65
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @exr_attr_opaquedata_set_packed(ptr noundef %ctxt, ptr noundef captures(address_is_null) %u, ptr noundef readonly captures(address_is_null) %packed, i32 noundef %sz) local_unnamed_addr #0 {
+define hidden i32 @exr_attr_opaquedata_set_packed(ptr noundef %ctxt, ptr noundef %u, ptr noundef readonly %packed, i32 noundef %sz) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %ctxt, null
   br i1 %tobool.not, label %return, label %if.end

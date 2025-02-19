@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [23 x i8] c"{} locale is missing.\0A\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_Z18open_buffered_filePP8_IO_FILE(ptr dead_on_unwind noalias writable sret(%"class.fmt::v11::buffered_file") align 8 %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_Z18open_buffered_filePP8_IO_FILE(ptr dead_on_unwind noalias writable sret(%"class.fmt::v11::buffered_file") align 8 %0, ptr noundef writeonly %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.fmt::v11::pipe", align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #5
   call void @_ZN3fmt3v114pipeC1Ev(ptr noundef nonnull align 4 dereferenceable(8) %3)

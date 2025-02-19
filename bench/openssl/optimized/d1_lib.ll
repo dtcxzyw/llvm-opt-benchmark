@@ -1806,7 +1806,7 @@ declare ptr @SSL_get_current_cipher(ptr noundef) local_unnamed_addr #0
 declare i32 @ssl_cipher_get_overhead(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @DTLS_set_timer_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #7 {
+define void @DTLS_set_timer_cb(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 

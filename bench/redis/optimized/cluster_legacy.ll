@@ -455,7 +455,7 @@ define dso_local i32 @auxShardIdPresent(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @auxHumanNodenameSetter(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #3 {
+define dso_local range(i32 -1, 1) i32 @auxHumanNodenameSetter(ptr noundef %0, ptr noundef %1, i32 noundef %2) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -2575,7 +2575,7 @@ define dso_local ptr @clusterLookupNode(ptr noundef %0, i32 noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @createClusterNode(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local noundef ptr @createClusterNode(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 {
   %3 = tail call noalias dereferenceable_or_null(2368) ptr @zmalloc(i64 noundef 2368) #38
   %.not = icmp eq ptr %0, null
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -2976,7 +2976,7 @@ sdslen.exit:                                      ; preds = %1, %17, %20, %24, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @clusterGenNodesDescription(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @clusterGenNodesDescription(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = tail call ptr @sdsempty() #33
   tail call void @clusterGenNodesSlotsInfo(i32 noundef %1)
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
@@ -4372,7 +4372,7 @@ clusterAddNode.exit:                              ; preds = %96
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @clusterSetNodeAsMaster(ptr noundef captures(address) %0) local_unnamed_addr #24 {
+define dso_local void @clusterSetNodeAsMaster(ptr noundef %0) local_unnamed_addr #24 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load i32, ptr %2, align 8, !tbaa !82
   %4 = and i32 %3, 1
@@ -5042,7 +5042,7 @@ define dso_local void @clusterNodeCleanupFailureReports(ptr noundef readonly cap
 declare void @listDelNode(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @clusterNodeDelFailureReport(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @clusterNodeDelFailureReport(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #3 {
   %3 = alloca %struct.listIter, align 8
   %4 = alloca %struct.listIter, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 2360
@@ -5147,7 +5147,7 @@ clusterNodeCleanupFailureReports.exit:            ; preds = %17, %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -1, 1) i32 @clusterNodeRemoveSlave(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #24 {
+define dso_local range(i32 -1, 1) i32 @clusterNodeRemoveSlave(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #24 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2168
   %4 = load i32, ptr %3, align 8, !tbaa !39
   %5 = icmp sgt i32 %4, 0
@@ -6926,7 +6926,7 @@ connAddrPeerName.exit.thread:                     ; preds = %7, %10, %connAddrPe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @nodeUpdateAddressIfNeeded(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
+define dso_local range(i32 0, 2) i32 @nodeUpdateAddressIfNeeded(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #3 {
   %4 = alloca [46 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 46, ptr nonnull %4) #33
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(46) %4, i8 0, i64 46, i1 false)
@@ -7964,7 +7964,7 @@ define dso_local noundef range(i32 8, 1) i32 @getForgottenNodeExtSize() local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local nonnull ptr @preparePingExt(ptr noundef writeonly captures(ret: address, provenance) initializes((0, 6)) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #29 {
+define dso_local nonnull ptr @preparePingExt(ptr noundef writeonly initializes((0, 6)) %0, i16 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #29 {
   %rev.i = tail call noundef i16 @llvm.bswap.i16(i16 %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i16 %rev.i, ptr %4, align 4, !tbaa !51
@@ -7975,7 +7975,7 @@ define dso_local nonnull ptr @preparePingExt(ptr noundef writeonly captures(ret:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local ptr @nextPingExt(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #1 {
+define dso_local ptr @nextPingExt(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = load i32, ptr %0, align 8, !tbaa !38
   %3 = tail call noundef i32 @llvm.bswap.i32(i32 %2)
   %4 = zext i32 %3 to i64
@@ -7984,7 +7984,7 @@ define dso_local ptr @nextPingExt(ptr noundef readonly captures(ret: address, pr
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @writePingExt(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #3 {
+define dso_local i32 @writePingExt(ptr noundef %0, i32 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2256
   %4 = sext i32 %1 to i64
@@ -8896,7 +8896,7 @@ clusterNodeGetMaster.exit:                        ; preds = %.preheader
 declare ptr @dictAddOrFind(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @clusterNodeGetMaster(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #26 {
+define dso_local ptr @clusterNodeGetMaster(ptr noundef readonly %0) local_unnamed_addr #26 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -10633,7 +10633,7 @@ define dso_local i32 @clusterDelNodeSlots(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @clusterSendUpdate(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+define dso_local void @clusterSendUpdate(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %clusterMsgSendBlockDecrRefCount.exit, label %4
 
@@ -11432,7 +11432,7 @@ connAddrPeerName.exit.thread:                     ; preds = %24, %connAddrPeerNa
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @clusterSendMessage(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local void @clusterSendMessage(ptr noundef %0, ptr noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %42, label %3
 
@@ -12178,7 +12178,7 @@ sdslen.exit30:                                    ; preds = %sdslen.exit28, %118
 declare ptr @getDecodedObject(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @clusterSendModule(ptr noundef captures(address_is_null) %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local void @clusterSendModule(ptr noundef %0, i64 noundef %1, i8 noundef zeroext %2, ptr noundef readonly captures(none) %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = zext i32 %4 to i64
   %7 = add i32 %4, 2269
   %8 = tail call fastcc ptr @createClusterMsgSendBlock(i32 noundef 9, i32 noundef %7)
@@ -15108,7 +15108,7 @@ define dso_local ptr @representSlotInfo(ptr noundef %0, ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @clusterGenNodeDescription(ptr noundef readnone captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local ptr @clusterGenNodeDescription(ptr noundef readnone %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %.not.i = icmp eq i32 %2, 0
   %.in.v.i = select i1 %.not.i, i64 2328, i64 2332
   %.in.i = getelementptr inbounds nuw i8, ptr %1, i64 %.in.v.i
@@ -16234,7 +16234,7 @@ declare void @postExecutionUnitOperations() local_unnamed_addr #2
 declare void @kvstoreReleaseDictIterator(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @clusterNodeIsMyself(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @clusterNodeIsMyself(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7920), align 8, !tbaa !56
   %3 = load ptr, ptr %2, align 8, !tbaa !81
   %4 = icmp eq ptr %0, %3
@@ -16558,7 +16558,7 @@ define dso_local range(i32 0, 97) i32 @clusterNodePending(ptr noundef readonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @clusterNodeIp(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #28 {
+define dso_local nonnull ptr @clusterNodeIp(ptr noundef readnone %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2264
   ret ptr %2
 }
@@ -16579,7 +16579,7 @@ define dso_local ptr @clusterNodeGetSlaveof(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @clusterNodeGetName(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #28 {
+define dso_local nonnull ptr @clusterNodeGetName(ptr noundef readnone %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -16614,7 +16614,7 @@ define dso_local noundef nonnull ptr @clusterDebugCommandExtendedHelp() local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @clusterNodeGetShardId(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #28 {
+define dso_local nonnull ptr @clusterNodeGetShardId(ptr noundef readnone %0) local_unnamed_addr #28 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }
@@ -18340,7 +18340,7 @@ define dso_local i64 @clusterNodeReplOffset(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @clusterNodePreferredEndpoint(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local ptr @clusterNodePreferredEndpoint(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 2312
   %3 = load ptr, ptr %2, align 8, !tbaa !73
   %4 = load i32, ptr getelementptr inbounds nuw (i8, ptr @server, i64 7976), align 8, !tbaa !329

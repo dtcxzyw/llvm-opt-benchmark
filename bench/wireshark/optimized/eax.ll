@@ -238,7 +238,7 @@ define hidden void @AesEncrypt(ptr noundef %0, ptr noundef %1) local_unnamed_add
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4, i16 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc void @dCMAC(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i16 noundef zeroext %3, ptr noundef readonly %4, i16 noundef zeroext %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #9
   %8 = add i16 %5, %3

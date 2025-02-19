@@ -24,7 +24,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__const.writer_dump_object_index.common = private unnamed_addr constant %struct.common_prefix_arg { ptr null, i64 1 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -13, 1) i32 @reftable_writer_new(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 -13, 1) i32 @reftable_writer_new(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %.sroa.13 = alloca { i32, i8, i8, i64, ptr, ptr, ptr }, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.13)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.13, i8 0, i64 40, i1 false)
@@ -1438,7 +1438,7 @@ declare i64 @crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 declare i64 @footer_size(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @reftable_writer_stats(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local nonnull ptr @reftable_writer_stats(ptr noundef readnone %0) local_unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 336
   ret ptr %2
 }

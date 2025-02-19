@@ -1546,7 +1546,7 @@ define void @_ZN6duckdb22DuckTransactionManager18CheckpointDecisionC2ENS_14Check
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN6duckdb22DuckTransactionManager18CheckpointDecisionD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(44) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6duckdb22DuckTransactionManager18CheckpointDecisionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(44) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !35
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -10450,7 +10450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %11
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZN6duckdb12ValidChecker3GetERNS_15MetaTransactionE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(233) %0) local_unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZN6duckdb12ValidChecker3GetERNS_15MetaTransactionE(ptr noundef nonnull readnone align 8 dereferenceable(233) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }

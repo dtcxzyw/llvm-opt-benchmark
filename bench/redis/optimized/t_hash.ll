@@ -1756,7 +1756,7 @@ declare ptr @dictGetKey(ptr noundef) local_unnamed_addr #0
 declare ptr @dictGetVal(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @hashTypeGetValue(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #1 {
+define dso_local range(i32 0, 4) i32 @hashTypeGetValue(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = alloca i64, align 8
   %10 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
@@ -2088,7 +2088,7 @@ declare void @signalModifiedKey(ptr noundef, ptr noundef, ptr noundef) local_unn
 declare void @decrRefCount(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hashTypeGetValueObject(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @hashTypeGetValueObject(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef %5, ptr noundef writeonly %6) local_unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca i32, align 4
   %10 = alloca i64, align 8
@@ -2169,7 +2169,7 @@ define dso_local range(i32 0, 2) i32 @hashTypeGetValueObject(ptr noundef %0, ptr
 declare ptr @createStringObjectFromLongLong(i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @hashTypeExists(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @hashTypeExists(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
@@ -4315,7 +4315,7 @@ hfieldGetExpireTime.exit:                         ; preds = %110, %hfieldIsExpir
 declare ptr @dictNext(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashTypeCurrentFromListpack(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #1 {
+define dso_local void @hashTypeCurrentFromListpack(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5) local_unnamed_addr #1 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load i32, ptr %7, align 8, !tbaa !113
   %.off = add i32 %8, -11
@@ -4349,7 +4349,7 @@ define dso_local void @hashTypeCurrentFromListpack(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashTypeCurrentFromHashTable(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #1 {
+define dso_local void @hashTypeCurrentFromHashTable(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #1 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i32, ptr %6, align 8, !tbaa !113
   %8 = icmp eq i32 %7, 2
@@ -4433,7 +4433,7 @@ sdslen.exit:                                      ; preds = %38, %34, %30, %26, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashTypeCurrentObject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #1 {
+define dso_local void @hashTypeCurrentObject(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5973,7 +5973,7 @@ define dso_local void @hashTypeUpdateKeyRef(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @hashTypeGetDictMetaHFE(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #2 {
+define dso_local nonnull ptr @hashTypeGetDictMetaHFE(ptr noundef readnone %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
@@ -7654,7 +7654,7 @@ addHashFieldToReply.exit:                         ; preds = %30, %33, %35
 declare ptr @lookupKeyReadOrReply(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 4) i32 @addHashFieldToReply(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef range(i32 0, 15) %3) unnamed_addr #1 {
+define internal fastcc range(i32 0, 4) i32 @addHashFieldToReply(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 15) %3) unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = alloca i64, align 8
@@ -9873,7 +9873,7 @@ hashTypeGetMinExpire.exit:                        ; preds = %2, %7, %10, %13
 declare void @lpRandomPairs(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #1 {
+define internal fastcc void @hrandfieldReplyWithListpack(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #1 {
   %5 = zext i32 %1 to i64
   %.not32 = icmp eq i32 %1, 0
   br i1 %.not32, label %._crit_edge, label %.lr.ph
@@ -11378,7 +11378,7 @@ declare ptr @lpBatchAppend(ptr noundef, ptr noundef, i64 noundef) local_unnamed_
 declare ptr @lpFindCb(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @cbFindInListpack(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address_is_null) %3, i64 noundef %4) #1 {
+define internal range(i32 0, 2) i32 @cbFindInListpack(ptr readnone captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readnone %3, i64 noundef %4) #1 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 28
   %7 = load i32, ptr %6, align 4, !tbaa !186
   %8 = add nsw i32 %7, 1

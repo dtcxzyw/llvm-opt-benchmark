@@ -200,7 +200,7 @@ declare void @_ZN8SettingsC1ESt17basic_string_viewIcSt11char_traitsIcEEP17Settin
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN18MapSettingsManagerD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN18MapSettingsManagerD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(80) %this) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_defaults = getelementptr inbounds nuw i8, ptr %this, i64 64
   %0 = load ptr, ptr %m_defaults, align 8, !tbaa !23

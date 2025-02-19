@@ -989,7 +989,7 @@ _ZN16G1FreeRegionList21add_list_common_startEPS_.exit.thread: ; preds = %_ZN19G1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN16G1FreeRegionList18remove_starting_atEP12G1HeapRegionj(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN16G1FreeRegionList18remove_starting_atEP12G1HeapRegionj(ptr noundef nonnull align 8 captures(none) dereferenceable(72) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not.i = icmp eq ptr %5, null

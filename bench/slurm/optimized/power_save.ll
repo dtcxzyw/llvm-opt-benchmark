@@ -2766,7 +2766,7 @@ define dso_local void @power_save_set_timeouts(ptr noundef %0) local_unnamed_add
 declare ptr @next_node(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_set_partition_options(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
+define internal noundef i32 @_set_partition_options(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %4

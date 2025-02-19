@@ -4141,7 +4141,7 @@ if.end13:                                         ; preds = %if.else, %_ZN9table
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN2lp10hnf_cutter18shrink_explanationERK7svectorIjjE(ptr noundef nonnull align 8 captures(address) dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %basis_rows) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN2lp10hnf_cutter18shrink_explanationERK7svectorIjjE(ptr noundef nonnull align 8 dereferenceable(208) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %basis_rows) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %new_expl = alloca %class.ptr_vector, align 8
   store ptr null, ptr %new_expl, align 8

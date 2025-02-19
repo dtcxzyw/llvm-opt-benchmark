@@ -16,7 +16,7 @@ define noalias noundef ptr @Mtr_AllocNode() local_unnamed_addr #0 {
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Mtr_DeallocNode(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @Mtr_DeallocNode(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -48,7 +48,7 @@ define noalias noundef ptr @Mtr_InitTree() local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Mtr_FreeTree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define void @Mtr_FreeTree(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %common.ret5, label %3
 
@@ -76,7 +76,7 @@ Mtr_DeallocNode.exit:                             ; preds = %6, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @Mtr_CopyTree(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #5 {
+define noundef ptr @Mtr_CopyTree(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 1
   %or.cond = or i1 %3, %4

@@ -478,7 +478,7 @@ get_default_delay.exit:                           ; preds = %3, %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stop_progress_msg(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define dso_local void @stop_progress_msg(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.itimerval, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5

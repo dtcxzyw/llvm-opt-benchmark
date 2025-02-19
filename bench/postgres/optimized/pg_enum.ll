@@ -32,7 +32,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.9 = private unnamed_addr constant [24 x i8] c"Uncommitted enum values\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @EnumValuesCreate(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @EnumValuesCreate(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct.HASHCTL, align 8
   %4 = alloca i32, align 4
   store i32 %0, ptr %4, align 4

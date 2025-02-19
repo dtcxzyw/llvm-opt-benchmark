@@ -4968,7 +4968,7 @@ define hidden void @bluetooth_unit_0p125_ms(ptr noundef %0, i32 noundef %1) loca
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #1 {
+define hidden void @save_local_device_name_from_eir_ad(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i8 noundef zeroext %3, ptr noundef readonly %4) local_unnamed_addr #1 {
   %6 = alloca [4 x %struct._wmem_tree_key_t], align 16
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -5928,7 +5928,7 @@ declare void @register_decode_as(ptr noundef) local_unnamed_addr #0
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @bt_uuids_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
+define internal noundef ptr @bt_uuids_copy_cb(ptr noundef returned writeonly initializes((0, 16)) %0, ptr noundef readonly captures(none) %1, i64 %2) #1 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %5, ptr %0, align 8

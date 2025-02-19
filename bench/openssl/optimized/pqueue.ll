@@ -171,7 +171,7 @@ define ptr @pqueue_iterator(ptr noundef readonly captures(none) %0) local_unname
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @pqueue_next(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @pqueue_next(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

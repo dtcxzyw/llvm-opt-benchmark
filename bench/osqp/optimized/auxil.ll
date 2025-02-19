@@ -820,7 +820,7 @@ define range(i64 0, 2) i64 @has_solution(ptr noundef readonly captures(none) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define void @store_solution(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @store_solution(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !9
@@ -1562,7 +1562,7 @@ compute_duality_gap_tol.exit:                     ; preds = %135, %157, %160
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i64 0, 2) i64 @validate_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef readnone captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #6 {
+define range(i64 0, 2) i64 @validate_data(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %11
 
@@ -1753,7 +1753,7 @@ define range(i64 0, 2) i64 @validate_linsys_solver(i64 noundef %0) local_unnamed
 declare i64 @osqp_algebra_linsys_supported() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @validate_settings(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @validate_settings(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %6
 

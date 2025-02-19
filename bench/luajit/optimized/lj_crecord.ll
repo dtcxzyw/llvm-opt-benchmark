@@ -5371,7 +5371,7 @@ define hidden void @recff_ffi_copy(ptr noundef %0, ptr noundef captures(none) %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @crec_copy(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc void @crec_copy(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [16 x %struct.CRecMemList], align 16
   %7 = and i32 %3, 32768
   %.not.not = icmp eq i32 %7, 0

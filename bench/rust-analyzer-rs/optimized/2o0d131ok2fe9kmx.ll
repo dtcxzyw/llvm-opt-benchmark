@@ -4643,7 +4643,7 @@ define hidden void @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4fro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h98609e2984c72345E.llvm.8935166204745160323"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #10 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h98609e2984c72345E.llvm.8935166204745160323"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #10 {
   ret ptr %0
 }
 
@@ -8613,7 +8613,7 @@ define void @"_ZN88_$LT$project_model..cargo_workspace..CargoFeatures$u20$as$u20
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable
-define hidden void @_ZN13project_model15cargo_workspace7DepKind4iter17hf99f93d0b72a22abE(ptr noalias noundef writeonly sret({ { { { i64, [3 x i64] } }, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2) unnamed_addr #23 {
+define hidden void @_ZN13project_model15cargo_workspace7DepKind4iter17hf99f93d0b72a22abE(ptr noalias noundef writeonly sret({ { { { i64, [3 x i64] } }, i8, i8, [6 x i8] } }) align 8 captures(none) dereferenceable(40) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2) unnamed_addr #23 {
   %4 = icmp eq i64 %2, 0
   %spec.select = select i1 %4, i8 0, i8 3
   %5 = getelementptr inbounds { { [3 x i64], i64, [2 x i64] }, i8, [7 x i8] }, ptr %1, i64 %2
@@ -14632,7 +14632,7 @@ define { ptr, i64 } @_ZN13project_model15cargo_workspace14CargoWorkspace14worksp
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13project_model15cargo_workspace14CargoWorkspace13manifest_path17h2d1135d983bc4edeE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #10 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN13project_model15cargo_workspace14CargoWorkspace13manifest_path17h2d1135d983bc4edeE(ptr noalias noundef readonly align 8 dereferenceable(120) %0) unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   ret ptr %2
 }

@@ -18,7 +18,7 @@ define internal noundef i32 @null_init_key(ptr readnone captures(none) %0, ptr r
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef i32 @null_cipher(ptr readnone captures(none) %0, ptr noundef writeonly captures(address) %1, ptr noundef readonly captures(address) %2, i64 noundef %3) #1 {
+define internal noundef i32 @null_cipher(ptr readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef readonly %2, i64 noundef %3) #1 {
   %.not = icmp eq ptr %2, %1
   br i1 %.not, label %6, label %5
 

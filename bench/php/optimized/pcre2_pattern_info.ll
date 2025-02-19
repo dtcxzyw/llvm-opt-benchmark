@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.php_pcre2_pattern_info = private unnamed_addr constant [27 x i32] [i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 4, i32 8, i32 4, i32 4, i32 8, i32 4, i32 8, i32 4, i32 4], align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -55, 9) i32 @php_pcre2_pattern_info(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -55, 9) i32 @php_pcre2_pattern_info(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %2, null
   %5 = icmp ult i32 %1, 27
   %or.cond = and i1 %4, %5

@@ -16238,7 +16238,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: cold mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef nonnull readonly captures(address) %0, ptr noundef nonnull readnone captures(address) %1) unnamed_addr #7 {
+define internal fastcc void @_ZL14yy_stack_printPsS_(ptr noundef nonnull readonly %0, ptr noundef nonnull readnone %1) unnamed_addr #7 {
   %3 = load ptr, ptr @stderr, align 8
   %4 = tail call i64 @fwrite(ptr nonnull @.str.119, i64 9, i64 1, ptr %3) #33
   %.not4 = icmp ugt ptr %0, %1
@@ -16332,7 +16332,7 @@ _ZL18yy_location_print_P8_IO_FILEPK24FRONTEND_VERILOG_YYLTYPE.exit: ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymbol_kind_t(ptr noundef readnone captures(address) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef range(i32 -2147483648, 256) %4) unnamed_addr #3 {
+define internal fastcc noundef range(i32 -2, 2) i32 @_ZL6yy_lacPsPS_PlS_15yysymbol_kind_t(ptr noundef readnone %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3, i32 noundef range(i32 -2147483648, 256) %4) unnamed_addr #3 {
   %6 = load i32, ptr @frontend_verilog_yydebug, align 4
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %13, label %7
@@ -17919,7 +17919,7 @@ _ZNK5Yosys7hashlib4dictINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiNS0
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL10checkRangePN5Yosys3AST7AstNodeES2_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZL10checkRangePN5Yosys3AST7AstNodeES2_(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 156
   %4 = load i32, ptr %3, align 4
   %5 = icmp sgt i32 %4, -1

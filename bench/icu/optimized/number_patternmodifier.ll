@@ -1533,7 +1533,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_756number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(392) initializes((320, 328)) %this, ptr noundef %parent) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN6icu_756number4impl22MutablePatternModifier10addToChainEPKNS1_19MicroPropsGeneratorE(ptr noundef nonnull returned writeonly align 8 dereferenceable(392) initializes((320, 328)) %this, ptr noundef %parent) local_unnamed_addr #11 align 2 {
 entry:
   %fParent = getelementptr inbounds nuw i8, ptr %this, i64 320
   store ptr %parent, ptr %fParent, align 8

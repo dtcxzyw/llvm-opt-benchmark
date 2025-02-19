@@ -6444,7 +6444,7 @@ define internal range(i32 -19, 1) i32 @sd_resume_runtime(ptr noundef readonly ca
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc range(i32 -2147483648, 1) i32 @sd_suspend_common(ptr captures(address_is_null) %.120.val, i1 noundef zeroext %0) unnamed_addr #3 align 16 {
+define internal fastcc range(i32 -2147483648, 1) i32 @sd_suspend_common(ptr %.120.val, i1 noundef zeroext %0) unnamed_addr #3 align 16 {
   %2 = icmp eq ptr %.120.val, null
   br i1 %2, label %51, label %3
 

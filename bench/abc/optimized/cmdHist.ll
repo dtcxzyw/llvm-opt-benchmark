@@ -301,7 +301,7 @@ define void @Cmd_HistoryWrite(ptr noundef readonly captures(none) %0, i32 nounde
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @Vec_PtrRemove(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #6 {
+define internal fastcc void @Vec_PtrRemove(ptr noundef captures(none) %0, ptr noundef readnone %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %3, align 4, !tbaa !25
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

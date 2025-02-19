@@ -343,7 +343,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #3
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @clear_node_memory_type(i32 noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
+define dso_local void @clear_node_memory_type(i32 noundef %0, ptr noundef readnone %1) #0 align 16 {
   tail call void @mutex_lock(ptr noundef nonnull @memory_tier_lock) #11
   %3 = sext i32 %0 to i64
   %4 = getelementptr [64 x %struct.node_memory_type_map], ptr @node_memory_types, i64 0, i64 %3
@@ -1117,7 +1117,7 @@ declare dso_local i32 @device_register(ptr noundef) local_unnamed_addr #3
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @nodelist_show(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @nodelist_show(ptr noundef readonly %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = alloca %struct.nodemask_t, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   tail call void @mutex_lock(ptr noundef nonnull @memory_tier_lock) #11

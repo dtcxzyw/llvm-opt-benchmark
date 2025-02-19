@@ -110,7 +110,7 @@ define dso_local ptr @intel_panel_fixed_mode(ptr noundef %0, ptr noundef %1) loc
 declare dso_local i32 @drm_mode_vrefresh(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @intel_panel_downclock_mode(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local ptr @intel_panel_downclock_mode(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2157
   %4 = load i8, ptr %3, align 1
   %5 = zext i8 %4 to i32
@@ -153,7 +153,7 @@ define dso_local ptr @intel_panel_downclock_mode(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @intel_panel_highest_mode(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #3 align 16 {
+define dso_local ptr @intel_panel_highest_mode(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2008
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3

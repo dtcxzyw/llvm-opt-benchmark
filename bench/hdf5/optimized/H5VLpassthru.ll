@@ -44,7 +44,7 @@ define internal noundef i32 @H5VL_pass_through_term() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @H5VL_pass_through_info_copy(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal noundef ptr @H5VL_pass_through_info_copy(ptr noundef readonly %0) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -1769,7 +1769,7 @@ define internal i32 @H5VL_pass_through_group_close(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #1 {
+define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %10, label %8
 
@@ -1838,7 +1838,7 @@ define internal i32 @H5VL_pass_through_link_create(ptr noundef %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_link_copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #1 {
+define internal i32 @H5VL_pass_through_link_copy(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %.thread
 
@@ -1891,7 +1891,7 @@ define internal i32 @H5VL_pass_through_link_copy(ptr noundef readonly captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_link_move(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #1 {
+define internal i32 @H5VL_pass_through_link_move(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, i64 noundef %6, ptr noundef %7) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %.thread
 
@@ -2201,7 +2201,7 @@ define internal i32 @H5VL_pass_through_introspect_get_conn_cls(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @H5VL_pass_through_introspect_get_cap_flags(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #1 {
+define internal i32 @H5VL_pass_through_introspect_get_cap_flags(ptr noundef readonly %0, ptr noundef %1) #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %5
 

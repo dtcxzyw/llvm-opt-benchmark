@@ -535,7 +535,7 @@ define ptr @TS_TST_INFO_get_exts(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define void @TS_TST_INFO_ext_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @TS_TST_INFO_ext_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

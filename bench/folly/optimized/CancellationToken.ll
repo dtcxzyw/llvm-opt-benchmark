@@ -973,7 +973,7 @@ define void @_ZN5folly6detail24MergingCancellationStateC2ENS1_7CopyTagEmPPKNS_17
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly6detail24MergingCancellationStateD2Ev(ptr noundef nonnull align 16 captures(address) dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6detail24MergingCancellationStateD2Ev(ptr noundef nonnull align 16 dereferenceable(40) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN5folly6detail24MergingCancellationStateE, i64 16), ptr %0, align 16, !tbaa !7
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32

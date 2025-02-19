@@ -1130,7 +1130,7 @@ define void @rb_Digest_SHA1_Update(ptr noundef %0, ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
-define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define noundef i32 @rb_Digest_SHA1_Finish(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   %3 = alloca [8 x i8], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20

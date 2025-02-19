@@ -249,7 +249,7 @@ _ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit:
 declare noundef nonnull align 8 dereferenceable(496) ptr @_ZNK4llvm8Function13getDataLayoutEv(ptr noundef nonnull align 8 dereferenceable(136)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL7runImplRN4llvm8FunctionERKNS_13SimplifyQueryE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(58) %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL7runImplRN4llvm8FunctionERKNS_13SimplifyQueryE(ptr noundef nonnull readonly align 8 dereferenceable(136) %0, ptr noundef nonnull align 8 dereferenceable(58) %1) unnamed_addr #0 {
   %3 = alloca %"class.llvm::SmallPtrSet.131", align 8
   %4 = alloca %"class.llvm::SmallPtrSet.131", align 8
   %5 = alloca %"class.llvm::SmallVector.148", align 8

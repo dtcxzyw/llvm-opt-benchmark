@@ -29,7 +29,7 @@ define dso_local zeroext i1 @intel_hdcp_gsc_cs_required(ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @intel_hdcp_gsc_check_status(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 align 16 {
+define dso_local noundef zeroext i1 @intel_hdcp_gsc_check_status(ptr noundef readonly %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, null
@@ -349,7 +349,7 @@ define dso_local void @intel_hdcp_gsc_fini(ptr noundef readonly captures(none) %
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_msg_send(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i64 -2147483648, 2147483648) i64 @intel_hdcp_gsc_msg_send(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(none) %3, i64 noundef %4) local_unnamed_addr #1 align 16 {
   %6 = alloca i64, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 9328
   %8 = load ptr, ptr %7, align 8

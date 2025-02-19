@@ -108,7 +108,7 @@ entry:
 declare i64 @exr_compress_max_buffer_size(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i32 @_ZN7Imf_3_23Zip8compressEPKciPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readonly captures(address) %raw, i32 noundef %rawSize, ptr noundef %compressed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i32 @_ZN7Imf_3_23Zip8compressEPKciPc(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %this, ptr noundef readonly %raw, i32 noundef %rawSize, ptr noundef %compressed) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %outSize = alloca i64, align 8
   %_tmpBuffer = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -377,7 +377,7 @@ for.end18:                                        ; preds = %for.body11, %for.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @_ZN7Imf_3_212_GLOBAL__N_117interleave_scalarEPKcmPc(ptr noundef readonly captures(none) %source, i64 noundef %outSize, ptr noundef writeonly captures(address) %out) #9 {
+define internal void @_ZN7Imf_3_212_GLOBAL__N_117interleave_scalarEPKcmPc(ptr noundef readonly captures(none) %source, i64 noundef %outSize, ptr noundef writeonly %out) #9 {
 entry:
   %add.ptr1 = getelementptr inbounds i8, ptr %out, i64 %outSize
   %cmp9 = icmp sgt i64 %outSize, 0

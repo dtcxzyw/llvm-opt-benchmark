@@ -1362,7 +1362,7 @@ _ZNSt6atomicIPvE23compare_exchange_strongERS0_S0_St12memory_orderS3_.exit: ; pre
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta6ScrapeEjPNS_10autovectorIPvLm8EEES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(228) %this, i32 noundef %id, ptr noundef %ptrs, ptr noundef %replacement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta6ScrapeEjPNS_10autovectorIPvLm8EEES3_(ptr noundef nonnull readonly align 8 dereferenceable(228) %this, i32 noundef %id, ptr noundef %ptrs, ptr noundef %replacement) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ptr = alloca ptr, align 8
   %0 = load atomic i8, ptr @_ZGVZN7rocksdb14ThreadLocalPtr8InstanceEvE4inst acquire, align 8
@@ -1572,7 +1572,7 @@ if.end:                                           ; preds = %_ZNSt6vectorIPvSaIS
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta4FoldEjSt8functionIFvPvS3_EES3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(228) %this, i32 noundef %id, ptr noundef %func, ptr noundef %res) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb14ThreadLocalPtr10StaticMeta4FoldEjSt8functionIFvPvS3_EES3_(ptr noundef nonnull readonly align 8 dereferenceable(228) %this, i32 noundef %id, ptr noundef %func, ptr noundef %res) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca ptr, align 8

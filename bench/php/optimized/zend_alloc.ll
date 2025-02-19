@@ -58,7 +58,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.15 = private unnamed_addr constant [26 x i8] c"USE_ZEND_ALLOC_HUGE_PAGES\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @zend_mm_gc(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local i64 @zend_mm_gc(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i32, ptr %0, align 16, !tbaa !4
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %.preheader170, label %5
@@ -1299,7 +1299,7 @@ zend_mm_alloc_heap.exit:                          ; preds = %48, %zend_mm_get_ne
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @_zend_mm_free(ptr noundef captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @_zend_mm_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 2097151
   %5 = icmp eq i64 %4, 0
@@ -2534,7 +2534,7 @@ zend_mm_realloc_heap.exit:                        ; preds = %225, %._crit_edge40
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @_zend_mm_block_size(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local i64 @_zend_mm_block_size(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i32, ptr %0, align 16, !tbaa !4
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %16, label %4, !prof !23
@@ -6302,7 +6302,7 @@ define dso_local void @_efree_huge(ptr noundef %0, i64 noundef %1) local_unnamed
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zend_mm_free_huge(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @zend_mm_free_huge(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = ptrtoint ptr %1 to i64
   %4 = and i64 %3, 2097151
   %.not = icmp eq i64 %4, 0
@@ -8463,7 +8463,7 @@ zend_mm_get_custom_handlers_ex.exit:              ; preds = %6, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @zend_mm_get_custom_handlers_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #22 {
+define dso_local void @zend_mm_get_custom_handlers_ex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(none) initializes((0, 8)) %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #22 {
   %7 = load i32, ptr %0, align 16, !tbaa !4
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %22, label %8

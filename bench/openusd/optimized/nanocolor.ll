@@ -68,7 +68,7 @@ target triple = "x86_64-pc-linux-gnu"
 @constinit.19 = private unnamed_addr constant [9 x float] [float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00, float 0.000000e+00, float 1.000000e+00], align 4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @pxr_nc_1_0_GetDescription(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @pxr_nc_1_0_GetDescription(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %57, label %2
 
@@ -196,7 +196,7 @@ define noundef nonnull ptr @pxr_nc_1_0_RegisteredColorSpaceNames() local_unnamed
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @pxr_nc_1_0_ColorSpaceEqual(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define zeroext i1 @pxr_nc_1_0_ColorSpaceEqual(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -278,7 +278,7 @@ define void @pxr_nc_1_0_InitColorSpaceLibrary() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define internal fastcc void @_NcInitColorSpace(ptr noundef captures(address_is_null) %0) unnamed_addr #6 {
+define internal fastcc void @_NcInitColorSpace(ptr noundef %0) unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %122, label %2
 
@@ -444,7 +444,7 @@ define internal fastcc void @_NcInitColorSpace(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef ptr @pxr_nc_1_0_CreateColorSpace(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define noundef ptr @pxr_nc_1_0_CreateColorSpace(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -472,7 +472,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define noundef ptr @pxr_nc_1_0_CreateColorSpaceM33(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #11 {
+define noundef ptr @pxr_nc_1_0_CreateColorSpaceM33(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %241, label %3
 
@@ -924,7 +924,7 @@ pxr_nc_1_0_RGBToXYZ.exit210:                      ; preds = %185, %189
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, float } @pxr_nc_1_0_RGBToXYZ(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
+define { <2 x float>, float } @pxr_nc_1_0_RGBToXYZ(ptr noundef readonly %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %61, label %4
 
@@ -1061,7 +1061,7 @@ define { <2 x float>, float } @pxr_nc_1_0_XYZToYxy(<2 x float> %0, float %1) loc
 }
 
 ; Function Attrs: nounwind uwtable
-define void @pxr_nc_1_0_FreeColorSpace(ptr noundef captures(address) %0) local_unnamed_addr #14 {
+define void @pxr_nc_1_0_FreeColorSpace(ptr noundef %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -1090,7 +1090,7 @@ define void @pxr_nc_1_0_FreeColorSpace(ptr noundef captures(address) %0) local_u
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @pxr_nc_1_0_GetRGBtoXYZMatrix(ptr dead_on_unwind noalias writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #16 {
+define void @pxr_nc_1_0_GetRGBtoXYZMatrix(ptr dead_on_unwind noalias writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly %1) local_unnamed_addr #16 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sink = select i1 %.not, ptr @constinit.19, ptr %3
@@ -1099,7 +1099,7 @@ define void @pxr_nc_1_0_GetRGBtoXYZMatrix(ptr dead_on_unwind noalias writable wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @pxr_nc_1_0_GetXYZtoRGBMatrix(ptr dead_on_unwind noalias writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #17 {
+define void @pxr_nc_1_0_GetXYZtoRGBMatrix(ptr dead_on_unwind noalias writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly %1) local_unnamed_addr #17 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %3, label %4
 
@@ -1190,7 +1190,7 @@ define void @pxr_nc_1_0_GetXYZtoRGBMatrix(ptr dead_on_unwind noalias writable wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define void @GetRGBtoRGBMatrix(ptr dead_on_unwind noalias writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #18 {
+define void @GetRGBtoRGBMatrix(ptr dead_on_unwind noalias writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #18 {
   %.not.i = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %.sink.i = select i1 %.not.i, ptr @constinit.19, ptr %4
@@ -1373,7 +1373,7 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @pxr_nc_1_0_GetRGBToRGBMatrix(ptr dead_on_unwind noalias writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #17 {
+define void @pxr_nc_1_0_GetRGBToRGBMatrix(ptr dead_on_unwind noalias writable writeonly sret(%struct.pxr_nc_1_0_M33f) align 4 captures(none) initializes((0, 36)) %0, ptr noundef readonly %1, ptr noundef readonly %2) local_unnamed_addr #17 {
   %4 = icmp ne ptr %2, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %4
@@ -1511,7 +1511,7 @@ pxr_nc_1_0_GetXYZtoRGBMatrix.exit:                ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, float } @pxr_nc_1_0_TransformColor(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, <2 x float> %2, float %3) local_unnamed_addr #12 {
+define { <2 x float>, float } @pxr_nc_1_0_TransformColor(ptr noundef readonly %0, ptr noundef readonly %1, <2 x float> %2, float %3) local_unnamed_addr #12 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -1794,7 +1794,7 @@ nc_FromLinear.exit49:                             ; preds = %168, %166, %4
 declare float @llvm.fmuladd.f32(float, float, float) #4
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @pxr_nc_1_0_TransformColors(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #19 {
+define void @pxr_nc_1_0_TransformColors(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #19 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -2114,7 +2114,7 @@ nc_FromLinear.exit72:                             ; preds = %165, %167
 }
 
 ; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @pxr_nc_1_0_TransformColorsWithAlpha(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #19 {
+define void @pxr_nc_1_0_TransformColorsWithAlpha(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #19 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -2443,7 +2443,7 @@ nc_FromLinear.exit93:                             ; preds = %189, %191
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, float } @NcNormalizeLuminance(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, float %2, float noundef %3) local_unnamed_addr #12 {
+define { <2 x float>, float } @NcNormalizeLuminance(ptr noundef readonly %0, <2 x float> %1, float %2, float noundef %3) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nc_FromLinear.exit79, label %5
 
@@ -2727,7 +2727,7 @@ nc_FromLinear.exit79:                             ; preds = %155, %153, %pxr_nc_
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, float } @pxr_nc_1_0_XYZToRGB(ptr noundef readonly captures(address_is_null) %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
+define { <2 x float>, float } @pxr_nc_1_0_XYZToRGB(ptr noundef readonly %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %nc_FromLinear.exit33, label %pxr_nc_1_0_GetXYZtoRGBMatrix.exit
 
@@ -2905,7 +2905,7 @@ define { <2 x float>, float } @pxr_nc_1_0_YxyToXYZ(<2 x float> %0, float %1) loc
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define noundef ptr @pxr_nc_1_0_GetNamedColorSpace(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #20 {
+define noundef ptr @pxr_nc_1_0_GetNamedColorSpace(ptr noundef readonly %0) local_unnamed_addr #20 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -3030,7 +3030,7 @@ CompareChromaticity.exit.thread:                  ; preds = %44, %33, %22, %11, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @pxr_nc_1_0_GetColorSpaceDescriptor(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #17 {
+define noundef zeroext i1 @pxr_nc_1_0_GetColorSpaceDescriptor(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #17 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -3052,7 +3052,7 @@ define noundef zeroext i1 @pxr_nc_1_0_GetColorSpaceDescriptor(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef zeroext i1 @pxr_nc_1_0_GetColorSpaceM33Descriptor(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #17 {
+define noundef zeroext i1 @pxr_nc_1_0_GetColorSpaceM33Descriptor(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #17 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -3079,7 +3079,7 @@ define noundef zeroext i1 @pxr_nc_1_0_GetColorSpaceM33Descriptor(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @pxr_nc_1_0_GetK0Phi(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #17 {
+define void @pxr_nc_1_0_GetK0Phi(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #17 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -3182,7 +3182,7 @@ define { <2 x float>, float } @NcNormalizeYxy(<2 x float> %0, float %1) local_un
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define { <2 x float>, float } @pxr_nc_1_0_YxyToRGB(ptr noundef captures(address_is_null) %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
+define { <2 x float>, float } @pxr_nc_1_0_YxyToRGB(ptr noundef %0, <2 x float> %1, float %2) local_unnamed_addr #12 {
   %.sroa.03.0.vec.extract.i = extractelement <2 x float> %1, i64 0
   %.sroa.03.4.vec.extract.i = extractelement <2 x float> %1, i64 1
   %4 = fmul float %.sroa.03.0.vec.extract.i, %.sroa.03.4.vec.extract.i

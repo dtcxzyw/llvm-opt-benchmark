@@ -215,7 +215,7 @@ declare i32 @pthread_create(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare i32 @pthread_attr_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local i32 @uv_thread_setaffinity(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.cpu_set_t, align 8
   %6 = alloca %struct.cpu_set_t, align 8
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #12
@@ -458,7 +458,7 @@ define dso_local range(i32 0, 2) i32 @uv_thread_equal(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_setname(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2147483647, -2147483648) i32 @uv_thread_setname(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca [16 x i8], align 16
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4

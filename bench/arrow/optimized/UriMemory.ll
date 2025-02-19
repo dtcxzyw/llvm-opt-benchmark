@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @defaultMemoryManager = local_unnamed_addr global %struct.UriMemoryManagerStruct { ptr @uriDefaultMalloc, ptr @uriDefaultCalloc, ptr @uriDefaultRealloc, ptr @uriDefaultReallocarray, ptr @uriDefaultFree, ptr null }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @uriMemoryManagerIsComplete(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @uriMemoryManagerIsComplete(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %2
 
@@ -122,7 +122,7 @@ define ptr @uriEmulateReallocarray(ptr noundef %0, ptr noundef %1, i64 noundef %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 11) i32 @uriCompleteMemoryManager(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 11) i32 @uriCompleteMemoryManager(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -159,7 +159,7 @@ define range(i32 0, 11) i32 @uriCompleteMemoryManager(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @uriDecorateMalloc(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) #1 {
+define internal ptr @uriDecorateMalloc(ptr noundef readonly %0, i64 noundef %1) #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %6
 
@@ -259,7 +259,7 @@ define internal ptr @uriDecorateRealloc(ptr noundef %0, ptr noundef %1, i64 noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @uriDecorateFree(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #1 {
+define internal void @uriDecorateFree(ptr noundef readonly %0, ptr noundef %1) #1 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3

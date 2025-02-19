@@ -2507,7 +2507,7 @@ Aig_ObjChild0Copy.exit137:                        ; preds = %165, %169
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Saig_ManDemiterSimple(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Saig_ManDemiterSimple(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -3722,7 +3722,7 @@ declare ptr @Aig_ManDupSimple(ptr noundef) local_unnamed_addr #4
 declare void @Aig_ObjDeletePo(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @Saig_ManDemiterSimpleDiff_old(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define noundef i32 @Saig_ManDemiterSimpleDiff_old(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18
@@ -4320,7 +4320,7 @@ Saig_ObjIsPi.exit._crit_edge:                     ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @Saig_ManGetLabeledRegister_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(ret: address, provenance) %1) local_unnamed_addr #7 {
+define ptr @Saig_ManGetLabeledRegister_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {
   %3 = getelementptr i8, ptr %0, i64 312
   %.val2944 = load i32, ptr %3, align 8, !tbaa !95
   %4 = getelementptr i8, ptr %1, i64 32
@@ -4402,7 +4402,7 @@ Saig_ObjIsLo.exit.thread._crit_edge:              ; preds = %tailrecurse.backedg
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Saig_ManDemiter(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Saig_ManDemiter(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #18

@@ -921,12 +921,12 @@ define hidden void @_ZN12futures_util6stream10try_stream12TryStreamExt19try_poll
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12futures_util6stream10try_stream12TryStreamExt8try_next17h7a3cc89ee6440e40E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN12futures_util6stream10try_stream12TryStreamExt8try_next17h7a3cc89ee6440e40E(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN12futures_util6stream10try_stream12TryStreamExt8try_next17h8e8504c52c14f83dE(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(16) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN12futures_util6stream10try_stream12TryStreamExt8try_next17h8e8504c52c14f83dE(ptr noalias noundef readnone returned align 8 dereferenceable(16) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -2728,17 +2728,17 @@ define hidden void @_ZN3std9panicking3try8do_catch17hf39172e8720fa368E.llvm.7939
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN4core3pin24Pin$LT$$RF$mut$u20$T$GT$17map_unchecked_mut17h01891484b4150763E"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN4core3pin24Pin$LT$$RF$mut$u20$T$GT$17map_unchecked_mut17h01891484b4150763E"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN4core3pin24Pin$LT$$RF$mut$u20$T$GT$17map_unchecked_mut17hbbeed6b92798b64cE"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN4core3pin24Pin$LT$$RF$mut$u20$T$GT$17map_unchecked_mut17hbbeed6b92798b64cE"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN4core3pin24Pin$LT$$RF$mut$u20$T$GT$17map_unchecked_mut17he4a5bfc7171f7d3aE"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #6 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN4core3pin24Pin$LT$$RF$mut$u20$T$GT$17map_unchecked_mut17he4a5bfc7171f7d3aE"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #6 personality ptr @rust_eh_personality {
   ret ptr %0
 }
 
@@ -4801,17 +4801,17 @@ define hidden void @"_ZN72_$LT$p256..arithmetic..field..FieldElement$u20$as$u20$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN7tracing10instrument25InstrumentedProj$LT$T$GT$22span_and_inner_pin_mut28_$u7b$$u7b$closure$u7d$$u7d$17h109d2922d959bf0cE.llvm.7939504722297667161"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #9 {
+define hidden noundef nonnull align 8 ptr @"_ZN7tracing10instrument25InstrumentedProj$LT$T$GT$22span_and_inner_pin_mut28_$u7b$$u7b$closure$u7d$$u7d$17h109d2922d959bf0cE.llvm.7939504722297667161"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #9 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN7tracing10instrument25InstrumentedProj$LT$T$GT$22span_and_inner_pin_mut28_$u7b$$u7b$closure$u7d$$u7d$17h32a5cdbae933a991E.llvm.7939504722297667161"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #9 {
+define hidden noundef nonnull align 8 ptr @"_ZN7tracing10instrument25InstrumentedProj$LT$T$GT$22span_and_inner_pin_mut28_$u7b$$u7b$closure$u7d$$u7d$17h32a5cdbae933a991E.llvm.7939504722297667161"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #9 {
   ret ptr %0
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN7tracing10instrument25InstrumentedProj$LT$T$GT$22span_and_inner_pin_mut28_$u7b$$u7b$closure$u7d$$u7d$17habbc475d96c57a87E.llvm.7939504722297667161"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #9 {
+define hidden noundef nonnull align 8 ptr @"_ZN7tracing10instrument25InstrumentedProj$LT$T$GT$22span_and_inner_pin_mut28_$u7b$$u7b$closure$u7d$$u7d$17habbc475d96c57a87E.llvm.7939504722297667161"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -6480,7 +6480,7 @@ define { i32, i32 } @_ZN11ockam_vault8software6legacy13stored_secret12StoredSecr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret6secret17h5022ea786965dc3cE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN11ockam_vault8software6legacy13stored_secret12StoredSecret6secret17h5022ea786965dc3cE(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -6671,7 +6671,7 @@ define void @_ZN11ockam_vault5types7secrets14HandleToSecret3new17h23656ba98f6d32
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN11ockam_vault5types7secrets14HandleToSecret5value17h2681f3d4700f09d6E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN11ockam_vault5types7secrets14HandleToSecret5value17h2681f3d4700f09d6E(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -6682,7 +6682,7 @@ define void @_ZN11ockam_vault5types7secrets14HandleToSecret10take_value17ha76d05
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN11ockam_vault5types7secrets22SigningSecretKeyHandle6handle17hd6cedfac09d3a6a8E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN11ockam_vault5types7secrets22SigningSecretKeyHandle6handle17hd6cedfac09d3a6a8E(ptr noalias noundef readonly align 8 dereferenceable(32) %0) unnamed_addr #6 {
   %.0 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %.0
 }

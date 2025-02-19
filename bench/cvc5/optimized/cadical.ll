@@ -524,7 +524,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4cvc58internal4prop13CadicalSolverD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(192) initializes((0, 16)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal4prop13CadicalSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(192) initializes((0, 16)) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 224) (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4cvc58internal4prop13CadicalSolverE, i64 256), ptr %2, align 8, !tbaa !3
@@ -621,7 +621,7 @@ _ZNSt10unique_ptrIN7CaDiCaL6SolverESt14default_deleteIS1_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_ZThn8_N4cvc58internal4prop13CadicalSolverD1Ev(ptr noundef captures(address) initializes((-8, 8)) %0) unnamed_addr #8 align 2 {
+define hidden void @_ZThn8_N4cvc58internal4prop13CadicalSolverD1Ev(ptr noundef initializes((-8, 8)) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -8
   tail call void @_ZN4cvc58internal4prop13CadicalSolverD2Ev(ptr noundef nonnull align 8 dereferenceable(192) %2) #30
   ret void

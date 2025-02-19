@@ -153,7 +153,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @stbsp_vsprintfcb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
+define i32 @stbsp_vsprintfcb(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(none) %4) local_unnamed_addr #4 {
   %6 = alloca [512 x i8], align 16
   %7 = ptrtoint ptr %6 to i64
   %8 = alloca [8 x i8], align 1
@@ -3366,7 +3366,7 @@ declare void @llvm.va_start.p0(ptr) #6
 declare void @llvm.va_end.p0(ptr) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define ptr @stbsp__clamp_callback(ptr noundef readonly captures(address) %0, ptr noundef captures(ret: address, provenance) %1, i32 noundef %2) #7 {
+define ptr @stbsp__clamp_callback(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !51
   %6 = add nsw i32 %5, %2
@@ -3438,7 +3438,7 @@ define ptr @stbsp__clamp_callback(ptr noundef readonly captures(address) %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @stbsp__count_clamp_callback(ptr readnone captures(none) %0, ptr noundef captures(ret: address, provenance) %1, i32 noundef %2) #8 {
+define nonnull ptr @stbsp__count_clamp_callback(ptr readnone captures(none) %0, ptr noundef %1, i32 noundef %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %5 = load i32, ptr %4, align 4, !tbaa !51
   %6 = add nsw i32 %5, %2

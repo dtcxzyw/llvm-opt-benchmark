@@ -685,7 +685,7 @@ define dso_local i32 @psmouse_deactivate(ptr noundef %0) local_unnamed_addr #2 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i64 @psmouse_attr_show_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2) #2 align 16 {
+define dso_local i64 @psmouse_attr_show_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) #2 align 16 {
   %4 = getelementptr i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr i8, ptr %5, i64 208
@@ -712,7 +712,7 @@ define dso_local i64 @psmouse_attr_show_helper(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i64 -2147483648, 2147483648) i64 @psmouse_attr_set_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
+define dso_local range(i64 -2147483648, 2147483648) i64 @psmouse_attr_set_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) #2 align 16 {
   %5 = tail call i32 @mutex_lock_interruptible(ptr noundef nonnull @psmouse_mutex) #14
   %6 = icmp eq i32 %5, 0
   br i1 %6, label %7, label %117
@@ -963,7 +963,7 @@ define internal i32 @psmouse_init() #7 section ".init.text" align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @psmouse_set_maxproto(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #8 align 16 {
+define internal noundef range(i32 -22, 1) i32 @psmouse_set_maxproto(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #8 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.thread, label %4
 

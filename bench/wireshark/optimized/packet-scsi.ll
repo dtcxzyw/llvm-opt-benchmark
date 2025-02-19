@@ -3342,7 +3342,7 @@ declare noalias ptr @g_strdup(ptr noundef) local_unnamed_addr #4
 declare ptr @_try_val_to_str_ext_init(i32 noundef, ptr noundef) #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_inquiry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_inquiry(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -4130,7 +4130,7 @@ declare void @except_free(ptr noundef) local_unnamed_addr #4
 declare ptr @except_pop() local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_extcopy(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_extcopy(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly %7) #0 {
   %brmerge.demorgan = and i1 %4, %5
   br i1 %brmerge.demorgan, label %9, label %33
 
@@ -4484,7 +4484,7 @@ define internal fastcc void @dissect_naa_designator(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_recvcopy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_recvcopy(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly %7) #0 {
   %brmerge.demorgan = and i1 %4, %5
   br i1 %brmerge.demorgan, label %9, label %33
 
@@ -4645,7 +4645,7 @@ define hidden void @dissect_spc_logselect(ptr noundef %0, ptr readnone captures(
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_logsense(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readnone captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_logsense(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readnone %7) #0 {
   %9 = alloca ptr, align 8
   %.not24 = icmp eq ptr %2, null
   br i1 %.not24, label %98, label %10
@@ -4808,7 +4808,7 @@ dissect_scsi_log_page.exit:                       ; preds = %94, %split.i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %9
 
@@ -4924,7 +4924,7 @@ define hidden void @dissect_spc_modeselect6(ptr noundef %0, ptr noundef %1, ptr 
 declare ptr @tvb_new_subset_length_caplen(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) unnamed_addr #0 {
+define internal fastcc void @dissect_scsi_blockdescs(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -5117,7 +5117,7 @@ switch.lookup:                                    ; preds = %17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %9
 
@@ -5244,7 +5244,7 @@ define hidden void @dissect_spc_modeselect10(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_modesense6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_modesense6(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %9
 
@@ -5385,7 +5385,7 @@ dissect_scsi_pagecode.exit:                       ; preds = %11, %32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_modesense10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_modesense10(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.critedge, label %9
 
@@ -5568,7 +5568,7 @@ define hidden void @dissect_spc_preventallowmediaremoval(ptr noundef %0, ptr nou
 declare void @col_append_str(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_persistentreservein(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_persistentreservein(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly %7) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %9
 
@@ -6010,7 +6010,7 @@ declare ptr @proto_tree_add_bits_item(ptr noundef, i32 noundef, ptr noundef, i32
 declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_reportluns(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly captures(address_is_null) %7) #0 {
+define hidden void @dissect_spc_reportluns(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 %6, ptr noundef readonly %7) #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4
@@ -6220,7 +6220,7 @@ define hidden void @dissect_spc_reportluns(ptr noundef %0, ptr readnone captures
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @dissect_spc_mgmt_protocol_in(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden void @dissect_spc_mgmt_protocol_in(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4, i1 noundef zeroext %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8
   %11 = alloca i32, align 4

@@ -100,7 +100,7 @@ define dso_local void @closeall(i32 noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @closeall_except(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define dso_local void @closeall_except(i32 noundef %0, ptr noundef readonly %1) #0 {
   %3 = alloca %struct.rlimit, align 8
   %4 = tail call ptr @opendir(ptr noundef nonnull @.str)
   %.not = icmp eq ptr %4, null
@@ -260,7 +260,7 @@ _is_fd_skipped.exit.thread:                       ; preds = %_is_fd_skipped.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @fd_close(ptr noundef captures(address_is_null) %0) #0 {
+define dso_local void @fd_close(ptr noundef %0) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

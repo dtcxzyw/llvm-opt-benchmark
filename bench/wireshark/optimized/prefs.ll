@@ -4399,7 +4399,7 @@ define i32 @prefs_modules_foreach(ptr noundef %0, ptr noundef %1) local_unnamed_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @prefs_modules_foreach_submodules(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define i32 @prefs_modules_foreach_submodules(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.call_foreach_t, align 8
   %.not = icmp eq ptr %0, null
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -4474,7 +4474,7 @@ define internal noundef zeroext i1 @call_apply_cb(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_apply(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @prefs_apply(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %call_apply_cb.exit, label %2
 
@@ -4516,7 +4516,7 @@ call_apply_cb.exit:                               ; preds = %16, %13, %5, %2, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @prefs_find_preference(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define ptr @prefs_find_preference(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.find_pref_arg_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   %4 = icmp eq ptr %0, null
@@ -4558,7 +4558,7 @@ prefs_find_preference_with_submodule.exit:        ; preds = %2, %11, %14, %.thre
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @prefs_find_preference_with_submodule(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #1 {
+define internal fastcc ptr @prefs_find_preference_with_submodule(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #1 {
   %4 = alloca %struct.find_pref_arg_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
   %5 = icmp eq ptr %0, null
@@ -4653,7 +4653,7 @@ define ptr @prefs_get_title_by_name(ptr noundef %0) local_unnamed_addr #1 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_uint_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
+define void @prefs_register_uint_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #1 {
   %7 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 40
   store ptr %5, ptr %8, align 8
@@ -4666,7 +4666,7 @@ define void @prefs_register_uint_preference(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef ptr @register_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 131073) %4) unnamed_addr #1 {
+define internal fastcc noundef ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 1, 131073) %4) unnamed_addr #1 {
   %6 = alloca %struct.find_pref_arg_t, align 8
   %7 = load ptr, ptr %0, align 8
   %.not = icmp eq ptr %7, null
@@ -4905,7 +4905,7 @@ prefs_find_preference.exit:                       ; preds = %40, %49
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_bool_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @prefs_register_bool_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 2)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %4, ptr %7, align 8
@@ -4916,7 +4916,7 @@ define void @prefs_register_bool_preference(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @prefs_set_bool_value(ptr noundef captures(address_is_null) %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @prefs_set_bool_value(ptr noundef %0, i1 noundef zeroext %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = zext i1 %1 to i8
   switch i32 %2, label %21 [
     i32 0, label %5
@@ -4973,7 +4973,7 @@ prefs_get_effect_flags.exit:                      ; preds = %prefs_get_effect_fl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define i32 @prefs_get_effect_flags(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @prefs_get_effect_flags(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -5058,7 +5058,7 @@ define zeroext i1 @prefs_get_bool_value(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_enum_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define void @prefs_register_enum_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = load ptr, ptr %5, align 8
   %.not37 = icmp eq ptr %8, null
   br i1 %.not37, label %._crit_edge39, label %.preheader.lr.ph
@@ -5126,7 +5126,7 @@ switch.early.test:                                ; preds = %.lr.ph
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @prefs_set_enum_value(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @prefs_set_enum_value(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   switch i32 %2, label %20 [
     i32 0, label %4
     i32 1, label %9
@@ -5182,7 +5182,7 @@ prefs_get_effect_flags.exit:                      ; preds = %prefs_get_effect_fl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @prefs_set_enum_string_value(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @prefs_set_enum_string_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -5412,7 +5412,7 @@ define i32 @prefs_set_custom_value(ptr noundef %0, ptr noundef %1, i32 noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @prefs_set_string_value(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @prefs_set_string_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   switch i32 %2, label %50 [
     i32 0, label %4
     i32 1, label %19
@@ -5576,7 +5576,7 @@ define ptr @prefs_get_string_value(ptr noundef readonly captures(none) %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_string_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @prefs_register_string_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 8)
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
@@ -5595,7 +5595,7 @@ define void @prefs_register_string_preference(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_filename_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
+define void @prefs_register_filename_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #1 {
   %7 = select i1 %5, i32 128, i32 16384
   %8 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef range(i32 8, 131073) %7)
   %9 = load ptr, ptr %4, align 8
@@ -5615,7 +5615,7 @@ define void @prefs_register_filename_preference(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_directory_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @prefs_register_directory_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 2048)
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
@@ -5634,7 +5634,7 @@ define void @prefs_register_directory_preference(ptr noundef captures(address_is
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_range_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
+define void @prefs_register_range_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 16)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 %5, ptr %8, align 8
@@ -5662,7 +5662,7 @@ prefs_register_range_preference_common.exit:      ; preds = %6, %11
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @prefs_set_range_value_work(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
+define noundef zeroext i1 @prefs_set_range_value_work(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #25
   %6 = tail call ptr @wmem_epan_scope()
@@ -5724,7 +5724,7 @@ declare zeroext i1 @ranges_are_equal(ptr noundef, ptr noundef) local_unnamed_add
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @prefs_set_stashed_range_value(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define i32 @prefs_set_stashed_range_value(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #25
   %4 = tail call ptr @wmem_epan_scope()
@@ -6021,13 +6021,13 @@ define void @prefs_range_remove_value(ptr noundef readonly captures(none) %0, i3
 declare zeroext i1 @range_remove_value(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_static_text_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @prefs_register_static_text_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 32)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_uat_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @prefs_register_uat_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 64)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %4, ptr %7, align 8
@@ -6035,7 +6035,7 @@ define void @prefs_register_uat_preference(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_uat_preference_qt(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @prefs_register_uat_preference_qt(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 64)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %4, ptr %7, align 8
@@ -6050,7 +6050,7 @@ define ptr @prefs_get_uat_value(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @prefs_register_color_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define hidden void @prefs_register_color_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 256)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 40
   store ptr %4, ptr %7, align 8
@@ -6170,7 +6170,7 @@ define noundef zeroext i1 @prefs_set_color_value(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @prefs_get_color_value(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #1 {
+define ptr @prefs_get_color_value(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   switch i32 %1, label %10 [
     i32 0, label %3
     i32 1, label %5
@@ -6200,7 +6200,7 @@ define ptr @prefs_get_color_value(ptr noundef readonly captures(ret: address, pr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @prefs_register_custom_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #1 {
+define hidden void @prefs_register_custom_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readnone captures(none) %5) local_unnamed_addr #1 {
   %7 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 512)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 80
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef align 8 dereferenceable(56) %4, i64 56, i1 false)
@@ -6208,7 +6208,7 @@ define hidden void @prefs_register_custom_preference(ptr noundef captures(addres
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_custom_preference_TCP_Analysis(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
+define void @prefs_register_custom_preference_TCP_Analysis(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i1 noundef zeroext %6) local_unnamed_addr #1 {
   %8 = zext i1 %6 to i8
   %9 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 65536)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
@@ -6226,7 +6226,7 @@ define void @prefs_register_custom_preference_TCP_Analysis(ptr noundef captures(
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @prefs_register_decode_as_range_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
+define hidden void @prefs_register_decode_as_range_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #1 {
   %9 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 8192)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 64
   store i32 %5, ptr %10, align 8
@@ -6258,7 +6258,7 @@ prefs_register_range_preference_common.exit:      ; preds = %8, %13
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_password_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @prefs_register_password_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 32768)
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
@@ -6277,7 +6277,7 @@ define void @prefs_register_password_preference(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_dissector_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
+define void @prefs_register_dissector_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 131072)
   %7 = load ptr, ptr %4, align 8
   %8 = icmp eq ptr %7, null
@@ -6365,13 +6365,13 @@ define noundef zeroext i1 @prefs_remove_decode_as_value(ptr noundef readonly cap
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_register_obsolete_preference(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @prefs_register_obsolete_preference(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call fastcc ptr @register_preference(ptr noundef %0, ptr noundef %1, ptr noundef null, ptr noundef null, i32 noundef 1024)
   ret void
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_set_preference_effect_fields(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @prefs_set_preference_effect_fields(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca %struct.find_pref_arg_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #25
   %4 = icmp eq ptr %0, null
@@ -6424,7 +6424,7 @@ prefs_set_effect_flags.exit:                      ; preds = %prefs_find_preferen
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_set_effect_flags(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @prefs_set_effect_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -6447,7 +6447,7 @@ define void @prefs_set_effect_flags(ptr noundef captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define hidden zeroext i1 @prefs_get_preference_obsolete(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden zeroext i1 @prefs_get_preference_obsolete(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -6464,7 +6464,7 @@ define hidden zeroext i1 @prefs_get_preference_obsolete(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 3) i32 @prefs_set_preference_obsolete(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
+define hidden range(i32 0, 3) i32 @prefs_set_preference_obsolete(ptr noundef %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -6564,7 +6564,7 @@ define noundef i32 @pref_stash(ptr noundef captures(none) %0, ptr noundef readno
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef i32 @pref_unstash(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
+define noundef i32 @pref_unstash(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %4 = load i32, ptr %3, align 4
   switch i32 %4, label %.loopexit [
@@ -8205,7 +8205,7 @@ getc_unlocked.exit96:                             ; preds = %37, %39
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i1 noundef zeroext %3) #1 {
+define internal i32 @set_pref(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2, i1 noundef zeroext %3) #1 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca ptr, align 8
@@ -10102,7 +10102,7 @@ prefs_get_string_value.exit:                      ; preds = %3, %5, %7
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @prefs_set_uint_value(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @prefs_set_uint_value(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   switch i32 %2, label %20 [
     i32 0, label %4
     i32 1, label %9
@@ -10158,7 +10158,7 @@ prefs_get_effect_flags.exit:                      ; preds = %prefs_get_effect_fl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @prefs_set_password_value(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define i32 @prefs_set_password_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = tail call i32 @prefs_set_string_value(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   ret i32 %4
 }
@@ -10171,7 +10171,7 @@ define i32 @prefs_get_uint_base(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @prefs_is_capture_device_hidden(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define noundef zeroext i1 @prefs_is_capture_device_hidden(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 304), align 8
   %3 = icmp ne ptr %2, null
   %4 = icmp ne ptr %0, null
@@ -10215,7 +10215,7 @@ define noundef zeroext i1 @prefs_is_capture_device_hidden(ptr noundef readonly c
 declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @prefs_capture_device_monitor_mode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define noundef zeroext i1 @prefs_capture_device_monitor_mode(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 312), align 8
   %3 = icmp ne ptr %2, null
   %4 = icmp ne ptr %0, null
@@ -10373,7 +10373,7 @@ define signext range(i8 111, 109) i8 @string_to_name_resolve(ptr noundef readonl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @prefs_pref_type_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define ptr @prefs_pref_type_name(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %2
 
@@ -10472,7 +10472,7 @@ define ptr @prefs_pref_type_name(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_set_effect_flags_by_name(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define void @prefs_set_effect_flags_by_name(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = alloca %struct.find_pref_arg_t, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #25
   %5 = icmp eq ptr %0, null
@@ -10532,7 +10532,7 @@ prefs_set_effect_flags.exit:                      ; preds = %prefs_find_preferen
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define i32 @prefs_get_module_effect_flags(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @prefs_get_module_effect_flags(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -10547,7 +10547,7 @@ define i32 @prefs_get_module_effect_flags(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @prefs_set_module_effect_flags(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define void @prefs_set_module_effect_flags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -10570,7 +10570,7 @@ define void @prefs_set_module_effect_flags(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @prefs_pref_type_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define ptr @prefs_pref_type_description(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 
@@ -11028,7 +11028,7 @@ define ptr @prefs_pref_to_str(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 declare ptr @range_convert_range(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @write_prefs(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define i32 @write_prefs(ptr noundef writeonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.call_foreach_t, align 8
   %3 = alloca %struct.write_gui_pref_arg_t, align 8
   %4 = alloca ptr, align 8
@@ -11632,7 +11632,7 @@ define internal void @gui_callback() #19 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @column_hidden_set_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2) #1 {
+define internal noundef i32 @column_hidden_set_cb(ptr noundef readonly %0, ptr noundef %1, ptr noundef captures(none) %2) #1 {
   %4 = alloca %struct.find_pref_arg_t, align 8
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 405), align 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -11865,7 +11865,7 @@ prefs_find_preference.exit:                       ; preds = %12, %21
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @column_hidden_fmt_set_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2) #1 {
+define internal noundef i32 @column_hidden_fmt_set_cb(ptr noundef readonly %0, ptr noundef %1, ptr noundef captures(none) %2) #1 {
   %4 = alloca %struct.find_pref_arg_t, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8
@@ -12772,7 +12772,7 @@ define internal noalias ptr @column_num_to_str_cb(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef i32 @colorized_frame_set_cb(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) %2) #1 {
+define internal noundef i32 @colorized_frame_set_cb(ptr noundef readonly %0, ptr noundef %1, ptr noundef captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8

@@ -264,7 +264,7 @@ move_pos.exit:                                    ; preds = %115, %92, %91, %75,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(ret: address, provenance) %8, i32 noundef %9) unnamed_addr #2 {
+define internal fastcc ptr @hc_find_func(i32 noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(none) %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, i32 noundef %9) unnamed_addr #2 {
   %11 = zext i32 %6 to i64
   %12 = getelementptr inbounds nuw i32, ptr %5, i64 %11
   store i32 %3, ptr %12, align 4, !tbaa !20

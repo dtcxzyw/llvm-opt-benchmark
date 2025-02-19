@@ -1951,7 +1951,7 @@ invoke.cont3:                                     ; preds = %monotonic.i.i.i, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena10FirstBlockEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %buf, i64 noundef %size) local_unnamed_addr #9 align 2 {
+define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena10FirstBlockEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef writeonly %buf, i64 noundef %size) local_unnamed_addr #9 align 2 {
 entry:
   %cmp = icmp eq ptr %buf, null
   %cmp2 = icmp ult i64 %size, 25
@@ -2082,7 +2082,7 @@ lpad:                                             ; preds = %if.end18.i.i, %if.t
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena10FirstBlockEPvmRKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %buf, i64 noundef %size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %policy) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN6google8protobuf8internal15ThreadSafeArena10FirstBlockEPvmRKNS1_16AllocationPolicyE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef writeonly %buf, i64 noundef %size, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %policy) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %0 = load i64, ptr %policy, align 8
   %cmp.i = icmp eq i64 %0, 256
@@ -2276,7 +2276,7 @@ return:                                           ; preds = %_ZN6google8protobuf
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef readonly captures(address_is_null) %policy_ptr, i64 noundef %last_size, i64 noundef %min_bytes) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i64 } @_ZN6google8protobuf8internalL14AllocateMemoryEPKNS1_16AllocationPolicyEmm(ptr noundef readonly %policy_ptr, i64 noundef %last_size, i64 noundef %min_bytes) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp10 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %tobool.not = icmp eq ptr %policy_ptr, null

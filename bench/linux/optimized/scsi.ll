@@ -2558,7 +2558,7 @@ define dso_local void @scsi_device_put(ptr noundef %0) #1 align 16 {
 declare dso_local void @put_device(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @__scsi_iterate_devices(ptr noundef readonly captures(address) %0, ptr noundef %1) #1 align 16 {
+define dso_local ptr @__scsi_iterate_devices(ptr noundef readonly %0, ptr noundef %1) #1 align 16 {
   %3 = icmp eq ptr %1, null
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = select i1 %3, ptr %0, ptr %4
@@ -2757,7 +2757,7 @@ define dso_local void @__starget_for_each_device(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @__scsi_device_lookup_by_target(ptr noundef readonly captures(address) %0, i64 noundef %1) #7 align 16 {
+define dso_local ptr @__scsi_device_lookup_by_target(ptr noundef readonly %0, i64 noundef %1) #7 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, %3
@@ -2791,7 +2791,7 @@ define dso_local ptr @__scsi_device_lookup_by_target(ptr noundef readonly captur
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @scsi_device_lookup_by_target(ptr noundef readonly captures(address) %0, i64 noundef %1) #1 align 16 {
+define dso_local ptr @scsi_device_lookup_by_target(ptr noundef readonly %0, i64 noundef %1) #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   br label %5
@@ -2880,7 +2880,7 @@ define dso_local ptr @scsi_device_lookup_by_target(ptr noundef readonly captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @__scsi_device_lookup(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) #7 align 16 {
+define dso_local ptr @__scsi_device_lookup(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) #7 align 16 {
   %5 = load ptr, ptr %0, align 8
   %6 = icmp eq ptr %5, %0
   br i1 %6, label %.loopexit, label %.preheader
@@ -2925,7 +2925,7 @@ define dso_local ptr @__scsi_device_lookup(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @scsi_device_lookup(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
+define dso_local ptr @scsi_device_lookup(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i64 noundef %3) #1 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %6 = load ptr, ptr %5, align 8
   %7 = tail call i64 @_raw_spin_lock_irqsave(ptr noundef %6) #15

@@ -815,7 +815,7 @@ define dso_local noundef i32 @acpi_rev_override_setup(ptr readnone captures(none
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 4098) i32 @acpi_os_predefined_override(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_predefined_override(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 align 16 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -995,7 +995,7 @@ define dso_local i64 @acpi_os_get_timer() local_unnamed_addr #8 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 4098) i32 @acpi_os_read_port(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #1 align 16 {
+define dso_local noundef range(i32 0, 4098) i32 @acpi_os_read_port(i64 noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
   %5 = icmp eq ptr %1, null
@@ -1118,7 +1118,7 @@ define dso_local noundef range(i32 -22, 1) i32 @acpi_os_read_iomem(ptr noundef %
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 4106) i32 @acpi_os_read_memory(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 4106) i32 @acpi_os_read_memory(i64 noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 align 16 {
   %4 = lshr i32 %2, 3
   tail call void @__rcu_read_lock() #20
   %5 = zext nneg i32 %4 to i64
@@ -1333,7 +1333,7 @@ define dso_local noundef range(i32 0, 4106) i32 @acpi_os_write_memory(i64 nounde
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 0, 4098) i32 @acpi_os_read_pci_configuration(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 0, 4098) i32 @acpi_os_read_pci_configuration(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 align 16 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #20
   %6 = icmp eq ptr %2, null
@@ -1742,7 +1742,7 @@ define dso_local noundef i32 @acpi_os_signal(i32 noundef %0, ptr noundef readnon
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 0, 2) i32 @acpi_os_name_setup(ptr noundef readonly captures(address_is_null) %0) #10 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_os_name_setup(ptr noundef readonly %0) #10 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 
@@ -1807,7 +1807,7 @@ define internal noundef i32 @acpi_no_auto_serialize_setup(ptr readnone captures(
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 0, 2) i32 @acpi_enforce_resources_setup(ptr noundef readonly captures(address_is_null) %0) #11 section ".init.text" align 16 {
+define internal noundef range(i32 0, 2) i32 @acpi_enforce_resources_setup(ptr noundef readonly %0) #11 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %26, label %3
 

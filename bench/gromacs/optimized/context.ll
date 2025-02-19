@@ -443,7 +443,7 @@ $_ZTVN6gmxapi14BasicExceptionINS_13ProtocolErrorEEE = comdat any
 @_ZN6gmxapi7ContextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6gmxapi7ContextD2Ev
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6gmxapi17MpiContextManagerC2EP10tmpi_comm_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone captures(address_is_null) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6gmxapi17MpiContextManagerC2EP10tmpi_comm_(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0, ptr noundef readnone %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %.not.i.i = icmp eq ptr %1, null
   br i1 %.not.i.i, label %_ZN6gmxapi12_GLOBAL__N_117validCommunicatorERKP10tmpi_comm_.exit, label %3
 

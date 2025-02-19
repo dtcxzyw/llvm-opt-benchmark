@@ -295,7 +295,7 @@ _ZN5ZListI5ZPageE12remove_firstEv.exit.thread:    ; preds = %1, %9
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10ZPageCache16alloc_large_pageEm(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN10ZPageCache16alloc_large_pageEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
 select.unfold.preheader:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -392,7 +392,7 @@ _ZN5ZListI5ZPageE12remove_firstEv.exit:           ; preds = %12, %4, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN10ZPageCache26alloc_oversized_large_pageEm(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN10ZPageCache26alloc_oversized_large_pageEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #4 align 2 {
 select.unfold.preheader:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -447,7 +447,7 @@ _ZN17ZListIteratorImplI5ZPageLb1EE4nextEPPS0_.exit: ; preds = %select.unfold, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN10ZPageCache20alloc_oversized_pageEm(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
+define hidden noundef ptr @_ZN10ZPageCache20alloc_oversized_pageEm(ptr noundef nonnull align 8 dereferenceable(64) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
 select.unfold.i.preheader:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48

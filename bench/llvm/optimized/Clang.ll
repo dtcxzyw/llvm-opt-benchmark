@@ -5841,7 +5841,7 @@ declare void @_ZN5clang6driver5tools16addDirectoryListERKN4llvm3opt7ArgListERNS2
 declare noundef zeroext i1 @_ZN5clang6driver5types5isCXXENS1_2IDE(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL26forAllAssociatedToolChainsRN5clang6driver11CompilationERKNS0_9JobActionERKNS0_9ToolChainEN4llvm12function_refIFvS8_EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(523) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(2392) %2, ptr readonly captures(none) %3, i64 %4) unnamed_addr #0 {
+define internal fastcc void @_ZL26forAllAssociatedToolChainsRN5clang6driver11CompilationERKNS0_9JobActionERKNS0_9ToolChainEN4llvm12function_refIFvS8_EEE(ptr noundef nonnull readonly align 8 dereferenceable(523) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1, ptr noundef nonnull align 8 dereferenceable(2392) %2, ptr readonly captures(none) %3, i64 %4) unnamed_addr #0 {
   tail call void %3(i64 noundef %4, ptr noundef nonnull align 8 dereferenceable(2392) %2) #22
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 60
   %7 = load i32, ptr %6, align 4, !tbaa !174
@@ -16705,7 +16705,7 @@ declare void @_ZNK4llvm5Twine8toVectorERNS_15SmallVectorImplIcEE(ptr noundef non
 declare noundef zeroext i1 @_ZN4llvm3sys4path15cache_directoryERNS_15SmallVectorImplIcEE(ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang6driver5tools29getCXX20NamedModuleOutputPathERKN4llvm3opt7ArgListEPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallString.205") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local void @_ZN5clang6driver5tools29getCXX20NamedModuleOutputPathERKN4llvm3opt7ArgListEPKc(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallString.205") align 8 %0, ptr noundef nonnull align 8 dereferenceable(176) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca %"class.llvm::Twine", align 8
   %5 = tail call noundef ptr @_ZNK4llvm3opt7ArgList10getLastArgIJN5clang6driver7options2IDEEEEPNS0_3ArgEDpT_(ptr noundef nonnull align 8 dereferenceable(176) %1, i32 noundef 928)
   %.not.not = icmp eq ptr %5, null
@@ -82179,7 +82179,7 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit44:          ; preds = %_ZNSt7__cxx1112basi
 declare void @_ZN5clang6driver5tools26escapeSpacesAndBackslashesEPKcRN4llvm15SmallVectorImplIcEE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL18addDebugObjectNameRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEES6_S6_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @_ZL18addDebugObjectNameRKN4llvm3opt7ArgListERNS_11SmallVectorIPKcLj16EEES6_S6_(ptr noundef nonnull align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(144) %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca [1 x %"class.llvm::opt::OptSpecifier"], align 4
   %6 = alloca %"class.llvm::SmallString", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -89079,7 +89079,7 @@ _ZNK4llvm9StringRef5splitES0_.exit:               ; preds = %7, %9
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i1 noundef zeroext %1, ptr nonnull readonly captures(address) %2, i64 range(i64 2, 5) %3) unnamed_addr #4 align 2 {
+define internal fastcc void @"_ZZL33CollectArgsForIntegratedAssemblerRN5clang6driver11CompilationERKN4llvm3opt7ArgListERNS3_11SmallVectorIPKcLj16EEERKNS0_6DriverEENK3$_0clEbSt16initializer_listISA_E"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %0, i1 noundef zeroext %1, ptr nonnull readonly %2, i64 range(i64 2, 5) %3) unnamed_addr #4 align 2 {
   %5 = alloca %"class.clang::DiagnosticBuilder", align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.llvm::Twine", align 8

@@ -603,7 +603,7 @@ define dso_local i64 @zend_llist_count(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_llist_get_first_ex(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #10 {
+define dso_local ptr @zend_llist_get_first_ex(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -616,7 +616,7 @@ define dso_local ptr @zend_llist_get_first_ex(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_llist_get_last_ex(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #10 {
+define dso_local ptr @zend_llist_get_last_ex(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #10 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -630,7 +630,7 @@ define dso_local ptr @zend_llist_get_last_ex(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_llist_get_next_ex(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #11 {
+define dso_local ptr @zend_llist_get_next_ex(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1
@@ -652,7 +652,7 @@ define dso_local ptr @zend_llist_get_next_ex(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local ptr @zend_llist_get_prev_ex(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #11 {
+define dso_local ptr @zend_llist_get_prev_ex(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #11 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = select i1 %.not, ptr %3, ptr %1

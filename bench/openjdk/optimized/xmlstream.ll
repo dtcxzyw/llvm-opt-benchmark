@@ -764,7 +764,7 @@ _ZNK6Method26interpreter_throwout_countEv.exit.thread: ; preds = %13, %20, %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9xmlStream11method_textEP6Method(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9xmlStream11method_textEP6Method(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 800
@@ -855,7 +855,7 @@ declare noundef ptr @_ZNK5Klass13external_nameEv(ptr noundef nonnull align 8 der
 declare void @_ZNK6Symbol15print_symbol_onEP12outputStream(ptr noundef nonnull align 4 dereferenceable(8), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9xmlStream5klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9xmlStream5klassEP5Klass(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %8, label %_ZN9xmlStream10klass_textEP5Klass.exit
 
@@ -874,7 +874,7 @@ _ZN9xmlStream10klass_textEP5Klass.exit:           ; preds = %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9xmlStream10klass_textEP5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9xmlStream10klass_textEP5Klass(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %9, label %4
 
@@ -923,7 +923,7 @@ define hidden void @_ZN9xmlStream9name_textEPK6Symbol(ptr noundef nonnull readon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9xmlStream6objectEPKc6Handle(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr readonly captures(address_is_null) %2) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9xmlStream6objectEPKc6Handle(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef %1, ptr readonly %2) local_unnamed_addr #0 align 2 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %_ZNK6HandleeqEP7oopDesc.exit.thread, label %_ZNK6HandleeqEP7oopDesc.exit
 
@@ -956,7 +956,7 @@ _ZNK6HandleeqEP7oopDesc.exit.thread:              ; preds = %3, %_ZNK6HandleeqEP
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN9xmlStream11object_textE6Handle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN9xmlStream11object_textE6Handle(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr readonly %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %_ZNK6HandleeqEP7oopDesc.exit.thread, label %_ZNK6HandleeqEP7oopDesc.exit
 

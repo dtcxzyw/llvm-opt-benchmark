@@ -7022,7 +7022,7 @@ _ZNSt12_Vector_baseISt10shared_ptrIN8facebook5velox10BaseVectorEESaIS4_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN8facebook5velox9RowVector12loadedVectorEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(138) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN8facebook5velox9RowVector12loadedVectorEv(ptr noundef nonnull returned align 8 dereferenceable(138) %this) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %childrenLoaded_ = getelementptr inbounds nuw i8, ptr %this, i64 137
   %0 = load i8, ptr %childrenLoaded_, align 1
@@ -19031,7 +19031,7 @@ if.end:                                           ; preds = %while.body.i33, %"_
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_"(ptr noundef %__first, ptr noundef readnone captures(address) %__last, ptr readonly captures(none) %__comp.coerce) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_0EEEvT_SD_T0_"(ptr noundef %__first, ptr noundef readnone %__last, ptr readonly captures(none) %__comp.coerce) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %__first, %__last
   br i1 %cmp, label %for.end, label %for.cond.preheader
@@ -20464,7 +20464,7 @@ while.body.i:                                     ; preds = %"_ZN9__gnu_cxx5__op
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_"(ptr noundef %__first, ptr noundef readnone captures(address) %__last, ptr readonly captures(none) %__comp.coerce) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPiN9__gnu_cxx5__ops15_Iter_comp_iterIZN8facebook5velox9MapVector12canonicalizeERKSt10shared_ptrIS6_EbE3$_1EEEvT_SD_T0_"(ptr noundef %__first, ptr noundef readnone %__last, ptr readonly captures(none) %__comp.coerce) unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %__first, %__last
   br i1 %cmp, label %for.end, label %for.cond.preheader

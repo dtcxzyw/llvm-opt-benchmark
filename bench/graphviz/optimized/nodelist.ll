@@ -242,7 +242,7 @@ nodelist_push_back.exit:                          ; preds = %7, %39
 }
 
 ; Function Attrs: nounwind uwtable
-define void @insertNodelist(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
+define void @insertNodelist(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   store ptr %1, ptr %5, align 8, !tbaa !15

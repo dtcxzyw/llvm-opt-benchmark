@@ -370,7 +370,7 @@ declare dso_local i32 @nf_log_set(ptr noundef, i8 noundef zeroext, ptr noundef) 
 declare dso_local void @nf_log_unset(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nf_log_ip_packet(ptr noundef captures(address) %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) #4 align 16 {
+define internal void @nf_log_ip_packet(ptr noundef %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7) #4 align 16 {
   %9 = icmp eq ptr %0, @init_net
   %10 = load i32, ptr @sysctl_nf_log_all_netns, align 4
   %11 = icmp ne i32 %10, 0
@@ -552,7 +552,7 @@ define internal fastcc void @dump_mac_header(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dump_ipv4_packet(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
+define internal fastcc void @dump_ipv4_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 16 {
   %6 = alloca %struct.iphdr, align 4
   %7 = alloca [40 x i8], align 16
   %8 = alloca %struct.icmphdr, align 8
@@ -1547,7 +1547,7 @@ declare dso_local void @_raw_read_lock_bh(ptr noundef) local_unnamed_addr #2 sec
 declare dso_local void @_raw_read_unlock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nf_log_arp_packet(ptr noundef readnone captures(address) %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) #4 align 16 {
+define internal void @nf_log_arp_packet(ptr noundef readnone %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7) #4 align 16 {
   %9 = icmp eq ptr %0, @init_net
   %10 = load i32, ptr @sysctl_nf_log_all_netns, align 4
   %11 = icmp ne i32 %10, 0
@@ -1756,7 +1756,7 @@ define internal fastcc void @dump_arp_packet(ptr noundef %0, ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nf_log_ip6_packet(ptr noundef captures(address) %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef %7) #4 align 16 {
+define internal void @nf_log_ip6_packet(ptr noundef %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly %6, ptr noundef %7) #4 align 16 {
   %9 = icmp eq ptr %0, @init_net
   %10 = load i32, ptr @sysctl_nf_log_all_netns, align 4
   %11 = icmp ne i32 %10, 0
@@ -1806,7 +1806,7 @@ define internal void @nf_log_ip6_packet(ptr noundef captures(address) %0, i8 zer
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @dump_ipv6_packet(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #4 align 16 {
+define internal fastcc void @dump_ipv6_packet(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #4 align 16 {
   %7 = alloca %struct.ipv6hdr, align 4
   %8 = alloca %struct.ipv6_opt_hdr, align 2
   %9 = alloca %struct.frag_hdr, align 8
@@ -2374,7 +2374,7 @@ skb_header_pointer.exit.thread38:                 ; preds = %225, %skb_header_po
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @nf_log_netdev_packet(ptr noundef captures(address) %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef %7) #4 align 16 {
+define internal void @nf_log_netdev_packet(ptr noundef %0, i8 zeroext %1, i32 %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) #4 align 16 {
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 176
   %10 = load i16, ptr %9, align 8
   switch i16 %10, label %78 [

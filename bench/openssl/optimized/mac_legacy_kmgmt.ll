@@ -172,7 +172,7 @@ ossl_mac_key_free.exit:                           ; preds = %1, %CRYPTO_DOWN_REF
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_get_params(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @mac_get_params(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call fastcc i32 @key_to_params(ptr noundef %0, ptr noundef null, ptr noundef %1)
   ret i32 %3
 }
@@ -207,7 +207,7 @@ define internal noundef nonnull ptr @mac_settable_params(ptr readnone captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_has(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 {
+define internal range(i32 0, 2) i32 @mac_has(ptr noundef readonly %0, i32 noundef %1) #0 {
   %3 = tail call i32 @ossl_prov_is_running() #6
   %4 = icmp ne i32 %3, 0
   %5 = icmp ne ptr %0, null
@@ -352,7 +352,7 @@ define internal noundef ptr @mac_imexport_types(i32 noundef %0) #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_export(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
+define internal i32 @mac_export(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) #0 {
   %5 = tail call i32 @ossl_prov_is_running() #6
   %6 = icmp eq i32 %5, 0
   %7 = icmp eq ptr %0, null
@@ -459,7 +459,7 @@ mac_gen_set_params.exit:                          ; preds = %6, %3, %21, %8, %26
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_gen_set_params(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal range(i32 0, 2) i32 @mac_gen_set_params(ptr noundef writeonly %0, ptr noundef %1) #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %21, label %4
 
@@ -792,7 +792,7 @@ define internal noundef nonnull ptr @cmac_gen_settable_params(ptr readnone captu
 declare ptr @ossl_prov_ctx_get0_libctx(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @key_to_params(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %25, label %5
 

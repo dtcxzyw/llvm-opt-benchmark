@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.33 = private unnamed_addr constant [20 x i8] c"FD send failed: %s\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @onas_dsresult(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8) local_unnamed_addr #0 {
+define dso_local i32 @onas_dsresult(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef writeonly captures(none) %6, ptr noundef %7, ptr noundef writeonly %8) local_unnamed_addr #0 {
   %10 = alloca [1 x i8], align 1
   %11 = alloca [1 x %struct.iovec], align 16
   %12 = alloca %struct.msghdr, align 8

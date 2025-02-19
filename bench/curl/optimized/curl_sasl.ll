@@ -41,7 +41,7 @@ define hidden void @Curl_sasl_cleanup(ptr noundef %0, i16 noundef zeroext %1) lo
 declare void @Curl_auth_cleanup_ntlm(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden zeroext i16 @Curl_sasl_decode_mech(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define hidden zeroext i16 @Curl_sasl_decode_mech(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %.not41 = icmp eq ptr %2, null
   br i1 %.not41, label %.split.us, label %.split
 

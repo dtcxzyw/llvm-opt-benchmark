@@ -1506,7 +1506,7 @@ declare i64 @zend_spprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unn
 declare noalias ptr @_estrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @php_info_print_stream_hash(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @php_info_print_stream_hash(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %55, label %4

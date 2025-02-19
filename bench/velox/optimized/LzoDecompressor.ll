@@ -53,7 +53,7 @@ $_ZTVN8facebook5velox4dwio6common10ParseErrorE = comdat any
 @.str.4 = private unnamed_addr constant [5 x i8] c" at \00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN8facebook5velox6common11compression13lzoDecompressEPKcS4_PcS5_(ptr noundef %inputAddress, ptr noundef readnone captures(address) %inputLimit, ptr noundef %outputAddress, ptr noundef readnone captures(address) %outputLimit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN8facebook5velox6common11compression13lzoDecompressEPKcS4_PcS5_(ptr noundef %inputAddress, ptr noundef readnone %inputLimit, ptr noundef %outputAddress, ptr noundef readnone %outputLimit) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 entry:
   %inputLimit361 = ptrtoint ptr %inputLimit to i64
   %ref.tmp = alloca %"class.std::__cxx11::basic_string", align 8

@@ -2050,7 +2050,7 @@ define hidden void @"_ZN113_$LT$rayon..iter..collect..consumer..CollectResult$LT
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h032c6f148731e54cE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h032c6f148731e54cE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { { i32, i32, i32 } }, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2117,7 +2117,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf78bc9ead0ca6c8dE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0595ecd03c74d94fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0595ecd03c74d94fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2185,7 +2185,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h4275f4d9696c77d7E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h079100d654c992c3E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h079100d654c992c3E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2252,7 +2252,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h08137d56b1f6a998E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0ec87b8b0d898b7fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h0ec87b8b0d898b7fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [2 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2342,7 +2342,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h6a3191a4e199b142E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h12646d04bd70af36E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h12646d04bd70af36E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { { i32, [1 x i32] }, ptr, ptr }, { i8, [15 x i8] } } }, align 8
   %5 = alloca { i32, [9 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2433,7 +2433,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hbf3b0d3a1f555df6E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h16ba6698e9e7dfc6E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h16ba6698e9e7dfc6E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -2495,7 +2495,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h4b3f0d8f3d420160E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1d228851209c58c3E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1d228851209c58c3E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2562,7 +2562,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h631253160cc054a6E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f824d73dfb41e2bE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h1f824d73dfb41e2bE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2629,7 +2629,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h0e4be35215cf2e90E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h203dd33877dde26cE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h203dd33877dde26cE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2697,7 +2697,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h5c59bb2e7d510534E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h20fd1fb2f7a204d6E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h20fd1fb2f7a204d6E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -2759,7 +2759,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h831ad9c401bfd2a3E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h28c69f436da7a834E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h28c69f436da7a834E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [4 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [10 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2814,7 +2814,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h50586d72d7ee2cadE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2a915f7f85720aa5E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2a915f7f85720aa5E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32, ptr } } }, align 8
   %5 = alloca { [2 x i64], ptr }, align 8
   %6 = icmp ne ptr %1, null
@@ -2861,7 +2861,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hd1210185891e5ca6E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b034a723ad0ba11E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2b034a723ad0ba11E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { [26 x i8], i8, [5 x i8] } } }, align 8
   %5 = alloca { i32, [9 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2937,7 +2937,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hcc648ca8c3c2ccf8E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2d745fcacf641d79E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h2d745fcacf641d79E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [5 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -2984,7 +2984,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h0f09e17459c1f39eE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h358b7d52e7e9d1d1E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h358b7d52e7e9d1d1E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %5 = alloca { [3 x i32], i32 }, align 8
   %6 = icmp ne ptr %1, null
@@ -3048,7 +3048,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hc9a465872b3a0ceaE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3df3cbf564aa6b49E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3df3cbf564aa6b49E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %5 = alloca { [3 x i32], i32 }, align 8
   %6 = icmp ne ptr %1, null
@@ -3112,7 +3112,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hcd4cf0b29266a405E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3f16d3431e7c718fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h3f16d3431e7c718fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3167,13 +3167,13 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h5885e02bd344adafE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h43e1a9685f4adf73E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h43e1a9685f4adf73E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h46c2af784d18d916E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h46c2af784d18d916E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [1 x i64], { { i64, [5 x i64] }, i32, [3 x i32] } }, align 16
   %5 = alloca { i64, [7 x i64] }, align 16
   %6 = icmp ne ptr %1, null
@@ -3240,7 +3240,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h47bc99ea5963c862E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4791da1ef2d718b8E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4791da1ef2d718b8E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i8, [39 x i8] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i8, [47 x i8] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3306,7 +3306,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hfef2f12990100068E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h48030c5c8863181bE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h48030c5c8863181bE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -3368,7 +3368,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h8434a113c5b00561E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h48efb68f0cd4a480E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h48efb68f0cd4a480E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -3430,7 +3430,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h01fdce3b52c40b17E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h491b04dd81142597E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h491b04dd81142597E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, { i32, i32 } }, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3497,7 +3497,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h27ac483500329bd9E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4bbe682e6af839e9E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4bbe682e6af839e9E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3564,7 +3564,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hc83df4a5ed95cbb1E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4efbdc23a1f7b305E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4efbdc23a1f7b305E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i8, [23 x i8] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3610,7 +3610,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h006b990d2b43ea25E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4f50e7e7c6d51ce9E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4f50e7e7c6d51ce9E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3665,7 +3665,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h0e2288426a66afdcE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4fbcfb1ac37365b6E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h4fbcfb1ac37365b6E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3732,7 +3732,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h4ac6c83bdd92d528E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h564bf3b804a1fd15E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h564bf3b804a1fd15E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3787,7 +3787,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h87fa72682f77e547E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5a9ee89ef30bf611E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5a9ee89ef30bf611E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3855,7 +3855,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h418ecf09e083dbc3E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5d35dd4bda472ac9E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5d35dd4bda472ac9E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -3910,7 +3910,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hd3016309c7aaf45fE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e463b566a138fa5E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5e463b566a138fa5E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %5 = alloca { [3 x i32], i32 }, align 8
   %6 = icmp ne ptr %1, null
@@ -3974,7 +3974,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h13b4f239aa934b96E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ea79f328be92aa4E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h5ea79f328be92aa4E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4047,7 +4047,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hfa9ccc455db322feE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h65a418217591e46aE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h65a418217591e46aE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4115,7 +4115,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h80b1b37865c235afE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h692e297f5ad3ead4E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h692e297f5ad3ead4E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4183,7 +4183,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h5145264d28c5c50cE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h698fd0414d06c48cE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h698fd0414d06c48cE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -4245,7 +4245,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf1e70e287eef0103E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h70095cb643da39faE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h70095cb643da39faE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -4307,7 +4307,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h740282b95db20823E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h767dfe3e8ac53532E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h767dfe3e8ac53532E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { i8, [31 x i8] } } }, align 8
   %5 = alloca { i32, [9 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4385,7 +4385,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hec9dd080042ccb62E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h778d542ba49b4027E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h778d542ba49b4027E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -4442,7 +4442,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h37cc6b2d577d8424E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c20be6ef6dceeccE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7c20be6ef6dceeccE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4510,7 +4510,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h24694851bf4b2d46E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7cd18a6ddfa02ed3E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7cd18a6ddfa02ed3E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [5 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4577,7 +4577,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h8c2b3e5c443ab68fE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h82297ee39b3115cdE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h82297ee39b3115cdE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i8, [31 x i8] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i8, [39 x i8] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4631,7 +4631,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h012019f365eaa53aE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84184cd23cbe22d4E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h84184cd23cbe22d4E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4686,7 +4686,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h9a9a33bf525fb05bE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8897530f8f2adc68E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8897530f8f2adc68E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [3 x i64] }, { { i32, [1 x i32] } } } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4741,7 +4741,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf2e1cf1f745b7cceE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h88a13bdc83fa0539E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h88a13bdc83fa0539E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4808,7 +4808,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hdcb713f6b86bb415E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8a37a7d51a49c036E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8a37a7d51a49c036E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4875,7 +4875,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h170975c5f07d5505E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8c05fd472e2f3762E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8c05fd472e2f3762E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, { { i32, [1 x i32] } } }, [1 x i32] } }, align 8
   %5 = alloca { [3 x i32], i32, [2 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -4939,7 +4939,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hfbbff12f6c6c61bcE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8fae5d527b50cf6bE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h8fae5d527b50cf6bE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %5 = alloca { [3 x i32], i32 }, align 8
   %6 = icmp ne ptr %1, null
@@ -5003,7 +5003,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h99974cd4b75310beE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h91adf78d39763f33E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h91adf78d39763f33E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -5065,7 +5065,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h0eeeff2bae6104dfE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h965edec4c396fca0E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h965edec4c396fca0E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -5127,7 +5127,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h7b6363553086df61E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h995d56f3ff462e40E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h995d56f3ff462e40E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [5 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5182,7 +5182,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf24efce4896da9a9E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9c5c209d8041ce40E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9c5c209d8041ce40E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [5 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5249,7 +5249,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h044715085941903aE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9e645c28d25a2b34E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h9e645c28d25a2b34E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5316,7 +5316,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hba5447341018eee2E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha0ff11d2221cfda2E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha0ff11d2221cfda2E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -5378,7 +5378,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h8de5561beff1afc9E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha23b74d95932e4faE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha23b74d95932e4faE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -5440,7 +5440,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hc80d727aa945f18eE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha27842eea6a042abE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha27842eea6a042abE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -5502,7 +5502,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hace0c445e6ec49faE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha709f0609242f388E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha709f0609242f388E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5570,7 +5570,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h0740cbadcaf0c028E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha989e3348fc08240E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha989e3348fc08240E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i32, [3 x i32] }, align 4
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -5601,7 +5601,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha242c495ef80c718E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha9da75427bccaf46E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17ha9da75427bccaf46E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [2 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5674,7 +5674,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h2d43b12ae4144eeeE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17habdb9bf7a5a1fe17E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17habdb9bf7a5a1fe17E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [3 x i64] }, { i32, { i32, [1 x i32] } }, [1 x i32] } }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5729,7 +5729,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h9a3b95be93fbcc59E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17had825e881f829676E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17had825e881f829676E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { i8, [31 x i8] } } }, align 8
   %5 = alloca { i32, [9 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5807,7 +5807,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h26567ba9ae5f22a0E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17haf4173dc4ce895ecE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17haf4173dc4ce895ecE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i32 }, [1 x i32], { i8, [23 x i8] } }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5853,7 +5853,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf600c73cfa2e1324E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbed3217c4918a483E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hbed3217c4918a483E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5908,7 +5908,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h4f2b8537ef2a5ab4E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc02407e4cc14e437E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc02407e4cc14e437E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -5976,7 +5976,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hc382a76477a7f34aE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc0a6977f2ac9ae59E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc0a6977f2ac9ae59E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6043,7 +6043,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h04810ddde4331af3E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc13e4ac7790142e1E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc13e4ac7790142e1E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i8, [47 x i8] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i8, [55 x i8] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6139,7 +6139,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h78f20bbe23f3c3daE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc244faa2f8919531E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc244faa2f8919531E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [2 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6227,7 +6227,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h81e4e740221757a9E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc46427f0a6d7635fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc46427f0a6d7635fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [3 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6285,7 +6285,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h2e87f7f386b4ee7cE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6039e946fe23f7dE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6039e946fe23f7dE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6352,7 +6352,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h23610f9bc7b84068E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6ab52b2576a0a06E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc6ab52b2576a0a06E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -6414,7 +6414,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h082086133e595043E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc833c86688adcf6dE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc833c86688adcf6dE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, { i32, [3 x i32] } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6472,7 +6472,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h3b8be1a06419b73eE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc86bce381ddeb87bE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hc86bce381ddeb87bE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq ptr %0, %1
@@ -6499,7 +6499,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf8d1cc473e7ecbffE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hca6297b45637ad38E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hca6297b45637ad38E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6572,7 +6572,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h2ca4c1299c8c2450E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hce04c510f65a8be9E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hce04c510f65a8be9E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [3 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6627,7 +6627,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hbc2e204ca4dcaa7dE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd513cfa4814456e6E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hd513cfa4814456e6E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [2 x i64] }, { i32, [1 x i32] } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6685,13 +6685,13 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h0e9c325bde2afd91E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdf30797afde91c4fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hdf30797afde91c4fE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he1ad47b3300d12f5E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he1ad47b3300d12f5E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6764,7 +6764,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h62b5082934315024E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he278aa01e157129dE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he278aa01e157129dE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6832,7 +6832,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h68fbdc9a51b6afadE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he340be187aa8005aE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17he340be187aa8005aE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [19 x i8] }, align 4
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -6862,7 +6862,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h31cd09f3f24a737cE.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17heac55b9f10690df0E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17heac55b9f10690df0E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -6935,7 +6935,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hbc58ab85e06ed727E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf477efd3260d42edE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf477efd3260d42edE.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [19 x i8] }, align 4
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -6965,7 +6965,7 @@ _ZN4core4iter6traits8iterator8Iterator4fold17hf887d0f7dc539442E.llvm.12573141932
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf605a4673d7fc198E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef captures(address) %1, i64 noundef %2) unnamed_addr #0 {
+define hidden noundef i64 @"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf605a4673d7fc198E.llvm.12573141932865264325"(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
   ret i64 %4
 }
@@ -21516,7 +21516,7 @@ define hidden void @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..funct
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef i64 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hfe830fb67dd2fd21E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 captures(address) %2, i64 noundef %3) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hfe830fb67dd2fd21E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #10 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2332)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2335)
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
@@ -23616,7 +23616,7 @@ define hidden void @_ZN4core4iter6traits8iterator8Iterator3map17hbc47c0287c123a3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h006b990d2b43ea25E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h006b990d2b43ea25E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i8, [23 x i8] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i8, [31 x i8] }, align 8
   %6 = icmp ne ptr %1, null
@@ -23662,7 +23662,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h006b990
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h012019f365eaa53aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h012019f365eaa53aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i8, [31 x i8] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i8, [39 x i8] }, align 8
   %6 = icmp ne ptr %1, null
@@ -23716,7 +23716,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h012019f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h01fdce3b52c40b17E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h01fdce3b52c40b17E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -23778,7 +23778,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h01fdce3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h044715085941903aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h044715085941903aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [5 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -23845,7 +23845,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0447150
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h04810ddde4331af3E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h04810ddde4331af3E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -23912,7 +23912,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h04810dd
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0740cbadcaf0c028E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0740cbadcaf0c028E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -23980,7 +23980,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0740cba
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h08137d56b1f6a998E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h08137d56b1f6a998E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24047,7 +24047,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h08137d5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h082086133e595043E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h082086133e595043E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -24109,7 +24109,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0820861
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e2288426a66afdcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e2288426a66afdcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24164,7 +24164,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e22884
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e4be35215cf2e90E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e4be35215cf2e90E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24231,7 +24231,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e4be35
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e9c325bde2afd91E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e9c325bde2afd91E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [2 x i64] }, { i32, [1 x i32] } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24289,7 +24289,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0e9c325
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0eeeff2bae6104dfE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0eeeff2bae6104dfE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -24351,7 +24351,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0eeeff2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0f09e17459c1f39eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0f09e17459c1f39eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [5 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24398,7 +24398,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h0f09e17
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h13b4f239aa934b96E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h13b4f239aa934b96E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %5 = alloca { [3 x i32], i32 }, align 8
   %6 = icmp ne ptr %1, null
@@ -24462,7 +24462,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h13b4f23
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h170975c5f07d5505E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h170975c5f07d5505E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24671,7 +24671,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h178fc87
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h23610f9bc7b84068E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h23610f9bc7b84068E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24738,7 +24738,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h23610f9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h24694851bf4b2d46E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h24694851bf4b2d46E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24806,7 +24806,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2469485
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h26567ba9ae5f22a0E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h26567ba9ae5f22a0E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { i8, [31 x i8] } } }, align 8
   %5 = alloca { i32, [9 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24884,7 +24884,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h26567ba
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h27ac483500329bd9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h27ac483500329bd9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, { i32, i32 } }, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -24951,7 +24951,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h27ac483
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2ca4c1299c8c2450E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2ca4c1299c8c2450E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25024,7 +25024,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2ca4c12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2d43b12ae4144eeeE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2d43b12ae4144eeeE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [2 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25097,7 +25097,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2d43b12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2e87f7f386b4ee7cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2e87f7f386b4ee7cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [3 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25155,7 +25155,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h2e87f7f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h31cd09f3f24a737cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h31cd09f3f24a737cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [19 x i8] }, align 4
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -25185,7 +25185,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h31cd09f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { { i32, [1 x i32] }, ptr, ptr }, { i8, [39 x i8] } } }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25271,7 +25271,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h37cc6b2d577d8424E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h37cc6b2d577d8424E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -25470,7 +25470,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h3a22ace
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h3b8be1a06419b73eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h3b8be1a06419b73eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, { i32, [3 x i32] } } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25528,7 +25528,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h3b8be1a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h418ecf09e083dbc3E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h418ecf09e083dbc3E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25596,7 +25596,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h418ecf0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4275f4d9696c77d7E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4275f4d9696c77d7E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25664,7 +25664,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4275f4d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h47bc99ea5963c862E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h47bc99ea5963c862E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, [1 x i64], { { i64, [5 x i64] }, i32, [3 x i32] } }, align 16
   %5 = alloca { i64, [7 x i64] }, align 16
   %6 = icmp ne ptr %1, null
@@ -25731,7 +25731,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h47bc99e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ac6c83bdd92d528E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ac6c83bdd92d528E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25798,7 +25798,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4ac6c83
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4b3f0d8f3d420160E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4b3f0d8f3d420160E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -25860,7 +25860,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4b3f0d8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4f2b8537ef2a5ab4E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4f2b8537ef2a5ab4E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25915,7 +25915,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h4f2b853
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h50586d72d7ee2cadE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h50586d72d7ee2cadE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [4 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [10 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -25970,7 +25970,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h50586d7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5145264d28c5c50cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5145264d28c5c50cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26038,7 +26038,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5145264
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5885e02bd344adafE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5885e02bd344adafE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26093,7 +26093,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5885e02
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5c59bb2e7d510534E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5c59bb2e7d510534E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26161,7 +26161,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h5c59bb2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h62b5082934315024E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h62b5082934315024E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26234,7 +26234,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h62b5082
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h631253160cc054a6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h631253160cc054a6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26301,7 +26301,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h6312531
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h68fbdc9a51b6afadE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h68fbdc9a51b6afadE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26369,7 +26369,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h68fbdc9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h6a3191a4e199b142E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h6a3191a4e199b142E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [2 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26459,7 +26459,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h6a3191a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h740282b95db20823E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h740282b95db20823E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -26521,7 +26521,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h740282b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h78f20bbe23f3c3daE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h78f20bbe23f3c3daE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i8, [47 x i8] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i8, [55 x i8] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26617,7 +26617,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h78f20bb
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h7b6363553086df61E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h7b6363553086df61E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -26679,7 +26679,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h7b63635
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h80b1b37865c235afE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h80b1b37865c235afE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26747,7 +26747,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h80b1b37
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h81e4e740221757a9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h81e4e740221757a9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [2 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -26835,7 +26835,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h81e4e74
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h831ad9c401bfd2a3E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h831ad9c401bfd2a3E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -26897,7 +26897,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h831ad9c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h8434a113c5b00561E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h8434a113c5b00561E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -26959,7 +26959,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h8434a11
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h87fa72682f77e547E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h87fa72682f77e547E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27014,7 +27014,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h87fa726
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h8c2b3e5c443ab68fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h8c2b3e5c443ab68fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [5 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27081,7 +27081,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h8c2b3e5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h8de5561beff1afc9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h8de5561beff1afc9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -27285,7 +27285,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h93b4d09
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h99974cd4b75310beE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h99974cd4b75310beE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %5 = alloca { [3 x i32], i32 }, align 8
   %6 = icmp ne ptr %1, null
@@ -27349,7 +27349,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h99974cd
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h9a3b95be93fbcc59E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h9a3b95be93fbcc59E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [3 x i64] }, { i32, { i32, [1 x i32] } }, [1 x i32] } }, align 8
   %5 = alloca { i64, [5 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27404,7 +27404,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h9a3b95b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h9a9a33bf525fb05bE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h9a9a33bf525fb05bE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27459,7 +27459,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h9a9a33b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27559,7 +27559,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha242c495ef80c718E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha242c495ef80c718E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i32, [3 x i32] }, align 4
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -27590,7 +27590,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha242c49
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hace0c445e6ec49faE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hace0c445e6ec49faE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -27652,7 +27652,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hace0c44
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hba5447341018eee2E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hba5447341018eee2E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27719,7 +27719,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hba54473
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbc2e204ca4dcaa7dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbc2e204ca4dcaa7dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [3 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27774,7 +27774,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbc2e204
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbc58ab85e06ed727E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbc58ab85e06ed727E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27847,7 +27847,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbc58ab8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbf3b0d3a1f555df6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbf3b0d3a1f555df6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { { i32, [1 x i32] }, ptr, ptr }, { i8, [15 x i8] } } }, align 8
   %5 = alloca { i32, [9 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -27938,7 +27938,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hbf3b0d3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc382a76477a7f34aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc382a76477a7f34aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28088,7 +28088,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc65a86e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc80d727aa945f18eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc80d727aa945f18eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -28150,7 +28150,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc80d727
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc83df4a5ed95cbb1E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc83df4a5ed95cbb1E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %5 = alloca { i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28217,7 +28217,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc83df4a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc9a465872b3a0ceaE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc9a465872b3a0ceaE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %5 = alloca { [3 x i32], i32 }, align 8
   %6 = icmp ne ptr %1, null
@@ -28281,7 +28281,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hc9a4658
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hcc648ca8c3c2ccf8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hcc648ca8c3c2ccf8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { [26 x i8], i8, [5 x i8] } } }, align 8
   %5 = alloca { i32, [9 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28357,7 +28357,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hcc648ca
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hcd4cf0b29266a405E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hcd4cf0b29266a405E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %5 = alloca { [3 x i32], i32 }, align 8
   %6 = icmp ne ptr %1, null
@@ -28421,7 +28421,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hcd4cf0b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hd1210185891e5ca6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hd1210185891e5ca6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, i32, ptr } } }, align 8
   %5 = alloca { [2 x i64], ptr }, align 8
   %6 = icmp ne ptr %1, null
@@ -28468,7 +28468,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hd121018
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hd3016309c7aaf45fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hd3016309c7aaf45fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28523,7 +28523,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hd301630
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hdcb713f6b86bb415E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hdcb713f6b86bb415E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28590,7 +28590,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hdcb713f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hec9dd080042ccb62E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hec9dd080042ccb62E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { i8, [31 x i8] } } }, align 8
   %5 = alloca { i32, [9 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28668,7 +28668,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hec9dd08
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf1e70e287eef0103E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf1e70e287eef0103E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { ptr, i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -28730,7 +28730,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf1e70e2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf24efce4896da9a9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf24efce4896da9a9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [5 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28785,7 +28785,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf24efce
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf2e1cf1f745b7cceE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf2e1cf1f745b7cceE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [3 x i64] }, { { i32, [1 x i32] } } } }, align 8
   %5 = alloca { i64, [4 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28840,7 +28840,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf2e1cf1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf600c73cfa2e1324E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf600c73cfa2e1324E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i32 }, [1 x i32], { i8, [23 x i8] } }, { ptr, [1 x i64] } } }, align 8
   %5 = alloca { i32, [15 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28886,7 +28886,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf600c73
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf78bc9ead0ca6c8dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf78bc9ead0ca6c8dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { { i32, i32, i32 } }, [1 x i32] } }, align 8
   %5 = alloca { i64, [3 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -28953,7 +28953,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf78bc9e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf887d0f7dc539442E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf887d0f7dc539442E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i8, [19 x i8] }, align 4
   %5 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %5)
@@ -28983,7 +28983,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf887d0f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf8d1cc473e7ecbffE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf8d1cc473e7ecbffE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
   %5 = icmp eq ptr %0, %1
@@ -29010,7 +29010,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hf8d1cc4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfa9ccc455db322feE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfa9ccc455db322feE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i64, [2 x i64] }, align 8
   %6 = icmp ne ptr %1, null
@@ -29083,7 +29083,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfa9ccc4
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfbbff12f6c6c61bcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfbbff12f6c6c61bcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { i32, { { i32, [1 x i32] } } }, [1 x i32] } }, align 8
   %5 = alloca { [3 x i32], i32, [2 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -29147,7 +29147,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfbbff12
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { ptr, { { { i32, [1 x i32] }, i32 } }, [1 x i32] } }, align 8
   %5 = alloca { [2 x i32], i32, [3 x i32] }, align 8
   %6 = icmp ne ptr %1, null
@@ -29248,7 +29248,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfef2f12990100068E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfef2f12990100068E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1, i64 noundef %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca { i64, { { i8, [39 x i8] }, i32, [1 x i32] } }, align 8
   %5 = alloca { i8, [47 x i8] }, align 8
   %6 = icmp ne ptr %1, null
@@ -29419,7 +29419,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h041d57
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h04fa75736be797e8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h04fa75736be797e8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -29486,7 +29486,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h04fa75
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h060dc2eca7a891c0E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h060dc2eca7a891c0E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -29548,7 +29548,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h060dc2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h06ef357c45512f0dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h06ef357c45512f0dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -29633,7 +29633,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h0c9d56
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h0cd582024c2314edE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h0cd582024c2314edE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i8, [31 x i8] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i8, [39 x i8] }, align 8
   %5 = icmp ne ptr %1, null
@@ -29710,7 +29710,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h0df747
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h0f69a550769211a0E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h0f69a550769211a0E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, { i32, i32 } }, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -29777,7 +29777,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h0f69a5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h11cca14b8f69d96aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h11cca14b8f69d96aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32, ptr } } }, align 8
   %4 = alloca { [2 x i64], ptr }, align 8
   %5 = icmp ne ptr %1, null
@@ -29824,7 +29824,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h11cca1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h13d1be9854e6ef75E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h13d1be9854e6ef75E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -29914,7 +29914,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h153627
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h16189cdb48e008b9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h16189cdb48e008b9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -29981,7 +29981,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h16189c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h18d7e153acb76554E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h18d7e153acb76554E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -30043,7 +30043,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h18d7e1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h1a7eab2e491f1965E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h1a7eab2e491f1965E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30116,7 +30116,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h1a8334
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h1acdba0a7eb5fc22E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h1acdba0a7eb5fc22E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30206,7 +30206,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h204ed5
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h205e886d0a1d9e90E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h205e886d0a1d9e90E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [3 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30261,7 +30261,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h205e88
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h235dadb4d09eed69E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h235dadb4d09eed69E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30316,7 +30316,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h235dad
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h24708ebf86ad572aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h24708ebf86ad572aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [2 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30406,7 +30406,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h24708e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h2503ee1e460e3131E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h2503ee1e460e3131E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30461,7 +30461,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h2503ee
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h2960189091f74690E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h2960189091f74690E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30545,7 +30545,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h31086b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3232f3bfb61ad819E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3232f3bfb61ad819E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i32, [3 x i32] }, align 4
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -30576,13 +30576,13 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3232f3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h33759885b260aa51E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h33759885b260aa51E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
   ret i64 %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h343bd22aaa4728f8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h343bd22aaa4728f8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i8, [39 x i8] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i8, [47 x i8] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30671,13 +30671,13 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h34e874
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3796bd6f47803185E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3796bd6f47803185E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
   ret i64 %3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h38859cb7a420e3ccE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h38859cb7a420e3ccE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i8, [23 x i8] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i8, [31 x i8] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30723,7 +30723,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h38859c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h388f5d6369744666E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h388f5d6369744666E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -30785,7 +30785,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h388f5d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h38f38c9b92eddff9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h38f38c9b92eddff9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30853,7 +30853,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h38f38c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3a241a7d6a257614E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3a241a7d6a257614E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, { i32, [3 x i32] } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -30934,7 +30934,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3a7ef7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3f78cf2067d2cadfE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3f78cf2067d2cadfE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31001,7 +31001,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h3f78cf
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4068a8ea43a9d96dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4068a8ea43a9d96dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -31063,7 +31063,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4068a8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h417042f7798d6e36E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h417042f7798d6e36E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -31120,7 +31120,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h417042
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4173388f1060f2aeE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4173388f1060f2aeE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [3 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31178,7 +31178,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h417338
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4305a0390ebecf5fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4305a0390ebecf5fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { { i32, i32, i32 } }, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31245,7 +31245,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4305a0
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h43de84614a3aef0bE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h43de84614a3aef0bE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [4 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [10 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31300,7 +31300,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h43de84
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h45b96f1e40294739E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h45b96f1e40294739E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { { i32, [1 x i32] }, ptr, ptr }, { i8, [15 x i8] } } }, align 8
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31391,7 +31391,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h45b96f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4613645ef04ba8a8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4613645ef04ba8a8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31458,7 +31458,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h461364
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h47197363029a9502E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h47197363029a9502E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [19 x i8] }, align 4
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -31488,7 +31488,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h471973
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h487f76c0e055cbceE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h487f76c0e055cbceE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31566,7 +31566,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h4907d6
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h53b4f52e9cf2c60fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h53b4f52e9cf2c60fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31662,7 +31662,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h5a85ea
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h64d3488340597a74E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h64d3488340597a74E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31775,7 +31775,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h68208c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h6c786fe8bf990c0fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h6c786fe8bf990c0fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i32 }, [1 x i32], { i8, [23 x i8] } }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31821,7 +31821,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h6c786f
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h6d972f58a38f60a9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h6d972f58a38f60a9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31882,7 +31882,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h6fa7b7
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h7212e48b8113124cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h7212e48b8113124cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -31972,7 +31972,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h75b4bc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h78b08df851839f89E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h78b08df851839f89E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [2 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32045,7 +32045,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h78b08d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h79f8dff608f439fcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h79f8dff608f439fcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %4 = alloca { [3 x i32], i32 }, align 8
   %5 = icmp ne ptr %1, null
@@ -32109,7 +32109,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h79f8df
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h7aeb938d4c25bd21E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h7aeb938d4c25bd21E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %4 = alloca { [3 x i32], i32 }, align 8
   %5 = icmp ne ptr %1, null
@@ -32202,7 +32202,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h857318
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h8d80de7d0946b3ebE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h8d80de7d0946b3ebE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32270,7 +32270,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h8d80de
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h8d920693952226ecE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h8d920693952226ecE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -32332,7 +32332,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h8d9206
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h920e7ca015539d5cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h920e7ca015539d5cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { i8, [31 x i8] } } }, align 8
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32410,7 +32410,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h920e7c
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h986ff8f3394607d6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h986ff8f3394607d6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [2 x i64] }, { i32, [1 x i32] } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32468,7 +32468,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h986ff8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9b4b8b34d1aab5c6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9b4b8b34d1aab5c6E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [3 x i64] }, { i32, { i32, [1 x i32] } }, [1 x i32] } }, align 8
   %4 = alloca { i64, [5 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32546,7 +32546,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9bc416
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9bd2a25c1fb68b4eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9bd2a25c1fb68b4eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32614,7 +32614,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9bd2a2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9c9a74079ac6b6a2E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9c9a74079ac6b6a2E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { i8, [31 x i8] } } }, align 8
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32692,7 +32692,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9c9a74
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9c9dc8f37c1b1d64E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9c9dc8f37c1b1d64E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [19 x i8] }, align 4
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -32722,7 +32722,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9c9dc8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9f5b9ba655c8c062E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9f5b9ba655c8c062E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32790,7 +32790,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17h9f5b9b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha20665a695fb2740E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha20665a695fb2740E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -32852,7 +32852,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha20665
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha31fadfdb9c50083E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha31fadfdb9c50083E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = icmp eq ptr %0, %1
@@ -32879,7 +32879,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha31fad
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha32b3eedefd83bc3E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha32b3eedefd83bc3E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, { { i32, [1 x i32] } } }, [1 x i32] } }, align 8
   %4 = alloca { [3 x i32], i32, [2 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -32943,7 +32943,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha32b3e
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha72efcee37523b7eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha72efcee37523b7eE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [3 x i64] }, { { i32, [1 x i32] } } } }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33021,7 +33021,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17ha86a1d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hae43a3d643ef4c46E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hae43a3d643ef4c46E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33089,7 +33089,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hae43a3
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hb42c371bf7d36796E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hb42c371bf7d36796E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33180,7 +33180,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hb85511
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hb9d6fc7340c9f6cbE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hb9d6fc7340c9f6cbE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -33242,7 +33242,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hb9d6fc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hbb3115e589b1016bE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hbb3115e589b1016bE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33297,7 +33297,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hbb3115
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hbb434db94f6116c2E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hbb434db94f6116c2E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %4 = alloca { [3 x i32], i32 }, align 8
   %5 = icmp ne ptr %1, null
@@ -33361,7 +33361,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hbb434d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hbb6aa2091831e7a8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hbb6aa2091831e7a8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33451,7 +33451,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc05e09
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc08e3ddb835c925fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc08e3ddb835c925fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33519,7 +33519,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc08e3d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc258fc236fda9f3aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc258fc236fda9f3aE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33592,7 +33592,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc258fc
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc40bcea14dd1ccb0E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc40bcea14dd1ccb0E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33639,7 +33639,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc40bce
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc5223d6eb9d331e4E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc5223d6eb9d331e4E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33694,7 +33694,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc5223d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc809cae24328dbd8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc809cae24328dbd8E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [2 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33782,7 +33782,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc809ca
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc9fe68555f638c87E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hc9fe68555f638c87E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %4 = alloca { [3 x i32], i32 }, align 8
   %5 = icmp ne ptr %1, null
@@ -33869,7 +33869,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hca924b
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hcbbf985b164c78f9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hcbbf985b164c78f9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -33971,7 +33971,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hcc2524
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hcde664b95bb2bd6dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hcde664b95bb2bd6dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -34038,7 +34038,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hcde664
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd02bf09ad6b82a90E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd02bf09ad6b82a90E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -34134,7 +34134,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd206f1
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd27f30f6dd9ba67cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd27f30f6dd9ba67cE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [1 x i64], { { i64, [5 x i64] }, i32, [3 x i32] } }, align 16
   %4 = alloca { i64, [7 x i64] }, align 16
   %5 = icmp ne ptr %1, null
@@ -34224,7 +34224,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd37dbe
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd82cfd7ca2a54632E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd82cfd7ca2a54632E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -34292,7 +34292,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd82cfd
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd966ce449bbb9544E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd966ce449bbb9544E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -34354,7 +34354,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hd966ce
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hdd6dd7deaee2e7b9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hdd6dd7deaee2e7b9E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { [26 x i8], i8, [5 x i8] } } }, align 8
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -34459,7 +34459,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he1278a
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he7c6af49f4a4c355E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he7c6af49f4a4c355E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -34521,7 +34521,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he7c6af
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he815b4b9d8081ddcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17he815b4b9d8081ddcE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
   ret i64 %3
 }
@@ -34596,7 +34596,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hf3645d
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hf3e5037b8119099dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hf3e5037b8119099dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i8, [47 x i8] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i8, [55 x i8] }, align 8
   %5 = icmp ne ptr %1, null
@@ -34692,7 +34692,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hf3e503
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hf56677076bc9bca2E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hf56677076bc9bca2E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -34777,7 +34777,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hfbec95
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hfc55e95c6ae27459E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hfc55e95c6ae27459E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -34839,7 +34839,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hfc55e9
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hfee6d2266366530dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hfee6d2266366530dE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -34906,7 +34906,7 @@ define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hfee6d2
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hff925097592f7945E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef i64 @_ZN4core4iter6traits8iterator8Iterator5count17hff925097592f7945E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -35375,7 +35375,7 @@ define hidden void @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: readwrite) uwtable
-define hidden noundef i64 @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h696dbfc611e78c68E.llvm.12573141932865264325"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 captures(address) %2, i64 noundef %3) unnamed_addr #12 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN4core4iter8adapters10filter_map15filter_map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h696dbfc611e78c68E.llvm.12573141932865264325"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3) unnamed_addr #12 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6068)
   %5 = getelementptr inbounds i8, ptr %2, i64 %3
   %6 = icmp eq i64 %3, 0
@@ -37655,7 +37655,7 @@ define internal noundef zeroext i1 @"_ZN58_$LT$alloc..string..String$u20$as$u20$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN5alloc3str17join_generic_copy17h83cc9fdf74ab930cE(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 captures(address) %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden void @_ZN5alloc3str17join_generic_copy17h83cc9fdf74ab930cE(ptr noalias noundef writeonly sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef nonnull readonly align 8 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 captures(none) %3, i64 noundef %4) unnamed_addr #2 personality ptr @rust_eh_personality {
   %6 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %7 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
   %8 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } }, align 8
@@ -38496,7 +38496,7 @@ define hidden void @_ZN5salsa8Database11salsa_event17had10427b17584d9eE(ptr nonn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @_ZN5salsa8Database13salsa_runtime17hbbe01ef8fef61ac2E(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 ptr @_ZN5salsa8Database13salsa_runtime17hbbe01ef8fef61ac2E(ptr noundef nonnull readnone align 8 %0) unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -40001,7 +40001,7 @@ define hidden void @"_ZN9hashbrown3set24HashSet$LT$T$C$S$C$A$GT$6retain17hbf8f47
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h007436f6711c958fE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h007436f6711c958fE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %4 = alloca { [3 x i32], i32 }, align 8
   %5 = icmp ne ptr %1, null
@@ -40093,7 +40093,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h05a515a1f00a44d1E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h05a515a1f00a44d1E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32, ptr } } }, align 8
   %4 = alloca { [2 x i64], ptr }, align 8
   %5 = icmp ne ptr %1, null
@@ -40140,7 +40140,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h11cca14b8f69d96aE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h06c6fde03583af2dE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h06c6fde03583af2dE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -40202,7 +40202,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h18d7e153acb76554E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h07bd009aaacee582E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h07bd009aaacee582E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40269,7 +40269,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h13d1be9854e6ef75E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h09010f2b02152607E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h09010f2b02152607E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -40375,7 +40375,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h11b3efe25f23dfc8E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h11b3efe25f23dfc8E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [3 x i64] }, { i32, { i32, [1 x i32] } }, [1 x i32] } }, align 8
   %4 = alloca { i64, [5 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40452,7 +40452,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h142750740a361c79E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h142750740a361c79E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { { i32, i32, i32 } }, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40519,7 +40519,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h4305a0390ebecf5fE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1626dcc0672639ebE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1626dcc0672639ebE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40574,7 +40574,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h235dadb4d09eed69E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1935e62323bcd8baE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1935e62323bcd8baE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { i8, [31 x i8] } } }, align 8
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40652,7 +40652,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h920e7ca015539d5cE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1bb72bdc56221acaE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1bb72bdc56221acaE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, { i32, [3 x i32] } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40710,7 +40710,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h3a241a7d6a257614E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1e45b3c2ce8ada41E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1e45b3c2ce8ada41E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40777,7 +40777,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h64d3488340597a74E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1ea167d86e9ef006E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1ea167d86e9ef006E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, { { i32, [1 x i32] } } }, [1 x i32] } }, align 8
   %4 = alloca { [3 x i32], i32, [2 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40841,7 +40841,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17ha32b3eedefd83bc3E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1fddad4caef6826dE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h1fddad4caef6826dE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -40903,7 +40903,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17ha20665a695fb2740E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h215f61033e02f918E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h215f61033e02f918E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { i8, [31 x i8] } } }, align 8
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -40981,7 +40981,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h9c9a74079ac6b6a2E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h298f2ec445d5aa78E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h298f2ec445d5aa78E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [2 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41071,7 +41071,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h24708ebf86ad572aE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h29d4562301424306E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h29d4562301424306E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41167,7 +41167,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h2e6b5db274bfb4aaE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h2e6b5db274bfb4aaE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %4 = alloca { [3 x i32], i32 }, align 8
   %5 = icmp ne ptr %1, null
@@ -41231,7 +41231,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hbb434db94f6116c2E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h2ef944a9857bc971E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h2ef944a9857bc971E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41298,7 +41298,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hcde664b95bb2bd6dE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h324c6c87dfd2bffdE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h324c6c87dfd2bffdE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -41360,7 +41360,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h4068a8ea43a9d96dE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h36bfde163804fb91E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h36bfde163804fb91E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i8, [23 x i8] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i8, [31 x i8] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41406,7 +41406,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h38859cb7a420e3ccE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h3aba2abc77d20bdbE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h3aba2abc77d20bdbE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41485,7 +41485,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h42c754734fb0f4b1E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h42c754734fb0f4b1E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -41547,7 +41547,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h06ef357c45512f0dE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h44872fab03867d4dE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h44872fab03867d4dE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41615,7 +41615,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h38f38c9b92eddff9E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h466e059ff7d4b82eE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h466e059ff7d4b82eE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, [1 x i64], { { i64, [5 x i64] }, i32, [3 x i32] } }, align 16
   %4 = alloca { i64, [7 x i64] }, align 16
   %5 = icmp ne ptr %1, null
@@ -41682,13 +41682,13 @@ _ZN4core4iter6traits8iterator8Iterator5count17hd27f30f6dd9ba67cE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h47886bc4a9c6d0deE"(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #2 {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h47886bc4a9c6d0deE"(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17ha1656fd60f531962E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
   ret i64 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h479b54206e7b6b7aE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h479b54206e7b6b7aE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i32, [3 x i32] }, align 4
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -41719,7 +41719,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h3232f3bfb61ad819E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h48ed6c6f3c9b6572E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h48ed6c6f3c9b6572E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41808,7 +41808,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h4e226639841cd5c0E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h4e226639841cd5c0E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41875,7 +41875,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5451db1a6198ec43E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5451db1a6198ec43E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -41943,7 +41943,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h9f5b9ba655c8c062E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h56d0a56575d08bd6E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h56d0a56575d08bd6E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, { i32, i32 } }, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42010,7 +42010,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h0f69a550769211a0E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5a7d90f3ca67a2d3E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5a7d90f3ca67a2d3E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42078,7 +42078,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h8d80de7d0946b3ebE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5b111ed9aa4e4038E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5b111ed9aa4e4038E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [3 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42133,7 +42133,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h205e886d0a1d9e90E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5bf2ac947f07cfbcE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5bf2ac947f07cfbcE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42200,7 +42200,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h16189cdb48e008b9E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5cc4148565656b48E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h5cc4148565656b48E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42311,7 +42311,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h627b4f03b054176dE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h627b4f03b054176dE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i8, [31 x i8] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i8, [39 x i8] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42365,7 +42365,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h0cd582024c2314edE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h6945af03b9e8a9eaE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h6945af03b9e8a9eaE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42438,7 +42438,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h53b4f52e9cf2c60fE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h6c2a95c9bf479771E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h6c2a95c9bf479771E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42506,7 +42506,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hc08e3ddb835c925fE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h6cb7c3f7f8b58ae0E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h6cb7c3f7f8b58ae0E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42561,7 +42561,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hc5223d6eb9d331e4E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h6da62b4a881bf1b2E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h6da62b4a881bf1b2E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42616,7 +42616,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h2503ee1e460e3131E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h78a9d23779ee4b6eE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h78a9d23779ee4b6eE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i8, [39 x i8] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i8, [47 x i8] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42682,7 +42682,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h343bd22aaa4728f8E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h798108b9d5be3925E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h798108b9d5be3925E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42749,7 +42749,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h3f78cf2067d2cadfE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h7988f9fa95784a3bE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h7988f9fa95784a3bE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42822,7 +42822,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hc258fc236fda9f3aE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h799986e13b1dc49bE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h799986e13b1dc49bE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [3 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42886,7 +42886,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h7a86b09434443535E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h7a86b09434443535E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i8, [47 x i8] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i8, [55 x i8] }, align 8
   %5 = icmp ne ptr %1, null
@@ -42982,7 +42982,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hf3e5037b8119099dE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h7b5f48af1f4eff2dE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h7b5f48af1f4eff2dE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [5 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43029,7 +43029,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hc40bcea14dd1ccb0E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h81d0ee103a12385cE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h81d0ee103a12385cE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43097,7 +43097,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hb42c371bf7d36796E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h8297afbfe86e2053E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h8297afbfe86e2053E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43164,7 +43164,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hbb6aa2091831e7a8E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h876161590be504a6E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h876161590be504a6E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -43226,7 +43226,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h060dc2eca7a891c0E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h8a92b04528ffcbf3E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h8a92b04528ffcbf3E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43281,7 +43281,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h487f76c0e055cbceE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h8b6a3279457e2667E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h8b6a3279457e2667E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %4 = alloca { [3 x i32], i32 }, align 8
   %5 = icmp ne ptr %1, null
@@ -43389,13 +43389,13 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9575c2902e936ba5E"(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #2 {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9575c2902e936ba5E"(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17hfe586b59739e5894E.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
   ret i64 %3
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h95fbd2fb3d578f05E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h95fbd2fb3d578f05E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [2 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43483,7 +43483,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hc809cae24328dbd8E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h96548f85b9955c9eE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h96548f85b9955c9eE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43550,7 +43550,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h7212e48b8113124cE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h966453ae1f59f775E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h966453ae1f59f775E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -43612,7 +43612,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hfc55e95c6ae27459E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9a1faaee53e4606aE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9a1faaee53e4606aE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %3)
   %4 = icmp eq ptr %0, %1
@@ -43639,7 +43639,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17ha31fadfdb9c50083E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9cd79168e070ebe8E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9cd79168e070ebe8E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43706,7 +43706,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h04fa75736be797e8E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9cfc457b460c1468E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17h9cfc457b460c1468E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -43768,7 +43768,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17he7c6af49f4a4c355E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17ha43a7b3d921bafdcE"(ptr noundef nonnull %0, ptr noundef captures(address) %1) unnamed_addr #2 {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17ha43a7b3d921bafdcE"(ptr noundef nonnull %0, ptr noundef %1) unnamed_addr #2 {
   %3 = tail call noundef i64 @_ZN4core4iter6traits8iterator8Iterator4fold17h326113a4a89e3c9fE.llvm.12573141932865264325(ptr noundef nonnull %0, ptr noundef %1, i64 noundef 0)
   ret i64 %3
 }
@@ -43796,7 +43796,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17ha4e4cdce7016475fE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17ha4e4cdce7016475fE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43864,7 +43864,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hae43a3d643ef4c46E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17ha55a3a59740d67fbE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17ha55a3a59740d67fbE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -43981,7 +43981,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hac70f7b138858ebeE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hac70f7b138858ebeE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [4 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [10 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44036,7 +44036,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h43de84614a3aef0bE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hacc62ee816d2e9acE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hacc62ee816d2e9acE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { { i32, [1 x i32] }, ptr, ptr }, { i8, [15 x i8] } } }, align 8
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44171,7 +44171,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hb27e0abd8d85d0f8E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hb27e0abd8d85d0f8E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, ptr } }, align 8
   %4 = alloca { i32, [3 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44260,7 +44260,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc0742efed23e3a80E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc0742efed23e3a80E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [19 x i8] }, align 4
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -44290,7 +44290,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h9c9dc8f37c1b1d64E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc077629fe057575aE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc077629fe057575aE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44345,7 +44345,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hbb3115e589b1016bE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc2934658e1627968E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc2934658e1627968E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44413,7 +44413,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hff925097592f7945E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc735c7f1fcf7cd31E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc735c7f1fcf7cd31E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i8, [19 x i8] }, align 4
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -44465,7 +44465,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc89870bc6e319dcdE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hc89870bc6e319dcdE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44577,7 +44577,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hd165545b1eb4666aE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hd165545b1eb4666aE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -44639,7 +44639,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hd966ce449bbb9544E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hd6b6999d504f98acE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hd6b6999d504f98acE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [2 x i64] }, { i32, [1 x i32] } } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44697,7 +44697,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h986ff8f3394607d6E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hd75ae3cce4e27ef3E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hd75ae3cce4e27ef3E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -44759,7 +44759,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17hb9d6fc7340c9f6cbE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hd8190d6b28f470ceE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hd8190d6b28f470ceE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { ptr, { i32, i32 } } }, align 8
   %4 = alloca { [3 x i32], i32 }, align 8
   %5 = icmp ne ptr %1, null
@@ -44823,7 +44823,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h79f8dff608f439fcE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hdb32f7e5d3c357bbE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hdb32f7e5d3c357bbE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44934,7 +44934,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17he581af8707bc89daE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17he581af8707bc89daE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { { i32, [1 x i32] }, { { i32, [1 x i32] }, i32 }, [1 x i32], { i8, [23 x i8] } }, { ptr, [1 x i64] } } }, align 8
   %4 = alloca { i32, [15 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -44980,7 +44980,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h6c786fe8bf990c0fE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17he6f93edb20e69fdcE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17he6f93edb20e69fdcE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -45037,7 +45037,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h417042f7798d6e36E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17he816f23dc158228bE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17he816f23dc158228bE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [2 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { i64, [3 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -45110,7 +45110,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h78b08df851839f89E.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17he9fed6254364a1bfE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17he9fed6254364a1bfE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -45194,7 +45194,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17heb79b01297821af8E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17heb79b01297821af8E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i64, [3 x i64] }, { { i32, [1 x i32] } } } }, align 8
   %4 = alloca { i64, [4 x i64] }, align 8
   %5 = icmp ne ptr %1, null
@@ -45249,7 +45249,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17ha72efcee37523b7eE.llvm.1257314193
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hecdd174e1dd7787fE"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hecdd174e1dd7787fE"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { ptr, [1 x i64] }, i32, [1 x i32] } }, align 8
   %4 = alloca { [4 x i32], i32, [1 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -45370,7 +45370,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hf2bf492d82269fe3E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hf2bf492d82269fe3E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { i64, { { i32, [1 x i32] }, { [26 x i8], i8, [5 x i8] } } }, align 8
   %4 = alloca { i32, [9 x i32] }, align 8
   %5 = icmp ne ptr %1, null
@@ -45490,7 +45490,7 @@ define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hfb26500c8b5f5087E"(ptr noundef nonnull %0, ptr noundef readnone captures(address) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
+define hidden noundef i64 @"_ZN225_$LT$ide_db..apply_change..$LT$impl$u20$ide_db..RootDatabase$GT$..per_query_memory_usage..collect_query_count..EntryCounter$u20$as$u20$core..iter..traits..collect..FromIterator$LT$salsa..debug..TableEntry$LT$K$C$V$GT$$GT$$GT$9from_iter17hfb26500c8b5f5087E"(ptr noundef nonnull %0, ptr noundef readnone %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = alloca { ptr, i32, [1 x i32] }, align 8
   %4 = icmp ne ptr %1, null
   tail call void @llvm.assume(i1 %4)
@@ -45552,7 +45552,7 @@ _ZN4core4iter6traits8iterator8Iterator5count17h8d920693952226ecE.llvm.1257314193
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind nonlazybind memory(read, inaccessiblemem: write) uwtable
-define hidden { i64, i64 } @"_ZN6ide_db13documentation10doc_indent28_$u7b$$u7b$closure$u7d$$u7d$17hbcebce5e4109c190E.llvm.12573141932865264325"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #18 personality ptr @rust_eh_personality {
+define hidden { i64, i64 } @"_ZN6ide_db13documentation10doc_indent28_$u7b$$u7b$closure$u7d$$u7d$17hbcebce5e4109c190E.llvm.12573141932865264325"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #18 personality ptr @rust_eh_personality {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %.loopexit, label %.lr.ph.i
@@ -50388,7 +50388,7 @@ define void @_ZN6ide_db7imports13import_assets13LocatedImport3new17hda988cfa2cfe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6ide_db7imports13import_assets12ImportAssets16import_candidate17hb2af13da83692567E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN6ide_db7imports13import_assets12ImportAssets16import_candidate17hb2af13da83692567E(ptr noalias noundef readonly returned align 8 dereferenceable(80) %0) unnamed_addr #5 {
   ret ptr %0
 }
 

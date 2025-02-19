@@ -2491,7 +2491,7 @@ declare i32 @Curl_http_connect(ptr noundef, ptr noundef) #3
 declare i32 @Curl_http_getsock_do(ptr noundef, ptr noundef, ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ws_disconnect(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, i1 zeroext %2) #0 {
+define internal noundef i32 @ws_disconnect(ptr readnone captures(none) %0, ptr noundef %1, i1 zeroext %2) #0 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %ws_free.exit, label %4
 

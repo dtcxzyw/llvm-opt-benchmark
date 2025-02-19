@@ -100,7 +100,7 @@ declare ptr @H5FL_reg_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5F__efc_open(i1 noundef zeroext %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5F__efc_open(i1 noundef zeroext %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i32 noundef %4, i64 noundef %5, i64 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.H5VL_connector_prop_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #6
   %9 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -506,7 +506,7 @@ declare ptr @H5SL_search(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @H5SL_create(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr noundef captures(none) %0, ptr noundef nonnull captures(address) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5F__efc_remove_ent(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i8, ptr @H5F_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

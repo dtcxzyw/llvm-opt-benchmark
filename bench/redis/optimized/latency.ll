@@ -236,7 +236,7 @@ declare noalias ptr @zstrdup(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @latencyResetEvent(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define dso_local i32 @latencyResetEvent(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 8072), align 8, !tbaa !5
   %3 = tail call ptr @dictGetSafeIterator(ptr noundef %2) #14
   %4 = tail call ptr @dictNext(ptr noundef %3) #14

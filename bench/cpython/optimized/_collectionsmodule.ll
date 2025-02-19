@@ -2509,7 +2509,7 @@ _Py_NewRef.exit:                                  ; preds = %9, %18
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @deque_init(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2) #0 {
+define internal range(i32 -1, 1) i32 @deque_init(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca [2 x ptr], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #9
   %5 = getelementptr i8, ptr %1, i64 16
@@ -3074,7 +3074,7 @@ deque_contains_lock_held.exit:                    ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @deque_inplace_concat(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef %1) #0 {
+define internal noundef ptr @deque_inplace_concat(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call fastcc ptr @deque_extend_impl(ptr noundef %0, ptr noundef %1)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %Py_DECREF.exit, label %5
@@ -3174,7 +3174,7 @@ declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr no
 declare i64 @PyLong_AsSsize_t(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @deque_extend_impl(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @deque_extend_impl(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !tbaa !45
   %5 = icmp eq ptr %0, %1
@@ -3322,7 +3322,7 @@ Py_DECREF.exit36:                                 ; preds = %Py_DECREF.exit5.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @deque_extend(ptr noundef captures(address) %0, ptr noundef %1) #0 {
+define internal ptr @deque_extend(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call fastcc ptr @deque_extend_impl(ptr noundef %0, ptr noundef %1)
   ret ptr %3
 }
@@ -3699,7 +3699,7 @@ deque_count_impl.exit:                            ; preds = %Py_DECREF.exit.i, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @deque_extendleft(ptr noundef captures(address) %0, ptr noundef %1) #0 {
+define internal ptr @deque_extendleft(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call fastcc ptr @deque_extendleft_impl(ptr noundef %0, ptr noundef %1)
   ret ptr %3
 }
@@ -4907,7 +4907,7 @@ declare ptr @PyObject_CallFunction(ptr noundef, ptr noundef, ...) local_unnamed_
 declare ptr @PyErr_Format(ptr noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @deque_extendleft_impl(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc ptr @deque_extendleft_impl(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %4 = load i64, ptr %3, align 8, !tbaa !45
   %5 = icmp eq ptr %0, %1
@@ -7034,7 +7034,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @tuplegetter_descr_get(ptr noundef captures(ret: address, provenance) %0, ptr noundef readonly captures(address) %1, ptr readnone captures(none) %2) #0 {
+define internal noundef ptr @tuplegetter_descr_get(ptr noundef %0, ptr noundef readonly %1, ptr readnone captures(none) %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i64, ptr %4, align 8, !tbaa !116
   %6 = icmp eq ptr %1, null
@@ -7110,7 +7110,7 @@ _Py_NewRef.exit:                                  ; preds = %38, %32, %21, %18, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @tuplegetter_descr_set(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
+define internal noundef i32 @tuplegetter_descr_set(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone %2) #0 {
   %4 = icmp eq ptr %2, null
   %5 = load ptr, ptr @PyExc_AttributeError, align 8, !tbaa !21
   %.str.81..str.82 = select i1 %4, ptr @.str.81, ptr @.str.82

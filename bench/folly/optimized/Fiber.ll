@@ -1883,7 +1883,7 @@ _ZN5folly6fibers12thread_clock3nowEv.exit:        ; preds = %28, %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly6fibers5Fiber9LocalDataD2Ev(ptr noundef nonnull align 64 captures(address) dereferenceable(176) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly6fibers5Fiber9LocalDataD2Ev(ptr noundef nonnull align 64 dereferenceable(176) %0) unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !156
   %.not.i = icmp eq ptr %3, null
@@ -1916,7 +1916,7 @@ _ZN5folly6fibers5Fiber9LocalData5resetEv.exit:    ; preds = %.noexc, %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers5Fiber9LocalData5resetEv(ptr noundef nonnull align 64 captures(address) dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
+define void @_ZN5folly6fibers5Fiber9LocalData5resetEv(ptr noundef nonnull align 64 dereferenceable(176) %0) local_unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %3 = load ptr, ptr %2, align 8, !tbaa !156
   %.not = icmp eq ptr %3, null
@@ -1940,7 +1940,7 @@ define void @_ZN5folly6fibers5Fiber9LocalData5resetEv(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly6fibers5Fiber9LocalDataC2ERKS2_(ptr noundef nonnull align 64 dereferenceable(176) initializes((128, 176)) %0, ptr noundef nonnull readonly align 64 captures(address) dereferenceable(176) %1) unnamed_addr #0 align 2 {
+define void @_ZN5folly6fibers5Fiber9LocalDataC2ERKS2_(ptr noundef nonnull align 64 dereferenceable(176) initializes((128, 176)) %0, ptr noundef nonnull readonly align 64 dereferenceable(176) %1) unnamed_addr #0 align 2 {
 _ZN5folly6fibers5Fiber9LocalData5resetEv.exit.i:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
@@ -1979,7 +1979,7 @@ _ZN5folly6fibers5Fiber9LocalDataaSERKS2_.exit:    ; preds = %_ZN5folly6fibers5Fi
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 64 dereferenceable(176) ptr @_ZN5folly6fibers5Fiber9LocalDataaSERKS2_(ptr noundef nonnull returned align 64 dereferenceable(176) %0, ptr noundef nonnull readonly align 64 captures(address) dereferenceable(176) %1) local_unnamed_addr #0 align 2 {
+define noundef nonnull align 64 dereferenceable(176) ptr @_ZN5folly6fibers5Fiber9LocalDataaSERKS2_(ptr noundef nonnull returned align 64 dereferenceable(176) %0, ptr noundef nonnull readonly align 64 dereferenceable(176) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8, !tbaa !156
   %.not.i = icmp eq ptr %4, null

@@ -7616,7 +7616,7 @@ return:                                           ; preds = %entry, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08PSDInput16handle_resourcesERSt3mapItNS_7psd_pvt18ImageResourceBlockESt4lessItESaISt4pairIKtS3_EEE(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %resources) local_unnamed_addr #5 align 2 {
+define hidden noundef zeroext i1 @_ZN18OpenImageIO_v2_6_08PSDInput16handle_resourcesERSt3mapItNS_7psd_pvt18ImageResourceBlockESt4lessItESaISt4pairIKtS3_EEE(ptr noundef nonnull align 8 dereferenceable(840) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %resources) local_unnamed_addr #5 align 2 {
 entry:
   %__args.addr.i = alloca ptr, align 8
   %__args.addr2.i = alloca i32, align 4

@@ -566,7 +566,7 @@ define dso_local void @_ZNK4llvm4Pass14verifyAnalysisEv(ptr nonnull readnone ali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm4Pass26getAdjustedAnalysisPointerEPKv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(28) %0, ptr readnone captures(none) %1) unnamed_addr #5 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm4Pass26getAdjustedAnalysisPointerEPKv(ptr noundef nonnull readnone returned align 8 dereferenceable(28) %0, ptr readnone captures(none) %1) unnamed_addr #5 align 2 {
   ret ptr %0
 }
 
@@ -995,7 +995,7 @@ define dso_local void @_ZN4llvm14PassNameParserC2ERNS_2cl6OptionE(ptr noundef no
 declare void @_ZN4llvm12PassRegistry23addRegistrationListenerEPNS_24PassRegistrationListenerE(ptr noundef nonnull align 8 dereferenceable(160), ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN4llvm14PassNameParserD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(488) initializes((8, 16)) %0) unnamed_addr #9 align 2 {
+define dso_local void @_ZN4llvm14PassNameParserD2Ev(ptr noundef nonnull align 8 dereferenceable(488) initializes((8, 16)) %0) unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr getelementptr inbounds nuw inrange(-16, 64) (i8, ptr @_ZTVN4llvm2cl6parserIPKNS_8PassInfoEEE, i64 16), ptr %2, align 8, !tbaa !102
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24

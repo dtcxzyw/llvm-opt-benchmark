@@ -922,7 +922,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.12: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i32 @_ZNK13PacketCounter3sumEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef i32 @_ZNK13PacketCounter3sumEv(ptr noundef nonnull readonly align 8 dereferenceable(48) %this) local_unnamed_addr #7 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15
@@ -946,7 +946,7 @@ for.body:                                         ; preds = %entry, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK13PacketCounter5printERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZNK13PacketCounter5printERSo(ptr noundef nonnull readonly align 8 dereferenceable(48) %this, ptr noundef nonnull align 8 dereferenceable(8) %o) local_unnamed_addr #4 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !15

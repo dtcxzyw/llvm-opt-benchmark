@@ -73,7 +73,7 @@ declare void @proto_register_subtree_array(ptr noundef, i32 noundef) local_unnam
 declare void @heur_dissector_add(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @dissect_prp_redundancy_control_trailer_heur(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @dissect_prp_redundancy_control_trailer_heur(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = tail call i32 @tvb_reported_length(ptr noundef %0)
   %6 = add i32 %5, -4
   %7 = add i32 %5, -2

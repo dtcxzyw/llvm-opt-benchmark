@@ -54,7 +54,7 @@ define hidden range(i64 -9223372036854775808, 9223372036854775001) i64 @evutil_t
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evutil_usleep_(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @evutil_usleep_(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca %struct.timespec, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
@@ -85,7 +85,7 @@ declare i32 @nanosleep(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @evutil_date_rfc1123(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define i32 @evutil_date_rfc1123(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %5 = alloca %struct.tm, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #8

@@ -160,7 +160,7 @@ define hidden noundef zeroext i1 @_ZN13G1FullGCScope22should_clear_soft_refsEv(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN13G1FullGCScope5timerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(464) %0) local_unnamed_addr #5 align 2 {
+define hidden noundef nonnull ptr @_ZN13G1FullGCScope5timerEv(ptr noundef nonnull readnone align 8 dereferenceable(464) %0) local_unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }

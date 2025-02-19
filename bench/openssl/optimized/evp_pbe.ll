@@ -177,7 +177,7 @@ define i32 @EVP_PBE_CipherInit_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_PBE_find_ex(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_find_ex(i32 noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.evp_pbe_st, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #7
   %8 = icmp eq i32 %1, 0
@@ -402,7 +402,7 @@ declare i32 @EVP_CIPHER_get_nid(ptr noundef) local_unnamed_addr #2
 declare i32 @EVP_MD_get_type(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_PBE_find(i32 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_PBE_find(i32 noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.evp_pbe_st, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #7
   %7 = icmp eq i32 %1, 0
@@ -482,7 +482,7 @@ define internal void @free_evp_pbe_ctl(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @EVP_PBE_get(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @EVP_PBE_get(ptr noundef writeonly %0, ptr noundef writeonly %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = icmp ugt i64 %2, 33
   br i1 %4, label %13, label %5
 

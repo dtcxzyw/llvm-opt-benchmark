@@ -371,7 +371,7 @@ declare i32 @cdf_read_summary_info(ptr noundef, ptr noundef, ptr noundef, ptr no
 declare ptr @__errno_location() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef readonly captures(address_is_null) %8, ptr noundef nonnull writeonly captures(none) %9) unnamed_addr #0 {
+define internal fastcc noundef i32 @cdf_check_summary_info(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef readonly %8, ptr noundef nonnull writeonly captures(none) %9) unnamed_addr #0 {
   %11 = alloca ptr, align 8
   %12 = alloca [256 x i8], align 16
   %13 = alloca %struct.timespec, align 8

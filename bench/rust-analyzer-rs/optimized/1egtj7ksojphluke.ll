@@ -31320,7 +31320,7 @@ _ZN3ide17highlight_related11cover_range17hbe52eb22d4b37487E.exit88: ; preds = %.
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN3ide17highlight_related22highlight_break_points28_$u7b$$u7b$closure$u7d$$u7d$17h038ac76fba48a7caE"(ptr readonly captures(address_is_null) %.0.val, ptr noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc noundef zeroext i1 @"_ZN3ide17highlight_related22highlight_break_points28_$u7b$$u7b$closure$u7d$$u7d$17h038ac76fba48a7caE"(ptr readonly %.0.val, ptr noundef %0) unnamed_addr #1 personality ptr @rust_eh_personality {
   %2 = alloca ptr, align 8
   %3 = alloca { { ptr, [1 x i64] } }, align 8
   %4 = alloca ptr, align 8
@@ -39213,7 +39213,7 @@ define hidden void @_ZN3ide5hover6render4path17hdbf4cc2a3d0e7b8cE(ptr noalias no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN3ide5hover6render10definition17hd7140b25ac5ed541E(ptr noalias noundef writeonly sret({ { { { i64, ptr, {} }, i64 } } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %3, ptr noalias noundef nonnull readonly align 8 captures(address) %4, i64 noundef %5, i32 noundef %6, i32 %7, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %8) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_ZN3ide5hover6render10definition17hd7140b25ac5ed541E(ptr noalias noundef writeonly sret({ { { { i64, ptr, {} }, i64 } } }) align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef align 4 captures(none) dereferenceable(20) %2, ptr noalias noundef readonly align 8 dereferenceable_or_null(16) %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, i32 noundef %6, i32 %7, ptr noalias noundef readonly align 8 captures(none) dereferenceable(40) %8) unnamed_addr #0 personality ptr @rust_eh_personality {
   %10 = alloca {}, align 1
   %11 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %12 = alloca { [1 x i64], i64, [1 x i64] }, align 8
@@ -41443,7 +41443,7 @@ thread-pre-split:                                 ; preds = %331, %"_ZN4core3ptr
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN3ide5hover6render28render_notable_trait_comment17h2ab5d06117a44866E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 captures(address) %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN3ide5hover6render28render_notable_trait_comment17h2ab5d06117a44866E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(24) %0, ptr noundef nonnull align 8 %1, ptr noalias noundef nonnull readonly align 8 %2, i64 noundef %3) unnamed_addr #0 personality ptr @rust_eh_personality {
   %5 = alloca { [1 x i64], i64, [1 x i64] }, align 8
   %6 = alloca { { { i64, ptr, {} }, i64 } }, align 8
   %7 = alloca { { ptr, i64 }, { { { ptr, [2 x i64] } } } }, align 8

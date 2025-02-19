@@ -3402,7 +3402,7 @@ declare i32 @H5Pget_external_count(i64 noundef) local_unnamed_addr #3
 declare i32 @H5Pget_external(i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -2147483647, -2147483648) i32 @print_string(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #4 {
+define internal fastcc range(i32 -2147483647, -2147483648) i32 @print_string(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #4 {
   %.not58 = icmp eq ptr %1, null
   br i1 %.not58, label %.critedge, label %.lr.ph
 
@@ -5005,7 +5005,7 @@ declare i64 @H5Gopen2(i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr 
 declare i32 @h5trav_visit(i64 noundef, ptr noundef, i1 noundef zeroext, i1 noundef zeroext, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @list_obj(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(none) %3) #4 {
+define internal noundef i32 @list_obj(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(none) %3) #4 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.h5tools_str_t, align 8
   %7 = alloca %struct.h5tools_context_t, align 8

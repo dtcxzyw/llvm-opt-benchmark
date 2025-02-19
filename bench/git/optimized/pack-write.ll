@@ -974,7 +974,7 @@ declare i64 @xread(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 declare void @fsync_component_or_die(i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define dso_local ptr @index_pack_lockfile(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca [70 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 70, ptr nonnull %4) #19
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -1161,7 +1161,7 @@ rename_tmp_packfile.exit:                         ; preds = %15, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @stage_tmp_packfiles(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #2 {
+define dso_local void @stage_tmp_packfiles(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, ptr noundef readonly captures(none) %6, ptr noundef %7, ptr noundef writeonly captures(none) %8) local_unnamed_addr #2 {
   %10 = alloca i32, align 4
   %11 = alloca i32, align 4
   %12 = alloca i32, align 4

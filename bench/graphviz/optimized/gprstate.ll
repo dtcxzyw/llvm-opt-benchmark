@@ -147,7 +147,7 @@ define internal i32 @bindingcmpf(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @addBindings(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define void @addBindings(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %.not28 = icmp eq ptr %1, null
   br i1 %.not28, label %.critedge.thread, label %.lr.ph.preheader
 
@@ -240,7 +240,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @closeGPRState(ptr noundef captures(address_is_null) %0) local_unnamed_addr #10 {
+define void @closeGPRState(ptr noundef %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

@@ -224,7 +224,7 @@ define internal fastcc void @"_ZN4core3ptr66drop_in_place$LT$sum_tree..Node$LT$t
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.11510452982541791968"(ptr noundef readnone captures(address_is_null) %0) unnamed_addr #1 {
+define hidden void @"_ZN4core3ptr8non_null16NonNull$LT$T$GT$13new_unchecked18precondition_check17hd08982d9a068b7a1E.llvm.11510452982541791968"(ptr noundef readnone %0) unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 

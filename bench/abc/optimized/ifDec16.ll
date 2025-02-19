@@ -298,7 +298,7 @@ If_CluSupportSize.exit45:                         ; preds = %If_CluHasVar.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CutPerformCheck16(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CutPerformCheck16(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #2 {
   %6 = alloca [1024 x i32], align 16
   %7 = alloca %struct.If_Grp_t_, align 1
   %8 = alloca %struct.If_Grp_t_, align 1
@@ -1189,7 +1189,7 @@ define range(i32 0, -1) i32 @If_CluHashKey(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @If_CluHashLookup(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
+define ptr @If_CluHashLookup(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %238, label %5
 
@@ -3812,7 +3812,7 @@ If_CluEqual.exit.thread:                          ; preds = %86, %._crit_edge119
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @If_CluSwapVars(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
+define void @If_CluSwapVars(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
   %7 = icmp slt i32 %1, 7
   %8 = add nsw i32 %1, -6
   %9 = shl nuw i32 1, %8
@@ -4029,7 +4029,7 @@ define void @If_CluSwapVars(ptr noundef captures(none) %0, i32 noundef %1, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @If_CluReverseOrder(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #10 {
+define void @If_CluReverseOrder(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #10 {
   %6 = sub nsw i32 %1, %4
   %7 = sdiv i32 %6, 2
   %8 = icmp sgt i32 %6, 1
@@ -4050,7 +4050,7 @@ define void @If_CluReverseOrder(ptr noundef captures(none) %0, i32 noundef %1, p
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @If_CluMoveVar2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
+define void @If_CluMoveVar2(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #10 {
   %7 = sext i32 %4 to i64
   %8 = getelementptr inbounds i32, ptr %2, i64 %7
   %9 = load i32, ptr %8, align 4, !tbaa !6
@@ -4288,7 +4288,7 @@ If_CluEqual.exit.thread:                          ; preds = %28, %If_CluReverseO
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @If_CluCountCofs(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #10 {
+define i32 @If_CluCountCofs(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4) local_unnamed_addr #10 {
   %6 = alloca [128 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %6) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %6, i8 0, i64 1024, i1 false)
@@ -5548,7 +5548,7 @@ If_CluDetectSpecialCaseCofs.exit:                 ; preds = %135
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i64 @If_CluDeriveDisjoint(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #10 {
+define i64 @If_CluDeriveDisjoint(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readnone captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly %5) local_unnamed_addr #10 {
   %7 = alloca [3 x [256 x i64]], align 16
   call void @llvm.lifetime.start.p0(i64 6144, ptr nonnull %7) #22
   %8 = load i8, ptr %4, align 1, !tbaa !110
@@ -6355,7 +6355,7 @@ If_CluCofactors.exit.us:                          ; preds = %._crit_edge.us.i.us
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @If_CluFindGroup(ptr dead_on_unwind noalias writable sret(%struct.If_Grp_t_) align 1 captures(none) initializes((0, 18)) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #11 {
+define void @If_CluFindGroup(ptr dead_on_unwind noalias writable sret(%struct.If_Grp_t_) align 1 captures(none) initializes((0, 18)) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #11 {
   %10 = alloca [128 x i64], align 16
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %11, i8 0, i64 16, i1 false)
@@ -6902,7 +6902,7 @@ If_CluEqual.exit.thread:                          ; preds = %14, %._crit_edge, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @If_CluMinimumBase(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #11 {
+define range(i32 0, 2) i32 @If_CluMinimumBase(ptr noundef captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #11 {
   %5 = alloca [1024 x i64], align 16
   %6 = icmp sgt i32 %2, 0
   br i1 %6, label %.lr.ph, label %._crit_edge
@@ -7264,7 +7264,7 @@ If_CluTruthShrink.exit:                           ; preds = %55, %._crit_edge59.
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_CluCheck(ptr dead_on_unwind noalias writable sret(%struct.If_Grp_t_) align 1 captures(none) initializes((0, 18)) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef captures(address_is_null) %11, i32 noundef %12) local_unnamed_addr #2 {
+define void @If_CluCheck(ptr dead_on_unwind noalias writable sret(%struct.If_Grp_t_) align 1 captures(none) initializes((0, 18)) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef %11, i32 noundef %12) local_unnamed_addr #2 {
   %14 = alloca [3 x [256 x i64]], align 16
   %15 = alloca %struct.If_Grp_t_, align 1
   %16 = alloca [1024 x i64], align 16
@@ -8299,7 +8299,7 @@ define range(i32 0, 2) i32 @If_CluCheckDecOutU(i64 noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CutPerformCheck45(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CutPerformCheck45(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.If_Grp_t_, align 1
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -8423,7 +8423,7 @@ If_CluCheckDecOutU.exit:                          ; preds = %48, %.lr.ph.i, %56,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CutPerformCheck54(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CutPerformCheck54(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #2 {
   %6 = alloca %struct.If_Grp_t_, align 1
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
@@ -8615,7 +8615,7 @@ If_CluCheckDecInU.exit:                           ; preds = %54, %80, %83, %95, 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_CluCheck3(ptr dead_on_unwind noalias writable writeonly sret(%struct.If_Grp_t_) align 1 captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11) local_unnamed_addr #2 {
+define void @If_CluCheck3(ptr dead_on_unwind noalias writable writeonly sret(%struct.If_Grp_t_) align 1 captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8, ptr noundef writeonly %9, ptr noundef writeonly %10, ptr noundef writeonly %11) local_unnamed_addr #2 {
   %13 = alloca [1024 x i64], align 16
   %14 = alloca i64, align 8
   %15 = alloca i64, align 8
@@ -9017,7 +9017,7 @@ If_CluMoveGroupToMsb.exit:                        ; preds = %57, %._crit_edge153
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 18)) %5, ptr noundef writeonly captures(none) initializes((0, 18)) %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(none) initializes((0, 18)) %5, ptr noundef writeonly captures(none) initializes((0, 18)) %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #2 {
   %.sroa.5 = alloca { i8, [16 x i8] }, align 8
   %10 = alloca %struct.If_Grp_t_, align 1
   %11 = alloca %struct.If_Grp_t_, align 1
@@ -9041,7 +9041,7 @@ define range(i32 0, 2) i32 @If_CluCheckExt(ptr noundef captures(address_is_null)
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @If_CluCheckExt3(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) initializes((0, 18)) %6, ptr noundef writeonly captures(none) initializes((0, 18)) %7, ptr noundef writeonly captures(none) initializes((0, 18)) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef captures(address_is_null) %11) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @If_CluCheckExt3(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(none) initializes((0, 18)) %6, ptr noundef writeonly captures(none) initializes((0, 18)) %7, ptr noundef writeonly captures(none) initializes((0, 18)) %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #2 {
   %.sroa.5 = alloca { i8, [16 x i8] }, align 8
   %13 = alloca %struct.If_Grp_t_, align 1
   %14 = alloca %struct.If_Grp_t_, align 1
@@ -9099,7 +9099,7 @@ define float @If_CluDelayMax(ptr noundef readonly captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define float @If_CutDelayLutStruct(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2, float noundef %3) local_unnamed_addr #2 {
+define float @If_CutDelayLutStruct(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2, float noundef %3) local_unnamed_addr #2 {
   %5 = alloca [18 x float], align 16
   %6 = alloca [18 x i32], align 16
   %7 = alloca %struct.If_Grp_t_, align 1

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lut = internal unnamed_addr constant [201 x i8] c"00010203040506070809101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646566676869707172737475767778798081828384858687888990919293949596979899\00", align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @itoa_u32(i32 noundef %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @itoa_u32(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp ugt i32 %0, 99999999
   br i1 %3, label %4, label %9
 
@@ -170,7 +170,7 @@ itoa.exit:                                        ; preds = %digits.exit.thread,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define dso_local noundef nonnull ptr @itoa_32(i32 noundef %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
+define dso_local noundef nonnull ptr @itoa_32(i32 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = icmp slt i32 %0, 0
   br i1 %3, label %4, label %7
 

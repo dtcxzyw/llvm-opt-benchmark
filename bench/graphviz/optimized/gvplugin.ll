@@ -700,7 +700,7 @@ declare ptr @lt_dlsym(ptr noundef, ptr noundef) local_unnamed_addr #7
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nounwind uwtable
-define ptr @gvplugin_load(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #6 {
+define ptr @gvplugin_load(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #6 {
   %5 = alloca %struct.agxbuf, align 8
   %6 = add i32 %1, -3
   %or.cond = icmp ult i32 %6, 2

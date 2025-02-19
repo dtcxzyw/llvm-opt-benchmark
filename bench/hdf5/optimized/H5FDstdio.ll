@@ -838,7 +838,7 @@ define internal range(i32 -1, 2) i32 @H5FD_stdio_cmp(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @H5FD_stdio_query(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #1 {
+define internal noundef i32 @H5FD_stdio_query(ptr readnone captures(none) %0, ptr noundef writeonly %1) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 

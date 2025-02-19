@@ -1434,7 +1434,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_unary_unsigned(ptr nound
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr noundef captures(none) %0, ptr noundef writeonly captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #9 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
@@ -1691,7 +1691,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block(ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr noundef captures(none) %0, ptr noundef writeonly captures(address) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #14 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
@@ -1948,7 +1948,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_rice_signed_block_bmi2(p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
   %6 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)
@@ -2067,7 +2067,7 @@ define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint32(ptr noundef 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
+define hidden range(i32 0, 2) i32 @FLAC__bitreader_read_utf8_uint64(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly %2, ptr noundef captures(none) %3) local_unnamed_addr #9 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #21
   %6 = call i32 @FLAC__bitreader_read_raw_uint32(ptr noundef %0, ptr noundef nonnull %5, i32 noundef 8)

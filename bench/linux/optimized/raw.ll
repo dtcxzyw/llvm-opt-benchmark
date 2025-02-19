@@ -65,7 +65,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_raw_v6_match
 @llvm.compiler.used = appending global [2 x ptr] [ptr @__UNIQUE_ID___addressable_raw_v6_hashinfo1013, ptr @__UNIQUE_ID___addressable_raw_v6_match1014], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef zeroext i1 @raw_v6_match(ptr noundef readnone captures(address) %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
+define dso_local noundef zeroext i1 @raw_v6_match(ptr noundef readnone %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6) #0 align 16 {
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %9 = load i16, ptr %8, align 2
   %10 = icmp eq i16 %9, %2

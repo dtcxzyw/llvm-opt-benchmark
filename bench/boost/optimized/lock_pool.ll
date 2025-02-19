@@ -19,7 +19,7 @@ $__clang_call_terminate = comdat any
 @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_114g_find_addressE = internal global %"union.boost::atomics::detail::lock_pool::(anonymous namespace)::find_address_ptr" { ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_121find_address_dispatchEPVKvPKS5_m }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define hidden noundef i64 @_ZN5boost7atomics6detail20find_address_genericEPVKvPKS3_m(ptr noundef readnone %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %.not11.not = icmp eq i64 %2, 0
   br i1 %.not11.not, label %._crit_edge, label %.lr.ph
 
@@ -792,7 +792,7 @@ _ZN5boost7atomics6detail27fence_operations_gcc_atomic12signal_fenceENS_12memory_
 declare i64 @syscall(i64 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #5 align 2 {
+define internal fastcc noundef ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_115wait_state_list15allocate_bufferEmPNS4_6headerE(i64 noundef %0, ptr noundef readonly %1) unnamed_addr #5 align 2 {
   %3 = alloca ptr, align 8
   %4 = load atomic volatile i8, ptr @_ZN5boost7atomics6detail9lock_pool12_GLOBAL__N_125g_pool_cleanup_registeredE monotonic, align 1
   %5 = icmp eq i8 %4, 0

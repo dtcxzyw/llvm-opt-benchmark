@@ -730,7 +730,7 @@ declare i32 @WaitLatch(ptr noundef, i32 noundef, i64 noundef, i32 noundef) local
 declare i32 @sigprocmask(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local i64 @GetOldestUnsummarizedLSN(ptr noundef writeonly %0, ptr noundef writeonly %1) local_unnamed_addr #1 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

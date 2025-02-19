@@ -396,7 +396,7 @@ declare ptr @__dynamic_cast(ptr, ptr, ptr, i64) local_unnamed_addr #9
 declare void @_ZN8QuantLib8CashFlow6acceptERNS_14AcyclicVisitorE(ptr noundef nonnull align 8 dereferenceable(20), ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKSt3mapINS_4DateEN5boost10shared_ptrINS_17CommodityCashFlowEEESt4lessIS2_ESaISt4pairIKS2_S6_EEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %cashFlows) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN8QuantLiblsERSoRKSt3mapINS_4DateEN5boost10shared_ptrINS_17CommodityCashFlowEEESt4lessIS2_ESaISt4pairIKS2_S6_EEE(ptr noundef nonnull align 8 dereferenceable(8) %out, ptr noundef nonnull readonly align 8 dereferenceable(48) %cashFlows) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
 entry:
   %currencyCode = alloca %"class.std::__cxx11::basic_string", align 8
   %cashFlow = alloca %"class.boost::shared_ptr.16", align 8

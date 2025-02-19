@@ -4508,7 +4508,7 @@ _ZN5clang8SemaHLSL23CheckSemanticAnnotationEPNS_12FunctionDeclEPKNS_4DeclEPKNS_1
 declare { i64, i64 } @_ZNK4llvm6Triple12getOSVersionEv(ptr noundef nonnull align 8 dereferenceable(56)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang8SemaHLSL25DiagnoseAttrStageMismatchEPKNS_4AttrEN4llvm6Triple15EnvironmentTypeESt16initializer_listIS6_E(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i32 noundef %2, ptr readonly captures(address) %3, i64 %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang8SemaHLSL25DiagnoseAttrStageMismatchEPKNS_4AttrEN4llvm6Triple15EnvironmentTypeESt16initializer_listIS6_E(ptr noundef nonnull align 8 dereferenceable(168) %0, ptr noundef %1, i32 noundef %2, ptr readonly %3, i64 %4) local_unnamed_addr #0 align 2 {
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -11360,7 +11360,7 @@ declare noundef zeroext i1 @_ZN5clang4Sema30checkStringLiteralArgumentAttrERKNS_
 declare noundef zeroext i1 @_ZN5clang14HLSLShaderAttr27ConvertStrToEnvironmentTypeEN4llvm9StringRefERNS1_6Triple15EnvironmentTypeE(ptr, i64, ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN5clang32CreateHLSLAttributedResourceTypeERNS_4SemaENS_8QualTypeEN4llvm8ArrayRefIPKNS_4AttrEEERS2_PNS_29HLSLAttributedResourceLocInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, ptr readonly captures(address) %2, i64 %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_ZN5clang32CreateHLSLAttributedResourceTypeERNS_4SemaENS_8QualTypeEN4llvm8ArrayRefIPKNS_4AttrEEERS2_PNS_29HLSLAttributedResourceLocInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %0, i64 %1, ptr readonly %2, i64 %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %9 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -16060,7 +16060,7 @@ _ZN12_GLOBAL__N_124DiagnoseHLSLAvailabilityD2Ev.exit: ; preds = %_ZN12_GLOBAL__N
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124DiagnoseHLSLAvailabilityD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(137) initializes((0, 8)) %0) unnamed_addr #9 align 2 {
+define internal void @_ZN12_GLOBAL__N_124DiagnoseHLSLAvailabilityD2Ev(ptr noundef nonnull align 8 dereferenceable(137) initializes((0, 8)) %0) unnamed_addr #9 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 7992) (i8, ptr @_ZTVN12_GLOBAL__N_124DiagnoseHLSLAvailabilityE, i64 16), ptr %0, align 8, !tbaa !712
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load ptr, ptr %2, align 8, !tbaa !1325
@@ -17237,7 +17237,7 @@ _ZNK5clang4Type13isBooleanTypeEv.exit190.thread:  ; preds = %_ZNK5clang4Type13is
 declare noundef zeroext i1 @_ZN5clang4Sema13checkArgCountEPNS_8CallExprEj(ptr noundef nonnull align 8 dereferenceable(17504), ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL19CheckResourceHandlePN5clang4SemaEPNS_8CallExprEjN4llvm12function_refIFbPKNS_26HLSLAttributedResourceTypeEEEE(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readonly captures(address_is_null) %2, i64 %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL19CheckResourceHandlePN5clang4SemaEPNS_8CallExprEjN4llvm12function_refIFbPKNS_26HLSLAttributedResourceTypeEEEE(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readonly %2, i64 %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %6 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %7 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8

@@ -4965,7 +4965,7 @@ define weak_odr void @_ZN5arrow8internal13TransposeIntsIllEEvPKT_PT0_lPKi(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN5arrow8internal15DetectUIntWidthEPKmlh(ptr noundef readonly captures(address) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
+define noundef zeroext i8 @_ZN5arrow8internal15DetectUIntWidthEPKmlh(ptr noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #1 {
   %4 = icmp ult i8 %2, 8
   br i1 %4, label %5, label %.loopexit
 
@@ -5163,7 +5163,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef zeroext i8 @_ZN5arrow8internal15DetectUIntWidthEPKmPKhlh(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
+define noundef zeroext i8 @_ZN5arrow8internal15DetectUIntWidthEPKmPKhlh(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
 
@@ -5322,7 +5322,7 @@ _ZN5arrow8internalL17ExpandedUIntWidthEmh.exit76: ; preds = %_ZN5arrow8internalL
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKllh(ptr noundef readonly captures(address) %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
+define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKllh(ptr noundef readonly %0, i64 noundef %1, i8 noundef zeroext %2) local_unnamed_addr #3 {
   %4 = icmp eq i8 %2, 8
   br i1 %4, label %"_ZZN5arrow8internal14DetectIntWidthEPKllhENK3$_1clEmm.exit32.thread", label %5
 
@@ -5462,7 +5462,7 @@ define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKlPKhlh(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #3 {
+define noundef zeroext range(i8 1, 9) i8 @_ZN5arrow8internal14DetectIntWidthEPKlPKhlh(ptr noundef readonly %0, ptr noundef readonly %1, i64 noundef %2, i8 noundef zeroext %3) local_unnamed_addr #3 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
 

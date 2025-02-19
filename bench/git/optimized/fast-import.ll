@@ -3992,7 +3992,7 @@ declare ptr @mem_pool_calloc(ptr noundef, i64 noundef, i64 noundef) local_unname
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @object_entry_hashcmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #3 {
+define internal i32 @object_entry_hashcmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #3 {
   %5 = getelementptr inbounds i8, ptr %1, i64 -48
   %.not = icmp eq ptr %3, null
   %6 = getelementptr inbounds i8, ptr %2, i64 -48
@@ -6668,7 +6668,7 @@ declare i32 @strbuf_getline_lf(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @xstrdup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @parse_and_store_blob(ptr noundef captures(address_is_null) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @parse_and_store_blob(ptr noundef %0, i64 noundef %1) unnamed_addr #0 {
   %3 = alloca %struct.hashmap_entry, align 8
   %4 = alloca %struct.object_id, align 4
   %5 = alloca %union.git_hash_ctx, align 8
@@ -7275,7 +7275,7 @@ skip_optional_lf.exit:                            ; preds = %63, %.loopexit, %.l
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @store_object(i32 noundef range(i32 1, 5) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i64 noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @store_object(i32 noundef range(i32 1, 5) %0, ptr noundef captures(none) %1, ptr noundef %2, ptr noundef writeonly %3, i64 noundef %4) unnamed_addr #0 {
   %6 = alloca [24 x i8], align 16
   %7 = alloca %struct.hashmap_entry, align 8
   %8 = alloca [96 x i8], align 16
@@ -9665,7 +9665,7 @@ kh_get_oid_map.exit:                              ; preds = %8, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @tree_content_remove(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @tree_content_remove(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = tail call ptr @strchrnul(ptr noundef %1, i32 noundef 47) #26
   %6 = ptrtoint ptr %5 to i64
   %7 = ptrtoint ptr %1 to i64
@@ -10599,7 +10599,7 @@ tailrecurse:                                      ; preds = %45, %43
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @dup_tree_content(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc noundef ptr @dup_tree_content(ptr noundef readonly %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %60, label %2
 
@@ -12219,7 +12219,7 @@ declare void @usage(ptr noundef) local_unnamed_addr #6
 declare ptr @string_list_lookup(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @insert_mapped_mark(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @insert_mapped_mark(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 {
   %.sroa.7.i = alloca [32 x i8], align 4
   %.sroa.4.i = alloca [32 x i8], align 4
   %4 = alloca %struct.object_id, align 8

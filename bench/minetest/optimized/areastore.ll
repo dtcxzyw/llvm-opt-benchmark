@@ -178,7 +178,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK9AreaStore7getAreaEj(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(160) %this, i32 noundef %id) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZNK9AreaStore7getAreaEj(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, i32 noundef %id) local_unnamed_addr #7 align 2 {
 entry:
   %_M_parent.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load ptr, ptr %_M_parent.i.i.i, align 8, !tbaa !42
@@ -223,7 +223,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #8
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #8
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZNK9AreaStore9serializeERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZNK9AreaStore9serializeERSo(ptr noundef nonnull readonly align 8 dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(8) %os) local_unnamed_addr #3 align 2 {
 entry:
   %buf.i72 = alloca [4 x i8], align 4
   %buf.i65 = alloca [2 x i8], align 2
@@ -1093,7 +1093,7 @@ if.end:                                           ; preds = %_ZN8LRUCacheIN3irr4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef i32 @_ZNK9AreaStore9getNextIdEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %this) local_unnamed_addr #12 align 2 {
+define dso_local noundef i32 @_ZNK9AreaStore9getNextIdEv(ptr noundef nonnull readonly align 8 dereferenceable(160) %this) local_unnamed_addr #12 align 2 {
 entry:
   %_M_left.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %_M_left.i.i, align 8, !tbaa !4

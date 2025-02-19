@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.set_random = private unnamed_addr constant [11 x i8] c"set_random\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_hdr_set_pvno(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define i32 @ossl_cmp_hdr_set_pvno(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %3, !prof !3
 
@@ -31,7 +31,7 @@ define i32 @ossl_cmp_hdr_set_pvno(ptr noundef readonly captures(address_is_null)
 declare i32 @ASN1_INTEGER_set(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @ossl_cmp_hdr_get_pvno(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @ossl_cmp_hdr_get_pvno(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   %.not = icmp eq ptr %0, null
@@ -63,7 +63,7 @@ declare i32 @ASN1_INTEGER_get_int64(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_hdr_get_protection_nid(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @ossl_cmp_hdr_get_protection_nid(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2, !prof !3
 
@@ -86,7 +86,7 @@ define i32 @ossl_cmp_hdr_get_protection_nid(ptr noundef readonly captures(addres
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CMP_HDR_get0_transactionID(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @OSSL_CMP_HDR_get0_transactionID(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -113,7 +113,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_cmp_hdr_get0_senderNonce(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define ptr @ossl_cmp_hdr_get0_senderNonce(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2, !prof !3
 
@@ -128,7 +128,7 @@ define ptr @ossl_cmp_hdr_get0_senderNonce(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CMP_HDR_get0_recipNonce(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @OSSL_CMP_HDR_get0_recipNonce(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -149,7 +149,7 @@ define ptr @OSSL_CMP_HDR_get0_recipNonce(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CMP_HDR_get0_geninfo_ITAVs(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @OSSL_CMP_HDR_get0_geninfo_ITAVs(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -170,7 +170,7 @@ define ptr @OSSL_CMP_HDR_get0_geninfo_ITAVs(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cmp_general_name_is_NULL_DN(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_general_name_is_NULL_DN(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -227,7 +227,7 @@ define i32 @ossl_cmp_hdr_set1_recipient(ptr noundef %0, ptr noundef %1) local_un
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cmp_hdr_update_messageTime(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_update_messageTime(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2, !prof !3
 
@@ -281,7 +281,7 @@ define i32 @ossl_cmp_hdr_set1_senderKID(ptr noundef %0, ptr noundef %1) local_un
 declare i32 @ossl_cmp_asn1_octet_string_set1(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_hdr_push0_freeText(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define i32 @ossl_cmp_hdr_push0_freeText(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -314,7 +314,7 @@ declare ptr @OPENSSL_sk_new_null() local_unnamed_addr #1
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_cmp_hdr_push1_freeText(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @ossl_cmp_hdr_push1_freeText(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %5 = and i1 %3, %4
@@ -456,7 +456,7 @@ declare ptr @OBJ_nid2obj(i32 noundef) local_unnamed_addr #1
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_cmp_hdr_has_implicitConfirm(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_cmp_hdr_has_implicitConfirm(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2, !prof !3
 

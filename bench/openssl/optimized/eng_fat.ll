@@ -167,7 +167,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare i32 @CONF_parse_list(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define internal range(i32 0, 2) i32 @int_def_cb(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef captures(none) %2) #3 {
+define internal range(i32 0, 2) i32 @int_def_cb(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2) #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %41, label %5
 

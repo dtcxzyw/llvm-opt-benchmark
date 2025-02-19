@@ -128,7 +128,7 @@ define ptr @ForcingStepCreate(ptr noundef %0, ptr noundef %1, double noundef %2,
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -22, 1) i32 @forcingStep_CheckArgs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @forcingStep_CheckArgs(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 

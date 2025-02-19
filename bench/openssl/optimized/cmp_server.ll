@@ -103,7 +103,7 @@ declare ptr @OSSL_CMP_CTX_new(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %0, null
   br i1 %9, label %10, label %11
 
@@ -142,7 +142,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init_trans(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init_trans(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_init_trans(ptr noundef writeonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CMP_SRV_CTX_get0_cmp_ctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @OSSL_CMP_SRV_CTX_get0_cmp_ctx(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -185,7 +185,7 @@ define ptr @OSSL_CMP_SRV_CTX_get0_cmp_ctx(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -206,7 +206,7 @@ define ptr @OSSL_CMP_SRV_CTX_get0_custom_ctx(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_send_unprotected_errors(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_send_unprotected_errors(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -229,7 +229,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_send_unprotected_errors(ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_unprotected(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_unprotected(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -252,7 +252,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_unprotected(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_raverified(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_raverified(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -275,7 +275,7 @@ define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_accept_raverified(ptr noundef w
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_grant_implicit_confirm(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OSSL_CMP_SRV_CTX_set_grant_implicit_confirm(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

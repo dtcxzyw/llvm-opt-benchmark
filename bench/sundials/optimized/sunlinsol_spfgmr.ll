@@ -810,7 +810,7 @@ define noundef i32 @SUNLinSolSpace_SPFGMR(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNLinSolFree_SPFGMR(ptr noundef captures(address_is_null) %0) #0 {
+define noundef i32 @SUNLinSolFree_SPFGMR(ptr noundef %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %94, label %3
 

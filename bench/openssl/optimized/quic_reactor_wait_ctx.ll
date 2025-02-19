@@ -86,7 +86,7 @@ slot_activate.exit:                               ; preds = %29, %.loopexit, %8
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_quic_reactor_wait_ctx_leave(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
+define void @ossl_quic_reactor_wait_ctx_leave(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   br label %3
 
 3:                                                ; preds = %8, %2

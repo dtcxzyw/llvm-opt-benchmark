@@ -968,7 +968,7 @@ define internal fastcc range(i32 0, 2) i32 @x942kdf_hash_kdm(ptr noundef nonnull
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @der_encode_sharedinfo(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, ptr noundef %13, i64 noundef %14, i32 noundef range(i32 0, 134217721) %15, ptr noundef writeonly captures(address_is_null) %16) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @der_encode_sharedinfo(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, i64 noundef %8, ptr noundef %9, i64 noundef %10, ptr noundef %11, i64 noundef %12, ptr noundef %13, i64 noundef %14, i32 noundef range(i32 0, 134217721) %15, ptr noundef writeonly %16) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %18
 

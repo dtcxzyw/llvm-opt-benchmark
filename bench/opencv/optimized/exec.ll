@@ -28465,7 +28465,7 @@ _ZNSt10shared_ptrIN2cv5gimpl7GIslandEED2Ev.exit7: ; preds = %_ZNSt10shared_ptrIN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111MergeActionD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(168) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111MergeActionD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(168) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %3 = load ptr, ptr %2, align 8
   %.not8.i.i.i.i = icmp eq ptr %3, %2
@@ -28663,7 +28663,7 @@ _ZNSt12_Vector_baseIN3ade6HandleINS0_4NodeEEESaIS3_EED2Ev.exit: ; preds = %_ZSt8
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_112MergeContextD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(64) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_112MergeContextD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.val.i.i.i = load ptr, ptr %2, align 8
   %.not5.i.i.i.i = icmp eq ptr %.val.i.i.i, null
@@ -30910,7 +30910,7 @@ _ZNSt10unique_ptrIN7ChangeTIJN2cv5gimpl13DesyncIslEdgeEEE4BaseESt14default_delet
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111MergeAction12MergeObjectsD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(320) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN2cv5gimpl12_GLOBAL__N_111MergeAction12MergeObjectsD2Ev(ptr noundef nonnull align 8 dereferenceable(320) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %3 = load ptr, ptr %2, align 8
   %.not5.i.i.i.i = icmp eq ptr %3, null

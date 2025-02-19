@@ -210,7 +210,7 @@ declare void @_Z17serializeString16B5cxx11St17basic_string_viewIcSt11char_traits
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12StaticObject11deSerializeERSih(ptr noundef nonnull align 8 captures(address) dereferenceable(48) initializes((0, 1), (4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i8 zeroext %version) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12StaticObject11deSerializeERSih(ptr noundef nonnull align 8 dereferenceable(48) initializes((0, 1), (4, 16)) %this, ptr noundef nonnull align 8 dereferenceable(16) %is, i8 zeroext %version) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %buf.i7 = alloca [12 x i8], align 8
   %buf.i = alloca [1 x i8], align 1

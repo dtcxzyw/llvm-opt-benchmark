@@ -80,7 +80,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @lv_draw_unit_draw_letter(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @draw_letter_cb(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal void @draw_letter_cb(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.lv_draw_border_dsc_t, align 8
   %6 = alloca %struct.lv_area_t, align 4
   %7 = alloca %struct._lv_draw_sw_blend_dsc_t, align 8

@@ -3655,7 +3655,7 @@ _ZN5boost10function_nINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJS6_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost15program_options17parse_environmentERKNS0_19options_descriptionEPKc(ptr dead_on_unwind noalias writable sret(%"class.boost::program_options::basic_parsed_options") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost15program_options17parse_environmentERKNS0_19options_descriptionEPKc(ptr dead_on_unwind noalias writable sret(%"class.boost::program_options::basic_parsed_options") align 8 %0, ptr noundef nonnull align 8 dereferenceable(128) %1, ptr noundef readonly %2) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #23

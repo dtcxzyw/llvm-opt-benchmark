@@ -6480,7 +6480,7 @@ _ZNSt6vectorIPN4Luau7AstExprESaIS2_EE17_M_realloc_insertIJRKS2_EEEvN9__gnu_cxx17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau16OverloadResolver9isLiteralEPNS_7AstExprE(ptr noundef readonly captures(address) %0) local_unnamed_addr #8 align 2 {
+define dso_local noundef zeroext i1 @_ZN4Luau16OverloadResolver9isLiteralEPNS_7AstExprE(ptr noundef readonly %0) local_unnamed_addr #8 align 2 {
   %2 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstExprGroupEE5valueE, align 4
   %3 = load i32, ptr @_ZN4Luau7AstRttiINS_20AstExprTypeAssertionEE5valueE, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7499,7 +7499,7 @@ _ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit2:    ; preds = %_ZNSt6vectorIPKN4Lu
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4Luau17solveFunctionCallENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEENS0_INS_10NormalizerEEENS0_INS_21InternalErrorReporterEEENS0_INS_15TypeCheckLimitsEEENS0_INS_5ScopeEEERKNS_8LocationEPKNS_4TypeEPKNS_11TypePackVarE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::SolveResult") align 8 captures(address) %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, i64 %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4Luau17solveFunctionCallENS_7NotNullINS_9TypeArenaEEENS0_INS_12BuiltinTypesEEENS0_INS_10NormalizerEEENS0_INS_21InternalErrorReporterEEENS0_INS_15TypeCheckLimitsEEENS0_INS_5ScopeEEERKNS_8LocationEPKNS_4TypeEPKNS_11TypePackVarE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::SolveResult") align 8 %0, ptr %1, ptr %2, ptr %3, ptr %4, ptr %5, i64 %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %7, ptr noundef %8, ptr noundef %9) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %11 = alloca %"struct.Luau::FunctionType", align 8
   %12 = alloca %"class.std::optional.119", align 8
   %13 = alloca %"struct.Luau::Unifier2", align 8

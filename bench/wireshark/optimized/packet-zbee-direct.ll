@@ -473,7 +473,7 @@ define internal void @uat_key_records_label_tostr_cb(ptr noundef readonly captur
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @uat_key_record_copy_cb(ptr noundef returned writeonly initializes((0, 32)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load ptr, ptr %1, align 8
   %5 = tail call noalias ptr @g_strdup(ptr noundef %4)
   store ptr %5, ptr %0, align 8
@@ -1451,7 +1451,7 @@ declare ptr @g_strchomp(ptr noundef) local_unnamed_addr #2
 declare ptr @g_strchug(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef range(i32 8, 17) %2) unnamed_addr #5 {
+define internal fastcc noundef zeroext i1 @zbd_parse_uat_hexline(ptr noundef readonly %0, ptr noundef %1, i32 noundef range(i32 8, 17) %2) unnamed_addr #5 {
   %4 = zext nneg i32 %2 to i64
   tail call void @llvm.memset.p0.i64(ptr noundef align 1 %1, i8 noundef 0, i64 noundef range(i64 8, 17) %4, i1 noundef false) #13
   %5 = icmp eq ptr %0, null
@@ -1579,7 +1579,7 @@ declare ptr @g_memdup2(ptr noundef, i64 noundef) local_unnamed_addr #7
 declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc i32 @dissect_zb_direct_common(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca [34 x i8], align 16
   %7 = alloca [264 x i8], align 16
   %8 = alloca %struct.zb_secur_ccm_nonce_s, align 8

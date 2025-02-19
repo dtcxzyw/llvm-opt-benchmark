@@ -412,7 +412,7 @@ BN_new.exit.thread:                               ; preds = %0, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bn_expand2(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #6 {
+define noundef ptr @bn_expand2(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !12
   %5 = icmp sgt i32 %1, %4
@@ -506,7 +506,7 @@ bn_expand_internal.exit:                          ; preds = %24, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_dup(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
+define ptr @BN_dup(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %BN_free.exit, label %3
 
@@ -607,7 +607,7 @@ BN_free.exit:                                     ; preds = %3, %BN_secure_new.e
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @BN_copy(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #6 {
+define noundef ptr @BN_copy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !11
   %5 = and i32 %4, 4
@@ -660,7 +660,7 @@ bn_wexpand.exit.thread:                           ; preds = %10, %bn_wexpand.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @bn_wexpand(ptr noundef captures(ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #6 {
+define noundef ptr @bn_wexpand(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !12
   %.not = icmp sgt i32 %1, %4
@@ -715,7 +715,7 @@ define void @BN_swap(ptr noundef captures(none) %0, ptr noundef captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define void @BN_clear(ptr noundef captures(address_is_null) %0) local_unnamed_addr #6 {
+define void @BN_clear(ptr noundef %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -765,7 +765,7 @@ define i64 @BN_get_word(ptr noundef readonly captures(none) %0) local_unnamed_ad
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_set_word(ptr noundef captures(address) %0, i64 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @BN_set_word(ptr noundef %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %4 = load i32, ptr %3, align 4, !tbaa !12
   %5 = icmp sgt i32 %4, 0
@@ -793,13 +793,13 @@ bn_expand.exit.thread:                            ; preds = %2, %bn_expand.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address, ret: address, provenance) %2) local_unnamed_addr #6 {
+define ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc ptr @bin2bn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 1)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @bin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address, ret: address, provenance) %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #6 {
+define internal fastcc ptr @bin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, i32 noundef range(i32 0, 2) %3, i32 noundef range(i32 0, 2) %4) unnamed_addr #6 {
   %6 = icmp slt i32 %1, 0
   br i1 %6, label %BN_new.exit, label %7
 
@@ -1054,7 +1054,7 @@ BN_new.exit:                                      ; preds = %111, %109, %76, %bn
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_signed_bin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address, ret: address, provenance) %2) local_unnamed_addr #6 {
+define ptr @BN_signed_bin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc ptr @bin2bn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 0, i32 noundef 0)
   ret ptr %4
 }
@@ -1318,13 +1318,13 @@ bn2binpad.exit:                                   ; preds = %21, %9, %10, %12
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_lebin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address, ret: address, provenance) %2) local_unnamed_addr #6 {
+define ptr @BN_lebin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc ptr @bin2bn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 1)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_signed_lebin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address, ret: address, provenance) %2) local_unnamed_addr #6 {
+define ptr @BN_signed_lebin2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc ptr @bin2bn(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 0)
   ret ptr %4
 }
@@ -1358,13 +1358,13 @@ define i32 @BN_signed_bn2lebin(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_native2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address, ret: address, provenance) %2) local_unnamed_addr #6 {
+define ptr @BN_native2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc ptr @bin2bn(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 1)
   ret ptr %4
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @BN_signed_native2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address, ret: address, provenance) %2) local_unnamed_addr #6 {
+define ptr @BN_signed_native2bn(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %4 = tail call fastcc ptr @bin2bn(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef 1, i32 noundef 0)
   ret ptr %4
 }
@@ -1491,7 +1491,7 @@ define i32 @BN_ucmp(ptr noundef readonly captures(none) %0, ptr noundef readonly
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @BN_cmp(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define range(i32 -1, 2) i32 @BN_cmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1557,7 +1557,7 @@ define range(i32 -1, 2) i32 @BN_cmp(ptr noundef readonly captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @BN_set_bit(ptr noundef captures(address) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @BN_set_bit(ptr noundef %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp slt i32 %1, 0
   br i1 %3, label %31, label %4
 

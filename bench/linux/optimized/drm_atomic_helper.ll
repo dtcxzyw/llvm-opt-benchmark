@@ -2660,7 +2660,7 @@ define dso_local i32 @drm_atomic_helper_check(ptr noundef %0, ptr noundef %1) #0
 declare dso_local i32 @drm_atomic_normalize_zpos(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_atomic_helper_async_check(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 align 16 {
+define dso_local i32 @drm_atomic_helper_async_check(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 728
@@ -3771,7 +3771,7 @@ define dso_local void @drm_atomic_helper_commit_modeset_disables(ptr noundef %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_commit_modeset_enables(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_commit_modeset_enables(ptr noundef readonly %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 728
@@ -4497,7 +4497,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local void @drm_crtc_vblank_put(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_atomic_helper_wait_for_flip_done(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 align 16 {
+define dso_local void @drm_atomic_helper_wait_for_flip_done(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 728
   %4 = load i32, ptr %3, align 8
   %5 = icmp sgt i32 %4, 0

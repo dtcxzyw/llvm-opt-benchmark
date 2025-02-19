@@ -956,7 +956,7 @@ define dso_local void @blockdev_close_all_bdrv_states() local_unnamed_addr #0 {
 declare void @bdrv_unref(ptr noundef) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local ptr @bdrv_next_monitor_owned(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @bdrv_next_monitor_owned(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call zeroext i1 @qemu_in_main_thread() #14
   br i1 %2, label %4, label %3
 
@@ -2591,7 +2591,7 @@ define internal void @abort_commit(ptr readnone captures(none) %0) #10 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_transaction(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local void @qmp_transaction(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   %6 = alloca %struct.QEMUSnapshotInfo, align 8
@@ -5397,7 +5397,7 @@ declare ptr @qdict_get_try_str(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @visit_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @qmp_blockdev_reopen(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local void @qmp_blockdev_reopen(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
   %.not29 = icmp eq ptr %0, null
@@ -5922,7 +5922,7 @@ declare void @block_acct_setup(ptr noundef, i32 noundef, i32 noundef) local_unna
 declare ptr @blk_get_stats(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef zeroext i1 @parse_stats_intervals(ptr noundef %0, ptr readonly captures(address_is_null) %.16.val, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @parse_stats_intervals(ptr noundef %0, ptr readonly %.16.val, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca i64, align 8
   %.not9 = icmp eq ptr %.16.val, null
   br i1 %.not9, label %.loopexit, label %.lr.ph

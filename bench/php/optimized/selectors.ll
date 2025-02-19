@@ -167,7 +167,7 @@ define hidden void @lxb_selectors_destroy(ptr noundef captures(none) %0) local_u
 declare ptr @lexbor_dobject_destroy(ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 20, 19) i32 @lxb_selectors_find(ptr noundef initializes((24, 32), (44, 48)) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define hidden range(i32 20, 19) i32 @lxb_selectors_find(ptr noundef initializes((24, 32), (44, 48)) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.lxb_selectors_entry, align 8
   %7 = alloca %struct.lxb_selectors_nested, align 8
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #8
@@ -584,7 +584,7 @@ lxb_selectors_descendant.exit:                    ; preds = %88, %86, %71, %51, 
 declare ptr @lexbor_dobject_calloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_selectors_state_pseudo_class_function(ptr noundef captures(none) %0, ptr noundef readnone captures(ret: address, provenance) %1) #0 {
+define internal ptr @lxb_selectors_state_pseudo_class_function(ptr noundef captures(none) %0, ptr noundef readnone %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %.val = load ptr, ptr %4, align 8, !tbaa !29
@@ -1030,7 +1030,7 @@ define internal fastcc ptr @lxb_selectors_state_find_check(ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(none) %0, ptr noundef captures(ret: address, provenance) %1) #0 {
+define internal ptr @lxb_selectors_state_after_find_has(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1155,7 +1155,7 @@ define internal noundef i32 @lxb_selectors_cb_ok(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %0, ptr noundef captures(ret: address, provenance) %1) #0 {
+define internal ptr @lxb_selectors_state_after_find(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 64
@@ -1248,7 +1248,7 @@ define internal noundef i32 @lxb_selectors_cb_not(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @lxb_selectors_state_after_nth_child(ptr noundef captures(none) %0, ptr noundef captures(ret: address, provenance) %1) #0 {
+define internal ptr @lxb_selectors_state_after_nth_child(ptr noundef captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !32
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48

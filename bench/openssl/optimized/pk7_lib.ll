@@ -510,7 +510,7 @@ declare ptr @OBJ_dup(ptr noundef) local_unnamed_addr #2
 declare i32 @OPENSSL_sk_push(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @ossl_pkcs7_get0_ctx(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #3 {
+define ptr @ossl_pkcs7_get0_ctx(ptr noundef readnone %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = select i1 %.not, ptr null, ptr %2
@@ -1018,7 +1018,7 @@ ossl_pkcs7_ctx_get0_propq.exit.thread:            ; preds = %68, %.preheader, %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -1032,7 +1032,7 @@ define ptr @ossl_pkcs7_ctx_get0_libctx(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1047,7 +1047,7 @@ define ptr @ossl_pkcs7_ctx_get0_propq(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @PKCS7_get_signer_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @PKCS7_get_signer_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %19, label %3
 
@@ -1213,7 +1213,7 @@ define range(i32 0, 2) i32 @PKCS7_set_digest(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PKCS7_SIGNER_INFO_get0_algs(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #6 {
+define void @PKCS7_SIGNER_INFO_get0_algs(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -1248,7 +1248,7 @@ define void @PKCS7_SIGNER_INFO_get0_algs(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PKCS7_RECIP_INFO_get0_alg(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define void @PKCS7_RECIP_INFO_get0_alg(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 

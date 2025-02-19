@@ -222,14 +222,14 @@ define void @_ZN12grep_printer7summary14SummaryBuilder3new17h394e7799b6ddc61dE(p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder4kind17h4b12883a8aed294dE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(104) initializes((99, 100)) %0, i8 noundef %1) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder4kind17h4b12883a8aed294dE(ptr noalias noundef returned writeonly align 8 dereferenceable(104) initializes((99, 100)) %0, i8 noundef %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 99
   store i8 %1, ptr %3, align 1
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder11color_specs17h5f199ce76ad58877E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(104) initializes((32, 92)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(60) %1) unnamed_addr #3 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder11color_specs17h5f199ce76ad58877E(ptr noalias noundef returned writeonly align 8 dereferenceable(104) initializes((32, 92)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(60) %1) unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(60) %3, ptr noundef nonnull align 1 dereferenceable(60) %1, i64 60, i1 false)
   ret ptr %0
@@ -266,7 +266,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder5stats17hfdec6125312e45d4E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(104) initializes((96, 97)) %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder5stats17hfdec6125312e45d4E(ptr noalias noundef returned writeonly align 8 dereferenceable(104) initializes((96, 97)) %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 8
@@ -274,7 +274,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder4path17he3447aac9f973487E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(104) initializes((97, 98)) %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder4path17he3447aac9f973487E(ptr noalias noundef returned writeonly align 8 dereferenceable(104) initializes((97, 98)) %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 97
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 1
@@ -282,7 +282,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder11max_matches17ha67af88fe1d1b75fE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(104) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder11max_matches17ha67af88fe1d1b75fE(ptr noalias noundef returned writeonly align 8 dereferenceable(104) initializes((0, 16)) %0, i64 noundef %1, i64 %2) unnamed_addr #2 {
   store i64 %1, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %4, align 8
@@ -290,7 +290,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder12exclude_zero17hfebd7041e557fdb0E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(104) initializes((98, 99)) %0, i1 noundef zeroext %1) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder12exclude_zero17hfebd7041e557fdb0E(ptr noalias noundef returned writeonly align 8 dereferenceable(104) initializes((98, 99)) %0, i1 noundef zeroext %1) unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 98
   %4 = zext i1 %1 to i8
   store i8 %4, ptr %3, align 2
@@ -362,7 +362,7 @@ common.resume:                                    ; preds = %10, %19
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder14separator_path17h426bfc91fa9be9a3E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(104) initializes((92, 94)) %0, i1 noundef zeroext %1, i8 %2) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder14separator_path17h426bfc91fa9be9a3E(ptr noalias noundef returned writeonly align 8 dereferenceable(104) initializes((92, 94)) %0, i1 noundef zeroext %1, i8 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 92
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 4
@@ -372,7 +372,7 @@ define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder15path_terminator17h226ba36b1f2f5ba8E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(104) initializes((94, 96)) %0, i1 noundef zeroext %1, i8 %2) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(104) ptr @_ZN12grep_printer7summary14SummaryBuilder15path_terminator17h226ba36b1f2f5ba8E(ptr noalias noundef returned writeonly align 8 dereferenceable(104) initializes((94, 96)) %0, i1 noundef zeroext %1, i8 %2) unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 94
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 2

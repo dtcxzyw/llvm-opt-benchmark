@@ -86,7 +86,7 @@ init.end:                                         ; preds = %init.check, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZN9grpc_core12_GLOBAL__N_121ConfigSelectorArgCopyEPv(ptr noundef returned captures(ret: address, provenance) %p) #5 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZN9grpc_core12_GLOBAL__N_121ConfigSelectorArgCopyEPv(ptr noundef returned %p) #5 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrINS_14ConfigSelectorEED2Ev.exit:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !7
@@ -113,7 +113,7 @@ _ZNK9grpc_core10RefCountedINS_14ConfigSelectorENS_19PolymorphicRefCountENS_11Unr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_120ConfigSelectorArgCmpEPvS1_(ptr noundef readnone captures(address) %p, ptr noundef readnone captures(address) %q) #6 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_120ConfigSelectorArgCmpEPvS1_(ptr noundef readnone %p, ptr noundef readnone %q) #6 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

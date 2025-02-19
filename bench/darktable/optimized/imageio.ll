@@ -777,7 +777,7 @@ define range(i64 -4611686018427387904, 4611686020574871552) i64 @dt_imageio_writ
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @dt_imageio_is_ldr(ptr noundef captures(address_is_null) %0) local_unnamed_addr #9 {
+define range(i32 0, 2) i32 @dt_imageio_is_ldr(ptr noundef %0) local_unnamed_addr #9 {
   %2 = tail call fastcc ptr @_find_signature(ptr noundef %0)
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %3
@@ -795,7 +795,7 @@ define range(i32 0, 2) i32 @dt_imageio_is_ldr(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @_find_signature(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #9 {
+define internal fastcc ptr @_find_signature(ptr noundef readonly %0) unnamed_addr #9 {
   %2 = alloca [512 x i8], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %73, label %3
@@ -2235,7 +2235,7 @@ declare void @dt_mipmap_cache_release_with_caller(ptr noundef, ptr noundef, ptr 
 declare void @dt_control_signal_raise(ptr noundef, i32 noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 0, 3) i32 @dt_imageio_open_exotic(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #8 {
+define noundef range(i32 0, 3) i32 @dt_imageio_open_exotic(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readnone %2) #8 {
   %.not = icmp eq ptr %2, null
   %spec.select = select i1 %.not, i32 0, i32 2
   ret i32 %spec.select

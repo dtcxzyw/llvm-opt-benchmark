@@ -6138,7 +6138,7 @@ define internal void @_remove_assoc(ptr noundef readonly captures(none) %0) #6 {
 declare void @license_remove_remote(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @_remove_qos(ptr noundef readonly captures(address) %0) #6 {
+define internal void @_remove_qos(ptr noundef readonly %0) #6 {
   tail call void @lock_slurmctld(ptr noundef nonnull byval(%struct.slurmctld_lock_t) align 8 @__const._remove_qos.part_write_lock) #19
   %2 = load ptr, ptr @part_list, align 8
   %.not = icmp eq ptr %2, null
@@ -8416,7 +8416,7 @@ declare void @sackd_mgr_push_reconfig() local_unnamed_addr #3
 declare void @msg_to_slurmd(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_on_listen_connect(ptr noundef %0, ptr noundef readonly returned captures(ret: address, provenance) %1) #6 {
+define internal noundef ptr @_on_listen_connect(ptr noundef %0, ptr noundef readonly returned %1) #6 {
   %3 = load i32, ptr %1, align 4
   %4 = tail call i32 @get_log_level() #19
   %5 = icmp sgt i32 %4, 6
@@ -9018,7 +9018,7 @@ declare i32 @job_hold_by_assoc_id(i32 noundef) local_unnamed_addr #3
 declare i32 @job_hold_by_qos_id(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_update_assoc_for_each(ptr noundef %0, ptr noundef readnone captures(address) %1) #6 {
+define internal noundef i32 @_update_assoc_for_each(ptr noundef %0, ptr noundef readnone %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4
@@ -9042,7 +9042,7 @@ define internal noundef i32 @_update_assoc_for_each(ptr noundef %0, ptr noundef 
 declare i32 @acct_policy_update_pending_job(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_update_qos_for_each(ptr noundef %0, ptr noundef readnone captures(address) %1) #6 {
+define internal noundef i32 @_update_qos_for_each(ptr noundef %0, ptr noundef readnone %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 768
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %1, %4

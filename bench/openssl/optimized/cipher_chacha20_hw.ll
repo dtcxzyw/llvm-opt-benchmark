@@ -14,7 +14,7 @@ define noundef nonnull ptr @ossl_prov_cipher_hw_chacha20(i64 noundef %0) local_u
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal noundef i32 @chacha20_initkey(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 %2) #1 {
+define internal noundef i32 @chacha20_initkey(ptr noundef writeonly captures(none) %0, ptr noundef readonly %1, i64 %2) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 

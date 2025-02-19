@@ -983,7 +983,7 @@ _ZNSt6vectorIjSaIjEE9push_backEOj.exit:           ; preds = %45, %_ZNSt6vectorIj
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22OutlinedHashTreeRecord21convertFromStableDataERKSt3mapIjNS_14HashNodeStableESt4lessIjESaISt4pairIKjS2_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22OutlinedHashTreeRecord21convertFromStableDataERKSt3mapIjNS_14HashNodeStableESt4lessIjESaISt4pairIKjS2_EEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::DenseMap.62", align 8
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4

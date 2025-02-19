@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [27 x i8] c"size_t overflow: %lu * %lu\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @diffcore_count_changes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
+define dso_local noundef i32 @diffcore_count_changes(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly captures(none) %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.thread88, label %9
 
@@ -296,7 +296,7 @@ declare ptr @xmalloc(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @add_spanhash(ptr noundef captures(ret: address, provenance) %0, i32 noundef range(i32 0, 107927) %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @add_spanhash(ptr noundef %0, i32 noundef range(i32 0, 107927) %1, i32 noundef range(i32 -2147483647, -2147483648) %2) unnamed_addr #0 {
   %4 = load i32, ptr %0, align 4, !tbaa !24
   %5 = shl nuw i32 1, %4
   %6 = add nuw i32 %5, 131071

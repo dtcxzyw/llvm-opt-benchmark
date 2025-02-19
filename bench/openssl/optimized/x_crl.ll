@@ -178,7 +178,7 @@ ossl_x509_crl_set0_libctx.exit:                   ; preds = %8, %4, %2, %11
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_x509_crl_set0_libctx(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ossl_x509_crl_set0_libctx(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %4
 
@@ -993,7 +993,7 @@ declare void @ASN1_ENUMERATED_free(ptr noundef) local_unnamed_addr #2
 declare i32 @ASN1_STRING_cmp(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) #1 {
+define internal range(i32 0, 3) i32 @def_crl_lookup(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) #1 {
   %5 = alloca %struct.x509_revoked_st, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #9
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48

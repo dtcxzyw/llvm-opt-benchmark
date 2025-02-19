@@ -474,7 +474,7 @@ declare ptr @sk_value(ptr noundef, i64 noundef) local_unnamed_addr #5
 declare void @sk_pop_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal void @cleanup(ptr noundef captures(address_is_null) %0) #0 {
+define internal void @cleanup(ptr noundef %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -1176,7 +1176,7 @@ x509_object_idx_cnt.exit:                         ; preds = %3, %16
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc i32 @x509_object_idx_cnt(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.x509_object_st, align 8
   %6 = alloca %struct.x509_st, align 8
   %7 = alloca %struct.x509_cinf_st, align 8

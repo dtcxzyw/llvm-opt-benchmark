@@ -1324,7 +1324,7 @@ declare i64 @ZSTD_freeCDict(ptr noundef) local_unnamed_addr #6
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @COVER_best_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define dso_local void @COVER_best_init(ptr noundef writeonly %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -1363,7 +1363,7 @@ define dso_local void @COVER_best_wait(ptr noundef readonly captures(none) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @COVER_best_destroy(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define dso_local void @COVER_best_destroy(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %.preheader.i
 
@@ -1391,7 +1391,7 @@ COVER_best_wait.exit:                             ; preds = %.preheader.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @COVER_best_start(ptr noundef captures(address_is_null) %0) local_unnamed_addr #11 {
+define dso_local void @COVER_best_start(ptr noundef %0) local_unnamed_addr #11 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -1407,7 +1407,7 @@ define dso_local void @COVER_best_start(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @COVER_best_finish(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %1, ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %2) local_unnamed_addr #12 {
+define dso_local void @COVER_best_finish(ptr noundef %0, ptr noundef readonly byval(%struct.ZDICT_cover_params_t) align 8 captures(none) %1, ptr noundef readonly byval(%struct.COVER_dictSelection) align 8 captures(none) %2) local_unnamed_addr #12 {
   %4 = load ptr, ptr %2, align 8, !tbaa !65
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !67
@@ -2362,7 +2362,7 @@ declare i64 @clock() local_unnamed_addr #15
 declare void @qsort(ptr noundef, i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #17 {
+define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly %0, ptr noundef readonly %1) #17 {
   %3 = load ptr, ptr @g_coverCtx, align 8, !tbaa !44
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 80
   %5 = load i32, ptr %4, align 8, !tbaa !41
@@ -2392,7 +2392,7 @@ define internal range(i32 -1, 2) i32 @COVER_strict_cmp8(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal i32 @COVER_strict_cmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) #18 {
+define internal i32 @COVER_strict_cmp(ptr noundef readonly %0, ptr noundef readonly %1) #18 {
   %3 = load ptr, ptr @g_coverCtx, align 8, !tbaa !44
   %4 = load i32, ptr %0, align 4, !tbaa !19
   %5 = load i32, ptr %1, align 4, !tbaa !19

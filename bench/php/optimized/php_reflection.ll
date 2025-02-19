@@ -1314,7 +1314,7 @@ declare void @zend_wrong_parameters_none_error() local_unnamed_addr #2
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_function_string(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.smart_str, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false)
@@ -5498,7 +5498,7 @@ reflection_function_factory.exit20:               ; preds = %88, %106
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @reflection_method_factory(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @reflection_method_factory(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr @reflection_method_ptr, align 8, !tbaa !38
   %6 = tail call i32 @object_init_ex(ptr noundef %3, ptr noundef %5) #13
   %7 = load ptr, ptr %3, align 8, !tbaa !26
@@ -15415,7 +15415,7 @@ smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_class_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_class_string(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.smart_str, align 8
   %6 = alloca %struct.smart_str, align 8
   %7 = tail call ptr (i64, ptr, ...) @zend_strpprintf(i64 noundef 0, ptr noundef nonnull @.str.166, ptr noundef %3) #13
@@ -23560,7 +23560,7 @@ smart_str_extract_ex.exit:                        ; preds = %smart_str_trim_to_s
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_property_string(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @_property_string(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8, !tbaa !229
@@ -26226,7 +26226,7 @@ reflection_property_set_raw_value.exit:           ; preds = %90, %98
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @reflection_property_check_lazy_compatible(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @reflection_property_check_lazy_compatible(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %15
 

@@ -142,7 +142,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 10) i32 @onas_enable_inotif_ddd(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local range(i32 0, 10) i32 @onas_enable_inotif_ddd(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %union.pthread_attr_t, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %2) #16
   %.not = icmp eq ptr %0, null

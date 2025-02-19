@@ -1485,7 +1485,7 @@ define dso_local void @on_dsm_detach(ptr noundef captures(none) %0, ptr noundef 
 declare ptr @MemoryContextAlloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @cancel_on_dsm_detach(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @cancel_on_dsm_detach(ptr noundef captures(none) %0, ptr noundef readnone %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null

@@ -1161,7 +1161,7 @@ declare dso_local i32 @modify_user_hw_breakpoint(ptr noundef, ptr noundef) local
 declare dso_local ptr @register_user_hw_breakpoint(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal void @ptrace_triggered(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 align 16 {
+define internal void @ptrace_triggered(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #12 align 16 {
   %4 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #16, !srcloc !13
   %5 = inttoptr i64 %4 to ptr
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 2872
@@ -1862,7 +1862,7 @@ define internal noundef i32 @genregs_get(ptr noundef %0, ptr readnone captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @genregs_set(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #4 align 16 {
+define internal i32 @genregs_set(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #4 align 16 {
   %7 = icmp eq ptr %4, null
   %8 = icmp ugt i32 %3, 7
   br i1 %7, label %.preheader, label %9
@@ -2027,7 +2027,7 @@ define internal noundef i32 @genregs32_get(ptr noundef %0, ptr readnone captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal i32 @genregs32_set(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5) #4 align 16 {
+define internal i32 @genregs32_set(ptr noundef %0, ptr readnone captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5) #4 align 16 {
   %7 = icmp eq ptr %4, null
   %8 = icmp ugt i32 %3, 3
   br i1 %7, label %.preheader, label %9

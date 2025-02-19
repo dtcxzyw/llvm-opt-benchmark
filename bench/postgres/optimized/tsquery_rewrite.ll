@@ -14,7 +14,7 @@ target triple = "x86_64-pc-linux-gnu"
 @InterruptPending = external global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @findsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @findsubquery(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #5
   store i8 0, ptr %5, align 1

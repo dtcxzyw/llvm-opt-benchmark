@@ -439,7 +439,7 @@ define internal void @_ellipse_initial_source_pos(float noundef %0, float nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ellipse_get_distance(float noundef %0, float noundef %1, float noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef initializes((0, 4)) %8, ptr noundef writeonly captures(none) initializes((0, 4)) %9, ptr noundef captures(none) initializes((0, 4)) %10) #0 {
+define internal void @_ellipse_get_distance(float noundef %0, float noundef %1, float noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 %5, ptr noundef writeonly captures(none) initializes((0, 4)) %6, ptr noundef writeonly captures(none) initializes((0, 4)) %7, ptr noundef initializes((0, 4)) %8, ptr noundef writeonly captures(none) initializes((0, 4)) %9, ptr noundef captures(none) initializes((0, 4)) %10) #0 {
   store float 0x47EFFFFFE0000000, ptr %10, align 4, !tbaa !24
   store i32 0, ptr %6, align 4, !tbaa !30
   store i32 0, ptr %7, align 4, !tbaa !30
@@ -738,7 +738,7 @@ define internal range(i32 0, 2) i32 @_ellipse_get_points(ptr noundef %0, float n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @_ellipse_get_points_border(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(none) %5, i32 noundef %6, ptr noundef readonly captures(none) %7) #0 {
+define internal range(i32 0, 2) i32 @_ellipse_get_points_border(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 4)) %3, ptr noundef %4, ptr noundef captures(none) %5, i32 noundef %6, ptr noundef readonly captures(none) %7) #0 {
   %9 = alloca [2 x float], align 4
   %10 = load ptr, ptr %1, align 8, !tbaa !19
   %11 = load ptr, ptr %10, align 8, !tbaa !22

@@ -1312,7 +1312,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @sampling_down_fa
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i64 @sampling_down_factor_store(ptr noundef captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
+define internal noundef i64 @sampling_down_factor_store(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 align 16 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   store i32 0, ptr %4, align 4, !annotation !31
@@ -1414,7 +1414,7 @@ define internal noundef range(i64 -2147483648, 2147483648) i64 @powersave_bias_s
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid
-define internal noundef i64 @powersave_bias_store(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #6 align 16 {
+define internal noundef i64 @powersave_bias_store(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #6 align 16 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = load ptr, ptr %5, align 8

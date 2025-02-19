@@ -762,7 +762,7 @@ Lf_CutArea.exit:                                  ; preds = %2, %Lf_CutSwitches.
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef nonnull ptr @Lf_ObjCutBestNew(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull returned captures(ret: address, provenance) initializes((8, 16)) %2) unnamed_addr #11 {
+define internal fastcc noundef nonnull ptr @Lf_ObjCutBestNew(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 0) %1, ptr noundef nonnull returned initializes((8, 16)) %2) unnamed_addr #11 {
   %4 = getelementptr i8, ptr %0, i64 24
   %.val = load ptr, ptr %4, align 8, !tbaa !38
   %5 = getelementptr i8, ptr %0, i64 176
@@ -3856,7 +3856,7 @@ Gia_ObjIsMuxId.exit583.thread:                    ; preds = %1305, %Lf_ObjCutMux
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc noundef ptr @Lf_MemLoadCut(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef returned captures(ret: address, provenance) %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #12 {
+define internal fastcc noundef ptr @Lf_MemLoadCut(ptr noundef readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, i32 noundef %2, ptr noundef returned %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #12 {
   %7 = load i32, ptr %0, align 8, !tbaa !72
   %8 = lshr i32 %1, %7
   %9 = getelementptr i8, ptr %0, i64 24
@@ -4782,7 +4782,7 @@ Lf_SetCutIsContainedOrder.exit:                   ; preds = %129, %116, %3, %Lf_
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @Lf_CutComputeTruthMux(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #12 {
+define internal fastcc range(i32 0, 2) i32 @Lf_CutComputeTruthMux(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 0, 2) %4, i32 noundef range(i32 0, 2) %5, i32 noundef range(i32 0, 2) %6, ptr noundef %7) unnamed_addr #12 {
   %9 = alloca i64, align 8
   %10 = alloca [128 x i64], align 16
   %11 = alloca [128 x i64], align 16
@@ -5539,7 +5539,7 @@ Abc_TtNot.exit:                                   ; preds = %.lr.ph.i122, %Abc_T
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc i32 @Lf_ManFindCofVar(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #15 {
+define internal fastcc i32 @Lf_ManFindCofVar(ptr noundef readonly %0, i32 noundef %1, i32 noundef range(i32 0, 256) %2) unnamed_addr #15 {
   %4 = alloca [128 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #34
   %.not = icmp eq i32 %2, 0
@@ -15548,7 +15548,7 @@ declare ptr @Tim_ManGetReqTimes(ptr noundef) local_unnamed_addr #6
 declare ptr @Gia_ManDup(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @Abc_TtMinBase(ptr noundef nonnull captures(address) %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 256) %2, i32 noundef %3) unnamed_addr #21 {
+define internal fastcc i32 @Abc_TtMinBase(ptr noundef nonnull %0, ptr noundef %1, i32 noundef range(i32 0, 256) %2, i32 noundef %3) unnamed_addr #21 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
@@ -16297,7 +16297,7 @@ Vec_MemHashLookup.exit:                           ; preds = %167, %.lr.ph.i18, %
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull captures(address) %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 254) %2, i32 noundef range(i32 -2147483648, 255) %3) unnamed_addr #21 {
+define internal fastcc void @Abc_TtSwapVars(ptr noundef nonnull %0, i32 noundef %1, i32 noundef range(i32 -2147483648, 254) %2, i32 noundef range(i32 -2147483648, 255) %3) unnamed_addr #21 {
   %5 = icmp eq i32 %2, %3
   br i1 %5, label %.loopexit, label %6
 

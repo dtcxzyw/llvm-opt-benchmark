@@ -1183,7 +1183,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sslow(ptr noundef nonnull readonly captures(none) %m, ptr noundef readonly captures(address, ret: address, provenance) %start, ptr noundef readnone captures(address) %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #3 {
+define internal fastcc ptr @sslow(ptr noundef nonnull readonly captures(none) %m, ptr noundef readonly %start, ptr noundef readnone %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #3 {
 entry:
   %empty2 = getelementptr inbounds nuw i8, ptr %m, i64 96
   %0 = load i64, ptr %empty2, align 8
@@ -1411,7 +1411,7 @@ for.end135:                                       ; preds = %if.end119
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %start, ptr noundef captures(address) %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #5 {
+define internal fastcc ptr @sdissect(ptr noundef nonnull %m, ptr noundef %start, ptr noundef %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #5 {
 entry:
   %cmp132 = icmp slt i64 %startst, %stopst
   br i1 %cmp132, label %for.body.lr.ph, label %for.end119
@@ -2381,7 +2381,7 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #9
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @lslow(ptr noundef nonnull readonly captures(none) %m, ptr noundef readonly captures(address, ret: address, provenance) %start, ptr noundef readnone captures(address) %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #6 {
+define internal fastcc ptr @lslow(ptr noundef nonnull readonly captures(none) %m, ptr noundef readonly %start, ptr noundef readnone %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #6 {
 entry:
   %st1 = getelementptr inbounds nuw i8, ptr %m, i64 80
   %0 = load ptr, ptr %st1, align 8
@@ -2636,7 +2636,7 @@ for.end142:                                       ; preds = %if.end121
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %start, ptr noundef captures(address) %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #6 {
+define internal fastcc ptr @ldissect(ptr noundef nonnull %m, ptr noundef %start, ptr noundef %stop, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %startst, i64 noundef %stopst) unnamed_addr #6 {
 entry:
   %cmp132 = icmp slt i64 %startst, %stopst
   br i1 %cmp132, label %for.body.lr.ph, label %for.end119
@@ -3340,7 +3340,7 @@ return:                                           ; preds = %if.end289, %if.end2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @lstep(ptr noundef readonly captures(none) %g, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %start, i64 noundef %stop, ptr noundef readonly captures(none) %bef, i32 noundef range(i32 -128, 135) %ch, ptr noundef returned captures(ret: address, provenance) %aft) unnamed_addr #11 {
+define internal fastcc noundef ptr @lstep(ptr noundef readonly captures(none) %g, i64 noundef range(i64 -9223372036854775807, -9223372036854775808) %start, i64 noundef %stop, ptr noundef readonly captures(none) %bef, i32 noundef range(i32 -128, 135) %ch, ptr noundef returned %aft) unnamed_addr #11 {
 entry:
   %invariant.gep = getelementptr i8, ptr %aft, i64 1
   %cmp.not163 = icmp eq i64 %start, %stop

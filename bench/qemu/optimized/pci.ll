@@ -1836,7 +1836,7 @@ declare i32 @__sprintf_chk(ptr noundef, i32 noundef, i64 noundef, ptr noundef, .
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @vfio_pci_get_pci_hot_reset_info(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local i32 @vfio_pci_get_pci_hot_reset_info(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -3333,7 +3333,7 @@ trace_vfio_intx_eoi.exit:                         ; preds = %6, %11, %13, %19, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(none) uwtable
-define internal nonnull ptr @vfio_pci_get_object(ptr noundef readnone captures(ret: address, provenance) %0) #19 {
+define internal nonnull ptr @vfio_pci_get_object(ptr noundef readnone %0) #19 {
   %2 = getelementptr inbounds i8, ptr %0, i64 -2752
   ret ptr %2
 }

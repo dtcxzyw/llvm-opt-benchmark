@@ -426,7 +426,7 @@ define dso_local void @heartbeat_stop() local_unnamed_addr #0 {
 declare i32 @pthread_cond_signal(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @get_last_heartbeat(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local i64 @get_last_heartbeat(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8

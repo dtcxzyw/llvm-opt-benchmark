@@ -94,7 +94,7 @@ define noundef zeroext i1 @_ZNK6Assimp26RemoveRedundantMatsProcess8IsActiveEj(pt
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp26RemoveRedundantMatsProcess15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6Assimp26RemoveRedundantMatsProcess15SetupPropertiesEPKNS_8ImporterE(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 ._crit_edge.i.i:
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

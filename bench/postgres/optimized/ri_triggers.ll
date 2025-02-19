@@ -149,7 +149,7 @@ define dso_local noundef i64 @RI_FKey_check_ins(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @ri_CheckTrigger(ptr readonly captures(address_is_null) %.8.val, ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #0 {
+define internal fastcc void @ri_CheckTrigger(ptr readonly %.8.val, ptr noundef %0, i32 noundef range(i32 1, 4) %1) unnamed_addr #0 {
   %.not = icmp eq ptr %.8.val, null
   br i1 %.not, label %6, label %3
 

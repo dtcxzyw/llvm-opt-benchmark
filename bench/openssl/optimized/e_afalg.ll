@@ -65,7 +65,7 @@ define noundef range(i64 0, 196609) i64 @v_check(i64 noundef %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @bind_engine(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @bind_engine(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca [3 x i32], align 4
   %5 = alloca %struct.utsname, align 1
   %6 = tail call ptr @ENGINE_get_static_state() #13
@@ -532,7 +532,7 @@ get_cipher_handle.exit:                           ; preds = %4, %22, %._crit_edg
 declare i32 @ENGINE_set_ciphers(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 4) i32 @afalg_ciphers(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #1 {
+define internal range(i32 0, 4) i32 @afalg_ciphers(ptr readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) #1 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 

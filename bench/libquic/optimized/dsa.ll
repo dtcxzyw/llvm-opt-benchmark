@@ -113,7 +113,7 @@ define hidden noundef i32 @DSA_up_ref(ptr noundef %0) local_unnamed_addr #0 {
 declare void @CRYPTO_refcount_inc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @DSA_generate_parameters_ex(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [32 x i8], align 16
   %9 = alloca [32 x i8], align 16
   %10 = alloca [32 x i8], align 16
@@ -746,7 +746,7 @@ define hidden noalias noundef ptr @DSA_SIG_new() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @DSA_SIG_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @DSA_SIG_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -1497,7 +1497,7 @@ define hidden ptr @DSA_get_ex_data(ptr noundef %0, i32 noundef %1) local_unnamed
 declare ptr @CRYPTO_get_ex_data(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @DSA_dup_DH(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @DSA_dup_DH(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %43, label %3
 

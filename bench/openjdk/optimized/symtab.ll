@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 @open_file_from_debug_link.crc = internal unnamed_addr global i32 0, align 4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden i32 @gnu_debuglink_crc32(i32 noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @gnu_debuglink_crc32(i32 noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds i8, ptr %1, i64 %2
   %5 = icmp sgt i64 %2, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -523,7 +523,7 @@ build_symtab_from_debug_link.exit:                ; preds = %open_file_from_debu
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @destroy_symtab(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden void @destroy_symtab(ptr noundef %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -573,7 +573,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 declare void @hdestroy_r(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden i64 @search_symbol(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
+define hidden i64 @search_symbol(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   store ptr null, ptr %5, align 8
   %.not = icmp eq ptr %0, null
@@ -625,7 +625,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare i32 @hsearch_r(ptr, ptr, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @nearest_symbol(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define hidden ptr @nearest_symbol(ptr noundef readonly %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 

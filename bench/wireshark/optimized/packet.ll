@@ -986,7 +986,7 @@ declare i32 @_setjmp(ptr noundef) local_unnamed_addr #10
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @call_dissector_with_data(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @call_dissector_with_data(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %6, label %call_dissector_only.exit
 
@@ -1380,7 +1380,7 @@ define void @dissector_add_uint(ptr noundef %0, i32 noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dissector_get_table_checked(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0)
   %.not.i = icmp eq ptr %5, null
@@ -1659,7 +1659,7 @@ dissector_handle_get_dissector_name.exit69.thread: ; preds = %dissector_handle_g
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @dissector_add_uint_range(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %5
@@ -1957,7 +1957,7 @@ dissector_add_uint.exit:                          ; preds = %3, %14, %24
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @dissector_add_range_preference(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0)
   %.not.i = icmp eq ptr %5, null
@@ -2141,7 +2141,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
 declare i32 @g_hash_table_remove(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define void @dissector_delete_uint_range(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2239,7 +2239,7 @@ dissector_delete_uint.exit:                       ; preds = %find_uint_dtbl_entr
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @dissector_delete_guid(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define void @dissector_delete_guid(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr @dissector_tables, align 8
   %5 = tail call ptr @g_hash_table_lookup(ptr noundef %4, ptr noundef %0)
   %.not.i = icmp eq ptr %5, null
@@ -2501,7 +2501,7 @@ find_uint_dtbl_entry.exit:                        ; preds = %find_dissector_tabl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @dissector_is_uint_changed(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @dissector_is_uint_changed(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -3215,7 +3215,7 @@ find_string_dtbl_entry.exit:                      ; preds = %19, %21
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @dissector_is_string_changed(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define zeroext i1 @dissector_is_string_changed(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
 
@@ -3739,7 +3739,7 @@ define internal i32 @dissector_compare_filter_name(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @dissector_handle_get_dissector_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @dissector_handle_get_dissector_name(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -3801,7 +3801,7 @@ define noundef zeroext i1 @register_depend_dissector(ptr noundef %0, ptr noundef
 declare ptr @g_slist_find(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define nonnull ptr @dissector_handle_get_pref_suffix(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define nonnull ptr @dissector_handle_get_pref_suffix(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -3837,7 +3837,7 @@ define ptr @dtbl_entry_get_initial_handle(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @dissector_table_get_dissector_handles(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @dissector_table_get_dissector_handles(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -3893,7 +3893,7 @@ dissector_handle_get_description.exit.thread:     ; preds = %2, %10, %6, %dissec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define i32 @dissector_table_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @dissector_table_get_type(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4380,7 +4380,7 @@ define noundef ptr @register_custom_dissector_table(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @register_dissector_table_alias(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @register_dissector_table_alias(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -5412,7 +5412,7 @@ define hidden void @deregister_heur_dissector_list(ptr noundef %0) local_unnamed
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @heur_dissector_list_get_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @heur_dissector_list_get_description(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -5426,7 +5426,7 @@ define ptr @heur_dissector_list_get_description(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @dissector_handle_get_protocol_long_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @dissector_handle_get_protocol_long_name(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -5449,7 +5449,7 @@ define ptr @dissector_handle_get_protocol_long_name(ptr noundef readonly capture
 declare ptr @proto_get_protocol_long_name(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @dissector_handle_get_protocol_short_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @dissector_handle_get_protocol_short_name(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -5469,7 +5469,7 @@ define ptr @dissector_handle_get_protocol_short_name(ptr noundef readonly captur
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @dissector_handle_get_short_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @dissector_handle_get_short_name(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %dissector_handle_get_protocol_short_name.exit, label %3
 
@@ -5489,7 +5489,7 @@ dissector_handle_get_protocol_short_name.exit:    ; preds = %1, %3, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define ptr @dissector_handle_get_description(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @dissector_handle_get_description(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -5920,7 +5920,7 @@ remove_depend_dissector_from_list.exit:           ; preds = %3, %6
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @call_dissector_only(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @call_dissector_only(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %7
 
@@ -5951,7 +5951,7 @@ define i32 @call_data_dissector(ptr noundef %0, ptr noundef %1, ptr noundef %2) 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define i32 @call_dissector(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @call_dissector(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %5, label %call_dissector_only.exit.i
 
@@ -5985,7 +5985,7 @@ call_dissector_with_data.exit:                    ; preds = %call_dissector_only
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @call_heur_dissector_direct(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define void @call_heur_dissector_direct(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %7
 
@@ -6499,7 +6499,7 @@ declare ptr @g_array_sized_new(i32 noundef, i32 noundef, i32 noundef, i32 nounde
 declare ptr @g_array_append_vals(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @set_postdissector_wanted_hfids(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @set_postdissector_wanted_hfids(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @postdissectors, align 8
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -6550,7 +6550,7 @@ define void @set_postdissector_wanted_hfids(ptr noundef readnone captures(addres
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden void @deregister_postdissector(ptr noundef readnone captures(address) %0) local_unnamed_addr #0 {
+define hidden void @deregister_postdissector(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @postdissectors, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.loopexit, label %.preheader

@@ -852,7 +852,7 @@ treat_as_join_clause.exit186:                     ; preds = %137, %140, %144
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_single_rel_for_clauses(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc ptr @find_single_rel_for_clauses(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph

@@ -1050,7 +1050,7 @@ define range(i32 -1, 1) i32 @H5Ocopy(i64 noundef %0, ptr noundef %1, i64 noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5O__copy_api_common(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5O__copy_api_common(i64 noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i64 noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = alloca %struct.H5VL_loc_params_t, align 8
   %10 = alloca ptr, align 8
   %11 = alloca %struct.H5VL_loc_params_t, align 8

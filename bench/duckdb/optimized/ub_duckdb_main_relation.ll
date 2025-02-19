@@ -4002,7 +4002,7 @@ define void @_ZN6duckdb17AggregateRelation8GetAliasB5cxx11Ev(ptr dead_on_unwind 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb17AggregateRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb17AggregateRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(216) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   ret ptr %2
 }
@@ -5230,7 +5230,7 @@ _ZN6duckdb12SQLStatementD2Ev.exit:                ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb19CreateTableRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(210) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb19CreateTableRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(210) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   ret ptr %2
 }
@@ -6327,7 +6327,7 @@ _ZN6duckdb10unique_ptrINS_14CreateViewInfoESt14default_deleteIS1_ELb1EE13AssertN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb18CreateViewRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(216) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb18CreateViewRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(216) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 192
   ret ptr %2
 }
@@ -7581,7 +7581,7 @@ _ZN6duckdb10unique_ptrINS_7JoinRefESt14default_deleteIS1_ELb1EE13AssertNotNullEb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb20CrossProductRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb20CrossProductRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   ret ptr %2
 }
@@ -8921,7 +8921,7 @@ _ZN6duckdb12SQLStatementD2Ev.exit:                ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14DeleteRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14DeleteRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   ret ptr %2
 }
@@ -9788,7 +9788,7 @@ _ZNSt10unique_ptrIN6duckdb11DelimGetRefESt14default_deleteIS1_EED2Ev.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb16DelimGetRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(152) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb16DelimGetRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(152) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }
@@ -11023,7 +11023,7 @@ _ZN6duckdb12SQLStatementD2Ev.exit:                ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb15ExplainRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(146) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb15ExplainRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(146) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   ret ptr %2
 }
@@ -13324,7 +13324,7 @@ _ZN6duckdb12SQLStatementD2Ev.exit:                ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14InsertRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14InsertRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(208) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 184
   ret ptr %2
 }
@@ -15050,7 +15050,7 @@ _ZNSt10unique_ptrIN6duckdb7JoinRefESt14default_deleteIS1_EED2Ev.exit48: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12JoinRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(225) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12JoinRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(225) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   ret ptr %2
 }
@@ -18597,7 +18597,7 @@ define void @_ZN6duckdb13OrderRelation8GetAliasB5cxx11Ev(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13OrderRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13OrderRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   ret ptr %2
 }
@@ -20096,7 +20096,7 @@ _ZN6duckdb12SQLStatementD2Ev.exit:                ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14UpdateRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(248) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb14UpdateRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(248) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   ret ptr %2
 }
@@ -21937,7 +21937,7 @@ define void @_ZN6duckdb18ProjectionRelation8GetAliasB5cxx11Ev(ptr dead_on_unwind
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb18ProjectionRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb18ProjectionRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 128
   ret ptr %2
 }
@@ -24773,7 +24773,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13QueryRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13QueryRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 176
   ret ptr %2
 }
@@ -32394,7 +32394,7 @@ define void @_ZN6duckdb13SetOpRelation8GetAliasB5cxx11Ev(ptr dead_on_unwind noal
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13SetOpRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(169) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13SetOpRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(169) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   ret ptr %2
 }
@@ -34962,7 +34962,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb21TableFunctionRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(257) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb21TableFunctionRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(257) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 216
   ret ptr %2
 }
@@ -40863,7 +40863,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13ValueRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb13ValueRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(208) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   ret ptr %2
 }
@@ -42594,7 +42594,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb20MaterializedRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb20MaterializedRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(176) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   ret ptr %2
 }
@@ -43501,7 +43501,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_.exit: ; preds = %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12ViewRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(200) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb12ViewRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(200) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   ret ptr %2
 }
@@ -44490,7 +44490,7 @@ _ZN6duckdb12SQLStatementD2Ev.exit:                ; preds = %_ZNSt10_HashtableIN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb20WriteParquetRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(232) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb20WriteParquetRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(232) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   ret ptr %2
 }
@@ -45456,7 +45456,7 @@ _ZNSt10unique_ptrIN6duckdb8CopyInfoESt14default_deleteIS1_EED2Ev.exit17: ; preds
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb16WriteCSVRelation7ColumnsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(232) %0) unnamed_addr #5 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6duckdb16WriteCSVRelation7ColumnsEv(ptr noundef nonnull readnone align 8 dereferenceable(232) %0) unnamed_addr #5 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   ret ptr %2
 }

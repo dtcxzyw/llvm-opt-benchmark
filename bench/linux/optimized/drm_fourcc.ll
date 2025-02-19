@@ -262,7 +262,7 @@ define dso_local ptr @drm_get_format_info(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 256) i32 @drm_format_info_block_width(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 256) i32 @drm_format_info_block_width(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %5 = or i1 %3, %4
@@ -290,7 +290,7 @@ define dso_local range(i32 0, 256) i32 @drm_format_info_block_width(ptr noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 256) i32 @drm_format_info_block_height(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 256) i32 @drm_format_info_block_height(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %5 = or i1 %3, %4
@@ -318,7 +318,7 @@ define dso_local range(i32 0, 256) i32 @drm_format_info_block_height(ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 2041) i32 @drm_format_info_bpp(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #1 align 16 {
+define dso_local range(i32 0, 2041) i32 @drm_format_info_bpp(ptr noundef readonly %0, i32 noundef %1) #1 align 16 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %5 = or i1 %3, %4
@@ -359,7 +359,7 @@ define dso_local range(i32 0, 2041) i32 @drm_format_info_bpp(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i64 0, 1095216725250) i64 @drm_format_info_min_pitch(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
+define dso_local range(i64 0, 1095216725250) i64 @drm_format_info_min_pitch(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) #1 align 16 {
   %4 = icmp eq ptr %0, null
   %5 = icmp slt i32 %1, 0
   %6 = or i1 %4, %5

@@ -4333,7 +4333,7 @@ spa_pod_parser_getv.exit:                         ; preds = %29, %99, %spa_pod_p
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) unnamed_addr #12 {
+define internal fastcc ptr @spa_debug_type_find(ptr noundef readonly %0, i32 noundef %1) unnamed_addr #12 {
   %3 = icmp eq ptr %0, null
   %spec.store.select = select i1 %3, ptr @spa_types, ptr %0
   %4 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 8
@@ -5901,7 +5901,7 @@ spa_pod_builder_pad.exit:                         ; preds = %.lr.ph.i.i, %spa_po
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spa_pod_builder_string_len(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @spa_pod_builder_string_len(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = add i32 %2, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -6343,7 +6343,7 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #3 {
+define internal fastcc void @spa_pod_builder_raw_padded(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #3 {
   %4 = alloca i64, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8

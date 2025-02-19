@@ -3036,7 +3036,7 @@ define hidden i32 @clusapi_dissect_struct_IDL_CLUSTER_SET_PASSWORD_STATUS(ptr no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_IDL_CLUSTER_SET_PASSWORD_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_IDL_CLUSTER_SET_PASSWORD_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3683,7 +3683,7 @@ define hidden i32 @clusapi_dissect_struct_RESOURCE_ENUM_LIST(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CreateResourceFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CreateResourceFlags(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3709,7 +3709,7 @@ define hidden i32 @clusapi_dissect_enum_CreateResourceFlags(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ClusterResourceState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ClusterResourceState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3735,7 +3735,7 @@ define hidden i32 @clusapi_dissect_enum_ClusterResourceState(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ClusterGroupState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ClusterGroupState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3806,7 +3806,7 @@ define hidden i32 @clusapi_dissect_bitmap_ClusterGroupEnumType(ptr noundef %0, i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ClusterNodeState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ClusterNodeState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3832,7 +3832,7 @@ define hidden i32 @clusapi_dissect_enum_ClusterNodeState(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ResourceClass(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ResourceClass(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3917,7 +3917,7 @@ define hidden i32 @clusapi_dissect_struct_CLUS_RESOURCE_CLASS_INFO(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ResourceControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ResourceControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3943,7 +3943,7 @@ define hidden i32 @clusapi_dissect_enum_ResourceControlCode(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ResourceTypeControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ResourceTypeControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3969,7 +3969,7 @@ define hidden i32 @clusapi_dissect_enum_ResourceTypeControlCode(ptr noundef %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_GroupControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_GroupControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -3995,7 +3995,7 @@ define hidden i32 @clusapi_dissect_enum_GroupControlCode(ptr noundef %0, i32 nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_NodeControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_NodeControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4021,7 +4021,7 @@ define hidden i32 @clusapi_dissect_enum_NodeControlCode(ptr noundef %0, i32 noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ClusterNetworkState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ClusterNetworkState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4047,7 +4047,7 @@ define hidden i32 @clusapi_dissect_enum_ClusterNetworkState(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ClusterNetInterfaceState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ClusterNetInterfaceState(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4118,7 +4118,7 @@ define hidden i32 @clusapi_dissect_bitmap_ClusterResTypeEnumType(ptr noundef %0,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_ClusterControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_ClusterControlCode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4144,7 +4144,7 @@ define hidden i32 @clusapi_dissect_enum_ClusterControlCode(ptr noundef %0, i32 n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_SYNTAX(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_SYNTAX(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4704,7 +4704,7 @@ define hidden i32 @clusapi_dissect_struct_NOTIFICATION_DATA_ASYNC_RPC(ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSDSK_DISKID_ENUM(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSDSK_DISKID_ENUM(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4730,7 +4730,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSDSK_DISKID_ENUM(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4756,7 +4756,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_TYPE(ptr noundef %0, i3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_FORMAT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_FORMAT(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4782,7 +4782,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_PROPERTY_FORMAT(ptr noundef %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUS_CHARACTERISTICS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUS_CHARACTERISTICS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4808,7 +4808,7 @@ define hidden i32 @clusapi_dissect_enum_CLUS_CHARACTERISTICS(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUS_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUS_FLAGS(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4834,7 +4834,7 @@ define hidden i32 @clusapi_dissect_enum_CLUS_FLAGS(ptr noundef %0, i32 noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_MAINTENANCE_MODE_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_MAINTENANCE_MODE_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4860,7 +4860,7 @@ define hidden i32 @clusapi_dissect_enum_MAINTENANCE_MODE_TYPE(ptr noundef %0, i3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4886,7 +4886,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE(ptr noundef %0, i32 nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_REG_BATCH_COMMAND(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_REG_BATCH_COMMAND(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4912,7 +4912,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_REG_BATCH_COMMAND(ptr noundef %0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_QUORUM_VALUE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_QUORUM_VALUE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4938,7 +4938,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_QUORUM_VALUE(ptr noundef %0, i32
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_OBJECT_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_OBJECT_TYPE(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4964,7 +4964,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_OBJECT_TYPE(ptr noundef %0, i32 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_CLUSTER_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_CLUSTER_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -4990,7 +4990,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_CLUSTER_V2(ptr noundef %0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_GROUP_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_GROUP_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -5016,7 +5016,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_GROUP_V2(ptr noundef %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_RESOURCE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_RESOURCE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -5042,7 +5042,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_RESOURCE_V2(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CHANGE_RESOURCE_TYPE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CHANGE_RESOURCE_TYPE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -5068,7 +5068,7 @@ define hidden i32 @clusapi_dissect_enum_CHANGE_RESOURCE_TYPE_V2(ptr noundef %0, 
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETINTERFACE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETINTERFACE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -5094,7 +5094,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETINTERFACE_V2(ptr nound
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETWORK_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETWORK_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -5120,7 +5120,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NETWORK_V2(ptr noundef %0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NODE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NODE_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -5146,7 +5146,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_NODE_V2(ptr noundef %0, i
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_REGISTRY_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_REGISTRY_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -5172,7 +5172,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_REGISTRY_V2(ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_QUORUM_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_QUORUM_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4
@@ -5198,7 +5198,7 @@ define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_QUORUM_V2(ptr noundef %0,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_SHARED_VOLUME_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define hidden i32 @clusapi_dissect_enum_CLUSTER_CHANGE_SHARED_VOLUME_V2(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #4
   store i32 0, ptr %9, align 4

@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [49 x i8] c"out of memory when trying to allocate %zu bytes\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @rgb2hex(float noundef %0, float noundef %1, float noundef %2, ptr noundef captures(none) %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define void @rgb2hex(float noundef %0, float noundef %1, float noundef %2, ptr noundef captures(none) %3, ptr noundef readonly %4) local_unnamed_addr #0 {
   %6 = fmul float %0, 2.550000e+02
   %7 = fpext float %6 to double
   %8 = fadd double %7, 5.000000e-01

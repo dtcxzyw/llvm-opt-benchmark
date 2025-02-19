@@ -442,7 +442,7 @@ define hidden void @_ZN13StackOverflow22disable_stack_red_zoneEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #2 align 2 {
+define hidden noundef zeroext i1 @_ZN13StackOverflow13reguard_stackEPh(ptr noundef nonnull align 8 captures(none) dereferenceable(56) %0, ptr noundef readnone %1) local_unnamed_addr #2 align 2 {
   %3 = load i32, ptr %0, align 8
   %.off = add i32 %3, -1
   %switch = icmp ult i32 %.off, 2

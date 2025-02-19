@@ -288,7 +288,7 @@ define hidden noundef i64 @rb_ec_backtrace_object(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef i64 @rb_ec_partial_backtrace_object(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
+define internal fastcc noundef i64 @rb_ec_partial_backtrace_object(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef writeonly %3, i1 noundef zeroext %4, i1 noundef zeroext %5) unnamed_addr #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load ptr, ptr %7, align 8, !tbaa !56
   %.val = load ptr, ptr %0, align 8, !tbaa !64
@@ -2807,7 +2807,7 @@ define dso_local i64 @rb_debug_inspector_backtrace_locations(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_profile_frames(i32 noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local i32 @rb_profile_frames(i32 noundef %0, i32 noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @ruby_current_ec)
   %6 = load ptr, ptr %5, align 8, !tbaa !93
   %.not = icmp eq ptr %6, null
@@ -2823,7 +2823,7 @@ define dso_local i32 @rb_profile_frames(i32 noundef %0, i32 noundef %1, ptr noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @thread_profile_frames(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc i32 @thread_profile_frames(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load ptr, ptr %6, align 8, !tbaa !56
   %.not = icmp eq ptr %7, null
@@ -3001,7 +3001,7 @@ define internal fastcc i32 @thread_profile_frames(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_profile_thread_frames(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local i32 @rb_profile_thread_frames(i64 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @rb_check_typeddata(i64 noundef %0, ptr noundef nonnull @ruby_threadptr_data_type) #6
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %8 = load ptr, ptr %7, align 8, !tbaa !144
@@ -4288,7 +4288,7 @@ location_format.exit:                             ; preds = %100, %RSTRING_PTR.e
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i64 @calculate_iseq_label(i64 noundef %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define internal fastcc i64 @calculate_iseq_label(i64 noundef %0, ptr noundef %1) unnamed_addr #0 {
   br label %3
 
 3:                                                ; preds = %32, %2

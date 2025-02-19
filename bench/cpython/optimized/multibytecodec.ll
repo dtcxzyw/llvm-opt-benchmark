@@ -1375,7 +1375,7 @@ declare void @_PyArg_BadArgument(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @multibytecodec_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, i32 noundef range(i32 0, 4) %5) unnamed_addr #0 {
+define internal fastcc ptr @multibytecodec_encode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef %4, i32 noundef range(i32 0, 4) %5) unnamed_addr #0 {
   %7 = alloca %struct.MultibyteEncodeBuffer, align 8
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %7) #8
   %8 = getelementptr i8, ptr %2, i64 16
@@ -5467,7 +5467,7 @@ _multibytecodec_MultibyteStreamWriter_writelines_impl.exit: ; preds = %Py_DECREF
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @_multibytecodec_MultibyteStreamWriter_reset(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noundef ptr @_multibytecodec_MultibyteStreamWriter_reset(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %6 = alloca [2 x ptr], align 16
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %7, label %10

@@ -101,7 +101,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @redisvFormatCommand(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @redisvFormatCommand(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   %6 = icmp eq ptr %0, null
@@ -1030,7 +1030,7 @@ declare void @hi_sdsfree(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef captures(address_is_null) %0, ptr noundef %1, ...) local_unnamed_addr #0 {
+define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #13
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -1045,7 +1045,7 @@ define range(i32 -1, -2147483648) i32 @redisFormatCommand(ptr noundef captures(a
 declare void @llvm.va_start.p0(ptr) #5
 
 ; Function Attrs: nounwind uwtable
-define i64 @redisFormatSdsCommandArgv(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i64 @redisFormatSdsCommandArgv(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %96, label %6
 
@@ -1277,7 +1277,7 @@ define void @redisFreeSdsCommand(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @redisFormatCommandArgv(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i64 @redisFormatCommandArgv(ptr noundef writeonly %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %108, label %6
 
@@ -1520,7 +1520,7 @@ define void @redisFreeCommand(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @__redisSetError(ptr noundef initializes((8, 12)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @__redisSetError(ptr noundef initializes((8, 12)) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 %1, ptr %4, align 8, !tbaa !32
   %.not = icmp eq ptr %2, null
@@ -2281,7 +2281,7 @@ define range(i32 -1, 1) i32 @redisBufferRead(ptr noundef %0) local_unnamed_addr 
 declare i32 @redisReaderFeed(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisBufferWrite(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisBufferWrite(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !32
   %.not = icmp eq i32 %4, 0
@@ -2504,7 +2504,7 @@ define range(i32 -1, 1) i32 @redisGetReplyFromReader(ptr noundef captures(none) 
 declare i32 @redisReaderGetReply(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisGetReply(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisGetReply(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [16384 x i8], align 16
   %4 = alloca i32, align 4
   %5 = alloca ptr, align 8
@@ -2872,7 +2872,7 @@ redisvAppendCommand.exit:                         ; preds = %6, %10, %21, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %6 = call i64 @redisFormatSdsCommandArgv(ptr noundef nonnull %5, i32 noundef %1, ptr noundef %2, ptr noundef %3)
@@ -3015,7 +3015,7 @@ define ptr @redisCommand(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @redisCommandArgv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define ptr @redisCommandArgv(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #13

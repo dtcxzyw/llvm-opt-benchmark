@@ -1807,7 +1807,7 @@ if.end:                                           ; preds = %_ZNSt11unique_lockI
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef zeroext i1 @_Z19httpfetch_async_getmR15HTTPFetchResult(i64 noundef %caller, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %fetch_result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_Z19httpfetch_async_getmR15HTTPFetchResult(i64 noundef %caller, ptr noundef nonnull align 8 dereferenceable(64) %fetch_result) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
 entry:
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull @_ZL17g_httpfetch_mutex) #27
   %tobool.not.i.i.i = icmp eq i32 %call1.i.i.i.i, 0

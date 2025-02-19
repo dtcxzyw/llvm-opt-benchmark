@@ -1521,14 +1521,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene19CBillboardSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(24) ptr @_ZNK3irr5scene19CBillboardSceneNode14getBoundingBoxEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %BBoxSafe = getelementptr inbounds nuw i8, ptr %this, i64 20
   ret ptr %BBoxSafe
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZTv0_n80_NK3irr5scene19CBillboardSceneNode14getBoundingBoxEv(ptr noundef readonly captures(ret: address, provenance) %this) unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZTv0_n80_NK3irr5scene19CBillboardSceneNode14getBoundingBoxEv(ptr noundef readonly %this) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -80
@@ -1822,14 +1822,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5scene19CBillboardSceneNode7getSizeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %this) unnamed_addr #7 align 2 {
+define noundef nonnull align 4 dereferenceable(8) ptr @_ZNK3irr5scene19CBillboardSceneNode7getSizeEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %this) unnamed_addr #7 align 2 {
 entry:
   %Size = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %Size
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZTv0_n328_NK3irr5scene19CBillboardSceneNode7getSizeEv(ptr noundef readonly captures(ret: address, provenance) %this) unnamed_addr #8 align 2 {
+define noundef nonnull ptr @_ZTv0_n328_NK3irr5scene19CBillboardSceneNode7getSizeEv(ptr noundef readonly %this) unnamed_addr #8 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -328

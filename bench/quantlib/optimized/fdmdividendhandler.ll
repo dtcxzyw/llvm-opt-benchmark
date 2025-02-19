@@ -1372,21 +1372,21 @@ _ZN5boost6detail12shared_countD2Ev.exit:          ; preds = %entry, %if.then.i, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18FdmDividendHandler13dividendTimesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18FdmDividendHandler13dividendTimesEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
   %dividendTimes_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %dividendTimes_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18FdmDividendHandler13dividendDatesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18FdmDividendHandler13dividendDatesEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
   %dividendDates_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %dividendDates_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18FdmDividendHandler9dividendsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib18FdmDividendHandler9dividendsEv(ptr noundef nonnull readnone align 8 dereferenceable(120) %this) local_unnamed_addr #11 align 2 {
 entry:
   %dividends_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %dividends_

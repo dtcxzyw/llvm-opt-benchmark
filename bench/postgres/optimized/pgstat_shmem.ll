@@ -366,7 +366,7 @@ declare ptr @dsa_get_address(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @LWLockInitialize(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local ptr @pgstat_get_entry_ref(i32 noundef %0, i32 noundef %1, i64 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.PgStat_HashKey, align 8
   %7 = alloca %struct.PgStat_HashKey, align 8
   %8 = alloca %struct.PgStat_HashKey, align 8
@@ -1598,7 +1598,7 @@ pgstat_free_entry.exit:                           ; preds = %26, %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @pgstat_drop_matching_entries(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local void @pgstat_drop_matching_entries(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.PgStat_HashKey, align 8
   %4 = alloca %struct.PgStat_HashKey, align 8
   %5 = alloca %struct.dshash_seq_status, align 8

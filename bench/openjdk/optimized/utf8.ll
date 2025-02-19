@@ -31,7 +31,7 @@ $_ZN7UNICODE15as_quoted_asciiItEEvPKT_iPci = comdat any
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull ptr @_ZN4UTF814next_characterEPKcPi(ptr noundef readonly %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1) local_unnamed_addr #0 align 2 {
   %3 = load i8, ptr %0, align 1
   %4 = icmp eq i8 %3, -19
   br i1 %4, label %5, label %43
@@ -652,7 +652,7 @@ _ZN4UTF84nextIaEEPcPKcPT_.exit:                   ; preds = %.lr.ph25, %16, %20,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
+define hidden noundef i32 @_ZN4UTF819quoted_ascii_lengthEPKci(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds i8, ptr %0, i64 %3
   %5 = icmp sgt i32 %1, 0
@@ -738,7 +738,7 @@ _ZN4UTF84nextItEEPcPKcPT_.exit:                   ; preds = %8, %14, %29, %39
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly captures(address) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN4UTF815as_quoted_asciiEPKciPci(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #2 align 2 {
   %5 = sext i32 %1 to i64
   %6 = getelementptr inbounds i8, ptr %0, i64 %5
   %7 = sext i32 %3 to i64
@@ -1116,7 +1116,7 @@ define hidden noundef range(i32 1, 3) i32 @_ZN7UNICODE9utf8_sizeEa(i8 noundef si
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef returned writeonly captures(ret: address, provenance) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKtiPci(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 
@@ -1194,7 +1194,7 @@ _ZL10utf8_writePht.exit:                          ; preds = %13, %16, %24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKaiPci(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef returned writeonly captures(ret: address, provenance) %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN7UNICODE7as_utf8EPKaiPci(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef returned writeonly %2, i32 noundef %3) local_unnamed_addr #3 align 2 {
   %5 = icmp sgt i32 %1, 0
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
 

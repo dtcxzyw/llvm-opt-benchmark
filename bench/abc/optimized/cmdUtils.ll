@@ -296,7 +296,7 @@ define noalias noundef ptr @CmdAddToArgv(i32 noundef %0, ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @CmdFreeArgv(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @CmdFreeArgv(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp sgt i32 %0, 0
   br i1 %3, label %.lr.ph.preheader, label %._crit_edge
 
@@ -905,13 +905,13 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @CmdHistorySubstitution(ptr noundef readnone captures(none) %0, ptr noundef readnone returned captures(ret: address, provenance) %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #11 {
+define noundef ptr @CmdHistorySubstitution(ptr noundef readnone captures(none) %0, ptr noundef readnone returned %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2) local_unnamed_addr #11 {
   store i32 0, ptr %2, align 4, !tbaa !11
   ret ptr %1
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @CmdFileOpen(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @CmdFileOpen(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, i32 noundef %4) local_unnamed_addr #0 {
 sub_0:
   %5 = load i8, ptr %1, align 1
   %.not66 = icmp eq i8 %5, 45
@@ -1577,7 +1577,7 @@ declare void @CmdCommandAliasPrint(ptr noundef, ptr noundef) local_unnamed_addr 
 declare ptr @Abc_FrameGetGlobalFrame(...) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManKissatCall(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define void @Gia_ManKissatCall(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = alloca [1000 x i8], align 16
   %11 = alloca [100 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 1000, ptr nonnull %10) #24

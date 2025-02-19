@@ -164,7 +164,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @_pysqlite_seterror(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly captures(ret: address, provenance) %0) unnamed_addr #4 {
+define internal fastcc noundef ptr @lstrip_sql(ptr noundef readonly %0) unnamed_addr #4 {
   br label %2
 
 2:                                                ; preds = %.loopexit, %1

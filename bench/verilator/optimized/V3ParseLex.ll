@@ -20805,7 +20805,7 @@ define dso_local void @_ZN11V3LexerBase9yyrestartERSi(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11V3LexerBase14yy_init_bufferEP15yy_buffer_stateRSi(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef captures(address) %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN11V3LexerBase14yy_init_bufferEP15yy_buffer_stateRSi(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2) local_unnamed_addr #4 align 2 {
   %4 = tail call ptr @__errno_location() #39
   %5 = load i32, ptr %4, align 4
   %.not.i = icmp eq ptr %1, null
@@ -21118,7 +21118,7 @@ define dso_local noundef ptr @_ZN11V3LexerBase16yy_create_bufferEPSii(ptr nounde
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_ZN11V3LexerBase16yy_delete_bufferEP15yy_buffer_state(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(732) %0, ptr noundef captures(address) %1) unnamed_addr #14 align 2 {
+define dso_local void @_ZN11V3LexerBase16yy_delete_bufferEP15yy_buffer_state(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(732) %0, ptr noundef %1) unnamed_addr #14 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %19, label %3
 
@@ -21164,7 +21164,7 @@ define dso_local void @_ZN11V3LexerBase16yy_delete_bufferEP15yy_buffer_state(ptr
 declare ptr @__errno_location() local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef captures(address) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN11V3LexerBase15yy_flush_bufferEP15yy_buffer_state(ptr noundef nonnull align 8 dereferenceable(732) %0, ptr noundef %1) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %3
 

@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden noundef ptr @mlib_ImageSet(ptr noundef writeonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = icmp eq ptr %0, null
   br i1 %8, label %66, label %9
 
@@ -317,7 +317,7 @@ mlib_ImageDeleteRowTable.exit:                    ; preds = %11, %14
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @mlib_ImageDeleteRowTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden void @mlib_ImageDeleteRowTable(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -338,7 +338,7 @@ define hidden void @mlib_ImageDeleteRowTable(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mlib_ImageCreateSubimage(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
+define hidden ptr @mlib_ImageCreateSubimage(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #1 {
   %6 = icmp slt i32 %3, 1
   %7 = icmp slt i32 %4, 1
   %or.cond = or i1 %6, %7
@@ -472,7 +472,7 @@ j2d_mlib_ImageCreateStruct.exit.thread:           ; preds = %74, %68, %66, %j2d_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @mlib_ImageSetSubimage(ptr noundef captures(address, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
+define hidden noundef ptr @mlib_ImageSetSubimage(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = load i32, ptr %1, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %9 = load i32, ptr %8, align 4
@@ -574,7 +574,7 @@ define hidden noundef ptr @mlib_ImageSetSubimage(ptr noundef captures(address, r
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @mlib_ImageCreateRowTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden ptr @mlib_ImageCreateRowTable(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -638,7 +638,7 @@ define hidden ptr @mlib_ImageCreateRowTable(ptr noundef captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden range(i32 0, 4) i32 @mlib_ImageSetPaddings(ptr noundef captures(address_is_null) %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
+define hidden range(i32 0, 4) i32 @mlib_ImageSetPaddings(ptr noundef %0, i8 noundef zeroext %1, i8 noundef zeroext %2, i8 noundef zeroext %3, i8 noundef zeroext %4) local_unnamed_addr #4 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %24, label %7
 
@@ -677,7 +677,7 @@ define hidden range(i32 0, 4) i32 @mlib_ImageSetPaddings(ptr noundef captures(ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @mlib_ImageSetFormat(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @mlib_ImageSetFormat(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %6, label %4
 

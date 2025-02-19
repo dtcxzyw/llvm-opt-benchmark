@@ -1268,7 +1268,7 @@ if.end:                                           ; preds = %entry
 declare noundef i64 @_ZN6spdlog7details2os8filesizeEP8_IO_FILE(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6spdlog7details11file_helper8filenameB5cxx11Ev(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(176) %this) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6spdlog7details11file_helper8filenameB5cxx11Ev(ptr noundef nonnull readnone align 8 dereferenceable(176) %this) local_unnamed_addr #9 align 2 {
 entry:
   %filename_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   ret ptr %filename_

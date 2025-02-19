@@ -62,7 +62,7 @@ target triple = "x86_64-pc-linux-gnu"
 @REVfns = internal global { ptr, ptr, i8, i8, [6 x i8] } { ptr @agfstin, ptr @agnxtin_, i8 0, i8 0, [6 x i8] zeroinitializer }, align 8
 
 ; Function Attrs: nounwind uwtable
-define i32 @gvpr(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define i32 @gvpr(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.gvpr_state_t, align 8
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %4) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %4, i8 0, i64 104, i1 false)
@@ -148,7 +148,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @gvpr_core(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
+define internal fastcc i32 @gvpr_core(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.agxbuf, align 8
   %6 = alloca [100 x ptr], align 16
   %7 = alloca %struct.agxbuf, align 8
@@ -2743,7 +2743,7 @@ declare void @gvstart_timer() local_unnamed_addr #3
 declare ptr @parseProg(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal void @gverrorf(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef %3, ...) #0 {
+define internal void @gverrorf(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef %3, ...) #0 {
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #24
   call void @llvm.va_start.p0(ptr nonnull %5)

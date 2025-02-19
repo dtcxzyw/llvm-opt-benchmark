@@ -230,7 +230,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.164 = private unnamed_addr constant [6 x i8] c"unix:\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @evhttp_htmlescape(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @evhttp_htmlescape(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 
@@ -2605,7 +2605,7 @@ define void @evhttp_connection_set_timeout(ptr noundef initializes((224, 256)) %
 declare i32 @bufferevent_set_timeouts(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @evhttp_connection_set_timeout_tv(ptr noundef initializes((224, 256)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @evhttp_connection_set_timeout_tv(ptr noundef initializes((224, 256)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
@@ -2641,7 +2641,7 @@ evhttp_set_timeout_tv_.exit12:                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evhttp_connection_set_connect_timeout_tv(ptr noundef initializes((208, 224)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @evhttp_connection_set_connect_timeout_tv(ptr noundef initializes((208, 224)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 4194304
@@ -2675,7 +2675,7 @@ evhttp_set_timeout_tv_.exit:                      ; preds = %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evhttp_connection_set_read_timeout_tv(ptr noundef initializes((224, 240)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @evhttp_connection_set_read_timeout_tv(ptr noundef initializes((224, 240)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 4194304
@@ -2710,7 +2710,7 @@ evhttp_set_timeout_tv_.exit:                      ; preds = %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define void @evhttp_connection_set_write_timeout_tv(ptr noundef initializes((240, 256)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @evhttp_connection_set_write_timeout_tv(ptr noundef initializes((240, 256)) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load i32, ptr %3, align 8
   %5 = or i32 %4, 4194304
@@ -2745,7 +2745,7 @@ evhttp_set_timeout_tv_.exit:                      ; preds = %8, %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @evhttp_connection_set_initial_retry_tv(ptr noundef writeonly captures(none) initializes((264, 280)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define void @evhttp_connection_set_initial_retry_tv(ptr noundef writeonly captures(none) initializes((264, 280)) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %1, null
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   br i1 %.not, label %5, label %4
@@ -5757,7 +5757,7 @@ evhttp_decode_uri_internal.exit:                  ; preds = %10, %._crit_edge.lo
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @evhttp_uridecode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define ptr @evhttp_uridecode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #17
   %5 = add i64 %4, 1
   %6 = tail call ptr @event_mm_malloc_(i64 noundef %5) #18
@@ -7215,7 +7215,7 @@ define void @evhttp_set_timeout(ptr noundef writeonly captures(none) initializes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @evhttp_set_timeout_tv(ptr noundef writeonly captures(none) initializes((128, 160)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define void @evhttp_set_timeout_tv(ptr noundef writeonly captures(none) initializes((128, 160)) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = icmp eq ptr %1, null
   br i1 %4, label %7, label %5
@@ -7235,7 +7235,7 @@ evhttp_set_timeout_tv_.exit4:                     ; preds = %5, %7
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @evhttp_set_read_timeout_tv(ptr noundef writeonly captures(none) initializes((128, 144)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define void @evhttp_set_read_timeout_tv(ptr noundef writeonly captures(none) initializes((128, 144)) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %4 = icmp eq ptr %1, null
   br i1 %4, label %6, label %5
@@ -7253,7 +7253,7 @@ evhttp_set_timeout_tv_.exit:                      ; preds = %5, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @evhttp_set_write_timeout_tv(ptr noundef writeonly captures(none) initializes((144, 160)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define void @evhttp_set_write_timeout_tv(ptr noundef writeonly captures(none) initializes((144, 160)) %0, ptr noundef readonly %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = icmp eq ptr %1, null
   br i1 %4, label %6, label %5
@@ -8438,7 +8438,7 @@ userinfo_ok.exit.thread:                          ; preds = %33, %29, %26, %24, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @end_of_path(ptr noundef nonnull readonly captures(ret: address, provenance) %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc nonnull ptr @end_of_path(ptr noundef nonnull readonly %0, i32 noundef range(i32 0, 3) %1, i32 noundef %2) unnamed_addr #0 {
   %4 = and i32 %2, 1
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %.preheader, label %25
@@ -8597,7 +8597,7 @@ switch.early.test:                                ; preds = %39
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @evhttp_uri_join(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef ptr @evhttp_uri_join(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5

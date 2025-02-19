@@ -2280,7 +2280,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare ptr @agfstnode(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(address) %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
+define internal fastcc void @dfs(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr i8, ptr %2, i64 16
   %.val.i = load i64, ptr %6, align 8, !tbaa !95
   %.not1.not.i = icmp eq i64 %.val.i, 0

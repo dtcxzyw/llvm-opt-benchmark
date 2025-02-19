@@ -454,7 +454,7 @@ _ZN4gpui3app10entity_map9EntityMap5lease17h44c4a5c07f3512e2E.exit.i: ; preds = %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8ui_input9TextField6editor17hd412d308f780891bE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN8ui_input9TextField6editor17hd412d308f780891bE(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   ret ptr %2
 }

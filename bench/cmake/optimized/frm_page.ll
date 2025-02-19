@@ -139,7 +139,7 @@ declare i32 @_nc_Set_Form_Page(ptr noundef, i32 noundef, ptr noundef) local_unna
 declare i32 @_nc_Refresh_Current_Field(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 -32768, 32768) i32 @form_page(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define dso_local range(i32 -32768, 32768) i32 @form_page(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   %2 = load ptr, ptr @_nc_Default_Form, align 8
   %3 = select i1 %.not, ptr %2, ptr %0

@@ -455,7 +455,7 @@ _ZNSt6vectorItSaItEED2Ev.exit:                    ; preds = %_ZNSt6vectorIhSaIhE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6LibRaw17pana8_decode_loopEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 align 2 {
+define void @_ZN6LibRaw17pana8_decode_loopEPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef %1) unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 381892
   %4 = load i16, ptr %3, align 4, !tbaa !91
   %.not6 = icmp eq i16 %4, 0
@@ -487,7 +487,7 @@ define void @_ZN6LibRaw17pana8_decode_loopEPv(ptr noundef nonnull readonly align
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_ZN6LibRaw18pana8_decode_stripEPvi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 2) i32 @_ZN6LibRaw18pana8_decode_stripEPvi(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(767680) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %class.pana8_bufio_t, align 8
   %5 = icmp eq ptr %1, null
   %6 = icmp ugt i32 %2, 4

@@ -3119,7 +3119,7 @@ define internal noundef i64 @resource5_resize_store(ptr noundef %0, ptr readnone
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, inaccessiblemem: none)
-define internal zeroext i16 @pci_dev_attrs_are_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 %2) #9 align 16 {
+define internal zeroext i16 @pci_dev_attrs_are_visible(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 %2) #9 align 16 {
   %4 = icmp eq ptr %1, @dev_attr_boot_vga
   br i1 %4, label %5, label %14
 
@@ -3140,7 +3140,7 @@ define internal zeroext i16 @pci_dev_attrs_are_visible(ptr noundef readonly capt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i64 -2147483648, 2147483648) i64 @boot_vga_show(ptr noundef readonly captures(address) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
+define internal range(i64 -2147483648, 2147483648) i64 @boot_vga_show(ptr noundef readonly %0, ptr readnone captures(none) %1, ptr noundef %2) #0 align 16 {
   %4 = tail call ptr @vga_default_device() #11
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6

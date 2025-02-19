@@ -908,7 +908,7 @@ mi_os_decommit_ex.exit:                           ; preds = %2, %mi_align_down_p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_commit_ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_commit_ex(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2, i64 noundef %3) local_unnamed_addr #1 {
   %5 = alloca i8, align 1
   %6 = icmp ne ptr %2, null
   br i1 %6, label %7, label %8
@@ -996,7 +996,7 @@ declare i32 @_mi_prim_commit(ptr noundef, i64 noundef, ptr noundef) local_unname
 declare void @_mi_warning_message(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define hidden noundef zeroext i1 @_mi_os_commit(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = tail call zeroext i1 @_mi_os_commit_ex(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %1) #8
   ret i1 %4
 }
@@ -1306,7 +1306,7 @@ mi_os_protectx.exit:                              ; preds = %2, %mi_align_down_p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((0, 24)) %5) local_unnamed_addr #1 {
+define hidden ptr @_mi_os_alloc_huge_os_pages(i64 noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly captures(none) initializes((0, 24)) %5) local_unnamed_addr #1 {
   %7 = alloca i8, align 1
   %8 = alloca ptr, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, i8 0, i64 24, i1 false)

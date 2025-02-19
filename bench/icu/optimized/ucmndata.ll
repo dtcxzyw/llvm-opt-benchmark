@@ -11,7 +11,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL9ToCPFuncs = internal constant %struct.commonDataFuncs { ptr @_ZL18pointerTOCLookupFnPK11UDataMemoryPKcPiP10UErrorCode, ptr @_ZL20pointerTOCEntryCountPK11UDataMemory }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i16 @udata_getHeaderSize_75(ptr noundef readonly captures(address_is_null) %udh) local_unnamed_addr #0 {
+define zeroext i16 @udata_getHeaderSize_75(ptr noundef readonly %udh) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %udh, null
   br i1 %cmp, label %return, label %if.else
@@ -31,7 +31,7 @@ return:                                           ; preds = %if.else, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define zeroext i16 @udata_getInfoSize_75(ptr noundef readonly captures(address_is_null) %info) local_unnamed_addr #0 {
+define zeroext i16 @udata_getInfoSize_75(ptr noundef readonly %info) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %info, null
   br i1 %cmp, label %return, label %if.else

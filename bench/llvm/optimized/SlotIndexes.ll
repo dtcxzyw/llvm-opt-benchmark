@@ -268,7 +268,7 @@ _ZN4llvm11raw_ostreamlsEc.exit:                   ; preds = %39, %41
 declare { ptr, i64 } @_ZNK4llvm15MachineFunction7getNameEv(ptr noundef nonnull align 8 dereferenceable(1065)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZNK4llvm11SlotIndexes5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZNK4llvm11SlotIndexes5printERNS_11raw_ostreamE(ptr noundef nonnull readonly align 8 dereferenceable(432) %0, ptr noundef nonnull align 8 dereferenceable(48) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.031.035 = load ptr, ptr %4, align 8, !tbaa !27
@@ -1622,7 +1622,7 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_12MachineInstrENS_9SlotIndexENS_12Dense
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm11SlotIndexes15renumberIndexesENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14IndexListEntryELb0ELb0EvLb0EvEELb0ELb0EEE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(432) %0, ptr captures(none) %1) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm11SlotIndexes15renumberIndexesENS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_14IndexListEntryELb0ELb0EvLb0EvEELb0ELb0EEE(ptr noundef nonnull readnone align 8 dereferenceable(432) %0, ptr captures(none) %1) local_unnamed_addr #4 align 2 {
 .lr.ph.i.i.i:
   %2 = load ptr, ptr %1, align 8, !tbaa !24
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -1652,7 +1652,7 @@ define dso_local void @_ZN4llvm11SlotIndexes15renumberIndexesENS_14ilist_iterato
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm11SlotIndexes20repairIndexesInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES5_(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef readonly captures(address) %1, ptr readonly captures(address) %2, ptr %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm11SlotIndexes20repairIndexesInRangeEPNS_17MachineBasicBlockENS_26MachineInstrBundleIteratorINS_12MachineInstrELb0EEES5_(ptr noundef nonnull align 8 dereferenceable(432) %0, ptr noundef readonly %1, ptr readonly %2, ptr %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load ptr, ptr %5, align 8, !tbaa !124
   %7 = icmp ne ptr %2, %6
@@ -2565,7 +2565,7 @@ _ZN4llvm11SlotIndexes15renumberIndexesENS_14ilist_iteratorINS_12ilist_detail12no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm11SlotIndexes11packIndexesEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(432) %0) local_unnamed_addr #4 align 2 {
+define dso_local void @_ZN4llvm11SlotIndexes11packIndexesEv(ptr noundef nonnull readonly align 8 dereferenceable(432) %0) local_unnamed_addr #4 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %.sroa.07.013 = load ptr, ptr %3, align 8, !tbaa !27

@@ -2480,7 +2480,7 @@ validate_time_flag.exit.thread:                   ; preds = %.sink.split.i, %3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -30, 1) i32 @archive_match_include_file_time(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -30, 1) i32 @archive_match_include_file_time(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @__archive_check_magic(ptr noundef %0, i32 noundef 212668873, i32 noundef 1, ptr noundef nonnull @.str.20) #14
   %.not14.i = icmp eq i32 %4, -30
   br i1 %.not14.i, label %validate_time_flag.exit.thread, label %5
@@ -2520,7 +2520,7 @@ validate_time_flag.exit.thread:                   ; preds = %.sink.split.i, %3, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @set_timefilter_pathname_mbs(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @set_timefilter_pathname_mbs(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #14
   %5 = icmp eq ptr %2, null

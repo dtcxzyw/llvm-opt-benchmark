@@ -3610,7 +3610,7 @@ declare i32 @ARKodeSetNonlinearSolver(ptr noundef, ptr noundef) local_unnamed_ad
 declare i32 @arkInit(ptr noundef, double noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -22, 1) i32 @mriStepInnerStepper_HasRequiredOps(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 -22, 1) i32 @mriStepInnerStepper_HasRequiredOps(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -3881,7 +3881,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @MRIStepCoupling_Write(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @mriStepInnerStepper_PrintMem(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
+define void @mriStepInnerStepper_PrintMem(ptr noundef readonly %0, ptr noundef captures(none) %1) local_unnamed_addr #7 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -6498,7 +6498,7 @@ define range(i32 -27, 1) i32 @mriStep_Hin(ptr noundef readonly captures(none) %0
 declare i32 @arkHandleFailure(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @mriStepInnerStepper_SupportsRTolAdaptivity(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @mriStepInnerStepper_SupportsRTolAdaptivity(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %3
 
@@ -7979,7 +7979,7 @@ define i32 @mriStepInnerStepper_GetAccumulatedError(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #10 {
+define range(i32 -41, 1) i32 @mriStep_RKCoeffs(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #10 {
   %6 = icmp slt i32 %1, 1
   br i1 %6, label %.loopexit72, label %7
 
@@ -8552,7 +8552,7 @@ MRIStepInnerStepper_SetEvolveFn.exit.thread:      ; preds = %13, %MRIStepInnerSt
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetContent(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetContent(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8570,7 +8570,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetContent(ptr noundef writeon
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetEvolveFn(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetEvolveFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8647,7 +8647,7 @@ define range(i32 -51, 1) i32 @mriStepInnerStepper_EvolveSUNStepper(ptr noundef c
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetFullRhsFn(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetFullRhsFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8693,7 +8693,7 @@ define range(i32 -51, 1) i32 @mriStepInnerStepper_FullRhsSUNStepper(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetResetFn(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetResetFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8829,7 +8829,7 @@ define range(i32 -22, 1) i32 @mriStepInnerStepper_FreeVecs(ptr noundef %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetContent(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetContent(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8848,7 +8848,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetContent(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetAccumulatedErrorGetFn(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetAccumulatedErrorGetFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8877,7 +8877,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetAccumulatedErrorGetFn(ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetAccumulatedErrorResetFn(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetAccumulatedErrorResetFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8906,7 +8906,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetAccumulatedErrorResetFn(ptr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetRTolFn(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetRTolFn(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 
@@ -8935,7 +8935,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_SetRTolFn(ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonly captures(address_is_null) %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonly %0, double noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -8992,7 +8992,7 @@ define range(i32 -22, 1) i32 @MRIStepInnerStepper_AddForcing(ptr noundef readonl
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetForcingData(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
+define range(i32 -22, 1) i32 @MRIStepInnerStepper_GetForcingData(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 

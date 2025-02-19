@@ -1370,7 +1370,7 @@ _ZNSt14__shared_countILN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1, %9,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator8andFalseENS0_12NodeTemplateILb1EEENS0_4expr9NodeValue8iteratorINS4_ILb0EEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(address) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator8andFalseENS0_12NodeTemplateILb1EEENS0_4expr9NodeValue8iteratorINS4_ILb0EEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef readonly captures(none) %2, ptr readnone %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cvc5::internal::NodeTemplate.5", align 8
   %6 = alloca %"class.cvc5::internal::NodeBuilder", align 8
   %7 = alloca %"class.cvc5::internal::NodeTemplate.5", align 8
@@ -2563,7 +2563,7 @@ _ZNSt13_Bvector_baseISaIbEED2Ev.exit:             ; preds = %33, %34
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator6orTrueENS0_12NodeTemplateILb1EEENS0_4expr9NodeValue8iteratorINS4_ILb0EEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef readonly captures(none) %2, ptr readnone captures(address) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN4cvc58internal6theory8booleans22ProofCircuitPropagator6orTrueENS0_12NodeTemplateILb1EEENS0_4expr9NodeValue8iteratorINS4_ILb0EEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::shared_ptr") align 8 %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1, ptr noundef readonly captures(none) %2, ptr readnone %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cvc5::internal::NodeTemplate.5", align 8
   %6 = alloca %"class.std::shared_ptr", align 8
   %7 = alloca %"class.cvc5::internal::NodeTemplate", align 8

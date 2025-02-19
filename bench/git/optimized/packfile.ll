@@ -885,7 +885,7 @@ define dso_local nonnull ptr @pack_basename(ptr noundef readonly %0) local_unnam
 declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @use_pack(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local ptr @use_pack(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %1, align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i64, ptr %6, align 8, !tbaa !37
@@ -4031,7 +4031,7 @@ declare i64 @pack_pos_to_offset(ptr noundef, i32 noundef) local_unnamed_addr #1
 declare ptr @type_name(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @unpack_entry(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local ptr @unpack_entry(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca %struct.hashmap_entry, align 8
   %7 = alloca %struct.delta_base_cache_key, align 8
   %8 = alloca i64, align 8
@@ -5174,7 +5174,7 @@ define dso_local i32 @bsearch_pack(ptr noundef %0, ptr noundef readonly captures
 declare i32 @bsearch_hash(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @check_pack_index_ptr(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define dso_local void @check_pack_index_ptr(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !44
   %5 = icmp ult ptr %1, %4
@@ -6894,7 +6894,7 @@ declare ptr @xmallocz_gently(i64 noundef) local_unnamed_addr #1
 declare void @hashmap_init(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @delta_base_cache_hash_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) #18 {
+define internal range(i32 0, 2) i32 @delta_base_cache_hash_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #18 {
   %.not = icmp eq ptr %3, null
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %.not, label %16, label %6

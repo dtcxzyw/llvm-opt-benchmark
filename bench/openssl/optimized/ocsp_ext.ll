@@ -314,14 +314,14 @@ define range(i32 0, 2) i32 @OCSP_SINGLERESP_add_ext(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_request_add1_nonce(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_request_add1_nonce(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @ocsp_add1_nonce(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @ocsp_add1_nonce(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.asn1_string_st, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #4
@@ -379,7 +379,7 @@ define internal fastcc range(i32 0, 2) i32 @ocsp_add1_nonce(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @OCSP_basic_add1_nonce(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @OCSP_basic_add1_nonce(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = tail call fastcc i32 @ocsp_add1_nonce(ptr noundef nonnull %4, ptr noundef %1, i32 noundef %2)
   ret i32 %5
@@ -458,7 +458,7 @@ define range(i32 0, 3) i32 @OCSP_copy_nonce(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @OCSP_crlID_new(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @OCSP_crlID_new(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @OCSP_CRLID_new() #4
   %5 = icmp eq ptr %4, null
   br i1 %5, label %29, label %6
@@ -540,7 +540,7 @@ declare ptr @X509V3_EXT_i2d(i32 noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @OCSP_CRLID_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OCSP_accept_responses_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @OCSP_accept_responses_new(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @OPENSSL_sk_new_null() #4
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.loopexit, label %.preheader
@@ -623,7 +623,7 @@ define ptr @OCSP_archive_cutoff_new(ptr noundef %0) local_unnamed_addr #0 {
 declare void @ASN1_GENERALIZEDTIME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @OCSP_url_svcloc_new(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @OCSP_url_svcloc_new(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @OCSP_SERVICELOC_new() #4
   %4 = icmp eq ptr %3, null
   br i1 %4, label %.loopexit, label %5

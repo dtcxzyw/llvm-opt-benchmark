@@ -1223,7 +1223,7 @@ _ZN8QuantLib8ScheduleC2EOS0_.exit:                ; preds = %entry, %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg13withNotionalsEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((160, 168)) %this, double noundef %notional) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg13withNotionalsEd(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((160, 168)) %this, double noundef %notional) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
   store double %notional, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !67
@@ -1370,7 +1370,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg21withPaymentDayCounterERKNS_10DayCounterE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((176, 184)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg21withPaymentDayCounterERKNS_10DayCounterE(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((176, 184)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %dayCounter) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %paymentDayCounter_ = getelementptr inbounds nuw i8, ptr %this, i64 176
   %0 = load ptr, ptr %dayCounter, align 8, !tbaa !73
@@ -1430,7 +1430,7 @@ _ZN8QuantLib10DayCounteraSERKS0_.exit:            ; preds = %_ZN5boost10shared_p
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg21withPaymentAdjustmentENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(409) initializes((192, 196)) %this, i32 noundef %convention) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg21withPaymentAdjustmentENS_21BusinessDayConventionE(ptr noundef nonnull returned writeonly align 8 dereferenceable(409) initializes((192, 196)) %this, i32 noundef %convention) local_unnamed_addr #13 align 2 {
 entry:
   %paymentAdjustment_ = getelementptr inbounds nuw i8, ptr %this, i64 192
   store i32 %convention, ptr %paymentAdjustment_, align 8, !tbaa !75
@@ -1438,7 +1438,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg14withFixingDaysEj(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((208, 216)) %this, i32 noundef %fixingDays) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg14withFixingDaysEj(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((208, 216)) %this, i32 noundef %fixingDays) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #32
   store i32 %fixingDays, ptr %call5.i.i.i.i2.i.i1, align 4, !tbaa !107
@@ -1585,7 +1585,7 @@ if.end75:                                         ; preds = %if.end69, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg12withGearingsEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((232, 240)) %this, double noundef %gearing) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg12withGearingsEd(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((232, 240)) %this, double noundef %gearing) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
   store double %gearing, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !67
@@ -1621,7 +1621,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg11withSpreadsEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((256, 264)) %this, double noundef %spread) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg11withSpreadsEd(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((256, 264)) %this, double noundef %spread) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
   store double %spread, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !67
@@ -1657,7 +1657,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg9inArrearsEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(409) initializes((272, 273)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg9inArrearsEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(409) initializes((272, 273)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
 entry:
   %storedv = zext i1 %flag to i8
   %inArrears_ = getelementptr inbounds nuw i8, ptr %this, i64 272
@@ -1666,7 +1666,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withCallStrikesEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((288, 296)) %this, double noundef %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withCallStrikesEd(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((288, 296)) %this, double noundef %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
   store double %strike, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !67
@@ -1702,7 +1702,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg18withLongCallOptionENS_8Position4TypeE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(409) initializes((328, 332)) %this, i32 noundef %type) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg18withLongCallOptionENS_8Position4TypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(409) initializes((328, 332)) %this, i32 noundef %type) local_unnamed_addr #13 align 2 {
 entry:
   %longCallOption_ = getelementptr inbounds nuw i8, ptr %this, i64 328
   store i32 %type, ptr %longCallOption_, align 8, !tbaa !112
@@ -1710,7 +1710,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg11withCallATMEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(409) initializes((332, 333)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg11withCallATMEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(409) initializes((332, 333)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
 entry:
   %storedv = zext i1 %flag to i8
   %callATM_ = getelementptr inbounds nuw i8, ptr %this, i64 332
@@ -1719,7 +1719,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withCallPayoffsEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((312, 320)) %this, double noundef %payoff) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withCallPayoffsEd(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((312, 320)) %this, double noundef %payoff) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
   store double %payoff, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !67
@@ -1755,7 +1755,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg14withPutStrikesEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((344, 352)) %this, double noundef %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg14withPutStrikesEd(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((344, 352)) %this, double noundef %strike) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
   store double %strike, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !67
@@ -1791,7 +1791,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg17withLongPutOptionENS_8Position4TypeE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(409) initializes((384, 388)) %this, i32 noundef %type) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg17withLongPutOptionENS_8Position4TypeE(ptr noundef nonnull returned writeonly align 8 dereferenceable(409) initializes((384, 388)) %this, i32 noundef %type) local_unnamed_addr #13 align 2 {
 entry:
   %longPutOption_ = getelementptr inbounds nuw i8, ptr %this, i64 384
   store i32 %type, ptr %longPutOption_, align 8, !tbaa !114
@@ -1799,7 +1799,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg10withPutATMEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(409) initializes((388, 389)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg10withPutATMEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(409) initializes((388, 389)) %this, i1 noundef zeroext %flag) local_unnamed_addr #13 align 2 {
 entry:
   %storedv = zext i1 %flag to i8
   %putATM_ = getelementptr inbounds nuw i8, ptr %this, i64 388
@@ -1808,7 +1808,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg14withPutPayoffsEd(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((368, 376)) %this, double noundef %payoff) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg14withPutPayoffsEd(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((368, 376)) %this, double noundef %payoff) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call5.i.i.i.i2.i.i1 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #32
   store double %payoff, ptr %call5.i.i.i.i2.i.i1, align 8, !tbaa !67
@@ -1844,7 +1844,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withReplicationERKN5boost10shared_ptrINS_18DigitalReplicationEEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((392, 400)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %replication) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withReplicationERKN5boost10shared_ptrINS_18DigitalReplicationEEE(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((392, 400)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %replication) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %replication_ = getelementptr inbounds nuw i8, ptr %this, i64 392
   %0 = load ptr, ptr %replication, align 8, !tbaa !54
@@ -1904,7 +1904,7 @@ _ZN5boost10shared_ptrIN8QuantLib18DigitalReplicationEEaSERKS3_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withReplicationEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(409) initializes((392, 400)) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withReplicationEv(ptr noundef nonnull returned align 8 dereferenceable(409) initializes((392, 400)) %this) local_unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"class.boost::shared_ptr.57", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp) #29
@@ -2099,7 +2099,7 @@ lpad:                                             ; preds = %cond.true.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withNakedOptionEb(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(409) initializes((408, 409)) %this, i1 noundef zeroext %nakedOption) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(409) ptr @_ZN8QuantLib19DigitalCmsSpreadLeg15withNakedOptionEb(ptr noundef nonnull returned writeonly align 8 dereferenceable(409) initializes((408, 409)) %this, i1 noundef zeroext %nakedOption) local_unnamed_addr #13 align 2 {
 entry:
   %storedv = zext i1 %nakedOption to i8
   %nakedOption_ = getelementptr inbounds nuw i8, ptr %this, i64 408

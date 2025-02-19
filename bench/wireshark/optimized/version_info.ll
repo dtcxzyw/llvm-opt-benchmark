@@ -55,7 +55,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.39 = private unnamed_addr constant [26 x i8] c"%li MB of physical memory\00", align 1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @ws_init_version_info(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @ws_init_version_info(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @g_string_new(ptr noundef nonnull @.str.30)
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %6 = load i64, ptr %5, align 8
@@ -261,7 +261,7 @@ define noundef nonnull ptr @get_ss_vcs_version_info() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @get_compiled_version_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef ptr @get_compiled_version_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -376,7 +376,7 @@ end_string.exit:                                  ; preds = %.critedge.thread.i,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef ptr @get_runtime_version_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef ptr @get_runtime_version_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.sysinfo, align 8
   %3 = alloca ptr, align 8
   %4 = alloca ptr, align 8
@@ -781,7 +781,7 @@ define noundef nonnull ptr @get_ws_vcs_version_info_short() local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: write) uwtable
-define void @get_ws_version_number(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define void @get_ws_version_number(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 

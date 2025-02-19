@@ -15822,7 +15822,7 @@ declare noundef ptr @_ZN17duckdb_libpgquery11makeIntegerEl(i64 noundef) local_un
 declare noundef ptr @_ZN17duckdb_libpgquery10makeStringEPKc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17duckdb_libpgqueryL14processCASbitsEiiPKcPbS2_S2_S2_Pv(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZN17duckdb_libpgqueryL14processCASbitsEiiPKcPbS2_S2_S2_Pv(i32 noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef %7) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %9
 
@@ -15932,7 +15932,7 @@ declare noundef ptr @_ZN17duckdb_libpgquery19makeDefElemExtendedEPKcS1_PNS_6PGNo
 declare noundef ptr @_ZN17duckdb_libpgquery12makeRangeVarEPcS0_i(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17duckdb_libpgqueryL20check_qualified_nameEPNS_6PGListEPv(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @_ZN17duckdb_libpgqueryL20check_qualified_nameEPNS_6PGListEPv(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %._crit_edge, label %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit
 
@@ -15970,7 +15970,7 @@ declare noundef ptr @_ZN17duckdb_libpgquery7pstrdupEPKc(ptr noundef) local_unnam
 declare noundef ptr @_ZN17duckdb_libpgquery9makeAliasEPKcPNS_6PGListE(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv(ptr noundef readonly returned captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv(ptr noundef readonly returned %0, ptr noundef %1) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %._crit_edge, label %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit
 
@@ -16110,7 +16110,7 @@ declare noundef ptr @_ZN17duckdb_libpgquery24makeTypeNameFromNameListEPNS_6PGLis
 declare noundef ptr @_ZN17duckdb_libpgquery8psprintfEPKcz(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN17duckdb_libpgqueryL19insertSelectOptionsEPNS_12PGSelectStmtEPNS_6PGListES3_PNS_6PGNodeES5_S5_PNS_12PGWithClauseEPv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone captures(address) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc void @_ZN17duckdb_libpgqueryL19insertSelectOptionsEPNS_12PGSelectStmtEPNS_6PGListES3_PNS_6PGNodeES5_S5_PNS_12PGWithClauseEPv(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = load i32, ptr %0, align 8, !tbaa !592
   %.not = icmp eq i32 %9, 232
   br i1 %.not, label %16, label %10
@@ -16558,7 +16558,7 @@ _ZN17duckdb_libpgqueryL17check_indirectionEPNS_6PGListEPv.exit44: ; preds = %41,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL15check_func_nameEPNS_6PGListEPv(ptr noundef readonly returned captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZN17duckdb_libpgqueryL15check_func_nameEPNS_6PGListEPv(ptr noundef readonly returned %0, ptr noundef %1) unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %._crit_edge, label %_ZN17duckdb_libpgqueryL9list_headEPKNS_6PGListE.exit
 

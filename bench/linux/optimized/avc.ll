@@ -447,7 +447,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_selinux_audited(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) #1 align 16 {
+define internal void @trace_event_raw_event_selinux_audited(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) #1 align 16 {
   %6 = alloca %struct.trace_event_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #21
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -544,7 +544,7 @@ define internal void @trace_event_raw_event_selinux_audited(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_selinux_audited(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) #1 align 16 {
+define internal void @perf_trace_selinux_audited(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3, ptr noundef readonly %4) #1 align 16 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #21
@@ -2465,7 +2465,7 @@ define internal fastcc ptr @avc_alloc_node() unnamed_addr #1 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @avc_xperms_populate(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @avc_xperms_populate(ptr noundef nonnull writeonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = load i16, ptr %1, align 8
   %4 = icmp eq i16 %3, 0
   br i1 %4, label %62, label %5
@@ -2672,7 +2672,7 @@ define internal fastcc ptr @avc_xperms_decision_alloc(i8 noundef zeroext %0) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc void @avc_xperms_allow_perm(ptr noundef nonnull captures(address) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #19 align 16 {
+define internal fastcc void @avc_xperms_allow_perm(ptr noundef nonnull %0, i8 noundef zeroext %1, i8 noundef zeroext %2) unnamed_addr #19 align 16 {
   %4 = zext i8 %1 to i32
   %5 = and i32 %4, 31
   %6 = shl nuw i32 1, %5

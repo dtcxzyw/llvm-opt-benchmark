@@ -470,7 +470,7 @@ declare { ptr, ptr } @jump_fcontext(ptr noundef, ptr noundef) local_unnamed_addr
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @zend_fiber_start(ptr noundef initializes((96, 104)) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local range(i32 -1, 1) i32 @zend_fiber_start(ptr noundef initializes((96, 104)) %0, ptr noundef writeonly %1) local_unnamed_addr #7 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
@@ -703,7 +703,7 @@ define internal void @zend_fiber_execute(ptr noundef captures(none) initializes(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_fiber_resume(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define dso_local void @zend_fiber_resume(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %4 = alloca %struct._zend_fiber_transfer, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i32, ptr %5, align 8, !tbaa !74
@@ -813,7 +813,7 @@ zend_fiber_delegate_transfer_result.exit:         ; preds = %39, %44, %49
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_fiber_resume_exception(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define dso_local void @zend_fiber_resume_exception(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %4 = alloca %struct._zend_fiber_transfer, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load i32, ptr %5, align 8, !tbaa !74
@@ -926,7 +926,7 @@ zend_fiber_delegate_transfer_result.exit:         ; preds = %40, %45, %50
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @zend_fiber_suspend(ptr noundef captures(none) initializes((176, 184), (288, 296)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #7 {
+define dso_local void @zend_fiber_suspend(ptr noundef captures(none) initializes((176, 184), (288, 296)) %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #7 {
   %4 = alloca %struct._zend_fiber_transfer, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 296
   %6 = load ptr, ptr %5, align 8, !tbaa !98
@@ -1125,7 +1125,7 @@ declare void @zend_wrong_parameter_error(i32 noundef, i32 noundef, ptr noundef, 
 declare void @zend_throw_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_start(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #7 {
+define hidden void @zim_Fiber_start(ptr noundef %0, ptr noundef writeonly %1) #7 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !56
@@ -1269,7 +1269,7 @@ zend_fiber_delegate_transfer_result.exit:         ; preds = %55, %60, %64
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_suspend(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #7 {
+define hidden void @zim_Fiber_suspend(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #7 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !tbaa !56
@@ -1424,7 +1424,7 @@ zend_fiber_delegate_transfer_result.exit:         ; preds = %60, %65, %70
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_resume(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #7 {
+define hidden void @zim_Fiber_resume(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) #7 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44
@@ -1576,7 +1576,7 @@ zend_fiber_delegate_transfer_result.exit:         ; preds = %55, %60, %65
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @zim_Fiber_throw(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #7 {
+define hidden void @zim_Fiber_throw(ptr noundef %0, ptr noundef writeonly %1) #7 {
   %3 = alloca %struct._zend_fiber_transfer, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 44

@@ -13,7 +13,7 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4core3ops8function6FnOnce9call_once17h6398678c64c98232E.llvm.14405210946879359481(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #1 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZN4core3ops8function6FnOnce9call_once17h6398678c64c98232E.llvm.14405210946879359481(ptr noalias noundef readonly returned align 8 dereferenceable(40) %0) unnamed_addr #1 {
   ret ptr %0
 }
 
@@ -1116,7 +1116,7 @@ define hidden void @"_ZN83_$LT$hashbrown..map..HashMap$LT$K$C$V$C$S$C$A$GT$$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN8indexmap19Bucket$LT$K$C$V$GT$7key_ref17ha104d47624ef13b2E.llvm.14405210946879359481"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(40) %0) unnamed_addr #7 {
+define hidden noundef nonnull align 8 dereferenceable(32) ptr @"_ZN8indexmap19Bucket$LT$K$C$V$GT$7key_ref17ha104d47624ef13b2E.llvm.14405210946879359481"(ptr noalias noundef readonly returned align 8 dereferenceable(40) %0) unnamed_addr #7 {
   ret ptr %0
 }
 
@@ -1654,7 +1654,7 @@ define hidden { i32, i32 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17habe2665b6feec491E.llvm.14405210946879359481"(ptr noundef nonnull readnone captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #1 {
+define hidden noundef nonnull ptr @"_ZN9hashbrown3raw15Bucket$LT$T$GT$15from_base_index17habe2665b6feec491E.llvm.14405210946879359481"(ptr noundef nonnull readnone %0, i64 noundef %1) unnamed_addr #1 {
   %3 = sub nsw i64 0, %1
   %4 = getelementptr inbounds { i32, [1 x i32], { { i64, [3 x i64] } } }, ptr %0, i64 %3
   ret ptr %4

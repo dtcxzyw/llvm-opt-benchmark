@@ -137,7 +137,7 @@ return:                                           ; preds = %entry, %if.end
 declare void @_ZNK19OpenColorIO_v2_4dev10OpRcPtrVec8validateEv(ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr readonly captures(address) %opVec.0.val, ptr readnone captures(address) %opVec.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN19OpenColorIO_v2_4dev12_GLOBAL__N_111FinalizeOpsERNS_10OpRcPtrVecE(ptr readonly %opVec.0.val, ptr readnone %opVec.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %op = alloca %"class.std::shared_ptr", align 8
   %cmp.i.not3 = icmp eq ptr %opVec.0.val, %opVec.8.val

@@ -11284,7 +11284,7 @@ define noundef i32 @_ZNK12ProfileModel10lastSetRowEv(ptr noundef readonly align 
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @_ZN12ProfileModel17copyTempToProfileE7QStringS0_Pb(ptr noundef align 8 dereferenceable_or_null(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN12ProfileModel17copyTempToProfileE7QStringS0_Pb(ptr noundef align 8 dereferenceable_or_null(104) %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca [3 x ptr], align 16
   %6 = alloca %"struct.QtPrivate::QStringViewArg", align 8
   %7 = alloca %"struct.QtPrivate::QStringViewArg", align 8
@@ -14957,7 +14957,7 @@ define void @_ZN12ProfileModel17illegalCharactersEv(ptr dead_on_unwind noalias w
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef i32 @_ZN12ProfileModel21importProfilesFromZipE7QStringPiP5QListIS0_E(ptr noundef align 8 dereferenceable_or_null(104) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12ProfileModel21importProfilesFromZipE7QStringPiP5QListIS0_E(ptr noundef align 8 dereferenceable_or_null(104) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca %class.QTemporaryDir, align 8
   %6 = alloca %class.QString, align 8
   %7 = alloca %class.QString, align 8
@@ -15135,7 +15135,7 @@ declare noundef zeroext i1 @_ZN18WiresharkZipHelper5unzipE7QStringS0_PFbS0_iEPFS
 declare void @_ZNK13QTemporaryDir4pathEv(ptr dead_on_unwind writable sret(%class.QString) align 8, ptr noundef align 8 dereferenceable_or_null(8)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define noundef i32 @_ZN12ProfileModel21importProfilesFromDirE7QStringPibP5QListIS0_E(ptr noundef align 8 dereferenceable_or_null(104) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i32 @_ZN12ProfileModel21importProfilesFromDirE7QStringPibP5QListIS0_E(ptr noundef align 8 dereferenceable_or_null(104) %0, ptr noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %class.QString, align 8
   %7 = alloca [3 x ptr], align 16
   %8 = alloca %"struct.QtPrivate::QStringViewArg", align 8

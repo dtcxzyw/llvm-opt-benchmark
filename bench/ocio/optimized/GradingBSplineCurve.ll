@@ -373,7 +373,7 @@ _ZNSt12__shared_ptrIN19OpenColorIO_v2_4dev23GradingBSplineCurveImplELN9__gnu_cxx
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN19OpenColorIO_v2_4dev19GradingBSplineCurve6CreateESt16initializer_listINS_19GradingControlPointEE(ptr noalias sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr readonly captures(address) %values.coerce0, i64 %values.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN19OpenColorIO_v2_4dev19GradingBSplineCurve6CreateESt16initializer_listINS_19GradingControlPointEE(ptr noalias sret(%"class.std::shared_ptr") align 8 captures(none) %agg.result, ptr readonly %values.coerce0, i64 %values.coerce1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__a.i = alloca %"class.std::allocator.22", align 1
   %newSpline = alloca %"class.std::shared_ptr.0", align 8

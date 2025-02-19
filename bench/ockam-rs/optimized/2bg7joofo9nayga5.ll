@@ -948,7 +948,7 @@ define hidden void @_ZN12futures_util6future10try_future12TryFutureExt6map_ok17h
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN12futures_util6future7poll_fn7poll_fn17h40e36a2c50b37246E(ptr noalias noundef readnone returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @_ZN12futures_util6future7poll_fn7poll_fn17h40e36a2c50b37246E(ptr noalias noundef readnone returned align 1 dereferenceable(1) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -966,7 +966,7 @@ define hidden { ptr, ptr } @_ZN12futures_util6future7poll_fn7poll_fn17hd20c492ea
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12tracing_core5field7display17h6ab0f9ec343eb473E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(48) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 8 dereferenceable(48) ptr @_ZN12tracing_core5field7display17h6ab0f9ec343eb473E(ptr noalias noundef readonly returned align 8 dereferenceable(48) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -5616,7 +5616,7 @@ define hidden i24 @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h524c86add9d3ce32E"(ptr noalias noundef readnone returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #3 {
+define hidden noundef nonnull align 1 dereferenceable(1) ptr @"_ZN59_$LT$F$u20$as$u20$core..future..into_future..IntoFuture$GT$11into_future17h524c86add9d3ce32E"(ptr noalias noundef readnone returned align 1 dereferenceable(1) %0) unnamed_addr #3 {
   ret ptr %0
 }
 
@@ -8000,7 +8000,7 @@ define hidden void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..o
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5657c8efe64be661E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #9 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h5657c8efe64be661E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #9 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null

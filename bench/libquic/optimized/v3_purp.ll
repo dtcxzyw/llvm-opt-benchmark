@@ -1073,7 +1073,7 @@ define internal i32 @xp_cmp(ptr noundef readonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal void @xptable_free(ptr noundef captures(address_is_null) %0) #7 {
+define internal void @xptable_free(ptr noundef %0) #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %14, label %2
 
@@ -1352,7 +1352,7 @@ declare ptr @X509_get_subject_name(ptr noundef) local_unnamed_addr #2
 declare ptr @X509_get_issuer_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 32) i32 @X509_check_akid(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 32) i32 @X509_check_akid(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %34, label %3
 

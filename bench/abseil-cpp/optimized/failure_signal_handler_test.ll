@@ -7787,7 +7787,7 @@ define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(16) ptr @_
 declare void @_ZN4absl12log_internal15LogMessageFatalD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #23
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN12_GLOBAL__N_116WriteToErrorFileEPKc(ptr noundef captures(address_is_null) %0) #3 {
+define internal void @_ZN12_GLOBAL__N_116WriteToErrorFileEPKc(ptr noundef %0) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 

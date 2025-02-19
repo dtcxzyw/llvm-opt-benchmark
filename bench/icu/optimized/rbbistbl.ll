@@ -622,7 +622,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK6icu_7515RBBISymbolTable6lookupERKNS_13UnicodeStringE(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) unnamed_addr #1 align 2 {
+define noundef ptr @_ZNK6icu_7515RBBISymbolTable6lookupERKNS_13UnicodeStringE(ptr noundef nonnull align 8 dereferenceable(108) %this, ptr noundef nonnull align 8 dereferenceable(64) %s) unnamed_addr #1 align 2 {
 entry:
   %fHashTable = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %fHashTable, align 8

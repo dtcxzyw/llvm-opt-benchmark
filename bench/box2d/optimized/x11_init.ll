@@ -419,7 +419,7 @@ define hidden void @_glfwGrabErrorHandlerX11() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable
-define internal noundef i32 @errorHandler(ptr noundef readnone captures(address) %0, ptr noundef readonly captures(none) %1) #1 {
+define internal noundef i32 @errorHandler(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) #1 {
   %3 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_glfw, i64 137840), align 8, !tbaa !95
   %.not = icmp eq ptr %3, %0
   br i1 %.not, label %4, label %8

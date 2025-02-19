@@ -1070,7 +1070,7 @@ return:                                           ; preds = %if.else29, %_ZNK6ic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_756BMPSet4spanEPKDsS2_17USetSpanCondition(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, ptr noundef readonly captures(address, ret: address, provenance) %s, ptr noundef readnone captures(address) %limit, i32 noundef %spanCondition) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK6icu_756BMPSet4spanEPKDsS2_17USetSpanCondition(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, ptr noundef readonly %s, ptr noundef readnone %limit, i32 noundef %spanCondition) local_unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq i32 %spanCondition, 0
   %table7FF103 = getelementptr inbounds nuw i8, ptr %this, i64 268
@@ -1504,7 +1504,7 @@ if.end199:                                        ; preds = %do.cond, %if.then2,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @_ZNK6icu_756BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, ptr noundef readnone captures(address, ret: address, provenance) %s, ptr noundef readonly captures(address, ret: address, provenance) %limit, i32 noundef %spanCondition) local_unnamed_addr #2 align 2 {
+define noundef ptr @_ZNK6icu_756BMPSet8spanBackEPKDsS2_17USetSpanCondition(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(868) %this, ptr noundef readnone %s, ptr noundef readonly %limit, i32 noundef %spanCondition) local_unnamed_addr #2 align 2 {
 entry:
   %tobool.not = icmp eq i32 %spanCondition, 0
   %arrayidx184 = getelementptr inbounds nuw i8, ptr %this, i64 844

@@ -1079,7 +1079,7 @@ lpad:                                             ; preds = %_ZNK10arith_util6pl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN3smt11farkas_util8fix_signEbP3app(ptr noundef nonnull align 8 dereferenceable(128) %this, i1 noundef zeroext %is_pos, ptr noundef readonly captures(ret: address, provenance) %c) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN3smt11farkas_util8fix_signEbP3app(ptr noundef nonnull align 8 dereferenceable(128) %this, i1 noundef zeroext %is_pos, ptr noundef readonly %c) local_unnamed_addr #3 align 2 {
 entry:
   %e1.addr.i176 = alloca ptr, align 8
   %e2.addr.i177 = alloca ptr, align 8

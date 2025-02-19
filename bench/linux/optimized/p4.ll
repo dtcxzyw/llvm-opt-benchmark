@@ -724,7 +724,7 @@ define internal i32 @p4_hw_config(ptr noundef %0) #5 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #5 align 16 {
+define internal range(i32 -22, 1) i32 @p4_pmu_schedule_events(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #5 align 16 {
   %4 = alloca [1 x i64], align 8
   %5 = alloca [2 x i64], align 16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13

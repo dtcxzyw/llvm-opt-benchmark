@@ -330,7 +330,7 @@ define hidden void @zim_RecursiveIteratorIterator___construct(ptr noundef readon
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @spl_recursive_it_it_construct(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc void @spl_recursive_it_it_construct(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8

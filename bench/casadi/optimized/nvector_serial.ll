@@ -102,7 +102,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #1
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noalias noundef ptr @N_VClone_Serial(ptr noundef captures(address_is_null) %0) #3 {
+define noalias noundef ptr @N_VClone_Serial(ptr noundef %0) #3 {
   %2 = tail call ptr @N_VCloneEmpty_Serial(ptr noundef %0)
   %3 = icmp eq ptr %2, null
   br i1 %3, label %24, label %4
@@ -153,7 +153,7 @@ N_VDestroy_Serial.exit:                           ; preds = %14, %17
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: read) uwtable
-define noalias noundef ptr @N_VCloneEmpty_Serial(ptr noundef readonly captures(address_is_null) %0) #4 {
+define noalias noundef ptr @N_VCloneEmpty_Serial(ptr noundef readonly %0) #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %95, label %3
 
@@ -361,7 +361,7 @@ define void @N_VSetArrayPointer_Serial(ptr noundef %0, ptr noundef readonly capt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly captures(address) %1, double noundef %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4) #8 {
+define void @N_VLinearSum_Serial(double noundef %0, ptr noundef readonly %1, double noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) #8 {
   %6 = fcmp oeq double %2, 1.000000e+00
   %7 = icmp eq ptr %4, %3
   %or.cond97 = and i1 %6, %7
@@ -817,7 +817,7 @@ define void @N_VDiv_Serial(ptr noundef readonly captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @N_VScale_Serial(double noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2) #8 {
+define void @N_VScale_Serial(double noundef %0, ptr noundef readonly %1, ptr noundef readonly %2) #8 {
   %4 = icmp eq ptr %2, %1
   br i1 %4, label %5, label %12
 
@@ -1464,7 +1464,7 @@ define noalias noundef ptr @N_VMake_Serial(i64 noundef %0, ptr noundef %1) local
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @N_VCloneVectorArray_Serial(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
+define noalias noundef ptr @N_VCloneVectorArray_Serial(i32 noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %.loopexit, label %4
 
@@ -1583,7 +1583,7 @@ N_VDestroy_Serial.exit:                           ; preds = %.lr.ph, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @N_VCloneVectorArrayEmpty_Serial(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #9 {
+define noalias noundef ptr @N_VCloneVectorArrayEmpty_Serial(i32 noundef %0, ptr noundef %1) local_unnamed_addr #9 {
   %3 = icmp slt i32 %0, 1
   br i1 %3, label %.loopexit, label %4
 

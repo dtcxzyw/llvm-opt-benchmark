@@ -94,7 +94,7 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_wait_fd(ptr noundef captures(none
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #2 {
   %.014 = load ptr, ptr %0, align 8, !tbaa !22
   %.not15 = icmp eq ptr %.014, null
   br i1 %.not15, label %.loopexit, label %.lr.ph
@@ -132,7 +132,7 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_get_fd(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
+define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #3 {
   %4 = load ptr, ptr %0, align 8, !tbaa !3
   store i64 0, ptr %2, align 8, !tbaa !26
   %.not1517 = icmp eq ptr %4, null
@@ -182,7 +182,7 @@ define noundef i32 @ASYNC_WAIT_CTX_get_all_fds(ptr noundef readonly captures(non
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly captures(address) %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #2 {
+define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2, ptr noundef writeonly %3, ptr noundef writeonly captures(none) initializes((0, 8)) %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i64, ptr %6, align 8, !tbaa !21
   store i64 %7, ptr %2, align 8, !tbaa !26
@@ -256,7 +256,7 @@ define noundef i32 @ASYNC_WAIT_CTX_get_changed_fds(ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %.02024 = load ptr, ptr %0, align 8, !tbaa !22
   %.not25 = icmp eq ptr %.02024, null
   br i1 %.not25, label %.loopexit, label %.lr.ph
@@ -325,7 +325,7 @@ define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_clear_fd(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @ASYNC_WAIT_CTX_set_callback(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %8, label %5
 

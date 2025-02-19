@@ -4846,7 +4846,7 @@ return:                                           ; preds = %_ZNK6hermes2vm10Str
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %it, ptr readnone captures(address) %end.coerce0, ptr readnone captures(address) %end.coerce1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %x) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN6hermes2vmL7scanIntINS0_10StringView14const_iteratorEEEbRT_S4_Ri(ptr noundef nonnull align 8 captures(none) dereferenceable(16) %it, ptr readnone %end.coerce0, ptr readnone %end.coerce1, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(4) %x) unnamed_addr #0 {
 entry:
   %LLVal.i = alloca i64, align 8
   %str = alloca %"class.llvh::SmallString", align 8

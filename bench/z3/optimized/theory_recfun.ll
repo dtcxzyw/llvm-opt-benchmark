@@ -4759,7 +4759,7 @@ terminate.lpad:                                   ; preds = %if.then2.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_ZN3smt13theory_recfun9get_depthEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(212) %this, ptr noundef readonly captures(address) %e) local_unnamed_addr #9 align 2 {
+define hidden noundef i32 @_ZN3smt13theory_recfun9get_depthEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(212) %this, ptr noundef readonly %e) local_unnamed_addr #9 align 2 {
 entry:
   %m_pred_depth = getelementptr inbounds nuw i8, ptr %this, i64 144
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %e, i64 12

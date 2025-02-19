@@ -9,7 +9,7 @@ target triple = "x86_64-pc-linux-gnu"
 @H5_H5TS_thread_t_seq_free_list = internal global { { i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr }, i64 } { { i8, [3 x i8], i32, i32, [4 x i8], i64, ptr, ptr } { i8 0, [3 x i8] zeroinitializer, i32 0, i32 0, [4 x i8] zeroinitializer, i64 0, ptr @.str.2, ptr null }, i64 8 }, align 8
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5TS_pool_create(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5TS_pool_create(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq i32 %1, 0
   %or.cond = or i1 %3, %4

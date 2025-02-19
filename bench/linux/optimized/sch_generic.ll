@@ -1949,7 +1949,7 @@ define internal i32 @pfifo_fast_dump(ptr readnone captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @qdisc_alloc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
+define dso_local ptr @qdisc_alloc(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %8
 
@@ -2980,7 +2980,7 @@ thread-pre-split:                                 ; preds = %58, %59, %63, %64, 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @dev_deactivate_many(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @dev_deactivate_many(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %.loopexit30, label %.preheader29

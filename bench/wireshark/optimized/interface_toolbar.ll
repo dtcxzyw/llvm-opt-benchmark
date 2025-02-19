@@ -13266,7 +13266,7 @@ declare void @_ZN22InterfaceToolbarReader8receivedE7QStringii10QByteArray(ptr no
 declare void @_ZN7QThread5startENS_8PriorityE(ptr noundef align 8 dereferenceable_or_null(16), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN16InterfaceToolbar12startCaptureEP7_GArray(ptr noundef align 8 dereferenceable_or_null(113) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN16InterfaceToolbar12startCaptureEP7_GArray(ptr noundef align 8 dereferenceable_or_null(113) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.QString, align 8
   %4 = alloca %class.QString, align 8
   %5 = alloca %class.QString, align 8

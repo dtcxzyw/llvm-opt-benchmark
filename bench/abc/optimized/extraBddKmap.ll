@@ -21,7 +21,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.19 = private unnamed_addr constant [25 x i8] c"PrintKMap(): Constant 0\0A\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) local_unnamed_addr #0 {
+define void @Extra_PrintKMap(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef readonly %5, i32 noundef %6, ptr noundef readonly %7) local_unnamed_addr #0 {
   %9 = ptrtoint ptr %3 to i64
   %10 = xor i64 %9, 1
   %11 = inttoptr i64 %10 to ptr

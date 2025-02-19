@@ -287,7 +287,7 @@ GLXSD_MakeCurrentToScratch.exit:                  ; preds = %20, %18
 declare ptr @OGLRenderQueue_GetCurrentContext(...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden zeroext range(i8 0, 2) i8 @OGLSD_InitOGLWindow(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.XWindowAttributes, align 8
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6

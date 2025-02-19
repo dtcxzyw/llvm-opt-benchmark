@@ -352,7 +352,7 @@ define internal void @virtio_9p_device_destructor(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @virtio_9p_device_get_driver(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1) #0 {
+define internal ptr @virtio_9p_device_get_driver(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull @.str.21) #13
   %.not.i = icmp eq i32 %4, 0
@@ -447,7 +447,7 @@ define internal void @virtio_9p_pci_start_hw(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal ptr @virtio_9p_pci_get_driver(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef %1) #0 {
+define internal ptr @virtio_9p_pci_get_driver(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = tail call i32 @g_strcmp0(ptr noundef %1, ptr noundef nonnull @.str.24) #13
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %4, label %7

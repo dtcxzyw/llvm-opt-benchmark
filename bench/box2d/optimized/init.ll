@@ -486,7 +486,7 @@ define hidden noundef i32 @_glfw_max(i32 noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_glfwInputError(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ...) local_unnamed_addr #2 {
+define hidden void @_glfwInputError(i32 noundef %0, ptr noundef readonly %1, ...) local_unnamed_addr #2 {
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %3) #21
@@ -948,7 +948,7 @@ define void @glfwInitHint(i32 noundef %0, i32 noundef %1) local_unnamed_addr #2 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @glfwInitAllocator(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @glfwInitAllocator(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -992,7 +992,7 @@ define void @glfwInitVulkanLoader(ptr noundef %0) local_unnamed_addr #14 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @glfwGetVersion(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @glfwGetVersion(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4
 
@@ -1021,7 +1021,7 @@ define void @glfwGetVersion(ptr noundef writeonly captures(address_is_null) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @glfwGetError(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define i32 @glfwGetError(ptr noundef writeonly %0) local_unnamed_addr #2 {
   %2 = icmp ne ptr %0, null
   br i1 %2, label %3, label %4
 

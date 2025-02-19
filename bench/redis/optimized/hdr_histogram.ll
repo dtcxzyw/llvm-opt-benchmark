@@ -1727,7 +1727,7 @@ get_value_from_idx_up_to_count.exit:              ; preds = %37, %2, %20
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 23) i32 @hdr_value_at_percentiles(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #7 {
+define dso_local range(i32 0, 23) i32 @hdr_value_at_percentiles(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #7 {
   %5 = alloca %struct.hdr_iter, align 8
   %6 = icmp eq ptr %1, null
   %7 = icmp eq ptr %2, null

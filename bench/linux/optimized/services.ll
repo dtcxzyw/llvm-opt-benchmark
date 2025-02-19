@@ -2503,7 +2503,7 @@ define dso_local i32 @security_context_to_sid_force(ptr noundef %0, i32 noundef 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @security_transition_sid(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local i32 @security_transition_sid(i32 noundef %0, i32 noundef %1, i16 noundef zeroext %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = icmp eq ptr %3, null
   br i1 %6, label %10, label %7
 
@@ -3472,7 +3472,7 @@ declare dso_local i32 @mls_range_set(ptr noundef, ptr noundef) local_unnamed_add
 declare dso_local i32 @policydb_context_isvalid(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -12, 1) i32 @context_struct_to_string(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) initializes((0, 4)) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -12, 1) i32 @context_struct_to_string(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef captures(none) initializes((0, 4)) %3) unnamed_addr #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   %6 = icmp eq ptr %2, null
@@ -7120,7 +7120,7 @@ declare dso_local void @__rcu_read_lock() local_unnamed_addr #3
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) unnamed_addr #0 align 16 {
+define internal fastcc i32 @constraint_expr_eval(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4) unnamed_addr #0 align 16 {
   %6 = alloca [5 x i32], align 16
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %6) #17
   %7 = icmp eq ptr %4, null

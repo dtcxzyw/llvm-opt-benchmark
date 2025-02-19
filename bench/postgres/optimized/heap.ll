@@ -671,7 +671,7 @@ declare zeroext i1 @type_is_collatable(i32 noundef) local_unnamed_addr #3
 declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address) %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @InsertPgAttributeTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load ptr, ptr %6, align 8
   %8 = load i32, ptr %1, align 8
@@ -1245,7 +1245,7 @@ declare void @CatalogTupleInsert(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare void @heap_freetuple(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly captures(address_is_null) %9, i8 noundef signext %10, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i32 noundef %14, i64 noundef %15, i1 noundef zeroext %16, i1 noundef zeroext %17, i1 noundef zeroext %18, i32 noundef %19, ptr noundef writeonly captures(address_is_null) %20) local_unnamed_addr #0 {
+define dso_local noundef i32 @heap_create_with_catalog(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, ptr noundef %8, ptr noundef readonly %9, i8 noundef signext %10, i8 noundef signext %11, i1 noundef zeroext %12, i1 noundef zeroext %13, i32 noundef %14, i64 noundef %15, i1 noundef zeroext %16, i1 noundef zeroext %17, i1 noundef zeroext %18, i32 noundef %19, ptr noundef writeonly %20) local_unnamed_addr #0 {
   %22 = alloca %struct.ObjectAddress, align 4
   %23 = alloca %struct.ObjectAddress, align 4
   %24 = alloca i32, align 4
@@ -2379,7 +2379,7 @@ declare ptr @SearchSysCacheAttName(i32 noundef, ptr noundef) local_unnamed_addr 
 declare i64 @OidFunctionCall3Coll(i32 noundef, i32 noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
+define dso_local ptr @AddRelationNewConstraints(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly %2, i1 noundef zeroext %3, i1 noundef zeroext %4, i1 noundef zeroext %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i16, align 2
   %9 = alloca [3 x %struct.ScanKeyData], align 16
   %10 = zext i1 %4 to i8
@@ -4027,7 +4027,7 @@ declare ptr @heap_copytuple(ptr noundef) local_unnamed_addr #3
 declare void @CatalogTupleInsertWithInfo(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_truncate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @heap_truncate(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge.thread, label %.lr.ph
@@ -4117,7 +4117,7 @@ heap_truncate_one_rel.exit:                       ; preds = %.lr.ph46, %26, %34
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @heap_truncate_check_FKs(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local void @heap_truncate_check_FKs(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.lr.ph

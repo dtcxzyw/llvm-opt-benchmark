@@ -579,7 +579,7 @@ define noundef ptr @Kit_DsdObjAlloc(ptr noundef captures(none) %0, i32 noundef %
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Kit_DsdObjFree(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #8 {
+define void @Kit_DsdObjFree(ptr noundef readnone captures(none) %0, ptr noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %3
 
@@ -722,7 +722,7 @@ define void @Kit_DsdPrintHex(ptr noundef captures(none) %0, ptr noundef readonly
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define ptr @Kit_DsdWriteHex(ptr noundef writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
+define ptr @Kit_DsdWriteHex(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #12 {
   %4 = shl nuw i32 1, %2
   %5 = icmp sgt i32 %4, 3
   br i1 %5, label %.lr.ph.preheader, label %._crit_edge
@@ -4318,7 +4318,7 @@ Kit_TruthCopy.exit:                               ; preds = %select.unfold.i, %K
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Kit_DsdTruthPartialTwo(ptr noundef %0, ptr noundef initializes((16, 24)) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
+define void @Kit_DsdTruthPartialTwo(ptr noundef %0, ptr noundef initializes((16, 24)) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = tail call ptr @Kit_DsdTruthComputeTwo(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %5)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %Kit_TruthCopy.exit, label %8
@@ -8916,7 +8916,7 @@ define i32 @Kit_DsdCofactoringGetVars(ptr noundef readonly captures(none) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Kit_DsdCofactoring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define i32 @Kit_DsdCofactoring(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [5 x [16 x ptr]], align 16
   %7 = alloca [5 x [16 x ptr]], align 16
   %8 = alloca [16 x i32], align 16

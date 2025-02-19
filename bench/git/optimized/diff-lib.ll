@@ -1278,7 +1278,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @release_revisions(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @index_differs_from(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @index_differs_from(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.rev_info, align 8
   %6 = alloca %struct.setup_revision_opt, align 8
   call void @llvm.lifetime.start.p0(i64 3008, ptr nonnull %5) #15
@@ -1369,7 +1369,7 @@ define dso_local void @show_interdiff(ptr noundef %0, ptr noundef %1, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @idiff_prefix_cb(ptr readnone captures(none) %0, ptr noundef readnone returned captures(ret: address, provenance) %1) #11 {
+define internal noundef ptr @idiff_prefix_cb(ptr readnone captures(none) %0, ptr noundef readnone returned %1) #11 {
   ret ptr %1
 }
 

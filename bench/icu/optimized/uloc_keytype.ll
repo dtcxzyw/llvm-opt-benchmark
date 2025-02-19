@@ -1741,7 +1741,7 @@ return:                                           ; preds = %if.end, %entry, %if
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ulocimp_toBcpType_75(ptr noundef %key, ptr noundef %type, ptr noundef writeonly captures(address_is_null) %isKnownKey, ptr noundef writeonly captures(address_is_null) %isSpecialType) local_unnamed_addr #1 {
+define ptr @ulocimp_toBcpType_75(ptr noundef %key, ptr noundef %type, ptr noundef writeonly %isKnownKey, ptr noundef writeonly %isSpecialType) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %isKnownKey, null
   br i1 %cmp.not, label %if.end, label %if.then
@@ -1941,7 +1941,7 @@ return:                                           ; preds = %land.lhs.true.i, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ulocimp_toLegacyType_75(ptr noundef %key, ptr noundef %type, ptr noundef writeonly captures(address_is_null) %isKnownKey, ptr noundef writeonly captures(address_is_null) %isSpecialType) local_unnamed_addr #1 {
+define ptr @ulocimp_toLegacyType_75(ptr noundef %key, ptr noundef %type, ptr noundef writeonly %isKnownKey, ptr noundef writeonly %isSpecialType) local_unnamed_addr #1 {
 entry:
   %cmp.not = icmp eq ptr %isKnownKey, null
   br i1 %cmp.not, label %if.end, label %if.then

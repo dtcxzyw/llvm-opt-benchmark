@@ -2934,7 +2934,7 @@ define internal fastcc void @ilk_program_watermarks(ptr noundef %0) unnamed_addr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @ilk_wm_merge(ptr noundef readonly captures(address) %0, i32 %.0.val, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((100, 101)) %2) unnamed_addr #0 align 16 {
+define internal fastcc void @ilk_wm_merge(ptr noundef readonly %0, i32 %.0.val, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((100, 101)) %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 7024
   %5 = load i8, ptr %4, align 8
   %6 = zext i8 %5 to i32
@@ -3117,7 +3117,7 @@ define internal fastcc void @ilk_wm_merge(ptr noundef readonly captures(address)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @vlv_compute_pipe_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
@@ -5721,7 +5721,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #2 sectio
 declare dso_local void @_raw_spin_unlock(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal noundef range(i32 -22, 1) i32 @g4x_compute_pipe_wm(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144

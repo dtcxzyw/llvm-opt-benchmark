@@ -1215,7 +1215,7 @@ define dso_local void @bit_rotate(ptr noundef captures(none) %0, i32 noundef %1)
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @bit_fmt(ptr noundef returned captures(ret: address, provenance) initializes((0, 1)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
+define dso_local noundef ptr @bit_fmt(ptr noundef returned initializes((0, 1)) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #0 {
   store i8 0, ptr %0, align 1
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %5 = load i64, ptr %4, align 8
@@ -1602,7 +1602,7 @@ define dso_local ptr @bit_fmt_hexmask_trim(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define dso_local range(i32 -1, 1) i32 @bit_unfmt_hexmask(ptr noundef %0, ptr noundef %1) #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -3564,7 +3564,7 @@ declare ptr @xstrchr(ptr noundef, i32 noundef) local_unnamed_addr #9
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @bitstr2inx(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @bitstr2inx(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %4
 

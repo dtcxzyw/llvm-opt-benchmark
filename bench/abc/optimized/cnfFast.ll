@@ -423,7 +423,7 @@ define i64 @Cnf_CutDeriveTruth(ptr noundef readnone captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Cnf_ComputeClauses(ptr noundef %0, ptr noundef %1, ptr noundef initializes((4, 8)) %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef initializes((4, 8)) %6) local_unnamed_addr #0 {
+define void @Cnf_ComputeClauses(ptr noundef %0, ptr noundef %1, ptr noundef initializes((4, 8)) %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef initializes((4, 8)) %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 4

@@ -520,7 +520,7 @@ return:                                           ; preds = %land.lhs.true, %for
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6hermes18SourceMapGenerator21encodeSourceLocationsERKNS0_5StateEN4llvh8ArrayRefINS_9SourceMap7SegmentEEERNS4_11raw_ostreamE(ptr noalias sret(%"struct.hermes::SourceMapGenerator::State") align 4 captures(none) initializes((0, 20)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %lastState, ptr readonly captures(address) %segments.coerce0, i64 %segments.coerce1, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
+define hidden void @_ZN6hermes18SourceMapGenerator21encodeSourceLocationsERKNS0_5StateEN4llvh8ArrayRefINS_9SourceMap7SegmentEEERNS4_11raw_ostreamE(ptr noalias sret(%"struct.hermes::SourceMapGenerator::State") align 4 captures(none) initializes((0, 20)) %agg.result, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(20) %lastState, ptr readonly %segments.coerce0, i64 %segments.coerce1, ptr noundef nonnull align 8 dereferenceable(36) %OS) local_unnamed_addr #0 align 2 {
 entry:
   %state.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %lastState, i64 4
   %state.sroa.4.0.copyload = load i32, ptr %state.sroa.4.0..sroa_idx, align 4

@@ -1556,7 +1556,7 @@ define void @cleanup_pipe(ptr noundef readnone captures(none) %0, ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define void @gui_update(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
+define void @gui_update(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = alloca [64 x i32], align 16
   %3 = alloca [64 x i32], align 16
   %4 = getelementptr i8, ptr %0, i64 680
@@ -2654,7 +2654,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
+define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #17 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.19) #21
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %13, label %4

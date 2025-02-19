@@ -8608,7 +8608,7 @@ _ZN5clang12ast_matchers8internal7MatcherINS_4DeclEED2Ev.exit13: ; preds = %_ZN5c
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #4 {
+define internal fastcc void @_ZN12_GLOBAL__N_118equalsBoundArgDeclEiPKc(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) %0, ptr noundef readonly %1) unnamed_addr #4 {
   %3 = alloca %"class.clang::ast_matchers::internal::Matcher.85", align 8
   %4 = alloca %"class.clang::ast_matchers::internal::BindableMatcher.1190", align 8
   %5 = alloca %"class.clang::ast_matchers::internal::Matcher.69", align 8

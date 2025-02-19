@@ -547,7 +547,7 @@ define internal noundef i32 @dissect_wifi_p2p_action(ptr noundef %0, ptr readnon
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_wifi_p2p_anqp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_wifi_p2p_anqp(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   %.not = icmp eq ptr %3, null

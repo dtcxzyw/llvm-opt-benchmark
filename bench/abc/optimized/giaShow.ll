@@ -1565,7 +1565,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_WriteDotAigSimple(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @Gia_WriteDotAigSimple(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -2527,7 +2527,7 @@ define i32 @Gia_ShowAddOut(ptr noundef readonly captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_WriteDotAig(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
+define void @Gia_WriteDotAig(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(none) %5, ptr noundef readonly captures(none) %6, ptr noundef readonly captures(none) %7) local_unnamed_addr #0 {
   %9 = tail call i32 @Ree_ManCountFadds(ptr noundef %3) #15
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %11 = load i32, ptr %10, align 8, !tbaa !3
@@ -3716,7 +3716,7 @@ Vec_IntFreeP.exit:                                ; preds = %603, %.critedge20, 
 declare i32 @Ree_ManCountFadds(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ShowMapAdds(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ShowMapAdds(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 24
   %.val36 = load i32, ptr %5, align 8, !tbaa !3
   %6 = ashr i32 %.val36, 5
@@ -4861,7 +4861,7 @@ declare void @Gia_ManCleanLevels(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare void @Gia_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ShowProcess(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @Gia_ShowProcess(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = tail call ptr @Gia_ShowMapAdds(ptr noundef %0, ptr noundef %3, i32 noundef %5, ptr noundef %2)
   %8 = getelementptr i8, ptr %0, i64 24
   %.val.i = load i32, ptr %8, align 8, !tbaa !3
@@ -4965,7 +4965,7 @@ Vec_IntFree.exit24:                               ; preds = %Vec_IntFree.exit22,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Gia_ManShow(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Gia_ManShow(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [200 x i8], align 16
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 200, ptr nonnull %6) #15

@@ -2946,7 +2946,7 @@ declare ptr @oid_to_hex(ptr noundef) local_unnamed_addr #3
 declare void @packet_buf_flush(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @rpc_service(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull %4) unnamed_addr #0 {
+define internal fastcc i32 @rpc_service(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, ptr noundef nonnull %4) unnamed_addr #0 {
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca %struct.child_process, align 8
   %8 = alloca [4096 x i8], align 16

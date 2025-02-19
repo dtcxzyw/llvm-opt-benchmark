@@ -559,7 +559,7 @@ define void @stbte_get_dimensions(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @stbte_get_tile(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define ptr @stbte_get_tile(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %or.cond = icmp ugt i32 %1, 199
   %4 = icmp ugt i32 %2, 199
   %or.cond5 = or i1 %or.cond, %4
@@ -571,7 +571,7 @@ define ptr @stbte_get_tile(ptr noundef readnone captures(ret: address, provenanc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @stbte_get_properties(ptr noundef readnone captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
+define ptr @stbte_get_properties(ptr noundef readnone %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #11 {
   %or.cond = icmp ugt i32 %1, 199
   %4 = icmp ugt i32 %2, 199
   %or.cond5 = or i1 %or.cond, %4
@@ -3962,7 +3962,7 @@ stbte__hittest.exit._crit_edge:                   ; preds = %stbte__hittest.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 4) i32 @stbte__float_control(i32 noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef readonly captures(address_is_null) %6, ptr noundef captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #15 {
+define range(i32 0, 4) i32 @stbte__float_control(i32 noundef %0, i32 noundef %1, i32 noundef %2, float noundef %3, float noundef %4, float noundef %5, ptr noundef readonly %6, ptr noundef captures(none) %7, i32 noundef %8, i32 noundef %9) local_unnamed_addr #15 {
   %11 = alloca [32 x i8], align 16
   %12 = add nsw i32 %2, %0
   %13 = add nsw i32 %1, 11

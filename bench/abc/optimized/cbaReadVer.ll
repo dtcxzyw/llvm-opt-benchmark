@@ -6680,7 +6680,7 @@ define range(i32 -2147483648, 2147483645) i32 @Prs_CreateBitSignal(ptr noundef r
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Prs_CreateFlopSetReset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Prs_CreateFlopSetReset(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %.val74 = load ptr, ptr %0, align 8, !tbaa !78
   %8 = getelementptr i8, ptr %.val74, i64 100
   %.val9.i.i = load i32, ptr %8, align 4, !tbaa !20
@@ -20822,7 +20822,7 @@ Prs_ManReadSignalList2.exit.thread156:            ; preds = %Prs_ManUtilSkipSpac
 declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef ptr @Prs_ManFindClosingParenthesis(ptr readonly captures(ret: address, provenance) %.24.val) unnamed_addr #13 {
+define internal fastcc noundef ptr @Prs_ManFindClosingParenthesis(ptr readonly %.24.val) unnamed_addr #13 {
   %1 = load i8, ptr %.24.val, align 1, !tbaa !25
   %.not1 = icmp eq i8 %1, 0
   br i1 %.not1, label %._crit_edge, label %.lr.ph

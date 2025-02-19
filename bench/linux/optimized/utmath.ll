@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str = private unnamed_addr constant [15 x i8] c"Divide by zero\00", align 1
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @acpi_ut_short_multiply(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_ut_short_multiply(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 
@@ -22,7 +22,7 @@ define dso_local noundef i32 @acpi_ut_short_multiply(i64 noundef %0, i32 noundef
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @acpi_ut_short_shift_left(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_ut_short_shift_left(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 
@@ -37,7 +37,7 @@ define dso_local noundef i32 @acpi_ut_short_shift_left(i64 noundef %0, i32 nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: write)
-define dso_local noundef i32 @acpi_ut_short_shift_right(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 align 16 {
+define dso_local noundef i32 @acpi_ut_short_shift_right(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %8, label %5
 
@@ -52,7 +52,7 @@ define dso_local noundef i32 @acpi_ut_short_shift_right(i64 noundef %0, i32 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12301) i32 @acpi_ut_short_divide(i64 noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 12301) i32 @acpi_ut_short_divide(i64 noundef %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq i32 %1, 0
   br i1 %5, label %6, label %7
 
@@ -90,7 +90,7 @@ define dso_local noundef range(i32 0, 12301) i32 @acpi_ut_short_divide(i64 nound
 declare dso_local void @acpi_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 0, 12301) i32 @acpi_ut_divide(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 align 16 {
+define dso_local noundef range(i32 0, 12301) i32 @acpi_ut_divide(i64 noundef %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 align 16 {
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %6, label %7
 

@@ -3075,7 +3075,7 @@ zlib_Compress_flush_impl.exit:                    ; preds = %24, %OutputBuffer_O
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_Compress_copy(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @zlib_Compress_copy(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -3104,7 +3104,7 @@ define internal ptr @zlib_Compress_copy(ptr noundef %0, ptr noundef %1, ptr read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_Compress___copy__(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @zlib_Compress___copy__(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -4017,7 +4017,7 @@ zlib_Decompress_flush_impl.exit:                  ; preds = %.thread41, %33, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_Decompress_copy(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @zlib_Decompress_copy(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -4046,7 +4046,7 @@ define internal ptr @zlib_Decompress_copy(ptr noundef %0, ptr noundef %1, ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @zlib_Decompress___copy__(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @zlib_Decompress___copy__(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

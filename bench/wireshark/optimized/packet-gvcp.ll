@@ -1693,7 +1693,7 @@ define internal fastcc void @dissect_packetresend_cmd(ptr noundef %0, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_readreg_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
@@ -1905,7 +1905,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %79, %is_extended_bo
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writereg_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #8
   store ptr null, ptr %7, align 8
@@ -2155,7 +2155,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %23, %is_extended_bo
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writemem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %8 = tail call i32 @tvb_get_ntohl(ptr noundef %1, i32 noundef 8)
@@ -2641,7 +2641,7 @@ define internal fastcc void @dissect_discovery_ack(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(none) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_readreg_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(none) %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = lshr i32 %3, 2
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %8
@@ -2899,7 +2899,7 @@ dissect_extended_bootstrap_register.exit:         ; preds = %83, %is_extended_bo
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_writereg_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %5
 
@@ -3100,7 +3100,7 @@ dissect_register_data.exit:                       ; preds = %54, %dissect_regist
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @dissect_writemem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef readonly captures(none) %4, ptr noundef readonly %5) unnamed_addr #0 {
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %.thread, label %7
 

@@ -862,7 +862,7 @@ define hidden void @_ZN4core9panicking13assert_failed17hcbd7fcc989c436d2E(i8 nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN52_$LT$$u5b$u8$u5d$$u20$as$u20$zstd_safe..WriteBuf$GT$10as_mut_ptr17h83a7e42fc599d592E.llvm.1794947692966531476"(ptr noalias noundef nonnull readnone returned align 1 captures(ret: address, provenance) %0, i64 noundef %1) unnamed_addr #5 {
+define hidden noundef nonnull ptr @"_ZN52_$LT$$u5b$u8$u5d$$u20$as$u20$zstd_safe..WriteBuf$GT$10as_mut_ptr17h83a7e42fc599d592E.llvm.1794947692966531476"(ptr noalias noundef nonnull readnone returned align 1 %0, i64 noundef %1) unnamed_addr #5 {
   ret ptr %0
 }
 

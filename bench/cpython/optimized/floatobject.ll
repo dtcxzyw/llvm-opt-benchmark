@@ -2568,7 +2568,7 @@ define internal ptr @float_vectorcall(ptr noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
-define hidden void @_PyFloat_InitState(ptr noundef readnone captures(address) %0) local_unnamed_addr #7 {
+define hidden void @_PyFloat_InitState(ptr noundef readnone %0) local_unnamed_addr #7 {
   %2 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !65
   %.not = icmp eq ptr %0, %2
   br i1 %.not, label %3, label %4
@@ -4127,7 +4127,7 @@ _float_div_mod.exit:                              ; preds = %56, %58, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_pow(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(address) %2) #1 {
+define internal ptr @float_pow(ptr noundef %0, ptr noundef %1, ptr noundef readnone %2) #1 {
   %.not = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %.not, label %6, label %4
 
@@ -4530,7 +4530,7 @@ PyFloat_FromDouble.exit:                          ; preds = %17, %_PyObject_Init
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_float(ptr noundef captures(ret: address, provenance) %0) #1 {
+define internal ptr @float_float(ptr noundef %0) #1 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %2, align 8, !tbaa !25
   %.not = icmp eq ptr %.val, @PyFloat_Type
@@ -5187,7 +5187,7 @@ Py_INCREF.exit:                                   ; preds = %46, %43, %40, %9, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_conjugate(ptr noundef captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #1 {
+define internal ptr @float_conjugate(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i.i = load ptr, ptr %3, align 8, !tbaa !25
   %.not.i.i = icmp eq ptr %.val.i.i, @PyFloat_Type
@@ -6753,7 +6753,7 @@ declare void @_PyUnicodeWriter_Dealloc(ptr noundef) local_unnamed_addr #3
 declare ptr @_PyUnicodeWriter_Finish(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @float_getreal(ptr noundef captures(ret: address, provenance) %0, ptr readnone captures(none) %1) #1 {
+define internal ptr @float_getreal(ptr noundef %0, ptr readnone captures(none) %1) #1 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val.i = load ptr, ptr %3, align 8, !tbaa !25
   %.not.i = icmp eq ptr %.val.i, @PyFloat_Type

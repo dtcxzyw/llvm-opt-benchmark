@@ -30,7 +30,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_mei_irq_writ
 @llvm.compiler.used = appending global [3 x ptr] [ptr @__UNIQUE_ID___addressable_mei_irq_compl_handler312, ptr @__UNIQUE_ID___addressable_mei_irq_read_handler314, ptr @__UNIQUE_ID___addressable_mei_irq_write_handler316], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @mei_irq_compl_handler(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define dso_local void @mei_irq_compl_handler(ptr readnone captures(none) %0, ptr noundef readonly %1) #0 align 16 {
   %3 = load ptr, ptr %1, align 8
   %4 = icmp eq ptr %3, %1
   br i1 %4, label %.loopexit, label %.preheader

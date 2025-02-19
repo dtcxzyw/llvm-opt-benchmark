@@ -4346,7 +4346,7 @@ Vec_IntPush.exit:                                 ; preds = %Vec_IntPush.exit.si
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Gia_ManSetLevels(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define i32 @Gia_ManSetLevels(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %4, label %6
 
@@ -5623,7 +5623,7 @@ define noalias noundef ptr @Gia_ManCreateMuxRefs(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Gia_ObjRecognizeExor(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @Gia_ObjRecognizeExor(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #16 {
   %.val36 = load i64, ptr %0, align 4
   %4 = and i64 %.val36, 2147483648
   %.not.i = icmp eq i64 %4, 0
@@ -5747,7 +5747,7 @@ define range(i32 0, 2) i32 @Gia_ObjRecognizeExor(ptr noundef %0, ptr noundef wri
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @Gia_ObjIsMuxType(ptr noundef readonly captures(address) %0) local_unnamed_addr #21 {
+define range(i32 0, 2) i32 @Gia_ObjIsMuxType(ptr noundef readonly %0) local_unnamed_addr #21 {
   %.val33 = load i64, ptr %0, align 4
   %2 = and i64 %.val33, 2147483648
   %.not.i = icmp eq i64 %2, 0
@@ -14077,7 +14077,7 @@ Gia_ManRingAdd.exit:                              ; preds = %.lr.ph, %Vec_IntPus
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManComputeDistanceInt(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #4 {
+define noalias noundef ptr @Gia_ManComputeDistanceInt(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = alloca %struct.Vec_Int_t_, align 8
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #41
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -14450,7 +14450,7 @@ Vec_IntFree.exit62:                               ; preds = %Vec_IntFree.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManComputeDistance(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #4 {
+define noalias noundef ptr @Gia_ManComputeDistance(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8, !tbaa !187
   %.not = icmp eq ptr %6, null

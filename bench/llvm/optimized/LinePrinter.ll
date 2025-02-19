@@ -581,7 +581,7 @@ _ZN4llvm3pdb11LinePrinter7NewLineEv.exit:         ; preds = %9, %11
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3pdb11LinePrinter15IsClassExcludedERKNS0_11ClassLayoutE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm3pdb11LinePrinter15IsClassExcludedERKNS0_11ClassLayoutE(ptr noundef nonnull readonly align 8 dereferenceable(176) %0, ptr noundef nonnull align 8 dereferenceable(408) %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load ptr, ptr %3, align 8, !tbaa !26
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 104
@@ -655,7 +655,7 @@ _ZN4llvm3pdb11LinePrinter14IsTypeExcludedENS_9StringRefEm.exit.thread: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3pdb11LinePrinter14IsTypeExcludedENS_9StringRefEm(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm3pdb11LinePrinter14IsTypeExcludedENS_9StringRefEm(ptr noundef nonnull readonly align 8 dereferenceable(176) %0, ptr %1, i64 %2, i64 noundef %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %7 = icmp eq i64 %2, 0
@@ -2852,7 +2852,7 @@ _ZN4llvm3pdb11LinePrinter7NewLineEv.exit13:       ; preds = %100, %102
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3pdb11LinePrinter16IsSymbolExcludedENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm3pdb11LinePrinter16IsSymbolExcludedENS_9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(176) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %6 = icmp eq i64 %2, 0
@@ -2905,7 +2905,7 @@ _ZN12_GLOBAL__N_114IsItemExcludedEN4llvm9StringRefERNSt7__cxx114listINS0_5RegexE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN4llvm3pdb11LinePrinter19IsCompilandExcludedENS_9StringRefE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(176) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef zeroext i1 @_ZN4llvm3pdb11LinePrinter19IsCompilandExcludedENS_9StringRefE(ptr noundef nonnull readonly align 8 dereferenceable(176) %0, ptr %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = icmp eq i64 %2, 0

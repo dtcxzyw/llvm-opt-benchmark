@@ -7095,7 +7095,7 @@ define internal i32 @_grouper_traverse(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_grouper_next(ptr noundef readonly captures(address) %0) #0 {
+define internal ptr @_grouper_next(ptr noundef readonly %0) #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !82
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 56

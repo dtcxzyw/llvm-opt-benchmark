@@ -652,7 +652,7 @@ _ZN3std2io5error5Error14is_interrupted17h943f3f95534b9a0eE.exit: ; preds = %14
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h2b1c4fb706f71f18E.llvm.1033951740711481242"(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$14try_initialize17h2b1c4fb706f71f18E.llvm.1033951740711481242"(ptr noundef nonnull writeonly align 8 initializes((0, 24)) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !89)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !92)
   %.not.i.i = icmp eq ptr %1, null
@@ -690,7 +690,7 @@ define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fa
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17hdc3a4c7c7a4d7eadE"(ptr noundef nonnull align 8 captures(ret: address, provenance) %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 ptr @"_ZN3std3sys6common12thread_local10fast_local12Key$LT$T$GT$3get17hdc3a4c7c7a4d7eadE"(ptr noundef nonnull align 8 %0, ptr noalias noundef align 8 captures(none) dereferenceable_or_null(24) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load i64, ptr %0, align 8, !range !76, !noundef !4
   %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5428,22 +5428,22 @@ define hidden void @"_ZN119_$LT$diesel..query_builder..offset_clause..NoOffsetCl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel2pg5types5money1_143_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Money$GT$$u20$for$u20$$RF$diesel..pg..types..money..PgMoney$GT$13as_expression17h815a43eb8e34a3a0E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel2pg5types5money1_143_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Money$GT$$u20$for$u20$$RF$diesel..pg..types..money..PgMoney$GT$13as_expression17h815a43eb8e34a3a0E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel2pg5types5money1_178_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Money$GT$$GT$$u20$for$u20$$RF$diesel..pg..types..money..PgMoney$GT$13as_expression17he57784f8d8b5ef53E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel2pg5types5money1_178_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Money$GT$$GT$$u20$for$u20$$RF$diesel..pg..types..money..PgMoney$GT$13as_expression17he57784f8d8b5ef53E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel2pg5types5money1_147_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Money$GT$$u20$for$u20$$RF$$RF$diesel..pg..types..money..PgMoney$GT$13as_expression17hc167530982070a3eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel2pg5types5money1_147_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Money$GT$$u20$for$u20$$RF$$RF$diesel..pg..types..money..PgMoney$GT$13as_expression17hc167530982070a3eE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #12 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel2pg5types5money1_182_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Money$GT$$GT$$u20$for$u20$$RF$$RF$diesel..pg..types..money..PgMoney$GT$13as_expression17h7acfd63081a7e4d9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #12 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel2pg5types5money1_182_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Money$GT$$GT$$u20$for$u20$$RF$$RF$diesel..pg..types..money..PgMoney$GT$13as_expression17h7acfd63081a7e4d9E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #12 {
   ret ptr %0
 }
 

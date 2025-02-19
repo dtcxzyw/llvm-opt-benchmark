@@ -2000,7 +2000,7 @@ define hidden void @_ZN5o3dgc17Static_Data_ModelD2Ev(ptr noundef nonnull readonl
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN5o3dgc17Static_Data_Model16set_distributionEjPKd(ptr noundef nonnull align 8 captures(none) dereferenceable(32) %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 align 2 {
   %4 = add i32 %1, -2049
   %or.cond = icmp ult i32 %4, -2047
   br i1 %or.cond, label %5, label %6

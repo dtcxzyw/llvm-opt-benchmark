@@ -487,7 +487,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdParsedAovTokenC2Ev(ptr nou
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdParsedAovTokenC2ERKNS_7TfTokenE(ptr noundef nonnull align 8 captures(address) dereferenceable(9) initializes((0, 8)) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__16HdParsedAovTokenC2ERKNS_7TfTokenE(ptr noundef nonnull align 8 dereferenceable(9) initializes((0, 8)) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfToken", align 8

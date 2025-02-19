@@ -28425,7 +28425,7 @@ _ZNK5Yosys7hashlib4dictINS_5RTLIL8IdStringENS2_9SelectionENS0_8hash_opsIS3_EEE9d
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZN12_GLOBAL__N_116select_op_expandEPN5Yosys5RTLIL6DesignERNS1_9SelectionERSt6vectorINS_12_GLOBAL__N_113expand_rule_tESaIS8_EERSt3setINS1_8IdStringESt4lessISD_ESaISD_EEicRNS0_9CellTypesEb(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %3, i32 noundef range(i32 1, 0) %4, i8 noundef signext range(i8 105, 121) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %6, i1 noundef zeroext %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef i32 @_ZN12_GLOBAL__N_116select_op_expandEPN5Yosys5RTLIL6DesignERNS1_9SelectionERSt6vectorINS_12_GLOBAL__N_113expand_rule_tESaIS8_EERSt3setINS1_8IdStringESt4lessISD_ESaISD_EEicRNS0_9CellTypesEb(ptr noundef nonnull %0, ptr noundef nonnull align 8 dereferenceable(120) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 dereferenceable(48) %3, i32 noundef range(i32 1, 0) %4, i8 noundef signext range(i8 105, 121) %5, ptr noundef nonnull align 8 captures(none) dereferenceable(56) %6, i1 noundef zeroext %7) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %9 = alloca [75 x i32], align 4
   %10 = alloca %"class.std::allocator.10", align 1
   %11 = alloca [75 x i32], align 4

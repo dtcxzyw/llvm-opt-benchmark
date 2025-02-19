@@ -636,7 +636,7 @@ declare i32 @ssl3_init_finished_mac(ptr noundef) local_unnamed_addr #2
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 0, 786692) i32 @ssl_get_min_max_version(ptr noundef %0, ptr noundef writeonly captures(none) initializes((0, 4)) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !93
   %7 = load i32, ptr %6, align 8, !tbaa !87
@@ -2451,7 +2451,7 @@ define range(i32 0, 2) i32 @tls_construct_change_cipher_spec(ptr noundef %0, ptr
 declare ptr @X509_get0_pubkey(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @tls_process_rpk(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @tls_process_rpk(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.PACKET, align 8
   %6 = alloca ptr, align 8
@@ -2794,7 +2794,7 @@ declare i32 @tls_parse_all_extensions(ptr noundef, i32 noundef, ptr noundef, ptr
 declare void @EVP_PKEY_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @tls_output_rpk(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @tls_output_rpk(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
   store ptr null, ptr %4, align 8, !tbaa !78
@@ -2963,7 +2963,7 @@ declare i32 @WPACKET_start_sub_packet_len__(ptr noundef, i64 noundef) local_unna
 declare i32 @tls_construct_extensions(ptr noundef, ptr noundef, i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i64 0, 2) i64 @ssl3_output_cert_chain(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i64 0, 2) i64 @ssl3_output_cert_chain(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @WPACKET_start_sub_packet_len__(ptr noundef %1, i64 noundef 3) #11
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %6, label %8
@@ -3905,7 +3905,7 @@ define i32 @ssl_allow_compression(ptr noundef %0) local_unnamed_addr #0 {
 declare i32 @ssl_security(ptr noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_version_supported(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_version_supported(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !81
   %6 = load i32, ptr %5, align 8, !tbaa !87
@@ -5252,7 +5252,7 @@ ssl_get_min_max_version.exit:                     ; preds = %._crit_edge.i, %17,
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @check_in_list(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readonly %2, i64 noundef %3, i32 noundef %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %2, null
   %8 = icmp eq i64 %3, 0
   %or.cond = or i1 %7, %8

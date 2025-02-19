@@ -5396,7 +5396,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN32BasicSnapshot_GetEntityType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN32BasicSnapshot_GetEntityType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr %.0.val) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca i32, align 4
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %0, align 8, !tbaa !52
@@ -8797,7 +8797,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN26BasicSnapshot_GetType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN26BasicSnapshot_GetType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::tuple.291", align 8
   %6 = alloca i32, align 4
@@ -12210,7 +12210,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test14pointer_stableEZN39BasicSnapshot_GetPointerStableType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test14pointer_stableEZN39BasicSnapshot_GetPointerStableType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
@@ -14809,7 +14809,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN31BasicSnapshot_GetEmptyType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN31BasicSnapshot_GetEmptyType_Test8TestBodyEvE3$_0EERKS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, i32 noundef %2) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i32, align 4
   %5 = alloca %"class.std::tuple.350", align 4
   %6 = alloca i32, align 4
@@ -18023,7 +18023,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshot_GetTypeSparse_Test8TestBodyEvE3$_0PS2_EERKS5_RT0_T1_SE_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZNK4entt14basic_snapshotINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshot_GetTypeSparse_Test8TestBodyEvE3$_0PS2_EERKS5_RT0_T1_SE_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -22900,7 +22900,7 @@ _ZNSt16allocator_traitsISaIN4entt9basic_anyILm16ELm8EEEEE9constructIS2_JjEEEvRS3
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN38BasicSnapshotLoader_GetEntityType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1) unnamed_addr #4 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIS2_ZN38BasicSnapshotLoader_GetEntityType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1) unnamed_addr #4 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !337
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 168
   %5 = load ptr, ptr %1, align 8, !tbaa !348
@@ -26035,7 +26035,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshotLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN32BasicSnapshotLoader_GetType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8, !tbaa !337
   %6 = tail call noundef nonnull align 8 dereferenceable(184) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIiEERDaj(ptr noundef nonnull align 8 dereferenceable(336) %5, i32 noundef %2)
@@ -28657,7 +28657,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN37BasicSnapshotLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIN4test5emptyEZN37BasicSnapshotLoader_GetEmptyType_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !337
   %5 = tail call noundef nonnull align 8 dereferenceable(160) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIN4test5emptyEEERDaj(ptr noundef nonnull align 8 dereferenceable(336) %4, i32 noundef %2)
   %6 = load ptr, ptr %1, align 8, !tbaa !367
@@ -31864,7 +31864,7 @@ _ZNSt6vectorIN4entt9basic_anyILm16ELm8EEESaIS2_EED2Ev.exit: ; preds = %_ZSt8_Des
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN38BasicSnapshotLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(8) ptr @"_ZN4entt21basic_snapshot_loaderINS_14basic_registryINS_6entityESaIS2_EEEE3getIiZN38BasicSnapshotLoader_GetTypeSparse_Test8TestBodyEvE3$_0EERS5_RT0_j"(ptr noundef nonnull readonly returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(12) %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = alloca i32, align 4
   %5 = load ptr, ptr %0, align 8, !tbaa !337
   %6 = tail call noundef nonnull align 8 dereferenceable(184) ptr @_ZN4entt14basic_registryINS_6entityESaIS1_EE6assureIiEERDaj(ptr noundef nonnull align 8 dereferenceable(336) %5, i32 noundef %2)

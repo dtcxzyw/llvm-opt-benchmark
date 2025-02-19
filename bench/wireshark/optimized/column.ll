@@ -575,7 +575,7 @@ col_format_to_string.exit:                        ; preds = %1, %6
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noalias ptr @column_fmt_data_to_str(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden noalias ptr @column_fmt_data_to_str(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %2
 

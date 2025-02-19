@@ -2054,7 +2054,7 @@ declare void @je_arena_set(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare void @je_base_delete(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define hidden ptr @je_arena_bin_choose(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #5 {
+define hidden ptr @je_arena_bin_choose(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #5 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %16, label %6
 
@@ -6063,7 +6063,7 @@ declare void @je_bitmap_init(ptr noundef, ptr noundef, i1 noundef zeroext) local
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1) unnamed_addr #13 {
+define internal fastcc ptr @arena_choose(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #13 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %3, label %arena_choose_impl.exit
 

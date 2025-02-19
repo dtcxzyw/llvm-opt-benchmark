@@ -918,7 +918,7 @@ lpad2:                                            ; preds = %invoke.cont
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511FormattableC2EPKS0_i(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef captures(address) %arrayToCopy, i32 noundef %count) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511FormattableC2EPKS0_i(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef %arrayToCopy, i32 noundef %count) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -1034,7 +1034,7 @@ lpad2.body:                                       ; preds = %lpad2.loopexit, %lp
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511FormattableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(112) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511FormattableC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(112) initializes((0, 16), (24, 44), (48, 58)) %this, ptr noundef nonnull align 8 dereferenceable(112) %source) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6icu_7511FormattableE, i64 16), ptr %this, align 8
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
@@ -1066,7 +1066,7 @@ lpad2:                                            ; preds = %invoke.cont, %invok
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7511FormattableaSERKS0_(ptr noundef nonnull returned align 8 captures(address, ret: address, provenance) dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %source) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(112) ptr @_ZN6icu_7511FormattableaSERKS0_(ptr noundef nonnull returned align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 dereferenceable(112) %source) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %status = alloca i32, align 4
   %cmp.not = icmp eq ptr %this, %source
@@ -1419,7 +1419,7 @@ delete.end26:                                     ; preds = %delete.notnull23, %
 declare void @_ZN6icu_756number4impl15DecimalQuantityC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(66), ptr noundef nonnull align 8 dereferenceable(66)) unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZNK6icu_7511FormattableeqERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %that) local_unnamed_addr #1 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7511FormattableeqERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull readonly align 8 dereferenceable(112) %that) local_unnamed_addr #1 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %that
   br i1 %cmp, label %return, label %if.end
@@ -1964,7 +1964,7 @@ lpad:                                             ; preds = %new.notnull
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6icu_7511Formattable8setArrayEPKS0_i(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef captures(address) %array, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN6icu_7511Formattable8setArrayEPKS0_i(ptr noundef nonnull align 8 captures(none) dereferenceable(112) %this, ptr noundef %array, i32 noundef %count) local_unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   tail call void @_ZN6icu_7511Formattable7disposeEv(ptr noundef nonnull align 8 dereferenceable(112) %this)
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 40
@@ -2127,7 +2127,7 @@ if.end6:                                          ; preds = %if.then.i5, %if.the
 declare noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7513UnicodeStringaSERKS0_(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7511Formattable9getStringER10UErrorCode(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(112) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7511Formattable9getStringER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #13 align 2 {
 entry:
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %fType, align 8
@@ -2172,14 +2172,14 @@ return:                                           ; preds = %if.end, %_ZN6icu_75
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK6icu_7511Formattable8getBogusEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(112) %this) local_unnamed_addr #7 align 2 {
+define noundef nonnull ptr @_ZNK6icu_7511Formattable8getBogusEv(ptr noundef nonnull readnone align 8 dereferenceable(112) %this) local_unnamed_addr #7 align 2 {
 entry:
   %fBogus = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %fBogus
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7511Formattable9getStringER10UErrorCode(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(112) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #13 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZN6icu_7511Formattable9getStringER10UErrorCode(ptr noundef nonnull readonly align 8 dereferenceable(112) %this, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #13 align 2 {
 entry:
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load i32, ptr %fType, align 8
@@ -2976,7 +2976,7 @@ if.end:                                           ; preds = %entry, %if.then, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ufmt_getUChars_75(ptr noundef %fmt, ptr noundef writeonly captures(address_is_null) %len, ptr noundef captures(none) %status) local_unnamed_addr #1 {
+define noundef ptr @ufmt_getUChars_75(ptr noundef %fmt, ptr noundef writeonly %len, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %fType.i = getelementptr inbounds nuw i8, ptr %fmt, i64 40
   %0 = load i32, ptr %fType.i, align 8
@@ -3114,7 +3114,7 @@ return:                                           ; preds = %if.then.i.i, %if.th
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ufmt_getDecNumChars_75(ptr noundef captures(none) %fmt, ptr noundef writeonly captures(address_is_null) %len, ptr noundef %status) local_unnamed_addr #1 {
+define ptr @ufmt_getDecNumChars_75(ptr noundef captures(none) %fmt, ptr noundef writeonly %len, ptr noundef %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i = icmp slt i32 %0, 1

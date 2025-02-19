@@ -1117,7 +1117,7 @@ declare noundef ptr @_ZN18OpenImageIO_v2_6_06Plugin16plugin_extensionEv() local_
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN18OpenImageIO_v2_6_029declare_imageio_format_lockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPNS_10ImageInputEvEPPKcPFPNS_11ImageOutputEvESE_SD_(ptr noundef nonnull align 8 dereferenceable(32) %format_name, ptr noundef %input_creator, ptr noundef readonly captures(address_is_null) %input_extensions, ptr noundef %output_creator, ptr noundef readonly captures(address_is_null) %output_extensions, ptr noundef %lib_version) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN18OpenImageIO_v2_6_029declare_imageio_format_lockedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPNS_10ImageInputEvEPPKcPFPNS_11ImageOutputEvESE_SD_(ptr noundef nonnull align 8 dereferenceable(32) %format_name, ptr noundef %input_creator, ptr noundef readonly %input_extensions, ptr noundef %output_creator, ptr noundef readonly %output_extensions, ptr noundef %lib_version) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca %"class.fmt::v8::basic_string_view", align 8
   %ref.tmp3.i = alloca %"class.fmt::v8::format_arg_store.243", align 16
@@ -2558,7 +2558,7 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN18OpenImageIO_v2_6_022declare_imageio_formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPNS_10ImageInputEvEPPKcPFPNS_11ImageOutputEvESE_SD_(ptr noundef nonnull align 8 dereferenceable(32) %format_name, ptr noundef %input_creator, ptr noundef captures(address_is_null) %input_extensions, ptr noundef %output_creator, ptr noundef captures(address_is_null) %output_extensions, ptr noundef %lib_version) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN18OpenImageIO_v2_6_022declare_imageio_formatERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPFPNS_10ImageInputEvEPPKcPFPNS_11ImageOutputEvESE_SD_(ptr noundef nonnull align 8 dereferenceable(32) %format_name, ptr noundef %input_creator, ptr noundef %input_extensions, ptr noundef %output_creator, ptr noundef %output_extensions, ptr noundef %lib_version) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %call1.i.i.i.i = tail call noundef i32 @pthread_mutex_lock(ptr noundef nonnull align 8 dereferenceable(40) @_ZN18OpenImageIO_v2_6_03pvt13imageio_mutexE) #24
   %tobool.not.i.i = icmp eq i32 %call1.i.i.i.i, 0

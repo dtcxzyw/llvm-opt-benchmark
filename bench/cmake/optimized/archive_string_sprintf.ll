@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @append_uint.digits = internal unnamed_addr constant [17 x i8] c"0123456789abcdef\00", align 16
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_string_sprintf(ptr noundef %0, ptr noundef captures(address_is_null) %1, ...) local_unnamed_addr #0 {
+define dso_local void @archive_string_sprintf(ptr noundef %0, ptr noundef %1, ...) local_unnamed_addr #0 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   call void @llvm.va_start.p0(ptr nonnull %3)
@@ -28,7 +28,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.va_start.p0(ptr) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define dso_local void @archive_string_vsprintf(ptr noundef %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call ptr @archive_string_ensure(ptr noundef %0, i64 noundef 64) #7
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7

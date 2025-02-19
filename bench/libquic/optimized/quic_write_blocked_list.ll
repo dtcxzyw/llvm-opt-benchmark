@@ -181,7 +181,7 @@ _ZN3net22PriorityWriteSchedulerIjEC2Ev.exit:      ; preds = %4
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3net20QuicWriteBlockedListD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(843) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net20QuicWriteBlockedListD2Ev(ptr noundef nonnull align 8 dereferenceable(843) initializes((0, 8)) %0) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN3net22PriorityWriteSchedulerIjEE, i64 16), ptr %0, align 8, !tbaa !3
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 720
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736

@@ -1607,7 +1607,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit28:                  ; preds = %79, %_ZNSt6vectorId
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr readonly captures(address) %.0.val, ptr readnone captures(address) %.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN10open_spiel10algorithms12_GLOBAL__N_130CheckCorrelationDeviceProbDistERKSt6vectorISt4pairIdNS_13TabularPolicyEESaIS5_EE(ptr readonly %.0.val, ptr readnone %.8.val) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %1 = alloca double, align 8
   %2 = alloca i32, align 4
   %3 = alloca %"class.std::__cxx11::basic_string", align 8

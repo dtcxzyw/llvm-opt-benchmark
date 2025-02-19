@@ -174,7 +174,7 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3gmx23exclusionBlocksToBlockaENS_8ArrayRefIKNS_14ExclusionBlockEEEP8t_blocka(ptr readonly captures(address) %0, ptr readnone captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
+define void @_ZN3gmx23exclusionBlocksToBlockaENS_8ArrayRefIKNS_14ExclusionBlockEEEP8t_blocka(ptr readonly %0, ptr readnone %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #5 {
   %.not33 = icmp eq ptr %0, %1
   br i1 %.not33, label %._crit_edge39, label %.lr.ph38
 

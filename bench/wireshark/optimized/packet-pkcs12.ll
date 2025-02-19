@@ -493,7 +493,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef range(i32 1, 25) %5, ptr noundef writeonly captures(none) %6) unnamed_addr #1 {
+define internal fastcc range(i32 0, 2) i32 @generate_key_or_iv(ptr noundef readonly captures(none) %0, i32 noundef range(i32 1, 3) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4, i32 noundef range(i32 1, 25) %5, ptr noundef writeonly captures(none) %6) unnamed_addr #1 {
   %8 = alloca ptr, align 8
   %9 = alloca ptr, align 8
   %10 = alloca [20 x i8], align 16

@@ -169,7 +169,7 @@ define dso_local ptr @uv_fs_get_path(ptr noundef readonly captures(none) %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local nonnull ptr @uv_fs_get_statbuf(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local nonnull ptr @uv_fs_get_statbuf(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   ret ptr %2
 }

@@ -622,7 +622,7 @@ define hidden i32 @BIO_shutdown_wr(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_write(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal i32 @bio_write(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #0 {
   %4 = sext i32 %2 to i64
   tail call void @BIO_clear_retry_flags(ptr noundef %0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -708,7 +708,7 @@ define internal i32 @bio_write(ptr noundef %0, ptr noundef readonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #0 {
   %4 = sext i32 %2 to i64
   tail call void @BIO_clear_retry_flags(ptr noundef %0) #12
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -818,7 +818,7 @@ define internal i32 @bio_read(ptr noundef %0, ptr noundef writeonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bio_puts(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define internal i32 @bio_puts(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %4 = trunc i64 %3 to i32
   %5 = tail call i32 @bio_write(ptr noundef %0, ptr noundef nonnull %1, i32 noundef %4)
@@ -826,7 +826,7 @@ define internal i32 @bio_puts(ptr noundef %0, ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal i64 @bio_ctrl(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
+define internal i64 @bio_ctrl(ptr noundef captures(none) %0, i32 noundef %1, i64 noundef %2, ptr noundef readonly %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !17
   switch i32 %1, label %61 [
@@ -963,7 +963,7 @@ define internal range(i32 0, 2) i32 @bio_new(ptr noundef writeonly captures(none
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal range(i32 0, 2) i32 @bio_free(ptr noundef captures(address_is_null) %0) #4 {
+define internal range(i32 0, 2) i32 @bio_free(ptr noundef %0) #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %20, label %3
 

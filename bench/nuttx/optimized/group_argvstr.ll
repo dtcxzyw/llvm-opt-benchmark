@@ -7,7 +7,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [4 x i8] c" %s\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define i64 @group_argvstr(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @group_argvstr(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %4
 

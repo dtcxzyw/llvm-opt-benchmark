@@ -13572,7 +13572,7 @@ _ZL15isSimpleAPValueRKN5clang7APValueE.exit:      ; preds = %21, %24, %tailrecur
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr noundef nonnull %3) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper19dumpAPValueChildrenERKNS_7APValueENS_8QualTypeEPFS5_S5_jEjN4llvm9StringRefESA_E3$_0EEvSA_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr readonly %1, i64 %2, ptr noundef nonnull %3) unnamed_addr #2 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"class.std::function", align 8
   %6 = alloca i8, align 1
@@ -19722,13 +19722,13 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %13, %15
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, i64 %1, ptr captures(address_is_null) %2, i64 %3) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN5clang14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(1168) %0, i64 %1, ptr %2, i64 %3) local_unnamed_addr #2 align 2 {
   tail call fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr %2, i64 %3, i64 %1, ptr %0)
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr readonly captures(address_is_null) %1, i64 %2, i64 %3, ptr nonnull %4) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper16dumpTemplateNameENS_12TemplateNameEN4llvm9StringRefEE3$_0EEvS5_T_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr readonly %1, i64 %2, i64 %3, ptr nonnull %4) unnamed_addr #2 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca i8, align 1
@@ -67202,7 +67202,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvbEEaSIZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_EENSt9enable_ifIXsr9_CallableISE_EE5valueERS1_E4typeEOSE_"(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #2 align 2 {
+define internal fastcc noundef nonnull align 8 dereferenceable(32) ptr @"_ZNSt8functionIFvbEEaSIZN5clang17TextTreeStructure8AddChildIZNS3_14TextNodeDumper5VisitERKNS3_7APValueENS3_8QualTypeEE3$_2EEvN4llvm9StringRefET_EUlbE_EENSt9enable_ifIXsr9_CallableISE_EE5valueERS1_E4typeEOSE_"(ptr noundef nonnull returned align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(120) %1) unnamed_addr #2 align 2 {
   %.sroa.0.i.i = alloca { i64, i64 }, align 8
   %3 = alloca %"class.std::function", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3) #22
@@ -68623,7 +68623,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr readonly captures(address_is_null) %1, i64 %2, ptr nonnull %3, ptr nonnull %4) unnamed_addr #2 align 2 {
+define internal fastcc void @"_ZN5clang17TextTreeStructure8AddChildIZNS_14TextNodeDumper23dumpNestedNameSpecifierEPKNS_19NestedNameSpecifierEE3$_0EEvN4llvm9StringRefET_"(ptr noundef nonnull align 8 dereferenceable(1096) %0, ptr readonly %1, i64 %2, ptr nonnull %3, ptr nonnull %4) unnamed_addr #2 align 2 {
   %.sroa.0.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"class.std::function", align 8
   %7 = alloca i8, align 1

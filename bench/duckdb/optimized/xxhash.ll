@@ -24,7 +24,7 @@ define void @_ZN11duckdb_zstd15XXH64_copyStateEPNS_13XXH64_state_sEPKS0_(ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN11duckdb_zstd5XXH32EPKvmj(ptr noundef readonly captures(address) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+define noundef i32 @_ZN11duckdb_zstd5XXH32EPKvmj(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %5 = icmp ugt i64 %1, 15
   br i1 %5, label %6, label %40
@@ -138,7 +138,7 @@ _ZN11duckdb_zstdL18XXH32_endian_alignEPKvmjNS_13XXH_endianessENS_13XXH_alignment
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN11duckdb_zstd5XXH64EPKvmy(ptr noundef readonly captures(address) %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
+define noundef i64 @_ZN11duckdb_zstd5XXH64EPKvmy(ptr noundef readonly %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %5 = icmp ugt i64 %1, 31
   br i1 %5, label %6, label %64
@@ -522,7 +522,7 @@ _ZN11duckdb_zstdL19XXH32_update_endianEPNS_13XXH32_state_sEPKvmNS_13XXH_endianes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN11duckdb_zstd12XXH32_digestEPKNS_13XXH32_state_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
+define noundef i32 @_ZN11duckdb_zstd12XXH32_digestEPKNS_13XXH32_state_sE(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load i32, ptr %2, align 4, !tbaa !17
@@ -778,7 +778,7 @@ _ZN11duckdb_zstdL19XXH64_update_endianEPNS_13XXH64_state_sEPKvmNS_13XXH_endianes
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #3 {
+define noundef i64 @_ZN11duckdb_zstd12XXH64_digestEPKNS_13XXH64_state_sE(ptr noundef readonly %0) local_unnamed_addr #3 {
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 40
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8, !tbaa !28

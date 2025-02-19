@@ -926,7 +926,7 @@ declare ptr @bmcg_sat_solver_start(...) local_unnamed_addr #7
 declare void @bmcg_sat_solver_set_nvars(ptr noundef, i32 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define void @Maj_ManFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @Maj_ManFree(ptr noundef %0) local_unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 49464
   %3 = load ptr, ptr %2, align 8, !tbaa !47
   tail call void @bmcg_sat_solver_stop(ptr noundef %3) #41
@@ -2574,7 +2574,7 @@ declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr n
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @Exa_ManFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define void @Exa_ManFree(ptr noundef %0) local_unnamed_addr #3 {
   %2 = alloca [1000 x i8], align 16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 33088
   %4 = load ptr, ptr %3, align 8, !tbaa !103
@@ -9618,7 +9618,7 @@ define noalias noundef ptr @Exa4_ManAlloc(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Exa4_ManFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #16 {
+define void @Exa4_ManFree(ptr noundef %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -19124,7 +19124,7 @@ define void @Exa6_SortSims(ptr noundef readonly captures(none) %0, ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Exa6_ReadFile(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #3 {
+define i32 @Exa6_ReadFile(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #3 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -21155,7 +21155,7 @@ define noalias noundef ptr @Exa6_ManAlloc(ptr noundef %0, ptr noundef %1, i32 no
 }
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @Exa6_ManFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #16 {
+define void @Exa6_ManFree(ptr noundef %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 

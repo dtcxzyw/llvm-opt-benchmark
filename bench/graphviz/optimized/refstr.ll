@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.3 = private unnamed_addr constant [115 x i8] c"generated/home/dtcxzyw/WorkSpace/Projects/compilers/llvm-opt-benchmark/bench/graphviz/graphviz/lib/cgraph/refstr.c\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @agstrclose(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef i32 @agstrclose(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %6, label %2
 
@@ -86,7 +86,7 @@ strdict_free.exit:                                ; preds = %refdict.exit.thread
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define ptr @agstrbind(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #1 {
+define ptr @agstrbind(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %7, label %3
 
@@ -168,13 +168,13 @@ refstrbind.exit:                                  ; preds = %24, %refstr_eq.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agstrdup(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define ptr @agstrdup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @agstrdup_internal(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @agstrdup_internal(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @agstrdup_internal(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %62, label %5
 
@@ -311,13 +311,13 @@ gv_calloc.exit:                                   ; preds = %47, %.thread.i, %53
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @agstrdup_html(ptr noundef captures(address_is_null) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define ptr @agstrdup_html(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call fastcc ptr @agstrdup_internal(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret ptr %3
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @agstrfree(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @agstrfree(ptr noundef readonly %0, ptr noundef %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %strdict_remove.exit, label %5
 
@@ -474,7 +474,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @aghtmlstr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @aghtmlstr(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -658,7 +658,7 @@ gv_calloc.exit:                                   ; preds = %21
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define internal fastcc i64 @strdict_hash(ptr noundef readonly captures(address) %0, i1 noundef zeroext %1) unnamed_addr #13 {
+define internal fastcc i64 @strdict_hash(ptr noundef readonly %0, i1 noundef zeroext %1) unnamed_addr #13 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #19
   %4 = and i64 %3, -8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4

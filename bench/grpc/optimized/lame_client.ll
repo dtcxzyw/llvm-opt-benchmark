@@ -1941,7 +1941,7 @@ delete.end:                                       ; preds = %_ZN4absl12lts_20230
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_112ErrorCompareEPvS1_(ptr noundef readnone captures(address) %p, ptr noundef readnone captures(address) %q) #7 {
+define internal noundef range(i32 -1, 2) i32 @_ZN9grpc_core12_GLOBAL__N_112ErrorCompareEPvS1_(ptr noundef readnone %p, ptr noundef readnone %q) #7 {
 entry:
   %cmp.i = icmp ult ptr %p, %q
   %cmp1.i = icmp ult ptr %q, %p

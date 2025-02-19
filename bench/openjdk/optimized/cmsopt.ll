@@ -15,7 +15,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.1 = private unnamed_addr constant [53 x i8] c"(internal) %d Channels are not supported on PatchLUT\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_cmsAllocOptimizationPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden void @_cmsAllocOptimizationPluginChunk(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._cmsOptimizationPluginChunkType, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %23, label %4
@@ -89,7 +89,7 @@ DupPluginOptimizationList.exit:                   ; preds = %7, %._crit_edge.i
 declare ptr @_cmsSubAllocDup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @_cmsRegisterOptimizationPlugin(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @_cmsRegisterOptimizationPlugin(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @_cmsContextGetClientChunk(ptr noundef %0, i32 noundef 12) #10
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.sink.split, label %5
@@ -1140,7 +1140,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %.lr.ph16, %22, %24
 declare void @cmsPipelineFree(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc ptr @PrelinOpt16alloc(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 288) #10
   %8 = icmp eq ptr %7, null
   br i1 %8, label %.loopexit, label %9
@@ -3199,7 +3199,7 @@ declare i32 @_cmsMAT3isIdentity(ptr noundef) local_unnamed_addr #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @SetMatShaper(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
+define internal fastcc void @SetMatShaper(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5) unnamed_addr #0 {
   %7 = load i32, ptr %5, align 4
   %8 = tail call i32 @_cmsFormatterIs8bit(i32 noundef %7) #10
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -3597,7 +3597,7 @@ declare ptr @cmsReverseToneCurveEx(i32 noundef, ptr noundef) local_unnamed_addr 
 declare ptr @cmsPipelineDup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @PrelinOpt8alloc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @PrelinOpt8alloc(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 4624) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %72, label %.preheader

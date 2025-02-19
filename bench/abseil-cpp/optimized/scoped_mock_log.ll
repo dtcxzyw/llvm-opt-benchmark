@@ -4257,7 +4257,7 @@ define dso_local void @_ZN4absl13ScopedMockLog18StartCapturingLogsEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13ScopedMockLog14UseAsLocalSinkEv(ptr noundef nonnull writeonly align 8 captures(ret: address, provenance) dereferenceable(240) %0) local_unnamed_addr #9 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(8) ptr @_ZN4absl13ScopedMockLog14UseAsLocalSinkEv(ptr noundef nonnull writeonly align 8 dereferenceable(240) %0) local_unnamed_addr #9 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 233
   store atomic i8 1, ptr %2 monotonic, align 1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 216

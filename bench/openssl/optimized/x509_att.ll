@@ -176,7 +176,7 @@ define ptr @X509at_delete_attr(ptr noundef %0, i32 noundef %1) local_unnamed_add
 declare ptr @OPENSSL_sk_delete(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_x509at_add1_attr(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @ossl_x509at_add1_attr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -255,7 +255,7 @@ declare void @X509_ATTRIBUTE_free(ptr noundef) #1
 declare void @OPENSSL_sk_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509at_add1_attr(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @X509at_add1_attr(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -319,7 +319,7 @@ declare ptr @OBJ_nid2sn(i32 noundef) local_unnamed_addr #1
 declare i32 @OBJ_obj2nid(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_x509at_add1_attr_by_OBJ(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @ossl_x509at_add1_attr_by_OBJ(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef null, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4)
   %7 = icmp eq ptr %6, null
   br i1 %7, label %10, label %8
@@ -335,7 +335,7 @@ define ptr @ossl_x509at_add1_attr_by_OBJ(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @X509_ATTRIBUTE_create_by_OBJ(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %10, label %7
 
@@ -409,7 +409,7 @@ X509_ATTRIBUTE_set1_object.exit:                  ; preds = %14
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509at_add1_attr_by_OBJ(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @X509at_add1_attr_by_OBJ(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %1, null
   %or.cond = or i1 %6, %7
@@ -473,7 +473,7 @@ ossl_x509at_add1_attr_by_OBJ.exit:                ; preds = %25, %X509at_get_att
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_x509at_add1_attr_by_NID(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @ossl_x509at_add1_attr_by_NID(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -504,7 +504,7 @@ X509_ATTRIBUTE_create_by_NID.exit.thread:         ; preds = %12, %8, %X509_ATTRI
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_ATTRIBUTE_create_by_NID(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @X509_ATTRIBUTE_create_by_NID(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @OBJ_nid2obj(i32 noundef %1) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -530,7 +530,7 @@ define ptr @X509_ATTRIBUTE_create_by_NID(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509at_add1_attr_by_NID(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @X509at_add1_attr_by_NID(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -590,7 +590,7 @@ X509at_get_attr_by_NID.exit.thread:               ; preds = %16, %X509at_get_att
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_x509at_add1_attr_by_txt(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @ossl_x509at_add1_attr_by_txt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @OBJ_txt2obj(ptr noundef %1, i32 noundef 0) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %X509_ATTRIBUTE_create_by_txt.exit.thread, label %X509_ATTRIBUTE_create_by_txt.exit
@@ -618,7 +618,7 @@ X509_ATTRIBUTE_create_by_txt.exit:                ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_ATTRIBUTE_create_by_txt(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @X509_ATTRIBUTE_create_by_txt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @OBJ_txt2obj(ptr noundef %1, i32 noundef 0) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %8, label %9
@@ -640,7 +640,7 @@ define ptr @X509_ATTRIBUTE_create_by_txt(ptr noundef captures(address_is_null) %
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509at_add1_attr_by_txt(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define ptr @X509at_add1_attr_by_txt(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr @OBJ_txt2obj(ptr noundef %1, i32 noundef 0) #4
   %7 = icmp eq ptr %6, null
   br i1 %7, label %X509_ATTRIBUTE_create_by_txt.exit.thread, label %X509_ATTRIBUTE_create_by_txt.exit
@@ -743,7 +743,7 @@ X509at_get_attr_by_OBJ.exit.thread:               ; preds = %9, %23, %29, %4, %X
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @X509_ATTRIBUTE_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @X509_ATTRIBUTE_count(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -759,7 +759,7 @@ define i32 @X509_ATTRIBUTE_count(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
+define ptr @X509_ATTRIBUTE_get0_data(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, ptr readnone captures(none) %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %X509_ATTRIBUTE_get0_type.exit.thread, label %X509_ATTRIBUTE_get0_type.exit
 
@@ -845,7 +845,7 @@ declare void @ASN1_OBJECT_free(ptr noundef) local_unnamed_addr #1
 declare ptr @X509_ATTRIBUTE_new() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_object(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_object(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -872,7 +872,7 @@ define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_object(ptr noundef captures(addr
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @X509_ATTRIBUTE_set1_data(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
 
@@ -996,7 +996,7 @@ declare void @ASN1_TYPE_set(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ASN1_TYPE_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_ATTRIBUTE_get0_object(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @X509_ATTRIBUTE_get0_object(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 
@@ -1016,7 +1016,7 @@ define ptr @X509_ATTRIBUTE_get0_object(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_ATTRIBUTE_get0_type(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define ptr @X509_ATTRIBUTE_get0_type(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %4, label %5
 

@@ -456,7 +456,7 @@ declare void @av1_loop_restoration_precal(...) local_unnamed_addr #1
 declare ptr @aom_get_worker_interface() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_dealloc_dec_jobs(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @av1_dealloc_dec_jobs(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %2
 

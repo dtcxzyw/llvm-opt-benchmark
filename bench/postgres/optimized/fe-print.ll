@@ -1198,7 +1198,7 @@ declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #6
 declare void @pq_reset_sigpipe(ptr noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @PQdisplayTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
+define void @PQdisplayTuples(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3, i32 noundef %4, i32 noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %3, null
   %spec.store.select = select i1 %7, ptr @.str.18, ptr %3
   %8 = tail call i32 @PQnfields(ptr noundef %0) #14

@@ -131,7 +131,7 @@ define dso_local range(i32 -1, 2) i32 @write_midx_file(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 2) i32 @write_midx_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 2) i32 @write_midx_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.strbuf, align 8
   %9 = alloca %struct.strbuf, align 8
   %10 = alloca %struct.strbuf, align 8
@@ -4539,7 +4539,7 @@ declare void @traverse_commit_list_filtered(ptr noundef, ptr noundef, ptr nounde
 declare i32 @oid_pos(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal ptr @bitmap_oid_access(i64 noundef %0, ptr noundef readnone captures(ret: address, provenance) %1) #14 {
+define internal ptr @bitmap_oid_access(i64 noundef %0, ptr noundef readnone %1) #14 {
   %3 = getelementptr inbounds nuw %struct.pack_midx_entry, ptr %1, i64 %0
   ret ptr %3
 }

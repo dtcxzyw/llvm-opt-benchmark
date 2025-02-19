@@ -1582,7 +1582,7 @@ declare ptr @ossl_quic_demux_new(ptr noundef, i64 noundef, ptr noundef, ptr noun
 declare void @ossl_quic_demux_set_default_handler(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal void @demux_default_handler(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal void @demux_default_handler(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %ossl_quic_conn_id_eq.exit.thread, label %5
 

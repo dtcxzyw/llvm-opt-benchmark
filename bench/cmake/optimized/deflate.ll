@@ -15,13 +15,13 @@ target triple = "x86_64-pc-linux-gnu"
 @cm_zlib__dist_code = external local_unnamed_addr constant [0 x i8], align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 8, i32 noundef 0, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = icmp eq ptr %6, null
   br i1 %9, label %124, label %10
 
@@ -235,7 +235,7 @@ declare void @cm_zlib_zcfree(ptr noundef, ptr noundef) #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -3, 1) i32 @cm_zlib_deflateEnd(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -3, 1) i32 @cm_zlib_deflateEnd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %deflateStateCheck.exit.thread, label %3
 
@@ -355,7 +355,7 @@ deflateStateCheck.exit.thread:                    ; preds = %11, %15, %17, %1, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateReset(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateReset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @cm_zlib_deflateResetKeep(ptr noundef %0)
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %47
@@ -425,7 +425,7 @@ define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateReset(ptr noundef captures
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateSetDictionary(ptr noundef captures(address) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateSetDictionary(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -941,7 +941,7 @@ read_buf.exit:                                    ; preds = %76, %100
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateGetDictionary(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateGetDictionary(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -1026,7 +1026,7 @@ deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %3, %
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateResetKeep(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %deflateStateCheck.exit.thread, label %3
 
@@ -1124,7 +1124,7 @@ declare i64 @cm_zlib_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @cm_zlib__tr_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateSetHeader(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #3 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateSetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %deflateStateCheck.exit.thread, label %4
 
@@ -1182,7 +1182,7 @@ deflateStateCheck.exit.thread:                    ; preds = %12, %16, %18, %2, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_deflatePending(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflatePending(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -1250,7 +1250,7 @@ deflateStateCheck.exit.thread:                    ; preds = %13, %17, %19, %3, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -5, 1) i32 @cm_zlib_deflatePrime(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -5, 1) i32 @cm_zlib_deflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %deflateStateCheck.exit.thread, label %5
 
@@ -2936,7 +2936,7 @@ define internal fastcc void @slide_hash(ptr noundef readonly captures(none) %0) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateTune(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define dso_local range(i32 -2, 1) i32 @cm_zlib_deflateTune(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %deflateStateCheck.exit.thread, label %7
 
@@ -2994,7 +2994,7 @@ deflateStateCheck.exit.thread:                    ; preds = %15, %19, %21, %5, %
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @cm_zlib_deflateBound(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #7 {
+define dso_local i64 @cm_zlib_deflateBound(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = lshr i64 %1, 3
   %4 = lshr i64 %1, 8
   %5 = lshr i64 %1, 9
@@ -4670,7 +4670,7 @@ declare void @cm_zlib__tr_align(ptr noundef) local_unnamed_addr #1
 declare void @cm_zlib__tr_stored_block(ptr noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -4, 1) i32 @cm_zlib_deflateCopy(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define dso_local range(i32 -4, 1) i32 @cm_zlib_deflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %deflateStateCheck.exit.thread, label %4
 

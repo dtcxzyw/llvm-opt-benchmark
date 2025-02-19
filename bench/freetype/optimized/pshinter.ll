@@ -3610,19 +3610,19 @@ define internal fastcc void @psh_hint_table_find_strong_points(i32 %.4.val, ptr 
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @pshinter_get_globals_funcs(ptr noundef readnone captures(ret: address, provenance) %0) #8 {
+define internal nonnull ptr @pshinter_get_globals_funcs(ptr noundef readnone %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 144
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @pshinter_get_t1_funcs(ptr noundef readnone captures(ret: address, provenance) %0) #8 {
+define internal nonnull ptr @pshinter_get_t1_funcs(ptr noundef readnone %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 168
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal nonnull ptr @pshinter_get_t2_funcs(ptr noundef readnone captures(ret: address, provenance) %0) #8 {
+define internal nonnull ptr @pshinter_get_t2_funcs(ptr noundef readnone %0) #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 224
   ret ptr %2
 }
@@ -5110,7 +5110,7 @@ declare hidden ptr @ft_mem_realloc(ptr noundef, i64 noundef, i64 noundef, i64 no
 declare i64 @FT_RoundFix(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @ps_dimension_add_t1stem(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc i32 @ps_dimension_add_t1stem(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4

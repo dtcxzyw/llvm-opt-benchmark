@@ -28,7 +28,7 @@ target triple = "x86_64-pc-linux-gnu"
 @_ZN10BigIntegerC1Es = unnamed_addr alias void (ptr, i16), ptr @_ZN10BigIntegerC2Es
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigIntegeraSERKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN10BigIntegeraSERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull readonly align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %_ZN11BigUnsignedaSERKS_.exit, label %4
 
@@ -1887,7 +1887,7 @@ declare void @_ZN11BigUnsigned19divideWithRemainderERKS_RS_(ptr noundef nonnull 
 declare void @_ZN11BigUnsignedppEi(ptr noundef nonnull align 8 dereferenceable(16), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN10BigInteger6negateERKS_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %class.BigInteger, align 8
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %5, label %48

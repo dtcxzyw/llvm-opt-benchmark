@@ -2126,7 +2126,7 @@ define internal void @sccp_users_user_tostr_cb(ptr noundef readonly captures(non
 declare ptr @uat_new(ptr noundef, i64 noundef, ptr noundef, i1 noundef zeroext, ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef ptr @sccp_users_copy_cb(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 4), (24, 29), (32, 40)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
+define internal noundef ptr @sccp_users_copy_cb(ptr noundef returned writeonly initializes((0, 4), (24, 29), (32, 40)) %0, ptr noundef readonly captures(none) %1, i64 %2) #0 {
   %4 = load i32, ptr %1, align 8
   store i32 %4, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -4155,7 +4155,7 @@ sccp_reassembly_get_id.exit.thread:               ; preds = %25, %sccp_reassembl
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address) %3) unnamed_addr #0 {
+define internal fastcc void @dissect_sccp_data_param(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #11
   %6 = load i8, ptr @trace_sccp, align 1, !range !6, !noundef !7

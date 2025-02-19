@@ -1091,7 +1091,7 @@ declare void @PyObject_CallFinalizer(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyIOBase_check_seekable(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_seekable(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !4
@@ -1150,7 +1150,7 @@ Py_DECREF.exit14:                                 ; preds = %22, %19, %17, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyIOBase_check_readable(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_readable(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !4
@@ -1209,7 +1209,7 @@ Py_DECREF.exit:                                   ; preds = %22, %19, %17, %15, 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @_PyIOBase_check_writable(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone captures(address) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @_PyIOBase_check_writable(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readnone %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   store ptr %1, ptr %4, align 8, !tbaa !4
@@ -1786,7 +1786,7 @@ define internal noundef nonnull ptr @_io__IOBase_writable(ptr readnone captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @iobase_check_seekable(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 {
+define internal noundef ptr @iobase_check_seekable(ptr noundef %0, ptr noundef readnone %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !10
@@ -1850,7 +1850,7 @@ _PyIOBase_check_seekable.exit:                    ; preds = %2, %Py_DECREF.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @iobase_check_readable(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 {
+define internal noundef ptr @iobase_check_readable(ptr noundef %0, ptr noundef readnone %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !10
@@ -1914,7 +1914,7 @@ _PyIOBase_check_readable.exit:                    ; preds = %2, %Py_DECREF.exit1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @iobase_check_writable(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 {
+define internal noundef ptr @iobase_check_writable(ptr noundef %0, ptr noundef readnone %1) #0 {
   %3 = alloca ptr, align 8
   %4 = getelementptr i8, ptr %0, i64 8
   %.val = load ptr, ptr %4, align 8, !tbaa !10
@@ -1978,7 +1978,7 @@ _PyIOBase_check_writable.exit:                    ; preds = %2, %Py_DECREF.exit1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noalias noundef ptr @_io__IOBase_fileno(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal noalias noundef ptr @_io__IOBase_fileno(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 

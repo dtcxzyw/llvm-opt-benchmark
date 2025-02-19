@@ -41,7 +41,7 @@ template_init.exit:                               ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @template_encapsulate(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr readnone captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) #1 {
+define internal noundef i32 @template_encapsulate(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly %2, ptr readnone captures(none) %3, ptr noundef writeonly %4) #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %6
 
@@ -78,7 +78,7 @@ template_init.exit:                               ; preds = %3, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal noundef i32 @template_decapsulate(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr readnone captures(none) %3, i64 %4) #1 {
+define internal noundef i32 @template_decapsulate(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef writeonly %2, ptr readnone captures(none) %3, i64 %4) #1 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %.thread
 
@@ -97,7 +97,7 @@ define internal void @template_freectx(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal range(i32 0, 2) i32 @template_set_ctx_params(ptr noundef readnone captures(address_is_null) %0, ptr readonly captures(none) %1) #2 {
+define internal range(i32 0, 2) i32 @template_set_ctx_params(ptr noundef readnone %0, ptr readonly captures(none) %1) #2 {
 ossl_param_is_empty.exit.thread:
   %2 = icmp ne ptr %0, null
   %.0 = zext i1 %2 to i32

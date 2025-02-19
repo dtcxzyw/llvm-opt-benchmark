@@ -1308,7 +1308,7 @@ invoke.cont2:                                     ; preds = %if.then.i.i, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11conformance18ConformanceRequestC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24), (56, 60)) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11conformance18ConformanceRequestC2ERKS0_(ptr noundef nonnull align 8 dereferenceable(64) initializes((0, 24), (56, 60)) %this, ptr noundef nonnull readonly align 8 dereferenceable(64) %from) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 8
   store ptr null, ptr %_internal_metadata_.i.i, align 8
@@ -2742,7 +2742,7 @@ success:                                          ; preds = %if.end8.i, %if.end4
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZNK11conformance18ConformanceRequest18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK11conformance18ConformanceRequest18_InternalSerializeEPhPN6google8protobuf2io19EpsCopyOutputStreamE(ptr noundef nonnull readonly align 8 dereferenceable(64) %this, ptr noundef %target, ptr noundef %stream) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_oneof_case_.i.i = getelementptr inbounds nuw i8, ptr %this, i64 60
   %0 = load i32, ptr %_oneof_case_.i.i, align 4
@@ -3474,7 +3474,7 @@ if.end:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11conformance18ConformanceRequest9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11conformance18ConformanceRequest9MergeFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 dereferenceable(64) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_internal_metadata_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %_internal_metadata_7 = getelementptr inbounds nuw i8, ptr %from, i64 8
@@ -3994,7 +3994,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11conformance18ConformanceRequest8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(64) %from) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN11conformance18ConformanceRequest8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull align 8 dereferenceable(64) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -6593,7 +6593,7 @@ return:                                           ; preds = %if.else.i, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11conformance19ConformanceResponse8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11conformance19ConformanceResponse8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -7419,7 +7419,7 @@ return:                                           ; preds = %entry, %_ZN11confor
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN11conformance18JspbEncodingConfig8CopyFromERKS0_(ptr noundef nonnull align 8 captures(address) dereferenceable(24) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(24) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN11conformance18JspbEncodingConfig8CopyFromERKS0_(ptr noundef nonnull align 8 dereferenceable(24) %this, ptr noundef nonnull readonly align 8 dereferenceable(24) %from) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end

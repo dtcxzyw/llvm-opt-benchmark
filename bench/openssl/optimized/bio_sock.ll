@@ -305,7 +305,7 @@ declare i32 @BIO_closesocket(i32 noundef) local_unnamed_addr #3
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define i32 @BIO_accept(i32 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @BIO_accept(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %union.bio_addr_st, align 4
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %3) #9
   %4 = call i32 @BIO_accept_ex(i32 noundef %0, ptr noundef nonnull %3, i32 noundef 0) #9

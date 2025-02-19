@@ -4,7 +4,7 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-unknown-linux-gnu"
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_210wav2EncodeEPtiiiit(ptr noundef captures(address) %in, i32 noundef %nx, i32 noundef %ox, i32 noundef %ny, i32 noundef %oy, i16 noundef zeroext %mx) local_unnamed_addr #0 {
+define void @_ZN7Imf_3_210wav2EncodeEPtiiiit(ptr noundef %in, i32 noundef %nx, i32 noundef %ox, i32 noundef %ny, i32 noundef %oy, i16 noundef zeroext %mx) local_unnamed_addr #0 {
 entry:
   %cmp = icmp ult i16 %mx, 16384
   %cond = tail call i32 @llvm.smin.i32(i32 %nx, i32 %ny)
@@ -256,7 +256,7 @@ while.end:                                        ; preds = %if.end60, %entry
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @_ZN7Imf_3_210wav2DecodeEPtiiiit(ptr noundef captures(address) %in, i32 noundef %nx, i32 noundef %ox, i32 noundef %ny, i32 noundef %oy, i16 noundef zeroext %mx) local_unnamed_addr #0 {
+define void @_ZN7Imf_3_210wav2DecodeEPtiiiit(ptr noundef %in, i32 noundef %nx, i32 noundef %ox, i32 noundef %ny, i32 noundef %oy, i16 noundef zeroext %mx) local_unnamed_addr #0 {
 entry:
   %cond = tail call i32 @llvm.smin.i32(i32 %nx, i32 %ny)
   br label %while.cond

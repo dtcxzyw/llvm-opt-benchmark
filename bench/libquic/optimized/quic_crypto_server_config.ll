@@ -880,7 +880,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZNSt7__cxx1112basi
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3net22QuicCryptoServerConfig13ConfigOptionsD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(105) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net22QuicCryptoServerConfig13ConfigOptionsD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(105) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -6306,7 +6306,7 @@ _ZNKSt4lessINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclERKS5_S8_.exi
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3net22QuicCryptoServerConfig22SelectNewPrimaryConfigENS_12QuicWallTimeE(ptr noundef nonnull align 8 captures(address) dereferenceable(405) %0, i64 %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3net22QuicCryptoServerConfig22SelectNewPrimaryConfigENS_12QuicWallTimeE(ptr noundef nonnull align 8 dereferenceable(405) %0, i64 %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::vector.139", align 8
   %4 = alloca %"class.logging::LogMessage", align 8
   %5 = alloca %"class.logging::LogMessage", align 8
@@ -8870,7 +8870,7 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 declare noundef zeroext i1 @_ZNK3net12QuicWallTime7IsAfterES0_(ptr noundef nonnull align 8 dereferenceable(8), i64) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3net22QuicCryptoServerConfig17GetConfigWithScidEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable writeonly sret(%class.scoped_refptr) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(405) %1, ptr readonly captures(address_is_null) %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZNK3net22QuicCryptoServerConfig17GetConfigWithScidEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind noalias writable writeonly sret(%class.scoped_refptr) align 8 captures(none) %0, ptr noundef nonnull readonly align 8 dereferenceable(405) %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = icmp eq i64 %3, 0
@@ -18205,7 +18205,7 @@ define void @_ZN3net15QuicCryptoProofC2Ev(ptr noundef nonnull align 8 dereferenc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3net15QuicCryptoProofD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net15QuicCryptoProofD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(112) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %3 = load ptr, ptr %2, align 8, !tbaa !66
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96

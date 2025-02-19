@@ -954,7 +954,7 @@ define dso_local void @fsnotify_destroy_mark(ptr noundef %0, ptr noundef %1) #0 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local noundef range(i32 -1, 2) i32 @fsnotify_compare_groups(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #3 align 16 {
+define dso_local noundef range(i32 -1, 2) i32 @fsnotify_compare_groups(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #3 align 16 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %19, label %4
 
@@ -1426,7 +1426,7 @@ define dso_local noundef range(i32 -22, 1) i32 @fsnotify_add_mark(ptr noundef %0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @fsnotify_find_mark(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 align 16 {
+define dso_local ptr @fsnotify_find_mark(ptr noundef %0, ptr noundef readnone %1) #0 align 16 {
   %3 = tail call fastcc ptr @fsnotify_grab_connector(ptr noundef %0)
   %4 = icmp eq ptr %3, null
   br i1 %4, label %43, label %5

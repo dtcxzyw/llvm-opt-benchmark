@@ -1174,7 +1174,7 @@ declare void @_ZN10Dictionary22print_table_statisticsEP12outputStreamPKc(ptr nou
 declare void @_ZN12stringStreamD1Ev(ptr noundef nonnull align 8 dereferenceable(129)) unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nounwind uwtable
-define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph8is_validEP15ClassLoaderData(ptr noundef readnone captures(address) %0) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN20ClassLoaderDataGraph8is_validEP15ClassLoaderData(ptr noundef readnone %0) local_unnamed_addr #4 align 2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

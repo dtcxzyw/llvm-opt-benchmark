@@ -76,7 +76,7 @@ fdt_create_with_flags.exit:                       ; preds = %2, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1, i32 noundef %2) local_unnamed_addr #3 {
+define dso_local range(i32 -13, 1) i32 @fdt_resize(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = load i8, ptr %0, align 1
   %5 = zext i8 %4 to i32
   %6 = shl nuw i32 %5, 24

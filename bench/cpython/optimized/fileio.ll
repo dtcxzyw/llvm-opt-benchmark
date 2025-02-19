@@ -2579,7 +2579,7 @@ _io_FileIO_truncate_impl.exit:                    ; preds = %78, %75, %74, %71, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_io_FileIO_close(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #1 {
+define internal ptr @_io_FileIO_close(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #1 {
   %6 = alloca [2 x ptr], align 16
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %7, label %10

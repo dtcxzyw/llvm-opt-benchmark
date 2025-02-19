@@ -217,14 +217,14 @@ define dso_local range(i32 0, 2) i32 @rb_provided(ptr noundef nonnull %0) local_
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local range(i32 0, 2) i32 @rb_feature_provided(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @rb_feature_provided(ptr noundef nonnull %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @ruby_current_vm_ptr, align 8, !tbaa !7
   %4 = tail call fastcc i32 @feature_provided(ptr noundef %3, ptr noundef nonnull %0, ptr noundef %1)
   ret i32 %4
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @feature_provided(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @feature_provided(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca ptr, align 8
   %6 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 46) #25
@@ -2189,7 +2189,7 @@ declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal range(i32 0, 118) i32 @rb_feature_p(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) #0 {
+define internal range(i32 0, 118) i32 @rb_feature_p(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) #0 {
   %7 = alloca i64, align 8
   %8 = alloca i64, align 8
   %9 = alloca %struct.loaded_feature_searching, align 8

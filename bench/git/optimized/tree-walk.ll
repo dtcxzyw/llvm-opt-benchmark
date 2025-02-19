@@ -49,7 +49,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.21 = private unnamed_addr constant [21 x i8] c"unsupported magic %x\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @init_tree_desc(ptr noundef captures(none) initializes((0, 16), (72, 80)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @init_tree_desc(ptr noundef captures(none) initializes((0, 16), (72, 80)) %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_tree_entry_follow_symlinks.namebuf, i64 24, i1 false)
@@ -118,7 +118,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @init_tree_desc_gently(ptr noundef captures(none) initializes((0, 16), (72, 80)) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @init_tree_desc_gently(ptr noundef captures(none) initializes((0, 16), (72, 80)) %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #14
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_tree_entry_follow_symlinks.namebuf, i64 24, i1 false)
@@ -546,7 +546,7 @@ define internal void @trace2_traverse_trees_statistics_atexit() #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @make_traverse_path(ptr noundef returned writeonly captures(ret: address, provenance) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @make_traverse_path(ptr noundef returned writeonly %0, i64 noundef %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, i64 noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %7 = load i64, ptr %6, align 8, !tbaa !55
   %8 = xor i64 %7, -1
@@ -616,7 +616,7 @@ st_add.exit:                                      ; preds = %5
 declare void @BUG_fl(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strbuf_make_traverse_path(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
+define dso_local void @strbuf_make_traverse_path(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr i8, ptr %1, i64 40
   %.val = load i64, ptr %5, align 8, !tbaa !55
   %6 = xor i64 %.val, -1

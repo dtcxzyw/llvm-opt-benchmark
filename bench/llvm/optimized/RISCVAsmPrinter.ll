@@ -843,7 +843,7 @@ _ZN4llvm15MCSubtargetInfoD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_115RISCVAsmPrinter16emitEndOfAsmFileERN4llvm6ModuleE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(840) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_115RISCVAsmPrinter16emitEndOfAsmFileERN4llvm6ModuleE(ptr noundef nonnull readonly align 8 dereferenceable(840) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"class.llvm::MCInst", align 8
   %4 = alloca %"class.llvm::MCInst", align 8
   %5 = alloca %"class.llvm::MCInst", align 8

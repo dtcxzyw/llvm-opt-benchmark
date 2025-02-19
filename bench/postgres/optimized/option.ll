@@ -753,7 +753,7 @@ declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #8
 declare void @pfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @adjust_data_dir(ptr noundef captures(address) initializes((144, 152)) %0) local_unnamed_addr #0 {
+define dso_local void @adjust_data_dir(ptr noundef initializes((144, 152)) %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
   %4 = alloca [1024 x i8], align 16
@@ -857,7 +857,7 @@ declare i32 @pg_strip_crlf(ptr noundef) local_unnamed_addr #2
 declare void @check_ok() local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @get_sock_dir(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @get_sock_dir(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1024 x i8], align 16
   %3 = alloca [1024 x i8], align 16
   %4 = load i8, ptr getelementptr inbounds nuw (i8, ptr @user_opts, i64 1), align 1, !range !6, !noundef !7

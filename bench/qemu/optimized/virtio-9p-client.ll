@@ -335,7 +335,7 @@ define dso_local void @v9fs_string_write(ptr noundef captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_string_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local void @v9fs_string_read(ptr noundef captures(none) %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
   store i16 0, ptr %4, align 2, !annotation !4
@@ -904,7 +904,7 @@ v9fs_string_size.exit:                            ; preds = %8, %17
 declare void @g_assertion_message_expr(ptr noundef, ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_rversion(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local void @v9fs_rversion(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
   store i32 0, ptr %4, align 4, !annotation !4
@@ -1518,7 +1518,7 @@ split_free.exit:                                  ; preds = %142, %._crit_edge.i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_rwalk(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local void @v9fs_rwalk(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca i16, align 2
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %4) #14
   store i16 0, ptr %4, align 2, !annotation !4
@@ -2056,7 +2056,7 @@ define dso_local noundef ptr @v9fs_treaddir(ptr noundef readonly byval(%struct.T
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @v9fs_rreaddir(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
+define dso_local void @v9fs_rreaddir(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca i16, align 2
   %6 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14

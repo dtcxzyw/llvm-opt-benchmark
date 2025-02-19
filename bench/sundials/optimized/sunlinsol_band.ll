@@ -124,7 +124,7 @@ define noundef i32 @SUNLinSolSpace_Band(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define noundef i32 @SUNLinSolFree_Band(ptr noundef captures(address_is_null) %0) #6 {
+define noundef i32 @SUNLinSolFree_Band(ptr noundef %0) #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 

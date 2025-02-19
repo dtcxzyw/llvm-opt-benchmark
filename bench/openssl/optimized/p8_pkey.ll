@@ -92,7 +92,7 @@ declare i32 @X509_ALGOR_set0(ptr noundef, ptr noundef, i32 noundef, ptr noundef)
 declare void @ASN1_STRING_set0(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @PKCS8_pkey_get0(ptr noundef writeonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 {
+define noundef i32 @PKCS8_pkey_get0(ptr noundef writeonly %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %6
 

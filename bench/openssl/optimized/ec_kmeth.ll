@@ -194,7 +194,7 @@ define ptr @EC_KEY_new_method(ptr noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @ECDH_compute_key(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4) local_unnamed_addr #4 {
+define i32 @ECDH_compute_key(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4) local_unnamed_addr #4 {
   %6 = alloca i64, align 8
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
@@ -277,7 +277,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @CRYPTO_clear_free(ptr noundef, i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @EC_KEY_METHOD_new(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define noalias ptr @EC_KEY_METHOD_new(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 120, ptr noundef nonnull @.str, i32 noundef 179) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %10, label %4
@@ -369,7 +369,7 @@ define void @EC_KEY_METHOD_set_verify(ptr noundef writeonly captures(none) initi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EC_KEY_METHOD_get_init(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #9 {
+define void @EC_KEY_METHOD_get_init(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef writeonly %6) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %8
 
@@ -434,7 +434,7 @@ define void @EC_KEY_METHOD_get_init(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EC_KEY_METHOD_get_keygen(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define void @EC_KEY_METHOD_get_keygen(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -449,7 +449,7 @@ define void @EC_KEY_METHOD_get_keygen(ptr noundef readonly captures(none) %0, pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EC_KEY_METHOD_get_compute_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #9 {
+define void @EC_KEY_METHOD_get_compute_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %3
 
@@ -464,7 +464,7 @@ define void @EC_KEY_METHOD_get_compute_key(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EC_KEY_METHOD_get_sign(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #9 {
+define void @EC_KEY_METHOD_get_sign(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2, ptr noundef writeonly %3) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %5
 
@@ -499,7 +499,7 @@ define void @EC_KEY_METHOD_get_sign(ptr noundef readonly captures(none) %0, ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @EC_KEY_METHOD_get_verify(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #9 {
+define void @EC_KEY_METHOD_get_verify(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #9 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %4
 

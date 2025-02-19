@@ -121,7 +121,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.00790d3e998c791614c462074996a3ad.33.llvm.15333852395482688744 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noalias noundef ptr @_ZN10serde_json3ser18format_escaped_str17haa82b524e56ca944E(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef ptr @_ZN10serde_json3ser18format_escaped_str17haa82b524e56ca944E(ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !4)
@@ -426,7 +426,7 @@ _ZN10serde_json3ser27format_escaped_str_contents17hfc817bc0b88366b4E.exit: ; pre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc noalias noundef ptr @_ZN10serde_json3ser18format_escaped_str17hd4a5dd9b5e7ebcacE(ptr readonly captures(address_is_null) %.0.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc noalias noundef ptr @_ZN10serde_json3ser18format_escaped_str17hd4a5dd9b5e7ebcacE(ptr readonly %.0.val, ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %3)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !129)
@@ -2349,7 +2349,7 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num50_$LT$impl$u20$core..fmt..
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hb96db7109dcd1bdfE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone captures(address) %2) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8builders9DebugList7entries17hb96db7109dcd1bdfE(ptr noalias noundef returned align 8 dereferenceable(16) %0, ptr noundef nonnull %1, ptr noundef readnone %2) unnamed_addr #0 personality ptr @rust_eh_personality {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %2, null
   tail call void @llvm.assume(i1 %5)
@@ -5140,7 +5140,7 @@ common.resume:                                    ; preds = %219, %.body30, %197
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$17transaction_state17hffb788b4357722baE"(ptr noalias noundef readnone align 8 captures(ret: address, provenance) dereferenceable(80) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(8) ptr @"_ZN93_$LT$diesel..mysql..connection..MysqlConnection$u20$as$u20$diesel..connection..Connection$GT$17transaction_state17hffb788b4357722baE"(ptr noalias noundef readnone align 8 dereferenceable(80) %0) unnamed_addr #6 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   ret ptr %2
 }
@@ -7118,7 +7118,7 @@ define void @"_ZN133_$LT$diesel..sqlite..connection..functions..FunctionArgument
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN133_$LT$diesel..sqlite..connection..functions..FunctionArgument$u20$as$u20$diesel..row..Field$LT$diesel..sqlite..backend..Sqlite$GT$$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h20f36046619bb3b2E.llvm.12760481706496575883"(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #4 {
+define hidden noundef nonnull align 8 ptr @"_ZN133_$LT$diesel..sqlite..connection..functions..FunctionArgument$u20$as$u20$diesel..row..Field$LT$diesel..sqlite..backend..Sqlite$GT$$GT$5value28_$u7b$$u7b$closure$u7d$$u7d$17h20f36046619bb3b2E.llvm.12760481706496575883"(ptr noundef nonnull readnone returned align 8 %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -7686,7 +7686,7 @@ define void @"_ZN93_$LT$diesel..pg..types..ranges.._..InternalBitFlags$u20$as$u2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN97_$LT$diesel..pg..types..ranges.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h6917603a079877b8E"(ptr noalias noundef readonly returned align 1 captures(ret: address, provenance) dereferenceable(1) %0) unnamed_addr #6 {
+define noundef nonnull align 1 dereferenceable(1) ptr @"_ZN97_$LT$diesel..pg..types..ranges.._..InternalBitFlags$u20$as$u20$core..convert..AsRef$LT$u8$GT$$GT$6as_ref17h6917603a079877b8E"(ptr noalias noundef readonly returned align 1 dereferenceable(1) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -7816,22 +7816,22 @@ define void @"_ZN6diesel2pg5types6ranges1_109_$LT$impl$u20$core..iter..traits..c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_128_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Time$GT$$u20$for$u20$$RF$chrono..naive..time..NaiveTime$GT$13as_expression17h529d202b62b273b4E"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_128_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Time$GT$$u20$for$u20$$RF$chrono..naive..time..NaiveTime$GT$13as_expression17h529d202b62b273b4E"(ptr noalias noundef readonly returned align 4 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 4 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_163_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Time$GT$$GT$$u20$for$u20$$RF$chrono..naive..time..NaiveTime$GT$13as_expression17hbc58038dd5c0581bE"(ptr noalias noundef readonly returned align 4 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 4 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_163_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Time$GT$$GT$$u20$for$u20$$RF$chrono..naive..time..NaiveTime$GT$13as_expression17hbc58038dd5c0581bE"(ptr noalias noundef readonly returned align 4 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_132_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Time$GT$$u20$for$u20$$RF$$RF$chrono..naive..time..NaiveTime$GT$13as_expression17hc79a04a80aae4af6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_132_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Time$GT$$u20$for$u20$$RF$$RF$chrono..naive..time..NaiveTime$GT$13as_expression17hc79a04a80aae4af6E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_167_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Time$GT$$GT$$u20$for$u20$$RF$$RF$chrono..naive..time..NaiveTime$GT$13as_expression17ha058654ac1680231E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls13date_and_time6chrono1_167_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Time$GT$$GT$$u20$for$u20$$RF$$RF$chrono..naive..time..NaiveTime$GT$13as_expression17ha058654ac1680231E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -7850,22 +7850,22 @@ define { i32, i32 } @"_ZN6diesel10type_impls13date_and_time6chrono1_159_$LT$impl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6diesel10type_impls4json1_122_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Json$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$13as_expression17hd4e6e4260af6f5a9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6diesel10type_impls4json1_122_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Json$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$13as_expression17hd4e6e4260af6f5a9E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6diesel10type_impls4json1_157_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Json$GT$$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$13as_expression17h62ff4233d47776d5E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6diesel10type_impls4json1_157_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Json$GT$$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$13as_expression17h62ff4233d47776d5E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4json1_126_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Json$GT$$u20$for$u20$$RF$$RF$serde_json..value..Value$GT$13as_expression17h8fa03231dc1deb0fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4json1_126_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Json$GT$$u20$for$u20$$RF$$RF$serde_json..value..Value$GT$13as_expression17h8fa03231dc1deb0fE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4json1_161_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Json$GT$$GT$$u20$for$u20$$RF$$RF$serde_json..value..Value$GT$13as_expression17hf670cf8f6012d90dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4json1_161_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Json$GT$$GT$$u20$for$u20$$RF$$RF$serde_json..value..Value$GT$13as_expression17hf670cf8f6012d90dE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -7882,22 +7882,22 @@ define void @"_ZN6diesel10type_impls4json1_153_$LT$impl$u20$diesel..expression..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6diesel10type_impls4json1_134_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Jsonb$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$13as_expression17ha3df6c5baa7aaa40E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6diesel10type_impls4json1_134_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Jsonb$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$13as_expression17ha3df6c5baa7aaa40E"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6diesel10type_impls4json1_169_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Jsonb$GT$$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$13as_expression17hd0374d6179d29ddbE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(32) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(32) ptr @"_ZN6diesel10type_impls4json1_169_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Jsonb$GT$$GT$$u20$for$u20$$RF$serde_json..value..Value$GT$13as_expression17hd0374d6179d29ddbE"(ptr noalias noundef readonly returned align 8 dereferenceable(32) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4json1_138_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Jsonb$GT$$u20$for$u20$$RF$$RF$serde_json..value..Value$GT$13as_expression17h0d48c91c3ba07c06E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4json1_138_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..pg..types..sql_types..Jsonb$GT$$u20$for$u20$$RF$$RF$serde_json..value..Value$GT$13as_expression17h0d48c91c3ba07c06E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4json1_173_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Jsonb$GT$$GT$$u20$for$u20$$RF$$RF$serde_json..value..Value$GT$13as_expression17h8c93e73c47f9b5fbE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls4json1_173_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..pg..types..sql_types..Jsonb$GT$$GT$$u20$for$u20$$RF$$RF$serde_json..value..Value$GT$13as_expression17h8c93e73c47f9b5fbE"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
@@ -7914,22 +7914,22 @@ define void @"_ZN6diesel10type_impls4json1_165_$LT$impl$u20$diesel..expression..
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_125_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Binary$GT$$u20$for$u20$$RF$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17h5d62e315de0f9251E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_125_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Binary$GT$$u20$for$u20$$RF$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17h5d62e315de0f9251E"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_160_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Binary$GT$$GT$$u20$for$u20$$RF$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17h7555b12b0f443ff6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(24) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_160_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Binary$GT$$GT$$u20$for$u20$$RF$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17h7555b12b0f443ff6E"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_129_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Binary$GT$$u20$for$u20$$RF$$RF$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17hd98a6fbb11a8f807E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_129_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Binary$GT$$u20$for$u20$$RF$$RF$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17hd98a6fbb11a8f807E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_164_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Binary$GT$$GT$$u20$for$u20$$RF$$RF$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17hfa42c138fd4e7bb1E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN6diesel10type_impls10primitives13foreign_impls1_164_$LT$impl$u20$diesel..expression..AsExpression$LT$diesel..sql_types..Nullable$LT$diesel..sql_types..Binary$GT$$GT$$u20$for$u20$$RF$$RF$alloc..vec..Vec$LT$u8$GT$$GT$13as_expression17hfa42c138fd4e7bb1E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #6 {
   ret ptr %0
 }
 

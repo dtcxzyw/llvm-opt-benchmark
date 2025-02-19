@@ -192,7 +192,7 @@ define internal zeroext i16 @vpd_attr_is_visible(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
+define dso_local ptr @pci_vpd_alloc(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   %3 = tail call fastcc zeroext i1 @pci_vpd_available(ptr noundef %0, i1 noundef zeroext true)
   br i1 %3, label %4, label %35
 
@@ -475,7 +475,7 @@ declare dso_local void @kfree(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local i32 @pci_vpd_find_id_string(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #4 align 16 {
+define dso_local i32 @pci_vpd_find_id_string(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2) #4 align 16 {
   %4 = icmp eq ptr %2, null
   %5 = icmp ult i32 %1, 3
   br i1 %5, label %.thread, label %.lr.ph
@@ -615,7 +615,7 @@ define dso_local i64 @pci_write_vpd_any(ptr noundef %0, i64 noundef %1, i64 noun
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) #4 align 16 {
+define dso_local range(i32 3, 0) i32 @pci_vpd_find_ro_info_keyword(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) #4 align 16 {
   br label %5
 
 5:                                                ; preds = %14, %4

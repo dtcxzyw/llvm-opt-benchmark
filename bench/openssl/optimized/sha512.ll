@@ -108,7 +108,7 @@ define noundef i32 @SHA512_Init(ptr noundef writeonly captures(none) initializes
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SHA512_Final(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 208
   %5 = load i32, ptr %4, align 8, !tbaa !7
@@ -404,7 +404,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @sha512_block_data_order(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SHA384_Final(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @SHA384_Final(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = tail call i32 @SHA512_Final(ptr noundef %0, ptr noundef %1)
   ret i32 %3
 }

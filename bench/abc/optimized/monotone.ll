@@ -1294,7 +1294,7 @@ declare void @Pdr_ManSetDefaultParams(ptr noundef) local_unnamed_addr #8
 declare i32 @Pdr_ManSolve(ptr noundef, ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @findRemainingMonotoneCandidates(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(ret: address, provenance) %1) local_unnamed_addr #6 {
+define noundef ptr @findRemainingMonotoneCandidates(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.critedge, label %4
 

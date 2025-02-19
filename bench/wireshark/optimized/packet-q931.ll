@@ -1537,7 +1537,7 @@ define hidden void @dissect_q931_cause_ie(ptr noundef %0, i32 noundef %1, i32 no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_q931_cause_ie_with_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc void @dissect_q931_cause_ie_with_info(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef captures(none) %5, ptr noundef %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = icmp eq i32 %2, 0
   br i1 %9, label %.loopexit, label %10
 
@@ -3599,7 +3599,7 @@ declare i32 @call_dissector(ptr noundef, ptr noundef, ptr noundef, ptr noundef) 
 declare ptr @proto_tree_add_expert(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @dissect_q931_number_ie(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef %4, i32 noundef %5, ptr noundef byval(%struct.e164_info_t) align 8 captures(none) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc void @dissect_q931_number_ie(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, i32 noundef range(i32 0, 256) %3, ptr noundef %4, i32 noundef %5, ptr noundef byval(%struct.e164_info_t) align 8 captures(none) %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = icmp eq i32 %3, 0
   br i1 %9, label %74, label %10
 

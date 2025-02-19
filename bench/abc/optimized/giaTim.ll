@@ -5438,7 +5438,7 @@ Gia_ObjSibl.exit42.thread:                        ; preds = %Gia_ObjSibl.exit.th
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gia_ManDupCollapse(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define ptr @Gia_ManDupCollapse(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %6 = load ptr, ptr %5, align 8, !tbaa !3
   %7 = getelementptr i8, ptr %0, i64 24

@@ -77,7 +77,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #7
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #7
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #8 align 2 {
+define void @_ZN6Assimp12ScaleProcess7ExecuteEP7aiScene(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(28) %0, ptr noundef readonly %1) unnamed_addr #8 align 2 {
   %3 = alloca %class.aiVector3t, align 4
   %4 = alloca %class.aiVector3t, align 4
   %5 = alloca %class.aiQuaterniont, align 4

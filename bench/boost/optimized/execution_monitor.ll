@@ -672,7 +672,7 @@ define hidden void @_ZN5boost6detail13signal_actionC2Ev(ptr noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5boost6detail13signal_actionC2EibbPc(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 5)) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef readnone captures(address_is_null) %4) unnamed_addr #3 align 2 {
+define hidden void @_ZN5boost6detail13signal_actionC2EibbPc(ptr noundef nonnull align 8 dereferenceable(312) initializes((0, 5)) %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, ptr noundef readnone %4) unnamed_addr #3 align 2 {
   %6 = alloca %"class.boost::system_error", align 8
   %7 = alloca %"class.boost::system_error", align 8
   %8 = alloca %"class.boost::system_error", align 8
@@ -2958,7 +2958,7 @@ declare void @__cxa_end_catch() local_unnamed_addr
 declare void @__cxa_rethrow() local_unnamed_addr
 
 ; Function Attrs: mustprogress noreturn uwtable
-define internal void @_ZN5boost6detailL12report_errorENS_19execution_exception10error_codeEPKNS_9exceptionEPKcz(i32 %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ...) unnamed_addr #4 {
+define internal void @_ZN5boost6detailL12report_errorENS_19execution_exception10error_codeEPKNS_9exceptionEPKcz(i32 %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ...) unnamed_addr #4 {
   %4 = alloca %"class.boost::execution_exception", align 8
   %5 = alloca %"class.boost::unit_test::basic_cstring", align 8
   %6 = alloca %"struct.boost::execution_exception::location", align 8

@@ -258,7 +258,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 declare ptr @wtap_get_all_compression_type_extensions_list() local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @add_extensions_for_file_extensions_type(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @add_extensions_for_file_extensions_type(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = load ptr, ptr @file_type_extensions, align 8
   %5 = sext i32 %0 to i64
   %6 = getelementptr %struct.file_extension_info, ptr %4, i64 %5, i32 2
@@ -523,7 +523,7 @@ set_heuristic_routine.exit:                       ; preds = %46, %35, %44
 declare void @ws_log_fatal_full(ptr noundef, i32 noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @wtap_has_open_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef zeroext i1 @wtap_has_open_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %.preheader
 
@@ -572,7 +572,7 @@ declare ptr @g_array_prepend_vals(ptr noundef, ptr noundef, i32 noundef) local_u
 declare ptr @g_array_insert_vals(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @wtap_deregister_open_info(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @wtap_deregister_open_info(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %.preheader
 
@@ -662,7 +662,7 @@ declare void @g_strfreev(ptr noundef) local_unnamed_addr #1
 declare ptr @g_array_remove_index(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define noundef zeroext i1 @wtap_uses_lua_filehandler(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define noundef zeroext i1 @wtap_uses_lua_filehandler(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -681,7 +681,7 @@ define noundef zeroext i1 @wtap_uses_lua_filehandler(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define i32 @open_info_name_to_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define i32 @open_info_name_to_type(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -2684,7 +2684,7 @@ define ptr @wtap_get_file_extensions_list(i32 noundef %0, i1 noundef zeroext %1)
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @add_extensions_for_file_type_subtype(i32 noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @add_extensions_for_file_type_subtype(i32 noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = icmp slt i32 %0, 0
   br i1 %4, label %43, label %5
 
@@ -3707,7 +3707,7 @@ declare i32 @lz4wfile_geterr(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define zeroext i1 @wtap_dump_close(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
+define zeroext i1 @wtap_dump_close(ptr noundef %0, ptr noundef writeonly %1, ptr noundef initializes((0, 4)) %2, ptr noundef initializes((0, 8)) %3) local_unnamed_addr #0 {
   store i32 0, ptr %2, align 4
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -3814,7 +3814,7 @@ define void @wtap_set_bytes_dumped(ptr noundef writeonly captures(none) initiali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
-define zeroext i1 @wtap_addrinfo_list_empty(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define zeroext i1 @wtap_addrinfo_list_empty(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -3835,7 +3835,7 @@ define zeroext i1 @wtap_addrinfo_list_empty(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @wtap_dump_set_addrinfo_list(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #17 {
+define noundef zeroext i1 @wtap_dump_set_addrinfo_list(ptr noundef %0, ptr noundef %1) local_unnamed_addr #17 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %wtap_file_type_subtype_supports_block.exit.thread, label %3
 

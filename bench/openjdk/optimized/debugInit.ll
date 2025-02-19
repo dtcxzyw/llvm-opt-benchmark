@@ -2630,7 +2630,7 @@ define internal fastcc void @disposeEnvironment(ptr noundef %0) unnamed_addr #0 
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @debugInit_startDebuggingViaCommand(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define noundef ptr @debugInit_startDebuggingViaCommand(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   store ptr null, ptr %6, align 8
   %.b = load i1, ptr @vmInitialized, align 1

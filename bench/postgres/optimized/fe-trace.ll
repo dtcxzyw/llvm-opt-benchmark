@@ -83,7 +83,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.74 = private unnamed_addr constant [6 x i8] c" \22%s\22\00", align 1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @PQtrace(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define void @PQtrace(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %12, label %4
 
@@ -113,7 +113,7 @@ PQuntrace.exit:                                   ; preds = %4, %7
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @PQuntrace(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @PQuntrace(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %10, label %3
 
@@ -141,7 +141,7 @@ define void @PQuntrace(ptr noundef captures(address_is_null) %0) local_unnamed_a
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @PQsetTraceFlags(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @PQsetTraceFlags(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %10, label %4
 

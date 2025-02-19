@@ -6375,7 +6375,7 @@ define hidden void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h472edda7a58d52a5E.llvm.836043833466553463"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #9 {
+define hidden noundef nonnull ptr @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..FromResidual$GT$13from_residual17h472edda7a58d52a5E.llvm.836043833466553463"(ptr noundef nonnull readnone returned %0) unnamed_addr #9 {
   ret ptr %0
 }
 
@@ -6431,7 +6431,7 @@ define hidden void @"_ZN104_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @"_ZN104_$LT$rowan..api..SyntaxNode$LT$L$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$4from17h784b1190f1848a1dE.llvm.836043833466553463"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #11 {
+define hidden noundef nonnull ptr @"_ZN104_$LT$rowan..api..SyntaxNode$LT$L$GT$$u20$as$u20$core..convert..From$LT$rowan..cursor..SyntaxNode$GT$$GT$4from17h784b1190f1848a1dE.llvm.836043833466553463"(ptr noundef nonnull readnone returned %0) unnamed_addr #11 {
   ret ptr %0
 }
 
@@ -8420,7 +8420,7 @@ define hidden void @_ZN4core3ops8function5FnMut8call_mut17h88d6e82205a229e0E.llv
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4core3ops8function5FnMut8call_mut17hb82fb643dc86bc0eE.llvm.836043833466553463(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readnone returned captures(ret: address, provenance) %1) unnamed_addr #9 {
+define hidden noundef nonnull ptr @_ZN4core3ops8function5FnMut8call_mut17hb82fb643dc86bc0eE.llvm.836043833466553463(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noundef nonnull readnone returned %1) unnamed_addr #9 {
   ret ptr %1
 }
 
@@ -25490,7 +25490,7 @@ define hidden void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h967eabb0ece04297E.llvm.836043833466553463"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #9 {
+define hidden noundef ptr @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h967eabb0ece04297E.llvm.836043833466553463"(ptr noundef readnone returned %0) unnamed_addr #9 {
   ret ptr %0
 }
 

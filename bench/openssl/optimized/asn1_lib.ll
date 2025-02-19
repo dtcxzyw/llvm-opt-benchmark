@@ -458,7 +458,7 @@ define void @ossl_asn1_string_set_bits_left(ptr noundef captures(none) %0, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %20, label %4
 
@@ -492,7 +492,7 @@ define range(i32 0, 2) i32 @ASN1_STRING_copy(ptr noundef captures(none) %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %9
 
@@ -565,7 +565,7 @@ define range(i32 0, 2) i32 @ASN1_STRING_set(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ASN1_STRING_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define ptr @ASN1_STRING_dup(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %ASN1_STRING_free.exit, label %2
 
@@ -858,7 +858,7 @@ define ptr @ASN1_STRING_data(ptr noundef readonly captures(none) %0) local_unnam
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #1 {
+define ptr @ossl_sk_ASN1_UTF8STRING2text(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %1, null
   %spec.store.select = select i1 %4, ptr @.str.1, ptr %1
   %5 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %spec.store.select) #14

@@ -995,7 +995,7 @@ define internal range(i32 0, 2) i32 @_find_matching_file_gres(ptr noundef readon
 declare void @slurm_bit_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @_create_shared_rec(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @_create_shared_rec(ptr noundef nonnull readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 88, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.6, i32 noundef 46, ptr noundef nonnull @__func__._create_shared_rec) #7
   %5 = load i32, ptr %0, align 8
   store i32 %5, ptr %4, align 8

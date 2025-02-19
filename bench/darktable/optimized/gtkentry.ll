@@ -194,7 +194,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.183 = private unnamed_addr constant [4 x i8] c"%s)\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define void @dt_gtkentry_setup_completion(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @dt_gtkentry_setup_completion(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca %struct._GtkTreeIter, align 8
   %4 = tail call ptr @gtk_entry_completion_new() #12
   %5 = tail call ptr (i32, ...) @gtk_list_store_new(i32 noundef 3, i64 noundef 64, i64 noundef 64, i64 noundef 64) #12

@@ -119,7 +119,7 @@ define dso_local range(i32 0, 2) i32 @istarts_with(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @starts_with_mem(ptr noundef readonly captures(address) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @starts_with_mem(ptr noundef readonly %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 %1
   %5 = load i8, ptr %2, align 1, !tbaa !4
   %.not13 = icmp eq i8 %5, 0
@@ -156,7 +156,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 0, 2) i32 @skip_to_optional_arg_default(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @skip_to_optional_arg_default(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, ptr noundef %3) local_unnamed_addr #2 {
   br label %5
 
 5:                                                ; preds = %7, %4
@@ -311,7 +311,7 @@ define dso_local void @strbuf_release(ptr noundef captures(none) %0) local_unnam
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @strbuf_detach(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local ptr @strbuf_detach(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8, !tbaa !15
   %.not.i = icmp eq i64 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1026,7 +1026,7 @@ define dso_local void @strbuf_add_separated_string_list(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strbuf_list_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #3 {
+define dso_local void @strbuf_list_free(ptr noundef %0) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %.preheader
 
@@ -5034,7 +5034,7 @@ declare i64 @tm_to_time_t(ptr noundef) local_unnamed_addr #8
 declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #21
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @strbuf_stripspace(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define dso_local void @strbuf_stripspace(ptr noundef captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = load i64, ptr %0, align 8, !tbaa !15
   %.not.i = icmp eq i64 %3, 0
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8

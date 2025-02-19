@@ -4765,7 +4765,7 @@ _ZN5boost6detail31get_or_make_current_thread_dataEv.exit: ; preds = %_ZN5boost6d
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN5boost6detail13find_tss_dataEPKv(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN5boost6detail13find_tss_dataEPKv(ptr noundef readnone %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef zeroext i1 @_ZN5boost13thread_detail17enter_once_regionERNS_9once_flagE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN5boost6detail12_GLOBAL__N_128current_thread_tls_init_flagE) #32
   br i1 %2, label %_ZN5boost6detail6invokeIPFvvEJEEEDTclclsr5boostE7forwardIT_Efp_Espclsr5boostE7forwardIT0_Efp0_EEEOS4_DpOS5_.exit.i.i, label %_ZN5boost6detail23get_current_thread_dataEv.exit
 
@@ -4818,7 +4818,7 @@ _ZNSt3mapIPKvN5boost6detail13tss_data_nodeESt4lessIS1_ESaISt4pairIKS1_S4_EEE4fin
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef readnone captures(address) %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN5boost6detail12get_tss_dataEPKv(ptr noundef readnone %0) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = tail call noundef zeroext i1 @_ZN5boost13thread_detail17enter_once_regionERNS_9once_flagE(ptr noundef nonnull align 4 dereferenceable(4) @_ZN5boost6detail12_GLOBAL__N_128current_thread_tls_init_flagE) #32
   br i1 %2, label %_ZN5boost6detail6invokeIPFvvEJEEEDTclclsr5boostE7forwardIT_Efp_Espclsr5boostE7forwardIT0_Efp0_EEEOS4_DpOS5_.exit.i.i.i, label %_ZN5boost6detail23get_current_thread_dataEv.exit.i
 

@@ -2570,7 +2570,7 @@ define hidden noundef range(i64 -1, 2305843009213693951) i64 @"_ZN103_$LT$arrow_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h00c18d557f2a540cE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h00c18d557f2a540cE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(120) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -2579,7 +2579,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h31db0b780f8f0f18E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h31db0b780f8f0f18E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(120) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -2588,7 +2588,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hb1d74d6cc4884805E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hb1d74d6cc4884805E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(120) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -2597,7 +2597,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17heffc8b68615c3b2eE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17heffc8b68615c3b2eE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(120) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -3660,22 +3660,22 @@ define hidden noundef zeroext i1 @"_ZN103_$LT$arrow_array..array..byte_array..Ge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h1b53b88c89005491E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h1b53b88c89005491E"(ptr noalias noundef readonly returned align 8 dereferenceable(120) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h621505f606b68fa8E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h621505f606b68fa8E"(ptr noalias noundef readonly returned align 8 dereferenceable(120) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17he0408456d3f08cadE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17he0408456d3f08cadE"(ptr noalias noundef readonly returned align 8 dereferenceable(120) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hf5c4d46cb314ea33E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(120) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN103_$LT$arrow_array..array..byte_array..GenericByteArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hf5c4d46cb314ea33E"(ptr noalias noundef readonly returned align 8 dereferenceable(120) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -6627,7 +6627,7 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @"_ZN106_$LT$arrow_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h0a1edf927d3d511bE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h0a1edf927d3d511bE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6636,7 +6636,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h2dd0c244b4053df1E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h2dd0c244b4053df1E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6645,7 +6645,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h2dd9a82500805922E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h2dd9a82500805922E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6654,7 +6654,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h43ab1adbd90e353bE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h43ab1adbd90e353bE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6663,7 +6663,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h43ce69c44498574eE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h43ce69c44498574eE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6672,7 +6672,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h45786ea631b8ae20E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h45786ea631b8ae20E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6681,7 +6681,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h55ba1ba5ac1966caE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h55ba1ba5ac1966caE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6690,7 +6690,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h615f5a07c211e3fbE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h615f5a07c211e3fbE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6699,7 +6699,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h6b5576d33bcfa5f5E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h6b5576d33bcfa5f5E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6708,7 +6708,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h6c3546da77c9cf7fE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h6c3546da77c9cf7fE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6717,7 +6717,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h753908da5ea3fee3E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h753908da5ea3fee3E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6726,7 +6726,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h7e95d479d27d1c8cE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h7e95d479d27d1c8cE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6735,7 +6735,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h821f20a480329392E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h821f20a480329392E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6744,7 +6744,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h8e5bc2e56cb156ddE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h8e5bc2e56cb156ddE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6753,7 +6753,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h9650f4e3fe7cd718E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h9650f4e3fe7cd718E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6762,7 +6762,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17had913f0b27a1420fE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17had913f0b27a1420fE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6771,7 +6771,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hb578675f5c094d18E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hb578675f5c094d18E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6780,7 +6780,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hc32b7403be4e6efbE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hc32b7403be4e6efbE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6789,7 +6789,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hc40afedb0cde8c96E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hc40afedb0cde8c96E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6798,7 +6798,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hc55f47fcf8ede74fE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hc55f47fcf8ede74fE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6807,7 +6807,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hdc5175340fca1b42E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hdc5175340fca1b42E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6816,7 +6816,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hdeb2cde938db0620E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hdeb2cde938db0620E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6825,7 +6825,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hdf5df82d4446f5a7E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hdf5df82d4446f5a7E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6834,7 +6834,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17he4206666279abbd0E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17he4206666279abbd0E.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -6843,7 +6843,7 @@ define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hfc74acf1c236097eE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hfc74acf1c236097eE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(96) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -12074,127 +12074,127 @@ define hidden noundef zeroext i1 @"_ZN106_$LT$arrow_array..array..primitive_arra
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h0d8fab24b9a86617E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h0d8fab24b9a86617E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h1235fdd68a9155f6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h1235fdd68a9155f6E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h28c239001c8a0d88E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h28c239001c8a0d88E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h2d400f0091771ba4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h2d400f0091771ba4E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h3101afe57a70059dE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h3101afe57a70059dE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h339e252b77d7c8ccE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h339e252b77d7c8ccE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h35e70cd659dcaf57E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h35e70cd659dcaf57E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h4d6e0aee298d7066E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h4d6e0aee298d7066E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h50006714bada0892E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h50006714bada0892E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h591bf7fa04dafa8cE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h591bf7fa04dafa8cE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h5ff2d2db531329ffE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h5ff2d2db531329ffE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h68fb1bb7f4eb32aeE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h68fb1bb7f4eb32aeE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h7bf5cd538e97a8e6E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h7bf5cd538e97a8e6E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h906a213c09e76ee4E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h906a213c09e76ee4E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h996b1b383f521adbE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h996b1b383f521adbE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17ha1257437a930f261E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17ha1257437a930f261E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17ha9c954810e4e2619E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17ha9c954810e4e2619E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hbaff40dd5e30dbc9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hbaff40dd5e30dbc9E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hbd0f152833f028b7E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hbd0f152833f028b7E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hbf39e341ce057503E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hbf39e341ce057503E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hebe55489508665ffE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hebe55489508665ffE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17heed7b0fdb3b8859bE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17heed7b0fdb3b8859bE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hef13bbb54340b15eE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hef13bbb54340b15eE"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hf20f95a2409160e3E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hf20f95a2409160e3E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hfbd95b4972bb2066E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(96) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN106_$LT$arrow_array..array..primitive_array..PrimitiveArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hfbd95b4972bb2066E"(ptr noalias noundef readonly returned align 8 dereferenceable(96) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -12322,7 +12322,7 @@ define internal noundef i64 @"_ZN107_$LT$arrow_array..array..fixed_size_list_arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN107_$LT$arrow_array..array..fixed_size_list_array..FixedSizeListArray$u20$as$u20$arrow_array..array..Array$GT$5nulls17h80e5ce2f8235f105E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN107_$LT$arrow_array..array..fixed_size_list_array..FixedSizeListArray$u20$as$u20$arrow_array..array..Array$GT$5nulls17h80e5ce2f8235f105E"(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -12351,7 +12351,7 @@ define internal noundef zeroext i1 @"_ZN107_$LT$arrow_array..array..fixed_size_l
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN107_$LT$arrow_array..array..fixed_size_list_array..FixedSizeListArray$u20$as$u20$arrow_array..array..Array$GT$9data_type17h0103dfdb50a18026E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN107_$LT$arrow_array..array..fixed_size_list_array..FixedSizeListArray$u20$as$u20$arrow_array..array..Array$GT$9data_type17h0103dfdb50a18026E"(ptr noalias noundef readonly returned align 8 dereferenceable(104) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -16014,7 +16014,7 @@ define internal noundef range(i64 0, -9223372036854775808) i64 @"_ZN108_$LT$arro
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h0fcd3d43d448a943E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h0fcd3d43d448a943E"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -16023,7 +16023,7 @@ define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h1dc9960429bf40feE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h1dc9960429bf40feE"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -16032,7 +16032,7 @@ define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h8142ff4a7fb3851aE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h8142ff4a7fb3851aE"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -16041,7 +16041,7 @@ define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hb708486f94ec5bdbE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hb708486f94ec5bdbE"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -16050,7 +16050,7 @@ define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hbd430b1b30007fe2E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hbd430b1b30007fe2E"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -16059,7 +16059,7 @@ define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hcb3c91028eacbcadE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hcb3c91028eacbcadE"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -16068,7 +16068,7 @@ define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hed9b018cfc9605f6E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hed9b018cfc9605f6E"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -16077,7 +16077,7 @@ define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hee2d222c7336e0eeE"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17hee2d222c7336e0eeE"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -18126,42 +18126,42 @@ define internal noundef zeroext i1 @"_ZN108_$LT$arrow_array..array..dictionary_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h5e4fe74e548bc5edE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h5e4fe74e548bc5edE"(ptr noalias noundef readonly returned align 8 dereferenceable(144) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h89efcaa4470d6e56E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h89efcaa4470d6e56E"(ptr noalias noundef readonly returned align 8 dereferenceable(144) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h9a24aa7c0d5553ddE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h9a24aa7c0d5553ddE"(ptr noalias noundef readonly returned align 8 dereferenceable(144) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17ha3e935ebd6cff295E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17ha3e935ebd6cff295E"(ptr noalias noundef readonly returned align 8 dereferenceable(144) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17had4bd50720afa3d9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17had4bd50720afa3d9E"(ptr noalias noundef readonly returned align 8 dereferenceable(144) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17haf689cf84d86c5d9E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17haf689cf84d86c5d9E"(ptr noalias noundef readonly returned align 8 dereferenceable(144) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hbc6ede3f12f0c916E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hbc6ede3f12f0c916E"(ptr noalias noundef readonly returned align 8 dereferenceable(144) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hce7e0bffdb6cb78aE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN108_$LT$arrow_array..array..dictionary_array..DictionaryArray$LT$T$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17hce7e0bffdb6cb78aE"(ptr noalias noundef readonly returned align 8 dereferenceable(144) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -18245,7 +18245,7 @@ define internal noundef i64 @"_ZN111_$LT$arrow_array..array..fixed_size_binary_a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN111_$LT$arrow_array..array..fixed_size_binary_array..FixedSizeBinaryArray$u20$as$u20$arrow_array..array..Array$GT$5nulls17h435d22143c148137E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN111_$LT$arrow_array..array..fixed_size_binary_array..FixedSizeBinaryArray$u20$as$u20$arrow_array..array..Array$GT$5nulls17h435d22143c148137E"(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -18274,7 +18274,7 @@ define internal noundef zeroext i1 @"_ZN111_$LT$arrow_array..array..fixed_size_b
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN111_$LT$arrow_array..array..fixed_size_binary_array..FixedSizeBinaryArray$u20$as$u20$arrow_array..array..Array$GT$9data_type17h5f8afcac53cbba35E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN111_$LT$arrow_array..array..fixed_size_binary_array..FixedSizeBinaryArray$u20$as$u20$arrow_array..array..Array$GT$9data_type17h5f8afcac53cbba35E"(ptr noalias noundef readonly returned align 8 dereferenceable(112) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -18312,7 +18312,7 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h168ff49f0e74d088E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17h168ff49f0e74d088E"(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -18321,7 +18321,7 @@ define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN112_$LT$arr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17he07f378f82ba7dc6E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$5nulls17he07f378f82ba7dc6E"(ptr noalias noundef readonly align 8 dereferenceable(112) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -18354,12 +18354,12 @@ define internal noundef i64 @"_ZN112_$LT$arrow_array..array..list_array..Generic
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h0576b6107f5ece25E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h0576b6107f5ece25E"(ptr noalias noundef readonly returned align 8 dereferenceable(112) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h95205e14ba48ed29E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(112) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN112_$LT$arrow_array..array..list_array..GenericListArray$LT$OffsetSize$GT$$u20$as$u20$arrow_array..array..Array$GT$9data_type17h95205e14ba48ed29E"(ptr noalias noundef readonly returned align 8 dereferenceable(112) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -108738,19 +108738,19 @@ define hidden void @_ZN4core3ops8function6FnOnce9call_once17h6a911450aba74dcbE.l
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3ops8function6FnOnce9call_once17hba8e329d640c6c91E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(72) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3ops8function6FnOnce9call_once17hba8e329d640c6c91E(ptr noalias noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3ops8function6FnOnce9call_once17hf101634b2a6bf593E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(72) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3ops8function6FnOnce9call_once17hf101634b2a6bf593E(ptr noalias noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3ops8function6FnOnce9call_once17hf2e8dc8d745c20fcE(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(72) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define internal noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3ops8function6FnOnce9call_once17hf2e8dc8d745c20fcE(ptr noalias noundef readonly align 8 dereferenceable(72) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -108790,7 +108790,7 @@ define hidden void @"_ZN4core3ptr110drop_in_place$LT$core..result..Result$LT$req
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h9019f31dd13e4b2fE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h9019f31dd13e4b2fE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !12, !nonnull !12
@@ -114230,7 +114230,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17he099db18078017b
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_ZN4core4hash4Hash10hash_slice17h04f6c6f6d3c44d0aE(ptr noalias noundef nonnull readonly align 8 captures(address) %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(16) %2) unnamed_addr #0 {
+define hidden void @_ZN4core4hash4Hash10hash_slice17h04f6c6f6d3c44d0aE(ptr noalias noundef nonnull readonly align 8 %0, i64 noundef %1, ptr noalias noundef align 8 dereferenceable(16) %2) unnamed_addr #0 {
   %4 = getelementptr inbounds { i8, [23 x i8] }, ptr %0, i64 %1
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %._crit_edge, label %.lr.ph
@@ -119649,7 +119649,7 @@ define hidden noundef range(i64 0, -9223372036854775808) i64 @"_ZN51_$LT$$RF$T$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h83cf946e91d5d057E.llvm.18016462908235130027"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h83cf946e91d5d057E.llvm.18016462908235130027"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -127308,7 +127308,7 @@ define hidden void @"_ZN73_$LT$thrift..protocol..TFieldIdentifier$u20$as$u20$cor
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN74_$LT$arrow_schema..fields..UnionFields$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6716f2988beb1fdcE"(ptr readonly captures(address_is_null) %.0.val, i64 %.8.val, ptr readonly captures(address_is_null) %.0.val1, i64 %.8.val3) unnamed_addr #4 {
+define internal fastcc noundef zeroext i1 @"_ZN74_$LT$arrow_schema..fields..UnionFields$u20$as$u20$core..cmp..PartialEq$GT$2eq17h6716f2988beb1fdcE"(ptr readonly %.0.val, i64 %.8.val, ptr readonly %.0.val1, i64 %.8.val3) unnamed_addr #4 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = getelementptr inbounds nuw i8, ptr %.0.val, i64 16
@@ -133263,7 +133263,7 @@ define internal noundef i64 @"_ZN91_$LT$arrow_array..array..struct_array..Struct
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN91_$LT$arrow_array..array..struct_array..StructArray$u20$as$u20$arrow_array..array..Array$GT$5nulls17h4129cad797035098E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #7 {
+define internal noundef align 8 dereferenceable_or_null(48) ptr @"_ZN91_$LT$arrow_array..array..struct_array..StructArray$u20$as$u20$arrow_array..array..Array$GT$5nulls17h4129cad797035098E"(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null
@@ -133292,7 +133292,7 @@ define internal noundef zeroext i1 @"_ZN91_$LT$arrow_array..array..struct_array.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN91_$LT$arrow_array..array..struct_array..StructArray$u20$as$u20$arrow_array..array..Array$GT$9data_type17hd10603a83a4268e6E"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(104) %0) unnamed_addr #8 {
+define internal noundef nonnull align 8 dereferenceable(24) ptr @"_ZN91_$LT$arrow_array..array..struct_array..StructArray$u20$as$u20$arrow_array..array..Array$GT$9data_type17hd10603a83a4268e6E"(ptr noalias noundef readonly align 8 dereferenceable(104) %0) unnamed_addr #8 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   ret ptr %2
 }
@@ -136180,7 +136180,7 @@ define internal noundef i64 @"_ZN93_$LT$arrow_array..array..boolean_array..Boole
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN93_$LT$arrow_array..array..boolean_array..BooleanArray$u20$as$u20$arrow_array..array..Array$GT$5nulls17h7d489d53a17c0cbfE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #7 {
+define hidden noundef align 8 dereferenceable_or_null(48) ptr @"_ZN93_$LT$arrow_array..array..boolean_array..BooleanArray$u20$as$u20$arrow_array..array..Array$GT$5nulls17h7d489d53a17c0cbfE.llvm.18016462908235130027"(ptr noalias noundef readonly align 8 dereferenceable(88) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !noundef !12
   %4 = icmp eq ptr %3, null

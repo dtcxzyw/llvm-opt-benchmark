@@ -3105,7 +3105,7 @@ _ZNK4Luau7AstNameeqEPKc.exit13.thread:            ; preds = %8, %_ZNK4Luau7AstNa
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @_ZN4Luau8hasBreakEPNS_7AstStatE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @_ZN4Luau8hasBreakEPNS_7AstStatE(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i32, ptr %2, align 8
   %4 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstStatBlockEE5valueE, align 4
@@ -3171,7 +3171,7 @@ define dso_local noundef zeroext i1 @_ZN4Luau8hasBreakEPNS_7AstStatE(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZN4Luau14getFallthroughEPKNS_7AstStatE(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #3 {
+define dso_local noundef ptr @_ZN4Luau14getFallthroughEPKNS_7AstStatE(ptr noundef readonly %0) local_unnamed_addr #3 {
   %2 = load i32, ptr @_ZN4Luau7AstRttiINS_12AstStatBlockEE5valueE, align 4
   %3 = load i32, ptr @_ZN4Luau7AstRttiINS_9AstStatIfEE5valueE, align 4
   br label %tailrecurse
@@ -25059,7 +25059,7 @@ define dso_local { ptr, i8 } @_ZN4Luau11TypeChecker20getIndexTypeFromTypeERKSt10
 declare noundef ptr @_ZN4Luau19getMutableTableTypeEPKNS_4TypeE(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK4Luau11TypeChecker14anyIfNonstrictEPKNS_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2016) %0, ptr noundef readnone captures(ret: address, provenance) %1) local_unnamed_addr #16 align 2 {
+define dso_local noundef ptr @_ZNK4Luau11TypeChecker14anyIfNonstrictEPKNS_4TypeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(2016) %0, ptr noundef readnone %1) local_unnamed_addr #16 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 864
@@ -68340,7 +68340,7 @@ _ZNSt3setINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4lessIS5_ESaIS5_
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @"_ZZN4Luau11TypeChecker23diagnoseMissingTableKeyEPNS_15UnknownPropertyERNS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolES1_NS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8PropertyESt4lessIS1N_ESaISt4pairIKS1N_S1O_EEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @"_ZZN4Luau11TypeChecker23diagnoseMissingTableKeyEPNS_15UnknownPropertyERNS_7VariantIJNS_12TypeMismatchENS_13UnknownSymbolES1_NS_9NotATableENS_17CannotExtendTableENS_24OnlyTablesCanHaveMethodsENS_23DuplicateTypeDefinitionENS_13CountMismatchENS_23FunctionDoesNotTakeSelfENS_20FunctionRequiresSelfENS_17OccursCheckFailedENS_14UnknownRequireENS_30IncorrectGenericParameterCountENS_11SyntaxErrorENS_14CodeTooComplexENS_21UnificationTooComplexENS_27UnknownPropButFoundLikePropENS_12GenericErrorENS_13InternalErrorENS_21CannotCallNonFunctionENS_16ExtraInformationENS_17DeprecatedApiUsedENS_25ModuleHasCyclicDependencyENS_14IllegalRequireENS_29FunctionExitsWithoutReturningENS_25DuplicateGenericParameterENS_19CannotAssignToNeverENS_26CannotInferBinaryOperationENS_17MissingPropertiesENS_27SwappedGenericTypeParameterENS_19OptionalValueAccessENS_20MissingUnionPropertyENS_17TypesAreUnrelatedENS_23NormalizationTooComplexENS_16TypePackMismatchENS_36DynamicPropertyLookupOnClassesUnsafeENS_21UninhabitedTypeFamilyENS_25UninhabitedTypePackFamilyENS_17WhereClauseNeededENS_21PackWhereClauseNeededENS_24CheckedFunctionCallErrorENS_32NonStrictFunctionDefinitionErrorENS_23PropertyAccessViolationENS_28CheckedFunctionIncorrectArgsENS_25UnexpectedTypeInSubtypingENS_29UnexpectedTypePackInSubtypingENS_37ExplicitFunctionAnnotationRecommendedEEEEENK3$_0clERKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_8PropertyESt4lessIS1N_ESaISt4pairIKS1N_S1O_EEE"(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 8 dereferenceable(48) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -77466,7 +77466,7 @@ declare noundef ptr @_ZN4Luau6baseofERKNS_7VariantIJNS_6SymbolENS_5FieldEEEE(ptr
 declare void @_ZN4Luau13addRefinementERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIKS4_S7_EEERSC_S7_(ptr noundef nonnull align 8 dereferenceable(56), ptr noundef nonnull align 8 dereferenceable(56), ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE"(ptr %.0.val, ptr readonly captures(address_is_null) %.16.val, i64 %.24.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc { ptr, i8 } @"_ZZN4Luau11TypeChecker12refineLValueERKNS_7VariantIJNS_6SymbolENS_5FieldEEEERSt13unordered_mapIS4_PKNS_4TypeENS_12LValueHasherESt8equal_toIS4_ESaISt4pairIS5_SA_EEERKSt10shared_ptrINS_5ScopeEESt8functionIFSt8optionalISA_ESA_EEENK3$_0clERKSt13unordered_setISA_St4hashISA_ESC_ISA_ESaISA_EE"(ptr %.0.val, ptr readonly %.16.val, i64 %.24.val) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"struct.Luau::UnionType", align 8
   %2 = icmp eq i64 %.24.val, 0
   br i1 %2, label %_ZNSt6vectorIPKN4Luau4TypeESaIS3_EED2Ev.exit15, label %3
@@ -87115,7 +87115,7 @@ define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeG
 declare noundef zeroext i1 @_ZN4Luau20isOverloadedFunctionEPKNS_4TypeE(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbEN3$_38__invokeESB_"(ptr noundef readonly captures(address_is_null) %0) #21 align 2 {
+define internal noundef zeroext i1 @"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbEN3$_38__invokeESB_"(ptr noundef readonly %0) #21 align 2 {
   %.not.i.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i.i, label %"_ZZN4Luau11TypeChecker7resolveERKNS_18TypeGuardPredicateERSt13unordered_mapINS_7VariantIJNS_6SymbolENS_5FieldEEEEPKNS_4TypeENS_12LValueHasherESt8equal_toIS8_ESaISt4pairIKS8_SB_EEERKSt10shared_ptrINS_5ScopeEEbENK3$_3clESB_.exit", label %2
 

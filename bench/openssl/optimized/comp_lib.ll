@@ -47,7 +47,7 @@ define ptr @COMP_CTX_get_method(ptr noundef readonly captures(none) %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @COMP_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define i32 @COMP_get_type(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %5, label %3
 
@@ -61,7 +61,7 @@ define i32 @COMP_get_type(ptr noundef readonly captures(address_is_null) %0) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @COMP_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @COMP_get_name(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 

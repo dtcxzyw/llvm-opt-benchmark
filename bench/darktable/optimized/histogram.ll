@@ -3276,7 +3276,7 @@ _color_harmony_button_on.exit:                    ; preds = %24, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_color_harmony_enter_notify_callback(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1, ptr noundef captures(none) initializes((2752, 2756)) %2) #2 {
+define internal noundef i32 @_color_harmony_enter_notify_callback(ptr noundef readnone %0, ptr readnone captures(none) %1, ptr noundef captures(none) initializes((2752, 2756)) %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 2756
   %5 = load i32, ptr %4, align 4, !tbaa !84
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 2752

@@ -2404,7 +2404,7 @@ declare void @_ZN18OpenImageIO_v2_6_010add_ditherEiiiiPflllfiijiiii(i32 noundef,
 declare noundef ptr @_ZN18OpenImageIO_v2_6_03pvt27parallel_convert_from_floatEPKfPvmNS_8TypeDescE(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput11write_imageENS_8TypeDescEPKvlllPFbPvfES4_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %format, ptr noundef %data, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride, ptr noundef readonly captures(address_is_null) %progress_callback, ptr noundef %progress_callback_data) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN18OpenImageIO_v2_6_011ImageOutput11write_imageENS_8TypeDescEPKvlllPFbPvfES4_(ptr noundef nonnull align 8 dereferenceable(184) %this, ptr noundef %format, ptr noundef %data, i64 noundef %xstride, i64 noundef %ystride, i64 noundef %zstride, ptr noundef readonly %progress_callback, ptr noundef %progress_callback_data) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %agg.tmp = alloca %"struct.OpenImageIO_v2_6_0::TypeDesc", align 4
   %agg.tmp11 = alloca %"class.OpenImageIO_v2_6_0::basic_string_view", align 8

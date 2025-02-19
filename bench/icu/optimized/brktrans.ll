@@ -1184,7 +1184,7 @@ declare noundef i32 @_ZNK6icu_7513UnicodeString8char32AtEi(ptr noundef nonnull a
 declare signext i8 @u_charType_75(i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7519BreakTransliterator12getInsertionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(168) %this) unnamed_addr #7 align 2 {
+define noundef nonnull align 8 dereferenceable(64) ptr @_ZNK6icu_7519BreakTransliterator12getInsertionEv(ptr noundef nonnull readnone align 8 dereferenceable(168) %this) unnamed_addr #7 align 2 {
 entry:
   %fInsertion = getelementptr inbounds nuw i8, ptr %this, i64 104
   ret ptr %fInsertion

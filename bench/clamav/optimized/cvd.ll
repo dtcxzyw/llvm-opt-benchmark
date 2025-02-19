@@ -716,7 +716,7 @@ define range(i32 0, 27) i32 @cli_cvdload(ptr noundef %0, ptr noundef %1, ptr nou
 declare i32 @cl_engine_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 21) i32 @cli_cvdverify(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) unnamed_addr #0 {
   %4 = alloca [513 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 513, ptr nonnull %4) #19
   %5 = tail call i32 @fseek(ptr noundef %0, i64 noundef 0, i32 noundef 0)
@@ -870,7 +870,7 @@ declare i32 @cl_retflevel() local_unnamed_addr #3
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 64, 0) %3, ptr noundef nonnull %4, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 64, 0) %3, ptr noundef nonnull %4, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = alloca [13 x i8], align 1
   %8 = alloca [101 x i8], align 16
   %9 = alloca [512 x i8], align 16
@@ -2152,7 +2152,7 @@ declare noundef i32 @fstat(i32 noundef, ptr noundef captures(none)) local_unname
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @cli_untgz_cleanup(ptr noundef captures(address_is_null) %0, ptr noundef nonnull %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @cli_untgz_cleanup(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2) unnamed_addr #0 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.121) #19
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %4

@@ -183,7 +183,7 @@ define void @Cgt_ManCollectFanoutPos(ptr noundef %0, ptr noundef %1, ptr noundef
 declare void @Aig_ManIncrementTravId(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @Cgt_ManCheckGateComplete(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @Cgt_ManCheckGateComplete(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #3 {
   %5 = getelementptr i8, ptr %3, i64 4
   %.val13 = load i32, ptr %5, align 4, !tbaa !22
   %6 = icmp sgt i32 %.val13, 0

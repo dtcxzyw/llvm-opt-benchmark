@@ -78,7 +78,7 @@ declare i32 @crypto_stream_chacha20_ietf_xor(ptr noundef, ptr noundef, i64 nound
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local noundef i32 @crypto_secretstream_xchacha20poly1305_push(ptr noundef nonnull %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_secretstream_xchacha20poly1305_push(ptr noundef nonnull %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i64 noundef %6, i8 noundef zeroext %7) local_unnamed_addr #0 {
   %9 = alloca [40 x i8], align 16
   %10 = alloca %struct.crypto_onetimeauth_poly1305_state, align 16
   %11 = alloca [64 x i8], align 16
@@ -205,7 +205,7 @@ declare void @sodium_increment(ptr noundef, i64 noundef) local_unnamed_addr #1
 declare i32 @sodium_is_zero(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local range(i32 -1, 1) i32 @crypto_secretstream_xchacha20poly1305_pull(ptr noundef nonnull %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @crypto_secretstream_xchacha20poly1305_pull(ptr noundef nonnull %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, ptr noundef %4, i64 noundef %5, ptr noundef %6, i64 noundef %7) local_unnamed_addr #0 {
   %9 = alloca [40 x i8], align 16
   %10 = alloca %struct.crypto_onetimeauth_poly1305_state, align 16
   %11 = alloca [64 x i8], align 16

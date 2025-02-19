@@ -781,7 +781,7 @@ mmcall.exit:                                      ; preds = %114, %124
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @str2num(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @str2num(ptr noundef readonly %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i64, ptr %0, align 8, !tbaa !14
   %4 = ashr i64 %3, 47
   %5 = icmp ult i64 %4, -14
@@ -2142,7 +2142,7 @@ declare hidden ptr @lj_lib_checkstr(ptr noundef, i32 noundef) local_unnamed_addr
 declare hidden void @lj_err_argtype(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define hidden void @lj_meta_call(ptr noundef %0, ptr noundef %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define hidden void @lj_meta_call(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = load i64, ptr %1, align 8, !tbaa !14
   %5 = ashr i64 %4, 47
   switch i64 %5, label %14 [

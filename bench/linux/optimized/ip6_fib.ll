@@ -217,7 +217,7 @@ define dso_local ptr @fib6_get_table(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local ptr @fib6_rule_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address) %4) local_unnamed_addr #0 align 16 {
+define dso_local ptr @fib6_rule_lookup(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 1952
   %7 = load ptr, ptr %6, align 32
   %8 = icmp eq ptr %4, @ip6_pol_route_output
@@ -714,7 +714,7 @@ define internal i32 @fib6_node_dump(ptr noundef captures(none) %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @fib6_metric_set(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
+define dso_local void @fib6_metric_set(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 align 16 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %20, label %5
 
@@ -2545,7 +2545,7 @@ define internal fastcc ptr @fib6_repair_tree(ptr noundef %0, ptr noundef nonnull
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nounwind null_pointer_is_valid
-define dso_local ptr @fib6_node_lookup(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #6 align 16 {
+define dso_local ptr @fib6_node_lookup(ptr noundef %0, ptr noundef readonly %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #6 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread10, label %.preheader, !prof !23
 
@@ -2778,7 +2778,7 @@ define dso_local ptr @fib6_locate(ptr noundef %0, ptr noundef readonly captures(
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @fib6_del(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @fib6_del(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.fib6_entry_notifier_info, align 8
   %4 = alloca %struct.fib6_entry_notifier_info, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4449,7 +4449,7 @@ define internal noundef i32 @fib6_nh_drop_pcpu_from(ptr noundef readonly capture
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__fib6_drop_pcpu_from(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 align 16 {
+define internal fastcc void @__fib6_drop_pcpu_from(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

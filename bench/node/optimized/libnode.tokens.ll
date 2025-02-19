@@ -163,7 +163,7 @@ do.end6:                                          ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4node4quic11TokenSecretC2EPKh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef readonly captures(address_is_null) %secret) unnamed_addr #3 align 2 {
+define dso_local void @_ZN4node4quic11TokenSecretC2EPKh(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(24) initializes((0, 24)) %this, ptr noundef readonly %secret) unnamed_addr #3 align 2 {
 entry:
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN4node4quic11TokenSecretE, i64 16), ptr %this, align 8
   %buf_ = getelementptr inbounds nuw i8, ptr %this, i64 8
@@ -182,7 +182,7 @@ _ZN4node4quic11TokenSecretaSEPKh.exit:            ; preds = %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node4quic11TokenSecretaSEPKh(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(24) %this, ptr noundef readonly captures(address_is_null) %other) local_unnamed_addr #3 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(24) ptr @_ZN4node4quic11TokenSecretaSEPKh(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) %this, ptr noundef readonly %other) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not = icmp eq ptr %other, null
   br i1 %cmp.not, label %do.body4, label %do.end5
@@ -207,7 +207,7 @@ declare void @abort() local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK4node4quic11TokenSecretcvPKhEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(24) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4node4quic11TokenSecretcvPKhEv(ptr noundef nonnull readnone align 8 dereferenceable(24) %this) local_unnamed_addr #7 align 2 {
 entry:
   %buf_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   ret ptr %buf_
@@ -314,7 +314,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @_ZNK4node4quic19StatelessResetTokencvPKhEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(32) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4node4quic19StatelessResetTokencvPKhEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 {
 entry:
   %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_, align 8
@@ -325,7 +325,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @_ZNK4node4quic19StatelessResetTokencvPKcEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(32) %this) local_unnamed_addr #10 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4node4quic19StatelessResetTokencvPKcEv(ptr noundef nonnull readonly align 8 dereferenceable(32) %this) local_unnamed_addr #10 align 2 {
 entry:
   %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load ptr, ptr %ptr_, align 8
@@ -539,14 +539,14 @@ declare i32 @ngtcp2_crypto_verify_retry_token(ptr noundef, ptr noundef, i64 noun
 declare i64 @uv_hrtime() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4node4quic10RetryTokencvRK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4node4quic10RetryTokencvRK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %ptr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK4node4quic10RetryTokencvPK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4node4quic10RetryTokencvPK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 dereferenceable(104) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %ptr_
@@ -643,14 +643,14 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 declare i32 @ngtcp2_crypto_verify_regular_token(ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4node4quic12RegularTokencvRK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull align 8 dereferenceable(16) ptr @_ZNK4node4quic12RegularTokencvRK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %ptr_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef nonnull ptr @_ZNK4node4quic12RegularTokencvPK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(88) %this) local_unnamed_addr #7 align 2 {
+define dso_local noundef nonnull ptr @_ZNK4node4quic12RegularTokencvPK10ngtcp2_vecEv(ptr noundef nonnull readnone align 8 dereferenceable(88) %this) local_unnamed_addr #7 align 2 {
 entry:
   %ptr_ = getelementptr inbounds nuw i8, ptr %this, i64 72
   ret ptr %ptr_

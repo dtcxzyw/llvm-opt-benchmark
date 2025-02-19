@@ -1356,7 +1356,7 @@ declare ptr @PyObject_Str(ptr noundef) local_unnamed_addr #2
 declare void @PyErr_SetObject(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @_ctypes_callproc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define hidden ptr @_ctypes_callproc(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca ptr, align 8
   %9 = alloca %struct.ffi_cif, align 8
   %10 = getelementptr i8, ptr %2, i64 16
@@ -3152,7 +3152,7 @@ _Py_NewRef.exit:                                  ; preds = %13, %9, %5, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @My_Py_INCREF(ptr readnone captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1) #5 {
+define internal noundef ptr @My_Py_INCREF(ptr readnone captures(none) %0, ptr noundef returned %1) #5 {
   %3 = load i32, ptr %1, align 8, !tbaa !11
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %Py_INCREF.exit3, label %Py_INCREF.exit

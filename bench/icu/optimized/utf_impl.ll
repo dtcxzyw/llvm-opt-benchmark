@@ -242,7 +242,7 @@ return:                                           ; preds = %_ZL10errorValueia.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define i32 @utf8_appendCharSafeBody_75(ptr noundef writeonly captures(none) %s, i32 noundef %i, i32 noundef %length, i32 noundef %c, ptr noundef writeonly captures(address_is_null) %pIsError) local_unnamed_addr #1 {
+define i32 @utf8_appendCharSafeBody_75(ptr noundef writeonly captures(none) %s, i32 noundef %i, i32 noundef %length, i32 noundef %c, ptr noundef writeonly %pIsError) local_unnamed_addr #1 {
 entry:
   %cmp = icmp ult i32 %c, 2048
   br i1 %cmp, label %if.then, label %if.else

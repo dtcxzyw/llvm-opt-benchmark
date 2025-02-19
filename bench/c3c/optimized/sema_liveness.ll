@@ -327,7 +327,7 @@ define dso_local void @sema_trace_liveness() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_trace_decl_liveness(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @sema_trace_decl_liveness(ptr noundef %0) unnamed_addr #0 {
   %.not130143 = icmp eq ptr %0, null
   br i1 %.not130143, label %sema_trace_func_liveness.exit, label %.lr.ph
 
@@ -767,7 +767,7 @@ sema_trace_func_liveness.exit:                    ; preds = %._crit_edge, %60, %
 declare void @error_exit(ptr noundef, ...) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_trace_stmt_liveness(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @sema_trace_stmt_liveness(ptr noundef readonly %0) unnamed_addr #0 {
   %.not146 = icmp eq ptr %0, null
   br i1 %.not146, label %sema_trace_expr_list_liveness.exit, label %.lr.ph
 
@@ -2014,7 +2014,7 @@ define internal fastcc void @sema_trace_stmt_chain_liveness(i32 noundef %0) unna
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @sema_trace_asm_arg_list(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @sema_trace_asm_arg_list(ptr noundef readonly %0) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %2
 

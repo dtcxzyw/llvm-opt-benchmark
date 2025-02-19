@@ -274,7 +274,7 @@ define dso_local i32 @acpi_install_physical_table(i64 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_load_table(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #3 align 16 {
+define dso_local i32 @acpi_load_table(ptr noundef %0, ptr noundef writeonly %1) #3 align 16 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #5
   %4 = icmp eq ptr %0, null
@@ -311,7 +311,7 @@ define dso_local i32 @acpi_load_table(ptr noundef %0, ptr noundef writeonly capt
 declare dso_local i32 @acpi_tb_install_and_load_table(i64 noundef, i8 noundef zeroext, ptr noundef, i8 noundef zeroext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_unload_parent_table(ptr noundef readonly captures(address_is_null) %0) #3 align 16 {
+define dso_local i32 @acpi_unload_parent_table(ptr noundef readonly %0) #3 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %34, label %3
 

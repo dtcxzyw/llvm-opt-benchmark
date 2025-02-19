@@ -1631,7 +1631,7 @@ declare i32 @dt_imageio_png_read_image(ptr noundef, ptr noundef) local_unnamed_a
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define hidden double @dt_atof(ptr noundef readonly captures(address) %0) local_unnamed_addr #12 {
+define hidden double @dt_atof(ptr noundef readonly %0) local_unnamed_addr #12 {
 sub_0:
   %1 = load i8, ptr %0, align 1
   switch i8 %1, label %sub_095 [
@@ -4098,7 +4098,7 @@ define range(i32 0, 2) i32 @introspection_init(ptr noundef %0, i32 noundef %1) l
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @get_p(ptr noundef readnone captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 {
+define ptr @get_p(ptr noundef readnone %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #20 {
   %3 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(12) @.str.118) #27
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %33, label %4

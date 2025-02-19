@@ -953,7 +953,7 @@ read_server_final_message.exit.thread:            ; preds = %310, %306, %.loopex
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal zeroext i1 @scram_channel_bound(ptr noundef readonly captures(address_is_null) %0) #1 {
+define internal zeroext i1 @scram_channel_bound(ptr noundef readonly %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 

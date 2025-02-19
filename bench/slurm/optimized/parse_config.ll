@@ -449,7 +449,7 @@ _line_is_space.exit.thread:                       ; preds = %38, %32, %29, %60
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
+define dso_local range(i32 -1, 1) i32 @s_p_parse_file(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
@@ -1066,7 +1066,7 @@ _strip_cr_nl.exit:                                ; preds = %.lr.ph.i57, %252, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_parse_pair(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_parse_pair(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call i32 @s_p_parse_pair_with_op(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef 0)
   ret i32 %4
 }
@@ -1181,7 +1181,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @s_p_hashtbl_merge(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) #0 {
+define dso_local void @s_p_hashtbl_merge(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.s_p_values, align 8
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -1344,7 +1344,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_string(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_string(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 1, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1362,7 +1362,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_string(ptr noundef writeonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_long(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_long(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 2, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1380,7 +1380,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_long(ptr noundef writeonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_uint16(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_uint16(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 3, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1398,7 +1398,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_uint16(ptr noundef writeonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_uint32(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_uint32(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 4, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1416,7 +1416,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_uint32(ptr noundef writeonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_uint64(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_uint64(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 5, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1434,7 +1434,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_uint64(ptr noundef writeonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_float(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_float(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 12, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1452,7 +1452,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_float(ptr noundef writeonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 13, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1470,7 +1470,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_double(ptr noundef writeonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_long_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_long_double(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 14, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1488,7 +1488,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_long_double(ptr noundef writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_pointer(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_pointer(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 6, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -1505,7 +1505,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_pointer(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_array(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_array(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call fastcc ptr @_get_check(i32 noundef 7, ptr noundef %2, ptr noundef %3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %11, label %6
@@ -1525,7 +1525,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_array(ptr noundef writeonly captur
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_boolean(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_boolean(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = tail call fastcc ptr @_get_check(i32 noundef 8, ptr noundef %1, ptr noundef %2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %5
@@ -1543,7 +1543,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_boolean(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @s_p_dump_values(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #0 {
+define dso_local void @s_p_dump_values(ptr noundef %0, ptr noundef readonly captures(none) %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   %4 = load ptr, ptr %1, align 8
@@ -1992,7 +1992,7 @@ define dso_local void @transfer_s_p_options(ptr noundef %0, ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @s_p_hashtbl_create_cnt(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @s_p_hashtbl_create_cnt(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 1448, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str, i32 noundef 174, ptr noundef nonnull @__func__.s_p_hashtbl_create_cnt) #13
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
@@ -2798,7 +2798,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 declare i32 @unpackstr_xmalloc_chooser(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @s_p_hashtbl_merge_override(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @s_p_hashtbl_merge_override(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.s_p_values, align 8
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
@@ -2951,7 +2951,7 @@ _conf_hashtbl_insert.exit:                        ; preds = %.loopexit, %._crit_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @s_p_hashtbl_merge_keys(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local void @s_p_hashtbl_merge_keys(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #13
   %4 = icmp ne ptr %0, null
@@ -3622,7 +3622,7 @@ define internal fastcc void @_hashtbl_plain_to_string(ptr noundef readonly captu
 declare void @hostlist_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @s_p_parse_pair_with_op(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   %6 = alloca ptr, align 8
   store ptr %2, ptr %5, align 8
@@ -3833,7 +3833,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 declare ptr @xstrndup(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @_get_check(i32 noundef range(i32 1, 15) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc ptr @_get_check(i32 noundef range(i32 1, 15) %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %35, label %4
 
@@ -3914,7 +3914,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_operator(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_operator(ptr noundef writeonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %29, label %4
 
@@ -3984,7 +3984,7 @@ _conf_hashtbl_lookup.exit:                        ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_line(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_line(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @_get_check(i32 noundef 9, ptr noundef %2, ptr noundef %3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
@@ -4006,7 +4006,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_line(ptr noundef writeonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @s_p_get_expline(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 0, 2) i32 @s_p_get_expline(ptr noundef writeonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc ptr @_get_check(i32 noundef 10, ptr noundef %2, ptr noundef %3)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %13, label %6
@@ -4028,7 +4028,7 @@ define dso_local range(i32 0, 2) i32 @s_p_get_expline(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @s_p_pack_hashtbl(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef ptr @s_p_pack_hashtbl(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @init_buf(i32 noundef 0) #13
   tail call void @pack32(i32 noundef %2, ptr noundef %4) #13
   %.not73 = icmp eq i32 %2, 0

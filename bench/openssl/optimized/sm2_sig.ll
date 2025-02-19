@@ -254,7 +254,7 @@ define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_init(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_update(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_update(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %16, label %5
 
@@ -282,7 +282,7 @@ define internal range(i32 0, 2) i32 @sm2sig_digest_signverify_update(ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #0 {
+define internal range(i32 0, 2) i32 @sm2sig_digest_sign_final(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #0 {
   %5 = alloca i32, align 4
   %6 = alloca [64 x i8], align 16
   %7 = alloca i32, align 4
@@ -365,7 +365,7 @@ sm2sig_sign.exit:                                 ; preds = %23, %30, %34, %.sin
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sm2sig_digest_verify_final(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i32 @sm2sig_digest_verify_final(ptr noundef %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #7

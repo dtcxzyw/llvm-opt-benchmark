@@ -265,7 +265,7 @@ thread-pre-split.thread:                          ; preds = %31, %33, %thread-pr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #2 {
+define internal range(i32 0, 7) i32 @ft_sdf_transform(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #2 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %6 = load i32, ptr %5, align 8, !tbaa !23
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -333,7 +333,7 @@ define internal i32 @ft_sdf_set_mode(ptr noundef readonly captures(none) %0, i64
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ft_bsdf_render(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone captures(address_is_null) %3) #2 {
+define internal i32 @ft_bsdf_render(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef readnone %3) #2 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.FT_Bitmap_, align 8
   %7 = alloca %struct.SDF_Raster_Params_, align 8
@@ -526,7 +526,7 @@ define internal noundef i32 @bsdf_raster_set_mode(ptr readnone captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @bsdf_raster_render(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #2 {
+define internal i32 @bsdf_raster_render(ptr noundef readonly %0, ptr noundef readonly %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca %struct.BSDF_Worker_, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #11
@@ -662,7 +662,7 @@ define internal noundef i32 @sdf_raster_set_mode(ptr readnone captures(none) %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_raster_render(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) #2 {
+define internal i32 @sdf_raster_render(ptr noundef readonly %0, ptr noundef readonly %1) #2 {
   %3 = alloca i32, align 4
   %4 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #11
@@ -2174,7 +2174,7 @@ declare hidden i32 @FT_SqrtFixed(i32 noundef) local_unnamed_addr #4
 declare i32 @FT_Outline_Get_Orientation(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 281474976710656) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #2 {
+define internal fastcc i32 @sdf_generate_with_overlaps(i64 range(i64 0, 281474976710656) %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #2 {
   %5 = alloca i32, align 4
   %6 = alloca %struct.SDF_Shape_, align 8
   %.fr202 = freeze i64 %0
@@ -2594,7 +2594,7 @@ get_contour_orientation.exit:                     ; preds = %.preheader.i, %50, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @sdf_generate_subdivision(i64 range(i64 0, 281474976710656) %0, i32 range(i32 0, 2) %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #2 {
+define internal fastcc i32 @sdf_generate_subdivision(i64 range(i64 0, 281474976710656) %0, i32 range(i32 0, 2) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #2 {
   %6 = alloca %struct.FT_Vector_, align 8
   %7 = alloca %struct.FT_Vector_, align 8
   %8 = alloca %struct.FT_Vector_, align 8
@@ -3960,7 +3960,7 @@ declare hidden ptr @ft_mem_qalloc(ptr noundef, i64 noundef, ptr noundef) local_u
 declare i32 @FT_Outline_Decompose(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_move_to(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) #2 {
+define internal i32 @sdf_move_to(ptr noundef readonly %0, ptr noundef captures(none) %1) #2 {
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %4
@@ -4000,7 +4000,7 @@ sdf_contour_new.exit.thread:                      ; preds = %6, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_line_to(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) #2 {
+define internal i32 @sdf_line_to(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) #2 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %1, align 8, !tbaa !99
   %.not = icmp eq ptr %0, null
@@ -4061,7 +4061,7 @@ sdf_edge_new.exit.thread:                         ; preds = %18, %17
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_conic_to(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(none) %2) #2 {
+define internal i32 @sdf_conic_to(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) #2 {
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
   %6 = load ptr, ptr %2, align 8, !tbaa !99
@@ -4189,7 +4189,7 @@ sdf_line_to.exit:                                 ; preds = %sdf_edge_new.exit.t
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @sdf_cubic_to(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) #2 {
+define internal i32 @sdf_cubic_to(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3) #2 {
   %5 = alloca i32, align 4
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %0, null

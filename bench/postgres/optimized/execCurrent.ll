@@ -375,7 +375,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc ptr @search_plan_tree(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #5 {
+define internal fastcc ptr @search_plan_tree(ptr noundef readonly %0, i32 noundef %1, ptr noundef nonnull %2) unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 

@@ -1306,7 +1306,7 @@ remove_edge.exit:                                 ; preds = %102, %116
 declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @freeGraph(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define void @freeGraph(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %2
 
@@ -1325,7 +1325,7 @@ define void @freeGraph(ptr noundef captures(address_is_null) %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @freeGraphData(ptr noundef captures(address_is_null) %0) local_unnamed_addr #7 {
+define void @freeGraphData(ptr noundef %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %2
 

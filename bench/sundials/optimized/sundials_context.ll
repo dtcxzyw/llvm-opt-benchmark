@@ -81,7 +81,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @SUNContext_GetLastError(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define i32 @SUNContext_GetLastError(ptr noundef %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -97,7 +97,7 @@ define i32 @SUNContext_GetLastError(ptr noundef captures(address_is_null) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @SUNContext_PeekLastError(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define i32 @SUNContext_PeekLastError(ptr noundef readonly %0) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -112,7 +112,7 @@ define i32 @SUNContext_PeekLastError(ptr noundef readonly captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9993, 1) i32 @SUNContext_PushErrHandler(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define range(i32 -9993, 1) i32 @SUNContext_PushErrHandler(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
@@ -146,7 +146,7 @@ define range(i32 -9993, 1) i32 @SUNContext_PushErrHandler(ptr noundef captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9978, 1) i32 @SUNContext_PopErrHandler(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -9978, 1) i32 @SUNContext_PopErrHandler(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
@@ -174,7 +174,7 @@ define range(i32 -9978, 1) i32 @SUNContext_PopErrHandler(ptr noundef captures(ad
 declare void @SUNErrHandler_Destroy(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -9978, 1) i32 @SUNContext_ClearErrHandlers(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -9978, 1) i32 @SUNContext_ClearErrHandlers(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
@@ -203,7 +203,7 @@ SUNContext_PopErrHandler.exit:                    ; preds = %.preheader, %SUNCon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -9978, 1) i32 @SUNContext_GetProfiler(ptr noundef readnone captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
+define range(i32 -9978, 1) i32 @SUNContext_GetProfiler(ptr noundef readnone %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %3
 
@@ -217,14 +217,14 @@ define range(i32 -9978, 1) i32 @SUNContext_GetProfiler(ptr noundef readnone capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef range(i32 -9978, 1) i32 @SUNContext_SetProfiler(ptr noundef readnone captures(address_is_null) %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
+define noundef range(i32 -9978, 1) i32 @SUNContext_SetProfiler(ptr noundef readnone %0, ptr noundef readnone captures(none) %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   %. = select i1 %.not, i32 -9978, i32 0
   ret i32 %.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 -9978, 1) i32 @SUNContext_GetLogger(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
+define range(i32 -9978, 1) i32 @SUNContext_GetLogger(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -273,7 +273,7 @@ define range(i32 -9986, 1) i32 @SUNContext_SetLogger(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @SUNContext_Free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef i32 @SUNContext_Free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %3

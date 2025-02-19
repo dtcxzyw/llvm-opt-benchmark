@@ -240,7 +240,7 @@ fd_read.exit:                                     ; preds = %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i64 @fd_ctrl(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) #2 {
+define internal i64 @fd_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef %3) #2 {
   switch i32 %1, label %51 [
     i32 1, label %5
     i32 128, label %6
@@ -366,7 +366,7 @@ define internal noundef i32 @fd_new(ptr noundef writeonly captures(none) initial
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @fd_free(ptr noundef captures(address_is_null) %0) #2 {
+define internal range(i32 0, 2) i32 @fd_free(ptr noundef %0) #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 

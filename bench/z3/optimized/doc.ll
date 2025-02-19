@@ -630,7 +630,7 @@ return:                                           ; preds = %entry, %_ZN3docD2Ev
 declare void @_ZN22small_object_allocator10deallocateEmPv(ptr noundef nonnull align 8 dereferenceable(520), i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11doc_manager4copyER3docRKS0_(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 captures(address) dereferenceable(88) %dst, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %src) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11doc_manager4copyER3docRKS0_(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull align 8 dereferenceable(88) %dst, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %src) local_unnamed_addr #3 align 2 {
 entry:
   %0 = load ptr, ptr %dst, align 8
   %1 = load ptr, ptr %src, align 8
@@ -744,7 +744,7 @@ for.end:                                          ; preds = %_ZN10union_bvecI11t
 declare void @_ZNK11tbv_manager4copyER3tbvRKS0_(ptr noundef nonnull align 8 dereferenceable(552), ptr noundef nonnull align 4 dereferenceable(4), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN11doc_manager5fill0ER3doc(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(88) %src) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN11doc_manager5fill0ER3doc(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull returned align 8 dereferenceable(88) %src) local_unnamed_addr #3 align 2 {
 entry:
   %m_neg.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %src, i64 16
@@ -774,7 +774,7 @@ _ZN10union_bvecI11tbv_manager3tbvE5resetERS0_.exit: ; preds = %for.body.i, %entr
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK11tbv_manager5fill0ER3tbv(ptr noundef nonnull align 8 dereferenceable(552), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN11doc_manager5fill1ER3doc(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(88) %src) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN11doc_manager5fill1ER3doc(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull returned align 8 dereferenceable(88) %src) local_unnamed_addr #3 align 2 {
 entry:
   %m_neg.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %src, i64 16
@@ -804,7 +804,7 @@ _ZN10union_bvecI11tbv_manager3tbvE5resetERS0_.exit: ; preds = %for.body.i, %entr
 declare noundef nonnull align 4 dereferenceable(4) ptr @_ZNK11tbv_manager5fill1ER3tbv(ptr noundef nonnull align 8 dereferenceable(552), ptr noundef nonnull align 4 dereferenceable(4)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN11doc_manager5fillXER3doc(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(88) %src) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(88) ptr @_ZN11doc_manager5fillXER3doc(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull returned align 8 dereferenceable(88) %src) local_unnamed_addr #3 align 2 {
 entry:
   %m_neg.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %m_pos.i.i = getelementptr inbounds nuw i8, ptr %src, i64 16
@@ -4641,7 +4641,7 @@ terminate.lpad:                                   ; preds = %terminate.lpad.loop
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11doc_manager10complementERK3docR6bufferIPS0_Lb0ELj8EE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %src, ptr noundef nonnull align 8 captures(address) dereferenceable(80) initializes((8, 12)) %result) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN11doc_manager10complementERK3docR6bufferIPS0_Lb0ELj8EE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %src, ptr noundef nonnull align 8 dereferenceable(80) initializes((8, 12)) %result) local_unnamed_addr #3 align 2 {
 entry:
   %m_pos.i = getelementptr inbounds nuw i8, ptr %result, i64 8
   store i32 0, ptr %m_pos.i, align 8
@@ -4905,7 +4905,7 @@ land.end:                                         ; preds = %land.rhs, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN11doc_manager8subtractERK3docS2_R6bufferIPS0_Lb0ELj8EE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %A, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %B, ptr noundef nonnull align 8 captures(address) dereferenceable(80) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN11doc_manager8subtractERK3docS2_R6bufferIPS0_Lb0ELj8EE(ptr noundef nonnull align 8 dereferenceable(1080) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %A, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %B, ptr noundef nonnull align 8 dereferenceable(80) %result) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %r = alloca %class.doc_ref, align 8
   %t = alloca %class.tbv_ref, align 8

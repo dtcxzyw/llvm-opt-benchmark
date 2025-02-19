@@ -1051,7 +1051,7 @@ declare dso_local void @services_compute_xperms_decision(ptr noundef, ptr nounde
 declare dso_local ptr @avtab_search_node_next(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cond_compute_av(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
+define dso_local void @cond_compute_av(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %7 = and i1 %5, %6

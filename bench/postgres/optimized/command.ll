@@ -343,7 +343,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.exec_command_pset = private unnamed_addr constant [10 x ptr] [ptr @.str.262, ptr @.str.22, ptr @.str.23, ptr @.str.24, ptr @.str.25, ptr @.str.26, ptr @.str.31, ptr @.str.27, ptr @.str.28, ptr @.str.29], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 1, 6) i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 1, 6) i32 @HandleSlashCmds(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @psql_scan_slash_command(ptr noundef %0) #16
   %6 = tail call fastcc i32 @exec_command(ptr noundef %5, ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   switch i32 %6, label %12 [
@@ -417,7 +417,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare ptr @psql_scan_slash_command(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 6) i32 @exec_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 6) i32 @exec_command(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = alloca %struct.PromptInterruptContext, align 8
   %7 = alloca %struct.PromptInterruptContext, align 8
   %8 = alloca ptr, align 8
@@ -5581,7 +5581,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %30, %29
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @exec_command_elif(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_elif(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @conditional_stack_peek(ptr noundef %1) #16
   switch i32 %4, label %34 [
     i32 1, label %5
@@ -5669,7 +5669,7 @@ discard_query_text.exit18:                        ; preds = %24, %25
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @exec_command_else(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_else(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @conditional_stack_peek(ptr noundef %1) #16
   switch i32 %4, label %32 [
     i32 1, label %5
@@ -5751,7 +5751,7 @@ discard_query_text.exit15:                        ; preds = %21, %22
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @exec_command_endif(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_endif(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = tail call i32 @conditional_stack_peek(ptr noundef %1) #16
   switch i32 %4, label %.thread [
     i32 1, label %14
@@ -6361,7 +6361,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %24, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @exec_command_if(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @exec_command_if(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #0 {
   %4 = tail call zeroext i1 @conditional_active(ptr noundef %1) #16
   %.not.i = icmp eq ptr %2, null
   br i1 %4, label %5, label %14
@@ -6603,7 +6603,7 @@ define internal fastcc range(i32 2, 6) i32 @exec_command_out(ptr noundef %0, i1 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @exec_command_print(i1 noundef zeroext %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #9 {
+define internal fastcc void @exec_command_print(i1 noundef zeroext %0, ptr noundef readonly %1, ptr noundef readonly %2) unnamed_addr #9 {
   br i1 %0, label %4, label %20
 
 4:                                                ; preds = %3
@@ -7898,7 +7898,7 @@ ignore_slash_options.exit:                        ; preds = %.lr.ph.i, %11, %10
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 2, 6) i32 @exec_command_write(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 2, 6) i32 @exec_command_write(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca ptr, align 8
   br i1 %1, label %7, label %49
 
@@ -9092,7 +9092,7 @@ declare i64 @strspn(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @expand_tilde(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @do_edit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @do_edit(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef writeonly %4) unnamed_addr #0 {
   %6 = alloca [1024 x i8], align 16
   %7 = alloca %struct.stat, align 8
   %8 = alloca %struct.stat, align 8

@@ -419,7 +419,7 @@ define ptr @ssl_session_dup(ptr noundef %0, i32 noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @SSL_SESSION_get_id(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define nonnull ptr @SSL_SESSION_get_id(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -436,7 +436,7 @@ define nonnull ptr @SSL_SESSION_get_id(ptr noundef readonly captures(ret: addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @SSL_SESSION_get0_id_context(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define nonnull ptr @SSL_SESSION_get0_id_context(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -1787,7 +1787,7 @@ define range(i32 0, 2) i32 @ssl_clear_bad_session(ptr noundef %0) local_unnamed_
 declare i32 @SSL_set_ssl_method(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_set1_id(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_SESSION_set1_id(ptr noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp ugt i32 %2, 32
   br i1 %4, label %5, label %6
 
@@ -1995,7 +1995,7 @@ SSL_SESSION_list_add.exit:                        ; preds = %.preheader.i, %44, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 18446744074) i64 @SSL_SESSION_get_timeout(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i64 0, 18446744074) i64 @SSL_SESSION_get_timeout(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -2011,7 +2011,7 @@ define range(i64 0, 18446744074) i64 @SSL_SESSION_get_timeout(ptr noundef readon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 18446744074) i64 @SSL_SESSION_get_time(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i64 0, 18446744074) i64 @SSL_SESSION_get_time(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %SSL_SESSION_get_time_ex.exit, label %3
 
@@ -2027,7 +2027,7 @@ SSL_SESSION_get_time_ex.exit:                     ; preds = %1, %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 18446744074) i64 @SSL_SESSION_get_time_ex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i64 0, 18446744074) i64 @SSL_SESSION_get_time_ex(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -2295,7 +2295,7 @@ define i64 @SSL_SESSION_get_ticket_lifetime_hint(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @SSL_SESSION_get0_ticket(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
+define void @SSL_SESSION_get0_ticket(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) initializes((0, 8)) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %5 = load i64, ptr %4, align 8, !tbaa !85
   store i64 %5, ptr %2, align 8, !tbaa !3
@@ -2388,7 +2388,7 @@ define ptr @SSL_SESSION_get0_peer_rpk(ptr noundef readonly captures(none) %0) lo
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_SESSION_set1_id_context(ptr noundef writeonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_SESSION_set1_id_context(ptr noundef writeonly %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp ugt i32 %2, 32
   br i1 %4, label %5, label %6
 
@@ -2441,7 +2441,7 @@ define range(i32 0, 2) i32 @SSL_SESSION_is_resumable(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i64 0, 18446744074) i64 @SSL_CTX_set_timeout(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define range(i64 0, 18446744074) i64 @SSL_CTX_set_timeout(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %9, label %4
 
@@ -2459,7 +2459,7 @@ define range(i64 0, 18446744074) i64 @SSL_CTX_set_timeout(ptr noundef captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i64 0, 18446744074) i64 @SSL_CTX_get_timeout(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #6 {
+define range(i64 0, 18446744074) i64 @SSL_CTX_get_timeout(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 
@@ -2541,7 +2541,7 @@ define range(i32 0, 2) i32 @SSL_set_session_ticket_ext_cb(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_set_session_ticket_ext(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
+define range(i32 0, 2) i32 @SSL_set_session_ticket_ext(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.thread, label %5
 

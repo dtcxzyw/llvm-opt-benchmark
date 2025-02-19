@@ -358,7 +358,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i64 @codegen_src(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define i64 @codegen_src(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [1026 x i8], align 16
   %7 = alloca i64, align 8
@@ -399,7 +399,7 @@ define i64 @codegen_src(ptr noundef %0, ptr noundef %1, ptr noundef captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @write_solver(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc i64 @write_solver(ptr noundef nonnull %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = alloca [255 x i8], align 16
   %6 = alloca [255 x i8], align 16
   %7 = alloca [255 x i8], align 16
@@ -1552,7 +1552,7 @@ define i64 @codegen_example(ptr noundef %0, ptr noundef %1) local_unnamed_addr #
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 11) i64 @write_OSQPVectorf(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #6 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPVectorf(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #6 {
   %4 = alloca [255 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %4) #8
   %.not = icmp eq ptr %1, null
@@ -1604,7 +1604,7 @@ write_vecf.exit:                                  ; preds = %._crit_edge.i, %20
 declare i64 @_osqp_error_line(i32 noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 11) i64 @write_OSQPVectori(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #6 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPVectori(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #6 {
   %4 = alloca [259 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 259, ptr nonnull %4) #8
   %.not = icmp eq ptr %1, null
@@ -1654,7 +1654,7 @@ write_veci.exit:                                  ; preds = %._crit_edge.i, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @write_scaling(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc i64 @write_scaling(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [255 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %4) #8
   %.not = icmp eq ptr %1, null
@@ -1738,7 +1738,7 @@ define internal fastcc i64 @write_scaling(ptr noundef nonnull captures(none) %0,
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 11) i64 @write_OSQPMatrix(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #6 {
+define internal fastcc range(i64 0, 11) i64 @write_OSQPMatrix(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #6 {
   %4 = alloca [259 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 259, ptr nonnull %4) #8
   %.not = icmp eq ptr %1, null
@@ -1767,7 +1767,7 @@ define internal fastcc range(i64 0, 11) i64 @write_OSQPMatrix(ptr noundef nonnul
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i64 0, 11) i64 @write_csc(ptr noundef nonnull captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #6 {
+define internal fastcc range(i64 0, 11) i64 @write_csc(ptr noundef nonnull captures(none) %0, ptr noundef readonly %1, ptr noundef nonnull %2) unnamed_addr #6 {
   %4 = alloca [255 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 255, ptr nonnull %4) #8
   %.not = icmp eq ptr %1, null

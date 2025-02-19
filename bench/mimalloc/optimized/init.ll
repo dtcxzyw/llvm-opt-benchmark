@@ -131,7 +131,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_mi_subproc_from_id(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define hidden noundef nonnull ptr @_mi_subproc_from_id(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   %3 = select i1 %2, ptr @mi_subproc_default, ptr %0
   ret ptr %3
@@ -528,7 +528,7 @@ define hidden void @mi_thread_done() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_thread_done(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
+define hidden void @_mi_thread_done(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 

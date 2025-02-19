@@ -94,7 +94,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN3std9panicking11panic_count18GLOBAL_PANIC_COUNT17h0c0cb700fd497c9fE = external global { i64 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN100_$LT$sqlx_core..pool..connection..PoolConnection$LT$DB$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc812cc5e81638a8fE"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(64) %0) unnamed_addr #0 {
+define hidden noundef nonnull align 8 dereferenceable(40) ptr @"_ZN100_$LT$sqlx_core..pool..connection..PoolConnection$LT$DB$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17hc812cc5e81638a8fE"(ptr noalias noundef readonly returned align 8 dereferenceable(64) %0) unnamed_addr #0 {
   %2 = load i32, ptr %0, align 8, !range !4, !noundef !5
   %3 = icmp eq i32 %2, 3
   br i1 %3, label %4, label %5
@@ -4550,7 +4550,7 @@ define hidden noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map_or17hbc2
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17hf3fe0412b6e4c033E.llvm.18098550234714842923"(ptr noalias noundef nonnull readnone returned align 8 captures(ret: address, provenance) %0) unnamed_addr #10 {
+define hidden noundef nonnull align 8 ptr @"_ZN50_$LT$T$u20$as$u20$core..convert..From$LT$T$GT$$GT$4from17hf3fe0412b6e4c033E.llvm.18098550234714842923"(ptr noalias noundef nonnull readnone returned align 8 %0) unnamed_addr #10 {
   ret ptr %0
 }
 
@@ -5658,7 +5658,7 @@ define hidden void @"_ZN71_$LT$alloc..sync..Arc$LT$T$C$A$GT$$u20$as$u20$core..op
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d5c96a20bfeeb1dE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #17 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h0d5c96a20bfeeb1dE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #17 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -5681,7 +5681,7 @@ define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u2
 }
 
 ; Function Attrs: inlinehint nounwind nonlazybind uwtable
-define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #17 {
+define internal fastcc void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h19582511d94b05d3E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #17 {
   %1 = icmp ne ptr %.0.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = icmp ne ptr %.8.val, null
@@ -7449,12 +7449,12 @@ define hidden void @"_ZN95_$LT$core..ops..control_flow..ControlFlow$LT$B$C$C$GT$
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN98_$LT$sqlx_core..pool..connection..Floating$LT$DB$C$C$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2af40e3dfe8a15e9E"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(72) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(56) ptr @"_ZN98_$LT$sqlx_core..pool..connection..Floating$LT$DB$C$C$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h2af40e3dfe8a15e9E"(ptr noalias noundef readnone returned align 8 dereferenceable(72) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN98_$LT$sqlx_core..pool..connection..Floating$LT$DB$C$C$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h7e4c5407085ccbfaE"(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(88) %0) unnamed_addr #8 {
+define hidden noundef nonnull align 8 dereferenceable(72) ptr @"_ZN98_$LT$sqlx_core..pool..connection..Floating$LT$DB$C$C$GT$$u20$as$u20$core..ops..deref..DerefMut$GT$9deref_mut17h7e4c5407085ccbfaE"(ptr noalias noundef readnone returned align 8 dereferenceable(88) %0) unnamed_addr #8 {
   ret ptr %0
 }
 
@@ -8329,7 +8329,7 @@ define hidden noundef i32 @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$4size17
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$6parent17h40920555b76b1fc9E"(ptr noundef nonnull readonly align 128 captures(ret: address, provenance) %0) unnamed_addr #19 {
+define hidden noundef align 8 dereferenceable_or_null(8) ptr @"_ZN9sqlx_core4pool5inner19PoolInner$LT$DB$GT$6parent17h40920555b76b1fc9E"(ptr noundef nonnull readonly align 128 %0) unnamed_addr #19 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 560
   %3 = load ptr, ptr %2, align 16, !noundef !5
   %4 = icmp eq ptr %3, null

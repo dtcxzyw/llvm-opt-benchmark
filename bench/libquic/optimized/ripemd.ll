@@ -1896,7 +1896,7 @@ define hidden noundef i32 @RIPEMD160_Init(ptr noundef writeonly captures(none) i
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define hidden noundef ptr @RIPEMD160(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 20)) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @RIPEMD160(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef returned writeonly initializes((0, 20)) %2) local_unnamed_addr #0 {
   %4 = alloca %struct.RIPEMD160state_st, align 4
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 20

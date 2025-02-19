@@ -2504,7 +2504,7 @@ declare void @llvm_emit_expr(ptr noundef, ptr noundef, ptr noundef) local_unname
 declare void @llvm_value_rvalue(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, ptr readonly captures(address_is_null) %.40.val) unnamed_addr #0 {
+define internal fastcc void @llvm_emit_syscall(ptr noundef %0, ptr noundef %1, ptr readonly %.40.val) unnamed_addr #0 {
   %3 = alloca [10 x ptr], align 16
   %4 = alloca [10 x ptr], align 16
   %.not = icmp eq ptr %.40.val, null

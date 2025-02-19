@@ -241,7 +241,7 @@ delete.end:                                       ; preds = %delete.notnull, %en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @ucasemap_getLocale_75(ptr noundef readnone captures(ret: address, provenance) %csm) local_unnamed_addr #3 {
+define nonnull ptr @ucasemap_getLocale_75(ptr noundef readnone %csm) local_unnamed_addr #3 {
 entry:
   %locale = getelementptr inbounds nuw i8, ptr %csm, i64 8
   ret ptr %locale

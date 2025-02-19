@@ -712,7 +712,7 @@ declare ptr @EVP_CIPHER_fetch(ptr noundef, ptr noundef, ptr noundef) local_unnam
 declare i32 @ssl_evp_cipher_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_cipher_get_evp_md_mac(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_cipher_get_evp_md_mac(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load i32, ptr %6, align 8, !tbaa !64
   br label %8
@@ -792,7 +792,7 @@ ssl_cipher_info_find.exit:                        ; preds = %8
 declare i32 @ssl_evp_md_up_ref(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ssl_cipher_get_evp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ssl_cipher_get_evp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.ssl_comp_st, align 8
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 760
   %11 = load ptr, ptr %10, align 8, !tbaa !65
@@ -1389,7 +1389,7 @@ declare ptr @SSL_get_ciphers(ptr noundef) local_unnamed_addr #2
 declare ptr @OPENSSL_sk_dup(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
+define ptr @ssl_create_cipher_list(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #13
@@ -4328,7 +4328,7 @@ declare ptr @ssl_protocol_to_string(i32 noundef) local_unnamed_addr #2
 declare i32 @BIO_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @SSL_CIPHER_get_version(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @SSL_CIPHER_get_version(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -4348,7 +4348,7 @@ define ptr @SSL_CIPHER_get_version(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CIPHER_get_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @SSL_CIPHER_get_name(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4363,7 +4363,7 @@ define ptr @SSL_CIPHER_get_name(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @SSL_CIPHER_standard_name(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @SSL_CIPHER_standard_name(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4400,7 +4400,7 @@ SSL_CIPHER_get_name.exit:                         ; preds = %5, %3, %1
 declare ptr @ssl3_get_cipher_by_std_name(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @SSL_CIPHER_get_bits(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define i32 @SSL_CIPHER_get_bits(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -4616,7 +4616,7 @@ define ptr @SSL_CIPHER_find(ptr noundef readonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i32 @SSL_CIPHER_get_cipher_nid(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 {
+define i32 @SSL_CIPHER_get_cipher_nid(ptr noundef readonly %0) local_unnamed_addr #9 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %ssl_cipher_info_find.exit.thread, label %3
 

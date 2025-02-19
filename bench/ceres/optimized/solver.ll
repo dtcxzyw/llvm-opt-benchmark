@@ -19414,7 +19414,7 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN5ceres12_GLOBAL__N_129OptionsAreValidForDenseSolverERKNS_6Solver7OptionsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %0, ptr noundef captures(address) %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN5ceres12_GLOBAL__N_129OptionsAreValidForDenseSolverERKNS_6Solver7OptionsEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(504) %0, ptr noundef %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x %"class.absl::lts_20240116::str_format_internal::FormatArgImpl"], align 8
   %4 = alloca [107 x i8], align 16
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

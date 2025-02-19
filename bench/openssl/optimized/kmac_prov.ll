@@ -136,7 +136,7 @@ define internal void @kmac_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @kmac_init(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @kmac_init(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [2 x %struct.ossl_param_st], align 16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !14
@@ -736,7 +736,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @kmac_setkey(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) unnamed_addr #0 {
   %4 = alloca [516 x i8], align 16
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = tail call ptr @ossl_prov_digest_md(ptr noundef nonnull %5) #7

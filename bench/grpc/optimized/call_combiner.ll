@@ -56,7 +56,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN9grpc_core12CallCombinerD2Ev(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN9grpc_core12CallCombinerD2Ev(ptr noundef nonnull readonly align 8 dereferenceable(96) %this) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %cancel_state_ = getelementptr inbounds nuw i8, ptr %this, i64 88
   %0 = load i64, ptr %cancel_state_, align 8

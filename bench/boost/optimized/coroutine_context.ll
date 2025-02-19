@@ -43,7 +43,7 @@ define void @_ZN5boost10coroutines6detail17coroutine_contextC2ERKS2_(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost10coroutines6detail17coroutine_contextaSERKS2_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(40) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %1) local_unnamed_addr #4 align 2 {
+define noundef nonnull align 8 dereferenceable(40) ptr @_ZN5boost10coroutines6detail17coroutine_contextaSERKS2_(ptr noundef nonnull returned writeonly align 8 dereferenceable(40) %0, ptr noundef nonnull readonly align 8 dereferenceable(40) %1) local_unnamed_addr #4 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %8, label %4
 

@@ -330,7 +330,7 @@ define dso_local void @gdb_qemu_exit(i32 noundef %0) local_unnamed_addr #7 {
 declare void @exit(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @gdb_handlesig(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local i32 @gdb_handlesig(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef readonly %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = alloca [256 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #16
   %7 = load i8, ptr @gdbserver_state, align 8, !range !7, !noundef !8

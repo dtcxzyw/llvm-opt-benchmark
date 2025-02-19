@@ -814,7 +814,7 @@ define ptr @evp_signature_fetch_from_prov(ptr noundef %0, ptr noundef %1, ptr no
 declare ptr @evp_generic_fetch_from_prov(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @EVP_SIGNATURE_is_a(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @EVP_SIGNATURE_is_a(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %10, label %3
 
@@ -882,7 +882,7 @@ define i32 @EVP_SIGNATURE_names_do_all(ptr noundef readonly captures(none) %0, p
 declare i32 @evp_names_do_all(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_SIGNATURE_gettable_ctx_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_SIGNATURE_gettable_ctx_params(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -908,7 +908,7 @@ define ptr @EVP_SIGNATURE_gettable_ctx_params(ptr noundef readonly captures(addr
 declare ptr @ossl_provider_ctx(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @EVP_SIGNATURE_settable_ctx_params(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @EVP_SIGNATURE_settable_ctx_params(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -1449,7 +1449,7 @@ define i32 @EVP_PKEY_sign_message_init(ptr noundef %0, ptr noundef %1, ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_sign_message_update(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_sign_message_update(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1502,7 +1502,7 @@ declare void @ERR_set_debug(ptr noundef, i32 noundef, ptr noundef) local_unnamed
 declare void @ERR_set_error(i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_sign_message_final(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1754,7 +1754,7 @@ declare void @OSSL_PARAM_construct_end(ptr dead_on_unwind writable sret(%struct.
 declare i32 @EVP_PKEY_CTX_set_params(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %5, label %6
 
@@ -1801,7 +1801,7 @@ define i32 @EVP_PKEY_verify_message_update(ptr noundef readonly captures(address
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @EVP_PKEY_verify_message_final(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @EVP_PKEY_verify_message_final(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %4
 

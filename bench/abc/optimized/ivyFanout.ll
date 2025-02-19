@@ -108,7 +108,7 @@ Ivy_ObjAddFanout.exit28:                          ; preds = %30, %34
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ObjAddFanout(ptr noundef readnone captures(none) %0, ptr noundef captures(address) %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @Ivy_ObjAddFanout(ptr noundef readnone captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !22
   %.not = icmp eq ptr %5, null
@@ -180,7 +180,7 @@ define void @Ivy_ManStopFanout(ptr noundef captures(none) initializes((192, 196)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ObjDeleteFanout(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define void @Ivy_ObjDeleteFanout(ptr noundef readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
 Ivy_ObjPrevFanout.exit.i:
   %3 = getelementptr i8, ptr %2, i64 16
   %.val.i = load ptr, ptr %3, align 8, !tbaa !21
@@ -254,7 +254,7 @@ Ivy_ObjNextPrevFanoutPlace.exit:                  ; preds = %Ivy_ObjNextFanout.e
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_ObjPatchFanout(ptr noundef readnone captures(none) %0, ptr noundef writeonly captures(address) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @Ivy_ObjPatchFanout(ptr noundef readnone captures(none) %0, ptr noundef writeonly %1, ptr noundef readonly %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %2, null
   br i1 %5, label %.thread17, label %Ivy_ObjPrevFanout.exit.i
 
@@ -322,7 +322,7 @@ Ivy_ObjNextPrevFanoutPlace.exit.thread:           ; preds = %.thread17, %Ivy_Obj
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_ObjCollectFanouts(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) initializes((4, 8)) %2) local_unnamed_addr #2 {
+define void @Ivy_ObjCollectFanouts(ptr noundef readnone captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) initializes((4, 8)) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   store i32 0, ptr %4, align 4, !tbaa !17
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -424,7 +424,7 @@ define ptr @Ivy_ObjReadFirstFanout(ptr noundef readnone captures(none) %0, ptr n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i32 @Ivy_ObjFanoutNum(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #4 {
+define i32 @Ivy_ObjFanoutNum(ptr noundef readnone captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %.056 = load ptr, ptr %3, align 8, !tbaa !23
   %.not7 = icmp eq ptr %.056, null

@@ -1352,7 +1352,7 @@ define dso_local void @brininsertcleanup(ptr readnone captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @brinbulkdelete(ptr readnone captures(none) %0, ptr noundef readnone captures(address_is_null, ret: address, provenance) %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
+define dso_local ptr @brinbulkdelete(ptr readnone captures(none) %0, ptr noundef readnone %1, ptr readnone captures(none) %2, ptr readnone captures(none) %3) #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %8
 
@@ -1366,7 +1366,7 @@ define dso_local ptr @brinbulkdelete(ptr readnone captures(none) %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @brinvacuumcleanup(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) #0 {
+define dso_local ptr @brinvacuumcleanup(ptr noundef readonly captures(none) %0, ptr noundef %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !range !4, !noundef !5
   %5 = trunc nuw i8 %4 to i1
@@ -1454,7 +1454,7 @@ define dso_local ptr @brinbeginscan(ptr noundef %0, i32 noundef %1, i32 noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @brinrescan(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #3 {
+define dso_local void @brinrescan(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 %2, ptr readnone captures(none) %3, i32 %4) #3 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %6
 
@@ -2396,7 +2396,7 @@ BufferGetPage.exit:                               ; preds = %7, %13
 declare i64 @log_newpage_buffer(i32 noundef, i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @brinsummarize(ptr noundef %0, ptr noundef %1, i32 noundef %2, i1 noundef zeroext %3, ptr noundef %4, ptr noundef %5) unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i64, align 8
   %9 = alloca i16, align 2

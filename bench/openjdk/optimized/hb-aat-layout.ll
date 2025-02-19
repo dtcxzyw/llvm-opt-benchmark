@@ -3347,7 +3347,7 @@ _ZNK11hb_buffer_t9group_endIFbRK15hb_glyph_info_tS3_EEEjjRKT_.exit66: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden range(i32 0, 65536) i32 @hb_aat_layout_get_feature_types(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 65536) i32 @hb_aat_layout_get_feature_types(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %6 = load atomic i64, ptr %5 acquire, align 8
   %.not14.i.i.i = icmp eq i64 %6, 0

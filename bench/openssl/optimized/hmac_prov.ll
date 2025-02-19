@@ -274,7 +274,7 @@ define internal i32 @hmac_update(ptr noundef %0, ptr noundef %1, i64 noundef %2)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @hmac_final(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 %3) #0 {
+define internal range(i32 0, 2) i32 @hmac_final(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2, i64 %3) #0 {
   %5 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #7
   %6 = tail call i32 @ossl_prov_is_running() #7

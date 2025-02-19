@@ -736,7 +736,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(41) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 24)) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream4moveERSt6vectorIhSaIhEE(ptr noundef nonnull returned align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((8, 24)) %1) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load ptr, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -762,18 +762,18 @@ _ZNSt6vectorIhSaIhEEaSEOS1_.exit:                 ; preds = %2, %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream5flushEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(41) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream5flushEv(ptr noundef nonnull readnone returned align 8 dereferenceable(41) %0) local_unnamed_addr #1 align 2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF15vector_iostream3rawEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(41) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZNK4LIEF15vector_iostream3rawEv(ptr noundef nonnull readnone align 8 dereferenceable(41) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF15vector_iostream3rawEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(41) %0) local_unnamed_addr #1 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4LIEF15vector_iostream3rawEv(ptr noundef nonnull readnone align 8 dereferenceable(41) %0) local_unnamed_addr #1 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -791,7 +791,7 @@ define hidden noundef i64 @_ZNK4LIEF15vector_iostream4sizeEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(41) initializes((0, 16)) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream5seekpESt4fposI11__mbstate_tE(ptr noundef nonnull returned writeonly align 8 dereferenceable(41) initializes((0, 16)) %0, i64 %1, i64 %2) local_unnamed_addr #0 align 2 {
   store i64 %1, ptr %0, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %2, ptr %.sroa.2.0..sroa_idx, align 8
@@ -799,7 +799,7 @@ define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream5seekpElSt12_Ios_Seekdir(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(41) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(41) ptr @_ZN4LIEF15vector_iostream5seekpElSt12_Ios_Seekdir(ptr noundef nonnull returned align 8 dereferenceable(41) %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #7 align 2 {
   switch i32 %2, label %8 [
     i32 0, label %4
     i32 1, label %5

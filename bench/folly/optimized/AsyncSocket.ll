@@ -1533,7 +1533,7 @@ define linkonce_odr void @_ZN5folly11AsyncSocket21SendMsgParamsCallbackD0Ev(ptr 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5folly11AsyncSocket21SendMsgParamsCallback16getAncillaryDataENS_10WriteFlagsEPvRKNS0_15WriteRequestTagEb(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11AsyncSocket21SendMsgParamsCallback16getAncillaryDataENS_10WriteFlagsEPvRKNS0_15WriteRequestTagEb(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef nonnull align 8 dereferenceable(8) %3, i1 noundef zeroext %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.google::LogMessageFatal", align 8
   %7 = alloca %"struct.google::CheckOpString", align 8
   %8 = alloca %"class.std::allocator", align 1
@@ -25003,7 +25003,7 @@ _ZN5folly22DelayedDestructionBase15DestructorGuardD2Ev.exit: ; preds = %66, %70
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5folly11AsyncSocketC2EPNS_9EventBaseENS_13NetworkSocketEjPKNS_13SocketAddressENS_8OptionalINSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEEE(ptr noundef nonnull align 8 dereferenceable(1145) initializes((0, 13), (16, 100), (104, 112), (114, 115)) %0, ptr noundef %1, i32 %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef captures(none) %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5folly11AsyncSocketC2EPNS_9EventBaseENS_13NetworkSocketEjPKNS_13SocketAddressENS_8OptionalINSt6chrono10time_pointINS8_3_V212steady_clockENS8_8durationIlSt5ratioILl1ELl1000000000EEEEEEEE(ptr noundef nonnull align 8 dereferenceable(1145) initializes((0, 13), (16, 100), (104, 112), (114, 115)) %0, ptr noundef %1, i32 %2, i32 noundef %3, ptr noundef readonly %4, ptr noundef captures(none) %5) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.google::LogMessage", align 8
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %8, align 8, !tbaa !159

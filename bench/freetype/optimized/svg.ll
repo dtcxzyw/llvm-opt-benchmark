@@ -144,7 +144,7 @@ ft_svg_preset_slot.exit:                          ; preds = %18, %.thread
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @ft_svg_transform(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) #1 {
+define internal noundef i32 @ft_svg_transform(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) #1 {
   %5 = alloca %struct.FT_Matrix_, align 8
   %.sroa.0 = alloca i64, align 8
   %.sroa.4 = alloca i64, align 8

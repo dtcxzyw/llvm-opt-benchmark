@@ -414,7 +414,7 @@ define dso_local void @uart_console_write(ptr noundef %0, ptr noundef readonly c
 }
 
 ; Function Attrs: cold fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid optsize memory(argmem: readwrite)
-define dso_local ptr @uart_get_console(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 section ".init.text" align 16 {
+define dso_local ptr @uart_get_console(ptr noundef readonly %0, i32 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #4 section ".init.text" align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 74
   %5 = load i16, ptr %4, align 2
   %6 = sext i16 %5 to i32
@@ -639,7 +639,7 @@ define dso_local void @uart_parse_options(ptr noundef %0, ptr noundef writeonly 
 declare dso_local i64 @simple_strtoul(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @uart_set_options(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
+define dso_local noundef i32 @uart_set_options(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5) #0 align 16 {
   %7 = alloca %struct.ktermios, align 4
   call void @llvm.lifetime.start.p0(i64 44, ptr nonnull %7) #20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 264

@@ -834,7 +834,7 @@ define internal fastcc ptr @createNetworkInterface(ptr noundef %0, ptr noundef n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeif(ptr noundef captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc void @freeif(ptr noundef %0) unnamed_addr #0 {
   %.not18 = icmp eq ptr %0, null
   br i1 %.not18, label %._crit_edge22, label %.lr.ph21
 
@@ -1201,7 +1201,7 @@ translateIPv4AddressToPrefix.exit._crit_edge:     ; preds = %translateIPv4Addres
 declare i32 @close(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr noundef %2, i32 noundef range(i32 2, 11) %3) unnamed_addr #0 {
+define internal fastcc ptr @find_bound_interface(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef range(i32 2, 11) %3) unnamed_addr #0 {
   %5 = alloca [16 x i8], align 16
   %.not57 = icmp eq ptr %1, null
   br i1 %.not57, label %.thread, label %.lr.ph61
@@ -1874,7 +1874,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #9
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef readonly captures(address_is_null) %5, i32 noundef range(i32 2, 11) %6, i16 noundef signext %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @addif(ptr noundef %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef nonnull readonly captures(none) %4, ptr noundef readonly %5, i32 noundef range(i32 2, 11) %6, i16 noundef signext %7) unnamed_addr #0 {
   %9 = alloca %struct.ifreq, align 8
   %10 = alloca %struct.ifreq, align 8
   %11 = alloca %struct.ifreq, align 8

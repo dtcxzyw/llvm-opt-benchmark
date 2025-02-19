@@ -106,7 +106,7 @@ declare ptr @onigenc_single_byte_left_adjust_char_head(ptr noundef, ptr noundef,
 declare i32 @onigenc_always_true_is_allowed_reverse_match(ptr noundef, ptr noundef, ptr noundef) #1
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal i32 @case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone captures(address) %2, ptr noundef %3, ptr noundef readnone captures(address) %4, ptr readnone captures(none) %5) #4 {
+define internal i32 @case_map(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readnone %2, ptr noundef %3, ptr noundef readnone %4, ptr readnone captures(none) %5) #4 {
   %7 = load i32, ptr %0, align 4, !tbaa !14
   %8 = load ptr, ptr %1, align 8, !tbaa !6
   %9 = icmp ult ptr %8, %2

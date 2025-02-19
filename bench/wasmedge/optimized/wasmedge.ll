@@ -1727,7 +1727,7 @@ define nonnull ptr @WasmEdge_ValueGetExternRef(ptr noundef readonly byval(%struc
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i32, ptr } @WasmEdge_StringCreateByCString(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define { i32, ptr } @WasmEdge_StringCreateByCString(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %WasmEdge_StringCreateByBuffer.exit, label %2
 
@@ -1752,7 +1752,7 @@ WasmEdge_StringCreateByBuffer.exit:               ; preds = %_ZSt6copy_nIPKcjPcE
 }
 
 ; Function Attrs: mustprogress uwtable
-define { i32, ptr } @WasmEdge_StringCreateByBuffer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define { i32, ptr } @WasmEdge_StringCreateByBuffer(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -1806,7 +1806,7 @@ _ZSt5equalIPKcS1_EbT_S2_T0_.exit:                 ; preds = %6, %5, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @WasmEdge_StringCopy(i32 %0, ptr readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #8 {
+define i32 @WasmEdge_StringCopy(i32 %0, ptr readonly captures(none) %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #8 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
 
@@ -1849,7 +1849,7 @@ define void @WasmEdge_StringDelete(i32 %0, ptr %1) local_unnamed_addr #10 {
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress uwtable
-define { i32, ptr } @WasmEdge_BytesCreate(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define { i32, ptr } @WasmEdge_BytesCreate(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne i32 %1, 0
   %or.cond = and i1 %3, %4
@@ -2444,7 +2444,7 @@ _ZNK8WasmEdge9Configure19hasHostRegistrationENS_16HostRegistrationE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureSetMaxMemoryPage(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_ConfigureSetMaxMemoryPage(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #13 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -2458,7 +2458,7 @@ define void @WasmEdge_ConfigureSetMaxMemoryPage(ptr noundef writeonly captures(a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i32 @WasmEdge_ConfigureGetMaxMemoryPage(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define i32 @WasmEdge_ConfigureGetMaxMemoryPage(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2473,7 +2473,7 @@ define i32 @WasmEdge_ConfigureGetMaxMemoryPage(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureSetForceInterpreter(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureSetForceInterpreter(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2488,7 +2488,7 @@ define void @WasmEdge_ConfigureSetForceInterpreter(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureSetAllowAFUNIX(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureSetAllowAFUNIX(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2503,7 +2503,7 @@ define void @WasmEdge_ConfigureSetAllowAFUNIX(ptr noundef writeonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @WasmEdge_ConfigureIsAllowAFUNIX(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define zeroext i1 @WasmEdge_ConfigureIsAllowAFUNIX(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2519,7 +2519,7 @@ define zeroext i1 @WasmEdge_ConfigureIsAllowAFUNIX(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @WasmEdge_ConfigureIsForceInterpreter(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define zeroext i1 @WasmEdge_ConfigureIsForceInterpreter(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2535,7 +2535,7 @@ define zeroext i1 @WasmEdge_ConfigureIsForceInterpreter(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureCompilerSetOptimizationLevel(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureCompilerSetOptimizationLevel(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2550,7 +2550,7 @@ define void @WasmEdge_ConfigureCompilerSetOptimizationLevel(ptr noundef writeonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 256) i32 @WasmEdge_ConfigureCompilerGetOptimizationLevel(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define range(i32 0, 256) i32 @WasmEdge_ConfigureCompilerGetOptimizationLevel(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2566,7 +2566,7 @@ define range(i32 0, 256) i32 @WasmEdge_ConfigureCompilerGetOptimizationLevel(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureCompilerSetOutputFormat(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureCompilerSetOutputFormat(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2581,7 +2581,7 @@ define void @WasmEdge_ConfigureCompilerSetOutputFormat(ptr noundef writeonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 256) i32 @WasmEdge_ConfigureCompilerGetOutputFormat(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define range(i32 0, 256) i32 @WasmEdge_ConfigureCompilerGetOutputFormat(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2597,7 +2597,7 @@ define range(i32 0, 256) i32 @WasmEdge_ConfigureCompilerGetOutputFormat(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureCompilerSetDumpIR(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureCompilerSetDumpIR(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2612,7 +2612,7 @@ define void @WasmEdge_ConfigureCompilerSetDumpIR(ptr noundef writeonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @WasmEdge_ConfigureCompilerIsDumpIR(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define zeroext i1 @WasmEdge_ConfigureCompilerIsDumpIR(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2628,7 +2628,7 @@ define zeroext i1 @WasmEdge_ConfigureCompilerIsDumpIR(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureCompilerSetGenericBinary(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureCompilerSetGenericBinary(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2643,7 +2643,7 @@ define void @WasmEdge_ConfigureCompilerSetGenericBinary(ptr noundef writeonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @WasmEdge_ConfigureCompilerIsGenericBinary(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define zeroext i1 @WasmEdge_ConfigureCompilerIsGenericBinary(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2659,7 +2659,7 @@ define zeroext i1 @WasmEdge_ConfigureCompilerIsGenericBinary(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureCompilerSetInterruptible(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureCompilerSetInterruptible(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2674,7 +2674,7 @@ define void @WasmEdge_ConfigureCompilerSetInterruptible(ptr noundef writeonly ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @WasmEdge_ConfigureCompilerIsInterruptible(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define zeroext i1 @WasmEdge_ConfigureCompilerIsInterruptible(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2690,7 +2690,7 @@ define zeroext i1 @WasmEdge_ConfigureCompilerIsInterruptible(ptr noundef readonl
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureStatisticsSetInstructionCounting(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureStatisticsSetInstructionCounting(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2705,7 +2705,7 @@ define void @WasmEdge_ConfigureStatisticsSetInstructionCounting(ptr noundef writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @WasmEdge_ConfigureStatisticsIsInstructionCounting(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define zeroext i1 @WasmEdge_ConfigureStatisticsIsInstructionCounting(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2721,7 +2721,7 @@ define zeroext i1 @WasmEdge_ConfigureStatisticsIsInstructionCounting(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureStatisticsSetCostMeasuring(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureStatisticsSetCostMeasuring(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2736,7 +2736,7 @@ define void @WasmEdge_ConfigureStatisticsSetCostMeasuring(ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @WasmEdge_ConfigureStatisticsIsCostMeasuring(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define zeroext i1 @WasmEdge_ConfigureStatisticsIsCostMeasuring(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2752,7 +2752,7 @@ define zeroext i1 @WasmEdge_ConfigureStatisticsIsCostMeasuring(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_ConfigureStatisticsSetTimeMeasuring(ptr noundef writeonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
+define void @WasmEdge_ConfigureStatisticsSetTimeMeasuring(ptr noundef writeonly %0, i1 noundef zeroext %1) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -2767,7 +2767,7 @@ define void @WasmEdge_ConfigureStatisticsSetTimeMeasuring(ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define zeroext i1 @WasmEdge_ConfigureStatisticsIsTimeMeasuring(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define zeroext i1 @WasmEdge_ConfigureStatisticsIsTimeMeasuring(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -2931,7 +2931,7 @@ _ZNSt13unordered_mapINSt6thread2idENSt6chrono10time_pointINS2_3_V212steady_clock
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @WasmEdge_StatisticsGetInstrCount(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define i64 @WasmEdge_StatisticsGetInstrCount(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -2993,7 +2993,7 @@ _ZNK8WasmEdge10Statistics10Statistics17getInstrPerSecondEv.exit: ; preds = %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define i64 @WasmEdge_StatisticsGetTotalCost(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #13 {
+define i64 @WasmEdge_StatisticsGetTotalCost(ptr noundef readonly %0) local_unnamed_addr #13 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -3047,7 +3047,7 @@ _ZN8WasmEdge10Statistics10Statistics12setCostTableEN5cxx204spanIKmLm184467440737
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @WasmEdge_StatisticsSetCostLimit(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #3 {
+define void @WasmEdge_StatisticsSetCostLimit(ptr noundef writeonly %0, i64 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -3201,7 +3201,7 @@ _ZN8WasmEdge10Statistics10StatisticsD2Ev.exit:    ; preds = %_ZN8WasmEdge5Timer5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @WasmEdge_ASTModuleListImportsLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ASTModuleListImportsLength(ptr noundef readonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -3223,7 +3223,7 @@ define i32 @WasmEdge_ASTModuleListImportsLength(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @WasmEdge_ASTModuleListImports(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ASTModuleListImports(ptr noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %4
 
@@ -3265,7 +3265,7 @@ define i32 @WasmEdge_ASTModuleListImports(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @WasmEdge_ASTModuleListExportsLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ASTModuleListExportsLength(ptr noundef readonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -3287,7 +3287,7 @@ define i32 @WasmEdge_ASTModuleListExportsLength(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define i32 @WasmEdge_ASTModuleListExports(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ASTModuleListExports(ptr noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #14 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %4
 
@@ -3438,7 +3438,7 @@ define noundef nonnull ptr @WasmEdge_FunctionTypeCreate(ptr noundef readonly cap
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @WasmEdge_FunctionTypeGetParametersLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @WasmEdge_FunctionTypeGetParametersLength(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %2
 
@@ -3459,7 +3459,7 @@ define i32 @WasmEdge_FunctionTypeGetParametersLength(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @WasmEdge_FunctionTypeGetParameters(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_FunctionTypeGetParameters(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %.preheader
 
@@ -3510,7 +3510,7 @@ define i32 @WasmEdge_FunctionTypeGetParameters(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @WasmEdge_FunctionTypeGetReturnsLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @WasmEdge_FunctionTypeGetReturnsLength(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %2
 
@@ -3532,7 +3532,7 @@ define i32 @WasmEdge_FunctionTypeGetReturnsLength(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define i32 @WasmEdge_FunctionTypeGetReturns(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #15 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_FunctionTypeGetReturns(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #15 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %29, label %.preheader
 
@@ -3744,7 +3744,7 @@ define noalias noundef ptr @WasmEdge_TableTypeCreate(i64 %0, i64 %1, i32 %2) loc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @WasmEdge_TableTypeGetRefType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define i64 @WasmEdge_TableTypeGetRefType(ptr noundef readonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -3758,7 +3758,7 @@ define i64 @WasmEdge_TableTypeGetRefType(ptr noundef readonly captures(address_i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i32 } @WasmEdge_TableTypeGetLimit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define { i64, i32 } @WasmEdge_TableTypeGetLimit(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %2
 
@@ -3845,7 +3845,7 @@ define noalias noundef nonnull ptr @WasmEdge_MemoryTypeCreate(i64 %0, i32 %1) lo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define { i64, i32 } @WasmEdge_MemoryTypeGetLimit(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define { i64, i32 } @WasmEdge_MemoryTypeGetLimit(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -3888,7 +3888,7 @@ define void @WasmEdge_MemoryTypeDelete(ptr noundef %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @WasmEdge_TagTypeGetFunctionType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #16 {
+define ptr @WasmEdge_TagTypeGetFunctionType(ptr noundef readonly %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %2
 
@@ -3924,7 +3924,7 @@ define noalias noundef nonnull ptr @WasmEdge_GlobalTypeCreate(i64 %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @WasmEdge_GlobalTypeGetValType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define i64 @WasmEdge_GlobalTypeGetValType(ptr noundef readonly %0) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %2
 
@@ -3938,7 +3938,7 @@ define i64 @WasmEdge_GlobalTypeGetValType(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @WasmEdge_GlobalTypeGetMutability(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 256) i32 @WasmEdge_GlobalTypeGetMutability(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -3967,7 +3967,7 @@ define void @WasmEdge_GlobalTypeDelete(ptr noundef %0) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @WasmEdge_ImportTypeGetExternalType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 256) i32 @WasmEdge_ImportTypeGetExternalType(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4024,7 +4024,7 @@ define { i32, ptr } @WasmEdge_ImportTypeGetExternalName(ptr noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @WasmEdge_ImportTypeGetFunctionType(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define ptr @WasmEdge_ImportTypeGetFunctionType(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #16 personality ptr @__gxx_personality_v0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4070,7 +4070,7 @@ define ptr @WasmEdge_ImportTypeGetFunctionType(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_ImportTypeGetTableType(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #4 {
+define ptr @WasmEdge_ImportTypeGetTableType(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4089,7 +4089,7 @@ define ptr @WasmEdge_ImportTypeGetTableType(ptr noundef readnone captures(addres
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_ImportTypeGetMemoryType(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #4 {
+define ptr @WasmEdge_ImportTypeGetMemoryType(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4108,7 +4108,7 @@ define ptr @WasmEdge_ImportTypeGetMemoryType(ptr noundef readnone captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_ImportTypeGetTagType(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #4 {
+define ptr @WasmEdge_ImportTypeGetTagType(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4127,7 +4127,7 @@ define ptr @WasmEdge_ImportTypeGetTagType(ptr noundef readnone captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_ImportTypeGetGlobalType(ptr noundef readnone captures(address_is_null) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #4 {
+define ptr @WasmEdge_ImportTypeGetGlobalType(ptr noundef readnone %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4146,7 +4146,7 @@ define ptr @WasmEdge_ImportTypeGetGlobalType(ptr noundef readnone captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 256) i32 @WasmEdge_ExportTypeGetExternalType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 256) i32 @WasmEdge_ExportTypeGetExternalType(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -4182,7 +4182,7 @@ define { i32, ptr } @WasmEdge_ExportTypeGetExternalName(ptr noundef %0) local_un
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @WasmEdge_ExportTypeGetFunctionType(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @WasmEdge_ExportTypeGetFunctionType(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4415,7 +4415,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit34:                  ; preds = %101, %102
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @WasmEdge_ExportTypeGetTableType(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @WasmEdge_ExportTypeGetTableType(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4607,7 +4607,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit24:                  ; preds = %79, %74, %2, %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @WasmEdge_ExportTypeGetMemoryType(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @WasmEdge_ExportTypeGetMemoryType(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4799,7 +4799,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit24:                  ; preds = %79, %74, %2, %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @WasmEdge_ExportTypeGetTagType(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #16 personality ptr @__gxx_personality_v0 {
+define ptr @WasmEdge_ExportTypeGetTagType(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #16 personality ptr @__gxx_personality_v0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -4853,7 +4853,7 @@ define ptr @WasmEdge_ExportTypeGetTagType(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress uwtable
-define ptr @WasmEdge_ExportTypeGetGlobalType(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @WasmEdge_ExportTypeGetGlobalType(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -6482,7 +6482,7 @@ _ZN8WasmEdge9ConfigureD2Ev.exit:                  ; preds = %82, %_ZNSt10_Hashta
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_LoaderParseFromFile(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_LoaderParseFromFile(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %5 = alloca %"class.std::filesystem::__cxx11::path", align 8
   %6 = alloca %"class.cxx20::expected.1906", align 8
@@ -6583,7 +6583,7 @@ _ZNSt10filesystem7__cxx114pathD2Ev.exit.i.i:      ; preds = %15, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_LoaderParseFromBuffer(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_LoaderParseFromBuffer(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.1906", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = icmp ne ptr %0, null
@@ -6629,7 +6629,7 @@ WasmEdge_LoaderParseFromBytes.exit:               ; preds = %4, %13, %14
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_LoaderParseFromBytes(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 %2, ptr %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_LoaderParseFromBytes(ptr noundef %0, ptr noundef writeonly %1, i32 %2, ptr %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.1906", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = icmp ne ptr %0, null
@@ -6675,7 +6675,7 @@ define i32 @WasmEdge_LoaderParseFromBytes(ptr noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_LoaderSerializeASTModule(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_LoaderSerializeASTModule(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.1919", align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %.not.i.i = icmp eq ptr %0, null
@@ -7382,7 +7382,7 @@ _ZN8WasmEdge8Executor8ExecutorC2ERKNS_9ConfigureEPNS_10Statistics10StatisticsE.e
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ExecutorInstantiate(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ExecutorInstantiate(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.1940", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %6 = icmp eq ptr %0, null
@@ -7429,7 +7429,7 @@ _ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJP30WasmEdge_ModuleInstanc
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ExecutorRegister(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, i32 %4, ptr %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ExecutorRegister(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, i32 %4, ptr %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"class.cxx20::expected.1940", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7)
   %8 = icmp eq ptr %0, null
@@ -7517,7 +7517,7 @@ _ZN12_GLOBAL__N_19isContextI24WasmEdge_ExecutorContextJ21WasmEdge_StoreContextK3
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ExecutorInvoke(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %7 = alloca %"struct.cxx20::span.279", align 8
   %8 = alloca %"class.cxx20::expected.623", align 8
   %9 = alloca %"struct.std::pair.263", align 8
@@ -7652,7 +7652,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN12_GLOBAL__N_112genParamPairEPK14WasmEdge_Valuej(ptr dead_on_unwind noalias nonnull writable align 8 %0, ptr noundef readonly %1, i32 noundef %2) unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::vector.265", align 8
   %5 = alloca %"class.std::vector.133", align 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, i8 0, i64 24, i1 false)
@@ -7824,7 +7824,7 @@ _ZNSt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_ExecutorAsyncInvoke(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_ExecutorAsyncInvoke(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %5 = alloca %"struct.std::pair.263", align 8
   %6 = alloca %"class.WasmEdge::Async", align 8
@@ -8347,7 +8347,7 @@ _ZNK8WasmEdge7Runtime12StoreManager17getModuleListSizeEv.exit: ; preds = %.prehe
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @WasmEdge_StoreListModule(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_StoreListModule(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %20, label %.preheader
 
@@ -9846,7 +9846,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance13getModuleNameEv.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_ModuleInstanceGetHostData(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @WasmEdge_ModuleInstanceGetHostData(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -10248,7 +10248,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance16getFuncExportNumEv.exit: ; preds
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ModuleInstanceListFunction(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ModuleInstanceListFunction(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %4
 
@@ -10365,7 +10365,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance17getTableExportNumEv.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ModuleInstanceListTable(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ModuleInstanceListTable(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %4
 
@@ -10482,7 +10482,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance18getMemoryExportNumEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ModuleInstanceListMemory(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ModuleInstanceListMemory(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %4
 
@@ -10599,7 +10599,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance15getTagExportNumEv.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ModuleInstanceListTag(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ModuleInstanceListTag(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %4
 
@@ -10716,7 +10716,7 @@ _ZNK8WasmEdge7Runtime8Instance14ModuleInstance18getGlobalExportNumEv.exit: ; pre
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_ModuleInstanceListGlobal(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_ModuleInstanceListGlobal(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %4
 
@@ -11492,7 +11492,7 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_112CAPIHostFuncESt14default_deleteIS1_EED2Ev.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_FunctionInstanceGetFunctionType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @WasmEdge_FunctionInstanceGetFunctionType(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -11507,7 +11507,7 @@ define ptr @WasmEdge_FunctionInstanceGetFunctionType(ptr noundef readonly captur
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define ptr @WasmEdge_FunctionInstanceGetData(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #16 {
+define ptr @WasmEdge_FunctionInstanceGetData(ptr noundef readonly %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %2
 
@@ -11558,7 +11558,7 @@ _ZN8WasmEdge7Runtime8Instance16FunctionInstanceD2Ev.exit: ; preds = %7, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @WasmEdge_TableInstanceCreate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @WasmEdge_TableInstanceCreate(ptr noundef readonly %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.spdlog::source_loc", align 8
   %3 = alloca i32, align 4
   %.not = icmp eq ptr %0, null
@@ -11637,7 +11637,7 @@ _ZN8WasmEdge7Runtime8Instance13TableInstanceC2ERKNS_3AST9TableTypeE.exit: ; pred
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @WasmEdge_TableInstanceCreateWithInit(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @WasmEdge_TableInstanceCreateWithInit(ptr noundef readonly %0, ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
@@ -11921,12 +11921,12 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit6: ; preds = %_ZNSt6vectorIN8Wa
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @WasmEdge_TableInstanceGetTableType(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @WasmEdge_TableInstanceGetTableType(ptr noundef readnone returned %0) local_unnamed_addr #0 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_TableInstanceGetData(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_TableInstanceGetData(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cxx20::expected.1981", align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   %5 = icmp ne ptr %0, null
@@ -11961,7 +11961,7 @@ define i32 @WasmEdge_TableInstanceGetData(ptr noundef %0, ptr noundef writeonly 
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 1040) i32 @WasmEdge_TableInstanceSetData(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 1040) i32 @WasmEdge_TableInstanceSetData(ptr noundef readonly %0, ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
   %6 = alloca i32, align 4
@@ -12221,7 +12221,7 @@ _ZNSt6vectorIN8WasmEdge7ValTypeESaIS1_EED2Ev.exit4.i.i.i: ; preds = %45, %_ZNSt6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @WasmEdge_TableInstanceGetSize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @WasmEdge_TableInstanceGetSize(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -12384,7 +12384,7 @@ _ZN8WasmEdge7Runtime8Instance13TableInstanceD2Ev.exit: ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_MemoryInstanceCreate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_MemoryInstanceCreate(ptr noundef readonly %0) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.spdlog::source_loc", align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN8WasmEdge7Runtime8Instance14MemoryInstanceC2ERKNS_3AST10MemoryTypeEj.exit, label %3
@@ -12442,12 +12442,12 @@ _ZN8WasmEdge7Runtime8Instance14MemoryInstanceC2ERKNS_3AST10MemoryTypeEj.exit: ; 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @WasmEdge_MemoryInstanceGetMemoryType(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @WasmEdge_MemoryInstanceGetMemoryType(ptr noundef readnone returned %0) local_unnamed_addr #0 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_MemoryInstanceGetData(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_MemoryInstanceGetData(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.cxx20::expected.1998", align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   %6 = icmp ne ptr %0, null
@@ -12513,7 +12513,7 @@ define i32 @WasmEdge_MemoryInstanceSetData(ptr noundef %0, ptr noundef %1, i32 n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_MemoryInstanceGetPointer(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define ptr @WasmEdge_MemoryInstanceGetPointer(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -12538,7 +12538,7 @@ define ptr @WasmEdge_MemoryInstanceGetPointer(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_MemoryInstanceGetPointerConst(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
+define ptr @WasmEdge_MemoryInstanceGetPointerConst(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %4
 
@@ -12563,7 +12563,7 @@ define ptr @WasmEdge_MemoryInstanceGetPointerConst(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i32 @WasmEdge_MemoryInstanceGetPageSize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i32 @WasmEdge_MemoryInstanceGetPageSize(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -12701,12 +12701,12 @@ define void @WasmEdge_MemoryInstanceDelete(ptr noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @WasmEdge_TagInstanceGetTagType(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @WasmEdge_TagInstanceGetTagType(ptr noundef readnone returned %0) local_unnamed_addr #0 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress uwtable
-define noalias noundef ptr @WasmEdge_GlobalInstanceCreate(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noalias noundef ptr @WasmEdge_GlobalInstanceCreate(ptr noundef readonly %0, ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %1) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
@@ -12911,12 +12911,12 @@ _ZN8WasmEdge7ErrInfo12InfoMismatchD2Ev.exit:      ; preds = %71, %68, %68, %68, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @WasmEdge_GlobalInstanceGetGlobalType(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @WasmEdge_GlobalInstanceGetGlobalType(ptr noundef readnone returned %0) local_unnamed_addr #0 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @WasmEdge_GlobalInstanceGetValue(ptr dead_on_unwind noalias writable writeonly sret(%struct.WasmEdge_Value) align 16 captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define void @WasmEdge_GlobalInstanceGetValue(ptr dead_on_unwind noalias writable writeonly sret(%struct.WasmEdge_Value) align 16 captures(none) initializes((0, 24)) %0, ptr noundef readonly %1) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %3
 
@@ -12936,7 +12936,7 @@ define void @WasmEdge_GlobalInstanceGetValue(ptr dead_on_unwind noalias writable
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define range(i32 0, 1040) i32 @WasmEdge_GlobalInstanceSetValue(ptr noundef captures(address_is_null) %0, ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define range(i32 0, 1040) i32 @WasmEdge_GlobalInstanceSetValue(ptr noundef %0, ptr noundef readonly byval(%struct.WasmEdge_Value) align 16 captures(none) %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.spdlog::source_loc", align 8
   %4 = alloca %"struct.spdlog::source_loc", align 8
   %5 = alloca %"struct.spdlog::source_loc", align 8
@@ -13212,7 +13212,7 @@ define void @WasmEdge_GlobalInstanceDelete(ptr noundef %0) local_unnamed_addr #1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_CallingFrameGetExecutor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @WasmEdge_CallingFrameGetExecutor(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 
@@ -13226,7 +13226,7 @@ define ptr @WasmEdge_CallingFrameGetExecutor(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_CallingFrameGetModuleInstance(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @WasmEdge_CallingFrameGetModuleInstance(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -13241,7 +13241,7 @@ define ptr @WasmEdge_CallingFrameGetModuleInstance(ptr noundef readonly captures
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define ptr @WasmEdge_CallingFrameGetMemoryInstance(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define ptr @WasmEdge_CallingFrameGetMemoryInstance(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit, label %3
 
@@ -13305,7 +13305,7 @@ _ZNK8WasmEdge7Runtime12CallingFrame16getMemoryByIndexEj.exit: ; preds = %.sink.s
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @WasmEdge_AsyncWait(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @WasmEdge_AsyncWait(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZNK8WasmEdge5AsyncIN5cxx208expectedISt6vectorISt4pairINS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEENS_7ValTypeEESaISK_EENS_7ErrCodeEEEE4waitEv.exit, label %2
 
@@ -13449,7 +13449,7 @@ _ZN5cxx208expectedISt6vectorISt4pairIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_j
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_AsyncGet(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_AsyncGet(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %"_ZN12_GLOBAL__N_14wrapIZ17WasmEdge_AsyncGetE3$_0Z17WasmEdge_AsyncGetE3$_1JK14WasmEdge_AsyncEEE15WasmEdge_ResultOT_OT0_DpPT1_.exit", label %4
 
@@ -14136,7 +14136,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit4.i.i.i: ; preds = %_ZNSt11unique_l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly %6, i32 noundef %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.cxx20::span.277", align 8
   %10 = alloca %"struct.cxx20::span.279", align 8
   %11 = alloca %"class.std::filesystem::__cxx11::path", align 8
@@ -14418,13 +14418,13 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMRunWasmFromBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 {
+define i32 @WasmEdge_VMRunWasmFromBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8) local_unnamed_addr #10 {
   %10 = tail call i32 @WasmEdge_VMRunWasmFromBytes(ptr noundef %0, i32 %2, ptr %1, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6, ptr noundef %7, i32 noundef %8)
   ret i32 %10
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7, i32 noundef %8) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.cxx20::span.277", align 8
   %11 = alloca %"struct.cxx20::span.279", align 8
   %12 = alloca %"class.cxx20::expected.623", align 8
@@ -14593,7 +14593,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef captures(address_is_null) %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly %6, i32 noundef %7) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %9 = alloca %"struct.cxx20::span.277", align 8
   %10 = alloca %"struct.cxx20::span.279", align 8
   %11 = alloca %"class.cxx20::expected.623", align 8
@@ -14759,7 +14759,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncRunWasmFromFile(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %7 = alloca ptr, align 8
   %8 = alloca %"struct.std::pair.263", align 8
@@ -15026,13 +15026,13 @@ _ZNSt10filesystem7__cxx114path5_ListD2Ev.exit:    ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncRunWasmFromBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 {
+define noundef ptr @WasmEdge_VMAsyncRunWasmFromBuffer(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 {
   %8 = tail call ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %2, ptr %1, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6)
   ret ptr %8
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncRunWasmFromBytes(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %8 = alloca %"struct.std::pair.263", align 8
   %9 = alloca %"class.WasmEdge::Async", align 8
@@ -15161,7 +15161,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 declare void @_ZN8WasmEdge2VM2VM16asyncRunWasmFileEN5cxx204spanIKhLm18446744073709551615EEESt17basic_string_viewIcSt11char_traitsIcEENS3_IKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS3_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"class.WasmEdge::Async") align 8, ptr noundef nonnull align 8 dereferenceable(1920), ptr, i64, i64, ptr, ptr noundef byval(%"struct.cxx20::span.277") align 8, ptr noundef byval(%"struct.cxx20::span.279") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncRunWasmFromASTModule(ptr noundef %0, ptr noundef %1, i32 %2, ptr %3, ptr noundef %4, i32 noundef %5) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %7 = alloca %"struct.std::pair.263", align 8
   %8 = alloca %"class.WasmEdge::Async", align 8
@@ -15650,7 +15650,7 @@ _ZNSt11unique_lockISt12shared_mutexED2Ev.exit3.i.i.i: ; preds = %_ZNSt11unique_l
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef captures(address_is_null) %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5, i32 noundef %6) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %8 = alloca %"struct.cxx20::span.279", align 8
   %9 = alloca %"class.cxx20::expected.623", align 8
   %10 = alloca %"struct.std::pair.263", align 8
@@ -15813,7 +15813,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, i32 noundef %8) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6, ptr noundef writeonly %7, i32 noundef %8) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %10 = alloca %"struct.cxx20::span.277", align 8
   %11 = alloca %"struct.cxx20::span.279", align 8
   %12 = alloca %"class.cxx20::expected.623", align 8
@@ -15983,7 +15983,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncExecute(ptr noundef %0, i32 %1, ptr %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %6 = alloca %"struct.std::pair.263", align 8
   %7 = alloca %"class.WasmEdge::Async", align 8
@@ -16103,7 +16103,7 @@ _ZNSt4pairISt6vectorIN8WasmEdge7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sD
 declare void @_ZN8WasmEdge2VM2VM12asyncExecuteESt17basic_string_viewIcSt11char_traitsIcEEN5cxx204spanIKNS_7VariantIJjimlfdonDv2_mDv2_lDv4_jDv4_iDv8_tDv8_sDv16_hDv16_aDv4_fDv2_dNS_10RefVariantENS_10StrVariantEEEELm18446744073709551615EEENS7_IKNS_7ValTypeELm18446744073709551615EEE(ptr dead_on_unwind writable sret(%"class.WasmEdge::Async") align 8, ptr noundef nonnull align 8 dereferenceable(1920), i64, ptr, ptr, i64, ptr noundef byval(%"struct.cxx20::span.279") align 8) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMAsyncExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef captures(address_is_null) %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define noundef ptr @WasmEdge_VMAsyncExecuteRegistered(ptr noundef %0, i32 %1, ptr %2, i32 %3, ptr %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i.i.i.i.i.i = alloca { i64, i64 }, align 8
   %8 = alloca %"struct.std::pair.263", align 8
   %9 = alloca %"class.WasmEdge::Async", align 8
@@ -16345,7 +16345,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8Was
 declare { i64, ptr } @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEcvSt17basic_string_viewIcS2_EEv(ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define ptr @WasmEdge_VMGetFunctionTypeRegistered(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr %2, i32 %3, ptr %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define ptr @WasmEdge_VMGetFunctionTypeRegistered(ptr noundef readonly %0, i32 %1, ptr %2, i32 %3, ptr %4) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::basic_string_view", align 8
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %35, label %7
@@ -16536,7 +16536,7 @@ _ZNSt6vectorISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKN8Was
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @WasmEdge_VMGetFunctionList(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMGetFunctionList(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %56, label %5
 
@@ -16731,7 +16731,7 @@ _ZNK8WasmEdge2VM2VM15getImportModuleENS_16HostRegistrationE.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_VMListRegisteredModuleLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMListRegisteredModuleLength(ptr noundef readonly %0) local_unnamed_addr #10 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -16774,7 +16774,7 @@ _ZNK8WasmEdge7Runtime12StoreManager17getModuleListSizeEv.exit: ; preds = %5
 }
 
 ; Function Attrs: mustprogress uwtable
-define i32 @WasmEdge_VMListRegisteredModule(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_VMListRegisteredModule(ptr noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %24, label %4
 
@@ -16840,7 +16840,7 @@ _ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @WasmEdge_VMGetRegisteredModule(ptr noundef readonly captures(address_is_null) %0, i32 %1, ptr %2) local_unnamed_addr #1 {
+define noundef ptr @WasmEdge_VMGetRegisteredModule(ptr noundef readonly %0, i32 %1, ptr %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %4
 
@@ -16896,7 +16896,7 @@ _ZNK8WasmEdge2VM2VM15getActiveModuleEv.exit:      ; preds = %_ZNSt11shared_lockI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @WasmEdge_VMGetStoreContext(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define ptr @WasmEdge_VMGetStoreContext(ptr noundef readonly %0) local_unnamed_addr #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -16911,7 +16911,7 @@ define ptr @WasmEdge_VMGetStoreContext(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @WasmEdge_VMGetLoaderContext(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @WasmEdge_VMGetLoaderContext(ptr noundef readnone %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 456
   %spec.select = select i1 %.not, ptr null, ptr %2
@@ -16919,7 +16919,7 @@ define ptr @WasmEdge_VMGetLoaderContext(ptr noundef readnone captures(address_is
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @WasmEdge_VMGetValidatorContext(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @WasmEdge_VMGetValidatorContext(ptr noundef readnone %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 816
   %spec.select = select i1 %.not, ptr null, ptr %2
@@ -16927,7 +16927,7 @@ define ptr @WasmEdge_VMGetValidatorContext(ptr noundef readnone captures(address
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @WasmEdge_VMGetExecutorContext(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @WasmEdge_VMGetExecutorContext(ptr noundef readnone %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1336
   %spec.select = select i1 %.not, ptr null, ptr %2
@@ -16935,7 +16935,7 @@ define ptr @WasmEdge_VMGetExecutorContext(ptr noundef readnone captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define ptr @WasmEdge_VMGetStatisticsContext(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @WasmEdge_VMGetStatisticsContext(ptr noundef readnone %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %spec.select = select i1 %.not, ptr null, ptr %2
@@ -17080,7 +17080,7 @@ define i32 @WasmEdge_PluginListPluginsLength() local_unnamed_addr #10 {
 declare { ptr, i64 } @_ZN8WasmEdge6Plugin6Plugin7pluginsEv() local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
-define i32 @WasmEdge_PluginListPlugins(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #10 {
+define i32 @WasmEdge_PluginListPlugins(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #10 {
   %3 = tail call { ptr, i64 } @_ZN8WasmEdge6Plugin6Plugin7pluginsEv() #38
   %4 = extractvalue { ptr, i64 } %3, 0
   %5 = extractvalue { ptr, i64 } %3, 1
@@ -17122,7 +17122,7 @@ define noundef ptr @WasmEdge_PluginFind(i32 %0, ptr %1) local_unnamed_addr #10 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define { i32, ptr } @WasmEdge_PluginGetPluginName(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #21 {
+define { i32, ptr } @WasmEdge_PluginGetPluginName(ptr noundef readonly %0) local_unnamed_addr #21 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %2
 
@@ -17143,7 +17143,7 @@ define { i32, ptr } @WasmEdge_PluginGetPluginName(ptr noundef readonly captures(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read, inaccessiblemem: write) uwtable
-define i32 @WasmEdge_PluginListModuleLength(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #22 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_PluginListModuleLength(ptr noundef readonly %0) local_unnamed_addr #22 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %15, label %2
 
@@ -17169,7 +17169,7 @@ define i32 @WasmEdge_PluginListModuleLength(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
-define i32 @WasmEdge_PluginListModule(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
+define i32 @WasmEdge_PluginListModule(ptr noundef readonly %0, ptr noundef writeonly %1, i32 noundef %2) local_unnamed_addr #23 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %28, label %4
 

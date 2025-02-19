@@ -1142,7 +1142,7 @@ declare ptr @RelationGetIndexAttOptions(ptr noundef, i1 noundef zeroext) local_u
 declare void @set_fn_opclass_options(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @index_store_float8_orderby_distances(ptr noundef captures(none) initializes((136, 137)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
+define dso_local void @index_store_float8_orderby_distances(ptr noundef captures(none) initializes((136, 137)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = zext i1 %3 to i8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store i8 %5, ptr %6, align 8

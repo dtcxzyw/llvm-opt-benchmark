@@ -3066,7 +3066,7 @@ define internal range(i32 0, 2) i32 @ext_sigalgs_add_clienthello(ptr noundef %0,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ext_sigalgs_parse_serverhello(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
+define internal range(i32 0, 2) i32 @ext_sigalgs_parse_serverhello(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readnone %2) #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 

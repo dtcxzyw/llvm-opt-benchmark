@@ -1839,7 +1839,7 @@ declare void @socket_timeout(i32 noundef) #2
 declare void @trace_log_message(i32 noundef, ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @index_changed(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @index_changed(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = alloca %struct.stat, align 8
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %2) #9
   %.not = icmp eq ptr %0, null
@@ -2318,7 +2318,7 @@ declare void @ERR_clear_error() local_unnamed_addr #2
 declare void @ERR_print_errors(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @print_ocsp_summary(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readnone %2, ptr noundef nonnull %3, ptr noundef nonnull %4, i64 noundef %5, i64 noundef %6) unnamed_addr #0 {
   %8 = alloca i32, align 4
   %9 = alloca i32, align 4
   %10 = alloca ptr, align 8

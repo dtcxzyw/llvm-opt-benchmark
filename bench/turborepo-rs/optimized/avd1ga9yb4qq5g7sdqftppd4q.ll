@@ -3558,7 +3558,7 @@ define hidden void @_RNCNCNvNtCseG2FYMysgNb_3wax4rule8boundarys_0s0_0B7_.llvm.16
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_RINvNvNtCseG2FYMysgNb_3wax4rule5group7recurseINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtB6_5token5TokenEEB6_(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull %2, ptr noundef nonnull readnone captures(address) %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(64) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(64) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @_RINvNvNtCseG2FYMysgNb_3wax4rule5group7recurseINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterNtNtB6_5token5TokenEEB6_(ptr dead_on_unwind noalias noundef nonnull writable writeonly align 8 captures(none) dereferenceable(104) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1, ptr noundef nonnull %2, ptr noundef nonnull readnone %3, ptr noalias noundef readonly align 8 dereferenceable_or_null(64) %4, ptr noalias noundef readonly align 8 dereferenceable_or_null(64) %5) unnamed_addr #0 personality ptr @rust_eh_personality {
   %7 = alloca [24 x i8], align 8
   %8 = alloca [24 x i8], align 8
   %9 = alloca [24 x i8], align 8

@@ -3977,7 +3977,7 @@ element_add_subelement.exit:                      ; preds = %41, %38, %36, %_Py_
 declare i32 @PyList_SetItem(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @treebuilder_extend_element_text_or_tail(ptr readnone captures(address) %.104.val, ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @treebuilder_extend_element_text_or_tail(ptr readnone %.104.val, ptr noundef %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = getelementptr i8, ptr %0, i64 8
   %.val82 = load ptr, ptr %5, align 8, !tbaa !25
   %.not = icmp eq ptr %.val82, %.104.val
@@ -7919,7 +7919,7 @@ _elementtree_Element_iter_impl.exit:              ; preds = %23, %PyUnicode_READ
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_elementtree_Element_itertext(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @_elementtree_Element_itertext(ptr noundef %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -8118,7 +8118,7 @@ _elementtree_Element_makeelement_impl.exit:       ; preds = %30, %27, %22, %20, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @_elementtree_Element___copy__(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4) #0 {
+define internal ptr @_elementtree_Element___copy__(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i64 noundef %3, ptr noundef readonly %4) #0 {
   %.not = icmp eq i64 %3, 0
   br i1 %.not, label %6, label %9
 
@@ -13435,7 +13435,7 @@ define internal ptr @xmlparser_version_getter(ptr readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @ignore_attribute_error(ptr noundef readnone captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @ignore_attribute_error(ptr noundef readnone %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %7
 

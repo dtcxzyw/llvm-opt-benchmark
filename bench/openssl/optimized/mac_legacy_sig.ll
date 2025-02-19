@@ -21,7 +21,7 @@ define internal ptr @mac_hmac_newctx(ptr noundef %0, ptr noundef %1) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @mac_digest_sign_init(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+define internal range(i32 0, 2) i32 @mac_digest_sign_init(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @ossl_prov_is_running() #3
   %6 = icmp eq i32 %5, 0
   %7 = icmp eq ptr %0, null
@@ -110,7 +110,7 @@ define internal range(i32 0, 2) i32 @mac_digest_sign_init(ptr noundef captures(a
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_digest_sign_update(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) #0 {
+define internal i32 @mac_digest_sign_update(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %11, label %5
 
@@ -130,7 +130,7 @@ define internal i32 @mac_digest_sign_update(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mac_digest_sign_final(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
+define internal i32 @mac_digest_sign_final(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i64 noundef %3) #0 {
   %5 = tail call i32 @ossl_prov_is_running() #3
   %6 = icmp eq i32 %5, 0
   %7 = icmp eq ptr %0, null

@@ -31,7 +31,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.24 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @tool_mime_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local void @tool_mime_free(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %23, label %2
 
@@ -880,7 +880,7 @@ declare noalias ptr @strdup(ptr noundef readonly captures(none)) local_unnamed_a
 declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readonly captures(none) %0, i8 noundef signext range(i8 0, 45) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %7) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @get_param_part(ptr noundef readonly captures(none) %0, i8 noundef signext range(i8 0, 45) %1, ptr noundef nonnull captures(none) %2, ptr noundef nonnull writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %4, ptr noundef writeonly %5, ptr noundef writeonly %6, ptr noundef nonnull writeonly captures(none) initializes((0, 8)) %7) unnamed_addr #0 {
   %9 = alloca [999 x i8], align 16
   %10 = alloca ptr, align 8
   %11 = alloca ptr, align 8

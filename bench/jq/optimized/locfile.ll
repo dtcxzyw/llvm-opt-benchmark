@@ -122,7 +122,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @locfile_retain(ptr noundef returned captures(ret: address, provenance) %0) local_unnamed_addr #4 {
+define dso_local noundef ptr @locfile_retain(ptr noundef returned %0) local_unnamed_addr #4 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i32, ptr %2, align 8, !tbaa !19
   %4 = add nsw i32 %3, 1

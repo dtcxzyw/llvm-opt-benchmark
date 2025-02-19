@@ -100,7 +100,7 @@ declare dso_local ptr @drm_crtc_from_index(ptr noundef, i32 noundef) local_unnam
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @intel_crtc_for_pipe(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
+define dso_local ptr @intel_crtc_for_pipe(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #3 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   br label %4
 
@@ -135,7 +135,7 @@ define dso_local void @intel_crtc_wait_for_next_vblank(ptr noundef %0) local_unn
 declare dso_local void @drm_crtc_wait_one_vblank(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @intel_wait_for_vblank_if_active(ptr noundef readonly captures(address) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @intel_wait_for_vblank_if_active(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   br label %4
 

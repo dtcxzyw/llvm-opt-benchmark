@@ -3738,7 +3738,7 @@ define internal fastcc void @PrintFullLosslessInfo(ptr noundef readonly captures
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal fastcc void @PrintByteCount(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #6 {
+define internal fastcc void @PrintByteCount(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #6 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %.split.us, label %.split
 

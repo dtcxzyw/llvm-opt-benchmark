@@ -735,7 +735,7 @@ define dso_local void @_ZN15btCompoundShape23removeChildShapeByIndexEi(ptr nound
 declare void @_ZN6btDbvt6removeEP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShape(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 align 2 {
+define dso_local void @_ZN15btCompoundShape16removeChildShapeEP16btCollisionShape(ptr noundef nonnull align 8 dereferenceable(128) %0, ptr noundef readnone %1) unnamed_addr #0 align 2 {
   %3 = alloca %struct.btCompoundShapeChild, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load i32, ptr %4, align 8, !tbaa !28

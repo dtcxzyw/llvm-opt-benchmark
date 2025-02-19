@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @cm_utf8_min = internal unnamed_addr constant [7 x i32] [i32 0, i32 0, i32 128, i32 2048, i32 65536, i32 2097152, i32 67108864], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly captures(address, ret: address, provenance) %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, %1
   br i1 %4, label %.loopexit, label %5
 
@@ -90,7 +90,7 @@ define dso_local ptr @cm_utf8_decode_character(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @cm_utf8_is_valid(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %36, label %2
 

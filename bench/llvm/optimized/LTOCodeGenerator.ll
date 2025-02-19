@@ -8390,7 +8390,7 @@ declare void @_ZN4llvm3lto7backendERKNS0_6ConfigESt8functionIFNS_8ExpectedISt10u
 declare void @_ZN4llvm21reportAndResetTimingsEPNS_11raw_ostreamE(ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm16LTOCodeGenerator22setCodeGenDebugOptionsENS_8ArrayRefINS_9StringRefEEE(ptr noundef nonnull align 8 dereferenceable(1728) %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #2 align 2 {
+define dso_local void @_ZN4llvm16LTOCodeGenerator22setCodeGenDebugOptionsENS_8ArrayRefINS_9StringRefEEE(ptr noundef nonnull align 8 dereferenceable(1728) %0, ptr readonly %1, i64 %2) local_unnamed_addr #2 align 2 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw %"class.llvm::StringRef", ptr %1, i64 %2

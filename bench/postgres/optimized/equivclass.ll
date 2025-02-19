@@ -2436,7 +2436,7 @@ select_equality_operator.exit.thread:             ; preds = %77, %.lr.ph.i, %.lr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @generate_join_implied_equalities_broken(ptr noundef %0, ptr readonly captures(address_is_null) %.32.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @generate_join_implied_equalities_broken(ptr noundef %0, ptr readonly %.32.val, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %.32.val, i64 4
   %.not = icmp eq ptr %.32.val, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -2508,7 +2508,7 @@ define internal fastcc ptr @generate_join_implied_equalities_broken(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @generate_join_implied_equalities_for_ecs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @generate_join_implied_equalities_for_ecs(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 4
@@ -3897,7 +3897,7 @@ declare ptr @bms_intersect(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @get_mergejoin_opfamilies(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local ptr @find_derived_clause_for_ec_member(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #4 {
+define dso_local ptr @find_derived_clause_for_ec_member(ptr noundef readonly captures(none) %0, ptr noundef readnone %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -4282,7 +4282,7 @@ add_eq_member.exit:                               ; preds = %84, %101
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @add_setop_child_rel_equivalences(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local void @add_setop_child_rel_equivalences(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %list_head.exit, label %5
 
@@ -5047,7 +5047,7 @@ list_length.exit.thread:                          ; preds = %select.unfold, %36,
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @is_redundant_derived_clause(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define dso_local noundef zeroext i1 @is_redundant_derived_clause(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -5087,7 +5087,7 @@ define dso_local noundef zeroext i1 @is_redundant_derived_clause(ptr noundef rea
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local zeroext i1 @is_redundant_with_indexclauses(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define dso_local zeroext i1 @is_redundant_with_indexclauses(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %4 = load ptr, ptr %3, align 8
   %.fr = freeze ptr %4

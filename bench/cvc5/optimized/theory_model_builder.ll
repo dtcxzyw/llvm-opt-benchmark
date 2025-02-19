@@ -3091,7 +3091,7 @@ declare noundef zeroext i1 @_ZNK4cvc58internal6theory11TheoryModel7isValueENS0_1
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZN4cvc58internal6theory2eq15EqClassIteratorppEv(ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16isAssignerActiveEPNS1_11TheoryModelERNS2_8AssignerE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(33) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder16isAssignerActiveEPNS1_11TheoryModelERNS2_8AssignerE(ptr noundef nonnull readonly align 8 dereferenceable(120) %0, ptr noundef %1, ptr noundef nonnull align 8 captures(none) dereferenceable(33) %2) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.cvc5::internal::NodeTemplate", align 8
   %5 = alloca %"class.cvc5::internal::NodeTemplate.295", align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -4013,7 +4013,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit35: ; preds = %_ZN4cvc58internal12
 declare void @_ZN4cvc58internal6theory6RepSet24setTermForRepresentativeENS0_12NodeTemplateILb1EEES4_(ptr noundef nonnull align 8 dereferenceable(192), ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder18isExcludedCdtValueENS0_12NodeTemplateILb1EEEPSt3setIS4_St4lessIS4_ESaIS4_EERSt3mapIS4_S4_S7_SaISt4pairIKS4_S4_EEES4_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr readonly captures(none) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN4cvc58internal6theory24TheoryEngineModelBuilder18isExcludedCdtValueENS0_12NodeTemplateILb1EEEPSt3setIS4_St4lessIS4_ESaIS4_EERSt3mapIS4_S4_S7_SaISt4pairIKS4_S4_EEES4_(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull align 8 dereferenceable(48) %3, ptr readonly captures(none) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.846", align 8
   %7 = alloca %"class.std::tuple.834", align 1
   %8 = alloca %"class.cvc5::internal::NodeTemplate", align 8

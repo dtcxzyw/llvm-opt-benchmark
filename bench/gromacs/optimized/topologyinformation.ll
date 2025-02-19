@@ -1463,7 +1463,7 @@ define { ptr, ptr } @_ZNK3gmx19TopologyInformation1vEv(ptr noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZNK3gmx19TopologyInformation6getBoxEPA3_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #8 align 2 {
+define void @_ZNK3gmx19TopologyInformation6getBoxEPA3_f(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %0, ptr noundef writeonly %1) local_unnamed_addr #8 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.split, label %.split3
 

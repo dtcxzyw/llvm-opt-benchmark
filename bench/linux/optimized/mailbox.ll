@@ -1059,7 +1059,7 @@ define dso_local void @devm_mbox_controller_unregister(ptr noundef %0, ptr nound
 declare dso_local i32 @devres_release(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 2) i32 @devm_mbox_controller_match(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readnone captures(address) %2) #0 align 16 {
+define internal range(i32 0, 2) i32 @devm_mbox_controller_match(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readnone %2) #0 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %8, label %5
 

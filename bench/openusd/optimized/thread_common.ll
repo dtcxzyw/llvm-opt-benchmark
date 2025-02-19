@@ -39,7 +39,7 @@ target triple = "x86_64-pc-linux-gnu"
 @loop_restoration_row_worker.copy_funs = internal unnamed_addr constant [3 x ptr] [ptr @aom_yv12_partial_coloc_copy_y_c, ptr @aom_yv12_partial_coloc_copy_u_c, ptr @aom_yv12_partial_coloc_copy_v_c], align 16
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_loop_filter_dealloc(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @av1_loop_filter_dealloc(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %45, label %.preheader40
 
@@ -576,7 +576,7 @@ loop_filter_rows_mt.exit:                         ; preds = %159, %enqueue_lf_jo
 declare void @av1_loop_filter_frame_init(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden void @av1_loop_restoration_dealloc(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define hidden void @av1_loop_restoration_dealloc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %55, label %.preheader51
 

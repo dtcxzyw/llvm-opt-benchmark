@@ -1045,7 +1045,7 @@ rb_parser_encoding_string_new.exit:               ; preds = %15, %20
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef nonnull ptr @rb_parser_encoding_string_new(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noalias noundef nonnull ptr @rb_parser_encoding_string_new(ptr noundef readonly %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp slt i64 %1, 0
   br i1 %4, label %5, label %6
 
@@ -11103,7 +11103,7 @@ char_at_end.exit.thread:                          ; preds = %9, %24, %char_at_en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_none(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %1) local_unnamed_addr #4 {
+define dso_local noundef ptr @rb_parser_set_location_of_none(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %4 = load i32, ptr %3, align 4, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -11309,7 +11309,7 @@ define internal fastcc ptr @init_block_exit(ptr noundef captures(none) %0) unnam
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @void_stmts(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc ptr @void_stmts(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @rb_ruby_verbose_ptr() #35
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = and i64 %4, -5
@@ -11356,7 +11356,7 @@ define internal fastcc ptr @void_stmts(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @void_expr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @void_expr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = tail call ptr @rb_ruby_verbose_ptr() #35
   %4 = load i64, ptr %3, align 8, !tbaa !7
   %5 = and i64 %4, -5
@@ -11994,7 +11994,7 @@ parser_yyerror.exit23:                            ; preds = %parser_yyerror.exit
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @parser_yyerror(ptr noundef nonnull captures(none) %0, ptr noundef nonnull captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @parser_yyerror(ptr noundef nonnull captures(none) %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #0 {
   tail call void (ptr, ptr, ptr, ...) @parser_compile_error(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.555, ptr noundef nonnull %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %5 = load i32, ptr %4, align 4, !tbaa !31
@@ -12510,7 +12510,7 @@ define internal fastcc noundef ptr @rb_node_postexe_new(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @node_assign(ptr noundef captures(none) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @node_assign(ptr noundef captures(none) %0, ptr noundef returned %1, ptr noundef %2, ptr noundef readonly captures(none) %3) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %21, label %5
 
@@ -13262,7 +13262,7 @@ define internal fastcc void @rb_backref_error(ptr noundef captures(none) %0, ptr
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @endless_method_name(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @endless_method_name(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 146
   br i1 %4, label %10, label %5
 
@@ -13720,7 +13720,7 @@ value_expr_gen.exit:                              ; preds = %6, %12, %18
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @value_expr_gen(ptr noundef %0, ptr noundef captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @value_expr_gen(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef %1)
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %parser_yyerror.exit, label %4
@@ -14080,7 +14080,7 @@ define internal fastcc noundef ptr @rb_node_fcall_new(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_command_qcall(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef captures(address_is_null, ret: address, provenance) %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull readonly captures(none) %7) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_command_qcall(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef readonly captures(none) %6, ptr noundef nonnull readonly captures(none) %7) unnamed_addr #0 {
   %.not = icmp ne ptr %5, null
   %9 = icmp ne ptr %4, null
   %or.cond = and i1 %9, %.not
@@ -14261,7 +14261,7 @@ define internal fastcc noundef ptr @rb_node_return_new(ptr noundef captures(none
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @ret_args(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc ptr @ret_args(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %15, label %3
 
@@ -14480,7 +14480,7 @@ define internal fastcc noundef ptr @rb_node_list_new(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @list_append(ptr noundef captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @list_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %23
 
@@ -14601,7 +14601,7 @@ define internal fastcc noundef ptr @rb_node_postarg_new(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal noundef ptr @assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef ptr @assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   switch i64 %1, label %11 [
     i64 0, label %parser_yyerror.exit
     i64 288, label %150
@@ -14961,7 +14961,7 @@ define internal fastcc noundef ptr @aryset(ptr noundef captures(none) %0, ptr no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @anddot_multiple_assignment_check(ptr noundef captures(none) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) unnamed_addr #0 {
+define internal fastcc void @anddot_multiple_assignment_check(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %2, 150
   br i1 %4, label %5, label %parser_yyerror.exit
 
@@ -15025,7 +15025,7 @@ define internal fastcc noundef ptr @attrset(ptr noundef captures(none) %0, ptr n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @const_decl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @const_decl(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %5 = load i16, ptr %4, align 8
   %6 = and i16 %5, 8
@@ -15176,7 +15176,7 @@ rb_parser_ary_push_node.exit:
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_parser_ary_push_node(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_parser_ary_push_node(ptr noundef returned %0, ptr noundef %1) unnamed_addr #0 {
   %3 = load i32, ptr %0, align 8, !tbaa !342
   %.not = icmp eq i32 %3, 3
   br i1 %.not, label %5, label %4
@@ -17307,7 +17307,7 @@ define internal fastcc noundef ptr @rb_node_for_masgn_new(ptr noundef captures(n
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_args(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef returned captures(address_is_null, ret: address, provenance) %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_args(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly %4, ptr noundef returned %5, ptr noundef readonly captures(none) %6) unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 104
   %10 = load i8, ptr %9, align 8
@@ -18149,7 +18149,7 @@ define internal fastcc noundef ptr @rb_node_def_temp_new(ptr noundef captures(no
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @token_info_warn(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc void @token_info_warn(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef readonly %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %7 = load i32, ptr %6, align 8
   %8 = and i32 %7, 256
@@ -18363,7 +18363,7 @@ define internal fastcc void @pop_end_expect_token_locations(ptr noundef captures
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @parser_compile_error(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ...) unnamed_addr #0 {
+define internal void @parser_compile_error(ptr noundef captures(none) %0, ptr noundef readonly %1, ptr noundef %2, ...) unnamed_addr #0 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #35
   %.not = icmp eq ptr %1, null
@@ -18422,7 +18422,7 @@ rb_long2int_inline.exit:                          ; preds = %9
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @mark_lvar_used(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @mark_lvar_used(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #35
   store ptr null, ptr %3, align 8, !tbaa !28
@@ -18781,7 +18781,7 @@ vtable_alloc_gen.exit14:                          ; preds = %29, %37
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @args_with_numbered(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @args_with_numbered(ptr noundef captures(none) %0, ptr noundef writeonly %1, i32 noundef %2, i64 noundef %3) unnamed_addr #0 {
   %5 = icmp sgt i32 %2, 0
   %6 = icmp ne i64 %3, 0
   %or.cond = or i1 %5, %6
@@ -18899,7 +18899,7 @@ define internal fastcc noundef ptr @rb_node_lambda_new(ptr noundef captures(none
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @dyna_pop(ptr noundef captures(none) %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @dyna_pop(ptr noundef captures(none) %0, ptr noundef readnone %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %4 = load ptr, ptr %3, align 8, !tbaa !100
   %5 = load ptr, ptr %4, align 8, !tbaa !197
@@ -19214,7 +19214,7 @@ define internal fastcc noundef ptr @new_array_pattern_tail(ptr noundef captures(
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_array_pattern(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef returned captures(ret: address, provenance) initializes((32, 40)) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_array_pattern(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef returned initializes((32, 40)) %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 32
   store ptr %1, ptr %6, align 8, !tbaa !168
   %.not = icmp eq ptr %2, null
@@ -19315,7 +19315,7 @@ define internal fastcc noundef ptr @rb_node_or_new(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @new_hash_pattern_tail(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @new_hash_pattern_tail(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef nonnull %3) unnamed_addr #0 {
   switch i64 %2, label %5 [
     i64 3649, label %8
     i64 0, label %7
@@ -19359,7 +19359,7 @@ define internal fastcc noundef ptr @new_hash_pattern_tail(ptr noundef captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @list_concat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef %1) unnamed_addr #11 {
+define internal fastcc noundef ptr @list_concat(ptr noundef returned %0, ptr noundef %1) unnamed_addr #11 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8, !tbaa !182
   %.not = icmp eq ptr %4, null
@@ -19439,7 +19439,7 @@ define internal fastcc noundef ptr @new_find_pattern_tail(ptr noundef captures(n
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @error_duplicate_pattern_variable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @error_duplicate_pattern_variable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = icmp eq i64 %1, 3713
   br i1 %4, label %parser_yyerror.exit, label %5
 
@@ -19534,7 +19534,7 @@ define internal fastcc noundef ptr @new_unique_key_hash(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @error_duplicate_pattern_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc void @error_duplicate_pattern_key(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
   %5 = load ptr, ptr %4, align 8, !tbaa !98
   %.not = icmp eq ptr %5, null
@@ -19580,7 +19580,7 @@ parser_yyerror.exit:                              ; preds = %15, %10, %20
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @dsym_node(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @dsym_node(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %4, label %23
 
@@ -21331,7 +21331,7 @@ str2regx.exit:                                    ; preds = %40, %47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @symbol_append(ptr noundef captures(none) %0, ptr noundef captures(address_is_null, ret: address, provenance) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @symbol_append(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = load i64, ptr %2, align 8, !tbaa !72
   %5 = trunc i64 %4 to i32
   %6 = lshr i32 %5, 8
@@ -21953,7 +21953,7 @@ vtable_add_gen.exit:                              ; preds = %21, %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc noundef ptr @last_expr_node(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) unnamed_addr #8 {
+define internal fastcc noundef ptr @last_expr_node(ptr noundef readonly %0) unnamed_addr #8 {
   %.not10 = icmp eq ptr %0, null
   br i1 %.not10, label %._crit_edge, label %.lr.ph
 
@@ -22345,7 +22345,7 @@ define internal fastcc void @yydestruct(ptr noundef %0, i32 noundef range(i32 -3
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local void @ruby_show_error_line(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
+define dso_local void @ruby_show_error_line(ptr readnone captures(none) %0, i64 noundef %1, ptr noundef readonly %2, i32 noundef %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %7 = load ptr, ptr %6, align 8, !tbaa !18
   %.not = icmp eq ptr %2, null
@@ -23127,7 +23127,7 @@ declare i64 @rb_ractor_stdout() local_unnamed_addr #2
 declare i64 @rb_ractor_stderr() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %2) local_unnamed_addr #4 {
+define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef returned writeonly initializes((0, 16)) %2) local_unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8, !tbaa !488
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23159,7 +23159,7 @@ define dso_local noundef ptr @rb_parser_set_location_from_strterm_heredoc(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %1) local_unnamed_addr #4 {
+define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 272
   %4 = load i32, ptr %3, align 8, !tbaa !494
   store i32 %4, ptr %1, align 4, !tbaa !53
@@ -23179,7 +23179,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_delayed_token(ptr nounde
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %1) local_unnamed_addr #4 {
+define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %4 = load i32, ptr %3, align 4, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -23206,7 +23206,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_heredoc_end(ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr noundef readnone captures(none) %0, ptr noundef returned captures(ret: address, provenance) initializes((8, 16)) %1) local_unnamed_addr #4 {
+define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr noundef readnone captures(none) %0, ptr noundef returned initializes((8, 16)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %1, align 4
   store i64 %4, ptr %3, align 4
@@ -23214,7 +23214,7 @@ define dso_local noundef ptr @rb_parser_set_location_of_dummy_end(ptr noundef re
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @rb_parser_set_location(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 16)) %1) local_unnamed_addr #4 {
+define dso_local noundef ptr @rb_parser_set_location(ptr noundef readonly captures(none) %0, ptr noundef returned writeonly initializes((0, 16)) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %4 = load i32, ptr %3, align 4, !tbaa !31
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -23249,7 +23249,7 @@ define dso_local i32 @rb_parser_local_defined(ptr noundef readnone captures(none
 declare i32 @rb_local_defined(i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local i32 @rb_parser_dvar_defined_ref(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i32 @rb_parser_dvar_defined_ref(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8, !tbaa !100
   %6 = load ptr, ptr %5, align 8, !tbaa !197
@@ -23588,7 +23588,7 @@ declare nonnull ptr @rb_ascii8bit_encoding() local_unnamed_addr #2
 declare nonnull ptr @rb_usascii_encoding() local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define dso_local noundef ptr @rb_parser_assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef ptr @rb_parser_assignable(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call ptr @assignable(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3)
   ret ptr %5
 }
@@ -24517,7 +24517,7 @@ define hidden noalias noundef nonnull ptr @rb_ruby_parser_new() local_unnamed_ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: write) uwtable
-define hidden noundef ptr @rb_ruby_parser_set_context(ptr noundef returned writeonly captures(ret: address, provenance) initializes((352, 360), (368, 376)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #17 {
+define hidden noundef ptr @rb_ruby_parser_set_context(ptr noundef returned writeonly initializes((352, 360), (368, 376)) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #17 {
   %.not = icmp eq i32 %2, 0
   %4 = select i1 %.not, i64 4, i64 0
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -32306,7 +32306,7 @@ flush_debug_buffer.exit:                          ; preds = %22, %24, %28
 declare void @rb_ast_delete_node(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind sspstrong uwtable
-define internal fastcc void @parser_show_error_line(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #21 {
+define internal fastcc void @parser_show_error_line(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #21 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 196
   %4 = load i32, ptr %3, align 4, !tbaa !31
   %.not = icmp eq ptr %1, null
@@ -35127,7 +35127,7 @@ define internal fastcc noundef ptr @rb_node_gvar_new(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @literal_concat0(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @literal_concat0(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %rb_parser_str_resize.exit24, label %5
@@ -35359,7 +35359,7 @@ rb_parser_enc_coderange_scan.exit:                ; preds = %19, %rb_parser_sear
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @rb_parser_enc_cr_str_buf_cat(ptr noundef captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc noundef ptr @rb_parser_enc_cr_str_buf_cat(ptr noundef captures(none) %0, ptr noundef returned %1, ptr noundef %2, i64 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = getelementptr i8, ptr %1, i64 8
   %.val = load ptr, ptr %8, align 8, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -47754,7 +47754,7 @@ define internal fastcc void @tokadd(ptr noundef captures(none) %0, i32 noundef %
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 -1, 256) i32 @tokadd_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 256) i32 @tokadd_string(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef nonnull captures(none) %5, ptr noundef nonnull captures(none) %6) unnamed_addr #0 {
   %8 = alloca %struct.rb_code_location_struct, align 4
   %9 = alloca %struct.rb_code_location_struct, align 4
   %10 = alloca %struct.rb_code_location_struct, align 4
@@ -48863,7 +48863,7 @@ nextc0.exit200.thread231:                         ; preds = %.critedge.i193, %47
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noalias noundef nonnull ptr @parser_str_new(ptr noundef readonly captures(address_is_null) %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 {
+define internal fastcc noalias noundef nonnull ptr @parser_str_new(ptr noundef readonly %0, i64 noundef range(i64 -2147483648, 2147483648) %1, ptr noundef %2, i32 noundef %3, ptr noundef readnone %4) unnamed_addr #0 {
   %6 = icmp slt i64 %1, 0
   br i1 %6, label %7, label %8
 
@@ -52000,7 +52000,7 @@ parser_show_error_line.exit:                      ; preds = %16, %nd_line.exit, 
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc i32 @local_id_ref(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc i32 @local_id_ref(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %5 = load ptr, ptr %4, align 8, !tbaa !100
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -52331,7 +52331,7 @@ define internal fastcc noundef ptr @rb_node_vcall_new(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @str_to_sym_node(ptr noundef captures(none) %0, ptr %.32.val, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc noundef ptr @str_to_sym_node(ptr noundef captures(none) %0, ptr %.32.val, ptr noundef %1) unnamed_addr #0 {
   %3 = tail call fastcc i32 @rb_parser_enc_str_coderange(ptr noundef %.32.val)
   %4 = icmp eq i32 %3, 3
   br i1 %4, label %5, label %18
@@ -54023,7 +54023,7 @@ vtable_add_gen.exit39:                            ; preds = %131, %216, %local_i
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc void @aryset_check(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @aryset_check(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %parser_yyerror.exit35, label %3
 
@@ -54369,7 +54369,7 @@ list_concat.exit43:                               ; preds = %81, %90
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef captures(address_is_null, ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc ptr @value_expr_check(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {
   %cond = icmp eq ptr %1, null
   br i1 %cond, label %3, label %.lr.ph110
 
@@ -55042,7 +55042,7 @@ rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %31
 }
 
 ; Function Attrs: nofree nosync nounwind sspstrong memory(read, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 0, 2) i32 @is_static_content(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #30 {
+define internal fastcc range(i32 0, 2) i32 @is_static_content(ptr noundef readonly %0) unnamed_addr #30 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

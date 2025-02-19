@@ -523,7 +523,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z37grpc_channel_credentials_find_in_argsPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %args) local_unnamed_addr #5 {
+define noundef ptr @_Z37grpc_channel_credentials_find_in_argsPK17grpc_channel_args(ptr noundef readonly %args) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -844,7 +844,7 @@ return:                                           ; preds = %entry, %if.end4, %i
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_Z36grpc_find_server_credentials_in_argsPK17grpc_channel_args(ptr noundef readonly captures(address_is_null) %args) local_unnamed_addr #5 {
+define noundef ptr @_Z36grpc_find_server_credentials_in_argsPK17grpc_channel_args(ptr noundef readonly %args) local_unnamed_addr #5 {
 entry:
   %cmp = icmp eq ptr %args, null
   br i1 %cmp, label %return, label %for.cond.preheader
@@ -1018,7 +1018,7 @@ declare noundef zeroext i1 @_ZN9grpc_core7ExecCtx5FlushEv(ptr noundef nonnull al
 declare void @_ZN9grpc_core4Fork17DoDecExecCtxCountEv() local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL28credentials_pointer_arg_copyPv(ptr noundef returned captures(ret: address, provenance) %p) #13 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL28credentials_pointer_arg_copyPv(ptr noundef returned %p) #13 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI24grpc_channel_credentialsED2Ev.exit:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !7
@@ -1096,7 +1096,7 @@ _ZNK24grpc_channel_credentials3cmpEPKS_.exit:     ; preds = %do.end.i, %if.end7.
 declare void @gpr_assertion_failed(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @_ZL35server_credentials_pointer_arg_copyPv(ptr noundef returned captures(ret: address, provenance) %p) #13 personality ptr @__gxx_personality_v0 {
+define internal noundef ptr @_ZL35server_credentials_pointer_arg_copyPv(ptr noundef returned %p) #13 personality ptr @__gxx_personality_v0 {
 _ZN9grpc_core13RefCountedPtrI23grpc_server_credentialsED2Ev.exit:
   %refs_.i.i = getelementptr inbounds nuw i8, ptr %p, i64 8
   %0 = atomicrmw add ptr %refs_.i.i, i64 1 monotonic, align 8, !noalias !10
@@ -1123,7 +1123,7 @@ _ZNK9grpc_core10RefCountedI23grpc_server_credentialsNS_19PolymorphicRefCountENS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef range(i32 -1, 2) i32 @_ZL30server_credentials_pointer_cmpPvS_(ptr noundef readnone captures(address) %a, ptr noundef readnone captures(address) %b) #15 {
+define internal noundef range(i32 -1, 2) i32 @_ZL30server_credentials_pointer_cmpPvS_(ptr noundef readnone %a, ptr noundef readnone %b) #15 {
 entry:
   %cmp.i = icmp ult ptr %a, %b
   %cmp1.i = icmp ult ptr %b, %a

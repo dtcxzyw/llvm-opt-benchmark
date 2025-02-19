@@ -101,7 +101,7 @@ define hidden ptr @X509_NAME_dup(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @X509_NAME_set(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @X509_NAME_set(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -192,7 +192,7 @@ define internal range(i32 0, 2) i32 @x509_name_ex_new(ptr noundef writeonly capt
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @x509_name_ex_free(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1) #0 {
+define internal void @x509_name_ex_free(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %13, label %3
 
@@ -373,7 +373,7 @@ x509_name_ex_free.exit:                           ; preds = %17, %23
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, ptr readnone captures(none) %2, i32 %3, i32 %4) #0 {
+define internal i32 @x509_name_ex_i2d(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2, i32 %3, i32 %4) #0 {
   %6 = alloca %union.anon.1, align 8
   %7 = alloca ptr, align 8
   %8 = load ptr, ptr %0, align 8, !tbaa !21

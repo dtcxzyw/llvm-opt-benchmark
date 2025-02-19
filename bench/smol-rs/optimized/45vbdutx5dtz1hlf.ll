@@ -7592,7 +7592,7 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$6expect17h4e49d39d3d836
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17hefd3587aea0e3b4cE.llvm.14408593437386099104"(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) unnamed_addr #10 personality ptr @rust_eh_personality {
+define hidden noundef nonnull ptr @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$11from_raw_in17hefd3587aea0e3b4cE.llvm.14408593437386099104"(ptr noundef readnone %0) unnamed_addr #10 personality ptr @rust_eh_personality {
   %2 = getelementptr inbounds i8, ptr %0, i64 -16
   %3 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %3)

@@ -2025,7 +2025,7 @@ define hidden noundef nonnull align 8 dereferenceable(1008) ptr @"_ZN5alloc4sync
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h2038b18d1bf2c4bcE.llvm.15236414416081531888"(i64 noundef %0, ptr noalias noundef nonnull readonly align 1 captures(ret: address, provenance) %1, i64 noundef %2) unnamed_addr #4 {
+define hidden noundef align 1 dereferenceable_or_null(1) ptr @"_ZN75_$LT$usize$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$3get17h2038b18d1bf2c4bcE.llvm.15236414416081531888"(i64 noundef %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #4 {
   %4 = icmp ult i64 %0, %2
   %5 = getelementptr inbounds i8, ptr %1, i64 %0
   %.sroa.0.0 = select i1 %4, ptr %5, ptr null
@@ -6329,7 +6329,7 @@ define hidden noundef range(i64 0, 256) i64 @_ZN5ropey4tree4node4Node11child_cou
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(968) ptr @_ZN5ropey4tree4node4Node8children17h36ada7469c0a8350E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(1008) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(968) ptr @_ZN5ropey4tree4node4Node8children17h36ada7469c0a8350E(ptr noalias noundef readonly align 8 dereferenceable(1008) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 8, !range !58, !noundef !7
   %trunc = trunc nuw i8 %2 to i1
   br i1 %trunc, label %3, label %5
@@ -6344,7 +6344,7 @@ define hidden noundef nonnull align 8 dereferenceable(968) ptr @_ZN5ropey4tree4n
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(968) ptr @_ZN5ropey4tree4node4Node12children_mut17hb270e73c2397fc59E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(1008) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(968) ptr @_ZN5ropey4tree4node4Node12children_mut17hb270e73c2397fc59E(ptr noalias noundef readonly align 8 dereferenceable(1008) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 8, !range !58, !noundef !7
   %trunc = trunc nuw i8 %2 to i1
   br i1 %trunc, label %3, label %5
@@ -6383,7 +6383,7 @@ define hidden { ptr, i64 } @_ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef nonnull align 8 dereferenceable(1000) ptr @_ZN5ropey4tree4node4Node13leaf_text_mut17he6847c5392486714E(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(1008) %0) unnamed_addr #6 {
+define hidden noundef nonnull align 8 dereferenceable(1000) ptr @_ZN5ropey4tree4node4Node13leaf_text_mut17he6847c5392486714E(ptr noalias noundef readonly align 8 dereferenceable(1008) %0) unnamed_addr #6 {
   %2 = load i8, ptr %0, align 8, !range !58, !noundef !7
   %trunc = trunc nuw i8 %2 to i1
   br i1 %trunc, label %5, label %3
@@ -6747,7 +6747,7 @@ _ZN5ropey4tree4node4Node9text_info17h9289799a1c03cf13E.exit15: ; preds = %90, %_
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noundef i64 @_ZN5ropey4tree4node4Node14assert_balance17h4c2adef8466d66bfE(ptr noalias noundef readonly align 8 captures(address) dereferenceable(1008) %0) unnamed_addr #6 {
+define hidden noundef i64 @_ZN5ropey4tree4node4Node14assert_balance17h4c2adef8466d66bfE(ptr noalias noundef readonly align 8 dereferenceable(1008) %0) unnamed_addr #6 {
   %2 = alloca [48 x i8], align 8
   %3 = alloca [8 x i8], align 8
   %4 = alloca [8 x i8], align 8

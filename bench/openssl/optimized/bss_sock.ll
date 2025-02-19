@@ -117,7 +117,7 @@ BIO_sock_should_retry.exit.thread:                ; preds = %11, %BIO_sock_shoul
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @sock_read(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal noundef i32 @sock_read(ptr noundef %0, ptr noundef %1, i32 noundef %2) #1 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %4
 
@@ -359,7 +359,7 @@ define internal range(i32 0, 2) i32 @sock_new(ptr noundef writeonly captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @sock_free(ptr noundef captures(address_is_null) %0) #1 {
+define internal range(i32 0, 2) i32 @sock_free(ptr noundef %0) #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 

@@ -510,7 +510,7 @@ declare void @log_var(i32 noundef, ptr noundef, ...) local_unnamed_addr #8
 declare ptr @slurm_strerror(i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @auth_index(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define dso_local i32 @auth_index(ptr noundef readonly %0) local_unnamed_addr #10 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %2
 

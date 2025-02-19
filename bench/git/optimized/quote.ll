@@ -479,7 +479,7 @@ sq_quote_buf_pretty.exit:                         ; preds = %21, %29, %32
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @sq_dequote_step(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local noundef ptr @sq_dequote_step(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #7 {
   %3 = load i8, ptr %0, align 1, !tbaa !13
   %.not = icmp eq i8 %3, 39
   br i1 %.not, label %.preheader, label %.loopexit
@@ -548,7 +548,7 @@ define dso_local noundef ptr @sq_dequote_step(ptr noundef %0, ptr noundef writeo
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @sq_dequote(ptr noundef captures(ret: address, provenance) %0) local_unnamed_addr #7 {
+define dso_local noundef ptr @sq_dequote(ptr noundef %0) local_unnamed_addr #7 {
   %2 = load i8, ptr %0, align 1, !tbaa !13
   %.not.i = icmp eq i8 %2, 39
   br i1 %.not.i, label %.preheader.i, label %sq_dequote_step.exit
@@ -602,13 +602,13 @@ sq_dequote_step.exit:                             ; preds = %5, %9, %12, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @sq_dequote_to_argv(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @sq_dequote_to_argv(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @sq_dequote_to_argv_internal(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @sq_dequote_to_argv_internal(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @sq_dequote_to_argv_internal(ptr noundef %0, ptr noundef %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3, ptr noundef %4) unnamed_addr #0 {
   %6 = load i8, ptr %0, align 1, !tbaa !13
   switch i8 %6, label %.critedge43.loopexit60 [
     i8 0, label %.critedge43
@@ -916,13 +916,13 @@ define dso_local range(i32 -1, 1) i32 @sq_dequote_to_strvec(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @quote_c_style(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local i64 @quote_c_style(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i64 @quote_c_style_counted(ptr noundef %0, i64 noundef -1, ptr noundef %1, ptr noundef %2, i32 noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i64 @quote_c_style_counted(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc i64 @quote_c_style_counted(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) unnamed_addr #0 {
   %6 = and i32 %4, 1
   %.not = icmp eq i32 %6, 0
   %.not111 = icmp eq ptr %2, null
@@ -1541,7 +1541,7 @@ strbuf_addch.exit25:                              ; preds = %strbuf_avail.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @write_name_quoted(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local void @write_name_quoted(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %6, label %4
 
@@ -1565,7 +1565,7 @@ declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef capt
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @write_name_quoted_relative(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define dso_local void @write_name_quoted_relative(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) @__const.quote_path.sb, i64 24, i1 false)
@@ -1696,7 +1696,7 @@ strbuf_addch.exit22:                              ; preds = %strbuf_avail.exit.i
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @unquote_c_style(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @unquote_c_style(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %4, align 8, !tbaa !12
   %6 = load i8, ptr %1, align 1, !tbaa !13
@@ -1982,7 +1982,7 @@ strbuf_addch.exit39:                              ; preds = %strbuf_avail.exit.i
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @perl_quote_buf_with_len(ptr noundef %0, ptr noundef readonly captures(address) %1, i64 noundef %2) local_unnamed_addr #0 {
+define dso_local void @perl_quote_buf_with_len(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 %2
   %5 = load i64, ptr %0, align 8, !tbaa !11
   %.not.i.i = icmp eq i64 %5, 0

@@ -40186,7 +40186,7 @@ declare void @_ZN4llvm16decomposeBitTestEPNS_5ValueEbb(ptr dead_on_unwind writab
 declare noundef zeroext i1 @_ZNK4llvm5APInt18isSubsetOfSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef ptr @_ZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm5ValueES1_bS1_S1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef readonly captures(none) %0, ptr noundef captures(ret: address, provenance) %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(184) %8) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL46foldLogOpOfMaskedICmps_NotAllZeros_BMask_MixedPN4llvm5ValueES1_bS1_S1_S1_S1_NS_7CmpInst9PredicateES3_RNS_9IRBuilderINS_12TargetFolderENS_25IRBuilderCallbackInserterEEE(ptr noundef readonly captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, ptr noundef nonnull align 8 dereferenceable(184) %8) unnamed_addr #0 {
   %10 = alloca %"class.llvm::APInt", align 8
   %11 = alloca ptr, align 8
   %12 = alloca %"struct.llvm::PatternMatch::ElementWiseBitCast_match", align 8
@@ -41258,7 +41258,7 @@ declare void @_ZNK4llvm6detail9IEEEFloat14bitcastToAPIntEv(ptr dead_on_unwind wr
 declare void @_ZNK4llvm6detail13DoubleAPFloat14bitcastToAPIntEv(ptr dead_on_unwind writable sret(%"class.llvm::APInt") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZZL32foldAndOrOfICmpEqConstantAndICmpPN4llvm8ICmpInstES1_bbRNS_13IRBuilderBaseEENK3$_0clEPKNS_5ValueE"(ptr readnone captures(address) %.0.val, ptr %.8.val, ptr noundef readonly captures(address) %0) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZZL32foldAndOrOfICmpEqConstantAndICmpPN4llvm8ICmpInstES1_bbRNS_13IRBuilderBaseEENK3$_0clEPKNS_5ValueE"(ptr readnone %.0.val, ptr %.8.val, ptr noundef readonly %0) unnamed_addr #3 align 2 {
   %2 = alloca %"class.llvm::APInt", align 8
   %3 = alloca %"class.llvm::APInt", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #17

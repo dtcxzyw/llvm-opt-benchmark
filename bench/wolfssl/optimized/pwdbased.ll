@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.sp_int = type { i16, i16, [129 x i64] }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PBKDF1_ex(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
+define i32 @wc_PBKDF1_ex(ptr noundef writeonly %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3, ptr noundef %4, i32 noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %8, i32 noundef %9, ptr noundef %10) local_unnamed_addr #0 {
   %12 = alloca [64 x i8], align 16
   %13 = alloca [1 x %struct.wc_HashAlg], align 16
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %12) #6
@@ -186,7 +186,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 declare i32 @wc_HashFree(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PBKDF1(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
+define i32 @wc_PBKDF1(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7) local_unnamed_addr #0 {
   %9 = tail call i32 @wc_PBKDF1_ex(ptr noundef %0, i32 noundef %6, ptr noundef null, i32 noundef 0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %7, ptr noundef null)
   ret i32 %9
 }
@@ -405,13 +405,13 @@ define i32 @wc_PBKDF2(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_PBKDF(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_PBKDF(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8) local_unnamed_addr #0 {
   %10 = tail call i32 @wc_PKCS12_PBKDF_ex(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr poison)
   ret i32 %10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) local_unnamed_addr #0 {
+define i32 @wc_PKCS12_PBKDF_ex(ptr noundef writeonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr readnone captures(none) %9) local_unnamed_addr #0 {
   %11 = alloca [1 x %struct.wc_HashAlg], align 16
   %12 = alloca [1024 x i8], align 16
   %13 = alloca [64 x i8], align 16

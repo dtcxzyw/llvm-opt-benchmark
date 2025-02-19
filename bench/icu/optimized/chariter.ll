@@ -226,7 +226,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7517CharacterIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(24) initializes((8, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %that) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZN6icu_7517CharacterIteratoraSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(24) initializes((8, 24)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %that) local_unnamed_addr #6 align 2 {
 entry:
   %textLength = getelementptr inbounds nuw i8, ptr %that, i64 8
   %0 = load i32, ptr %textLength, align 8

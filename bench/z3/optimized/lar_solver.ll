@@ -837,21 +837,21 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10lar_solver8settingsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(299) ptr @_ZN2lp10lar_solver8settingsEv(ptr noundef nonnull readnone align 8 dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_settings = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %m_settings
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(299) ptr @_ZNK2lp10lar_solver8settingsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(299) ptr @_ZNK2lp10lar_solver8settingsEv(ptr noundef nonnull readnone align 8 dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_settings = getelementptr inbounds nuw i8, ptr %this, i64 64
   ret ptr %m_settings
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 4 dereferenceable(124) ptr @_ZN2lp10lar_solver5statsEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
+define hidden noundef nonnull align 4 dereferenceable(124) ptr @_ZN2lp10lar_solver5statsEv(ptr noundef nonnull readnone align 8 dereferenceable(1888) %this) local_unnamed_addr #3 align 2 {
 entry:
   %m_stats.i = getelementptr inbounds nuw i8, ptr %this, i64 128
   ret ptr %m_stats.i

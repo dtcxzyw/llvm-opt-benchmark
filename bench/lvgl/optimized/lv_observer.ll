@@ -1012,7 +1012,7 @@ declare ptr @lv_obj_get_event_dsc(ptr noundef, i32 noundef) local_unnamed_addr #
 declare zeroext i1 @lv_obj_remove_event(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_observer_get_target(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define ptr @lv_observer_get_target(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -1968,7 +1968,7 @@ define internal void @dropdown_value_observer_cb(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_observer_get_target_obj(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define ptr @lv_observer_get_target_obj(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.preheader.i, label %lv_observer_get_target.exit
 
@@ -1982,7 +1982,7 @@ lv_observer_get_target.exit:                      ; preds = %1
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define ptr @lv_observer_get_user_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define ptr @lv_observer_get_user_data(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 

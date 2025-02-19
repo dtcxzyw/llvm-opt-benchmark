@@ -4835,7 +4835,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit11: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet10StatisticsD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(155) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet10StatisticsD2Ev(ptr noundef nonnull align 8 dereferenceable(155) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -4920,7 +4920,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit10: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet10StatisticsD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(155) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet10StatisticsD1Ev(ptr noundef nonnull align 8 dereferenceable(155) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet10StatisticsE, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !36
@@ -4998,7 +4998,7 @@ _ZN14duckdb_parquet10StatisticsD2Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet10StatisticsD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet10StatisticsD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -7536,7 +7536,7 @@ define void @_ZN14duckdb_parquet10StringTypeC1ERKS0_(ptr noundef nonnull writeon
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet10StringTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet10StringTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -7906,7 +7906,7 @@ define void @_ZN14duckdb_parquet8UUIDTypeC1ERKS0_(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8UUIDTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8UUIDTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -8276,7 +8276,7 @@ define void @_ZN14duckdb_parquet7MapTypeC1ERKS0_(ptr noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet7MapTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet7MapTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -8646,7 +8646,7 @@ define void @_ZN14duckdb_parquet8ListTypeC1ERKS0_(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8ListTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8ListTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -9016,7 +9016,7 @@ define void @_ZN14duckdb_parquet8EnumTypeC1ERKS0_(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8EnumTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8EnumTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -9386,7 +9386,7 @@ define void @_ZN14duckdb_parquet8DateTypeC1ERKS0_(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8DateTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8DateTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -9756,7 +9756,7 @@ define void @_ZN14duckdb_parquet11Float16TypeC1ERKS0_(ptr noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet11Float16TypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet11Float16TypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -10126,7 +10126,7 @@ define void @_ZN14duckdb_parquet8NullTypeC1ERKS0_(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8NullTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8NullTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -10651,7 +10651,7 @@ define void @_ZN14duckdb_parquet11DecimalTypeC1ERKS0_(ptr noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN14duckdb_parquet11DecimalTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(16) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN14duckdb_parquet11DecimalTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(16) initializes((8, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !162
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -11243,7 +11243,7 @@ define void @_ZN14duckdb_parquet12MilliSecondsC1ERKS0_(ptr noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet12MilliSecondsaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet12MilliSecondsaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -11613,7 +11613,7 @@ define void @_ZN14duckdb_parquet12MicroSecondsC1ERKS0_(ptr noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet12MicroSecondsaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet12MicroSecondsaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -11983,7 +11983,7 @@ define void @_ZN14duckdb_parquet11NanoSecondsC1ERKS0_(ptr noundef nonnull writeo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet11NanoSecondsaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet11NanoSecondsaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -12660,7 +12660,7 @@ define void @_ZN14duckdb_parquet8TimeUnitC1ERKS0_(ptr noundef nonnull align 8 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(33) ptr @_ZN14duckdb_parquet8TimeUnitaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(33) initializes((32, 33)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(33) ptr @_ZN14duckdb_parquet8TimeUnitaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(33) initializes((32, 33)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(33) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %3, align 8, !tbaa !38
@@ -13721,7 +13721,7 @@ define void @_ZN14duckdb_parquet13TimestampTypeC1ERKS0_(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN14duckdb_parquet13TimestampTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(56) initializes((8, 9), (48, 49)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN14duckdb_parquet13TimestampTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(56) initializes((8, 9), (48, 49)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !198, !range !137, !noundef !138
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -14477,7 +14477,7 @@ define void @_ZN14duckdb_parquet8TimeTypeC1ERKS0_(ptr noundef nonnull align 8 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(56) ptr @_ZN14duckdb_parquet8TimeTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(56) initializes((8, 9), (48, 49)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(56) ptr @_ZN14duckdb_parquet8TimeTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(56) initializes((8, 9), (48, 49)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !213, !range !137, !noundef !138
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15087,7 +15087,7 @@ define void @_ZN14duckdb_parquet7IntTypeC1ERKS0_(ptr noundef nonnull writeonly a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(10) ptr @_ZN14duckdb_parquet7IntTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(10) initializes((8, 10)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(10) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(10) ptr @_ZN14duckdb_parquet7IntTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(10) initializes((8, 10)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(10) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i8, ptr %3, align 8, !tbaa !216
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -15697,7 +15697,7 @@ define void @_ZN14duckdb_parquet8JsonTypeC1ERKS0_(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8JsonTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8JsonTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -16067,7 +16067,7 @@ define void @_ZN14duckdb_parquet8BsonTypeC1ERKS0_(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8BsonTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet8BsonTypeaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -17928,7 +17928,7 @@ define void @_ZN14duckdb_parquet11LogicalTypeC1ERKS0_(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(234) ptr @_ZN14duckdb_parquet11LogicalTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(234) initializes((48, 56), (72, 73), (112, 113), (128, 129), (168, 169), (184, 186), (232, 234)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(234) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(234) ptr @_ZN14duckdb_parquet11LogicalTypeaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(234) initializes((48, 56), (72, 73), (112, 113), (128, 129), (168, 169), (184, 186), (232, 234)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(234) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %4 = load i32, ptr %3, align 8, !tbaa !162
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -20415,7 +20415,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet13SchemaElementD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(322) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet13SchemaElementD2Ev(ptr noundef nonnull align 8 dereferenceable(322) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -20446,7 +20446,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet13SchemaElementD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(322) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet13SchemaElementD1Ev(ptr noundef nonnull align 8 dereferenceable(322) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet13SchemaElementE, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8, !tbaa !36
@@ -20470,7 +20470,7 @@ _ZN14duckdb_parquet13SchemaElementD2Ev.exit:      ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet13SchemaElementD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet13SchemaElementD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -23031,7 +23031,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet14DataPageHeaderD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(185) initializes((0, 8), (24, 32)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet14DataPageHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(185) initializes((0, 8), (24, 32)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -23118,7 +23118,7 @@ _ZN14duckdb_parquet10StatisticsD1Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet14DataPageHeaderD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(185) initializes((0, 8), (24, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet14DataPageHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(185) initializes((0, 8), (24, 32)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet14DataPageHeaderE, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet10StatisticsE, i64 48), ptr %2, align 8, !tbaa !22
@@ -23198,7 +23198,7 @@ _ZN14duckdb_parquet14DataPageHeaderD2Ev.exit:     ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet14DataPageHeaderD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet14DataPageHeaderD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -25249,7 +25249,7 @@ define void @_ZN14duckdb_parquet15IndexPageHeaderC1ERKS0_(ptr noundef nonnull wr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet15IndexPageHeaderaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet15IndexPageHeaderaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -25863,7 +25863,7 @@ define void @_ZN14duckdb_parquet20DictionaryPageHeaderC1ERKS0_(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(18) ptr @_ZN14duckdb_parquet20DictionaryPageHeaderaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(18) initializes((8, 18)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(18) ptr @_ZN14duckdb_parquet20DictionaryPageHeaderaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(18) initializes((8, 18)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(18) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !374
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -26063,7 +26063,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit36: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet16DataPageHeaderV2D2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(201) initializes((0, 8), (40, 48)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet16DataPageHeaderV2D2Ev(ptr noundef nonnull align 8 dereferenceable(201) initializes((0, 8), (40, 48)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -26150,7 +26150,7 @@ _ZN14duckdb_parquet10StatisticsD1Ev.exit:         ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet16DataPageHeaderV2D1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(201) initializes((0, 8), (40, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet16DataPageHeaderV2D1Ev(ptr noundef nonnull align 8 dereferenceable(201) initializes((0, 8), (40, 48)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet16DataPageHeaderV2E, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet10StatisticsE, i64 48), ptr %2, align 8, !tbaa !22
@@ -26230,7 +26230,7 @@ _ZN14duckdb_parquet16DataPageHeaderV2D2Ev.exit:   ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet16DataPageHeaderV2D1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet16DataPageHeaderV2D1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -28542,7 +28542,7 @@ define void @_ZN14duckdb_parquet19SplitBlockAlgorithmC1ERKS0_(ptr noundef nonnul
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet19SplitBlockAlgorithmaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet19SplitBlockAlgorithmaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -29022,7 +29022,7 @@ define void @_ZN14duckdb_parquet20BloomFilterAlgorithmC1ERKS0_(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN14duckdb_parquet20BloomFilterAlgorithmaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(17) initializes((16, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN14duckdb_parquet20BloomFilterAlgorithmaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(17) initializes((16, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %3, align 8, !tbaa !38
@@ -29569,7 +29569,7 @@ define void @_ZN14duckdb_parquet6XxHashC1ERKS0_(ptr noundef nonnull writeonly al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet6XxHashaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet6XxHashaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -30049,7 +30049,7 @@ define void @_ZN14duckdb_parquet15BloomFilterHashC1ERKS0_(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN14duckdb_parquet15BloomFilterHashaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(17) initializes((16, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN14duckdb_parquet15BloomFilterHashaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(17) initializes((16, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %3, align 8, !tbaa !38
@@ -30596,7 +30596,7 @@ define void @_ZN14duckdb_parquet12UncompressedC1ERKS0_(ptr noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet12UncompressedaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet12UncompressedaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -31076,7 +31076,7 @@ define void @_ZN14duckdb_parquet22BloomFilterCompressionC1ERKS0_(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN14duckdb_parquet22BloomFilterCompressionaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(17) initializes((16, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN14duckdb_parquet22BloomFilterCompressionaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(17) initializes((16, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %3, align 8, !tbaa !38
@@ -31943,7 +31943,7 @@ define void @_ZN14duckdb_parquet17BloomFilterHeaderC1ERKS0_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(88) ptr @_ZN14duckdb_parquet17BloomFilterHeaderaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(88) initializes((8, 12), (32, 33), (56, 57), (80, 81)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(88) ptr @_ZN14duckdb_parquet17BloomFilterHeaderaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(88) initializes((8, 12), (32, 33), (56, 57), (80, 81)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !417
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -32509,7 +32509,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet10PageHeaderD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(457) initializes((0, 8), (248, 256), (288, 296)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet10PageHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(457) initializes((0, 8), (248, 256), (288, 296)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -32674,13 +32674,13 @@ _ZN14duckdb_parquet14DataPageHeaderD1Ev.exit:     ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet10PageHeaderD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(457) initializes((0, 8), (248, 256), (288, 296)) %0) unnamed_addr #0 align 2 {
+define void @_ZN14duckdb_parquet10PageHeaderD1Ev(ptr noundef nonnull align 8 dereferenceable(457) initializes((0, 8), (248, 256), (288, 296)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN14duckdb_parquet10PageHeaderD2Ev(ptr noundef nonnull align 8 dereferenceable(457) %0, ptr noundef nonnull @_ZTTN14duckdb_parquet10PageHeaderE) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet10PageHeaderD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 {
+define void @_ZTv0_n24_N14duckdb_parquet10PageHeaderD1Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -35609,7 +35609,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet8KeyValueD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(73) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet8KeyValueD2Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -35658,7 +35658,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet8KeyValueD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet8KeyValueD1Ev(ptr noundef nonnull align 8 dereferenceable(73) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet8KeyValueE, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !36
@@ -35700,7 +35700,7 @@ _ZN14duckdb_parquet8KeyValueD2Ev.exit:            ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet8KeyValueD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet8KeyValueD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -37132,7 +37132,7 @@ define void @_ZN14duckdb_parquet13SortingColumnC1ERKS0_(ptr noundef nonnull writ
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(14) ptr @_ZN14duckdb_parquet13SortingColumnaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(14) initializes((8, 14)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(14) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(14) ptr @_ZN14duckdb_parquet13SortingColumnaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(14) initializes((8, 14)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(14) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !487
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -37887,7 +37887,7 @@ define void @_ZN14duckdb_parquet17PageEncodingStatsC1ERKS0_(ptr noundef nonnull 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(20) ptr @_ZN14duckdb_parquet17PageEncodingStatsaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(20) initializes((8, 20)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(20) ptr @_ZN14duckdb_parquet17PageEncodingStatsaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(20) initializes((8, 20)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i32, ptr %3, align 8, !tbaa !492
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -38070,7 +38070,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit25: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet14ColumnMetaDataD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(417) initializes((0, 8), (344, 352)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet14ColumnMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(417) initializes((0, 8), (344, 352)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -38293,13 +38293,13 @@ _ZNSt6vectorIN14duckdb_parquet8Encoding4typeESaIS2_EED2Ev.exit: ; preds = %_ZNSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet14ColumnMetaDataD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(417) initializes((0, 8), (344, 352)) %0) unnamed_addr #0 align 2 {
+define void @_ZN14duckdb_parquet14ColumnMetaDataD1Ev(ptr noundef nonnull align 8 dereferenceable(417) initializes((0, 8), (344, 352)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN14duckdb_parquet14ColumnMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(417) %0, ptr noundef nonnull @_ZTTN14duckdb_parquet14ColumnMetaDataE) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet14ColumnMetaDataD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 {
+define void @_ZTv0_n24_N14duckdb_parquet14ColumnMetaDataD1Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -43790,7 +43790,7 @@ define void @_ZN14duckdb_parquet23EncryptionWithFooterKeyC1ERKS0_(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet23EncryptionWithFooterKeyaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet23EncryptionWithFooterKeyaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -43802,7 +43802,7 @@ define void @_ZNK14duckdb_parquet23EncryptionWithFooterKey7printToERSo(ptr nonnu
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet23EncryptionWithColumnKeyD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(65) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet23EncryptionWithColumnKeyD2Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -43877,7 +43877,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet23EncryptionWithColumnKeyD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet23EncryptionWithColumnKeyD1Ev(ptr noundef nonnull align 8 dereferenceable(65) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet23EncryptionWithColumnKeyE, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8, !tbaa !36
@@ -43945,7 +43945,7 @@ _ZN14duckdb_parquet23EncryptionWithColumnKeyD2Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet23EncryptionWithColumnKeyD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet23EncryptionWithColumnKeyD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -45172,7 +45172,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit28: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet20ColumnCryptoMetaDataD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(89) initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet20ColumnCryptoMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 8), (16, 24)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -45249,7 +45249,7 @@ _ZN14duckdb_parquet23EncryptionWithColumnKeyD1Ev.exit: ; preds = %_ZSt8_DestroyI
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet20ColumnCryptoMetaDataD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(89) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet20ColumnCryptoMetaDataD1Ev(ptr noundef nonnull align 8 dereferenceable(89) initializes((0, 8), (16, 24)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet20ColumnCryptoMetaDataE, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet23EncryptionWithColumnKeyE, i64 48), ptr %2, align 8, !tbaa !22
@@ -45319,7 +45319,7 @@ _ZN14duckdb_parquet20ColumnCryptoMetaDataD2Ev.exit: ; preds = %_ZSt8_DestroyIPNS
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet20ColumnCryptoMetaDataD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet20ColumnCryptoMetaDataD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -46542,7 +46542,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet11ColumnChunkD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(633) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet11ColumnChunkD2Ev(ptr noundef nonnull align 8 dereferenceable(633) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -46659,13 +46659,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet11ColumnChunkD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(633) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN14duckdb_parquet11ColumnChunkD1Ev(ptr noundef nonnull align 8 dereferenceable(633) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN14duckdb_parquet11ColumnChunkD2Ev(ptr noundef nonnull align 8 dereferenceable(633) %0, ptr noundef nonnull @_ZTTN14duckdb_parquet11ColumnChunkE) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet11ColumnChunkD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 {
+define void @_ZTv0_n24_N14duckdb_parquet11ColumnChunkD1Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -52157,7 +52157,7 @@ define void @_ZN14duckdb_parquet16TypeDefinedOrderC1ERKS0_(ptr noundef nonnull w
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet16TypeDefinedOrderaSERKS0_(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN14duckdb_parquet16TypeDefinedOrderaSERKS0_(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #14 align 2 {
   ret ptr %0
 }
 
@@ -52637,7 +52637,7 @@ define void @_ZN14duckdb_parquet11ColumnOrderC1ERKS0_(ptr noundef nonnull align 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(17) ptr @_ZN14duckdb_parquet11ColumnOrderaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(17) initializes((16, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(17) ptr @_ZN14duckdb_parquet11ColumnOrderaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(17) initializes((16, 17)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(17) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load i8, ptr %3, align 8, !tbaa !38
@@ -53374,7 +53374,7 @@ define void @_ZN14duckdb_parquet12PageLocationC1ERKS0_(ptr noundef nonnull write
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZN14duckdb_parquet12PageLocationaSERKS0_(ptr noundef nonnull returned writeonly align 8 captures(ret: address, provenance) dereferenceable(32) initializes((8, 20), (24, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #10 align 2 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZN14duckdb_parquet12PageLocationaSERKS0_(ptr noundef nonnull returned writeonly align 8 dereferenceable(32) initializes((8, 20), (24, 32)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #10 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !tbaa !705
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -58667,7 +58667,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet8AesGcmV1D2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(74) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet8AesGcmV1D2Ev(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -58716,7 +58716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet8AesGcmV1D1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(74) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet8AesGcmV1D1Ev(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet8AesGcmV1E, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !36
@@ -58758,7 +58758,7 @@ _ZN14duckdb_parquet8AesGcmV1D2Ev.exit:            ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet8AesGcmV1D1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet8AesGcmV1D1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -59791,7 +59791,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet11AesGcmCtrV1D2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(74) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet11AesGcmCtrV1D2Ev(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -59840,7 +59840,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit4: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet11AesGcmCtrV1D1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(74) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet11AesGcmCtrV1D1Ev(ptr noundef nonnull align 8 dereferenceable(74) initializes((0, 8)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet11AesGcmCtrV1E, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !36
@@ -59882,7 +59882,7 @@ _ZN14duckdb_parquet11AesGcmCtrV1D2Ev.exit:        ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet11AesGcmCtrV1D1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet11AesGcmCtrV1D1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -60915,7 +60915,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet19EncryptionAlgorithmD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(169) initializes((0, 8), (88, 96)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet19EncryptionAlgorithmD2Ev(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 8), (88, 96)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -61004,7 +61004,7 @@ _ZN14duckdb_parquet8AesGcmV1D1Ev.exit:            ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet19EncryptionAlgorithmD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(169) initializes((0, 8), (88, 96)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet19EncryptionAlgorithmD1Ev(ptr noundef nonnull align 8 dereferenceable(169) initializes((0, 8), (88, 96)) %0) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet19EncryptionAlgorithmE, i64 48), ptr %0, align 8, !tbaa !22
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr getelementptr inbounds nuw inrange(-48, 40) (i8, ptr @_ZTVN14duckdb_parquet11AesGcmCtrV1E, i64 48), ptr %2, align 8, !tbaa !22
@@ -61086,7 +61086,7 @@ _ZN14duckdb_parquet19EncryptionAlgorithmD2Ev.exit: ; preds = %_ZNKSt7__cxx1112ba
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet19EncryptionAlgorithmD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZTv0_n24_N14duckdb_parquet19EncryptionAlgorithmD1Ev(ptr noundef %0) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -62467,7 +62467,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet12FileMetaDataD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(361) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet12FileMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(361) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -62714,13 +62714,13 @@ _ZNSt6vectorIN14duckdb_parquet13SchemaElementESaIS1_EED2Ev.exit: ; preds = %_ZSt
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet12FileMetaDataD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(361) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN14duckdb_parquet12FileMetaDataD1Ev(ptr noundef nonnull align 8 dereferenceable(361) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN14duckdb_parquet12FileMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(361) %0, ptr noundef nonnull @_ZTTN14duckdb_parquet12FileMetaDataE) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet12FileMetaDataD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 {
+define void @_ZTv0_n24_N14duckdb_parquet12FileMetaDataD1Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8
@@ -66552,7 +66552,7 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet18FileCryptoMetaDataD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(217) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN14duckdb_parquet18FileCryptoMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8
   store ptr %3, ptr %0, align 8, !tbaa !22
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -66661,13 +66661,13 @@ _ZN14duckdb_parquet19EncryptionAlgorithmD1Ev.exit: ; preds = %_ZNKSt7__cxx1112ba
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN14duckdb_parquet18FileCryptoMetaDataD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(217) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define void @_ZN14duckdb_parquet18FileCryptoMetaDataD1Ev(ptr noundef nonnull align 8 dereferenceable(217) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   tail call void @_ZN14duckdb_parquet18FileCryptoMetaDataD2Ev(ptr noundef nonnull align 8 dereferenceable(217) %0, ptr noundef nonnull @_ZTTN14duckdb_parquet18FileCryptoMetaDataE) #26
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N14duckdb_parquet18FileCryptoMetaDataD1Ev(ptr noundef captures(address) %0) unnamed_addr #5 align 2 {
+define void @_ZTv0_n24_N14duckdb_parquet18FileCryptoMetaDataD1Ev(ptr noundef %0) unnamed_addr #5 align 2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !22
   %3 = getelementptr inbounds i8, ptr %2, i64 -24
   %4 = load i64, ptr %3, align 8

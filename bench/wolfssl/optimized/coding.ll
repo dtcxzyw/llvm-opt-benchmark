@@ -112,7 +112,7 @@ define range(i32 -154, 1) i32 @Base64_SkipNewline(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -173, 1) i32 @Base64_Decode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define range(i32 -173, 1) i32 @Base64_Decode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = add i32 %1, 63
   %6 = lshr i32 %5, 6
   %7 = sub i32 %1, %6
@@ -710,13 +710,13 @@ Base64_SkipNewline.exit.thread268:                ; preds = %151, %150, %Base64_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -202, 1) i32 @Base64_Encode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -202, 1) i32 @Base64_Encode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @DoBase64_Encode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 0)
   ret i32 %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef captures(address_is_null) %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -202, 1) i32 @DoBase64_Encode(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef writeonly %2, ptr noundef %3, i32 noundef range(i32 0, 3) %4) unnamed_addr #0 {
   %6 = icmp eq ptr %2, null
   %7 = add i32 %1, 2
   %8 = udiv i32 %7, 3
@@ -1775,13 +1775,13 @@ CEscape.exit239.thread.thread389:                 ; preds = %251, %.thread, %202
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -202, 1) i32 @Base64_EncodeEsc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -202, 1) i32 @Base64_EncodeEsc(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @DoBase64_Encode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 1)
   ret i32 %5
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define range(i32 -202, 1) i32 @Base64_Encode_NoNl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -202, 1) i32 @Base64_Encode_NoNl(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = tail call fastcc i32 @DoBase64_Encode(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 2)
   ret i32 %5
 }

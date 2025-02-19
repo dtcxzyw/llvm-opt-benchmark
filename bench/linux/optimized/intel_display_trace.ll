@@ -2365,7 +2365,7 @@ define internal void @perf_trace_intel_pch_fifo_underrun(ptr noundef %0, ptr nou
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @trace_event_raw_event_intel_memory_cxsr(ptr noundef %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @trace_event_raw_event_intel_memory_cxsr(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = alloca %struct.trace_event_buffer, align 8
   %6 = zext i1 %2 to i8
   %7 = zext i1 %3 to i8
@@ -2474,7 +2474,7 @@ define internal void @trace_event_raw_event_intel_memory_cxsr(ptr noundef %0, pt
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @perf_trace_intel_memory_cxsr(ptr noundef %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
+define internal void @perf_trace_intel_memory_cxsr(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2, i1 noundef zeroext %3) #1 align 16 {
   %5 = alloca ptr, align 8
   %6 = alloca i32, align 4
   %7 = zext i1 %2 to i8

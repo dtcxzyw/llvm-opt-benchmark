@@ -1436,7 +1436,7 @@ define noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ChangeManager16_O
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ChangeManager17_CloseChangeBlockEPKNS_14SdfChangeBlockEPKv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
+define void @_ZN32pxrInternal_v0_24__pxrReserved__17Sdf_ChangeManager17_CloseChangeBlockEPKNS_14SdfChangeBlockEPKv(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(104) %0, ptr noundef readnone %1, ptr noundef captures(none) %2) local_unnamed_addr #0 align 2 {
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %6 = load ptr, ptr %5, align 8

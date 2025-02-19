@@ -417,7 +417,7 @@ declare i32 @lv_image_decoder_open(ptr noundef, ptr noundef, ptr noundef) local_
 declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 4) i32 @lv_image_src_get_type(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define range(i32 0, 4) i32 @lv_image_src_get_type(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -438,7 +438,7 @@ define range(i32 0, 4) i32 @lv_image_src_get_type(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define void @lv_draw_image_normal_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.lv_area_t, align 4
   %6 = alloca %struct.lv_area_t, align 4
   %7 = alloca %struct._lv_image_decoder_dsc_t, align 8
@@ -642,7 +642,7 @@ define internal fastcc void @img_decode_and_draw(ptr noundef %0, ptr noundef %1,
 declare void @lv_image_decoder_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define void @lv_draw_image_tiled_helper(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct._lv_draw_image_sup_t, align 8
   %6 = alloca %struct.lv_area_t, align 4
   %7 = alloca %struct.lv_area_t, align 4

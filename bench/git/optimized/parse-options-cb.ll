@@ -219,7 +219,7 @@ _.exit:                                           ; preds = %12, %14
 declare i32 @git_config_colorbool(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_opt_verbosity_cb(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @parse_opt_verbosity_cb(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %.not = icmp eq ptr %1, null
@@ -470,7 +470,7 @@ declare ptr @null_oid() local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @parse_opt_tertiary(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @parse_opt_tertiary(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %4
 
@@ -488,7 +488,7 @@ define dso_local noundef i32 @parse_opt_tertiary(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_options_dup(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @parse_options_dup(ptr noundef %0) local_unnamed_addr #0 {
   %2 = alloca [1 x %struct.option], align 16
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(88) %2, i8 0, i64 88, i1 false)
@@ -501,7 +501,7 @@ define dso_local ptr @parse_options_dup(ptr noundef captures(address_is_null) %0
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @parse_options_concat(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local ptr @parse_options_concat(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %parse_options_count.exit, label %.lr.ph.i.preheader
 
@@ -853,7 +853,7 @@ define dso_local range(i32 -1, 1) i32 @parse_opt_passthru_argv(ptr noundef reado
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @parse_opt_tracking_mode(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @parse_opt_tracking_mode(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %7, label %4
 

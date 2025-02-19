@@ -33,7 +33,7 @@ $_Z13cmJoinStringsI7cmRangeIN9__gnu_cxx17__normal_iteratorIPKNSt7__cxx1112basic_
 @_ZN10cmAlphaNumC1Ed = dso_local unnamed_addr alias void (ptr, double), ptr @_ZN10cmAlphaNumC2Ed
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define dso_local noundef zeroext i1 @_Z11cmStrCaseEqSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %0, ptr readonly captures(address) %1, i64 %2, ptr readonly captures(none) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @_Z11cmStrCaseEqSt17basic_string_viewIcSt11char_traitsIcEES2_(i64 %0, ptr readonly %1, i64 %2, ptr readonly captures(none) %3) local_unnamed_addr #0 {
   %.not = icmp eq i64 %0, %2
   br i1 %.not, label %5, label %"_ZSt5equalIPKcS1_Z11cmStrCaseEqSt17basic_string_viewIcSt11char_traitsIcEES5_E3$_0EbT_S7_T0_T1_.exit"
 
@@ -158,7 +158,7 @@ declare i32 @__gxx_personality_v0(...)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z14cmRemoveQuotesB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly captures(address_is_null) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z14cmRemoveQuotesB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = icmp ugt i64 %1, 1
   br i1 %5, label %6, label %17
@@ -244,7 +244,7 @@ define dso_local void @_Z14cmRemoveQuotesB5cxx11St17basic_string_viewIcSt11char_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z14cmEscapeQuotesB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly captures(address) %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z14cmEscapeQuotesB5cxx11St17basic_string_viewIcSt11char_traitsIcEE(ptr dead_on_unwind noalias nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %0, i64 %1, ptr readonly %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %4, ptr %0, align 8, !tbaa !10
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -545,7 +545,7 @@ _ZN12_GLOBAL__N_110MakeDigitsILm32EdEEvRSt17basic_string_viewIcSt11char_traitsIc
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
+define dso_local void @_Z10cmCatViewsSt16initializer_listISt4pairISt17basic_string_viewIcSt11char_traitsIcEEPNSt7__cxx1112basic_stringIcS3_SaIcEEEEE(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #1 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw %"struct.std::pair", ptr %1, i64 %2
   %.not75 = icmp eq i64 %2, 0
   br i1 %.not75, label %._crit_edge.thread, label %.lr.ph

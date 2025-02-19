@@ -270,7 +270,7 @@ _ZN6google8protobuf8internal16InternalMetadata9MergeFromINS0_15UnknownFieldSetEE
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf8internal14ZeroFieldsBase8CopyImplERNS0_7MessageERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %to_param, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %from_param) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf8internal14ZeroFieldsBase8CopyImplERNS0_7MessageERKS3_(ptr noundef nonnull align 8 dereferenceable(16) %to_param, ptr noundef nonnull readonly align 8 dereferenceable(16) %from_param) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from_param, %to_param
   br i1 %cmp, label %return, label %if.end

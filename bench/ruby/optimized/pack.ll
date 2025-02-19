@@ -2112,7 +2112,7 @@ declare ptr @rb_obj_classname(i64 noundef) local_unnamed_addr #2
 declare void @rb_str_modify(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @pack_modifiers(ptr noundef readonly captures(ret: address, provenance) %0, i8 noundef signext %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
+define internal fastcc noundef ptr @pack_modifiers(ptr noundef readonly %0, i8 noundef signext %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #0 {
   %5 = sext i8 %1 to i32
   br label %6
 

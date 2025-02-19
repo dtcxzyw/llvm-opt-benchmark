@@ -990,7 +990,7 @@ define dso_local noundef range(i32 -12, 1) i32 @__anon_vma_prepare(ptr noundef %
 declare dso_local ptr @find_mergeable_anon_vma(ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @anon_vma_clone(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @anon_vma_clone(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 104
   %5 = load ptr, ptr %4, align 8
@@ -1147,7 +1147,7 @@ define dso_local range(i32 -12, 1) i32 @anon_vma_clone(ptr noundef %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @unlink_anon_vmas(ptr noundef captures(address) %0) local_unnamed_addr #1 align 16 {
+define dso_local void @unlink_anon_vmas(ptr noundef %0) local_unnamed_addr #1 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -1280,7 +1280,7 @@ define dso_local void @unlink_anon_vmas(ptr noundef captures(address) %0) local_
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -12, 1) i32 @anon_vma_fork(ptr noundef %0, ptr noundef captures(address) %1) local_unnamed_addr #1 align 16 {
+define dso_local range(i32 -12, 1) i32 @anon_vma_fork(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null
@@ -1494,7 +1494,7 @@ define dso_local ptr @folio_get_anon_vma(ptr noundef %0) local_unnamed_addr #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @folio_lock_anon_vma_read(ptr noundef %0, ptr noundef captures(address_is_null) %1) #1 align 16 {
+define dso_local noundef ptr @folio_lock_anon_vma_read(ptr noundef %0, ptr noundef %1) #1 align 16 {
   tail call void @__rcu_read_lock() #17
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load volatile ptr, ptr %3, align 8

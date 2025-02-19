@@ -391,7 +391,7 @@ inet_ntop6.exit:                                  ; preds = %147, %159, %164
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local range(i32 -97, 1) i32 @uv_inet_pton(i32 noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #1 {
   %4 = alloca [16 x i8], align 16
   %5 = alloca [46 x i8], align 16
   %6 = icmp eq ptr %1, null

@@ -807,7 +807,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #12
 declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12detachStreamEPNS_9LogStreamEj(ptr noundef nonnull align 8 captures(none) dereferenceable(2104) %0, ptr noundef readnone captures(address) %1, i32 noundef %2) unnamed_addr #4 align 2 {
+define noundef zeroext i1 @_ZN6Assimp13DefaultLogger12detachStreamEPNS_9LogStreamEj(ptr noundef nonnull align 8 captures(none) dereferenceable(2104) %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #4 align 2 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.loopexit, label %5
 

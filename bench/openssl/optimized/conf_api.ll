@@ -10,7 +10,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.2 = private unnamed_addr constant [8 x i8] c"default\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @_CONF_get_section(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @_CONF_get_section(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.CONF_VALUE, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   %4 = icmp eq ptr %0, null
@@ -46,7 +46,7 @@ declare ptr @OPENSSL_LH_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @_CONF_get_section_values(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define ptr @_CONF_get_section_values(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.CONF_VALUE, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #7
   %4 = icmp eq ptr %0, null
@@ -125,7 +125,7 @@ declare ptr @OPENSSL_sk_delete_ptr(ptr noundef, ptr noundef) local_unnamed_addr 
 declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @_CONF_get_string(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define ptr @_CONF_get_string(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.CONF_VALUE, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #7
   %5 = icmp eq ptr %2, null
@@ -198,7 +198,7 @@ declare ptr @ossl_safe_getenv(ptr noundef) local_unnamed_addr #2
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @_CONF_new_data(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @_CONF_new_data(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %12, label %3
 
@@ -304,7 +304,7 @@ define internal void @lh_CONF_VALUE_doall_arg_thunk(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_CONF_free_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @_CONF_free_data(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 

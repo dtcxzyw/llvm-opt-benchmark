@@ -2874,7 +2874,7 @@ define void @Ivy_FastMapReadSupp(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @Ivy_FastMapRequired_rec(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 {
+define void @Ivy_FastMapRequired_rec(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = getelementptr i8, ptr %0, i64 200
   %.val = load ptr, ptr %5, align 8, !tbaa !33
   %.val16 = load i32, ptr %1, align 8, !tbaa !35
@@ -3099,7 +3099,7 @@ define range(i32 -1, 3) i32 @Ivy_FastMapNodeFaninCost(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Ivy_FastMapNodeFaninUpdate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
+define void @Ivy_FastMapNodeFaninUpdate(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %5 = load i32, ptr %4, align 4, !tbaa !23
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8

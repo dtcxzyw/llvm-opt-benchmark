@@ -1094,7 +1094,7 @@ define internal range(i32 -1, 1) i32 @print_error(ptr noundef %0, i64 %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 2) i32 @UI_ctrl(ptr noundef captures(address_is_null) %0, i32 noundef %1, i64 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
+define range(i32 -1, 2) i32 @UI_ctrl(ptr noundef %0, i32 noundef %1, i64 noundef %2, ptr noundef readnone captures(none) %3, ptr noundef readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 
@@ -1232,7 +1232,7 @@ define void @UI_destroy_method(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1247,7 +1247,7 @@ define range(i32 -1, 1) i32 @UI_method_set_opener(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1262,7 +1262,7 @@ define range(i32 -1, 1) i32 @UI_method_set_writer(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1277,7 +1277,7 @@ define range(i32 -1, 1) i32 @UI_method_set_flusher(ptr noundef writeonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1292,7 +1292,7 @@ define range(i32 -1, 1) i32 @UI_method_set_reader(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1307,7 +1307,7 @@ define range(i32 -1, 1) i32 @UI_method_set_closer(ptr noundef writeonly captures
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %7, label %4
 
@@ -1324,7 +1324,7 @@ define range(i32 -1, 1) i32 @UI_method_set_data_duplicator(ptr noundef writeonly
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -1, 1) i32 @UI_method_set_prompt_constructor(ptr noundef writeonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #6 {
+define range(i32 -1, 1) i32 @UI_method_set_prompt_constructor(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %3
 
@@ -1346,7 +1346,7 @@ define i32 @UI_method_set_ex_data(ptr noundef %0, i32 noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_opener(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_opener(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1361,7 +1361,7 @@ define ptr @UI_method_get_opener(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_writer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_writer(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1376,7 +1376,7 @@ define ptr @UI_method_get_writer(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_flusher(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_flusher(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1391,7 +1391,7 @@ define ptr @UI_method_get_flusher(ptr noundef readonly captures(address_is_null)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_reader(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_reader(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1406,7 +1406,7 @@ define ptr @UI_method_get_reader(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_closer(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_closer(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1421,7 +1421,7 @@ define ptr @UI_method_get_closer(ptr noundef readonly captures(address_is_null) 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_prompt_constructor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_prompt_constructor(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1436,7 +1436,7 @@ define ptr @UI_method_get_prompt_constructor(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_data_duplicator(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_data_duplicator(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1451,7 +1451,7 @@ define ptr @UI_method_get_data_duplicator(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @UI_method_get_data_destructor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define ptr @UI_method_get_data_destructor(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

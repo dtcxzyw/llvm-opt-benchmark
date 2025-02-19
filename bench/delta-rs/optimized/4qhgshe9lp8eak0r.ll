@@ -407,7 +407,7 @@ define internal noundef zeroext i1 @"_ZN121_$LT$aws_sdk_glue..types..error.._res
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN125_$LT$aws_sdk_glue..operation..get_table..GetTableError$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17h67fdb948018fcaf7E.llvm.7732229130619922905"(ptr noalias noundef readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN125_$LT$aws_sdk_glue..operation..get_table..GetTableError$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17h67fdb948018fcaf7E.llvm.7732229130619922905"(ptr noalias noundef readonly align 8 dereferenceable(144) %0) unnamed_addr #2 {
 switch.lookup:
   %1 = load i64, ptr %0, align 8, !range !7, !noundef !5
   %2 = add i64 %1, 9223372036854775807
@@ -562,7 +562,7 @@ define hidden void @_ZN12tracing_core5field8FieldSet9value_set17h658e1a651f96ceb
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN137_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17ha3343557342c9754E"(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) %0) unnamed_addr #2 {
+define hidden noundef nonnull align 8 dereferenceable(96) ptr @"_ZN137_$LT$aws_smithy_runtime_api..client..result..SdkError$LT$E$C$R$GT$$u20$as$u20$aws_smithy_types..error..metadata..ProvideErrorMetadata$GT$4meta17ha3343557342c9754E"(ptr noundef nonnull readonly align 8 %0) unnamed_addr #2 {
   %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
   %3 = add nsw i64 %2, -3
   %switch = icmp ult i64 %3, 4
@@ -2530,7 +2530,7 @@ define internal void @"_ZN4core3ptr72drop_in_place$LT$$RF$aws_smithy_types..type
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17hbd59e91c52472701E"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr72drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$GT$$GT$17hbd59e91c52472701E"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !5, !nonnull !5

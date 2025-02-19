@@ -2081,7 +2081,7 @@ expandICM.exit:                                   ; preds = %.loopexit.i, %53, %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @freeArray(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc void @freeArray(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %11, label %8
 

@@ -26,7 +26,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.TLSX_KeyShare_Process = private unnamed_addr constant [3 x i32] [i32 7, i32 15, i32 16], align 4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -320, 1) i32 @BuildTlsHandshakeHash(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -320, 1) i32 @BuildTlsHandshakeHash(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -212,7 +212,7 @@ define noundef i16 @MakeTLSv1_3() local_unnamed_addr #5 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_CTX_set_groups(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @wolfSSL_CTX_set_groups(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -342,7 +342,7 @@ TLSX_Remove.exit40:                               ; preds = %.lr.ph52, %.critedg
 declare i32 @IsTLS_ex(i16) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @TLSX_Remove(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define void @TLSX_Remove(ptr noundef %0, i32 noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.critedge16, label %.preheader
 
@@ -389,7 +389,7 @@ define void @TLSX_Remove(ptr noundef captures(address_is_null) %0, i32 noundef %
 declare i32 @wolfSSL_CTX_UseSupportedCurve(ptr noundef, i16 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @wolfSSL_set_groups(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define i32 @wolfSSL_set_groups(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -788,7 +788,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -173, 8) i32 @wolfSSL_GetHmacType(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 -173, 8) i32 @wolfSSL_GetHmacType(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %wolfSSL_GetHmacType_ex.exit, label %3
 
@@ -811,7 +811,7 @@ wolfSSL_GetHmacType_ex.exit:                      ; preds = %3, %switch.lookup, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 -173, 8) i32 @wolfSSL_GetHmacType_ex(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define range(i32 -173, 8) i32 @wolfSSL_GetHmacType_ex(ptr noundef readonly %0) local_unnamed_addr #7 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -1644,7 +1644,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %13, %.lr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define noundef ptr @TLSX_Find(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef ptr @TLSX_Find(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not6 = icmp eq ptr %0, null
   br i1 %.not6, label %.critedge, label %.lr.ph
 
@@ -1702,7 +1702,7 @@ TLSX_Find.exit.thread:                            ; preds = %6, %2, %TLSX_Find.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define zeroext i8 @TLSX_SNI_Status(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1) local_unnamed_addr #8 {
+define zeroext i8 @TLSX_SNI_Status(ptr noundef readonly %0, i8 noundef zeroext %1) local_unnamed_addr #8 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %TLSX_SNI_Find.exit.thread, label %.lr.ph.i
 
@@ -1747,7 +1747,7 @@ TLSX_SNI_Find.exit.thread:                        ; preds = %4, %11, %2, %7, %TL
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 2) i32 @TLSX_UseSNI(ptr noundef captures(address_is_null) %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2, i16 noundef zeroext %3, ptr readnone captures(none) %4) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @TLSX_UseSNI(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly %2, i16 noundef zeroext %3, ptr readnone captures(none) %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   %7 = icmp eq ptr %2, null
   %or.cond = or i1 %6, %7
@@ -1907,7 +1907,7 @@ TLSX_SNI_Free.exit48:                             ; preds = %58, %64
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define zeroext i16 @TLSX_SNI_GetRequest(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, ptr noundef writeonly captures(address_is_null) %2, i8 noundef zeroext %3) local_unnamed_addr #10 {
+define zeroext i16 @TLSX_SNI_GetRequest(ptr noundef readonly %0, i8 noundef zeroext %1, ptr noundef writeonly %2, i8 noundef zeroext %3) local_unnamed_addr #10 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %TLSX_SNI_Find.exit.thread, label %.lr.ph.i
 
@@ -1971,7 +1971,7 @@ TLSX_SNI_Find.exit.thread:                        ; preds = %6, %13, %4, %9, %16
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @TLSX_SNI_SetOptions(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
+define void @TLSX_SNI_SetOptions(ptr noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext %2) local_unnamed_addr #9 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %TLSX_SNI_Find.exit.thread, label %.lr.ph.i
 
@@ -2285,7 +2285,7 @@ define range(i32 -396, 2) i32 @TLSX_SNI_GetFromBuffer(ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -328, 1) i32 @TLSX_SupportedCurve_Parse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define range(i32 -328, 1) i32 @TLSX_SupportedCurve_Parse(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
   %.not = icmp eq i8 %3, 0
   br i1 %.not, label %6, label %10
 
@@ -2410,7 +2410,7 @@ TLSX_SupportedCurve_New.exit:                     ; preds = %.lr.ph, %53, %TLSX_
 declare i32 @IsAtLeastTLSv1_3(i16) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 2) i32 @TLSX_UseSupportedCurve(ptr noundef captures(address_is_null) %0, i16 noundef zeroext %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @TLSX_UseSupportedCurve(ptr noundef %0, i16 noundef zeroext %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %TLSX_SupportedCurve_New.exit, label %5
 
@@ -2614,7 +2614,7 @@ TLSX_Find.exit.thread:                            ; preds = %6, %TLSX_Find.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -173, 2) i32 @TLSX_PopulateSupportedGroups(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc range(i32 -173, 2) i32 @TLSX_PopulateSupportedGroups(ptr noundef readonly captures(none) %0, ptr noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1104
   %4 = load i8, ptr %3, align 16, !tbaa !66
   %.not = icmp eq i8 %4, 0
@@ -3407,7 +3407,7 @@ TLSX_Find.exit.thread:                            ; preds = %78, %TLSX_Find.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -125, 1) i32 @TLSX_SupportedCurve_Copy(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -125, 1) i32 @TLSX_SupportedCurve_Copy(ptr noundef readonly %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #0 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %.critedge, label %.lr.ph.i
 
@@ -3442,7 +3442,7 @@ TLSX_Find.exit:                                   ; preds = %.lr.ph.i, %8
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -173, 2) i32 @TLSX_UsePointFormat(ptr noundef captures(address_is_null) %0, i8 noundef zeroext %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
+define range(i32 -173, 2) i32 @TLSX_UsePointFormat(ptr noundef %0, i8 noundef zeroext %1, ptr readnone captures(none) %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %TLSX_PointFormat_New.exit, label %5
 
@@ -3583,7 +3583,7 @@ TLSX_Find.exit.thread:                            ; preds = %5, %1, %TLSX_Find.e
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6) local_unnamed_addr #0 {
+define range(i32 -394, 1) i32 @TLSX_SupportedVersions_Parse(ptr noundef %0, ptr noundef readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1024
   %9 = load i64, ptr %8, align 8
   %.fr132 = freeze i64 %9
@@ -4184,7 +4184,7 @@ TLSX_KeyShare_GenDhKey.exit:                      ; preds = %108, %107, %161, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2147483648, 1) i32 @TLSX_KeyShare_Parse_ClientHello(ptr noundef %0, ptr noundef readonly captures(address) %1, i16 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define range(i32 -2147483648, 1) i32 @TLSX_KeyShare_Parse_ClientHello(ptr noundef %0, ptr noundef readonly %1, i16 noundef zeroext %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = load ptr, ptr %3, align 8, !tbaa !59
   %.not6.i = icmp eq ptr %5, null
   br i1 %.not6.i, label %.loopexit, label %.lr.ph.i
@@ -4337,7 +4337,7 @@ TLSX_Push.exit:                                   ; preds = %TLSX_KeyShareEntry_
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_KeyShare_Parse(ptr noundef %0, ptr noundef captures(address) %1, i16 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
+define i32 @TLSX_KeyShare_Parse(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #17
   store ptr null, ptr %5, align 8, !tbaa !157
@@ -5159,7 +5159,7 @@ TLSX_Push.exit:                                   ; preds = %14, %20, %.loopexit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_KeyShare_Use(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
+define i32 @TLSX_KeyShare_Use(ptr noundef %0, i16 noundef zeroext %1, i16 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef captures(none) %5) local_unnamed_addr #0 {
   %7 = load ptr, ptr %5, align 8, !tbaa !59
   %.not6.i = icmp eq ptr %7, null
   br i1 %.not6.i, label %.loopexit66, label %.lr.ph.i
@@ -5556,7 +5556,7 @@ TLSX_Push.exit:                                   ; preds = %5, %2, %TLSX_Find.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i8 zeroext %2, i8 zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #12 {
+define range(i32 -310, 1) i32 @TLSX_KeyShare_Choose(ptr noundef readonly %0, ptr noundef readonly %1, i8 zeroext %2, i8 zeroext %3, ptr noundef writeonly captures(none) %4, ptr noundef writeonly captures(none) %5) local_unnamed_addr #12 {
   %7 = icmp eq ptr %0, null
   br i1 %7, label %63, label %8
 
@@ -5732,7 +5732,7 @@ TLSX_SupportedGroups_Find.exit.thread:            ; preds = %39, %TLSX_Find.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_KeyShare_Setup(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @TLSX_KeyShare_Setup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   store ptr null, ptr %3, align 8, !tbaa !157
@@ -6329,7 +6329,7 @@ TLSX_EncryptThenMac_Use.exit:                     ; preds = %96, %TLSX_Signature
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -173, 1) i32 @TLSX_SetSignatureAlgorithmsCert(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #0 {
+define internal fastcc range(i32 -173, 1) i32 @TLSX_SetSignatureAlgorithmsCert(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %TLSX_Push.exit, label %5
 
@@ -6538,7 +6538,7 @@ TLSX_SupportExtensions.exit.thread:               ; preds = %3, %46, %39, %TLSX_
 }
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, i8 noundef zeroext %2, ptr noundef nonnull captures(none) %3) unnamed_addr #10 {
+define internal fastcc range(i32 -394, 1) i32 @TLSX_GetSize(ptr noundef readonly %0, ptr noundef nonnull captures(none) %1, i8 noundef zeroext %2, ptr noundef nonnull captures(none) %3) unnamed_addr #10 {
   %.not7681 = icmp eq ptr %0, null
   br i1 %.not7681, label %.outer._crit_edge, label %.lr.ph.lr.ph
 
@@ -7046,7 +7046,7 @@ TLSX_SupportExtensions.exit.thread:               ; preds = %4, %53, %45, %TLSX_
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly captures(address) %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext %3, ptr noundef nonnull captures(none) %4) unnamed_addr #13 {
+define internal fastcc range(i32 -394, 1) i32 @TLSX_Write(ptr noundef readonly %0, ptr noundef nonnull %1, ptr noundef nonnull captures(none) %2, i8 noundef zeroext %3, ptr noundef nonnull captures(none) %4) unnamed_addr #13 {
   %6 = icmp eq i8 %3, 6
   %7 = icmp eq i8 %3, 1
   %8 = and i8 %3, -5
@@ -7805,7 +7805,7 @@ TLSX_SupportExtensions.exit.thread29._crit_edge:  ; preds = %TLSX_SupportExtensi
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -394, 1) i32 @TLSX_WriteResponse(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define range(i32 -394, 1) i32 @TLSX_WriteResponse(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i16, align 2
   %6 = alloca [9 x i8], align 1
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5) #17
@@ -8045,7 +8045,7 @@ define range(i32 -394, 1) i32 @TLSX_ParseVersion(ptr noundef %0, ptr noundef rea
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @TLSX_Parse(ptr noundef %0, ptr noundef captures(address) %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define i32 @TLSX_Parse(ptr noundef %0, ptr noundef %1, i16 noundef zeroext %2, i8 noundef zeroext %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [9 x i8], align 1
   %7 = icmp eq i8 %3, 1
   %8 = icmp eq i8 %3, 13
@@ -8946,7 +8946,7 @@ TLSX_SNI_VerifyParse.exit:                        ; preds = %219, %184, %253, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -328, 1) i32 @TLSX_PointFormat_Parse(ptr noundef nonnull captures(address_is_null) %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -328, 1) i32 @TLSX_PointFormat_Parse(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, i16 noundef zeroext %2, i8 noundef zeroext range(i8 0, 2) %3) unnamed_addr #0 {
   %5 = icmp eq i16 %2, 0
   br i1 %5, label %TLSX_SetResponse.exit, label %6
 
@@ -9548,7 +9548,7 @@ declare i32 @wc_ecc_import_x963_ex(ptr noundef, i32 noundef, ptr noundef, i32 no
 declare i32 @EccSharedSecret(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @TLSX_SNI_SetStatus(ptr noundef readonly captures(address_is_null) %0, i8 noundef zeroext %1, i8 noundef zeroext range(i8 1, 4) %2) unnamed_addr #9 {
+define internal fastcc void @TLSX_SNI_SetStatus(ptr noundef readonly %0, i8 noundef zeroext %1, i8 noundef zeroext range(i8 1, 4) %2) unnamed_addr #9 {
   %.not6.i = icmp eq ptr %0, null
   br i1 %.not6.i, label %TLSX_SNI_Find.exit.thread, label %.lr.ph.i
 

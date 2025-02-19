@@ -742,17 +742,17 @@ define dso_local noundef i32 @enkiGetNumRegisteredExternalTaskThreads(ptr nounde
 declare noundef i32 @_ZN4enki13TaskScheduler35GetNumRegisteredExternalTaskThreadsEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @enkiGetCompletableFromTaskSet(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local noundef ptr @enkiGetCompletableFromTaskSet(ptr noundef readnone returned %0) local_unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @enkiGetCompletableFromPinnedTask(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local noundef ptr @enkiGetCompletableFromPinnedTask(ptr noundef readnone returned %0) local_unnamed_addr #8 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef ptr @enkiGetCompletableFromCompletionAction(ptr noundef readnone returned captures(ret: address, provenance) %0) local_unnamed_addr #8 {
+define dso_local noundef ptr @enkiGetCompletableFromCompletionAction(ptr noundef readnone returned %0) local_unnamed_addr #8 {
   ret ptr %0
 }
 

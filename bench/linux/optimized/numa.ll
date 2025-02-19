@@ -73,7 +73,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol___node_dista
 @llvm.compiler.used = appending global [5 x ptr] [ptr @__UNIQUE_ID___addressable___node_distance371, ptr @__UNIQUE_ID___addressable_node_data362, ptr @__UNIQUE_ID___addressable_node_to_cpumask_map363, ptr @__UNIQUE_ID___addressable_x86_cpu_to_node_map364, ptr @__setup_numa_setup], section "llvm.metadata"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef range(i32 -22, 1) i32 @numa_setup(ptr noundef readonly captures(address_is_null) %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @numa_setup(ptr noundef readonly %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %sub_0
 

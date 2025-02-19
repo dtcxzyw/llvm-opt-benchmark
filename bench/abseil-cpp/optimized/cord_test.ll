@@ -138385,7 +138385,7 @@ _ZNSt23mersenne_twister_engineImLm64ELm312ELm156ELm31ELm13043109905998158313ELm2
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %0, ptr readonly captures(address_is_null) %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL17AddExternalMemorySt17basic_string_viewIcSt11char_traitsIcEEPN4absl4CordE(i64 %0, ptr readonly %1, ptr noundef nonnull %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca %"class.absl::Cord", align 8
   %6 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #40
@@ -150746,7 +150746,7 @@ _ZNSt12_Vector_baseIN12_GLOBAL__N_119CordCompareTestCaseESaIS1_EED2Ev.exit: ; pr
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_119CordCompareTestCaseEEvT_S3_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZSt8_DestroyIPN12_GLOBAL__N_119CordCompareTestCaseEEvT_S3_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_119CordCompareTestCaseEEEvT_S5_.exit, label %.lr.ph.i
 
@@ -215454,7 +215454,7 @@ _ZNK4absl4Cord4sizeEv.exit.i:                     ; preds = %9, %5
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZN12_GLOBAL__N_14$_668__invokeERN4absl4CordE"(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0) #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN12_GLOBAL__N_14$_668__invokeERN4absl4CordE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::Cord", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #39
   call void @_ZN4absl4CordC2ESt17basic_string_viewIcSt11char_traitsIcEENS_13cord_internal18CordzUpdateTracker16MethodIdentifierE(ptr noundef nonnull align 8 dereferenceable(16) %2, i64 4, ptr nonnull @.str.963, i32 noundef 9)
@@ -215494,7 +215494,7 @@ _ZN4absl4Cord4swapERS0_.exit.i:                   ; preds = %4, %1
 }
 
 ; Function Attrs: inlinehint mustprogress uwtable
-define internal void @"_ZN12_GLOBAL__N_14$_678__invokeERN4absl4CordE"(ptr noundef nonnull align 8 captures(address) dereferenceable(16) %0) #13 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @"_ZN12_GLOBAL__N_14$_678__invokeERN4absl4CordE"(ptr noundef nonnull align 8 dereferenceable(16) %0) #13 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.absl::Cord", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2) #39

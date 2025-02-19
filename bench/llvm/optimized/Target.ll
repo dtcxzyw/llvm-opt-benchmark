@@ -398,7 +398,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5MachO23mapToPlatformVersionSetENS_8ArrayRefINS0_6TargetEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallSet") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #0 {
+define dso_local void @_ZN4llvm5MachO23mapToPlatformVersionSetENS_8ArrayRefINS0_6TargetEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallSet") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 {
   %4 = alloca %"struct.std::pair.5", align 8
   %5 = alloca %"struct.std::pair.8", align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -479,7 +479,7 @@ define dso_local void @_ZN4llvm5MachO16mapToPlatformSetENS_8ArrayRefINS0_6Target
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i32 @_ZN4llvm5MachO20mapToArchitectureSetENS_8ArrayRefINS0_6TargetEEE(ptr readonly captures(address) %0, i64 %1) local_unnamed_addr #4 {
+define dso_local i32 @_ZN4llvm5MachO20mapToArchitectureSetENS_8ArrayRefINS0_6TargetEEE(ptr readonly %0, i64 %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw %"class.llvm::MachO::Target", ptr %0, i64 %1
   %.not10 = icmp eq i64 %1, 0
   br i1 %.not10, label %._crit_edge, label %_ZN4llvm5MachO15ArchitectureSet3setENS0_12ArchitectureE.exit

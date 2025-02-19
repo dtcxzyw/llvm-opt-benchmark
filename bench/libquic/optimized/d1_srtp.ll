@@ -93,7 +93,7 @@ define hidden range(i32 0, 2) i32 @SSL_set_srtp_profiles(ptr noundef writeonly c
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden ptr @SSL_get_srtp_profiles(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define hidden ptr @SSL_get_srtp_profiles(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %11, label %3
 

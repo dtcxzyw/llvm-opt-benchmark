@@ -41,7 +41,7 @@ define noundef range(i32 0, 6) i32 @mspack_sys_selftest_internal(i32 noundef %0)
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @mspack_valid_system(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @mspack_valid_system(ptr noundef readonly %0) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %36, label %2
 
@@ -117,7 +117,7 @@ define range(i32 0, 2) i32 @mspack_valid_system(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 6) i32 @mspack_sys_filelen(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 0, 6) i32 @mspack_sys_filelen(ptr noundef readonly %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -187,7 +187,7 @@ switch.lookup:                                    ; preds = %3
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @msp_close(ptr noundef captures(address_is_null) %0) #2 {
+define internal void @msp_close(ptr noundef %0) #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -202,7 +202,7 @@ define internal void @msp_close(ptr noundef captures(address_is_null) %0) #2 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @msp_read(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #4 {
+define internal noundef i32 @msp_read(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #4 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -229,7 +229,7 @@ define internal noundef i32 @msp_read(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @msp_write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #4 {
+define internal noundef i32 @msp_write(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #4 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -256,7 +256,7 @@ define internal noundef i32 @msp_write(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @msp_seek(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1, i32 noundef %2) #4 {
+define internal noundef i32 @msp_seek(ptr noundef readonly %0, i64 noundef %1, i32 noundef %2) #4 {
   %.not = icmp ne ptr %0, null
   %switch = icmp ult i32 %2, 3
   %or.cond = and i1 %.not, %switch
@@ -273,7 +273,7 @@ define internal noundef i32 @msp_seek(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @msp_tell(ptr noundef readonly captures(address_is_null) %0) #4 {
+define internal noundef i64 @msp_tell(ptr noundef readonly %0) #4 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -288,7 +288,7 @@ define internal noundef i64 @msp_tell(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal void @msp_msg(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ...) #5 {
+define internal void @msp_msg(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ...) #5 {
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #15
   %.not = icmp eq ptr %0, null

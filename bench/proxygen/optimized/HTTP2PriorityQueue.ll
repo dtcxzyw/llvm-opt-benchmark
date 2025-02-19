@@ -294,7 +294,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue16nodeFromBaseNodeEPNS_22HTTP2PriorityQueueBase8BaseNodeE(ptr noundef readnone returned captures(ret: address, provenance) %bnode) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue16nodeFromBaseNodeEPNS_22HTTP2PriorityQueueBase8BaseNodeE(ptr noundef readnone returned %bnode) local_unnamed_addr #3 align 2 {
 entry:
   ret ptr %bnode
 }
@@ -1405,7 +1405,7 @@ ehcleanup:                                        ; preds = %_ZNKSt14default_del
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTP2PriorityQueue4Node19removeEnqueuedChildEPS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(200) %this, ptr noundef captures(address) %node) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTP2PriorityQueue4Node19removeEnqueuedChildEPS1_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(200) %this, ptr noundef %node) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp2 = alloca %"class.google::LogMessageFatal", align 8
   %enqueuedHook_ = getelementptr inbounds nuw i8, ptr %node, i64 168
@@ -2849,7 +2849,7 @@ ehcleanup:                                        ; preds = %_ZNSt10unique_ptrIN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen18HTTP2PriorityQueue4Node17flattenSubtreeDFSEPS1_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(200) %this, ptr noundef %subtreeRoot) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen18HTTP2PriorityQueue4Node17flattenSubtreeDFSEPS1_(ptr noundef nonnull readonly align 8 dereferenceable(200) %this, ptr noundef %subtreeRoot) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %children_ = getelementptr inbounds nuw i8, ptr %this, i64 136
   %__begin1.sroa.0.019 = load ptr, ptr %children_, align 8
@@ -3152,7 +3152,7 @@ if.end:                                           ; preds = %if.else, %cleanup.d
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4findEmPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, i64 noundef %id, ptr noundef writeonly captures(address_is_null) %depth) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue4findEmPm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(312) %this, i64 noundef %id, ptr noundef writeonly %depth) local_unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %rootNodeId_ = getelementptr inbounds nuw i8, ptr %this, i64 8
   %0 = load i64, ptr %rootNodeId_, align 8
@@ -3983,7 +3983,7 @@ declare void @_ZN6google10LogMessageD1Ev(ptr noundef nonnull align 8 dereference
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZNSolsEi(ptr noundef nonnull align 8 dereferenceable(8), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPm(ptr noundef nonnull align 8 dereferenceable(312) initializes((280, 281)) %this, ptr noundef returned %handle, i64 %pri.coerce0, i64 %pri.coerce1, ptr noundef writeonly captures(address_is_null) %depth) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZN8proxygen18HTTP2PriorityQueue14updatePriorityEPNS_22HTTP2PriorityQueueBase8BaseNodeENS_5http214PriorityUpdateEPm(ptr noundef nonnull align 8 dereferenceable(312) initializes((280, 281)) %this, ptr noundef returned %handle, i64 %pri.coerce0, i64 %pri.coerce1, ptr noundef writeonly %depth) unnamed_addr #14 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %comb.i.i = alloca %"class.google::base::CheckOpMessageBuilder", align 8
   %ref.tmp6 = alloca %"class.google::LogMessage", align 8

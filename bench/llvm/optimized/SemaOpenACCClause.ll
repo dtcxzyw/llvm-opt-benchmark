@@ -16118,7 +16118,7 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit: ; preds = %257, %260, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local i64 @_ZN5clang11SemaOpenACC13CheckGangExprEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS_20OpenACCDirectiveKindENS_15OpenACCGangKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr captures(address) %1, i64 %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
+define dso_local i64 @_ZN5clang11SemaOpenACC13CheckGangExprEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS_20OpenACCDirectiveKindENS_15OpenACCGangKindEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr %1, i64 %2, i8 noundef zeroext %3, i8 noundef zeroext %4, ptr noundef %5) local_unnamed_addr #0 align 2 {
   switch i8 %3, label %49 [
     i8 9, label %7
     i8 10, label %11
@@ -16837,7 +16837,7 @@ _ZN12_GLOBAL__N_119CheckGangStaticExprERN5clang11SemaOpenACCEPNS0_4ExprE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc i64 @_ZN12_GLOBAL__N_120CheckGangKernelsExprERN5clang11SemaOpenACCEN4llvm8ArrayRefIPKNS0_13OpenACCClauseEEENS0_20OpenACCDirectiveKindES9_NS0_15OpenACCGangKindEPNS0_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly captures(address) %1, i64 %2, i8 noundef zeroext range(i8 7, 12) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc i64 @_ZN12_GLOBAL__N_120CheckGangKernelsExprERN5clang11SemaOpenACCEN4llvm8ArrayRefIPKNS0_13OpenACCClauseEEENS0_20OpenACCDirectiveKindES9_NS0_15OpenACCGangKindEPNS0_4ExprE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly %1, i64 %2, i8 noundef zeroext range(i8 7, 12) %3, i8 noundef zeroext %4, i8 noundef zeroext %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %9 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %10 = alloca %"class.clang::CanonicalDeclPtr", align 8
@@ -17340,7 +17340,7 @@ _ZN12_GLOBAL__N_119CheckGangStaticExprERN5clang11SemaOpenACCEPNS0_4ExprE.exit: ;
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang11SemaOpenACC15CheckGangClauseENS_20OpenACCDirectiveKindEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS_14SourceLocationES8_NS3_INS_15OpenACCGangKindEEENS3_IPNS_4ExprEEES8_(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %1, ptr readonly captures(address) %2, i64 %3, i32 %4, i32 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.438") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::ArrayRef.428") align 8 captures(none) %7, i32 %8) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang11SemaOpenACC15CheckGangClauseENS_20OpenACCDirectiveKindEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS_14SourceLocationES8_NS3_INS_15OpenACCGangKindEEENS3_IPNS_4ExprEEES8_(ptr noundef nonnull align 8 dereferenceable(192) %0, i8 noundef zeroext %1, ptr readonly %2, i64 %3, i32 %4, i32 %5, ptr noundef readonly byval(%"class.llvm::ArrayRef.438") align 8 captures(none) %6, ptr noundef readonly byval(%"class.llvm::ArrayRef.428") align 8 captures(none) %7, i32 %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %11 = alloca %"class.llvm::APSInt", align 8
   %12 = alloca i8, align 1
@@ -17981,7 +17981,7 @@ _ZNK5clang17PartialDiagnosticlsINS_20OpenACCDirectiveKindEEERKS0_RKT_.exit: ; pr
 declare noundef ptr @_ZN5clang17OpenACCGangClause6CreateERKNS_10ASTContextENS_14SourceLocationES4_N4llvm8ArrayRefINS_15OpenACCGangKindEEENS6_IPNS_4ExprEEES4_(ptr noundef nonnull align 8 dereferenceable(23216), i32, i32, ptr, i64, ptr noundef byval(%"class.llvm::ArrayRef.428") align 8, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef ptr @_ZN5clang11SemaOpenACC20CheckReductionClauseEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS_20OpenACCDirectiveKindENS_14SourceLocationES8_NS_24OpenACCReductionOperatorENS2_IPNS_4ExprEEES8_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly captures(address) %1, i64 %2, i8 noundef zeroext %3, i32 %4, i32 %5, i8 noundef zeroext %6, ptr noundef readonly byval(%"class.llvm::ArrayRef.428") align 8 captures(none) %7, i32 %8) local_unnamed_addr #0 align 2 {
+define dso_local noundef ptr @_ZN5clang11SemaOpenACC20CheckReductionClauseEN4llvm8ArrayRefIPKNS_13OpenACCClauseEEENS_20OpenACCDirectiveKindENS_14SourceLocationES8_NS_24OpenACCReductionOperatorENS2_IPNS_4ExprEEES8_(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly %1, i64 %2, i8 noundef zeroext %3, i32 %4, i32 %5, i8 noundef zeroext %6, ptr noundef readonly byval(%"class.llvm::ArrayRef.428") align 8 captures(none) %7, i32 %8) local_unnamed_addr #0 align 2 {
   %10 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %11 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %12 = alloca %"class.llvm::APSInt", align 8
@@ -18662,7 +18662,7 @@ declare noundef ptr @_ZN5clang22OpenACCReductionClause6CreateERKNS_10ASTContextE
 declare noundef ptr @_ZN5clang17OpenACCAutoClause6CreateERKNS_10ASTContextENS_14SourceLocationES4_(ptr noundef nonnull align 8 dereferenceable(23216), i32, i32) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127checkAlreadyHasClauseOfKindERN5clang11SemaOpenACCEN4llvm8ArrayRefIPKNS0_13OpenACCClauseEEERNS1_19OpenACCParsedClauseE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly captures(address) %1, i64 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_127checkAlreadyHasClauseOfKindERN5clang11SemaOpenACCEN4llvm8ArrayRefIPKNS0_13OpenACCClauseEEERNS1_19OpenACCParsedClauseE(ptr noundef nonnull align 8 dereferenceable(192) %0, ptr readonly %1, i64 %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %3) unnamed_addr #0 {
   %5 = alloca %"class.clang::CanonicalDeclPtr", align 8
   %6 = alloca %"class.clang::SemaBase::SemaDiagnosticBuilder", align 8
   %7 = alloca i8, align 1

@@ -492,7 +492,7 @@ define hidden range(i32 0, 2) i32 @SSL_SESSION_to_bytes_for_ticket(ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @i2d_SSL_SESSION(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden i32 @i2d_SSL_SESSION(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #7
@@ -969,7 +969,7 @@ declare i64 @CBS_len(ptr noundef) local_unnamed_addr #3
 declare void @SSL_SESSION_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @d2i_SSL_SESSION(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden ptr @d2i_SSL_SESSION(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.cbs_st, align 8
   %5 = icmp slt i64 %2, 0
   br i1 %5, label %6, label %7

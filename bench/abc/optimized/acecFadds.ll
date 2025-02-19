@@ -906,7 +906,7 @@ tailrecurse:                                      ; preds = %.lr.ph
 }
 
 ; Function Attrs: nofree nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 4) i32 @Dtc_ObjComputeTruth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #10 {
+define range(i32 0, 4) i32 @Dtc_ObjComputeTruth(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #10 {
   %5 = load i32, ptr %2, align 4, !tbaa !33
   %.not50 = icmp slt i32 %5, 1
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 32
@@ -1558,7 +1558,7 @@ Dtc_ManCutMergeOne.exit:                          ; preds = %._crit_edge.i, %.pr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Dtc_ManComputeCuts(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
+define void @Dtc_ManComputeCuts(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(none) %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #29
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
   store i32 0, ptr %7, align 4, !tbaa !3
@@ -2331,7 +2331,7 @@ define range(i32 -1, 2) i32 @Dtc_ManCompare2(ptr noundef readonly captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @Gia_ManDetectFullAdders(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define noalias noundef ptr @Gia_ManDetectFullAdders(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
@@ -5479,7 +5479,7 @@ declare void @Gia_ManFillValue(ptr noundef) local_unnamed_addr #3
 declare void @Gia_ManSetRegNum(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_ObjFanin0CopyCarry(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #18 {
+define i32 @Gia_ObjFanin0CopyCarry(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = icmp eq ptr %0, null
   %.pre = load i64, ptr %1, align 4
   %.pre14 = trunc i64 %.pre to i32
@@ -5512,7 +5512,7 @@ define i32 @Gia_ObjFanin0CopyCarry(ptr noundef readonly captures(address_is_null
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define i32 @Gia_ObjFanin1CopyCarry(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #18 {
+define i32 @Gia_ObjFanin1CopyCarry(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #18 {
   %4 = icmp eq ptr %0, null
   %.pre = load i64, ptr %1, align 4
   %.pre14 = lshr i64 %.pre, 32
@@ -6131,7 +6131,7 @@ define ptr @Gia_ManDupWithArtificalFaddBoxesTest(ptr noundef %0) local_unnamed_a
 declare void @Gia_ManCleanMark01(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, -2147483648) i32 @Gia_ManFindAnnotatedDelay(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, -2147483648) i32 @Gia_ManFindAnnotatedDelay(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @Gia_ManBoxNum(ptr noundef %0) #30
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %10, label %6

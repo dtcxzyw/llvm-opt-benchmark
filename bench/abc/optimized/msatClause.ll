@@ -356,7 +356,7 @@ Msat_ClauseRemoveWatch.exit22:                    ; preds = %.lr.ph.i18, %.prehe
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Msat_ClauseRemoveWatch(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define void @Msat_ClauseRemoveWatch(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = tail call i32 @Msat_ClauseVecReadSize(ptr noundef %0) #12
   %4 = tail call ptr @Msat_ClauseVecReadArray(ptr noundef %0) #12
   br label %5
@@ -414,7 +414,7 @@ define range(i32 0, 16384) i32 @Msat_ClauseReadSize(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @Msat_ClauseReadLits(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #5 {
+define nonnull ptr @Msat_ClauseReadLits(ptr noundef readnone %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   ret ptr %2
 }
@@ -474,7 +474,7 @@ define void @Msat_ClauseSetTypeA(ptr noundef captures(none) %0, i32 noundef %1) 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Msat_ClauseIsLocked(ptr noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @Msat_ClauseIsLocked(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call ptr @Msat_SolverReadReasonArray(ptr noundef %0) #12
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i32, ptr %4, align 4, !tbaa !8
@@ -708,7 +708,7 @@ declare ptr @Msat_ClauseVecReadArray(ptr noundef) local_unnamed_addr #1
 declare ptr @Msat_ClauseVecPop(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Msat_ClausePrint(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @Msat_ClausePrint(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %3, label %5
 
@@ -820,7 +820,7 @@ define void @Msat_ClauseWriteDimacs(ptr noundef captures(none) %0, ptr noundef r
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Msat_ClausePrintSymbols(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define void @Msat_ClausePrintSymbols(ptr noundef readonly %0) local_unnamed_addr #8 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %.preheader
 

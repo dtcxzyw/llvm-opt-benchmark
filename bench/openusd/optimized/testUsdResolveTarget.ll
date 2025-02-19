@@ -31670,7 +31670,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7PcpSiteD2Ev.exit: ; preds = %.critedge16, 
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL26_VerifyResolverTargetLayerRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL26_VerifyResolverTargetLayerRKN32pxrInternal_v0_24__pxrReserved__9TfWeakPtrINS_8SdfLayerEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr %.0.val, ptr readonly %.8.val, ptr noundef nonnull align 8 dereferenceable(32) %0) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::TfCallContext", align 8
@@ -32379,7 +32379,7 @@ _ZStlsIdENSt9enable_ifIXclsr3pxrE16Tf_IsOstreamableIT_EEERSoE4typeES2_RKSt6vecto
 declare noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__17UsdAttributeQuery23ValueMightBeTimeVaryingEv(ptr noundef nonnull align 8 dereferenceable(120)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL27_GetAndVerifyAttributeValueIiEvRKN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryERKNS0_11UsdTimeCodeEPKT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL27_GetAndVerifyAttributeValueIiEvRKN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryERKNS0_11UsdTimeCodeEPKT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readonly %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
@@ -34127,7 +34127,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueC2ERKS0_.exit: ; preds = %_ZNSt6vec
 }
 
 ; Function Attrs: mustprogress norecurse uwtable
-define internal fastcc void @_ZL27_GetAndVerifyAttributeValueIfEvRKN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryERKNS0_11UsdTimeCodeEPKT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZL27_GetAndVerifyAttributeValueIfEvRKN32pxrInternal_v0_24__pxrReserved__17UsdAttributeQueryERKNS0_11UsdTimeCodeEPKT_(ptr noundef nonnull align 8 dereferenceable(120) %0, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef readonly %2) unnamed_addr #5 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.std::__cxx11::basic_ostringstream", align 8

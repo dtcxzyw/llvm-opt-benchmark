@@ -154,7 +154,7 @@ define noundef ptr @N_VClone_ManyVector(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @N_VDestroy_ManyVector(ptr noundef captures(address_is_null) %0) #0 {
+define void @N_VDestroy_ManyVector(ptr noundef %0) #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %31, label %3
 

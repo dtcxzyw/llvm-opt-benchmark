@@ -60,7 +60,7 @@ define hidden noundef i32 @SHA256_Init(ptr noundef writeonly captures(none) init
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA224(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #2 {
+define hidden noundef nonnull ptr @SHA224(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca %struct.sha256_state_st, align 4
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -222,7 +222,7 @@ declare void @OPENSSL_cleanse(ptr noundef, i64 noundef) local_unnamed_addr #4
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef nonnull ptr @SHA256(ptr noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null, ret: address, provenance) %2) local_unnamed_addr #2 {
+define hidden noundef nonnull ptr @SHA256(ptr noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca %struct.sha256_state_st, align 4
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %4) #6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32

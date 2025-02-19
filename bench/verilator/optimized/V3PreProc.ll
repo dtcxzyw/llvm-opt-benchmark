@@ -12793,7 +12793,7 @@ _ZL27V3PreLexensure_buffer_stackv.exit:           ; preds = %11, %.critedge, %19
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL20V3PreLex_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef captures(address) %0, ptr noundef %1) unnamed_addr #6 {
+define internal fastcc void @_ZL20V3PreLex_init_bufferP15yy_buffer_stateP8_IO_FILE(ptr noundef %0, ptr noundef %1) unnamed_addr #6 {
   %3 = tail call ptr @__errno_location() #47
   %4 = load i32, ptr %3, align 4
   %.not.i = icmp eq ptr %0, null
@@ -12993,7 +12993,7 @@ define dso_local noalias noundef ptr @_Z13V3PreLexallocm(i64 noundef %0) local_u
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define dso_local void @_Z22V3PreLex_delete_bufferP15yy_buffer_state(ptr noundef captures(address) %0) local_unnamed_addr #16 {
+define dso_local void @_Z22V3PreLex_delete_bufferP15yy_buffer_state(ptr noundef %0) local_unnamed_addr #16 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -13040,7 +13040,7 @@ define dso_local void @_Z12V3PreLexfreePv(ptr noundef captures(none) %0) local_u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_Z21V3PreLex_flush_bufferP15yy_buffer_state(ptr noundef captures(address) %0) local_unnamed_addr #9 {
+define dso_local void @_Z21V3PreLex_flush_bufferP15yy_buffer_state(ptr noundef %0) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %2
 
@@ -21777,7 +21777,7 @@ _ZN12V3PreProcImp16insertUnreadbackERKNSt7__cxx1112basic_stringIcSt11char_traits
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12V3PreProcImp11dumpDefinesERSo(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12V3PreProcImp11dumpDefinesERSo(ptr noundef nonnull readonly align 8 dereferenceable(1080) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -21852,7 +21852,7 @@ define dso_local void @_ZN12V3PreProcImp11dumpDefinesERSo(ptr noundef nonnull re
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN12V3PreProcImp16candidateDefinesEP11VSpellCheck(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(1080) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN12V3PreProcImp16candidateDefinesEP11VSpellCheck(ptr noundef nonnull readonly align 8 dereferenceable(1080) %0, ptr noundef %1) unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::allocator.6", align 1
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8

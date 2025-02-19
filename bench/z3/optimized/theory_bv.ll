@@ -2829,7 +2829,7 @@ _ZN6vectorIN3smt9theory_bv12zero_one_bitELb0EjE9push_backEOS2_.exit: ; preds = %
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3smt9theory_bv21find_new_diseq_axiomsEPNS0_11var_pos_occEij(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef readonly captures(address_is_null) %occs, i32 noundef %v, i32 noundef %idx) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN3smt9theory_bv21find_new_diseq_axiomsEPNS0_11var_pos_occEij(ptr noundef nonnull align 8 dereferenceable(1048) %this, ptr noundef readonly %occs, i32 noundef %v, i32 noundef %idx) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_bits = getelementptr inbounds nuw i8, ptr %this, i64 360
   %0 = load ptr, ptr %m_bits, align 8

@@ -2312,7 +2312,7 @@ define dso_local zeroext i1 @cgroup_p_has_feature(i32 noundef %0) local_unnamed_
 declare i32 @list_for_each(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @_acct_task(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal noundef i32 @_acct_task(ptr noundef %0, ptr noundef readonly %1) #0 {
   %3 = load i32, ptr @oom_kill_type, align 4
   %4 = icmp eq i32 %3, 1
   %5 = icmp ne ptr %1, null

@@ -474,7 +474,7 @@ declare double @llvm.fabs.f64(double) #2
 declare void @cvRescale(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define range(i32 -56, 1) i32 @cvProjInit(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #3 {
+define range(i32 -56, 1) i32 @cvProjInit(ptr noundef writeonly %0) local_unnamed_addr #3 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %3
 

@@ -1964,7 +1964,7 @@ declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef nonnull align 8 dereferenceable(144) ptr @_ZN12_GLOBAL__N_19AsmParser8getLexerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(920) %0) unnamed_addr #0 align 2 {
+define internal noundef nonnull align 8 dereferenceable(144) ptr @_ZN12_GLOBAL__N_19AsmParser8getLexerEv(ptr noundef nonnull readnone align 8 dereferenceable(920) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   ret ptr %2
 }
@@ -3045,7 +3045,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK4llvm11MCAsmParser10lookUpTyp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjS8_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSA_IS6_EESH_PKNS9_11MCInstrInfoEPNS9_13MCInstPrinterERNS9_23MCAsmParserSemaCallbackE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) unnamed_addr #3 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16parseMSInlineAsmERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERjS8_RN4llvm15SmallVectorImplISt4pairIPvbEEERNSA_IS6_EESH_PKNS9_11MCInstrInfoEPNS9_13MCInstPrinterERNS9_23MCAsmParserSemaCallbackE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %2, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %3, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef readonly captures(none) %7, ptr noundef %8, ptr noundef nonnull align 8 dereferenceable(8) %9) unnamed_addr #3 align 2 {
   %11 = alloca i64, align 8
   %12 = alloca %"class.llvm::Twine", align 8
   %13 = alloca %"class.llvm::SMLoc", align 8
@@ -7146,7 +7146,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit111: ; preds = %_Z
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser23parseAngleBracketStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(32) %1) unnamed_addr #3 align 2 {
+define internal noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser23parseAngleBracketStringERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) unnamed_addr #3 align 2 {
   %3 = alloca %"class.std::__cxx11::basic_string", align 8
   %4 = tail call noundef nonnull align 8 dereferenceable(40) ptr @_ZNK4llvm11MCAsmParser6getTokEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #29
   %5 = tail call ptr @_ZNK4llvm8AsmToken6getLocEv(ptr noundef nonnull align 8 dereferenceable(40) %4) #29
@@ -14381,7 +14381,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm9MCContext11lookupMacroENS_9Stri
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16handleMacroEntryEPN4llvm10MCAsmMacroENS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull captures(address_is_null) %1, ptr %2) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser16handleMacroEntryEPN4llvm10MCAsmMacroENS1_5SMLocE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef nonnull %1, ptr %2) unnamed_addr #3 align 2 {
   %4 = alloca %"struct.llvm::SourceMgr::SrcBuffer", align 8
   %5 = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %6 = alloca %"class.llvm::Twine", align 8
@@ -27947,7 +27947,7 @@ declare noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noun
 declare void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12), ptr noundef nonnull align 8 dereferenceable(12)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseMacroArgumentsEPKN4llvm10MCAsmMacroERSt6vectorIS5_INS1_8AsmTokenESaIS6_EESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_19AsmParser19parseMacroArgumentsEPKN4llvm10MCAsmMacroERSt6vectorIS5_INS1_8AsmTokenESaIS6_EESaIS8_EE(ptr noundef nonnull align 8 dereferenceable(920) %0, ptr noundef readonly %1, ptr noundef nonnull align 8 dereferenceable(24) %2) unnamed_addr #3 align 2 {
   %4 = alloca %"class.llvm::SmallVector.390", align 8
   %5 = alloca %"struct.llvm::MCAsmMacroParameter", align 8
   %6 = alloca %"class.llvm::AsmToken", align 8

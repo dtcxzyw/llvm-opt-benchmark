@@ -2319,7 +2319,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtNtCsaz5AFKTGGYY_5regex5error5Erro
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeTjjERNtNtB4_5token5TokenINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBF_EEB4_(i1 noundef zeroext %0, i8 noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noundef nonnull %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeTjjERNtNtB4_5token5TokenINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBF_EEB4_(i1 noundef zeroext %0, i8 noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noundef nonnull %3, ptr noundef readnone %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [1 x i8], align 1
   %7 = alloca [1 x i8], align 1
   %8 = alloca [1 x i8], align 1
@@ -5552,7 +5552,7 @@ _RNvNvNtCseG2FYMysgNb_3wax6encode6encode24encode_intermediate_tree.exit80: ; pre
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeuRINtNtB4_5token5TokenuEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBC_EEB4_(i1 noundef zeroext %0, i8 noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noundef nonnull %3, ptr noundef readnone captures(address) %4) unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden void @_RINvNtCseG2FYMysgNb_3wax6encode6encodeuRINtNtB4_5token5TokenuEINtNtNtCs1LoaDTb72WA_4core5slice4iter4IterBC_EEB4_(i1 noundef zeroext %0, i8 noundef %1, ptr noalias noundef align 8 dereferenceable(24) %2, ptr noundef nonnull %3, ptr noundef readnone %4) unnamed_addr #0 personality ptr @rust_eh_personality {
   %6 = alloca [1 x i8], align 1
   %7 = alloca [1 x i8], align 1
   %8 = alloca [1 x i8], align 1

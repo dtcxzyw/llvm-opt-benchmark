@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.0e398f087df3ff98cc609ece4a9ad3ee.66 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.0e398f087df3ff98cc609ece4a9ad3ee.31, [8 x i8] zeroinitializer, ptr @anon.0e398f087df3ff98cc609ece4a9ad3ee.63, [8 x i8] c"\10\00\00\00\00\00\00\00", ptr @anon.0e398f087df3ff98cc609ece4a9ad3ee.64, [8 x i8] c"\16\00\00\00\00\00\00\00", ptr @anon.0e398f087df3ff98cc609ece4a9ad3ee.65, [8 x i8] c"\1A\00\00\00\00\00\00\00" }>, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define hidden nonnull align 8 ptr @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionGroupBuilder3new17h72130382ae56996aE(ptr readnone returned align 8 captures(address_is_null, ret: address, provenance) %0) unnamed_addr #0 {
+define hidden nonnull align 8 ptr @_ZN22cranelift_codegen_meta4cdsl12instructions23InstructionGroupBuilder3new17h72130382ae56996aE(ptr readnone returned align 8 %0) unnamed_addr #0 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0
@@ -1077,7 +1077,7 @@ _ZN22cranelift_codegen_meta4cdsl12instructions18InstructionBuilder5build17h0c9de
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { ptr, i64 } @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionContent10snake_name17h420c62e609329d85E(ptr readonly align 8 captures(address_is_null) %0) unnamed_addr #1 {
+define hidden { ptr, i64 } @_ZN22cranelift_codegen_meta4cdsl12instructions18InstructionContent10snake_name17h420c62e609329d85E(ptr readonly align 8 %0) unnamed_addr #1 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8

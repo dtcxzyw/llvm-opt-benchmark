@@ -1083,7 +1083,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN10duckdb_fmt2v68internal17format_error_codeERNS1_6bufferIcEEiNS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %0, i32 noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN10duckdb_fmt2v68internal17format_error_codeERNS1_6bufferIcEEiNS0_17basic_string_viewIcEE(ptr noundef nonnull align 8 dereferenceable(32) initializes((16, 24)) %0, i32 noundef %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.duckdb_fmt::v6::internal::basic_writer", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 0, ptr %6, align 8, !tbaa !8

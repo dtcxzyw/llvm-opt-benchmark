@@ -66,7 +66,7 @@ define noundef ptr @_Z18tMPI_Get_comm_selfv() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
+define noundef range(i32 0, 27) i32 @_Z10tMPI_Get_NPiPPPcPKcS_(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca ptr, align 8
   store i32 0, ptr %3, align 4
   %.not = icmp eq ptr %2, null
@@ -155,7 +155,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare noundef i32 @_Z25tMPI_Thread_get_hw_numberv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 2) i32 @_Z9tMPI_InitPiPPPcPFiiS1_E(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %6 = icmp eq ptr %5, null
@@ -238,7 +238,7 @@ _Z10tMPI_Get_NPiPPPcPKcS_.exit:                   ; preds = %26, %.thread32.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef i32 @_ZL18tMPI_Start_threadsii22tMPI_Affinity_strategyPiPPPcPFvPKvES5_PFiiS2_E(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
+define internal fastcc noundef i32 @_ZL18tMPI_Start_threadsii22tMPI_Affinity_strategyPiPPPcPFvPKvES5_PFiiS2_E(i32 noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %9 = icmp sgt i32 %1, 0
   br i1 %9, label %10, label %131
 
@@ -807,7 +807,7 @@ define noundef i32 @_Z14tMPI_FinalizedPi(ptr noundef writeonly captures(none) in
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z10tMPI_AbortP10tmpi_comm_i(ptr noundef readnone captures(address) %0, i32 noundef %1) local_unnamed_addr #0 {
+define noundef i32 @_Z10tMPI_AbortP10tmpi_comm_i(ptr noundef readnone %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @TMPI_COMM_WORLD, align 8
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %_Z14tMPI_Is_masterv.exit.thread, label %4
@@ -868,7 +868,7 @@ declare void @exit(i32 noundef) local_unnamed_addr #8
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define noundef i32 @_Z23tMPI_Get_processor_namePcPi(ptr noundef captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = tail call noundef ptr @_Z23tMPI_Thread_getspecific17tMPI_Thread_key_t(ptr noundef nonnull byval(%struct.tMPI_Thread_key_t) align 8 @id_key)
   %4 = load ptr, ptr @threads, align 8
   %5 = ptrtoint ptr %3 to i64
@@ -974,7 +974,7 @@ define noundef double @_Z10tMPI_Wtickv() local_unnamed_addr #12 {
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z14tMPI_Get_countP12tmpi_status_P14tmpi_datatype_Pi(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
+define noundef i32 @_Z14tMPI_Get_countP12tmpi_status_P14tmpi_datatype_Pi(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %7
 

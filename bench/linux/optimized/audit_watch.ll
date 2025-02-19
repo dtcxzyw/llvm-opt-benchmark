@@ -771,7 +771,7 @@ declare dso_local ptr @audit_alloc_mark(ptr noundef, ptr noundef, i32 noundef) l
 declare dso_local i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @audit_exe_compare(ptr noundef readnone captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local i32 @audit_exe_compare(ptr noundef readnone %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = tail call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #10, !srcloc !25
   %4 = inttoptr i64 %3 to ptr
   %5 = icmp eq ptr %0, %4
@@ -858,7 +858,7 @@ declare dso_local ptr @fsnotify_alloc_group(ptr noundef, i32 noundef) local_unna
 declare dso_local void @audit_panic(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr readnone captures(none) %3, ptr noundef %4, i32 %5) #0 align 16 {
+define internal noundef i32 @audit_watch_handle_event(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr readnone captures(none) %3, ptr noundef %4, i32 %5) #0 align 16 {
   %7 = getelementptr i8, ptr %0, i64 -16
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8

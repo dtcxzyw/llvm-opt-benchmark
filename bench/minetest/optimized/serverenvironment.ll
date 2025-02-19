@@ -3460,7 +3460,7 @@ _ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10LBMManager29createIntroductionTimesStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(112) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10LBMManager29createIntroductionTimesStringB5cxx11Ev(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %agg.result, ptr noundef nonnull readonly align 8 dereferenceable(112) %this) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %oss = alloca %"class.std::__cxx11::basic_ostringstream", align 8
   %0 = load i8, ptr %this, align 8, !tbaa !89, !range !97, !noundef !98
@@ -20914,7 +20914,7 @@ _ZNSt10_HashtableIN3irr4core8vector3dIsEES3_SaIS3_ENSt8__detail9_IdentityESt8equ
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef range(i32 0, 4) i32 @_ZN17ServerEnvironment14getBlockStatusEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(952) %this, i48 %blockpos.coerce) local_unnamed_addr #4 align 2 {
+define dso_local noundef range(i32 0, 4) i32 @_ZN17ServerEnvironment14getBlockStatusEN3irr4core8vector3dIsEE(ptr noundef nonnull readonly align 8 dereferenceable(952) %this, i48 %blockpos.coerce) local_unnamed_addr #4 align 2 {
 entry:
   %p.sroa.0.0.extract.trunc.i = trunc i48 %blockpos.coerce to i16
   %p.sroa.2.0.extract.shift.i = lshr i48 %blockpos.coerce, 16
@@ -22208,7 +22208,7 @@ entry:
 declare void @_ZN6server15ActiveObjectMgr30getAddedActiveObjectsAroundPosEN3irr4core8vector3dIfEEffRKSt3setItSt4lessItESaItEERSt6vectorItS8_E(ptr noundef nonnull align 8 dereferenceable(120), <2 x float>, float, float noundef, float noundef, ptr noundef nonnull align 8 dereferenceable(48), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN17ServerEnvironment23getRemovedActiveObjectsEP9PlayerSAOssRKSt3setItSt4lessItESaItEERSt6vectorISt4pairIbtESaISB_EE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(952) %this, ptr noundef readonly captures(none) %playersao, i16 noundef signext %radius, i16 noundef signext %player_radius, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %current_objects, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %removed_objects) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN17ServerEnvironment23getRemovedActiveObjectsEP9PlayerSAOssRKSt3setItSt4lessItESaItEERSt6vectorISt4pairIbtESaISB_EE(ptr noundef nonnull readonly align 8 dereferenceable(952) %this, ptr noundef readonly captures(none) %playersao, i16 noundef signext %radius, i16 noundef signext %player_radius, ptr noundef nonnull readonly align 8 dereferenceable(48) %current_objects, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %removed_objects) local_unnamed_addr #7 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %conv2 = sitofp i16 %radius to float
   %mul = fmul nsz float %conv2, 1.000000e+01
@@ -22809,7 +22809,7 @@ cleanup44:                                        ; preds = %_ZNSt6vectorISt4pai
 }
 
 ; Function Attrs: uwtable
-define dso_local void @_ZN17ServerEnvironment32setStaticForActiveObjectsInBlockEN3irr4core8vector3dIsEEbS3_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(952) %this, i48 %blockpos.coerce, i1 noundef zeroext %static_exists, i48 %static_block.coerce) local_unnamed_addr #7 align 2 {
+define dso_local void @_ZN17ServerEnvironment32setStaticForActiveObjectsInBlockEN3irr4core8vector3dIsEEbS3_(ptr noundef nonnull readonly align 8 dereferenceable(952) %this, i48 %blockpos.coerce, i1 noundef zeroext %static_exists, i48 %static_block.coerce) local_unnamed_addr #7 align 2 {
 entry:
   %frombool = zext i1 %static_exists to i8
   %m_map = getelementptr inbounds nuw i8, ptr %this, i64 112
@@ -22948,7 +22948,7 @@ cleanup24:                                        ; preds = %cleanup, %if.end, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN17ServerEnvironment22getActiveObjectMessageEP19ActiveObjectMessage(ptr noundef nonnull align 8 captures(none) dereferenceable(952) %this, ptr noundef captures(address) %dest) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef zeroext i1 @_ZN17ServerEnvironment22getActiveObjectMessageEP19ActiveObjectMessage(ptr noundef nonnull align 8 captures(none) dereferenceable(952) %this, ptr noundef %dest) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 376
   %_M_start.i.i = getelementptr inbounds nuw i8, ptr %this, i64 344

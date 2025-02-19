@@ -279,7 +279,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #2
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_free(ptr noundef readnone captures(address) %0) #0 align 16 {
+define dso_local noundef range(i32 -22, 1) i32 @acpi_dma_controller_free(ptr noundef readnone %0) #0 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %18, label %3
 
@@ -352,7 +352,7 @@ define dso_local noundef range(i32 -22, 1) i32 @devm_acpi_dma_controller_registe
 declare dso_local noalias ptr @__devres_alloc_node(ptr noundef, i64 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @devm_acpi_dma_release(ptr noundef readnone captures(address) %0, ptr readnone captures(none) %1) #0 align 16 {
+define internal void @devm_acpi_dma_release(ptr noundef readnone %0, ptr readnone captures(none) %1) #0 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %19, label %4
 

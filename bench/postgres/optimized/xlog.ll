@@ -7563,7 +7563,7 @@ define dso_local i64 @GetInsertRecPtr() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @GetFlushRecPtr(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local i64 @GetFlushRecPtr(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = load ptr, ptr @XLogCtl, align 8
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 280
   %4 = load volatile i64, ptr %3, align 8
@@ -10313,7 +10313,7 @@ declare i32 @pg_fdatasync(i32 noundef) local_unnamed_addr #4
 declare void @pgstat_count_io_op_time(i32 noundef, i32 noundef, i32 noundef, i64, i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @do_pg_backup_start(ptr noundef %0, i1 noundef zeroext %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define dso_local void @do_pg_backup_start(ptr noundef %0, i1 noundef zeroext %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [1 x %struct.__jmp_buf_tag], align 16
   %7 = alloca [1034 x i8], align 16
   %8 = alloca [1024 x i8], align 16

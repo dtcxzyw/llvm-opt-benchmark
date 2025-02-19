@@ -25,7 +25,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb11WarmInCacheEPNS_5CacheERKNS_5SliceES4_PNS0_13CreateContextEPKNS0_15CacheItemHelperENS0_8PriorityEPm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %cache, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %saved, ptr noundef %create_context, ptr noundef %helper, i32 noundef %priority, ptr noundef writeonly captures(address_is_null) %out_charge) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb11WarmInCacheEPNS_5CacheERKNS_5SliceES4_PNS0_13CreateContextEPKNS0_15CacheItemHelperENS0_8PriorityEPm(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef %cache, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %saved, ptr noundef %create_context, ptr noundef %helper, i32 noundef %priority, ptr noundef writeonly %out_charge) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %value = alloca ptr, align 8
   %charge = alloca i64, align 8

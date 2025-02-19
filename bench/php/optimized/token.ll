@@ -1137,7 +1137,7 @@ lxb_css_syntax_token_serialize.exit:              ; preds = %112, %123, %128, %1
 declare ptr @lexbor_str_init(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden ptr @lxb_css_syntax_token_serialize_char(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [128 x i8], align 16
   %4 = alloca [128 x i8], align 16
   %5 = alloca i64, align 8

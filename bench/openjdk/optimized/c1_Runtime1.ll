@@ -732,7 +732,7 @@ declare noundef i32 @_ZN13SharedRuntime19dtrace_method_entryEP10JavaThreadP6Meth
 declare noundef i32 @_ZN13SharedRuntime18dtrace_method_exitEP10JavaThreadP6Method(ptr noundef, ptr noundef) #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef range(i32 0, 2) i32 @_ZN8Runtime114is_instance_ofEP7oopDescS1_(ptr noundef nonnull %0, ptr noundef readonly captures(address_is_null) %1) #0 align 2 {
+define hidden noundef range(i32 0, 2) i32 @_ZN8Runtime114is_instance_ofEP7oopDescS1_(ptr noundef nonnull %0, ptr noundef readonly %1) #0 align 2 {
   %3 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %4 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %0, i32 noundef %3) #14
   %5 = icmp ne ptr %4, null

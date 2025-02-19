@@ -1168,7 +1168,7 @@ _ZNSt15__exception_ptr13exception_ptrD2Ev.exit28: ; preds = %_ZNSt15__exception_
 declare void @_ZNK5faiss14ParameterSpace20set_index_parametersEPNS_5IndexEm(ptr noundef nonnull align 8 dereferenceable(64), ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define range(i32 -4, 1) i32 @faiss_ParameterSpace_set_index_parameter(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, double noundef %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define range(i32 -4, 1) i32 @faiss_ParameterSpace_set_index_parameter(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, double noundef %3) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %6 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %7 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
@@ -1479,7 +1479,7 @@ define void @faiss_ParameterSpace_display(ptr noundef nonnull %0) local_unnamed_
 declare void @_ZNK5faiss14ParameterSpace7displayEv(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #0
 
 ; Function Attrs: uwtable
-define range(i32 -4, 1) i32 @faiss_ParameterSpace_add_range(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define range(i32 -4, 1) i32 @faiss_ParameterSpace_add_range(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %5 = alloca %"class.std::__exception_ptr::exception_ptr", align 8
   %6 = alloca %"class.std::__exception_ptr::exception_ptr", align 8

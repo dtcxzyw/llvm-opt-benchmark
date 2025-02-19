@@ -694,7 +694,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeNtCscmPyG4XWoQZ_3vte6ParserECs8mTrB
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(ptr noalias noundef align 8 dereferenceable(1776) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(ptr noalias noundef align 8 dereferenceable(1776) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 personality ptr @rust_eh_personality {
   %4 = alloca [16 x i8], align 8
   %5 = getelementptr inbounds i8, ptr %1, i64 %2
   %6 = icmp eq i64 %2, 0
@@ -817,12 +817,12 @@ _RINvMs_CscmPyG4XWoQZ_3vteNtB5_6Parser7advanceNtNtCs8mTrBI1stz4_15turborepo_vt10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(344) ptr @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser6screen(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(1776) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(344) ptr @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser6screen(ptr noalias noundef readonly returned align 8 dereferenceable(1776) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(344) ptr @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser10screen_mut(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(1776) %0) unnamed_addr #2 {
+define noundef nonnull align 8 dereferenceable(344) ptr @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser10screen_mut(ptr noalias noundef readnone returned align 8 dereferenceable(1776) %0) unnamed_addr #2 {
   ret ptr %0
 }
 
@@ -900,7 +900,7 @@ _RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser3new.exit: ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define { i64, ptr } @_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1006parserNtB5_6ParserNtNtCsapf13pIxsjn_3std2io5Write5write(ptr noalias noundef align 8 dereferenceable(1776) %0, ptr noalias noundef nonnull readonly align 1 captures(address) %1, i64 noundef %2) unnamed_addr #1 {
+define { i64, ptr } @_RNvXs0_NtCs8mTrBI1stz4_15turborepo_vt1006parserNtB5_6ParserNtNtCsapf13pIxsjn_3std2io5Write5write(ptr noalias noundef align 8 dereferenceable(1776) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2) unnamed_addr #1 {
   tail call void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser7process(ptr noalias noundef nonnull align 8 dereferenceable(1776) %0, ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2)
   %4 = inttoptr i64 %2 to ptr
   %5 = insertvalue { i64, ptr } { i64 0, ptr poison }, ptr %4, 1

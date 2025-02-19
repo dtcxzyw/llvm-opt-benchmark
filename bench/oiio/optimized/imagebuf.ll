@@ -3107,7 +3107,7 @@ invoke.cont11:                                    ; preds = %if.then.i.i.i.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_ZN18OpenImageIO_v2_6_012ImageBufImpl10new_pixelsEmPKv(ptr noundef nonnull align 8 dereferenceable(664) %this, i64 noundef %size, ptr noundef readonly captures(address_is_null) %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZN18OpenImageIO_v2_6_012ImageBufImpl10new_pixelsEmPKv(ptr noundef nonnull align 8 dereferenceable(664) %this, i64 noundef %size, ptr noundef readonly %data) local_unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp.i = alloca i64, align 8
   %ref.tmp4.i = alloca i64, align 8
@@ -4923,7 +4923,7 @@ return:                                           ; preds = %entry, %if.end33, %
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ImageBufaSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(16) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %src) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZN18OpenImageIO_v2_6_08ImageBufaSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(16) %this, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %src) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i.i.i, align 8
@@ -50414,7 +50414,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(125) ptr @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseaSERKS1_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(125) initializes((10, 72), (96, 100), (104, 124)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125) %i) local_unnamed_addr #6 align 2 {
+define noundef nonnull align 8 dereferenceable(125) ptr @_ZN18OpenImageIO_v2_6_08ImageBuf12IteratorBaseaSERKS1_(ptr noundef nonnull returned align 8 dereferenceable(125) initializes((10, 72), (96, 100), (104, 124)) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(125) %i) local_unnamed_addr #6 align 2 {
 entry:
   %m_tile = getelementptr inbounds nuw i8, ptr %this, i64 72
   %0 = load ptr, ptr %m_tile, align 8

@@ -1893,7 +1893,7 @@ define internal zeroext range(i16 -1, -32768) i16 @ksx1001_encoder(ptr noundef r
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @importmap(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @importmap(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = tail call ptr @PyImport_ImportModule(ptr noundef %0) #15
   %6 = icmp eq ptr %5, null
   br i1 %6, label %Py_DECREF.exit23, label %7
@@ -2746,7 +2746,7 @@ define internal zeroext i16 @jisx0213_2004_2_encoder(ptr noundef readonly captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readnone captures(address) %3) unnamed_addr #13 {
+define internal fastcc zeroext i16 @jisx0213_encoder(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, ptr noundef readnone %3) unnamed_addr #13 {
   %5 = load i64, ptr %2, align 8, !tbaa !55
   switch i64 %5, label %130 [
     i64 1, label %6

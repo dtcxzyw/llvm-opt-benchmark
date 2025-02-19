@@ -74,7 +74,7 @@ declare void @PyErr_SetString(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @_PyObject_GC_New(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @PyCapsule_IsValid(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 {
+define dso_local range(i32 0, 2) i32 @PyCapsule_IsValid(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %3
 
@@ -118,7 +118,7 @@ name_matches.exit:                                ; preds = %13, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCapsule_GetPointer(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #0 {
+define dso_local ptr @PyCapsule_GetPointer(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %.sink.split, label %3
 
@@ -163,7 +163,7 @@ name_matches.exit:                                ; preds = %_is_legal_capsule.e
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCapsule_GetName(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @PyCapsule_GetName(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_is_legal_capsule.exit.thread, label %2
 
@@ -195,7 +195,7 @@ _is_legal_capsule.exit:                           ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCapsule_GetDestructor(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @PyCapsule_GetDestructor(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_is_legal_capsule.exit.thread, label %2
 
@@ -227,7 +227,7 @@ _is_legal_capsule.exit:                           ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyCapsule_GetContext(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @PyCapsule_GetContext(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_is_legal_capsule.exit.thread, label %2
 
@@ -259,7 +259,7 @@ _is_legal_capsule.exit:                           ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyCapsule_SetPointer(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCapsule_SetPointer(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_is_legal_capsule.exit.thread, label %3
 
@@ -299,7 +299,7 @@ _is_legal_capsule.exit:                           ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyCapsule_SetName(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCapsule_SetName(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_is_legal_capsule.exit.thread, label %3
 
@@ -331,7 +331,7 @@ _is_legal_capsule.exit:                           ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyCapsule_SetDestructor(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCapsule_SetDestructor(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_is_legal_capsule.exit.thread, label %3
 
@@ -363,7 +363,7 @@ _is_legal_capsule.exit:                           ; preds = %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyCapsule_SetContext(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyCapsule_SetContext(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_is_legal_capsule.exit.thread, label %3
 

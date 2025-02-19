@@ -1255,7 +1255,7 @@ define dso_local zeroext i1 @acpi_bay_match(ptr noundef %0) local_unnamed_addr #
 declare dso_local i32 @acpi_get_parent(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local noundef zeroext i1 @acpi_device_is_battery(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 align 16 {
+define dso_local noundef zeroext i1 @acpi_device_is_battery(ptr noundef readonly %0) local_unnamed_addr #6 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   br label %3
 
@@ -1368,7 +1368,7 @@ define internal noundef range(i32 0, 16388) i32 @acpi_backlight_cap_match(ptr no
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @acpi_free_pnp_ids(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @acpi_free_pnp_ids(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2
@@ -1392,13 +1392,13 @@ define dso_local void @acpi_free_pnp_ids(ptr noundef readonly captures(address) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(none)
-define dso_local noundef zeroext i1 @acpi_dma_supported(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #8 align 16 {
+define dso_local noundef zeroext i1 @acpi_dma_supported(ptr noundef readnone %0) local_unnamed_addr #8 align 16 {
   %2 = icmp ne ptr %0, null
   ret i1 %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define dso_local range(i32 0, 3) i32 @acpi_get_dma_attr(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #9 align 16 {
+define dso_local range(i32 0, 3) i32 @acpi_get_dma_attr(ptr noundef readonly %0) local_unnamed_addr #9 align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %9, label %3
 
@@ -1416,7 +1416,7 @@ define dso_local range(i32 0, 3) i32 @acpi_get_dma_attr(ptr noundef readonly cap
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -2147483648, 1) i32 @acpi_dma_get_range(ptr noundef readonly captures(address) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -2147483648, 1) i32 @acpi_dma_get_range(ptr noundef readonly %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 align 16 {
   %3 = alloca %struct.list_head, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
   store ptr %3, ptr %3, align 8
@@ -4524,7 +4524,7 @@ declare dso_local i32 @acpi_evaluate_ej0(ptr noundef) local_unnamed_addr #1
 declare dso_local i32 @acpi_evaluate_integer(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal range(i32 0, 16) i32 @acpi_bus_offline(ptr noundef %0, i32 %1, ptr noundef readnone captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
+define internal range(i32 0, 16) i32 @acpi_bus_offline(ptr noundef %0, i32 %1, ptr noundef readnone %2, ptr noundef writeonly captures(none) %3) #0 align 16 {
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #19
   store ptr null, ptr %5, align 8
@@ -4957,7 +4957,7 @@ define internal fastcc noundef zeroext i1 @acpi_ibm_smbus_match(ptr noundef %0) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc zeroext i1 @acpi_object_is_system_bus(ptr noundef readnone captures(address) %0) unnamed_addr #0 align 16 {
+define internal fastcc zeroext i1 @acpi_object_is_system_bus(ptr noundef readnone %0) unnamed_addr #0 align 16 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #19
   store ptr null, ptr %2, align 8, !annotation !10

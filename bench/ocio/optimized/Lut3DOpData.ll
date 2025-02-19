@@ -2746,7 +2746,7 @@ _ZNSt10shared_ptrIN19OpenColorIO_v2_4dev11RangeOpDataEED2Ev.exit: ; preds = %ent
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData15haveEqualBasicsERKS0_(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %other) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData15haveEqualBasicsERKS0_(ptr noundef nonnull readonly align 8 dereferenceable(232) %this, ptr noundef nonnull readonly align 8 dereferenceable(232) %other) local_unnamed_addr #13 align 2 {
 entry:
   %cmp.i = icmp eq ptr %this, %other
   br i1 %cmp.i, label %_ZNK19OpenColorIO_v2_4dev6ArrayTIfEeqERKS1_.exit, label %if.end.i
@@ -2890,7 +2890,7 @@ return:                                           ; preds = %for.body.i.i.i.i.i.
 declare noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev6OpData6equalsERKS0_(ptr noundef nonnull align 8 dereferenceable(168), ptr noundef nonnull align 8 dereferenceable(168)) unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) local_unnamed_addr #13 align 2 {
+define hidden noundef zeroext i1 @_ZNK19OpenColorIO_v2_4dev11Lut3DOpData9isInverseERSt10shared_ptrIKS0_E(ptr noundef nonnull readonly align 8 dereferenceable(232) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %other) local_unnamed_addr #13 align 2 {
 entry:
   %m_direction = getelementptr inbounds nuw i8, ptr %this, i64 224
   %0 = load i32, ptr %m_direction, align 8

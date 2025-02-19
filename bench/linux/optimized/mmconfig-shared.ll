@@ -358,7 +358,7 @@ define internal fastcc range(i32 0, 2) i32 @pci_mmcfg_check_hostbridge() unnamed
 declare dso_local i32 @acpi_table_parse(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef range(i32 -22, 1) i32 @pci_parse_mcfg(ptr noundef readonly captures(address_is_null) %0) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @pci_parse_mcfg(ptr noundef readonly %0) #0 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
 

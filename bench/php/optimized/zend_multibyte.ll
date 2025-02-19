@@ -298,7 +298,7 @@ define internal noalias noundef ptr @dummy_encoding_fetcher(ptr readnone capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal noundef ptr @dummy_encoding_name_getter(ptr noundef readnone returned captures(ret: address, provenance) %0) #9 {
+define internal noundef ptr @dummy_encoding_name_getter(ptr noundef readnone returned %0) #9 {
   ret ptr %0
 }
 

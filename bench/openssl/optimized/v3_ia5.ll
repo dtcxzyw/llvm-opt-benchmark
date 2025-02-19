@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 declare ptr @ASN1_IA5STRING_it() #0
 
 ; Function Attrs: nounwind uwtable
-define noalias ptr @i2s_ASN1_IA5STRING(ptr readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1) #1 {
+define noalias ptr @i2s_ASN1_IA5STRING(ptr readnone captures(none) %0, ptr noundef readonly %1) #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %18, label %4
 

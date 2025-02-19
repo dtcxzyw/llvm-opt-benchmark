@@ -181,7 +181,7 @@ entry:
 declare void @_ZN6icu_757UMemorydlEPv(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef zeroext i1 @_ZNK6icu_7522UCharCharacterIteratoreqERKNS_24ForwardCharacterIteratorE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(8) %that) unnamed_addr #5 align 2 {
+define noundef zeroext i1 @_ZNK6icu_7522UCharCharacterIteratoreqERKNS_24ForwardCharacterIteratorE(ptr noundef nonnull readonly align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(8) %that) unnamed_addr #5 align 2 {
 entry:
   %cmp = icmp eq ptr %this, %that
   br i1 %cmp, label %return, label %typeid.end

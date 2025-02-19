@@ -2427,7 +2427,7 @@ define i32 @Sfm_MffcDeref_rec(ptr noundef readonly captures(none) %0) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_MffcRef_rec(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #2 {
+define i32 @Sfm_MffcRef_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %4 = load ptr, ptr %3, align 8, !tbaa !119
   %5 = tail call double @Mio_GateReadArea(ptr noundef %4) #25
@@ -2569,7 +2569,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_DecMffcAreaReal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #2 {
+define i32 @Sfm_DecMffcAreaReal(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = load ptr, ptr %0, align 8, !tbaa !124
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %7, label %5
@@ -2758,7 +2758,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_DecComputeFlipInvGain(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define i32 @Sfm_DecComputeFlipInvGain(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = getelementptr i8, ptr %1, i64 44
   %.val3943 = load i32, ptr %4, align 4, !tbaa !126
   %5 = icmp sgt i32 %.val3943, 0
@@ -2875,7 +2875,7 @@ declare i32 @Sfm_LibFindComplInputGate(ptr noundef, i32 noundef, i32 noundef, i3
 declare i32 @Abc_NodeFindFanin(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define i32 @Sfm_DecCombineDec(ptr noundef readonly captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2, ptr noundef readonly captures(address) %3, ptr noundef readonly captures(address) %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(none) %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #2 {
+define i32 @Sfm_DecCombineDec(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, i32 noundef %5, i32 noundef %6, ptr noundef captures(none) %7, ptr noundef %8, i32 noundef %9) local_unnamed_addr #2 {
   %11 = icmp slt i32 %5, 7
   %12 = add nsw i32 %5, -6
   %13 = shl nuw i32 1, %12
@@ -3290,7 +3290,7 @@ Abc_TtStretch6.exit:                              ; preds = %._crit_edge.us.i112
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Abc_TtExpand(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #11 {
+define internal fastcc void @Abc_TtExpand(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef %5) unnamed_addr #11 {
   %7 = icmp sgt i32 %5, 0
   %8 = icmp sgt i32 %3, 0
   %9 = and i1 %7, %8
@@ -6586,7 +6586,7 @@ define void @Abc_NtkUpdateIncLevel_rec(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Abc_NtkDfsCheck_rec(ptr noundef readonly captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Abc_NtkDfsCheck_rec(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %.critedge, label %4
 
@@ -11534,7 +11534,7 @@ declare i32 @Sfm_MitSortArrayByArrival(ptr noundef, ptr noundef, i32 noundef) lo
 declare i32 @Sfm_TimSortArrayByArrival(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define ptr @Sfm_DecInsert(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef captures(address_is_null) %10, ptr noundef %11) local_unnamed_addr #2 {
+define ptr @Sfm_DecInsert(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4, ptr noundef captures(none) %5, ptr noundef readonly captures(none) %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11) local_unnamed_addr #2 {
   %13 = alloca i32, align 4
   %.not = icmp eq ptr %10, null
   br i1 %.not, label %16, label %14

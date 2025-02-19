@@ -204,7 +204,7 @@ define internal noundef i32 @always_equal(ptr readnone captures(none) %0, ptr re
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashmap_partial_clear_(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local void @hashmap_partial_clear_(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %3
 
@@ -281,7 +281,7 @@ free_individual_entries.exit:                     ; preds = %13, %.free_individu
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @hashmap_clear_(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #3 {
+define dso_local void @hashmap_clear_(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %21, label %3
 
@@ -885,7 +885,7 @@ st_add.exit17:                                    ; preds = %st_add.exit
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 0, 2) i32 @pool_entry_cmp(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3) #9 {
+define internal range(i32 0, 2) i32 @pool_entry_cmp(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) #9 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.not = icmp eq ptr %5, %3
   br i1 %.not, label %14, label %6

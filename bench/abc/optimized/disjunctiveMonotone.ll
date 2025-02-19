@@ -2146,7 +2146,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 }
 
 ; Function Attrs: nounwind uwtable
-define void @deallocateVecOfIntVec(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define void @deallocateVecOfIntVec(ptr noundef %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %.preheader
 

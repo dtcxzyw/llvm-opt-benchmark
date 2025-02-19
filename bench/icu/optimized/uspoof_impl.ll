@@ -530,7 +530,7 @@ return:                                           ; preds = %entry, %if.end24
 }
 
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull ptr @_ZN6icu_759SpoofData12addReferenceEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
+define noundef nonnull ptr @_ZN6icu_759SpoofData12addReferenceEv(ptr noundef nonnull returned align 8 dereferenceable(56) %this) local_unnamed_addr #4 align 2 {
 entry:
   %fRefCount = getelementptr inbounds nuw i8, ptr %this, i64 28
   %0 = atomicrmw add ptr %fRefCount, i32 1 seq_cst, align 4
@@ -633,13 +633,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6icu_759SpoofImpl15asUSpoofCheckerEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN6icu_759SpoofImpl15asUSpoofCheckerEv(ptr noundef nonnull readnone returned align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6icu_759SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %sc, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN6icu_759SpoofImpl12validateThisEPK13USpoofCheckerR10UErrorCode(ptr noundef readonly %sc, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -756,7 +756,7 @@ return:                                           ; preds = %lor.lhs.false20, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @_ZN6icu_759SpoofImpl12validateThisEP13USpoofCheckerR10UErrorCode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %sc, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
+define noundef ptr @_ZN6icu_759SpoofImpl12validateThisEP13USpoofCheckerR10UErrorCode(ptr noundef readonly %sc, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #8 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -1895,13 +1895,13 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN6icu_7511CheckResult19asUSpoofCheckResultEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(220) %this) local_unnamed_addr #0 align 2 {
+define noundef nonnull ptr @_ZN6icu_7511CheckResult19asUSpoofCheckResultEv(ptr noundef nonnull readnone returned align 8 dereferenceable(220) %this) local_unnamed_addr #0 align 2 {
 entry:
   ret ptr %this
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7511CheckResult12validateThisEPK17USpoofCheckResultR10UErrorCode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %ptr, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN6icu_7511CheckResult12validateThisEPK17USpoofCheckResultR10UErrorCode(ptr noundef readonly %ptr, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i = icmp slt i32 %0, 1
@@ -1928,7 +1928,7 @@ _ZN6icu_7513IcuCApiHelperI17USpoofCheckResultNS_11CheckResultELi657779934EE8vali
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN6icu_7511CheckResult12validateThisEP17USpoofCheckResultR10UErrorCode(ptr noundef readonly captures(address_is_null, ret: address, provenance) %ptr, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #12 align 2 {
+define noundef ptr @_ZN6icu_7511CheckResult12validateThisEP17USpoofCheckResultR10UErrorCode(ptr noundef readonly %ptr, ptr noundef nonnull align 4 captures(none) dereferenceable(4) %status) local_unnamed_addr #12 align 2 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp.i.i.i = icmp slt i32 %0, 1
@@ -2847,7 +2847,7 @@ declare void @_ZN6icu_7521umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonn
 declare ptr @udata_openChoice_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L21spoofDataIsAcceptableEPvPKcS2_PK9UDataInfo(ptr noundef writeonly captures(address_is_null) %context, ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %pInfo) #12 {
+define internal noundef signext range(i8 0, 2) i8 @_ZN6icu_75L21spoofDataIsAcceptableEPvPKcS2_PK9UDataInfo(ptr noundef writeonly %context, ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef readonly captures(none) %pInfo) #12 {
 entry:
   %2 = load i16, ptr %pInfo, align 2
   %cmp = icmp ugt i16 %2, 19

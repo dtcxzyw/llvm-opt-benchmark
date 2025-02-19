@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @CancelRequested = external global i32, align 4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @ParallelSlotsGetIdle(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @ParallelSlotsGetIdle(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sroa.0.i.i = alloca [16 x i64], align 8
   %3 = alloca %struct.fd_set, align 8
   %4 = load i32, ptr %0, align 8

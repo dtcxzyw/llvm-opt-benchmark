@@ -83,7 +83,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare i32 @aom_codec_destroy(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_codec_peek_stream_info(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @aom_codec_peek_stream_info(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %or.cond = and i1 %5, %6
@@ -108,7 +108,7 @@ define hidden i32 @aom_codec_peek_stream_info(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_codec_get_stream_info(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden i32 @aom_codec_get_stream_info(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -152,7 +152,7 @@ define hidden i32 @aom_codec_get_stream_info(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_codec_decode(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @aom_codec_decode(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %17, label %5
 
@@ -186,7 +186,7 @@ define hidden i32 @aom_codec_decode(ptr noundef captures(address_is_null) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden ptr @aom_codec_get_frame(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden ptr @aom_codec_get_frame(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4
@@ -216,7 +216,7 @@ define hidden ptr @aom_codec_get_frame(ptr noundef readonly captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @aom_codec_set_frame_buffer_functions(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define hidden i32 @aom_codec_set_frame_buffer_functions(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp ne ptr %0, null
   %6 = icmp ne ptr %1, null
   %7 = icmp ne ptr %2, null

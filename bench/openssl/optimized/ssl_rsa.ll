@@ -1263,7 +1263,7 @@ define range(i32 0, 2) i32 @SSL_use_certificate_chain_file(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %2, null
   %or.cond = or i1 %5, %6
@@ -1467,7 +1467,7 @@ declare ptr @CRYPTO_realloc(ptr noundef, i64 noundef, ptr noundef, i32 noundef) 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo(ptr noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @SSL_CTX_use_serverinfo(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = tail call i32 @SSL_CTX_use_serverinfo_ex(ptr noundef %0, i32 noundef 1, ptr noundef %1, i64 noundef %2)
   ret i32 %4
 }

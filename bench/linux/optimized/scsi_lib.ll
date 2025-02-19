@@ -311,7 +311,7 @@ define internal fastcc void @__scsi_queue_insert(ptr noundef %0, i32 noundef %1)
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @scsi_execute_cmd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly captures(address_is_null) %7) #0 align 16 {
+define dso_local i32 @scsi_execute_cmd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %5, i32 noundef %6, ptr noundef readonly %7) #0 align 16 {
   %9 = icmp eq ptr %7, null
   br i1 %9, label %18, label %10
 
@@ -4226,7 +4226,7 @@ define dso_local i32 @scsi_vpd_lun_id(ptr noundef %0, ptr noundef writeonly capt
 declare dso_local noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #7
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -11, 65536) i32 @scsi_vpd_tpg_id(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) #0 align 16 {
+define dso_local range(i32 -11, 65536) i32 @scsi_vpd_tpg_id(ptr noundef %0, ptr noundef writeonly %1) #0 align 16 {
   tail call void @__rcu_read_lock() #16
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 264
   %4 = load volatile ptr, ptr %3, align 8
@@ -4336,7 +4336,7 @@ declare dso_local void @blk_mq_run_hw_queues(ptr noundef, i1 noundef zeroext) lo
 declare dso_local void @__starget_for_each_device(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @scsi_kick_sdev_queue(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) #0 align 16 {
+define internal void @scsi_kick_sdev_queue(ptr noundef readonly %0, ptr noundef readnone %1) #0 align 16 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %7, label %4
 
@@ -5832,7 +5832,7 @@ define internal void @scsi_map_queues(ptr noundef %0) #0 align 16 {
 declare dso_local void @scsi_show_rq(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef zeroext range(i8 0, 18) i8 @scsi_device_state_check(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 align 16 {
+define internal fastcc noundef zeroext range(i8 0, 18) i8 @scsi_device_state_check(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2016
   %4 = load i32, ptr %3, align 8
   switch i32 %4, label %20 [

@@ -11211,7 +11211,7 @@ define internal fastcc void @"_ZSt22__stable_sort_adaptiveIPN12_GLOBAL__N_111Fac
 declare noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_SJ_T0_"(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #0 {
+define internal fastcc void @"_ZSt16__insertion_sortIPN12_GLOBAL__N_111FactOrCheckEN9__gnu_cxx5__ops15_Iter_comp_iterIZL20eliminateConstraintsRN4llvm8FunctionERNS6_13DominatorTreeERNS6_8LoopInfoERNS6_15ScalarEvolutionERNS6_25OptimizationRemarkEmitterEE3$_0EEEvT_SJ_T0_"(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #0 {
   %.sroa.7.i = alloca %"struct.(anonymous namespace)::ConditionTy", align 8
   %3 = alloca %"struct.(anonymous namespace)::FactOrCheck", align 8
   %4 = icmp eq ptr %0, %1
@@ -17583,7 +17583,7 @@ _ZN12_GLOBAL__N_113DecompositionD2Ev.exit:        ; preds = %_ZN12_GLOBAL__N_113
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZN12_GLOBAL__N_113Decomposition3subERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %1) unnamed_addr #0 align 2 {
+define internal fastcc void @_ZN12_GLOBAL__N_113Decomposition3subERKS0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull readonly align 8 dereferenceable(96) %1) unnamed_addr #0 align 2 {
   %3 = alloca %"struct.(anonymous namespace)::Decomposition", align 8
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %3) #23
   %4 = load i64, ptr %1, align 8, !tbaa !590

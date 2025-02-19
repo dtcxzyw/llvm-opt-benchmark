@@ -3229,7 +3229,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 declare void @Int2_ManStop(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define i32 @sat_solver2_addclause(ptr noundef captures(none) initializes((364, 368)) %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, i32 noundef %3) local_unnamed_addr #2 {
+define i32 @sat_solver2_addclause(ptr noundef captures(none) initializes((364, 368)) %0, ptr noundef readonly %1, ptr noundef readnone %2, i32 noundef %3) local_unnamed_addr #2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 364
   store i32 0, ptr %6, align 4, !tbaa !30

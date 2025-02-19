@@ -5271,7 +5271,7 @@ return:                                           ; preds = %if.end, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8MemTable19UpdateEntryChecksumEPKNS_18ProtectionInfoKVOSImEERKNS_5SliceES7_NS_9ValueTypeEmPc(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(3528) %this, ptr noundef readonly captures(address_is_null) %kv_prot_info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %key, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, i8 noundef zeroext %type, i64 noundef %s, ptr noundef writeonly captures(none) %checksum_ptr) local_unnamed_addr #4 align 2 {
+define void @_ZN7rocksdb8MemTable19UpdateEntryChecksumEPKNS_18ProtectionInfoKVOSImEERKNS_5SliceES7_NS_9ValueTypeEmPc(ptr noundef nonnull readonly align 16 captures(none) dereferenceable(3528) %this, ptr noundef readonly %kv_prot_info, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %key, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, i8 noundef zeroext %type, i64 noundef %s, ptr noundef writeonly captures(none) %checksum_ptr) local_unnamed_addr #4 align 2 {
 entry:
   %sequence_number.addr.i = alloca i64, align 8
   %op_type.addr.i = alloca i8, align 1
@@ -5369,7 +5369,7 @@ if.end16:                                         ; preds = %sw.bb9.i.i.i5, %sw.
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8MemTable3AddEmNS_9ValueTypeERKNS_5SliceES4_PKNS_18ProtectionInfoKVOSImEEbPNS_23MemTablePostProcessInfoEPPv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(3528) %this, i64 noundef %s, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %key, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef captures(address_is_null) %kv_prot_info, i1 noundef zeroext %allow_concurrent, ptr noundef captures(none) %post_process_info, ptr noundef %hint) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8MemTable3AddEmNS_9ValueTypeERKNS_5SliceES4_PKNS_18ProtectionInfoKVOSImEEbPNS_23MemTablePostProcessInfoEPPv(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(3528) %this, i64 noundef %s, i8 noundef zeroext %type, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %key, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %kv_prot_info, i1 noundef zeroext %allow_concurrent, ptr noundef captures(none) %post_process_info, ptr noundef %hint) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %current_time.i = alloca i64, align 8
   %s.i = alloca %"class.rocksdb::Status", align 8
@@ -9898,7 +9898,7 @@ for.end22:                                        ; preds = %_ZNK7rocksdb12Dynam
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8MemTable6UpdateEmNS_9ValueTypeERKNS_5SliceES4_PKNS_18ProtectionInfoKVOSImEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(3528) %this, i64 noundef %seq, i8 noundef zeroext %value_type, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef captures(address_is_null) %kv_prot_info) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8MemTable6UpdateEmNS_9ValueTypeERKNS_5SliceES4_PKNS_18ProtectionInfoKVOSImEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(3528) %this, i64 noundef %seq, i8 noundef zeroext %value_type, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %value, ptr noundef %kv_prot_info) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %old_sequence_number.addr.i = alloca i64, align 8
   %new_sequence_number.addr.i = alloca i64, align 8
@@ -10285,7 +10285,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb8MemTable14UpdateCallbackEmRKNS_5SliceES3_PKNS_18ProtectionInfoKVOSImEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(3528) %this, i64 noundef %seq, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %delta, ptr noundef readonly captures(address_is_null) %kv_prot_info) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb8MemTable14UpdateCallbackEmRKNS_5SliceES3_PKNS_18ProtectionInfoKVOSImEE(ptr noalias sret(%"class.rocksdb::Status") align 8 %agg.result, ptr noundef nonnull align 16 dereferenceable(3528) %this, i64 noundef %seq, ptr noundef nonnull align 8 dereferenceable(16) %key, ptr noundef nonnull align 8 dereferenceable(16) %delta, ptr noundef readonly %kv_prot_info) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 invoke.cont:
   %len.i = alloca i32, align 4
   %lkey = alloca %"class.rocksdb::LookupKey", align 8
@@ -11341,7 +11341,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb8MemTable12GetNewestUDTEv(ptr noundef nonnull readnone align 16 captures(ret: address, provenance) dereferenceable(3528) %this) local_unnamed_addr #18 align 2 {
+define noundef nonnull align 8 dereferenceable(16) ptr @_ZNK7rocksdb8MemTable12GetNewestUDTEv(ptr noundef nonnull readnone align 16 dereferenceable(3528) %this) local_unnamed_addr #18 align 2 {
 entry:
   %newest_udt_ = getelementptr inbounds nuw i8, ptr %this, i64 3448
   ret ptr %newest_udt_

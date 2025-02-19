@@ -221,7 +221,7 @@ define internal range(i32 -2, 2) i32 @eckem_encapsulate_init(ptr noundef capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @eckem_encapsulate(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) #0 {
+define internal range(i32 -2, 2) i32 @eckem_encapsulate(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [66 x i8], align 16
   %7 = alloca [133 x i8], align 16
   %8 = alloca [133 x i8], align 16

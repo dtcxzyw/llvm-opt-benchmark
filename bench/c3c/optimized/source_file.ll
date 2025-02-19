@@ -130,7 +130,7 @@ declare ptr @str_copy(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+define dso_local ptr @source_file_load(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %6, label %5

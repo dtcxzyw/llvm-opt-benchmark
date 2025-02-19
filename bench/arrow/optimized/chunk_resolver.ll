@@ -353,7 +353,7 @@ declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 declare void @_ZSt9terminatev() local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN5arrow13ChunkResolverC2ENS_4util4spanIKPKNS_5ArrayEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) %0, ptr readonly captures(address) %1, i64 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5arrow13ChunkResolverC2ENS_4util4spanIKPKNS_5ArrayEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(28) %0, ptr readonly %1, i64 %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !79)
   %4 = add i64 %2, 1
   %5 = icmp ugt i64 %4, 1152921504606846975
@@ -553,7 +553,7 @@ define void @_ZN5arrow13ChunkResolverC2EOS0_(ptr noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef nonnull align 8 dereferenceable(28) ptr @_ZN5arrow13ChunkResolveraSEOS0_(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(28) initializes((8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(28) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(28) ptr @_ZN5arrow13ChunkResolveraSEOS0_(ptr noundef nonnull returned align 8 dereferenceable(28) initializes((8, 16)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(28) %1) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !40
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16

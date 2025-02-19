@@ -87,7 +87,7 @@ free_p5s.exit:                                    ; preds = %.lr.ph.i1, %destroy
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @zend_strtod(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define dso_local double @zend_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -2989,7 +2989,7 @@ Bfree.exit:                                       ; preds = %36, %35, %29, %27
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @mult(ptr noundef readonly captures(address) %0, ptr noundef nonnull readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @mult(ptr noundef readonly %0, ptr noundef nonnull readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3304,7 +3304,7 @@ Bfree.exit:                                       ; preds = %.loopexit, %66, %67
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc nonnull ptr @diff(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) unnamed_addr #0 {
+define internal fastcc nonnull ptr @diff(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 20
@@ -3544,7 +3544,7 @@ Bfree.exit:                                       ; preds = %8, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local nonnull ptr @zend_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local nonnull ptr @zend_dtoa(double noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) initializes((0, 1)) %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
   %9 = alloca %union.U, align 8
@@ -5489,7 +5489,7 @@ Bfree.exit:                                       ; preds = %55, %54, %19
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc i32 @quorem(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #5 {
+define internal fastcc i32 @quorem(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !52
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -5679,7 +5679,7 @@ cmp.exit.thread89:                                ; preds = %52, %cmp.exit, %.cr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local double @zend_hex_strtod(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
+define dso_local double @zend_hex_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
   %3 = load i8, ptr %0, align 1, !tbaa !45
   %4 = icmp eq i8 %3, 48
   br i1 %4, label %5, label %10
@@ -5760,7 +5760,7 @@ define dso_local double @zend_hex_strtod(ptr noundef %0, ptr noundef writeonly c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local double @zend_oct_strtod(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
+define dso_local double @zend_oct_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
   %3 = load i8, ptr %0, align 1, !tbaa !45
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %6, label %.preheader
@@ -5806,7 +5806,7 @@ define dso_local double @zend_oct_strtod(ptr noundef %0, ptr noundef writeonly c
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local double @zend_bin_strtod(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #5 {
+define dso_local double @zend_bin_strtod(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #5 {
   %3 = load i8, ptr %0, align 1, !tbaa !45
   %4 = icmp eq i8 %3, 48
   br i1 %4, label %5, label %10
@@ -5865,7 +5865,7 @@ define dso_local double @zend_bin_strtod(ptr noundef %0, ptr noundef writeonly c
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef ptr @zend_gcvt(double noundef %0, i32 noundef %1, i8 noundef signext %2, i8 noundef signext %3, ptr noundef returned writeonly captures(ret: address, provenance) %4) local_unnamed_addr #0 {
+define dso_local noundef ptr @zend_gcvt(double noundef %0, i32 noundef %1, i8 noundef signext %2, i8 noundef signext %3, ptr noundef returned writeonly %4) local_unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #13
@@ -6206,7 +6206,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare void @zend_error_noreturn(i32 noundef, ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal fastcc double @b2d(ptr noundef readonly captures(address) %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #10 {
+define internal fastcc double @b2d(ptr noundef readonly %0, ptr noundef nonnull writeonly captures(none) initializes((0, 4)) %1) unnamed_addr #10 {
   %.ptr = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !52

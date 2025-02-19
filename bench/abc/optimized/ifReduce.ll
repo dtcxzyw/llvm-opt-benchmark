@@ -983,7 +983,7 @@ define range(i32 -1, 3) i32 @If_ManImproveNodeFaninCost(ptr noundef readnone cap
 }
 
 ; Function Attrs: nounwind uwtable
-define void @If_ManImproveNodeFaninUpdate(ptr readnone captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
+define void @If_ManImproveNodeFaninUpdate(ptr readnone captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !32
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8

@@ -3509,7 +3509,7 @@ define internal fastcc i32 @role_trans_write(ptr noundef %0, ptr noundef %1) unn
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(readwrite, inaccessiblemem: none)
-define internal fastcc noundef range(i32 -22, 1) i32 @role_allow_write(ptr noundef readonly captures(address_is_null) %0, ptr noundef captures(none) %1) unnamed_addr #10 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @role_allow_write(ptr noundef readonly %0, ptr noundef captures(none) %1) unnamed_addr #10 align 16 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %.loopexit, label %.preheader6
 
@@ -8111,7 +8111,7 @@ define internal noundef range(i32 -22, 1) i32 @perm_write(ptr noundef readonly c
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc i32 @write_cons_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #2 align 16 {
+define internal fastcc i32 @write_cons_helper(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #2 align 16 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %.thread7, label %5
 

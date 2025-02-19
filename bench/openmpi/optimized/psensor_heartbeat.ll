@@ -351,7 +351,7 @@ pmix_obj_new_tma.exit53:                          ; preds = %.lr.ph.i.i50, %111,
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @heartbeat_stop(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0 {
+define internal noundef i32 @heartbeat_stop(ptr noundef %0, ptr noundef readonly %1) #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @heartbeat_caddy_t_class, i64 56), align 8, !tbaa !52
   %4 = tail call noalias noundef ptr @malloc(i64 noundef %3) #15
   %5 = load i32, ptr @pmix_class_init_epoch, align 4, !tbaa !54

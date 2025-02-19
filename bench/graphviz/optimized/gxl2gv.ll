@@ -2371,7 +2371,7 @@ declare void @llvm.va_copy.p0(ptr, ptr) #18
 declare noundef i32 @vsnprintf(ptr noundef captures(none), i64 noundef, ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @agxbuse(ptr noundef captures(ret: address, provenance) %0) unnamed_addr #12 {
+define internal fastcc ptr @agxbuse(ptr noundef %0) unnamed_addr #12 {
   %2 = getelementptr i8, ptr %0, i64 31
   %.val = load i8, ptr %2, align 1, !tbaa !33
   switch i8 %.val, label %agxblen.exit.i [

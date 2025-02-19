@@ -73,7 +73,7 @@ define internal void @blake2_mac_free(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @blake2_mac_init(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal i32 @blake2_mac_init(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = tail call i32 @ossl_prov_is_running() #6
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %28, label %6

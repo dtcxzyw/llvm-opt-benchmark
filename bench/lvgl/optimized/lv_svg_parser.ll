@@ -326,7 +326,7 @@ define void @_lv_svg_parser_init(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_lv_svg_parser_deinit(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @_lv_svg_parser_deinit(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -366,7 +366,7 @@ declare void @lv_free(ptr noundef) local_unnamed_addr #1
 declare void @lv_svg_node_delete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define zeroext i1 @_lv_svg_parser_is_finish(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define zeroext i1 @_lv_svg_parser_is_finish(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %2
 
@@ -396,7 +396,7 @@ define zeroext i1 @_lv_svg_parser_is_finish(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef zeroext i1 @_lv_svg_parser_token(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef zeroext i1 @_lv_svg_parser_token(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.preheader, label %3
 
@@ -6183,7 +6183,7 @@ declare float @sinf(float noundef) local_unnamed_addr #10
 declare float @tanf(float noundef) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef writeonly captures(none) %2) unnamed_addr #7 {
+define internal fastcc void @_parse_color(ptr noundef %0, ptr noundef readnone %1, ptr noundef writeonly captures(none) %2) unnamed_addr #7 {
   %4 = ptrtoint ptr %0 to i64
   %5 = ptrtoint ptr %1 to i64
   %6 = alloca ptr, align 8

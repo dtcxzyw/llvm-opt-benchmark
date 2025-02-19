@@ -42,7 +42,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.35 = private unnamed_addr constant [34 x i8] c"throwThrowable failed to re-throw\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable
-define hidden ptr @forceFallback(ptr noundef readnone captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #0 {
+define hidden ptr @forceFallback(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   %3 = load ptr, ptr @sFallbackInternalError, align 8
   %.0 = select i1 %2, ptr %3, ptr %0

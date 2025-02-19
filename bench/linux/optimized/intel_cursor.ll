@@ -170,7 +170,7 @@ define internal noundef i32 @i845_cursor_max_stride(ptr readnone captures(none) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i845_cursor_update_arm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define internal void @i845_cursor_update_arm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = icmp eq ptr %2, null
   br i1 %5, label %78, label %6
@@ -847,7 +847,7 @@ define internal range(i32 0, -3) i32 @i9xx_cursor_max_stride(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @i9xx_cursor_update_arm(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define internal void @i9xx_cursor_update_arm(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 align 16 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 1328
   %6 = load i32, ptr %5, align 8

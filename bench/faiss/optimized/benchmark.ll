@@ -4705,7 +4705,7 @@ define hidden void @_ZN9benchmark8internal26SetDefaultTimeUnitFromFlagERKNSt7__c
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN9benchmark8internal21ParseCommandLineFlagsEPiPPc(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN9benchmark8internal21ParseCommandLineFlagsEPiPPc(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca [2 x ptr], align 8
   %4 = alloca %"class.std::__cxx11::basic_string", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
@@ -5084,7 +5084,7 @@ define void @_ZN9benchmark16PrintDefaultHelpEv() local_unnamed_addr #16 {
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN9benchmark10InitializeEPiPPcPFvvE(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @_ZN9benchmark10InitializeEPiPPcPFvvE(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef %2) local_unnamed_addr #0 {
   store ptr %2, ptr @_ZN9benchmark8internal12HelperPrintfE, align 8, !tbaa !13
   tail call void @_ZN9benchmark8internal21ParseCommandLineFlagsEPiPPc(ptr noundef %0, ptr noundef %1)
   %4 = load i32, ptr @_ZN9benchmark7FLAGS_vE, align 4, !tbaa !163

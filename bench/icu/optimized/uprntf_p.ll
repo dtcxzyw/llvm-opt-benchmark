@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZL8gNullStr = internal constant [7 x i16] [i16 40, i16 110, i16 117, i16 108, i16 108, i16 41, i16 0], align 2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @u_printf_parse_75(ptr noundef %streamHandler, ptr noundef %fmt, ptr noundef %context, ptr noundef readonly captures(address_is_null) %locStringContext, ptr noundef %formatBundle, ptr noundef captures(none) %written, ptr noundef captures(none) %ap) local_unnamed_addr #0 {
+define i32 @u_printf_parse_75(ptr noundef %streamHandler, ptr noundef %fmt, ptr noundef %context, ptr noundef readonly %locStringContext, ptr noundef %formatBundle, ptr noundef captures(none) %written, ptr noundef captures(none) %ap) local_unnamed_addr #0 {
 entry:
   %args = alloca %union.ufmt_args, align 8
   %spec = alloca %struct.u_printf_spec, align 4

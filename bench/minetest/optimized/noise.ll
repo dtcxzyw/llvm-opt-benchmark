@@ -2991,7 +2991,7 @@ for.end197:                                       ; preds = %for.cond40.for.end1
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5Noise11perlinMap2DEffPf(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, float noundef %x, float noundef %y, ptr noundef readonly captures(address) %persistence_map) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZN5Noise11perlinMap2DEffPf(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, float noundef %x, float noundef %y, ptr noundef readonly %persistence_map) local_unnamed_addr #7 align 2 {
 entry:
   %sx = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %sx, align 4, !tbaa !47
@@ -3603,7 +3603,7 @@ if.end67:                                         ; preds = %for.body54, %for.bo
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN5Noise13updateResultsEfPfPKfm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, float noundef %g, ptr noundef captures(none) %gmap, ptr noundef readonly captures(address) %persistence_map, i64 noundef %bufsize) local_unnamed_addr #21 align 2 {
+define dso_local void @_ZN5Noise13updateResultsEfPfPKfm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(88) %this, float noundef %g, ptr noundef captures(none) %gmap, ptr noundef readonly %persistence_map, i64 noundef %bufsize) local_unnamed_addr #21 align 2 {
 entry:
   %flags = getelementptr inbounds nuw i8, ptr %this, i64 36
   %0 = load i32, ptr %flags, align 4, !tbaa !69
@@ -4022,7 +4022,7 @@ if.end57:                                         ; preds = %for.body, %for.body
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local noundef ptr @_ZN5Noise11perlinMap3DEfffPf(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, float noundef %x, float noundef %y, float noundef %z, ptr noundef readonly captures(address) %persistence_map) local_unnamed_addr #7 align 2 {
+define dso_local noundef ptr @_ZN5Noise11perlinMap3DEfffPf(ptr noundef nonnull align 8 captures(none) dereferenceable(88) %this, float noundef %x, float noundef %y, float noundef %z, ptr noundef readonly %persistence_map) local_unnamed_addr #7 align 2 {
 entry:
   %sx = getelementptr inbounds nuw i8, ptr %this, i64 44
   %0 = load i32, ptr %sx, align 4, !tbaa !47

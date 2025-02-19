@@ -22335,7 +22335,7 @@ _ZNSt6vectorIN4i18n12phonenumbers12_GLOBAL__N_110NumberTestESaIS3_EED2Ev.exit: ;
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr %.0.val, ptr readnone captures(address) %.8.val, i32 noundef range(i32 0, 4) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZNK4i18n12phonenumbers22PhoneNumberMatcherTest33DoTestNumberNonMatchesForLeniencyERKSt6vectorINS0_12_GLOBAL__N_110NumberTestESaIS4_EENS0_18PhoneNumberMatcher8LeniencyE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(148) %0, ptr %.0.val, ptr readnone %.8.val, i32 noundef range(i32 0, 4) %1) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.boost::scoped_ptr.38", align 8
   %4 = alloca %"class.testing::AssertionResult", align 8
   %5 = alloca %"class.testing::Message", align 8
@@ -37887,7 +37887,7 @@ declare void @_ZN7testing8internal8GTestLogC1ENS0_16GTestLogSeverityEPKci(ptr no
 declare void @_ZN7testing8internal8GTestLogD1Ev(ptr noundef nonnull align 4 dereferenceable(4)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #6 {
+define internal fastcc void @_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestES3_EvT_S5_RSaIT0_E(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #6 {
   %.not4.i.i = icmp eq ptr %0, %1
   br i1 %.not4.i.i, label %_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_.exit, label %.lr.ph.i.i
 
@@ -37905,7 +37905,7 @@ _ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_.exit: ; pr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_(ptr noundef %0, ptr noundef readnone captures(address) %1) unnamed_addr #6 {
+define internal fastcc void @_ZSt8_DestroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEvT_S5_(ptr noundef %0, ptr noundef readnone %1) unnamed_addr #6 {
   %.not4.i = icmp eq ptr %0, %1
   br i1 %.not4.i, label %_ZNSt12_Destroy_auxILb0EE9__destroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEEEvT_S7_.exit, label %.lr.ph.i
 
@@ -37923,7 +37923,7 @@ _ZNSt12_Destroy_auxILb0EE9__destroyIPN4i18n12phonenumbers12_GLOBAL__N_110NumberT
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef ptr @_ZSt22__uninitialized_copy_aIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_S3_ET0_T_S8_S7_RSaIT1_E(ptr noundef %0, ptr noundef readnone %1, ptr noundef %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %.not16.i.i.i = icmp eq ptr %0, %1
   br i1 %.not16.i.i.i, label %_ZSt18uninitialized_copyIPKN4i18n12phonenumbers12_GLOBAL__N_110NumberTestEPS3_ET0_T_S8_S7_.exit, label %.lr.ph.i.i.i
 

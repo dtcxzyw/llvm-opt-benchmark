@@ -548,7 +548,7 @@ fmap_readn.exit236.thread:                        ; preds = %49, %46, %fmap_read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_elf_ph64(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %7 = load i16, ptr %6, align 8, !tbaa !30
   %8 = zext i16 %7 to i32
@@ -901,7 +901,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_elf_ph32(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 44
   %7 = load i16, ptr %6, align 4, !tbaa !49
   %8 = zext i16 %7 to i32
@@ -1255,7 +1255,7 @@ fmap_readn.exit.thread:                           ; preds = %fmap_readn.exit, %.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_elf_sh64(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %7 = load i16, ptr %6, align 4, !tbaa !60
   %8 = zext i16 %7 to i32
@@ -1527,7 +1527,7 @@ fmap_readn.exit.thread:                           ; preds = %57, %54, %fmap_read
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
+define internal fastcc range(i32 0, 27) i32 @cli_elf_sh32(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull readonly captures(none) %3, i8 noundef zeroext %4) unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %7 = load i16, ptr %6, align 4, !tbaa !75
   %8 = zext i16 %7 to i32
@@ -1797,7 +1797,7 @@ fmap_readn.exit.thread:                           ; preds = %58, %54, %fmap_read
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 27) i32 @cli_elfheader(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 27) i32 @cli_elfheader(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %union.elf_file_hdr, align 8
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1

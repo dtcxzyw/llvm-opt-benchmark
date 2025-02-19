@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.LZ4F_writeOpen = private unnamed_addr constant [8 x i64] [i64 65536, i64 poison, i64 poison, i64 poison, i64 65536, i64 262144, i64 1048576, i64 4194304], align 8
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @LZ4F_readOpen(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef i64 @LZ4F_readOpen(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca [19 x i8], align 16
   %4 = alloca i64, align 8
   %5 = alloca %struct.LZ4F_frameInfo_t, align 8
@@ -201,7 +201,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define i64 @LZ4F_read(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define i64 @LZ4F_read(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = icmp eq ptr %0, null
@@ -287,7 +287,7 @@ define i64 @LZ4F_read(ptr noundef captures(address_is_null) %0, ptr noundef %1, 
 declare i64 @LZ4F_decompress(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i64 -21, 1) i64 @LZ4F_readClose(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i64 -21, 1) i64 @LZ4F_readClose(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %7, label %LZ4F_freeReadFile.exit
 
@@ -306,7 +306,7 @@ LZ4F_freeReadFile.exit:                           ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @LZ4F_writeOpen(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef i64 @LZ4F_writeOpen(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca [19 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 19, ptr nonnull %4) #9
   %5 = icmp eq ptr %1, null
@@ -475,7 +475,7 @@ declare i64 @LZ4F_compressBegin(ptr noundef, ptr noundef, i64 noundef, ptr nound
 declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @LZ4F_write(ptr noundef captures(address_is_null) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
+define noundef i64 @LZ4F_write(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -532,7 +532,7 @@ define noundef i64 @LZ4F_write(ptr noundef captures(address_is_null) %0, ptr nou
 declare i64 @LZ4F_compressUpdate(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define noundef i64 @LZ4F_writeClose(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef i64 @LZ4F_writeClose(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %24, label %3
 

@@ -28,13 +28,13 @@ declare noalias ptr @wmem_alloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i32 0, 3) i32 @range_convert_str(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @range_convert_str(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @range_convert_str_work(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext true)
   ret i32 %5
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define range(i32 0, 3) i32 @range_convert_str_work(ptr noundef %0, ptr noundef writeonly %1, ptr noundef %2, i32 noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
@@ -336,7 +336,7 @@ declare zeroext i1 @ws_basestrtou32(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
-define noundef zeroext i1 @value_is_in_range(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define noundef zeroext i1 @value_is_in_range(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader
 
@@ -374,7 +374,7 @@ define noundef zeroext i1 @value_is_in_range(ptr noundef readonly captures(addre
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -464,7 +464,7 @@ define noundef zeroext i1 @range_add_value(ptr noundef %0, ptr noundef captures(
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define noundef zeroext i1 @range_remove_value(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @range_remove_value(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %4
 
@@ -583,7 +583,7 @@ define noundef zeroext i1 @range_remove_value(ptr noundef %0, ptr noundef captur
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(argmem: read) uwtable
-define noundef zeroext i1 @ranges_are_equal(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #6 {
+define noundef zeroext i1 @ranges_are_equal(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -633,7 +633,7 @@ define noundef zeroext i1 @ranges_are_equal(ptr noundef readonly captures(addres
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define void @range_foreach(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @range_foreach(ptr noundef readonly %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -682,7 +682,7 @@ define void @range_foreach(ptr noundef readonly captures(address_is_null) %0, pt
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @range_convert_range(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = tail call noalias ptr @wmem_strbuf_new(ptr noundef %0, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.loopexit, label %.preheader

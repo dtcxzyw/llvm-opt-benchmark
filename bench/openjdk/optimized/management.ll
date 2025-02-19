@@ -1747,7 +1747,7 @@ _ZN7VM_Exit18block_if_vm_exitedEv.exit:           ; preds = %1, %4
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 -1, 1) i32 @jmm_GetOptionalSupport(ptr readnone captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) #0 {
+define hidden range(i32 -1, 1) i32 @jmm_GetOptionalSupport(ptr readnone captures(none) %0, ptr noundef writeonly %1) #0 {
   %3 = load volatile i8, ptr @_ZN7VM_Exit10_vm_exitedE, align 1
   %4 = trunc i8 %3 to i1
   br i1 %4, label %5, label %_ZN7VM_Exit18block_if_vm_exitedEv.exit
@@ -7526,7 +7526,7 @@ declare noundef zeroext i1 @_ZNK7JVMFlag11is_unlockerEv(ptr noundef nonnull alig
 declare ptr @_ZN16java_lang_String15create_from_strEPKcP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden i32 @jmm_GetVMGlobals(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) #0 {
+define hidden i32 @jmm_GetVMGlobals(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3) #0 {
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
   %7 = inttoptr i64 %6 to ptr
@@ -7880,7 +7880,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %_ZN12ResourceMarkD2
 declare noundef ptr @_ZN16java_lang_String14as_utf8_stringEP7oopDesc(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL16add_global_entry6HandleP11jmmVMGlobalP7JVMFlagP10JavaThread(ptr readonly captures(address_is_null) %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @_ZL16add_global_entry6HandleP11jmmVMGlobalP7JVMFlagP10JavaThread(ptr readonly %0, ptr noundef nonnull captures(none) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %_ZNK6HandleclEv.exit.thread, label %_ZNK6HandleclEv.exit
 
@@ -9253,7 +9253,7 @@ _ZN17HandleMarkCleanerD2Ev.exit:                  ; preds = %32, %38
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden range(i32 0, 2) i32 @jmm_GetGCExtAttributeInfo(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) #0 {
+define hidden range(i32 0, 2) i32 @jmm_GetGCExtAttributeInfo(ptr noundef %0, ptr readnone captures(none) %1, ptr noundef writeonly %2, i32 noundef %3) #0 {
   %5 = ptrtoint ptr %0 to i64
   %6 = add nsw i64 %5, -960
   %7 = inttoptr i64 %6 to ptr
@@ -10494,7 +10494,7 @@ declare noundef ptr @_ZN11DCmdFactory9DCmd_listE10DCmdSource(i32 noundef) local_
 declare noundef ptr @_ZN16java_lang_String19create_oop_from_strEPKcP10JavaThread(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @jmm_GetDiagnosticCommandInfo(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
+define hidden void @jmm_GetDiagnosticCommandInfo(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) #0 {
   %4 = ptrtoint ptr %0 to i64
   %5 = add nsw i64 %4, -960
   %6 = inttoptr i64 %5 to ptr

@@ -783,7 +783,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIaLNS0_8CellKindE35
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIaLNS0_8CellKindE35EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIaLNS0_8CellKindE35EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Int8ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 296
   ret ptr %Int8ArrayPrototype
@@ -1049,7 +1049,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIaLNS0_8CellKindE35EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIaLNS0_8CellKindE35EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Int8ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 304
   ret ptr %Int8ArrayConstructor
@@ -1607,7 +1607,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIsLNS0_8CellKindE36
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Int16ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 312
   ret ptr %Int16ArrayPrototype
@@ -1763,7 +1763,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIsLNS0_8CellKindE36EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Int16ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 320
   ret ptr %Int16ArrayConstructor
@@ -2206,7 +2206,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIiLNS0_8CellKindE37
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Int32ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 328
   ret ptr %Int32ArrayPrototype
@@ -2362,7 +2362,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIiLNS0_8CellKindE37EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Int32ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 336
   ret ptr %Int32ArrayConstructor
@@ -2805,7 +2805,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIhLNS0_8CellKindE38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE38EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE38EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Uint8ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 344
   ret ptr %Uint8ArrayPrototype
@@ -2961,7 +2961,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE38EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE38EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Uint8ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 352
   ret ptr %Uint8ArrayConstructor
@@ -3388,7 +3388,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIhLNS0_8CellKindE39
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE39EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE39EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Uint8ClampedArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 360
   ret ptr %Uint8ClampedArrayPrototype
@@ -3544,7 +3544,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE39EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIhLNS0_8CellKindE39EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Uint8ClampedArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 368
   ret ptr %Uint8ClampedArrayConstructor
@@ -3963,7 +3963,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayItLNS0_8CellKindE40
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Uint16ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 376
   ret ptr %Uint16ArrayPrototype
@@ -4119,7 +4119,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayItLNS0_8CellKindE40EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Uint16ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 384
   ret ptr %Uint16ArrayConstructor
@@ -4562,7 +4562,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIjLNS0_8CellKindE41
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Uint32ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 392
   ret ptr %Uint32ArrayPrototype
@@ -4718,7 +4718,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIjLNS0_8CellKindE41EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Uint32ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 400
   ret ptr %Uint32ArrayConstructor
@@ -5146,7 +5146,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIfLNS0_8CellKindE42
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIfLNS0_8CellKindE42EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIfLNS0_8CellKindE42EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Float32ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 408
   ret ptr %Float32ArrayPrototype
@@ -5302,7 +5302,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIfLNS0_8CellKindE42EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIfLNS0_8CellKindE42EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Float32ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 416
   ret ptr %Float32ArrayConstructor
@@ -5703,7 +5703,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIdLNS0_8CellKindE43
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIdLNS0_8CellKindE43EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIdLNS0_8CellKindE43EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Float64ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 424
   ret ptr %Float64ArrayPrototype
@@ -5859,7 +5859,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIdLNS0_8CellKindE43EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIdLNS0_8CellKindE43EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %Float64ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 432
   ret ptr %Float64ArrayConstructor
@@ -6333,7 +6333,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayIlLNS0_8CellKindE44
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %BigInt64ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 440
   ret ptr %BigInt64ArrayPrototype
@@ -6489,7 +6489,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayIlLNS0_8CellKindE44EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %BigInt64ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 448
   ret ptr %BigInt64ArrayConstructor
@@ -6986,7 +6986,7 @@ _ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12JSTypedArrayImLNS0_8CellKindE45
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE12getPrototypeERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %BigUint64ArrayPrototype = getelementptr inbounds nuw i8, ptr %runtime, i64 456
   ret ptr %BigUint64ArrayPrototype
@@ -7142,7 +7142,7 @@ return:                                           ; preds = %_ZN6hermes2vm16JSTy
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
+define hidden nonnull ptr @_ZN6hermes2vm12JSTypedArrayImLNS0_8CellKindE45EE14getConstructorERKNS0_7RuntimeE(ptr noundef nonnull readnone align 8 dereferenceable(9832) %runtime) local_unnamed_addr #3 align 2 {
 entry:
   %BigUint64ArrayConstructor = getelementptr inbounds nuw i8, ptr %runtime, i64 464
   ret ptr %BigUint64ArrayConstructor

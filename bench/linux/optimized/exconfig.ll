@@ -210,7 +210,7 @@ declare dso_local i32 @acpi_ns_initialize_objects() local_unnamed_addr #2
 declare dso_local i32 @acpi_ex_store(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @acpi_ex_unload_table(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
+define dso_local i32 @acpi_ex_unload_table(ptr noundef %0) local_unnamed_addr #0 align 16 {
   tail call void (ptr, i32, ptr, ...) @acpi_warning(ptr noundef nonnull @_acpi_module_name, i32 noundef 501, ptr noundef nonnull @.str.2) #7
   tail call void (ptr, i32, i32, ptr, ...) @acpi_exception(ptr noundef nonnull @_acpi_module_name, i32 noundef 511, i32 noundef 14, ptr noundef nonnull @.str.3) #7
   %2 = icmp eq ptr %0, null

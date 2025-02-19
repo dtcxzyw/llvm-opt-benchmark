@@ -2028,7 +2028,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare i32 @crypto_sign_verify_detached(ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN3nix14verifyDetachedESt17basic_string_viewIcSt11char_traitsIcEES3_RKSt3mapINSt7__cxx1112basic_stringIcS2_SaIcEEENS_9PublicKeyESt4lessIS8_ESaISt4pairIKS8_S9_EEE(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN3nix14verifyDetachedESt17basic_string_viewIcSt11char_traitsIcEES3_RKSt3mapINSt7__cxx1112basic_stringIcS2_SaIcEEENS_9PublicKeyESt4lessIS8_ESaISt4pairIKS8_S9_EEE(i64 %0, ptr %1, i64 %2, ptr %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %4) local_unnamed_addr #2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::__cxx11::basic_string", align 8
   %7 = alloca %"class.std::allocator", align 1
   %.not.i = icmp eq i64 %2, 0

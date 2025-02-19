@@ -408,7 +408,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @neigh_changeaddr(ptr noundef %0, ptr noundef captures(address) %1) #0 align 16 {
+define dso_local void @neigh_changeaddr(ptr noundef %0, ptr noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @_raw_write_lock_bh(ptr noundef nonnull %3) #21
   %4 = getelementptr i8, ptr %0, i64 584
@@ -422,7 +422,7 @@ define dso_local void @neigh_changeaddr(ptr noundef %0, ptr noundef captures(add
 declare dso_local void @_raw_write_lock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @neigh_flush_dev(ptr readonly captures(none) %.584.val, ptr noundef readnone captures(address) %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
+define internal fastcc void @neigh_flush_dev(ptr readonly captures(none) %.584.val, ptr noundef readnone %0, i1 noundef zeroext %1) unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %.584.val, i64 8
   %4 = load i32, ptr %3, align 8
   %5 = icmp eq i32 %4, 31
@@ -711,13 +711,13 @@ neigh_cleanup_and_release.exit:                   ; preds = %139, %141, %142
 declare dso_local void @_raw_write_unlock_bh(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @neigh_carrier_down(ptr noundef %0, ptr noundef captures(address) %1) #0 align 16 {
+define dso_local noundef i32 @neigh_carrier_down(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef %1, i1 noundef zeroext true)
   ret i32 0
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef captures(address) %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
+define internal fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 560
   tail call void @_raw_write_lock_bh(ptr noundef nonnull %4) #21
   %5 = getelementptr i8, ptr %0, i64 584
@@ -859,7 +859,7 @@ define internal fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef captures
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef i32 @neigh_ifdown(ptr noundef %0, ptr noundef captures(address) %1) #0 align 16 {
+define dso_local noundef i32 @neigh_ifdown(ptr noundef %0, ptr noundef %1) #0 align 16 {
   tail call fastcc void @__neigh_ifdown(ptr noundef %0, ptr noundef %1, i1 noundef zeroext false)
   ret i32 0
 }
@@ -1621,7 +1621,7 @@ neigh_hash_alloc.exit.thread:                     ; preds = %239, %265, %306, %2
 }
 
 ; Function Attrs: fn_ret_thunk_extern nofree nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @__pneigh_lookup(ptr noundef readonly captures(none) %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(address) %3) #3 align 16 {
+define dso_local ptr @__pneigh_lookup(ptr noundef readonly captures(none) %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef readnone %3) #3 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
@@ -1831,7 +1831,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare dso_local void @kfree(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -2, 1) i32 @pneigh_delete(ptr noundef %0, ptr noundef readnone captures(address) %1, ptr noundef readonly captures(none) %2, ptr noundef readnone captures(address) %3) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -2, 1) i32 @pneigh_delete(ptr noundef %0, ptr noundef readnone %1, ptr noundef readonly captures(none) %2, ptr noundef readnone %3) local_unnamed_addr #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i32, ptr %5, align 8
   %7 = zext i32 %6 to i64
@@ -2646,7 +2646,7 @@ define dso_local noundef range(i32 -22, 1) i32 @neigh_update(ptr noundef %0, ptr
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -22, 1) i32 @__neigh_update(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -22, 1) i32 @__neigh_update(ptr noundef %0, ptr noundef %1, i8 noundef zeroext %2, i32 noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 align 16 {
   callbr void asm sideeffect "1:jmp ${2:l} # objtool NOPs this \0A\09.pushsection __jump_table,  \22aw\22 \0A\09 .balign 8 \0A\09.long 1b - . \0A\09.long ${2:l} - . \0A\09 .quad ${0:c} + ${1:c} - .\0A\09.popsection \0A\09", "i,i,!i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull getelementptr inbounds nuw (i8, ptr @__tracepoint_neigh_update, i64 8), i32 2) #21
           to label %27 [label %7], !srcloc !17
 
@@ -4700,7 +4700,7 @@ define dso_local noundef i32 @neigh_table_clear(i32 noundef %0, ptr noundef %1) 
 declare dso_local zeroext i1 @cancel_delayed_work_sync(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @pneigh_queue_purge(ptr noundef %0, ptr noundef readnone captures(address) %1, i32 noundef %2) unnamed_addr #0 align 16 {
+define internal fastcc void @pneigh_queue_purge(ptr noundef %0, ptr noundef readnone %1, i32 noundef %2) unnamed_addr #0 align 16 {
   %4 = alloca %struct.sk_buff_head, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #21
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -7225,7 +7225,7 @@ define internal ptr @neigh_stat_seq_next(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef i32 @neigh_stat_seq_show(ptr noundef %0, ptr noundef readonly captures(address) %1) #0 align 16 {
+define internal noundef i32 @neigh_stat_seq_show(ptr noundef %0, ptr noundef readonly %1) #0 align 16 {
   %3 = icmp eq ptr %1, inttoptr (i64 1 to ptr)
   br i1 %3, label %4, label %5
 
@@ -7976,7 +7976,7 @@ define internal i32 @neigh_add(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 -97, 1) i32 @neigh_delete(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) #0 align 16 {
+define internal noundef range(i32 -97, 1) i32 @neigh_delete(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) #0 align 16 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 48

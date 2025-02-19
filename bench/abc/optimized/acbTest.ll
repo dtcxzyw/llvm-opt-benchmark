@@ -1952,7 +1952,7 @@ define ptr @Acb_NtkGiaDeriveMiter(ptr noundef readonly captures(none) %0, ptr no
 declare void @Gia_ManHashStop(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @Acb_OutputFile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define void @Acb_OutputFile(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   %4 = select i1 %.not, ptr @.str.11, ptr %0
   %5 = tail call noalias ptr @fopen(ptr noundef nonnull %4, ptr noundef nonnull @.str.12)

@@ -189,7 +189,7 @@ fileName.exit:                                    ; preds = %.thread21, %38, %40
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @newIng(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef ptr @newIng(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %9
 
@@ -243,7 +243,7 @@ new_ing.exit:                                     ; preds = %6, %17, %20
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @newIngGraphs(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef ptr @newIngGraphs(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %4, label %9
 
@@ -299,7 +299,7 @@ new_ing.exit:                                     ; preds = %6, %17, %20
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @newIngraph(ptr noundef writeonly captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #2 {
+define noundef ptr @newIngraph(ptr noundef writeonly %0, ptr noundef %1) local_unnamed_addr #2 {
   %.not.i.i = icmp eq ptr %0, null
   br i1 %.not.i.i, label %3, label %8
 

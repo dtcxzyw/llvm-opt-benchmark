@@ -72,7 +72,7 @@ define internal i32 @apply_all_case_fold(i32 noundef %0, ptr noundef %1, ptr nou
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readnone captures(address) %2, ptr noundef writeonly captures(none) %3) #3 {
+define internal range(i32 0, 5) i32 @get_case_fold_codes_by_str(i32 noundef %0, ptr noundef readonly %1, ptr noundef readnone %2, ptr noundef writeonly captures(none) %3) #3 {
   %5 = load i8, ptr %1, align 1, !tbaa !9
   %.fr = freeze i8 %5
   %6 = add i8 %.fr, -65

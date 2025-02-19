@@ -187,7 +187,7 @@ define hidden void @plpgsql_ns_init() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @plpgsql_ns_push(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #1 {
+define hidden void @plpgsql_ns_push(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   %spec.store.select = select i1 %3, ptr @.str, ptr %0
   %4 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %spec.store.select) #15
@@ -261,7 +261,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #5
 declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readnone captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #7 {
+define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly %0, i1 noundef zeroext %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3, ptr noundef readnone %4, ptr noundef writeonly %5) local_unnamed_addr #7 {
   %.not73 = icmp eq ptr %0, null
   br i1 %.not73, label %.thread53, label %.preheader57.lr.ph
 
@@ -422,7 +422,7 @@ define noundef ptr @plpgsql_ns_lookup(ptr noundef readonly captures(address_is_n
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @plpgsql_ns_lookup_label(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
+define hidden noundef ptr @plpgsql_ns_lookup_label(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -450,7 +450,7 @@ define hidden noundef ptr @plpgsql_ns_lookup_label(ptr noundef readonly captures
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @plpgsql_ns_find_nearest_loop(ptr noundef readonly captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #9 {
+define hidden noundef ptr @plpgsql_ns_find_nearest_loop(ptr noundef readonly %0) local_unnamed_addr #9 {
   %.not7 = icmp eq ptr %0, null
   br i1 %.not7, label %._crit_edge, label %.lr.ph
 
@@ -663,7 +663,7 @@ define hidden void @plpgsql_mark_local_assignment_targets(ptr noundef readonly c
 declare ptr @bms_add_member(ptr noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @mark_stmt(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #1 {
+define internal fastcc void @mark_stmt(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %plpgsql_statement_tree_walker_impl.specialized.1.exit, label %4
 
@@ -922,7 +922,7 @@ declare i32 @errmsg_internal(ptr noundef, ...) local_unnamed_addr #4
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @free_stmt(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #1 {
+define internal fastcc void @free_stmt(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %plpgsql_statement_tree_walker_impl.specialized.3.exit, label %3
 
@@ -2576,7 +2576,7 @@ declare zeroext i1 @bms_is_member(i32 noundef, ptr noundef) local_unnamed_addr #
 declare i32 @SPI_freeplan(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @dump_stmts(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #1 {
+define internal fastcc void @dump_stmts(ptr noundef readonly %0) unnamed_addr #1 {
   %2 = load i32, ptr @dump_indent, align 4
   %3 = add i32 %2, 2
   store i32 %3, ptr @dump_indent, align 4

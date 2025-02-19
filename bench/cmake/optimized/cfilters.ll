@@ -736,7 +736,7 @@ define dso_local void @Curl_conn_cf_insert_after(ptr noundef captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef captures(address) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
+define dso_local noundef zeroext i1 @Curl_conn_cf_discard_sub(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) local_unnamed_addr #1 {
   br label %5
 
 5:                                                ; preds = %7, %4
@@ -1216,7 +1216,7 @@ define dso_local noundef zeroext i1 @Curl_conn_is_ip_connected(ptr noundef reado
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @Curl_conn_cf_is_ssl(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @Curl_conn_cf_is_ssl(ptr noundef readonly %0) local_unnamed_addr #7 {
   %.not8 = icmp eq ptr %0, null
   br i1 %.not8, label %._crit_edge, label %.lr.ph
 
@@ -1246,7 +1246,7 @@ define dso_local noundef zeroext i1 @Curl_conn_cf_is_ssl(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @Curl_conn_is_ssl(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @Curl_conn_is_ssl(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %Curl_conn_cf_is_ssl.exit, label %3
 
@@ -1284,7 +1284,7 @@ Curl_conn_cf_is_ssl.exit:                         ; preds = %Curl_conn_cf_is_ssl
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef zeroext i1 @Curl_conn_is_multiplex(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #7 {
+define dso_local noundef zeroext i1 @Curl_conn_is_multiplex(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #7 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %3
 
@@ -2258,7 +2258,7 @@ define dso_local range(i32 0, -2147483648) i32 @Curl_conn_get_stream_error(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @Curl_conn_sockindex(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define dso_local range(i32 0, 2) i32 @Curl_conn_sockindex(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %12, label %3
 

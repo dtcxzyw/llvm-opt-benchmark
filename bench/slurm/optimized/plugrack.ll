@@ -127,7 +127,7 @@ define dso_local range(i32 -1, 1) i32 @plugrack_destroy(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
+define dso_local range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #11
   %4 = icmp ne ptr %0, null
@@ -183,7 +183,7 @@ define dso_local range(i32 -1, 1) i32 @plugrack_read_dir(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @plugrack_use_by_type(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
+define dso_local ptr @plugrack_use_by_type(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp ne ptr %1, null
   %or.cond = and i1 %3, %4

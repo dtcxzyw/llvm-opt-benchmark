@@ -11,7 +11,7 @@ target triple = "x86_64-pc-linux-gnu"
 @lj_obj_itypename = external hidden local_unnamed_addr constant [14 x ptr], align 16
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @lj_cconv_compatptr(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef readonly %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = and i32 %3, 1
   %.not = icmp ne i32 %5, 0
   %6 = icmp eq ptr %1, %2
@@ -1603,7 +1603,7 @@ define hidden void @lj_cconv_bf_tv(ptr noundef %0, ptr noundef readonly captures
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @lj_cconv_multi_init(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
+define hidden range(i32 0, 2) i32 @lj_cconv_multi_init(ptr noundef %0, ptr noundef readonly %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #2 {
   %4 = load i32, ptr %1, align 8, !tbaa !17
   %5 = and i32 %4, -67108864
   %6 = icmp eq i32 %5, 805306368

@@ -1347,7 +1347,7 @@ if.end15:                                         ; preds = %while.body, %while.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: write) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC8Memset64EPvmm(ptr noundef returned writeonly captures(address, ret: address, provenance) %pDest, i64 noundef %c, i64 noundef %count) local_unnamed_addr #2 {
+define dso_local noundef ptr @_ZN2EA4StdC8Memset64EPvmm(ptr noundef returned writeonly %pDest, i64 noundef %c, i64 noundef %count) local_unnamed_addr #2 {
 entry:
   %add.ptr = getelementptr inbounds i64, ptr %pDest, i64 %count
   %cmp4 = icmp sgt i64 %count, 0
@@ -1468,7 +1468,7 @@ if.end34:                                         ; preds = %for.cond22.while.co
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC9Memcheck8EPKvhm(ptr noundef readonly captures(ret: address, provenance) %p, i8 noundef zeroext %c, i64 noundef %byteCount) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN2EA4StdC9Memcheck8EPKvhm(ptr noundef readonly %p, i8 noundef zeroext %c, i64 noundef %byteCount) local_unnamed_addr #4 {
 entry:
   %cmp.not4 = icmp eq i64 %byteCount, 0
   br i1 %cmp.not4, label %return, label %for.body
@@ -1594,7 +1594,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC6MemchrEPKccm(ptr noundef readonly captures(ret: address, provenance) %p, i8 noundef signext %c, i64 noundef %nCharCount) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN2EA4StdC6MemchrEPKccm(ptr noundef readonly %p, i8 noundef signext %c, i64 noundef %nCharCount) local_unnamed_addr #4 {
 entry:
   %cmp.not4 = icmp eq i64 %nCharCount, 0
   br i1 %cmp.not4, label %return, label %for.body
@@ -1618,7 +1618,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC8Memchr16EPKDsDsm(ptr noundef readonly captures(ret: address, provenance) %pString, i16 noundef zeroext %c, i64 noundef %nCharCount) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN2EA4StdC8Memchr16EPKDsDsm(ptr noundef readonly %pString, i16 noundef zeroext %c, i64 noundef %nCharCount) local_unnamed_addr #4 {
 entry:
   %cmp.not4 = icmp eq i64 %nCharCount, 0
   br i1 %cmp.not4, label %return, label %for.body
@@ -1642,7 +1642,7 @@ return:                                           ; preds = %for.body, %for.inc,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC8Memchr32EPKDiDim(ptr noundef readonly captures(ret: address, provenance) %pString, i32 noundef zeroext %c, i64 noundef %nCharCount) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN2EA4StdC8Memchr32EPKDiDim(ptr noundef readonly %pString, i32 noundef zeroext %c, i64 noundef %nCharCount) local_unnamed_addr #4 {
 entry:
   %cmp.not4 = icmp eq i64 %nCharCount, 0
   br i1 %cmp.not4, label %return, label %for.body
@@ -1698,7 +1698,7 @@ return:                                           ; preds = %for.inc, %entry, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN2EA4StdC6MemmemEPKvmS2_m(ptr noundef readonly captures(address, ret: address, provenance) %pMemory, i64 noundef %memorySize, ptr noundef readonly captures(none) %pFind, i64 noundef %findSize) local_unnamed_addr #4 {
+define dso_local noundef ptr @_ZN2EA4StdC6MemmemEPKvmS2_m(ptr noundef readonly %pMemory, i64 noundef %memorySize, ptr noundef readonly captures(none) %pFind, i64 noundef %findSize) local_unnamed_addr #4 {
 entry:
   %add.ptr = getelementptr inbounds i8, ptr %pMemory, i64 %memorySize
   %idx.neg = sub i64 0, %findSize

@@ -17,13 +17,13 @@ target triple = "x86_64-pc-linux-gnu"
 @class_set.mask = internal unnamed_addr constant [8 x i8] c"\FE\FD\FB\F7\EF\DF\BF\7F", align 1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @MOZ_Z_deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @MOZ_Z_deflateInit_(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = tail call i32 @MOZ_Z_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef 8, i32 noundef 15, i32 noundef 8, i32 noundef 0, ptr noundef %2, i32 noundef %3)
   ret i32 %5
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -6, 1) i32 @MOZ_Z_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7) local_unnamed_addr #0 {
+define range(i32 -6, 1) i32 @MOZ_Z_deflateInit2_(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7) local_unnamed_addr #0 {
   tail call void @MOZ_Z__x86_check_features() #10
   %9 = icmp eq ptr %6, null
   br i1 %9, label %122, label %10
@@ -235,7 +235,7 @@ declare void @MOZ_Z_zcfree(ptr noundef, ptr noundef) #1
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -3, 1) i32 @MOZ_Z_deflateEnd(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -3, 1) i32 @MOZ_Z_deflateEnd(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %62, label %3
 
@@ -355,7 +355,7 @@ define range(i32 -3, 1) i32 @MOZ_Z_deflateEnd(ptr noundef captures(address_is_nu
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @MOZ_Z_deflateReset(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @MOZ_Z_deflateReset(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call i32 @MOZ_Z_deflateResetKeep(ptr noundef %0)
   %3 = icmp eq i32 %2, 0
   br i1 %3, label %4, label %47
@@ -425,7 +425,7 @@ define range(i32 -2, 1) i32 @MOZ_Z_deflateReset(ptr noundef captures(address_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @MOZ_Z_deflateSetDictionary(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @MOZ_Z_deflateSetDictionary(ptr noundef %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %149, label %5
 
@@ -1137,7 +1137,7 @@ fill_window_c.exit:                               ; preds = %.sink.split.i, %253
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -2, 1) i32 @MOZ_Z_deflateResetKeep(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -2, 1) i32 @MOZ_Z_deflateResetKeep(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %47, label %3
 
@@ -1231,7 +1231,7 @@ declare i64 @MOZ_Z_crc32(i64 noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare void @MOZ_Z__tr_init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @MOZ_Z_deflateSetHeader(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #3 {
+define range(i32 -2, 1) i32 @MOZ_Z_deflateSetHeader(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #3 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %13, label %4
 
@@ -1258,7 +1258,7 @@ define range(i32 -2, 1) i32 @MOZ_Z_deflateSetHeader(ptr noundef readonly capture
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @MOZ_Z_deflatePending(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define range(i32 -2, 1) i32 @MOZ_Z_deflatePending(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %17, label %5
 
@@ -1294,7 +1294,7 @@ define range(i32 -2, 1) i32 @MOZ_Z_deflatePending(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -5, 1) i32 @MOZ_Z_deflatePrime(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define range(i32 -5, 1) i32 @MOZ_Z_deflatePrime(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %.loopexit, label %5
 
@@ -2879,7 +2879,7 @@ flush_pending.exit416:                            ; preds = %636, %642, %659
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define range(i32 -2, 1) i32 @MOZ_Z_deflateTune(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
+define range(i32 -2, 1) i32 @MOZ_Z_deflateTune(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #5 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %16, label %7
 
@@ -2906,7 +2906,7 @@ define range(i32 -2, 1) i32 @MOZ_Z_deflateTune(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define i64 @MOZ_Z_deflateBound(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #6 {
+define i64 @MOZ_Z_deflateBound(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #6 {
   %3 = add i64 %1, 7
   %4 = lshr i64 %3, 3
   %5 = add i64 %4, %1
@@ -3883,7 +3883,7 @@ declare void @MOZ_Z__tr_stored_block(ptr noundef, ptr noundef, i64 noundef, i32 
 declare void @MOZ_Z__crc_finalize(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -4, 1) i32 @MOZ_Z_deflateCopy(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 -4, 1) i32 @MOZ_Z_deflateCopy(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   %4 = icmp eq ptr %0, null
   %or.cond = or i1 %4, %3

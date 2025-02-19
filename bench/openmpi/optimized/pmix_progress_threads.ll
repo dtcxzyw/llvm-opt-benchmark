@@ -65,7 +65,7 @@ define void @PMIx_Progress() local_unnamed_addr #0 {
 declare i32 @event_base_loop(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @pmix_progress_thread_init(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @pmix_progress_thread_init(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b45 = load i1, ptr @inited, align 1
   br i1 %.b45, label %12, label %2
 
@@ -395,7 +395,7 @@ define internal void @dummy_timeout_cb(i32 %0, i16 signext %1, ptr noundef %2) #
 declare i32 @event_add(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_progress_thread_start(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef i32 @pmix_progress_thread_start(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b22 = load i1, ptr @inited, align 1
   br i1 %.b22, label %2, label %.loopexit
 
@@ -640,7 +640,7 @@ define internal fastcc noundef i32 @start_progress_engine(ptr noundef %0) unname
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_progress_thread_stop(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_progress_thread_stop(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b21 = load i1, ptr @inited, align 1
   br i1 %.b21, label %2, label %.loopexit
 
@@ -772,7 +772,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %48
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_progress_thread_finalize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_progress_thread_finalize(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b18 = load i1, ptr @inited, align 1
   br i1 %.b18, label %2, label %.loopexit
 
@@ -887,7 +887,7 @@ pmix_obj_run_destructors.exit:                    ; preds = %.lr.ph.i, %37
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -46, 1) i32 @pmix_progress_thread_pause(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define range(i32 -46, 1) i32 @pmix_progress_thread_pause(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b11 = load i1, ptr @inited, align 1
   br i1 %.b11, label %2, label %.loopexit
 
@@ -946,7 +946,7 @@ define range(i32 -46, 1) i32 @pmix_progress_thread_pause(ptr noundef readonly ca
 }
 
 ; Function Attrs: nounwind uwtable
-define noundef i32 @pmix_progress_thread_resume(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define noundef i32 @pmix_progress_thread_resume(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b11 = load i1, ptr @inited, align 1
   br i1 %.b11, label %2, label %.loopexit
 

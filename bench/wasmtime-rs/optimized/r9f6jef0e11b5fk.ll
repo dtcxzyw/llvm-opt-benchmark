@@ -2029,7 +2029,7 @@ _ZN3std4sync6poison4Flag4done17h6aecd475d8dd2349E.llvm.14031171042790067460.exit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$$LP$wasmtime_runtime..instance..allocator..MemoryAllocationIndex$C$wasmtime_runtime..memory..Memory$RP$$GT$17h6ea0952514a78352E"(ptr %.8.val, ptr readonly captures(address_is_null) %.16.val) unnamed_addr #5 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr124drop_in_place$LT$$LP$wasmtime_runtime..instance..allocator..MemoryAllocationIndex$C$wasmtime_runtime..memory..Memory$RP$$GT$17h6ea0952514a78352E"(ptr %.8.val, ptr readonly %.16.val) unnamed_addr #5 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.16.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.16.val, align 8, !invariant.load !4, !noalias !711, !nonnull !4

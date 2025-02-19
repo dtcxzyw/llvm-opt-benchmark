@@ -1178,7 +1178,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.bytes_richcompare = private unnamed_addr constant [6 x ptr] [ptr @_Py_FalseStruct, ptr @_Py_TrueStruct, ptr @_Py_TrueStruct, ptr @_Py_FalseStruct, ptr @_Py_FalseStruct, ptr @_Py_TrueStruct], align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyBytes_FromStringAndSize(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @PyBytes_FromStringAndSize(ptr noundef readonly %0, i64 noundef %1) local_unnamed_addr #0 {
   %3 = icmp slt i64 %1, 0
   br i1 %3, label %4, label %6
 
@@ -4868,7 +4868,7 @@ define dso_local i64 @PyBytes_Size(ptr noundef readonly captures(none) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @PyBytes_AsString(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define dso_local ptr @PyBytes_AsString(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 8
   %.val4 = load ptr, ptr %2, align 8, !tbaa !10
   %3 = getelementptr i8, ptr %.val4, i64 168
@@ -4894,7 +4894,7 @@ define dso_local ptr @PyBytes_AsString(ptr noundef readonly captures(ret: addres
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @PyBytes_AsStringAndSize(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @PyBytes_AsStringAndSize(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %5, label %6
 
@@ -6619,7 +6619,7 @@ define internal ptr @bytes_str(ptr noundef readonly captures(none) %0) #0 {
 declare ptr @PyObject_GenericGetAttr(ptr noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_richcompare(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #0 {
+define internal ptr @bytes_richcompare(ptr noundef readonly %0, ptr noundef readonly %1, i32 noundef %2) #0 {
   %4 = getelementptr i8, ptr %0, i64 8
   %.val89 = load ptr, ptr %4, align 8, !tbaa !10
   %5 = getelementptr i8, ptr %.val89, i64 168
@@ -8190,7 +8190,7 @@ declare i32 @PyByteArray_Resize(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare ptr @PyByteArray_FromStringAndSize(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local void @_PyBytes_Repeat(ptr noundef captures(address) %0, i64 noundef %1, ptr noundef readonly captures(address) %2, i64 noundef %3) local_unnamed_addr #12 {
+define dso_local void @_PyBytes_Repeat(ptr noundef %0, i64 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #12 {
   %5 = icmp eq i64 %1, 0
   br i1 %5, label %.loopexit, label %6
 
@@ -9377,7 +9377,7 @@ define internal i64 @bytes_length(ptr noundef readonly captures(none) %0) #17 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_repeat(ptr noundef captures(address, ret: address, provenance) %0, i64 noundef %1) #0 {
+define internal ptr @bytes_repeat(ptr noundef %0, i64 noundef %1) #0 {
   %spec.store.select = tail call i64 @llvm.smax.i64(i64 %1, i64 0)
   %.not = icmp slt i64 %1, 1
   %.phi.trans.insert = getelementptr i8, ptr %0, i64 16
@@ -9539,7 +9539,7 @@ define internal i32 @bytes_contains(ptr noundef %0, ptr noundef %1) #0 {
 declare i32 @_Py_bytes_contains(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_subscript(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) #0 {
+define internal ptr @bytes_subscript(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca i64, align 8
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
@@ -9745,7 +9745,7 @@ define internal ptr @bytes_getnewargs(ptr noundef %0, ptr readnone captures(none
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes___bytes__(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr readnone captures(none) %1) #0 {
+define internal ptr @bytes___bytes__(ptr noundef %0, ptr readnone captures(none) %1) #0 {
   %3 = getelementptr i8, ptr %0, i64 8
   %.val5.i = load ptr, ptr %3, align 8, !tbaa !10
   %.not.i = icmp eq ptr %.val5.i, @PyBytes_Type
@@ -9793,7 +9793,7 @@ define internal ptr @stringlib_capitalize(ptr noundef %0, ptr readnone captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stringlib_center(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @stringlib_center(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = add i64 %2, -1
   %or.cond = icmp ult i64 %4, 2
   br i1 %or.cond, label %7, label %5
@@ -10237,7 +10237,7 @@ define internal ptr @bytes_endswith(ptr noundef %0, ptr noundef readonly capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stringlib_expandtabs(ptr noundef readonly captures(address) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal ptr @stringlib_expandtabs(ptr noundef readonly %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [1 x ptr], align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   %.not = icmp eq ptr %3, null
@@ -10781,7 +10781,7 @@ define internal ptr @bytes_join(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stringlib_ljust(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @stringlib_ljust(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = add i64 %2, -1
   %or.cond = icmp ult i64 %4, 2
   br i1 %or.cond, label %7, label %5
@@ -10982,7 +10982,7 @@ define internal ptr @stringlib_lower(ptr noundef %0, ptr readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_lstrip(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @bytes_lstrip(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %or.cond = icmp ult i64 %2, 2
   br i1 %or.cond, label %6, label %4
 
@@ -11991,7 +11991,7 @@ bytes_replace_impl.exit:                          ; preds = %247, %.lr.ph.i81.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_removeprefix(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) #0 {
+define internal ptr @bytes_removeprefix(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
@@ -12059,7 +12059,7 @@ bytes_removeprefix_impl.exit:                     ; preds = %24, %22, %19, %13, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_removesuffix(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) #0 {
+define internal ptr @bytes_removesuffix(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.Py_buffer, align 8
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %3) #20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %3, i8 0, i64 80, i1 false)
@@ -12249,7 +12249,7 @@ define internal ptr @bytes_rindex(ptr noundef %0, ptr noundef readonly captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stringlib_rjust(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @stringlib_rjust(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = add i64 %2, -1
   %or.cond = icmp ult i64 %4, 2
   br i1 %or.cond, label %7, label %5
@@ -13554,7 +13554,7 @@ bytes_rsplit_impl.exit:                           ; preds = %38, %.critedge79.i.
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_rstrip(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @bytes_rstrip(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %or.cond = icmp ult i64 %2, 2
   br i1 %or.cond, label %6, label %4
 
@@ -14632,7 +14632,7 @@ define internal ptr @bytes_startswith(ptr noundef %0, ptr noundef readonly captu
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_strip(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
+define internal ptr @bytes_strip(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %or.cond = icmp ult i64 %2, 2
   br i1 %or.cond, label %6, label %4
 
@@ -14698,7 +14698,7 @@ define internal ptr @stringlib_title(ptr noundef %0, ptr readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @bytes_translate(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
+define internal ptr @bytes_translate(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.Py_buffer, align 8
   %6 = alloca %struct.Py_buffer, align 8
   %7 = alloca ptr, align 8
@@ -15074,7 +15074,7 @@ define internal ptr @stringlib_upper(ptr noundef %0, ptr readnone captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @stringlib_zfill(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) #0 {
+define internal ptr @stringlib_zfill(ptr noundef %0, ptr noundef %1) #0 {
   %3 = tail call ptr @_PyNumber_Index(ptr noundef %1) #20
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %Py_DECREF.exit.thread, label %4
@@ -15242,7 +15242,7 @@ declare ptr @_Py_bytes_isupper(ptr noundef, i64 noundef) local_unnamed_addr #2
 declare void @_Py_bytes_lower(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc ptr @do_argstrip(ptr noundef captures(address_is_null, ret: address, provenance) %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #11 {
+define internal fastcc ptr @do_argstrip(ptr noundef %0, i32 noundef range(i32 0, 3) %1, ptr noundef %2) unnamed_addr #11 {
   %4 = alloca %struct.Py_buffer, align 8
   %.not = icmp eq ptr %2, @_Py_NoneStruct
   br i1 %.not, label %39, label %5

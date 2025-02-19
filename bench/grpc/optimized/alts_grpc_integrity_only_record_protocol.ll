@@ -21,7 +21,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @.str.8 = private unnamed_addr constant [24 x i8] c"Failed to unprotect, %s\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_Z47alts_grpc_integrity_only_record_protocol_createP17gsec_aead_cryptermbbbPP25alts_grpc_record_protocol(ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_protect, i1 noundef zeroext %enable_extra_copy, ptr noundef writeonly captures(address_is_null) %rp) local_unnamed_addr #0 {
+define noundef i32 @_Z47alts_grpc_integrity_only_record_protocol_createP17gsec_aead_cryptermbbbPP25alts_grpc_record_protocol(ptr noundef %crypter, i64 noundef %overflow_size, i1 noundef zeroext %is_client, i1 noundef zeroext %is_protect, i1 noundef zeroext %enable_extra_copy, ptr noundef writeonly %rp) local_unnamed_addr #0 {
 entry:
   %frombool2 = zext i1 %enable_extra_copy to i8
   %cmp = icmp eq ptr %crypter, null

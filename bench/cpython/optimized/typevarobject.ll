@@ -1128,7 +1128,7 @@ define internal ptr @NoDefault_repr(ptr readnone captures(none) %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef ptr @nodefault_new(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define internal noundef ptr @nodefault_new(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) #0 {
   %4 = getelementptr i8, ptr %1, i64 16
   %.val = load i64, ptr %4, align 8, !tbaa !4
   %.not = icmp eq i64 %.val, 0
@@ -2948,7 +2948,7 @@ Py_DECREF.exit:                                   ; preds = %14, %18, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @unpack_typevartuples(ptr noundef captures(ret: address, provenance) %0) unnamed_addr #0 {
+define internal fastcc ptr @unpack_typevartuples(ptr noundef %0) unnamed_addr #0 {
   %2 = getelementptr i8, ptr %0, i64 16
   %.val.i = load i64, ptr %2, align 8, !tbaa !4
   %3 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_Py_tss_tstate)

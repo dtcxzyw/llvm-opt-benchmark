@@ -598,7 +598,7 @@ define internal fastcc void @"_ZN4core3ptr132drop_in_place$LT$alloc..boxed..Box$
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE"(ptr %.0.val, ptr readonly captures(address_is_null) %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @"_ZN4core3ptr160drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..ops..function..FnMut$LT$$LP$tree_sitter..LogType$C$$RF$str$RP$$GT$$u2b$Output$u20$$u3d$$u20$$LP$$RP$$GT$$GT$17h927155138830784aE"(ptr %.0.val, ptr readonly %.8.val) unnamed_addr #1 personality ptr @rust_eh_personality {
   %1 = icmp ne ptr %.8.val, null
   tail call void @llvm.assume(i1 %1)
   %2 = load ptr, ptr %.8.val, align 8, !invariant.load !4, !nonnull !4
@@ -1554,36 +1554,36 @@ define internal noundef zeroext i1 @"_ZN64_$LT$core..str..error..Utf8Error$u20$a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef ptr @"_ZN11tree_sitter3ffi39_$LT$impl$u20$tree_sitter..Language$GT$8from_raw17h98b58d3be14cdf14E"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define noundef ptr @"_ZN11tree_sitter3ffi39_$LT$impl$u20$tree_sitter..Language$GT$8from_raw17h98b58d3be14cdf14E"(ptr noundef readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef ptr @"_ZN11tree_sitter3ffi39_$LT$impl$u20$tree_sitter..Language$GT$8into_raw17h8ae2331939f826edE"(ptr noundef readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define noundef ptr @"_ZN11tree_sitter3ffi39_$LT$impl$u20$tree_sitter..Language$GT$8into_raw17h8ae2331939f826edE"(ptr noundef readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef nonnull ptr @"_ZN11tree_sitter3ffi37_$LT$impl$u20$tree_sitter..Parser$GT$8from_raw17h09e79df0c4293e3fE"(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #5 {
+define noundef nonnull ptr @"_ZN11tree_sitter3ffi37_$LT$impl$u20$tree_sitter..Parser$GT$8from_raw17h09e79df0c4293e3fE"(ptr noundef readnone returned %0) unnamed_addr #5 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @"_ZN11tree_sitter3ffi37_$LT$impl$u20$tree_sitter..Parser$GT$8into_raw17h0800b394194d0effE"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define noundef nonnull ptr @"_ZN11tree_sitter3ffi37_$LT$impl$u20$tree_sitter..Parser$GT$8into_raw17h0800b394194d0effE"(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef nonnull ptr @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Tree$GT$8from_raw17hd46bb90ecceac168E"(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #5 {
+define noundef nonnull ptr @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Tree$GT$8from_raw17hd46bb90ecceac168E"(ptr noundef readnone returned %0) unnamed_addr #5 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Tree$GT$8into_raw17h708e4a7cefd401d0E"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define noundef nonnull ptr @"_ZN11tree_sitter3ffi35_$LT$impl$u20$tree_sitter..Tree$GT$8into_raw17h708e4a7cefd401d0E"(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -1624,26 +1624,26 @@ define noundef nonnull ptr @"_ZN11tree_sitter3ffi36_$LT$impl$u20$tree_sitter..Qu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef nonnull ptr @"_ZN11tree_sitter3ffi42_$LT$impl$u20$tree_sitter..QueryCursor$GT$8from_raw17h2eeff317469edabfE"(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #5 {
+define noundef nonnull ptr @"_ZN11tree_sitter3ffi42_$LT$impl$u20$tree_sitter..QueryCursor$GT$8from_raw17h2eeff317469edabfE"(ptr noundef readnone returned %0) unnamed_addr #5 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @"_ZN11tree_sitter3ffi42_$LT$impl$u20$tree_sitter..QueryCursor$GT$8into_raw17he246385036cd16b3E"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define noundef nonnull ptr @"_ZN11tree_sitter3ffi42_$LT$impl$u20$tree_sitter..QueryCursor$GT$8into_raw17he246385036cd16b3E"(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(inaccessiblemem: write) uwtable
-define noundef nonnull ptr @"_ZN11tree_sitter3ffi48_$LT$impl$u20$tree_sitter..LookaheadIterator$GT$8from_raw17h89c473fdcbbe1087E"(ptr noundef readnone returned captures(address_is_null, ret: address, provenance) %0) unnamed_addr #5 {
+define noundef nonnull ptr @"_ZN11tree_sitter3ffi48_$LT$impl$u20$tree_sitter..LookaheadIterator$GT$8from_raw17h89c473fdcbbe1087E"(ptr noundef readnone returned %0) unnamed_addr #5 {
   %2 = icmp ne ptr %0, null
   tail call void @llvm.assume(i1 %2)
   ret ptr %0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull ptr @"_ZN11tree_sitter3ffi48_$LT$impl$u20$tree_sitter..LookaheadIterator$GT$8into_raw17h2e6893c78834ebc9E"(ptr noundef nonnull readnone returned captures(ret: address, provenance) %0) unnamed_addr #4 {
+define noundef nonnull ptr @"_ZN11tree_sitter3ffi48_$LT$impl$u20$tree_sitter..LookaheadIterator$GT$8into_raw17h2e6893c78834ebc9E"(ptr noundef nonnull readnone returned %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -1841,7 +1841,7 @@ define noundef ptr @"_ZN60_$LT$tree_sitter..Language$u20$as$u20$core..clone..Clo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$tree_sitter..LanguageRef$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8fe51ae26302e852E"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(8) ptr @"_ZN68_$LT$tree_sitter..LanguageRef$u20$as$u20$core..ops..deref..Deref$GT$5deref17h8fe51ae26302e852E"(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -2086,7 +2086,7 @@ common.resume:                                    ; preds = %.body, %73, %42, %5
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal void @_ZN11tree_sitter6Parser10set_logger3log17h60c4518c1aef7fd0E(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
+define internal void @_ZN11tree_sitter6Parser10set_logger3log17h60c4518c1aef7fd0E(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) unnamed_addr #1 {
   %4 = alloca { i64, [2 x i64] }, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %6, label %7
@@ -3686,7 +3686,7 @@ define noundef zeroext i1 @_ZN11tree_sitter17LookaheadIterator11reset_state17h7a
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter17LookaheadIterator10iter_names17h41908ff6ecf4eb41E(ptr noalias noundef readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0) unnamed_addr #4 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter17LookaheadIterator10iter_names17h41908ff6ecf4eb41E(ptr noalias noundef readnone returned align 8 dereferenceable(8) %0) unnamed_addr #4 {
   ret ptr %0
 }
 
@@ -7378,7 +7378,7 @@ define noundef zeroext i1 @_ZN11tree_sitter5Query29is_pattern_guaranteed_at_step
 }
 
 ; Function Attrs: nonlazybind uwtable
-define internal fastcc void @_ZN11tree_sitter5Query14parse_property17h995be946f7792c61E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 captures(address) %8, i64 noundef range(i64 0, -1) %9) unnamed_addr #1 personality ptr @rust_eh_personality {
+define internal fastcc void @_ZN11tree_sitter5Query14parse_property17h995be946f7792c61E(ptr noalias noundef nonnull writeonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef nonnull readonly align 8 %4, i64 noundef %5, ptr noalias noundef nonnull readonly align 8 %6, i64 noundef %7, ptr noalias noundef nonnull readonly align 4 %8, i64 noundef range(i64 0, -1) %9) unnamed_addr #1 personality ptr @rust_eh_personality {
   %11 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %12 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
   %13 = alloca { { ptr, i64 }, { ptr, i64 }, { ptr, i64 } }, align 8
@@ -7760,7 +7760,7 @@ define noundef zeroext i1 @_ZN11tree_sitter11QueryCursor22did_exceed_match_limit
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter11QueryCursor14set_byte_range17hf1727e1d4533f691E(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter11QueryCursor14set_byte_range17hf1727e1d4533f691E(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0, i64 noundef %1, i64 noundef %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %5 = trunc i64 %1 to i32
   %6 = trunc i64 %2 to i32
@@ -7769,7 +7769,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter11QueryCu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter11QueryCursor15set_point_range17h6dd33a84321b5facE(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter11QueryCursor15set_point_range17h6dd33a84321b5facE(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %4 = load i64, ptr %1, align 8, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -7789,7 +7789,7 @@ define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter11QueryCu
 }
 
 ; Function Attrs: nonlazybind uwtable
-define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter11QueryCursor19set_max_start_depth17hb6b87f81232de5edE(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, i32 noundef %1, i32 %2) unnamed_addr #1 {
+define noundef nonnull align 8 dereferenceable(8) ptr @_ZN11tree_sitter11QueryCursor19set_max_start_depth17hb6b87f81232de5edE(ptr noalias noundef readonly returned align 8 dereferenceable(8) %0, i32 noundef %1, i32 %2) unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !nonnull !4, !noundef !4
   %switch = icmp eq i32 %1, 0
   %. = select i1 %switch, i32 -1, i32 %2
@@ -7857,7 +7857,7 @@ define void @_ZN11tree_sitter10QueryMatch3new17h811620d10164e2e3E(ptr noalias no
 }
 
 ; Function Attrs: nonlazybind uwtable
-define void @_ZN11tree_sitter13QueryProperty3new17he47e41ce7b97423aE(ptr noalias noundef writeonly sret({ { i64, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef readonly align 1 captures(address_is_null) %3, i64 %4, i64 noundef %5, i64 %6) unnamed_addr #1 personality ptr @rust_eh_personality {
+define void @_ZN11tree_sitter13QueryProperty3new17he47e41ce7b97423aE(ptr noalias noundef writeonly sret({ { i64, i64 }, { ptr, i64 }, { ptr, i64 } }) align 8 captures(none) dereferenceable(48) %0, ptr noalias noundef nonnull readonly align 1 captures(none) %1, i64 noundef %2, ptr noalias noundef readonly align 1 %3, i64 %4, i64 noundef %5, i64 %6) unnamed_addr #1 personality ptr @rust_eh_personality {
   %8 = alloca { { { i64, ptr }, i64 } }, align 8
   %9 = alloca { { { i64, ptr }, i64 } }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)

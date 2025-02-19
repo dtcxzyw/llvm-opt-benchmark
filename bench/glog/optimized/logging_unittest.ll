@@ -20438,7 +20438,7 @@ define hidden void @_ZN24DeathCheckNN_Simple_Test8TestBodyEv(ptr nonnull readnon
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoR15LogTimeRecorder(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #4 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZlsRSoR15LogTimeRecorder(ptr noundef nonnull readnone returned align 8 dereferenceable(8) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(88) %1) local_unnamed_addr #4 {
   %3 = tail call i64 @_ZNSt6chrono3_V212steady_clock3nowEv() #46
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %1, align 8, !tbaa !342

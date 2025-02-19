@@ -66,7 +66,7 @@ define noalias noundef ptr @blobCreate() local_unnamed_addr #0 {
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @blobDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @blobDestroy(ptr noundef %0) local_unnamed_addr #2 {
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str) #17
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
@@ -108,7 +108,7 @@ declare void @__assert_fail(ptr noundef, ptr noundef, i32 noundef, ptr noundef) 
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define void @blobArrayDestroy(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define void @blobArrayDestroy(ptr noundef %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %.preheader
 
@@ -168,7 +168,7 @@ blobDestroy.exit:                                 ; preds = %12, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @blobToMem(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @blobToMem(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -206,7 +206,7 @@ define ptr @blobToMem(ptr noundef captures(address_is_null) %0) local_unnamed_ad
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nounwind uwtable
-define void @blobClose(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @blobClose(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -274,7 +274,7 @@ define void @blobClose(ptr noundef captures(address_is_null) %0) local_unnamed_a
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nounwind uwtable
-define void @blobSetFilename(ptr noundef captures(address_is_null) %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
+define void @blobSetFilename(ptr noundef %0, ptr noundef readnone captures(none) %1, ptr noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -399,7 +399,7 @@ switch.early.test:                                ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @blobAddData(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @blobAddData(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %4, label %5
 
@@ -544,7 +544,7 @@ declare ptr @cli_max_realloc(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: nounwind uwtable
-define ptr @blobGetData(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define ptr @blobGetData(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -569,7 +569,7 @@ define ptr @blobGetData(ptr noundef readonly captures(address_is_null) %0) local
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @blobGetDataSize(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define i64 @blobGetDataSize(ptr noundef readonly %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -584,7 +584,7 @@ define i64 @blobGetDataSize(ptr noundef readonly captures(address_is_null) %0) l
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @blobcmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #2 {
+define i32 @blobcmp(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -633,7 +633,7 @@ blobGetData.exit25:                               ; preds = %12
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 21) i32 @blobGrow(ptr noundef captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #2 {
+define range(i32 0, 21) i32 @blobGrow(ptr noundef %0, i64 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 
@@ -725,7 +725,7 @@ define noalias noundef ptr @fileblobCreate() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @fileblobScanAndDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @fileblobScanAndDestroy(ptr noundef %0) local_unnamed_addr #2 {
   %2 = tail call i32 @fileblobScan(ptr noundef %0)
   switch i32 %2, label %5 [
     i32 1, label %3
@@ -817,7 +817,7 @@ define i32 @fileblobScan(ptr noundef readonly captures(none) %0) local_unnamed_a
 }
 
 ; Function Attrs: nounwind uwtable
-define void @fileblobDestructiveDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @fileblobDestructiveDestroy(ptr noundef %0) local_unnamed_addr #2 {
   %2 = load ptr, ptr %0, align 8, !tbaa !19
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %21, label %3
@@ -874,7 +874,7 @@ define void @fileblobDestructiveDestroy(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define void @fileblobDestroy(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @fileblobDestroy(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -977,7 +977,7 @@ declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #3
 declare void @cli_errmsg(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @fileblobPartialSet(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
+define void @fileblobPartialSet(ptr noundef %0, ptr noundef %1, ptr noundef readnone captures(none) %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !26
   %.not = icmp eq ptr %5, null
@@ -1138,7 +1138,7 @@ declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(n
 declare i32 @close(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @fileblobAddData(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
+define range(i32 -1, 1) i32 @fileblobAddData(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = icmp eq i64 %2, 0
   br i1 %4, label %21, label %5
 

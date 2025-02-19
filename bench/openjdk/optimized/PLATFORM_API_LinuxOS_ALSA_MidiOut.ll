@@ -79,7 +79,7 @@ define hidden i64 @MIDI_OUT_GetTimeStamp(ptr noundef %0) local_unnamed_addr #0 {
 declare i64 @getMidiTimestamp(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @MIDI_OUT_SendShortMessage(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @MIDI_OUT_SendShortMessage(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [3 x i8], align 1
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %26, label %5
@@ -123,7 +123,7 @@ define hidden i32 @MIDI_OUT_SendShortMessage(ptr noundef readonly captures(addre
 declare i64 @snd_rawmidi_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @MIDI_OUT_SendLongMessage(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
+define hidden i32 @MIDI_OUT_SendLongMessage(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %11, label %5
 

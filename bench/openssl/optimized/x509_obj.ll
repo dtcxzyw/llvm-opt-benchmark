@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.X509_NAME_oneline = private unnamed_addr constant [18 x i8] c"X509_NAME_oneline\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @X509_NAME_oneline(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @X509_NAME_oneline(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x i32], align 16
   %5 = alloca [80 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #7

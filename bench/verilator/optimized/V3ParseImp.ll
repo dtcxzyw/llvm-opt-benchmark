@@ -2299,7 +2299,7 @@ define linkonce_odr dso_local noundef ptr @_ZNK8V3Global5rootpEv(ptr noundef non
 declare void @_ZN10AstNetlist18timeprecisionMergeEP8FileLineRK10VTimescale(ptr noundef nonnull align 8 dereferenceable(248), ptr noundef, ptr noundef nonnull align 1 dereferenceable(1)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN10V3ParseImp12timescaleModEP8FileLineP13AstNodeModulebdbd(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2, i1 noundef zeroext %3, double noundef %4, i1 noundef zeroext %5, double noundef %6) #7 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN10V3ParseImp12timescaleModEP8FileLineP13AstNodeModulebdbd(ptr noundef nonnull align 8 dereferenceable(496) %0, ptr noundef %1, ptr noundef writeonly %2, i1 noundef zeroext %3, double noundef %4, i1 noundef zeroext %5, double noundef %6) #7 align 2 personality ptr @__gxx_personality_v0 {
   %8 = alloca %class.VTimescale, align 1
   %9 = alloca %"class.std::__cxx11::basic_string", align 8
   %10 = alloca %"class.std::__cxx11::basic_string", align 8

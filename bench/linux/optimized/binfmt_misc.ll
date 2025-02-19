@@ -1364,7 +1364,7 @@ declare dso_local ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare dso_local i32 @kstrtoint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(argmem: readwrite)
-define internal fastcc noundef ptr @scanarg(ptr noundef captures(ret: address, provenance) %0, i8 noundef zeroext %1) unnamed_addr #10 align 16 {
+define internal fastcc noundef ptr @scanarg(ptr noundef %0, i8 noundef zeroext %1) unnamed_addr #10 align 16 {
   %3 = getelementptr i8, ptr %0, i64 1
   %4 = load i8, ptr %0, align 1
   %5 = icmp eq i8 %4, %1

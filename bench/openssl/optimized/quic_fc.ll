@@ -660,7 +660,7 @@ define range(i32 0, 256) i32 @ossl_quic_rxfc_get_error(ptr noundef captures(none
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_quic_rxfc_get_final_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_quic_rxfc_get_final_size(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 90
   %4 = load i8, ptr %3, align 2, !tbaa !26
   %.not = icmp eq i8 %4, 0

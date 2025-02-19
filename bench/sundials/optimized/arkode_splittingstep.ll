@@ -51,7 +51,7 @@ target triple = "x86_64-pc-linux-gnu"
 @__func__.splittingStep_AccessARKODEStepMem = private unnamed_addr constant [34 x i8] c"splittingStep_AccessARKODEStepMem\00", align 1
 
 ; Function Attrs: nounwind uwtable
-define ptr @SplittingStepCreate(ptr noundef captures(address_is_null) %0, i32 noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @SplittingStepCreate(ptr noundef %0, i32 noundef %1, double noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca ptr, align 8
   %7 = tail call fastcc i32 @splittingStep_CheckArgs(ptr noundef null, ptr noundef %0, i32 noundef %1, ptr noundef %3)
   %.not = icmp eq i32 %7, 0
@@ -151,7 +151,7 @@ define ptr @SplittingStepCreate(ptr noundef captures(address_is_null) %0, i32 no
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -22, 1) i32 @splittingStep_CheckArgs(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -22, 1) i32 @splittingStep_CheckArgs(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -825,7 +825,7 @@ declare i32 @ARKodeSetInterpolantType(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @SplittingStepReInit(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef %2, double noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define i32 @SplittingStepReInit(ptr noundef %0, ptr noundef %1, i32 noundef %2, double noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %7, label %8
 

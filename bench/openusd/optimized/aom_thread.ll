@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @g_worker_interface = internal global %struct.AVxWorkerInterface { ptr @init, ptr @reset, ptr @sync, ptr @launch, ptr @execute, ptr @end }, align 8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define hidden range(i32 0, 2) i32 @aom_set_worker_interface(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @aom_set_worker_interface(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %27, label %3
 

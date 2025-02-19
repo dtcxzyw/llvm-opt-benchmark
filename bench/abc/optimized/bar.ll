@@ -45,7 +45,7 @@ declare ptr @Abc_FrameReadGlobalFrame(...) local_unnamed_addr #1
 declare i32 @Abc_FrameShowProgress(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @Bar_ProgressShow(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @Bar_ProgressShow(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %39, label %4
 
@@ -131,7 +131,7 @@ define internal fastcc void @Bar_ProgressShow(ptr noundef readonly captures(addr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bar_ProgressUpdate_int(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define void @Bar_ProgressUpdate_int(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %26, label %5
 
@@ -177,7 +177,7 @@ define void @Bar_ProgressUpdate_int(ptr noundef captures(address_is_null) %0, i3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Bar_ProgressStop(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @Bar_ProgressStop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %16, label %3
 

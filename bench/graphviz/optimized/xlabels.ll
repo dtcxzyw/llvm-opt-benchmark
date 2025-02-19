@@ -981,7 +981,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #10
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 4), (8, 32)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address) %2, ptr noundef nonnull captures(none) %3) unnamed_addr #1 {
+define internal fastcc void @xlintersections(ptr dead_on_unwind noalias nonnull writable writeonly align 8 captures(none) initializes((0, 4), (8, 32)) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2, ptr noundef nonnull captures(none) %3) unnamed_addr #1 {
   %5 = alloca %struct.Rect, align 8
   %6 = alloca %struct.Rect, align 8
   %7 = alloca %struct.Rect, align 8

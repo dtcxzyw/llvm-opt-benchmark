@@ -37,7 +37,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z21grpc_error_get_statusN4absl12lts_202308026StatusEN9grpc_core9TimestampEP16grpc_status_codePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP21grpc_http2_error_codePPKc(ptr noundef %error, i64 %deadline.coerce, ptr noundef writeonly captures(address_is_null) %code, ptr noundef %message, ptr noundef writeonly captures(address_is_null) %http_error, ptr noundef writeonly captures(address_is_null) %error_string) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define void @_Z21grpc_error_get_statusN4absl12lts_202308026StatusEN9grpc_core9TimestampEP16grpc_status_codePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP21grpc_http2_error_codePPKc(ptr noundef %error, i64 %deadline.coerce, ptr noundef writeonly %code, ptr noundef %message, ptr noundef writeonly %http_error, ptr noundef writeonly %error_string) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
 entry:
   %found_error = alloca %"class.absl::lts_20230802::Status", align 8
   %agg.tmp = alloca %"class.absl::lts_20230802::Status", align 8

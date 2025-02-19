@@ -581,7 +581,7 @@ drange_append_drange_node.exit:                   ; preds = %2, %26, %31
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noalias noundef ptr @drange_dup(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @drange_dup(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 

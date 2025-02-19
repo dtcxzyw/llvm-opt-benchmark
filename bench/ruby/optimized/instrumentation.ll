@@ -274,7 +274,7 @@ declare void @rb_gc_mark(i64 noundef) local_unnamed_addr #2
 declare ptr @rb_internal_thread_add_event_hook(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal void @ex_callback(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address_is_null) %2) #0 {
+define internal void @ex_callback(i32 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #0 {
   %4 = load i64, ptr %1, align 8, !tbaa !23
   %5 = load i32, ptr @timeline_cursor, align 4, !tbaa !13
   %.not.i = icmp eq i32 %5, 0

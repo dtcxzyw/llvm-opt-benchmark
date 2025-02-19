@@ -44,7 +44,7 @@ define noundef i32 @wolfCrypt_Cleanup() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -244, 1) i32 @wc_FileLoad(ptr noundef readonly captures(address_is_null) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
+define range(i32 -244, 1) i32 @wc_FileLoad(ptr noundef readonly %0, ptr noundef writeonly %1, ptr noundef %2, ptr noundef readnone captures(none) %3) local_unnamed_addr #2 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq ptr %1, null
   %or.cond = or i1 %5, %6
@@ -121,7 +121,7 @@ declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #4
 declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 -244, 1) i32 @wc_FileExists(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define range(i32 -244, 1) i32 @wc_FileExists(ptr noundef readonly %0) local_unnamed_addr #5 {
   %2 = alloca %struct.ReadDirCtx, align 8
   call void @llvm.lifetime.start.p0(i64 424, ptr nonnull %2) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(424) %2, i8 0, i64 424, i1 false)
@@ -155,7 +155,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare noundef i32 @stat(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 -244, 1) i32 @wc_ReadDirFirst(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca %struct.ReadDirCtx, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -315,7 +315,7 @@ declare ptr @readdir(ptr noundef) local_unnamed_addr #4
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind uwtable
-define void @wc_ReadDirClose(ptr noundef captures(address_is_null) %0) local_unnamed_addr #5 {
+define void @wc_ReadDirClose(ptr noundef %0) local_unnamed_addr #5 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -335,7 +335,7 @@ define void @wc_ReadDirClose(ptr noundef captures(address_is_null) %0) local_unn
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 -244, 1) i32 @wc_ReadDirNext(ptr noundef %0, ptr noundef readonly %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = alloca %struct.ReadDirCtx, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -513,7 +513,7 @@ define range(i32 -106, 1) i32 @wc_InitMutex(ptr noundef %0) local_unnamed_addr #
 declare void @wolfSSL_Free(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @wc_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #9 {
+define ptr @wc_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) local_unnamed_addr #9 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ne ptr %2, null
   %or.cond = and i1 %4, %5
@@ -621,7 +621,7 @@ define ptr @wc_strtok(ptr noundef %0, ptr noundef readonly captures(none) %1, pt
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define ptr @wc_strsep(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
+define ptr @wc_strsep(ptr noundef %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #9 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %20, label %4
 
@@ -774,7 +774,7 @@ wc_strlcpy.exit:                                  ; preds = %10, %.critedge.i
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @wc_strdup_ex(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define ptr @wc_strdup_ex(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %9, label %3
 
@@ -963,7 +963,7 @@ define range(i32 -106, 1) i32 @wc_UnLockRwLock(ptr noundef %0) local_unnamed_add
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: read) uwtable
-define noundef ptr @mystrnstr(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #14 {
+define noundef ptr @mystrnstr(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #14 {
   %4 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #17
   %5 = trunc i64 %4 to i32
   %6 = icmp eq i32 %5, 0

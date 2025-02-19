@@ -477,7 +477,7 @@ define void @_ZN12grep_printer4path18PathPrinterBuilder3new17h4cd4353f2fa91369E(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN12grep_printer4path18PathPrinterBuilder11color_specs17h9be7bf30b8ce10a9E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(72) initializes((9, 69)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(60) %1) unnamed_addr #5 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN12grep_printer4path18PathPrinterBuilder11color_specs17h9be7bf30b8ce10a9E(ptr noalias noundef returned writeonly align 8 dereferenceable(72) initializes((9, 69)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(60) %1) unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 9
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(60) %3, ptr noundef nonnull align 1 dereferenceable(60) %1, i64 60, i1 false)
   ret ptr %0
@@ -530,7 +530,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN12grep_printer4path18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN12grep_printer4path18PathPrinterBuilder9separator17he5a8d1dd38707a59E(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(72) initializes((69, 71)) %0, i1 noundef zeroext %1, i8 %2) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN12grep_printer4path18PathPrinterBuilder9separator17he5a8d1dd38707a59E(ptr noalias noundef returned writeonly align 8 dereferenceable(72) initializes((69, 71)) %0, i1 noundef zeroext %1, i8 %2) unnamed_addr #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 69
   %5 = zext i1 %1 to i8
   store i8 %5, ptr %4, align 1
@@ -540,7 +540,7 @@ define noundef nonnull align 8 dereferenceable(72) ptr @_ZN12grep_printer4path18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define noundef nonnull align 8 dereferenceable(72) ptr @_ZN12grep_printer4path18PathPrinterBuilder10terminator17h0f3bf03144de7fdfE(ptr noalias noundef returned writeonly align 8 captures(ret: address, provenance) dereferenceable(72) initializes((8, 9)) %0, i8 noundef %1) unnamed_addr #6 {
+define noundef nonnull align 8 dereferenceable(72) ptr @_ZN12grep_printer4path18PathPrinterBuilder10terminator17h0f3bf03144de7fdfE(ptr noalias noundef returned writeonly align 8 dereferenceable(72) initializes((8, 9)) %0, i8 noundef %1) unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i8 %1, ptr %3, align 8
   ret ptr %0

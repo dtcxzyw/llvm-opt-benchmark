@@ -4646,7 +4646,7 @@ define internal fastcc range(i32 -30, 1) i32 @get_str_opt(ptr noundef %0, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -30, 1) i32 @get_num_opt(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc range(i32 -30, 1) i32 @get_num_opt(ptr noundef %0, ptr noundef nonnull writeonly captures(none) %1, ptr noundef %2, ptr noundef readonly %3) unnamed_addr #0 {
   %5 = icmp eq ptr %3, null
   br i1 %5, label %6, label %7
 
@@ -6540,7 +6540,7 @@ wb_write_padding_to_temp.exit.thread:             ; preds = %wb_write_padding_to
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @zisofs_detect_magic(ptr captures(address) %.248.val, ptr noundef readonly captures(address) %0, i64 noundef %1) unnamed_addr #0 {
+define internal fastcc void @zisofs_detect_magic(ptr %.248.val, ptr noundef readonly %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %.248.val, i64 16
   %4 = load ptr, ptr %3, align 8, !tbaa !36
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -9418,7 +9418,7 @@ declare void @__archive_rb_tree_remove_node(ptr noundef, ptr noundef) local_unna
 declare ptr @__archive_rb_tree_iterate(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -30, 1) i32 @isoent_gen_joliet_identifier(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef %2) unnamed_addr #0 {
+define internal range(i32 -30, 1) i32 @isoent_gen_joliet_identifier(ptr noundef %0, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %6 = load i32, ptr %5, align 8, !tbaa !151
@@ -14779,7 +14779,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @write_file_contents(ptr no
 declare i32 @close(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @isoent_free_all(ptr noundef captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @isoent_free_all(ptr noundef %0) unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %.preheader
 

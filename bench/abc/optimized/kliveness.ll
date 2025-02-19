@@ -789,7 +789,7 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
 declare ptr @createSingletonIntVector(i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define void @deallocateMasterBarrierDisjunctInt(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @deallocateMasterBarrierDisjunctInt(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %.preheader
 
@@ -844,7 +844,7 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge, %15
 }
 
 ; Function Attrs: nounwind uwtable
-define void @deallocateMasterBarrierDisjunctVecPtrVecInt(ptr noundef captures(address_is_null) %0) local_unnamed_addr #2 {
+define void @deallocateMasterBarrierDisjunctVecPtrVecInt(ptr noundef %0) local_unnamed_addr #2 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %33, label %.preheader
 

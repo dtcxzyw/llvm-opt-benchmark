@@ -2473,7 +2473,7 @@ _ZN7oopDesc16oop_iterate_sizeI17OopIterateClosureEEmPT_.exit: ; preds = %28, %31
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK20ShenandoahHeapRegion22humongous_start_regionEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #8 align 2 {
+define hidden noundef ptr @_ZNK20ShenandoahHeapRegion22humongous_start_regionEv(ptr noundef nonnull readonly align 8 dereferenceable(96) %0) local_unnamed_addr #8 align 2 {
   %2 = load ptr, ptr @_ZN8Universe14_collectedHeapE, align 8
   %3 = load i64, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 544
@@ -2536,7 +2536,7 @@ define hidden void @_ZN20ShenandoahHeapRegion7recycleEv(ptr noundef nonnull alig
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZNK20ShenandoahHeapRegion11block_startEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 align 2 {
+define hidden noundef ptr @_ZNK20ShenandoahHeapRegion11block_startEPKv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(96) %0, ptr noundef readnone %1) local_unnamed_addr #0 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %4 = load ptr, ptr %3, align 8
   %.not = icmp ult ptr %1, %4

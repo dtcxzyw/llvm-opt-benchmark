@@ -1747,7 +1747,7 @@ declare i32 @H5T_detect_class(ptr noundef, i32 noundef, i1 noundef zeroext) loca
 declare i32 @H5O__attr_write(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define noundef i32 @H5A__get_name(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
+define noundef i32 @H5A__get_name(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) %3) local_unnamed_addr #5 {
   %5 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %6 = trunc nuw i8 %5 to i1
   %7 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2239,7 +2239,7 @@ declare i32 @H5O_close(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @H5G_name_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5A_oloc(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @H5A_oloc(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2282,7 +2282,7 @@ define ptr @H5A_oloc(ptr noundef readnone captures(ret: address, provenance) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5A_nameof(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @H5A_nameof(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5A_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -2939,7 +2939,7 @@ declare i32 @H5A__dense_iterate(ptr noundef, i64 noundef, ptr noundef, i32 nound
 declare i32 @H5B2_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5A__attr_iterate_table(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
+define i32 @H5A__attr_iterate_table(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef readonly captures(none) %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5A_info_t, align 8
   %8 = alloca %struct.H5_user_cb_state_t, align 8
   %9 = alloca %struct.H5_user_cb_state_t, align 8
@@ -4246,7 +4246,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare i32 @H5O__attr_rename(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5A__iterate(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define i32 @H5A__iterate(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca i64, align 8
   %9 = alloca %struct.H5G_loc_t, align 8
   %10 = alloca %struct.H5G_name_t, align 8
@@ -4399,7 +4399,7 @@ declare ptr @H5O_open_by_loc(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @H5I_dec_app_ref(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5A__iterate_old(i64 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
+define i32 @H5A__iterate_old(i64 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   %6 = alloca %struct.H5A_attr_iter_op_t, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #12

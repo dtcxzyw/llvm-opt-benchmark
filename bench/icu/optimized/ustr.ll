@@ -213,7 +213,7 @@ return:                                           ; preds = %ustr_resize.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_deinit(ptr noundef captures(address_is_null) %s) local_unnamed_addr #1 {
+define dso_local void @ustr_deinit(ptr noundef %s) local_unnamed_addr #1 {
 entry:
   %tobool.not = icmp eq ptr %s, null
   br i1 %tobool.not, label %if.end, label %if.then
@@ -231,7 +231,7 @@ if.end:                                           ; preds = %if.then, %entry
 declare void @uprv_free_75(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_cpy(ptr noundef captures(address) %dst, ptr noundef readonly captures(address) %src, ptr noundef captures(none) %status) local_unnamed_addr #1 {
+define dso_local void @ustr_cpy(ptr noundef %dst, ptr noundef readonly %src, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp = icmp sgt i32 %0, 0
@@ -362,7 +362,7 @@ return:                                           ; preds = %ustr_resize.exit, %
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_cat(ptr noundef captures(address) %dst, ptr noundef readonly captures(address) %src, ptr noundef captures(none) %status) local_unnamed_addr #1 {
+define dso_local void @ustr_cat(ptr noundef %dst, ptr noundef readonly %src, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %fLength = getelementptr inbounds nuw i8, ptr %src, i64 8
   %0 = load i32, ptr %fLength, align 8
@@ -438,7 +438,7 @@ ustr_ncat.exit:                                   ; preds = %entry, %ustr_resize
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @ustr_ncat(ptr noundef captures(address) %dst, ptr noundef readonly captures(address) %src, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #1 {
+define dso_local void @ustr_ncat(ptr noundef %dst, ptr noundef readonly %src, i32 noundef %n, ptr noundef captures(none) %status) local_unnamed_addr #1 {
 entry:
   %0 = load i32, ptr %status, align 4
   %cmp = icmp sgt i32 %0, 0

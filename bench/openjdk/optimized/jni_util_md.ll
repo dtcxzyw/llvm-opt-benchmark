@@ -25,7 +25,7 @@ define hidden ptr @getProcessHandle() local_unnamed_addr #0 {
 declare ptr @dlopen(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @buildJniFunctionName(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #2 {
+define hidden void @buildJniFunctionName(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef %2) local_unnamed_addr #2 {
   %4 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %0) #8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %5

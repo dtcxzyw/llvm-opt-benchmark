@@ -20178,7 +20178,7 @@ declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction18EmitX86CpuSupportsEN4ll
 declare noundef ptr @_ZN5clang7CodeGen15CodeGenFunction12EmitX86CpuIsEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(6496), ptr, i64) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitMultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_17FMVResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %1, ptr captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitMultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_17FMVResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef %1, ptr %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %6 = load ptr, ptr %5, align 8, !tbaa !714
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 144
@@ -20212,7 +20212,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitMultiVersionResol
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitX86MultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_17FMVResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6496) initializes((328, 346)) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction27EmitX86MultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_17FMVResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6496) initializes((328, 346)) %0, ptr noundef %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::InsertPosition", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -20507,7 +20507,7 @@ _ZN4llvm13IRBuilderBase17CreateUnreachableEv.exit: ; preds = %.lr.ph.i.i.i41, %.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31EmitAArch64MultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_17FMVResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6496) initializes((328, 346)) %0, ptr noundef %1, ptr readonly captures(address) %2, i64 %3) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang7CodeGen15CodeGenFunction31EmitAArch64MultiVersionResolverEPN4llvm8FunctionENS2_8ArrayRefINS1_17FMVResolverOptionEEE(ptr noundef nonnull align 8 dereferenceable(6496) initializes((328, 346)) %0, ptr noundef %1, ptr readonly %2, i64 %3) local_unnamed_addr #0 align 2 {
   %5 = alloca %"class.llvm::Twine", align 8
   %6 = alloca %"class.llvm::InsertPosition", align 8
   %7 = alloca %"class.llvm::Twine", align 8
@@ -25853,7 +25853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 declare void @_ZSt19__throw_logic_errorPKc(ptr noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang7CodeGen15CodeGenFunction19checkTargetFeaturesENS2_14SourceLocationEPKNS2_12FunctionDeclEE3$_0EclIPN4llvm9StringRefEEEbT_"(ptr %.0.val, ptr captures(address) %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 align 2 {
+define internal fastcc noundef zeroext i1 @"_ZN9__gnu_cxx5__ops12_Iter_negateIZN5clang7CodeGen15CodeGenFunction19checkTargetFeaturesENS2_14SourceLocationEPKNS2_12FunctionDeclEE3$_0EclIPN4llvm9StringRefEEEbT_"(ptr %.0.val, ptr %.8.val, ptr %.0.val1, i64 %.8.val3) unnamed_addr #0 align 2 {
   %1 = alloca i64, align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
   %3 = tail call noundef i32 @_ZN4llvm13StringMapImpl4hashENS_9StringRefE(ptr %.0.val1, i64 %.8.val3) #24

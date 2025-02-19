@@ -121,7 +121,7 @@ arch_select_decompress_func.exit:                 ; preds = %7, %10
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) #3 {
+define internal range(i32 0, 4) i32 @deflate_decompress_default(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) #3 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %9 = tail call i64 @llvm.umin.i64(i64 %4, i64 299)
   %10 = sub nsw i64 0, %9
@@ -1322,7 +1322,7 @@ default.unreachable:                              ; preds = %.loopexit916
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) #4 {
+define internal range(i32 0, 4) i32 @deflate_decompress_bmi2(ptr noalias noundef %0, ptr noalias noundef %1, i64 noundef %2, ptr noalias noundef %3, i64 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) #4 {
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 %4
   %9 = tail call i64 @llvm.umin.i64(i64 %4, i64 299)
   %10 = sub nsw i64 0, %9
@@ -2528,7 +2528,7 @@ declare void @libdeflate_init_x86_cpu_features() local_unnamed_addr #5
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #6
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 7, 12) %4, i32 noundef range(i32 7, 16) %5, ptr noundef captures(none) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #7 {
+define internal fastcc noundef zeroext i1 @build_decode_table(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i32 noundef range(i32 7, 12) %4, i32 noundef range(i32 7, 16) %5, ptr noundef captures(none) %6, ptr noundef writeonly %7) unnamed_addr #7 {
 .preheader223:
   %8 = alloca [16 x i32], align 16
   %9 = alloca [16 x i32], align 16

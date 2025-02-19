@@ -658,7 +658,7 @@ encode_prvkey.exit:                               ; preds = %scalar_encode.exit.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @ossl_ml_kem_encode_seed(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_ml_kem_encode_seed(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef readonly %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %2, null
   br i1 %4, label %14, label %5
 
@@ -1875,7 +1875,7 @@ encode_pubkey.exit:                               ; preds = %scalar_encode.exit.
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ml_kem_encap_seed(ptr noundef writeonly captures(address_is_null) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, ptr noundef readonly captures(address_is_null) %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ml_kem_encap_seed(ptr noundef writeonly %0, i64 noundef %1, ptr noundef writeonly %2, i64 noundef %3, ptr noundef readonly %4, i64 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
   %8 = alloca [4 x %struct.ossl_ml_kem_scalar_st], align 16
   %9 = alloca [6 x %struct.ossl_ml_kem_scalar_st], align 16
   %10 = alloca [8 x %struct.ossl_ml_kem_scalar_st], align 16
@@ -1988,7 +1988,7 @@ define internal fastcc range(i32 0, 2) i32 @encap(ptr noundef nonnull writeonly 
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ml_kem_encap_rand(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ml_kem_encap_rand(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [32 x i8], align 16
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #13
   %7 = icmp eq ptr %4, null

@@ -232,7 +232,7 @@ do_grow_slab_list.exit29:                         ; preds = %26, %29, %33, %40
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @slabs_init(i64 noundef %0, double noundef %1, i1 noundef zeroext %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #4 {
+define dso_local void @slabs_init(i64 noundef %0, double noundef %1, i1 noundef zeroext %2, ptr noundef readonly %3, ptr noundef %4, i1 noundef zeroext %5) local_unnamed_addr #4 {
   %7 = alloca ptr, align 8
   %8 = alloca i64, align 8
   %9 = alloca [64 x i8], align 16
@@ -750,7 +750,7 @@ define dso_local void @fill_slab_stats_automove(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @global_page_pool_size(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define dso_local i32 @global_page_pool_size(ptr noundef writeonly %0) local_unnamed_addr #4 {
   %2 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #21
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %3
@@ -1163,7 +1163,7 @@ do_slabs_adjust_mem_limit.exit:                   ; preds = %10, %get_page_from_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @slabs_available_chunks(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+define dso_local i32 @slabs_available_chunks(i32 noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #4 {
   %4 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @slabs_lock) #21
   %5 = zext i32 %0 to i64
   %6 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %5
@@ -1232,7 +1232,7 @@ define dso_local ptr @slabs_peek_page(i32 noundef %0, ptr noundef writeonly capt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @do_slabs_unlink_free_chunk(i32 noundef %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #11 {
+define dso_local void @do_slabs_unlink_free_chunk(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #11 {
   %3 = zext i32 %0 to i64
   %4 = getelementptr inbounds nuw [64 x %struct.slabclass_t], ptr @slabclass, i64 0, i64 %3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 8

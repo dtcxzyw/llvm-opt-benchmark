@@ -764,7 +764,7 @@ declare ptr @AllocSetContextCreateInternal(ptr noundef, ptr noundef, i64 noundef
 declare ptr @GetAccessStrategyWithSize(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @vacuum(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
+define dso_local void @vacuum(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i1 noundef zeroext %4) local_unnamed_addr #0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca [1 x %struct.__jmp_buf_tag], align 16
@@ -1269,7 +1269,7 @@ declare i32 @__sigsetjmp(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare void @VacuumUpdateCosts() local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @vacuum_rel(i32 noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @vacuum_rel(i32 noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) unnamed_addr #0 {
   %5 = alloca %struct.LockRelId, align 8
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -1996,7 +1996,7 @@ declare i32 @GetUserId() local_unnamed_addr #1
 declare i32 @pg_class_aclcheck(i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @vacuum_open_relation(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local ptr @vacuum_open_relation(i32 noundef %0, ptr noundef readonly %1, i32 noundef %2, i1 noundef zeroext %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = and i32 %2, 32
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %9, label %7
@@ -2333,7 +2333,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #9
 declare double @llvm.floor.f64(double) #9
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @vac_update_relstats(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
+define dso_local void @vac_update_relstats(ptr noundef readonly captures(none) %0, i32 noundef %1, double noundef %2, i32 noundef %3, i1 noundef zeroext %4, i32 noundef %5, i32 noundef %6, ptr noundef writeonly %7, ptr noundef writeonly %8, i1 noundef zeroext %9) local_unnamed_addr #0 {
   %11 = alloca [1 x %struct.ScanKeyData], align 16
   %12 = alloca ptr, align 8
   %13 = alloca ptr, align 8

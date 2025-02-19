@@ -857,7 +857,7 @@ declare i32 @close(i32 noundef) local_unnamed_addr #2
 declare void @track_script_reset_cpid(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef captures(address_is_null) %8) local_unnamed_addr #0 {
+define dso_local ptr @run_command_poll_child(i32 noundef %0, i32 noundef %1, i1 noundef zeroext %2, i32 noundef %3, ptr noundef %4, ptr noundef %5, i64 noundef %6, ptr noundef %7, ptr noundef %8) local_unnamed_addr #0 {
   %10 = alloca %struct.pollfd, align 4
   %11 = alloca %struct.timeval, align 8
   %12 = alloca ptr, align 8
@@ -1196,7 +1196,7 @@ declare ptr @slurm_xrecalloc(ptr noundef, i64 noundef, i64 noundef, i1 noundef z
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef writeonly captures(address_is_null) %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, -2147483648) i32 @run_command_waitpid_timeout(ptr noundef %0, i32 noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, i64 noundef %5, ptr noundef writeonly %6) local_unnamed_addr #0 {
   %8 = icmp sgt i32 %3, 0
   %9 = icmp ne i32 %3, 65534
   %or.cond.not = and i1 %8, %9
@@ -1328,7 +1328,7 @@ declare i32 @fexecve(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #
 declare i32 @execve(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @_log_str_array(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @_log_str_array(ptr noundef %0, ptr noundef readonly %1) unnamed_addr #0 {
   %3 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %4 = and i64 %3, 72057594037927936
   %5 = icmp ne i64 %4, 0

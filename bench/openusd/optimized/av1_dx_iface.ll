@@ -720,7 +720,7 @@ init_decoder.exit.thread:                         ; preds = %208, %210, %decode_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @decoder_get_frame(ptr noundef %0, ptr noundef captures(address_is_null) %1) #0 {
+define internal ptr @decoder_get_frame(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca %struct.AllocCbParam, align 8
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
@@ -3953,7 +3953,7 @@ define internal fastcc void @yuvconfig2image(ptr noundef writeonly captures(none
 declare i32 @av1_copy_new_frame_dec(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc i32 @decoder_peek_si_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc i32 @decoder_peek_si_internal(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.ObuHeader, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

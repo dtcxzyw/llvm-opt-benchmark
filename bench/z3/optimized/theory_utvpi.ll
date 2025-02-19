@@ -8620,7 +8620,7 @@ for.end:                                          ; preds = %_ZNSt4pairIi8ration
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt12utvpi_tester17get_linearizationEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(152) %this) local_unnamed_addr #9 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK3smt12utvpi_tester17get_linearizationEv(ptr noundef nonnull readnone align 8 dereferenceable(152) %this) local_unnamed_addr #9 align 2 {
 entry:
   %m_terms = getelementptr inbounds nuw i8, ptr %this, i64 144
   ret ptr %m_terms

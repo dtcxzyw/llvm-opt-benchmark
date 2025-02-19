@@ -239,7 +239,7 @@ declare i32 @PEM_get_EVP_CIPHER_INFO(ptr noundef, ptr noundef) local_unnamed_add
 declare i32 @PEM_do_header(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @pem2der_pass_helper(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @pem2der_pass_helper(ptr noundef %0, i32 noundef %1, i32 %2, ptr noundef readonly %3) #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
   %6 = icmp eq ptr %3, null

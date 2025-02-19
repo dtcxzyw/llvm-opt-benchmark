@@ -2408,7 +2408,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, inaccessiblemem: write) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5model12get_universeEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly captures(address) %s) unnamed_addr #8 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK5model12get_universeEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly %s) unnamed_addr #8 align 2 {
 entry:
   %m_usort2universe = getelementptr inbounds nuw i8, ptr %this, i64 104
   %m_hash.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -2477,7 +2477,7 @@ _ZNK7obj_mapI4sortP10ptr_vectorI4exprEEixEPS0_.exit: ; preds = %if.then.i.i.i.i,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK5model22has_uninterpreted_sortEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly captures(address) %s) local_unnamed_addr #9 align 2 {
+define hidden noundef zeroext i1 @_ZNK5model22has_uninterpreted_sortEP4sort(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly %s) local_unnamed_addr #9 align 2 {
 entry:
   %m_usort2universe = getelementptr inbounds nuw i8, ptr %this, i64 104
   %m_hash.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %s, i64 12
@@ -5055,7 +5055,7 @@ eh.resume:                                        ; preds = %lpad16.loopexit, %l
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5model12collect_occsERNS_8top_sortEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(128) %ts, ptr noundef readonly captures(address) %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5model12collect_occsERNS_8top_sortEP9func_decl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull align 8 dereferenceable(128) %ts, ptr noundef readonly %f) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %visited.i = alloca %class.ast_mark, align 8
   %collector.i55 = alloca %"struct.model::occs_collector", align 8
@@ -7404,7 +7404,7 @@ lpad:                                             ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN5model14can_inline_defERNS_8top_sortEP9func_declb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %ts, ptr noundef readonly captures(address) %f, i1 noundef zeroext %force_inline) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN5model14can_inline_defERNS_8top_sortEP9func_declb(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(128) %ts, ptr noundef readonly %f, i1 noundef zeroext %force_inline) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tmp.i = alloca ptr, align 8
   %subs = alloca %class.obj_hashtable.127, align 8
@@ -8352,7 +8352,7 @@ return:                                           ; preds = %if.then4, %if.end6,
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN5model24get_inlined_const_interpEP9func_declb(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly captures(address) %f, i1 noundef zeroext %force_inline) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN5model24get_inlined_const_interpEP9func_declb(ptr noalias sret(%class.obj_ref) align 8 %agg.result, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(160) %this, ptr noundef readonly %f, i1 noundef zeroext %force_inline) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %st = alloca %"struct.model::top_sort", align 8
   %result1 = alloca %class.obj_ref, align 8

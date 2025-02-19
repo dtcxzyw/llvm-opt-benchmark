@@ -16,7 +16,7 @@ define noundef nonnull ptr @BIO_f_reliable() local_unnamed_addr #0 {
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ok_write(ptr noundef %0, ptr noundef readonly captures(address) %1, i32 noundef %2) #2 {
+define internal i32 @ok_write(ptr noundef %0, ptr noundef readonly %1, i32 noundef %2) #2 {
   %4 = icmp slt i32 %2, 1
   br i1 %4, label %.loopexit, label %5
 
@@ -239,7 +239,7 @@ sig_out.exit.thread:                              ; preds = %24, %56, %13
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ok_read(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #2 {
+define internal i32 @ok_read(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #2 {
   %4 = alloca [64 x i8], align 16
   %5 = alloca [64 x i8], align 16
   %6 = icmp eq ptr %1, null

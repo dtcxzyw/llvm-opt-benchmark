@@ -2911,7 +2911,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib25CallSpecifiedMultiProduct9evolutionEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(281) %this) unnamed_addr #8 align 2 {
+define noundef nonnull align 8 dereferenceable(128) ptr @_ZNK8QuantLib25CallSpecifiedMultiProduct9evolutionEv(ptr noundef nonnull readnone align 8 dereferenceable(281) %this) unnamed_addr #8 align 2 {
 entry:
   %evolution_ = getelementptr inbounds nuw i8, ptr %this, i64 32
   ret ptr %evolution_

@@ -2874,14 +2874,14 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd21interpolatedVariancesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd21interpolatedVariancesEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) unnamed_addr #9 align 2 {
 entry:
   %interpolatedVariances_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   ret ptr %interpolatedVariances_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd17originalVariancesEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(192) %this) unnamed_addr #9 align 2 {
+define noundef nonnull align 8 dereferenceable(24) ptr @_ZNK8QuantLib36VolatilityInterpolationSpecifierabcd17originalVariancesEv(ptr noundef nonnull readnone align 8 dereferenceable(192) %this) unnamed_addr #9 align 2 {
 entry:
   %originalVariances_ = getelementptr inbounds nuw i8, ptr %this, i64 48
   ret ptr %originalVariances_

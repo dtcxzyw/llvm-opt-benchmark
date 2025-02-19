@@ -2848,7 +2848,7 @@ _ZN4llvh11raw_ostreamlsEPKc.exit70:               ; preds = %if.then.i.i68, %if.
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes3hbc18DebugInfoGenerator21appendSourceLocationsERKNS0_19DebugSourceLocationEjN4llvh8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %start, i32 noundef %functionIndex, ptr readonly captures(address) %offsets.coerce0, i64 %offsets.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN6hermes3hbc18DebugInfoGenerator21appendSourceLocationsERKNS0_19DebugSourceLocationEjN4llvh8ArrayRefIS2_EE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(32) %start, i32 noundef %functionIndex, ptr readonly %offsets.coerce0, i64 %offsets.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %cmp.i = icmp eq i64 %offsets.coerce1, 0
   br i1 %cmp.i, label %return, label %if.end
@@ -3141,7 +3141,7 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 declare void @_ZN6hermes3hbc21UniquingFilenameTable9toStorageES1_(ptr sret(%"class.hermes::hbc::ConsecutiveStringStorage") align 8, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes3hbc18DebugInfoGenerator25appendTextifiedCalleeDataEN4llvh8ArrayRefINS0_20DebugTextifiedCalleeEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr readonly captures(address) %textifiedCallees.coerce0, i64 %textifiedCallees.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN6hermes3hbc18DebugInfoGenerator25appendTextifiedCalleeDataEN4llvh8ArrayRefINS0_20DebugTextifiedCalleeEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, ptr readonly %textifiedCallees.coerce0, i64 %textifiedCallees.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %cmp.i = icmp eq i64 %textifiedCallees.coerce1, 0
   br i1 %cmp.i, label %return, label %for.body.preheader
@@ -3177,7 +3177,7 @@ return:                                           ; preds = %for.body, %entry
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef i32 @_ZN6hermes3hbc18DebugInfoGenerator15appendScopeDescENS_8OptValueIjEENS0_20DebugScopeDescriptor5FlagsEN4llvh8ArrayRefINS_10IdentifierEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i64 %parentScopeOffset.coerce, i16 %flags.coerce, ptr readonly captures(address) %names.coerce0, i64 %names.coerce1) local_unnamed_addr #2 align 2 {
+define hidden noundef i32 @_ZN6hermes3hbc18DebugInfoGenerator15appendScopeDescENS_8OptValueIjEENS0_20DebugScopeDescriptor5FlagsEN4llvh8ArrayRefINS_10IdentifierEEE(ptr noundef nonnull align 8 dereferenceable(216) %this, i64 %parentScopeOffset.coerce, i16 %flags.coerce, ptr readonly %names.coerce0, i64 %names.coerce1) local_unnamed_addr #2 align 2 {
 entry:
   %0 = and i64 %parentScopeOffset.coerce, 4294967296
   %tobool.i.not = icmp eq i64 %0, 0

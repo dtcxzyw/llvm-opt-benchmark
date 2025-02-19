@@ -77757,7 +77757,7 @@ _ZNSt10unique_ptrIN5arrow7compute8internal12_GLOBAL__N_117RegularHashKernelINS0_
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 168)) %0, ptr %.0.val, ptr %.8.val, ptr noundef readonly captures(address_is_null) %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN5arrow7compute8internal12_GLOBAL__N_116DictEncodeActionC2ERKSt10shared_ptrINS_8DataTypeEEPKNS0_15FunctionOptionsEPNS_10MemoryPoolE(ptr noundef nonnull align 8 dereferenceable(264) initializes((0, 168)) %0, ptr %.0.val, ptr %.8.val, ptr noundef readonly %1, ptr noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {
   store ptr %.0.val, ptr %0, align 8, !tbaa !95
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.8.val, ptr %4, align 8, !tbaa !81
@@ -92134,7 +92134,7 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceIN5arrow7compute8internal12
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow7compute8internal12_GLOBAL__N_128DictionaryDecodeMetaFunctionESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(208) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(16) %1) unnamed_addr #27 align 2 {
+define internal noundef ptr @_ZNSt23_Sp_counted_ptr_inplaceIN5arrow7compute8internal12_GLOBAL__N_128DictionaryDecodeMetaFunctionESaIvELN9__gnu_cxx12_Lock_policyE2EE14_M_get_deleterERKSt9type_info(ptr noundef nonnull readnone align 8 dereferenceable(208) %0, ptr noundef nonnull readonly align 8 dereferenceable(16) %1) unnamed_addr #27 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = icmp eq ptr %1, @_ZZNSt19_Sp_make_shared_tag5_S_tiEvE5__tag
   br i1 %4, label %_ZNKSt9type_infoeqERKS_.exit.thread8, label %5

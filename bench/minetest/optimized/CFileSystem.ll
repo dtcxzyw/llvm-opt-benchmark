@@ -290,7 +290,7 @@ _ZN3irr4core5arrayIPNS_2io14IArchiveLoaderEE9push_backEOS4_.exit: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CFileSystemD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(144) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this, ptr noundef readonly captures(none) %vtt) unnamed_addr #0 align 2 {
 entry:
   %0 = load ptr, ptr %vtt, align 8
   store ptr %0, ptr %this, align 8, !tbaa !3
@@ -465,14 +465,14 @@ _ZN3irr4core6stringIcED2Ev.exit.1:                ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN3irr2io11CFileSystemD1Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
+define void @_ZN3irr2io11CFileSystemD1Ev(ptr noundef nonnull align 8 dereferenceable(144) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
 entry:
   tail call void @_ZN3irr2io11CFileSystemD2Ev(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull @_ZTTN3irr2io11CFileSystemE) #23
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define void @_ZTv0_n24_N3irr2io11CFileSystemD1Ev(ptr noundef captures(address) %this) unnamed_addr #4 align 2 {
+define void @_ZTv0_n24_N3irr2io11CFileSystemD1Ev(ptr noundef %this) unnamed_addr #4 align 2 {
 entry:
   %0 = load ptr, ptr %this, align 8
   %1 = getelementptr inbounds i8, ptr %0, i64 -24
@@ -838,7 +838,7 @@ for.inc:                                          ; preds = %if.end, %lor.lhs.fa
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr2io11CFileSystem14addFileArchiveERKNS_4core6stringIcEEbbNS0_19E_FILE_ARCHIVE_TYPEES6_PPNS0_12IFileArchiveE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i32 noundef %archiveType, ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef writeonly captures(address_is_null) %retArchive) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr2io11CFileSystem14addFileArchiveERKNS_4core6stringIcEEbbNS0_19E_FILE_ARCHIVE_TYPEES6_PPNS0_12IFileArchiveE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef nonnull align 8 dereferenceable(32) %filename, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i32 noundef %archiveType, ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef writeonly %retArchive) unnamed_addr #0 align 2 {
 entry:
   %cmp = icmp eq i32 %archiveType, 1852534389
   %ArchiveLoader = getelementptr inbounds nuw i8, ptr %this, i64 80
@@ -1159,7 +1159,7 @@ if.end130:                                        ; preds = %if.else129, %if.the
 declare void @_ZN3irr2os7Printer3logEPKcRKNS_4core6stringIcEENS_10ELOG_LEVELE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr2io11CFileSystem14addFileArchiveEPNS0_9IReadFileEbbNS0_19E_FILE_ARCHIVE_TYPEERKNS_4core6stringIcEEPPNS0_12IFileArchiveE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef %file, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i32 noundef %archiveType, ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef writeonly captures(address_is_null) %retArchive) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr2io11CFileSystem14addFileArchiveEPNS0_9IReadFileEbbNS0_19E_FILE_ARCHIVE_TYPEERKNS_4core6stringIcEEPPNS0_12IFileArchiveE(ptr noundef nonnull align 8 captures(none) dereferenceable(144) %this, ptr noundef %file, i1 noundef zeroext %ignoreCase, i1 noundef zeroext %ignorePaths, i32 noundef %archiveType, ptr noundef nonnull align 8 dereferenceable(32) %password, ptr noundef writeonly %retArchive) unnamed_addr #0 align 2 {
 entry:
   %tobool.not = icmp eq ptr %file, null
   br i1 %tobool.not, label %return, label %if.then4
@@ -1703,7 +1703,7 @@ _ZN3irr4core6stringIcED2Ev.exit:                  ; preds = %if.then.i.i.i, %_ZN
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define noundef zeroext i1 @_ZN3irr2io11CFileSystem17removeFileArchiveEPKNS0_12IFileArchiveE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef readnone captures(address) %archive) unnamed_addr #0 align 2 {
+define noundef zeroext i1 @_ZN3irr2io11CFileSystem17removeFileArchiveEPKNS0_12IFileArchiveE(ptr noundef nonnull align 8 dereferenceable(144) %this, ptr noundef readnone %archive) unnamed_addr #0 align 2 {
 entry:
   %FileArchives = getelementptr inbounds nuw i8, ptr %this, i64 112
   %_M_finish.i.i = getelementptr inbounds nuw i8, ptr %this, i64 120

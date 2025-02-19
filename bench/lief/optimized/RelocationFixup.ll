@@ -680,7 +680,7 @@ define void @_ZN4LIEF5MachO15RelocationFixupC2ENS0_23DYLD_CHAINED_PTR_FORMATEm(p
 declare void @_ZN4LIEF5MachO10RelocationC2Ev(ptr noundef nonnull align 8 dereferenceable(56)) unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull align 8 dereferenceable(88) ptr @_ZN4LIEF5MachO15RelocationFixupaSERKS1_(ptr noundef nonnull returned writeonly align 8 captures(address, ret: address, provenance) dereferenceable(88) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(88) ptr @_ZN4LIEF5MachO15RelocationFixupaSERKS1_(ptr noundef nonnull returned writeonly align 8 dereferenceable(88) %0, ptr noundef nonnull readonly align 8 dereferenceable(88) %1) local_unnamed_addr #3 align 2 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %38, label %4
 

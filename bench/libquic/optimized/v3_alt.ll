@@ -960,7 +960,7 @@ declare ptr @X509V3_EXT_d2i(ptr noundef) local_unnamed_addr #2
 declare void @sk_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly captures(address_is_null) %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @copy_email(ptr noundef readonly %0, ptr noundef nonnull %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.critedge, label %4
 

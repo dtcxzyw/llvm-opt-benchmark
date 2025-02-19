@@ -849,7 +849,7 @@ define dso_local void @nfs4_put_state_owner(ptr noundef %0) local_unnamed_addr #
 declare dso_local i32 @_atomic_dec_and_lock(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nfs4_purge_state_owners(ptr noundef readonly captures(address) %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local void @nfs4_purge_state_owners(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 align 16 {
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 328
   tail call void @_raw_spin_lock(ptr noundef nonnull %4) #17
@@ -895,7 +895,7 @@ define dso_local void @nfs4_purge_state_owners(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nfs4_free_state_owners(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 align 16 {
+define dso_local void @nfs4_free_state_owners(ptr noundef readonly %0) local_unnamed_addr #0 align 16 {
   %2 = load ptr, ptr %0, align 8
   %3 = icmp eq ptr %2, %0
   br i1 %3, label %.loopexit, label %.preheader
@@ -1762,7 +1762,7 @@ define dso_local noundef zeroext i1 @nfs4_copy_open_stateid(ptr noundef writeonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -11, 1) i32 @nfs4_select_rw_stateid(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 align 16 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load volatile i64, ptr %6, align 8
   %8 = and i64 %7, 512
@@ -2074,7 +2074,7 @@ define dso_local void @nfs_free_seqid(ptr noundef %0) local_unnamed_addr #0 alig
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nfs_increment_open_seqid(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @nfs_increment_open_seqid(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %24, label %4
 
@@ -2124,7 +2124,7 @@ define dso_local void @nfs_increment_open_seqid(i32 noundef %0, ptr noundef read
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @nfs_increment_lock_seqid(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 16 {
+define dso_local void @nfs_increment_lock_seqid(i32 noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 align 16 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %22, label %4
 

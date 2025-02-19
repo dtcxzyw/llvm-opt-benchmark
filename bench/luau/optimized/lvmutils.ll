@@ -34,7 +34,7 @@ $_Z16luaV_doarithimplIL3TMS15EEvP9lua_StateP10lua_TValuePKS3_S6_ = comdat any
 @.str.8 = private unnamed_addr constant [5 x i8] c"call\00", align 1
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef ptr @_Z13luaV_tonumberPK10lua_TValuePS_(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef writeonly captures(ret: address, provenance) %1) local_unnamed_addr #0 {
+define hidden noundef ptr @_Z13luaV_tonumberPK10lua_TValuePS_(ptr noundef readonly %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca double, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %5 = load i32, ptr %4, align 4
@@ -96,7 +96,7 @@ declare hidden noundef ptr @_Z12luai_num2strPcd(ptr noundef, double noundef) loc
 declare hidden noundef ptr @_Z12luaS_newlstrP9lua_StatePKcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef ptr @_Z13luaV_tovectorPK10lua_TValue(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #2 {
+define hidden noundef ptr @_Z13luaV_tovectorPK10lua_TValue(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %3 = load i32, ptr %2, align 4
   %4 = icmp eq i32 %3, 4
@@ -438,7 +438,7 @@ declare hidden noundef ptr @_Z11luaH_newkeyP9lua_StateP5TablePK10lua_TValue(ptr 
 declare hidden void @_Z17luaC_barriertableP9lua_StateP5TableP8GCObject(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1) local_unnamed_addr #5 {
+define hidden noundef i32 @_Z11luaV_strcmpPK7TStringS1_(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #5 {
   %3 = icmp eq ptr %0, %1
   br i1 %3, label %23, label %4
 

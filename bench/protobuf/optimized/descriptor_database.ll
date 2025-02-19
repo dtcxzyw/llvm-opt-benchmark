@@ -9869,7 +9869,7 @@ unreachable:                                      ; preds = %invoke.cont7
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoESt17basic_string_viewIcSt11char_traitsIcEEPN4absl12lts_202308029btree_setINSt7__cxx1112basic_stringIcS7_SaIcEEESt4lessISF_ESaISF_EEE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(232) %desc_proto, i64 %prefix.coerce0, ptr %prefix.coerce1, ptr noundef nonnull %output) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN6google8protobuf12_GLOBAL__N_118RecordMessageNamesERKNS0_15DescriptorProtoESt17basic_string_viewIcSt11char_traitsIcEEPN4absl12lts_202308029btree_setINSt7__cxx1112basic_stringIcS7_SaIcEEESt4lessISF_ESaISF_EEE(ptr noundef nonnull readonly align 8 dereferenceable(232) %desc_proto, i64 %prefix.coerce0, ptr %prefix.coerce1, ptr noundef nonnull %output) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp1 = alloca %"class.absl::lts_20230802::log_internal::LogMessageFatal", align 8
   %full_name = alloca %"class.std::__cxx11::basic_string", align 8

@@ -425,7 +425,7 @@ define dso_local zeroext i1 @restriction_is_securely_promotable(ptr noundef read
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @get_actual_clauses(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @get_actual_clauses(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -459,7 +459,7 @@ define dso_local ptr @get_actual_clauses(ptr noundef readonly captures(address_i
 declare ptr @lappend(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @extract_actual_clauses(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
+define dso_local ptr @extract_actual_clauses(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %._crit_edge, label %.lr.ph
@@ -521,7 +521,7 @@ rinfo_is_constant_true.exit.thread:               ; preds = %15, %19, %rinfo_is_
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @extract_actual_join_clauses(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
+define dso_local void @extract_actual_join_clauses(ptr noundef readonly %0, ptr noundef %1, ptr noundef captures(none) initializes((0, 8)) %2, ptr noundef captures(none) initializes((0, 8)) %3) local_unnamed_addr #0 {
   store ptr null, ptr %2, align 8
   store ptr null, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4

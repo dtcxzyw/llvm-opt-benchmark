@@ -846,7 +846,7 @@ declare void @_ZN6memory10deallocateEPv(ptr noundef) local_unnamed_addr #0
 declare noundef ptr @_ZNK3euf6etable4findEPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(48), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3euf6egraph9enodes_ofEP9func_decl(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(536) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #4 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3euf6egraph9enodes_ofEP9func_decl(ptr noundef nonnull readonly align 8 dereferenceable(536) %this, ptr noundef readonly captures(none) %f) local_unnamed_addr #4 align 2 {
 entry:
   %0 = load i32, ptr %f, align 4
   %sub.i = xor i32 %0, -2147483648
@@ -3610,7 +3610,7 @@ for.end54:                                        ; preds = %for.inc52, %if.end2
 declare noundef i32 @_ZNK3euf5enode18get_closest_th_varEi(ptr noundef nonnull align 8 dereferenceable(176), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6egraph13add_th_diseqsEiiPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %this, i32 noundef %id, i32 noundef %v1, ptr noundef readonly captures(address) %r) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6egraph13add_th_diseqsEiiPNS_5enodeE(ptr noundef nonnull align 8 dereferenceable(536) %this, i32 noundef %id, i32 noundef %v1, ptr noundef readonly %r) local_unnamed_addr #3 align 2 {
 entry:
   %m_th_propagates_diseqs.i = getelementptr inbounds nuw i8, ptr %this, i64 296
   %0 = load ptr, ptr %m_th_propagates_diseqs.i, align 8
@@ -4128,7 +4128,7 @@ if.end21:                                         ; preds = %for.inc.i, %if.end2
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6egraph15undo_add_th_varEPNS_5enodeEi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef captures(address) %n, i32 noundef %tid) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6egraph15undo_add_th_varEPNS_5enodeEi(ptr nonnull readnone align 8 captures(none) %this, ptr noundef %n, i32 noundef %tid) local_unnamed_addr #3 align 2 {
 entry:
   %m_th_vars.i = getelementptr inbounds nuw i8, ptr %n, i64 88
   %bf.load.i.i.i.i = load i32, ptr %m_th_vars.i, align 8
@@ -6955,7 +6955,7 @@ return:                                           ; preds = %land.lhs.true13, %i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3euf6egraph6tmp_eqEPNS_5enodeES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(536) %this, ptr noundef readonly captures(address) %a, ptr noundef readonly captures(address) %b) local_unnamed_addr #4 align 2 {
+define hidden noundef ptr @_ZN3euf6egraph6tmp_eqEPNS_5enodeES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(536) %this, ptr noundef readonly %a, ptr noundef readonly %b) local_unnamed_addr #4 align 2 {
 entry:
   %m_parents.i = getelementptr inbounds nuw i8, ptr %a, i64 48
   %0 = load ptr, ptr %m_parents.i, align 8
@@ -7273,7 +7273,7 @@ _ZN3euf6egraph11push_to_lcaEPNS_5enodeES2_.exit27: ; preds = %_ZN6vectorIPN3euf5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN3euf6egraph8find_lcaEPNS_5enodeES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(536) %this, ptr noundef captures(none) %a, ptr noundef readonly captures(ret: address, provenance) %b) local_unnamed_addr #10 align 2 {
+define hidden noundef ptr @_ZN3euf6egraph8find_lcaEPNS_5enodeES2_(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(536) %this, ptr noundef captures(none) %a, ptr noundef readonly %b) local_unnamed_addr #10 align 2 {
 entry:
   br label %while.body.i
 
@@ -7319,7 +7319,7 @@ _ZN3euf5enode13mark2_targetsILb0EEEvv.exit:       ; preds = %while.body.i4
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN3euf6egraph11push_to_lcaEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %n, ptr noundef readnone captures(address) %lca) local_unnamed_addr #3 align 2 {
+define hidden void @_ZN3euf6egraph11push_to_lcaEPNS_5enodeES2_(ptr noundef nonnull align 8 dereferenceable(536) %this, ptr noundef %n, ptr noundef readnone %lca) local_unnamed_addr #3 align 2 {
 entry:
   %cmp.not2 = icmp eq ptr %n, %lca
   br i1 %cmp.not2, label %while.end, label %while.body.lr.ph

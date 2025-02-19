@@ -4297,7 +4297,7 @@ define ptr @get_node_field_value(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc ptr @get_field_hex_value(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
+define internal fastcc ptr @get_field_hex_value(ptr noundef readonly %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %4 = load ptr, ptr %3, align 8
   %.not = icmp eq ptr %4, null
@@ -4585,7 +4585,7 @@ declare i64 @strftime(ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_
 declare i64 @g_strlcpy(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @write_json_proto_node_list(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) unnamed_addr #0 {
+define internal fastcc void @write_json_proto_node_list(ptr noundef readonly %0, ptr noundef %1) unnamed_addr #0 {
   %3 = alloca [240 x i8], align 16
   %4 = alloca [240 x i8], align 16
   %5 = alloca ptr, align 8
@@ -5008,7 +5008,7 @@ declare void @g_slist_free_full(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare void @g_slist_free(ptr noundef) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @write_json_proto_node(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
+define internal fastcc void @write_json_proto_node(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3) unnamed_addr #0 {
   %5 = load ptr, ptr %0, align 8
   %6 = getelementptr i8, ptr %5, i64 40
   %.val = load ptr, ptr %6, align 8
@@ -5373,7 +5373,7 @@ declare noalias ptr @g_ascii_strdown(ptr noundef, i64 noundef) local_unnamed_add
 declare i32 @g_slist_length(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc zeroext i1 @ek_check_protocolfilter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc zeroext i1 @ek_check_protocolfilter(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #21

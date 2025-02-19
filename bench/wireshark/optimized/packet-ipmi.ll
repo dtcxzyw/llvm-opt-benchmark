@@ -562,7 +562,7 @@ define hidden i32 @ipmi_getsiglen(i32 noundef %0) local_unnamed_addr #4 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @ipmi_getnetfnname(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden ptr @ipmi_getnetfnname(ptr noundef %0, i32 noundef %1, ptr noundef readonly %2) local_unnamed_addr #0 {
   %4 = lshr i32 %1, 1
   %5 = zext nneg i32 %4 to i64
   %6 = getelementptr [32 x %struct.ipmi_netfn_root], ptr @ipmi_cmd_tab, i64 0, i64 %5, i32 1
@@ -637,7 +637,7 @@ define hidden ptr @ipmi_getnetfn(i32 noundef %0, ptr noundef readonly captures(n
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind null_pointer_is_valid sspstrong memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @ipmi_getcmd(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define hidden noundef ptr @ipmi_getcmd(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %3
 
@@ -780,7 +780,7 @@ define hidden void @ipmi_fmt_percent(ptr noundef %0, i32 noundef %1) local_unnam
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @ipmi_get_completion_code(i8 noundef zeroext %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden ptr @ipmi_get_completion_code(i8 noundef zeroext %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = zext i8 %0 to i32
   %4 = add i8 %0, -1
   %or.cond = icmp ult i8 %4, 126
@@ -824,7 +824,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @do_dissect_ipmb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden i32 @do_dissect_ipmb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef readonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.ipmi_context_t, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7) #15
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2195,7 +2195,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = load i32, ptr @proto_ipmb, align 4
   %6 = load i32, ptr @ett_ipmi, align 4
   %7 = tail call i32 @do_dissect_ipmb(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %5, i32 noundef %6, ptr noundef %3)
@@ -2203,7 +2203,7 @@ define internal i32 @dissect_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_i2c_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_i2c_ipmi(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 4
@@ -2224,7 +2224,7 @@ define internal i32 @dissect_i2c_ipmi(ptr noundef %0, ptr noundef %1, ptr nounde
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_kcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_kcs(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.ipmi_context_t, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0)
@@ -2304,7 +2304,7 @@ define internal i32 @dissect_kcs(ptr noundef %0, ptr noundef %1, ptr noundef %2,
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_tmode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3) #0 {
+define internal i32 @dissect_tmode(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3) #0 {
   %5 = alloca %struct.ipmi_context_t, align 4
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   %6 = tail call i32 @tvb_captured_length(ptr noundef %0)

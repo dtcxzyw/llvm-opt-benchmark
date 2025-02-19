@@ -568,7 +568,7 @@ define dso_local range(i32 0, 4) i32 @LockAcquire(ptr noundef %0, i32 noundef %1
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #0 {
+define dso_local range(i32 0, 4) i32 @LockAcquireExtended(ptr noundef %0, i32 noundef %1, i1 noundef zeroext %2, i1 noundef zeroext %3, i1 noundef zeroext %4, ptr noundef writeonly %5) local_unnamed_addr #0 {
   %7 = alloca %struct.LOCALLOCKTAG, align 4
   %8 = alloca i8, align 1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 15
@@ -1796,7 +1796,7 @@ dlist_push_tail.exit86:                           ; preds = %dlist_push_tail.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(address) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #0 {
+define dso_local noundef zeroext i1 @LockCheckConflicts(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef readonly %2, ptr noundef readonly %3) local_unnamed_addr #0 {
   %5 = alloca [10 x i32], align 16
   %6 = load i32, ptr %0, align 8
   %.fr = freeze i32 %6
@@ -3554,7 +3554,7 @@ define internal fastcc void @ReleaseLockIfHeld(ptr noundef %0, i1 noundef zeroex
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LockReleaseCurrentOwner(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @LockReleaseCurrentOwner(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = icmp eq ptr %0, null
   br i1 %4, label %7, label %.preheader
@@ -3601,7 +3601,7 @@ define dso_local void @LockReleaseCurrentOwner(ptr noundef readonly captures(add
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @LockReassignCurrentOwner(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define dso_local void @LockReassignCurrentOwner(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.HASH_SEQ_STATUS, align 8
   %4 = load ptr, ptr @CurrentResourceOwner, align 8
   %5 = tail call ptr @ResourceOwnerGetParent(ptr noundef %4) #17
@@ -3790,7 +3790,7 @@ LockReassignOwner.exit21:                         ; preds = %.lr.ph, %._crit_edg
 declare ptr @ResourceOwnerGetParent(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local ptr @GetLockConflicts(ptr noundef %0, i32 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 15
   %5 = load i8, ptr %4, align 1
   %6 = add i8 %5, -3
@@ -5283,7 +5283,7 @@ define dso_local ptr @GetBlockerStatusData(i32 noundef %0) local_unnamed_addr #0
 declare ptr @BackendPidGetProcWithLock(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly captures(address) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
+define internal fastcc void @GetSingleProcBlockerStatusData(ptr noundef readonly %0, ptr noundef captures(none) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = icmp eq ptr %4, null

@@ -240,7 +240,7 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %41, %_ZN17QArrayDat
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @fileset_dlg_add_file(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define void @fileset_dlg_add_file(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   %.not.i = icmp eq ptr %0, null
   %or.cond = or i1 %.not.i, %.not
@@ -1639,7 +1639,7 @@ define void @_ZThn16_N13FileSetDialogD0Ev(ptr noundef %0) unnamed_addr #9 align 
 }
 
 ; Function Attrs: mustprogress null_pointer_is_valid sspstrong uwtable
-define void @_ZN13FileSetDialog10fileOpenedEPK13_capture_file(ptr noundef align 8 dereferenceable_or_null(100) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 align 2 {
+define void @_ZN13FileSetDialog10fileOpenedEPK13_capture_file(ptr noundef align 8 dereferenceable_or_null(100) %0, ptr noundef readonly %1) local_unnamed_addr #0 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %8, label %3
 

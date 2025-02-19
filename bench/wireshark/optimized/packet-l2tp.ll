@@ -4223,7 +4223,7 @@ declare void @proto_item_append_text(ptr noundef, ptr noundef, ...) local_unname
 declare ptr @wmem_memdup(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc void @process_l2tpv3_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 %.0.val, ptr noundef readonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc void @process_l2tpv3_data(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 %.0.val, ptr noundef readonly %5) unnamed_addr #0 {
   %7 = load i32, ptr @l2tpv3_cookie, align 4
   %8 = load i32, ptr @l2tpv3_l2_specific, align 4
   %9 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef %.0.val)

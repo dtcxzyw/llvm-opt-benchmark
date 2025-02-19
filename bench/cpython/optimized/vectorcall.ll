@@ -668,7 +668,7 @@ define internal ptr @MethodDescriptor_vectorcall(ptr noundef readonly captures(n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @call_return_args(ptr readnone captures(none) %0, ptr noundef returned captures(ret: address, provenance) %1, ptr readnone captures(none) %2) #4 {
+define internal noundef ptr @call_return_args(ptr readnone captures(none) %0, ptr noundef returned %1, ptr readnone captures(none) %2) #4 {
   %4 = load i32, ptr %1, align 8, !tbaa !35
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %_Py_NewRef.exit, label %6
@@ -683,7 +683,7 @@ _Py_NewRef.exit:                                  ; preds = %3, %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal noundef ptr @nop_descr_get(ptr noundef returned captures(ret: address, provenance) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
+define internal noundef ptr @nop_descr_get(ptr noundef returned %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #4 {
   %4 = load i32, ptr %0, align 8, !tbaa !35
   %5 = icmp slt i32 %4, 0
   br i1 %5, label %_Py_NewRef.exit, label %6

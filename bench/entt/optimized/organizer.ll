@@ -1588,7 +1588,7 @@ define hidden void @_Z10sync_pointRN4entt14basic_registryINS_6entityESaIS1_EEENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_Z17to_args_integrityN4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERmRS9_(ptr readonly captures(address_is_null) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(336) %2) local_unnamed_addr #4 {
+define hidden void @_Z17to_args_integrityN4entt10basic_viewINS_5get_tIJNS_16basic_sigh_mixinINS_13basic_storageIiNS_6entityESaIiEvEENS_14basic_registryIS4_SaIS4_EEEEEEEENS_9exclude_tIJEEEvEERmRS9_(ptr readonly %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %1, ptr noundef nonnull readnone align 8 captures(none) dereferenceable(336) %2) local_unnamed_addr #4 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZNK4entt18basic_storage_viewINS_16basic_sparse_setINS_6entityESaIS2_EEELNS_15deletion_policyE0EE4sizeIJELS5_0EEENSt9enable_ifIXneT0_LS5_1EEmE4typeEv.exit, label %4
 

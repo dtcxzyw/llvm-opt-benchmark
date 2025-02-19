@@ -360,7 +360,7 @@ MemoryContextCallResetCallbacks.exit:             ; preds = %.lr.ph.i, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @MemoryContextResetChildren(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define dso_local void @MemoryContextResetChildren(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load ptr, ptr %2, align 8
   %.not5 = icmp eq ptr %3, null
@@ -668,7 +668,7 @@ define dso_local zeroext i1 @MemoryContextIsEmpty(ptr noundef %0) local_unnamed_
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define dso_local i64 @MemoryContextMemAllocated(ptr noundef readonly captures(address) %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
+define dso_local i64 @MemoryContextMemAllocated(ptr noundef readonly %0, i1 noundef zeroext %1) local_unnamed_addr #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load i64, ptr %3, align 8
   br i1 %1, label %5, label %.loopexit

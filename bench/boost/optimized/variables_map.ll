@@ -2201,13 +2201,13 @@ define void @_ZN5boost15program_options5storeERKNS0_20basic_parsed_optionsIwEERN
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost15program_options6notifyERNS0_13variables_mapE(ptr noundef nonnull align 8 captures(address) dereferenceable(160) %0) local_unnamed_addr #0 {
+define void @_ZN5boost15program_options6notifyERNS0_13variables_mapE(ptr noundef nonnull align 8 dereferenceable(160) %0) local_unnamed_addr #0 {
   tail call void @_ZN5boost15program_options13variables_map6notifyEv(ptr noundef nonnull align 8 dereferenceable(160) %0)
   ret void
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5boost15program_options13variables_map6notifyEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(160) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5boost15program_options13variables_map6notifyEv(ptr noundef nonnull readonly align 8 dereferenceable(160) %0) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"class.boost::program_options::required_option", align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %4 = load ptr, ptr %3, align 8, !tbaa !19
@@ -2576,7 +2576,7 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4lessIS5_ESaI
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5boost15program_options13variables_map3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(address, ret: address, provenance) dereferenceable(160) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
+define noundef nonnull align 8 dereferenceable(32) ptr @_ZNK5boost15program_options13variables_map3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 dereferenceable(160) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #9 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load atomic i8, ptr @_ZGVZNK5boost15program_options13variables_map3getERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE5empty acquire, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %5, label %9, !prof !85

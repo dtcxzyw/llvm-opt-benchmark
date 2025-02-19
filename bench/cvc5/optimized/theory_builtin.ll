@@ -461,13 +461,13 @@ _ZNSt3mapIN4cvc58internal6theory16TheoryRewriteCtxESt6vectorINS0_16ProofRewriteR
 declare void @_ZN4cvc58internal6theory6TheoryD2Ev(ptr noundef nonnull align 8 dereferenceable(280)) unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7builtin13TheoryBuiltin17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(784) %0) unnamed_addr #7 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7builtin13TheoryBuiltin17getTheoryRewriterEv(ptr noundef nonnull readnone align 8 dereferenceable(784) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 280
   ret ptr %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7builtin13TheoryBuiltin15getProofCheckerEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(784) %0) unnamed_addr #7 align 2 {
+define hidden noundef nonnull ptr @_ZN4cvc58internal6theory7builtin13TheoryBuiltin15getProofCheckerEv(ptr noundef nonnull readnone align 8 dereferenceable(784) %0) unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 344
   ret ptr %2
 }

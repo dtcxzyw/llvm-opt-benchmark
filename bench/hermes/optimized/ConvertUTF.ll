@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN4llvhL15offsetsFromUTF8E = internal unnamed_addr constant [6 x i32] [i32 0, i32 12416, i32 925824, i32 63447168, i32 -100130688, i32 -2113396608], align 16
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh19ConvertUTF32toUTF16EPPKjS1_PPtS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef readnone captures(address) %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh19ConvertUTF32toUTF16EPPKjS1_PPtS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef readnone %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -140,7 +140,7 @@ while.end:                                        ; preds = %if.end34, %while.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh19ConvertUTF16toUTF32EPPKtS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef readnone captures(address) %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh19ConvertUTF16toUTF32EPPKtS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef readnone %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -243,7 +243,7 @@ while.end:                                        ; preds = %if.end33.us, %if.th
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF16toUTF8EPPKtS1_PPhS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef readnone captures(address) %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF16toUTF8EPPKtS1_PPhS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef readnone %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -473,7 +473,7 @@ while.end:                                        ; preds = %sw.bb69.us, %if.the
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef readnone captures(address) %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF32toUTF8EPPKjS1_PPhS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef readnone %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -826,7 +826,7 @@ return:                                           ; preds = %lor.lhs.false, %whi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF8toUTF16EPPKhS1_PPtS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -1030,14 +1030,14 @@ while.end:                                        ; preds = %if.end89, %while.bo
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh25ConvertUTF8toUTF32PartialEPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh25ConvertUTF8toUTF32PartialEPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %sourceStart, ptr noundef %sourceEnd, ptr noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags, i8 noundef zeroext 1)
   ret i32 %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone captures(address) %targetEnd, i32 noundef %flags, i8 noundef zeroext range(i8 0, 2) %InputIsPartial) unnamed_addr #0 {
+define internal fastcc noundef range(i32 0, 4) i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef readnone %targetEnd, i32 noundef %flags, i8 noundef zeroext range(i8 0, 2) %InputIsPartial) unnamed_addr #0 {
 entry:
   %0 = load ptr, ptr %sourceStart, align 8
   %1 = load ptr, ptr %targetStart, align 8
@@ -1410,7 +1410,7 @@ while.end:                                        ; preds = %while.cond.backedge
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef captures(address) %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
+define hidden noundef range(i32 0, 4) i32 @_ZN4llvh18ConvertUTF8toUTF32EPPKhS1_PPjS3_NS_15ConversionFlagsE(ptr noundef captures(none) %sourceStart, ptr noundef %sourceEnd, ptr noundef captures(none) %targetStart, ptr noundef %targetEnd, i32 noundef %flags) local_unnamed_addr #0 {
 entry:
   %call = tail call fastcc noundef i32 @_ZN4llvhL22ConvertUTF8toUTF32ImplEPPKhS1_PPjS3_NS_15ConversionFlagsEh(ptr noundef %sourceStart, ptr noundef %sourceEnd, ptr noundef %targetStart, ptr noundef %targetEnd, i32 noundef %flags, i8 noundef zeroext 0)
   ret i32 %call

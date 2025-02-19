@@ -13,7 +13,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.4 = private unnamed_addr constant [6 x i8] c"line \00", align 1
 
 ; Function Attrs: nounwind uwtable
-define hidden noalias noundef ptr @NCONF_new(ptr noundef readnone captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden noalias noundef ptr @NCONF_new(ptr noundef readnone %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %9
 
@@ -123,7 +123,7 @@ declare void @ERR_put_error(i32 noundef, i32 noundef, i32 noundef, ptr noundef, 
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
 
 ; Function Attrs: nounwind uwtable
-define hidden void @NCONF_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden void @NCONF_free(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %8, label %3
 
@@ -240,7 +240,7 @@ define hidden ptr @NCONF_get_string(ptr noundef readonly captures(none) %0, ptr 
 declare ptr @lh_retrieve(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @NCONF_load(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @NCONF_load(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr @BIO_new_file(ptr noundef %1, ptr noundef nonnull @.str.1) #12
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %7
@@ -262,7 +262,7 @@ define hidden range(i32 0, 2) i32 @NCONF_load(ptr noundef readonly captures(none
 declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @def_load_bio(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @def_load_bio(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef writeonly %2) unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca %struct.conf_value_st, align 8
   %6 = alloca %struct.conf_value_st, align 8
@@ -1068,7 +1068,7 @@ add_string.exit:                                  ; preds = %266, %value_free.ex
 declare i32 @BIO_free(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @NCONF_load_bio(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @NCONF_load_bio(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc i32 @def_load_bio(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   ret i32 %4
 }

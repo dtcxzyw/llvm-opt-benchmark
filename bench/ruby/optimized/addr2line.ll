@@ -3201,7 +3201,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare i32 @uncompress(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc noundef ptr @di_read_die(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly captures(ret: address, provenance) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc noundef ptr @di_read_die(ptr noundef nonnull captures(none) %0, ptr noundef nonnull writeonly %1, ptr noundef %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %.promoted.i = load ptr, ptr %4, align 8, !tbaa !62
   %5 = getelementptr i8, ptr %.promoted.i, i64 1
@@ -3848,7 +3848,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_debug_line_header(ptr noundef
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc ptr @parse_ver5_debug_line_header(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef %6) unnamed_addr #0 {
+define internal fastcc ptr @parse_ver5_debug_line_header(ptr noundef %0, i32 noundef %1, i8 noundef zeroext %2, ptr noundef %3, ptr noundef writeonly %4, ptr noundef writeonly %5, ptr noundef %6) unnamed_addr #0 {
   %8 = alloca %struct.DebugInfoReader, align 8
   %9 = alloca %struct.DebugInfoValue, align 8
   %10 = getelementptr i8, ptr %0, i64 1

@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @.str = private unnamed_addr constant [32 x i8] c"../openssl/crypto/lhash/lhash.c\00", align 1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef ptr @OPENSSL_LH_set_thunks(ptr noundef returned writeonly captures(address_is_null, ret: address, provenance) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define noundef ptr @OPENSSL_LH_set_thunks(ptr noundef returned writeonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = icmp eq ptr %0, null
   br i1 %6, label %12, label %7
 
@@ -74,7 +74,7 @@ declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @OPENSSL_LH_strhash(ptr noundef readonly captures(address_is_null) %0) #4 {
+define i64 @OPENSSL_LH_strhash(ptr noundef readonly %0) #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %24, label %3
 
@@ -175,7 +175,7 @@ OPENSSL_LH_flush.exit:                            ; preds = %._crit_edge.i, %.pr
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OPENSSL_LH_flush(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
+define void @OPENSSL_LH_flush(ptr noundef %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %17, label %.preheader
 
@@ -754,7 +754,7 @@ getrn.exit.thread:                                ; preds = %50, %29, %getrn.exi
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OPENSSL_LH_doall(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #1 {
+define void @OPENSSL_LH_doall(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %doall_util_fn.exit, label %4
 
@@ -798,7 +798,7 @@ doall_util_fn.exit:                               ; preds = %.loopexit.us.i, %4,
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OPENSSL_LH_doall_arg(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
+define void @OPENSSL_LH_doall_arg(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %doall_util_fn.exit, label %5
 
@@ -842,7 +842,7 @@ doall_util_fn.exit:                               ; preds = %.loopexit.i, %5, %3
 }
 
 ; Function Attrs: nounwind uwtable
-define void @OPENSSL_LH_doall_arg_thunk(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define void @OPENSSL_LH_doall_arg_thunk(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %doall_util_fn.exit, label %6
 
@@ -884,7 +884,7 @@ doall_util_fn.exit:                               ; preds = %.loopexit.i, %4, %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define i64 @ossl_lh_strcasehash(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #4 {
+define i64 @ossl_lh_strcasehash(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 
@@ -928,7 +928,7 @@ define i64 @ossl_lh_strcasehash(ptr noundef readonly captures(address_is_null) %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @OPENSSL_LH_num_items(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define i64 @OPENSSL_LH_num_items(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 

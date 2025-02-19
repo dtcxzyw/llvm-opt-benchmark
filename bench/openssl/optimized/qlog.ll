@@ -179,7 +179,7 @@ declare void @CRYPTO_free(ptr noundef, ptr noundef, i32 noundef) local_unnamed_a
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @ossl_qlog_new_from_env(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define ptr @ossl_qlog_new_from_env(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @ossl_safe_getenv(ptr noundef nonnull @.str.1) #11
   %3 = tail call ptr @ossl_safe_getenv(ptr noundef nonnull @.str.2) #11
   %4 = icmp eq ptr %0, null
@@ -956,7 +956,7 @@ declare ptr @BIO_new_file(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @ossl_json_flush(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define range(i32 0, 2) i32 @ossl_qlog_set_event_type_enabled(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @ossl_qlog_set_event_type_enabled(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = icmp eq ptr %0, null
   %5 = icmp ugt i32 %1, 7
   %or.cond = or i1 %4, %5
@@ -991,7 +991,7 @@ bit_set.exit:                                     ; preds = %10, %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_qlog_enabled(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #6 {
+define range(i32 0, 2) i32 @ossl_qlog_enabled(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #6 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %16, label %4
 

@@ -417,7 +417,7 @@ return:                                           ; preds = %entry, %_ZN6hermes1
 declare noundef ptr @_ZN6hermes9IRBuilder19getLiteralUndefinedEv(ptr noundef nonnull align 8 dereferenceable(40)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(ret: address, provenance) %operand) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN6hermes12evalToNumberERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly %operand) local_unnamed_addr #0 {
 entry:
   %0 = load i8, ptr %operand, align 8
   switch i8 %0, label %if.end6 [
@@ -456,7 +456,7 @@ return:                                           ; preds = %entry, %if.end6, %i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes18evalBinaryOperatorENS_18BinaryOperatorInst6OpKindERNS_9IRBuilderEPNS_7LiteralES5_(i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(address, ret: address, provenance) %lhs, ptr noundef readonly captures(address, ret: address, provenance) %rhs) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN6hermes18evalBinaryOperatorENS_18BinaryOperatorInst6OpKindERNS_9IRBuilderEPNS_7LiteralES5_(i32 noundef %kind, ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly %lhs, ptr noundef readonly %rhs) local_unnamed_addr #0 {
 entry:
   %result = alloca %"class.llvh::SmallString", align 8
   %result40 = alloca %"class.llvh::SmallString", align 8
@@ -1724,7 +1724,7 @@ return:                                           ; preds = %entry, %sw.epilog
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef ptr @_ZN6hermes12evalToStringERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly captures(ret: address, provenance) %operand) local_unnamed_addr #0 {
+define hidden noundef ptr @_ZN6hermes12evalToStringERNS_9IRBuilderEPNS_7LiteralE(ptr noundef nonnull align 8 dereferenceable(40) %builder, ptr noundef readonly %operand) local_unnamed_addr #0 {
 entry:
   %buf = alloca [32 x i8], align 16
   %0 = load i8, ptr %operand, align 8

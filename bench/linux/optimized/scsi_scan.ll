@@ -653,7 +653,7 @@ declare dso_local void @mutex_lock(ptr noundef) local_unnamed_addr #4
 declare dso_local i32 @scsi_autopm_get_host(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr noundef nonnull %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 align 16 {
+define internal fastcc noundef range(i32 0, 3) i32 @scsi_probe_and_add_lun(ptr noundef nonnull %0, i64 noundef %1, ptr noundef writeonly %2, ptr noundef writeonly %3, i32 noundef %4, ptr noundef %5) unnamed_addr #2 align 16 {
   %7 = alloca [16 x i8], align 16
   %8 = alloca i32, align 4
   %9 = alloca %struct.scsi_sense_hdr, align 8
@@ -2620,7 +2620,7 @@ define internal void @do_scan_async(ptr noundef %0, i64 %1) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @scsi_forget_host(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @scsi_forget_host(ptr noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   br label %3
 

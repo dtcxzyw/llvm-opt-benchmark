@@ -20,7 +20,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.uriHexToLetterW = private unnamed_addr constant [15 x i32] [i32 48, i32 49, i32 50, i32 51, i32 52, i32 53, i32 54, i32 55, i32 56, i32 57, i32 65, i32 66, i32 67, i32 68, i32 69], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @uriResetUriA(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @uriResetUriA(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -36,7 +36,7 @@ define void @uriResetUriA(ptr noundef writeonly captures(address_is_null) %0) lo
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define range(i32 -1, 2) i32 @uriCompareRangeA(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #2 {
+define range(i32 -1, 2) i32 @uriCompareRangeA(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -106,7 +106,7 @@ define range(i32 -1, 2) i32 @uriCompareRangeA(ptr noundef readonly captures(addr
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriRemoveDotSegmentsA(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsA(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -122,7 +122,7 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsA(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsExA(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread297.thread, label %6
 
@@ -541,7 +541,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %59, %62, %65, %uriI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @uriIsHostSetA(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @uriIsHostSetA(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -576,7 +576,7 @@ define range(i32 0, 2) i32 @uriIsHostSetA(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsAbsoluteA(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %uriRemoveDotSegmentsA.exit, label %4
 
@@ -974,7 +974,7 @@ uriIsHostSetA.exit.thread:                        ; preds = %5, %8, %11, %28, %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define void @uriResetUriW(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @uriResetUriW(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %4, label %3
 
@@ -987,7 +987,7 @@ define void @uriResetUriW(ptr noundef writeonly captures(address_is_null) %0) lo
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define range(i32 -1, 2) i32 @uriCompareRangeW(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #8 {
+define range(i32 -1, 2) i32 @uriCompareRangeW(ptr noundef readonly %0, ptr noundef readonly %1) local_unnamed_addr #8 {
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
@@ -1059,7 +1059,7 @@ define range(i32 -1, 2) i32 @uriCompareRangeW(ptr noundef readonly captures(addr
 declare i32 @wcsncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriRemoveDotSegmentsW(ptr noundef captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsW(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %9, label %5
 
@@ -1075,7 +1075,7 @@ define range(i32 0, 2) i32 @uriRemoveDotSegmentsW(ptr noundef captures(address_i
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef captures(address_is_null) %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsExW(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef %3) local_unnamed_addr #4 {
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.thread297.thread, label %6
 
@@ -1495,7 +1495,7 @@ uriIsHostSetW.exit.thread:                        ; preds = %61, %64, %67, %uriI
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @uriIsHostSetW(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {
+define range(i32 0, 2) i32 @uriIsHostSetW(ptr noundef readonly %0) local_unnamed_addr #5 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %16, label %2
 
@@ -1530,7 +1530,7 @@ define range(i32 0, 2) i32 @uriIsHostSetW(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #4 {
+define range(i32 0, 2) i32 @uriRemoveDotSegmentsAbsoluteW(ptr noundef %0, ptr noundef %1) local_unnamed_addr #4 {
   %3 = icmp eq ptr %0, null
   br i1 %3, label %uriRemoveDotSegmentsW.exit, label %4
 

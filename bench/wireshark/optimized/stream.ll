@@ -237,7 +237,7 @@ declare ptr @fragment_add_seq_next(ptr noundef, ptr noundef, i32 noundef, ptr no
 declare i32 @tvb_reported_length(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define ptr @stream_process_reassembled(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
+define ptr @stream_process_reassembled(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, ptr noundef %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %9, label %10
 
@@ -287,7 +287,7 @@ declare ptr @proto_tree_add_uint(ptr noundef, i32 noundef, ptr noundef, i32 noun
 declare ptr @process_reassembled_data(ptr noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @stream_get_frag_length(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden i32 @stream_get_frag_length(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -301,7 +301,7 @@ define hidden i32 @stream_get_frag_length(ptr noundef readonly captures(address_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @stream_get_frag_data(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden ptr @stream_get_frag_data(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -317,7 +317,7 @@ define hidden ptr @stream_get_frag_data(ptr noundef readonly captures(address_is
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden i32 @stream_get_pdu_no(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden i32 @stream_get_pdu_no(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 

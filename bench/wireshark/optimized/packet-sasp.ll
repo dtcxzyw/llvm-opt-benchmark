@@ -943,7 +943,7 @@ define internal fastcc noundef i32 @dissect_grpdatacomp(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_memdatacomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc i32 @dissect_memdatacomp(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.e_in6_addr, align 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #3
   %6 = add i32 %2, 7

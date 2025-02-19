@@ -807,7 +807,7 @@ define internal void @mi_out_stderr(ptr noundef %0, ptr readnone captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_fputs(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
+define hidden void @_mi_fputs(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = icmp eq ptr %0, null
   %6 = load ptr, ptr @stdout, align 8
   %7 = icmp eq ptr %0, %6
@@ -856,7 +856,7 @@ define hidden void @_mi_fputs(ptr noundef readonly captures(address) %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @_mi_fprintf(ptr noundef readonly captures(address) %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #1 {
+define hidden void @_mi_fprintf(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ...) local_unnamed_addr #1 {
   %4 = alloca [512 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #18

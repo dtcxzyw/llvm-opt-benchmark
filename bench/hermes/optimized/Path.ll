@@ -510,7 +510,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull returned align 8 captures(ret: address, provenance) dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
+define hidden noundef nonnull align 8 dereferenceable(44) ptr @_ZN4llvh3sys4path16reverse_iteratorppEv(ptr noundef nonnull returned align 8 dereferenceable(44) %this) local_unnamed_addr #0 align 2 {
 entry:
   %str.i34 = alloca %"class.llvh::StringRef", align 8
   %str.i = alloca %"class.llvh::StringRef", align 8

@@ -409,7 +409,7 @@ _ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit: ; preds = %19, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN11duckdb_zstd16ZSTD_sizeof_CCtxEPKNS_11ZSTD_CCtx_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
+define noundef i64 @_ZN11duckdb_zstd16ZSTD_sizeof_CCtxEPKNS_11ZSTD_CCtx_sE(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %28, label %3
 
@@ -460,7 +460,7 @@ _ZN11duckdb_zstdL21ZSTD_sizeof_localDictENS_14ZSTD_localDictE.exit: ; preds = %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef i64 @_ZN11duckdb_zstd19ZSTD_sizeof_CStreamEPKNS_11ZSTD_CCtx_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #6 {
+define noundef i64 @_ZN11duckdb_zstd19ZSTD_sizeof_CStreamEPKNS_11ZSTD_CCtx_sE(ptr noundef readonly %0) local_unnamed_addr #6 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %_ZN11duckdb_zstd16ZSTD_sizeof_CCtxEPKNS_11ZSTD_CCtx_sE.exit, label %3
 
@@ -511,7 +511,7 @@ _ZN11duckdb_zstd16ZSTD_sizeof_CCtxEPKNS_11ZSTD_CCtx_sE.exit: ; preds = %1, %_ZN1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZN11duckdb_zstd16ZSTD_getSeqStoreEPKNS_11ZSTD_CCtx_sE(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef nonnull ptr @_ZN11duckdb_zstd16ZSTD_getSeqStoreEPKNS_11ZSTD_CCtx_sE(ptr noundef readnone %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 952
   ret ptr %2
 }
@@ -560,7 +560,7 @@ _ZN11duckdb_zstdL15ZSTD_customFreeEPvNS_14ZSTD_customMemE.exit: ; preds = %5, %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i64 -1, 1) i64 @_ZN11duckdb_zstd21ZSTD_CCtxParams_resetEPNS_18ZSTD_CCtx_params_sE(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #8 {
+define noundef range(i64 -1, 1) i64 @_ZN11duckdb_zstd21ZSTD_CCtxParams_resetEPNS_18ZSTD_CCtx_params_sE(ptr noundef writeonly %0) local_unnamed_addr #8 {
   %.not.i = icmp eq ptr %0, null
   br i1 %.not.i, label %_ZN11duckdb_zstd20ZSTD_CCtxParams_initEPNS_18ZSTD_CCtx_params_sEi.exit, label %2
 
@@ -578,7 +578,7 @@ _ZN11duckdb_zstd20ZSTD_CCtxParams_initEPNS_18ZSTD_CCtx_params_sEi.exit: ; preds 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define noundef range(i64 -1, 1) i64 @_ZN11duckdb_zstd20ZSTD_CCtxParams_initEPNS_18ZSTD_CCtx_params_sEi(ptr noundef writeonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #8 {
+define noundef range(i64 -1, 1) i64 @_ZN11duckdb_zstd20ZSTD_CCtxParams_initEPNS_18ZSTD_CCtx_params_sEi(ptr noundef writeonly %0, i32 noundef %1) local_unnamed_addr #8 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %6, label %3
 
@@ -596,7 +596,7 @@ define noundef range(i64 -1, 1) i64 @_ZN11duckdb_zstd20ZSTD_CCtxParams_initEPNS_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef range(i64 -42, 1) i64 @_ZN11duckdb_zstd29ZSTD_CCtxParams_init_advancedEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_parametersE(ptr noundef writeonly captures(address_is_null) %0, ptr noundef readonly byval(%"struct.duckdb_zstd::ZSTD_parameters") align 8 captures(none) %1) local_unnamed_addr #9 {
+define noundef range(i64 -42, 1) i64 @_ZN11duckdb_zstd29ZSTD_CCtxParams_init_advancedEPNS_18ZSTD_CCtx_params_sENS_15ZSTD_parametersE(ptr noundef writeonly %0, ptr noundef readonly byval(%"struct.duckdb_zstd::ZSTD_parameters") align 8 captures(none) %1) local_unnamed_addr #9 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %_ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread, label %3
 
@@ -2009,7 +2009,7 @@ _ZN11duckdb_zstd33ZSTD_CCtx_loadDictionary_advancedEPNS_11ZSTD_CCtx_sEPKvmNS_21Z
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -64, 1) i64 @_ZN11duckdb_zstd24ZSTD_CCtx_loadDictionaryEPNS_11ZSTD_CCtx_sEPKvm(ptr noundef captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #2 {
+define noundef range(i64 -64, 1) i64 @_ZN11duckdb_zstd24ZSTD_CCtx_loadDictionaryEPNS_11ZSTD_CCtx_sEPKvm(ptr noundef captures(none) %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3608
   %5 = load i32, ptr %4, align 8, !tbaa !99
   %.not.i = icmp eq i32 %5, 0
@@ -7278,7 +7278,7 @@ define noundef i64 @_ZN11duckdb_zstd22ZSTD_estimateCDictSizeEmi(i64 noundef %0, 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i64 @_ZN11duckdb_zstd17ZSTD_sizeof_CDictEPKNS_12ZSTD_CDict_sE(ptr noundef readonly captures(address) %0) local_unnamed_addr #10 {
+define noundef i64 @_ZN11duckdb_zstd17ZSTD_sizeof_CDictEPKNS_12ZSTD_CDict_sE(ptr noundef readonly %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -8013,7 +8013,7 @@ define void @_ZN11duckdb_zstd24ZSTD_getCParamsFromCDictEPKNS_12ZSTD_CDict_sE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define noundef i32 @_ZN11duckdb_zstd24ZSTD_getDictID_fromCDictEPKNS_12ZSTD_CDict_sE(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #10 {
+define noundef i32 @_ZN11duckdb_zstd24ZSTD_getDictID_fromCDictEPKNS_12ZSTD_CDict_sE(ptr noundef readonly %0) local_unnamed_addr #10 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -8694,7 +8694,7 @@ define noundef range(i64 -60, 1) i64 @_ZN11duckdb_zstd17ZSTD_resetCStreamEPNS_11
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -64, 1) i64 @_ZN11duckdb_zstd25ZSTD_initCStream_internalEPNS_11ZSTD_CCtx_sEPKvmPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEy(ptr noundef captures(none) initializes((16, 232), (760, 768), (3608, 3612), (3664, 3688), (3696, 3728)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #2 {
+define noundef range(i64 -64, 1) i64 @_ZN11duckdb_zstd25ZSTD_initCStream_internalEPNS_11ZSTD_CCtx_sEPKvmPKNS_12ZSTD_CDict_sEPKNS_18ZSTD_CCtx_params_sEy(ptr noundef captures(none) initializes((16, 232), (760, 768), (3608, 3612), (3664, 3688), (3696, 3728)) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5) local_unnamed_addr #2 {
 _ZN11duckdb_zstd27ZSTD_CCtx_setPledgedSrcSizeEPNS_11ZSTD_CCtx_sEy.exit:
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 3608
   store i32 0, ptr %6, align 8, !tbaa !99
@@ -8791,7 +8791,7 @@ define noundef range(i64 -60, 1) i64 @_ZN11duckdb_zstd27ZSTD_initCStream_usingCD
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -64, 1) i64 @_ZN11duckdb_zstd25ZSTD_initCStream_advancedEPNS_11ZSTD_CCtx_sEPKvmNS_15ZSTD_parametersEy(ptr noundef captures(none) initializes((760, 768), (3608, 3612)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef readonly byval(%"struct.duckdb_zstd::ZSTD_parameters") align 8 captures(none) %3, i64 noundef %4) local_unnamed_addr #2 {
+define noundef range(i64 -64, 1) i64 @_ZN11duckdb_zstd25ZSTD_initCStream_advancedEPNS_11ZSTD_CCtx_sEPKvmNS_15ZSTD_parametersEy(ptr noundef captures(none) initializes((760, 768), (3608, 3612)) %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef readonly byval(%"struct.duckdb_zstd::ZSTD_parameters") align 8 captures(none) %3, i64 noundef %4) local_unnamed_addr #2 {
 _ZN11duckdb_zstd27ZSTD_CCtx_setPledgedSrcSizeEPNS_11ZSTD_CCtx_sEy.exit:
   %5 = icmp eq i64 %4, 0
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 28
@@ -8898,7 +8898,7 @@ _ZN11duckdb_zstd17ZSTD_checkCParamsENS_26ZSTD_compressionParametersE.exit.thread
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i64 -64, 1) i64 @_ZN11duckdb_zstd26ZSTD_initCStream_usingDictEPNS_11ZSTD_CCtx_sEPKvmi(ptr noundef captures(none) initializes((60, 64), (760, 768), (3608, 3612), (3664, 3688), (3696, 3728)) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
+define noundef range(i64 -64, 1) i64 @_ZN11duckdb_zstd26ZSTD_initCStream_usingDictEPNS_11ZSTD_CCtx_sEPKvmi(ptr noundef captures(none) initializes((60, 64), (760, 768), (3608, 3612), (3664, 3688), (3696, 3728)) %0, ptr noundef readonly %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #2 {
 _ZN11duckdb_zstd22ZSTD_CCtx_setParameterEPNS_11ZSTD_CCtx_sENS_15ZSTD_cParameterEi.exit:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 3608
   store i32 0, ptr %4, align 8, !tbaa !99

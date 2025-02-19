@@ -4814,7 +4814,7 @@ declare void @cli_crt_clear(ptr noundef) local_unnamed_addr #2
 declare ptr @BN_bin2bn(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @asn1_expect_algo_multi(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef readonly captures(ret: address, provenance) %3, i32 noundef range(i32 2, 11) %4) unnamed_addr #0 {
+define internal fastcc ptr @asn1_expect_algo_multi(ptr noundef %0, ptr noundef nonnull captures(none) %1, ptr noundef nonnull captures(none) %2, ptr noundef readonly %3, i32 noundef range(i32 2, 11) %4) unnamed_addr #0 {
   %6 = alloca %struct.cli_asn1, align 8
   %7 = alloca %struct.cli_asn1, align 8
   %8 = alloca i32, align 4

@@ -710,7 +710,7 @@ return:                                           ; preds = %if.else, %if.then
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal noundef ptr @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration4nextEPiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(124) %this, ptr noundef writeonly captures(address_is_null) %resultLength, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #10 align 2 {
+define internal noundef ptr @_ZN12_GLOBAL__N_133AvailableLocalesStringEnumeration4nextEPiR10UErrorCode(ptr noundef nonnull align 8 captures(none) dereferenceable(124) %this, ptr noundef writeonly %resultLength, ptr nonnull readnone align 4 captures(none) %0) unnamed_addr #10 align 2 {
 entry:
   %fType = getelementptr inbounds nuw i8, ptr %this, i64 116
   %1 = load i32, ptr %fType, align 4

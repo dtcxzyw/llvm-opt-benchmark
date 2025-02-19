@@ -912,7 +912,7 @@ define hidden void @masterKeyDeriveParamToCKMasterKeyDeriveParam(ptr noundef %0,
 declare void @jByteArrayToCKByteArray(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jSsl3MasterKeyDeriveParamToCKSsl3MasterKeyDeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jSsl3MasterKeyDeriveParamToCKSsl3MasterKeyDeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -964,7 +964,7 @@ define hidden noundef ptr @jSsl3MasterKeyDeriveParamToCKSsl3MasterKeyDeriveParam
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jTls12MasterKeyDeriveParamToCKTls12MasterKeyDeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jTls12MasterKeyDeriveParamToCKTls12MasterKeyDeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1030,7 +1030,7 @@ define hidden noundef ptr @jTls12MasterKeyDeriveParamToCKTls12MasterKeyDerivePar
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jTlsPrfParamsToCKTlsPrfParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jTlsPrfParamsToCKTlsPrfParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1157,7 +1157,7 @@ define hidden noundef ptr @jTlsPrfParamsToCKTlsPrfParamPtr(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jTlsMacParamsToCKTlsMacParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jTlsMacParamsToCKTlsMacParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1459,7 +1459,7 @@ define hidden void @keyMatParamToCKKeyMatParam(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jSsl3KeyMatParamToCKSsl3KeyMatParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jSsl3KeyMatParamToCKSsl3KeyMatParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1515,7 +1515,7 @@ define hidden noundef ptr @jSsl3KeyMatParamToCKSsl3KeyMatParamPtr(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jTls12KeyMatParamToCKTls12KeyMatParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jTls12KeyMatParamToCKTls12KeyMatParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1585,7 +1585,7 @@ define hidden noundef ptr @jTls12KeyMatParamToCKTls12KeyMatParamPtr(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jAesCtrParamsToCKAesCtrParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jAesCtrParamsToCKAesCtrParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
   %5 = alloca i64, align 8
   store ptr null, ptr %4, align 8
@@ -1684,7 +1684,7 @@ define hidden noundef ptr @jAesCtrParamsToCKAesCtrParamPtr(ptr noundef %0, ptr n
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jGCMParamsToCKGCMParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jGCMParamsToCKGCMParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1802,7 +1802,7 @@ define hidden noundef ptr @jGCMParamsToCKGCMParamPtr(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jCCMParamsToCKCCMParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jCCMParamsToCKCCMParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -1930,7 +1930,7 @@ define hidden noundef ptr @jCCMParamsToCKCCMParamPtr(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jSalsaChaChaPolyParamsToCKSalsaChaChaPolyParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jSalsaChaChaPolyParamsToCKSalsaChaChaPolyParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -2402,7 +2402,7 @@ jSsl3MasterKeyDeriveParamToCKSsl3MasterKeyDeriveParamPtr.exit: ; preds = %54, %5
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jRsaPkcsOaepParamToCKRsaPkcsOaepParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jRsaPkcsOaepParamToCKRsaPkcsOaepParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -2508,7 +2508,7 @@ define hidden noundef ptr @jRsaPkcsOaepParamToCKRsaPkcsOaepParamPtr(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jPbeParamToCKPbeParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jPbeParamToCKPbeParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %6, label %5
@@ -2652,7 +2652,7 @@ define hidden noundef ptr @jPbeParamToCKPbeParamPtr(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -2906,7 +2906,7 @@ define hidden noundef ptr @jPkcs5Pbkd2ParamToCKPkcs5Pbkd2ParamPtr(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jRsaPkcsPssParamToCKRsaPkcsPssParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jRsaPkcsPssParamToCKRsaPkcsPssParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -2985,7 +2985,7 @@ define hidden noundef ptr @jRsaPkcsPssParamToCKRsaPkcsPssParamPtr(ptr noundef %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jEcdh1DeriveParamToCKEcdh1DeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jEcdh1DeriveParamToCKEcdh1DeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -3091,7 +3091,7 @@ define hidden noundef ptr @jEcdh1DeriveParamToCKEcdh1DeriveParamPtr(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jEcdh2DeriveParamToCKEcdh2DeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jEcdh2DeriveParamToCKEcdh2DeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %6 = load ptr, ptr %5, align 8
@@ -3244,7 +3244,7 @@ define hidden noundef ptr @jEcdh2DeriveParamToCKEcdh2DeriveParamPtr(ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jX942Dh1DeriveParamToCKX942Dh1DeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jX942Dh1DeriveParamToCKX942Dh1DeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 
@@ -3350,7 +3350,7 @@ define hidden noundef ptr @jX942Dh1DeriveParamToCKX942Dh1DeriveParamPtr(ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden noundef ptr @jX942Dh2DeriveParamToCKX942Dh2DeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define hidden noundef ptr @jX942Dh2DeriveParamToCKX942Dh2DeriveParamPtr(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %.not = icmp eq ptr %2, null
   br i1 %.not, label %5, label %4
 

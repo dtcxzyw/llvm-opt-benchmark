@@ -948,7 +948,7 @@ define void @Nwk_ManGraphCheckLists(ptr noundef readonly captures(none) %0) loca
 }
 
 ; Function Attrs: nounwind uwtable
-define void @Nwk_ManGraphUpdate(ptr noundef captures(none) %0, ptr noundef captures(address) %1, ptr noundef captures(address) %2) local_unnamed_addr #0 {
+define void @Nwk_ManGraphUpdate(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   tail call fastcc void @Nwk_ManGraphListExtract(ptr noundef %0, ptr noundef %1)
   tail call fastcc void @Nwk_ManGraphListExtract(ptr noundef %0, ptr noundef %2)
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 12

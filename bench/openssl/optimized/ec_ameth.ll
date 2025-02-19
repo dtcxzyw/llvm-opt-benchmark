@@ -605,7 +605,7 @@ define internal i64 @ec_pkey_dirty_cnt(ptr noundef readonly captures(none) %0) #
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @ec_pkey_export_to(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) #0 {
+define internal i32 @ec_pkey_export_to(ptr noundef readonly %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca ptr, align 8
   %7 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #5

@@ -1878,7 +1878,7 @@ declare noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_st
 declare void @gpr_log(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel_security_connector17fake_check_targetEPKcS2_(ptr noundef readonly captures(address_is_null) %target, ptr noundef %set_str) unnamed_addr #3 align 2 {
+define internal fastcc noundef zeroext i1 @_ZNK12_GLOBAL__N_136grpc_fake_channel_security_connector17fake_check_targetEPKcS2_(ptr noundef readonly %target, ptr noundef %set_str) unnamed_addr #3 align 2 {
 entry:
   %set = alloca ptr, align 8
   %set_size = alloca i64, align 8

@@ -16,7 +16,7 @@ define noalias ptr @TS_VERIFY_CTX_new() local_unnamed_addr #0 {
 declare noalias ptr @CRYPTO_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @TS_VERIFY_CTX_init(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @TS_VERIFY_CTX_init(ptr noundef writeonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %2, label %3
 
@@ -74,7 +74,7 @@ TS_VERIFY_CTX_cleanup.exit:                       ; preds = %1
 }
 
 ; Function Attrs: nounwind uwtable
-define void @TS_VERIFY_CTX_cleanup(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @TS_VERIFY_CTX_cleanup(ptr noundef %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %18, label %TS_VERIFY_CTX_init.exit
 
@@ -213,7 +213,7 @@ declare void @ASN1_INTEGER_free(ptr noundef) local_unnamed_addr #1
 declare void @GENERAL_NAME_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @TS_REQ_to_TS_VERIFY_CTX(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+define noundef ptr @TS_REQ_to_TS_VERIFY_CTX(ptr noundef readonly %0, ptr noundef %1) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %3, label %4
 

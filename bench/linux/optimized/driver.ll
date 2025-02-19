@@ -282,7 +282,7 @@ declare dso_local i32 @cpuidle_switch_governor(ptr noundef) local_unnamed_addr #
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @cpuidle_unregister_driver(ptr noundef captures(address) %0) #0 align 16 {
+define dso_local void @cpuidle_unregister_driver(ptr noundef %0) #0 align 16 {
   tail call void asm "incl %gs:$0", "=*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8), ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 8)) #6, !srcloc !9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #6, !srcloc !10
   %2 = tail call i32 asm "movl %gs:$1, $0", "=r,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) getelementptr inbounds nuw (i8, ptr @pcpu_hot, i64 12)) #7, !srcloc !11
@@ -360,7 +360,7 @@ declare i64 @llvm.read_register.i64(metadata) #2
 declare void @llvm.write_register.i64(metadata, i64) #3
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(read, argmem: none, inaccessiblemem: none)
-define dso_local ptr @cpuidle_get_cpu_driver(ptr noundef readonly captures(address_is_null) %0) #4 align 16 {
+define dso_local ptr @cpuidle_get_cpu_driver(ptr noundef readonly %0) #4 align 16 {
   %2 = icmp eq ptr %0, null
   %3 = load ptr, ptr @cpuidle_curr_driver, align 8
   %4 = select i1 %2, ptr null, ptr %3
@@ -480,7 +480,7 @@ declare dso_local void @_raw_spin_lock(ptr noundef) local_unnamed_addr #1 sectio
 declare dso_local i32 @cpuidle_disabled() local_unnamed_addr #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal void @cpuidle_setup_broadcast_timer(ptr noundef readnone captures(address_is_null) %0) #0 align 16 {
+define internal void @cpuidle_setup_broadcast_timer(ptr noundef readnone %0) #0 align 16 {
   %2 = icmp ne ptr %0, null
   %3 = zext i1 %2 to i32
   tail call void @tick_broadcast_control(i32 noundef %3) #6

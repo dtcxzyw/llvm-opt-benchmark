@@ -2231,7 +2231,7 @@ kafka_get_api_info.exit.thread:                   ; preds = %8, %3, %23, %46, %3
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_kafka_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, ptr noundef %6, ptr noundef %7) unnamed_addr #0 {
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %11, label %9
 
@@ -6081,7 +6081,7 @@ declare ptr @expert_add_info_format(ptr noundef, ptr noundef, ptr noundef, ptr n
 declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_kafka_compact_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_compact_string(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5, ptr noundef writeonly %6) unnamed_addr #0 {
   %8 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #9
   %9 = call i32 @tvb_get_varint(ptr noundef %2, i32 noundef %4, i32 noundef 10, ptr noundef nonnull %8, i32 noundef 2)
@@ -6197,7 +6197,7 @@ declare ptr @proto_tree_get_parent(ptr noundef) local_unnamed_addr #2
 declare ptr @proto_tree_add_uint64(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_kafka_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i16 noundef signext %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly captures(address_is_null) %7) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_array(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 2) %4, i16 noundef signext %5, ptr noundef readonly captures(none) %6, ptr noundef writeonly %7) unnamed_addr #0 {
   %9 = alloca i64, align 8
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %41, label %10
@@ -7063,7 +7063,7 @@ declare void @increment_dissection_depth(ptr noundef) local_unnamed_addr #2
 declare void @decrement_dissection_depth(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc i32 @dissect_kafka_regular_bytes(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @tvb_get_ntohl(ptr noundef %2, i32 noundef %4)
   %8 = icmp slt i32 %7, -1
   br i1 %8, label %9, label %15

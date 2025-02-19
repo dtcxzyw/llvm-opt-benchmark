@@ -15372,7 +15372,7 @@ dissect_gsm_old_GSMMAPOperationLocalvalue.exit:   ; preds = %14, %17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc i32 @dissect_mc_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly captures(address_is_null) %4, i32 noundef %5, ptr noundef readonly captures(address_is_null) %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef readonly captures(address_is_null) %9) unnamed_addr #0 {
+define internal fastcc i32 @dissect_mc_message(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef readonly %4, i32 noundef %5, ptr noundef readonly %6, i32 noundef %7, i1 noundef zeroext %8, ptr noundef readonly %9) unnamed_addr #0 {
   %11 = alloca i8, align 1
   %12 = alloca i8, align 1
   %13 = alloca i8, align 1

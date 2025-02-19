@@ -1373,7 +1373,7 @@ declare i32 @VP8LColorCacheInit(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @VP8LDistanceToPlaneCode(i32 noundef, i32 noundef) #2
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc void @PushInterval(ptr noundef nonnull captures(address) %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
+define internal fastcc void @PushInterval(ptr noundef nonnull %0, i64 noundef %1, i32 noundef %2, i32 noundef %3) unnamed_addr #3 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !29
   %7 = icmp slt i32 %3, 10

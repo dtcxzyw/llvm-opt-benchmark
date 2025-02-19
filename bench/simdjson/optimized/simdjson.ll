@@ -848,7 +848,7 @@ if.end115:                                        ; preds = %if.end81, %while.en
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr noalias writeonly sret(%"struct.simdjson::internal::decimal") align 4 captures(none) initializes((0, 8), (9, 10)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %p, ptr noundef readnone captures(address) %end) local_unnamed_addr #2 {
+define dso_local void @_ZN8simdjson8internal13parse_decimalERPKcS2_(ptr noalias writeonly sret(%"struct.simdjson::internal::decimal") align 4 captures(none) initializes((0, 8), (9, 10)) %agg.result, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %p, ptr noundef readnone %end) local_unnamed_addr #2 {
 entry:
   store i32 0, ptr %agg.result, align 4
   %decimal_point = getelementptr inbounds nuw i8, ptr %agg.result, i64 4
@@ -1602,7 +1602,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #7
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local noundef double @_ZN8simdjson8internal10from_charsEPKcS2_(ptr noundef %first, ptr noundef captures(address) %end) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define dso_local noundef double @_ZN8simdjson8internal10from_charsEPKcS2_(ptr noundef %first, ptr noundef %end) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %first.addr.i = alloca ptr, align 8
   %d.i = alloca %"struct.simdjson::internal::decimal", align 4
@@ -3252,19 +3252,20 @@ if.end67.i.i:                                     ; preds = %if.end52.i.i
   br i1 %cmp.i.i.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 object_field.i.i:                                 ; preds = %if.end135.i.i, %if.end67.i.i
-  %call2.i.i218.i.sink38.i = phi ptr [ %call2.i.i218.i.i, %if.end135.i.i ], [ %call2.i.i.i.i, %if.end67.i.i ]
+  %call2.i.i218.i.sink39.i = phi ptr [ %call2.i.i218.i.i, %if.end135.i.i ], [ %call2.i.i.i.i, %if.end67.i.i ]
   %add.ptr.i.i.i216.i.sink.i = phi ptr [ %add.ptr.i.i.i216.i.i, %if.end135.i.i ], [ %add.ptr.i.i.i.i.i, %if.end67.i.i ]
   %.sink.i = phi ptr [ %36, %if.end135.i.i ], [ %23, %if.end67.i.i ]
+  %this.val.i.i187.i.i = phi ptr [ %incdec.ptr.i.i.i.i215.i.i, %if.end135.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end67.i.i ]
   %incdec.ptr.i200.i.pn.i = phi ptr [ %incdec.ptr.i200.i.i, %if.end135.i.i ], [ %iter.sroa.8.8.i, %if.end67.i.i ]
   %iter.sroa.54.5.i = phi i32 [ %iter.sroa.54.4.i, %if.end135.i.i ], [ %inc.i.i, %if.end67.i.i ]
-  %sub.ptr.lhs.cast.i7.i.i222.i.i = ptrtoint ptr %call2.i.i218.i.sink38.i to i64
+  %sub.ptr.lhs.cast.i7.i.i222.i.i = ptrtoint ptr %call2.i.i218.i.sink39.i to i64
   %sub.ptr.rhs.cast.i8.i.i223.i.i = ptrtoint ptr %add.ptr.i.i.i216.i.sink.i to i64
   %sub.ptr.sub.i9.i.i224.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i222.i.i, %sub.ptr.rhs.cast.i8.i.i223.i.i
   %conv.i.i.i225.i.i = trunc i64 %sub.ptr.sub.i9.i.i224.i.i to i32
   store i32 %conv.i.i.i225.i.i, ptr %.sink.i, align 1
-  store i8 0, ptr %call2.i.i218.i.sink38.i, align 1
+  store i8 0, ptr %call2.i.i218.i.sink39.i, align 1
   %iter.sroa.8.6.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i200.i.pn.i, i64 4
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i218.i.sink38.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i218.i.sink39.i, i64 1
   store ptr %storemerge.i, ptr %current_string_buf_loc.i.i, align 8
   %24 = load i32, ptr %iter.sroa.8.6.i, align 4
   %idxprom.i157.i.i = zext i32 %24 to i64
@@ -3312,7 +3313,6 @@ sw.epilog118.sink.split.i.i:                      ; preds = %sw.bb100.i.i, %sw.b
   %incdec.ptr.i184.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i200.i.pn.i, i64 16
   %this.val66.val.i.i = load ptr, ptr %doc1.i, align 8
   %this.val66.val.val.i.i = load ptr, ptr %this.val66.val.i.i, align 8
-  %this.val.i.i187.i.i = load ptr, ptr %builder.i, align 8
   %sub.ptr.lhs.cast.i.i.i188.i.i = ptrtoint ptr %this.val.i.i187.i.i to i64
   %sub.ptr.rhs.cast.i.i.i189.i.i = ptrtoint ptr %this.val66.val.val.i.i to i64
   %sub.ptr.sub.i.i.i190.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i188.i.i, %sub.ptr.rhs.cast.i.i.i189.i.i
@@ -3714,19 +3714,20 @@ if.end52.i.i:                                     ; preds = %if.end38.i.i
   br i1 %cmp.i.i.i.i, label %_ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 object_field.i.i:                                 ; preds = %if.end120.i.i, %if.end52.i.i
-  %call2.i.i202.i.sink41.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
+  %call2.i.i202.i.sink42.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
   %add.ptr.i.i.i200.i.sink.i = phi ptr [ %add.ptr.i.i.i200.i.i, %if.end120.i.i ], [ %add.ptr.i.i.i.i.i, %if.end52.i.i ]
   %.sink.i = phi ptr [ %33, %if.end120.i.i ], [ %20, %if.end52.i.i ]
+  %this.val.i.i171.i.i = phi ptr [ %incdec.ptr.i.i.i.i199.i.i, %if.end120.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end52.i.i ]
   %incdec.ptr.i184.i.pn.i = phi ptr [ %incdec.ptr.i184.i.i, %if.end120.i.i ], [ %iter.sroa.8.8.i, %if.end52.i.i ]
   %iter.sroa.54.5.i = phi i32 [ %iter.sroa.54.4.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
-  %sub.ptr.lhs.cast.i7.i.i206.i.i = ptrtoint ptr %call2.i.i202.i.sink41.i to i64
+  %sub.ptr.lhs.cast.i7.i.i206.i.i = ptrtoint ptr %call2.i.i202.i.sink42.i to i64
   %sub.ptr.rhs.cast.i8.i.i207.i.i = ptrtoint ptr %add.ptr.i.i.i200.i.sink.i to i64
   %sub.ptr.sub.i9.i.i208.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i206.i.i, %sub.ptr.rhs.cast.i8.i.i207.i.i
   %conv.i.i.i209.i.i = trunc i64 %sub.ptr.sub.i9.i.i208.i.i to i32
   store i32 %conv.i.i.i209.i.i, ptr %.sink.i, align 1
-  store i8 0, ptr %call2.i.i202.i.sink41.i, align 1
+  store i8 0, ptr %call2.i.i202.i.sink42.i, align 1
   %iter.sroa.8.6.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i184.i.pn.i, i64 4
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i202.i.sink41.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i202.i.sink42.i, i64 1
   store ptr %storemerge.i, ptr %current_string_buf_loc.i.i, align 8
   %21 = load i32, ptr %iter.sroa.8.6.i, align 4
   %idxprom.i141.i.i = zext i32 %21 to i64
@@ -3774,7 +3775,6 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   %incdec.ptr.i168.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i184.i.pn.i, i64 16
   %this.val65.val.i.i = load ptr, ptr %doc1.i, align 8
   %this.val65.val.val.i.i = load ptr, ptr %this.val65.val.i.i, align 8
-  %this.val.i.i171.i.i = load ptr, ptr %builder.i, align 8
   %sub.ptr.lhs.cast.i.i.i172.i.i = ptrtoint ptr %this.val.i.i171.i.i to i64
   %sub.ptr.rhs.cast.i.i.i173.i.i = ptrtoint ptr %this.val65.val.val.i.i to i64
   %sub.ptr.sub.i.i.i174.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i172.i.i, %sub.ptr.rhs.cast.i.i.i173.i.i
@@ -4042,14 +4042,14 @@ _ZN8simdjson8fallback12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef captures(ret: address, provenance) %dst, i1 noundef zeroext %replacement_char) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(ret: address, provenance) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #4 {
+define internal fastcc noundef ptr @_ZN8simdjson8fallback12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef readonly captures(none) %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #4 {
 entry:
   br label %while.body
 
@@ -4268,7 +4268,7 @@ return:                                           ; preds = %if.else23.i.i, %whi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(ret: address, provenance) %dst) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson8fallback25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef writeonly %dst) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %while.body.i
 
@@ -5248,19 +5248,20 @@ if.end66.i.i:                                     ; preds = %if.end52.i.i
   br i1 %cmp.i.i.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 object_field.i.i:                                 ; preds = %if.end134.i.i, %if.end66.i.i
-  %call2.i.i218.i.sink38.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
+  %call2.i.i218.i.sink39.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
   %add.ptr.i.i.i216.i.sink.i = phi ptr [ %add.ptr.i.i.i216.i.i, %if.end134.i.i ], [ %add.ptr.i.i.i.i.i, %if.end66.i.i ]
   %.sink.i = phi ptr [ %36, %if.end134.i.i ], [ %23, %if.end66.i.i ]
+  %this.val.i.i187.i.i = phi ptr [ %incdec.ptr.i.i.i.i215.i.i, %if.end134.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end66.i.i ]
   %incdec.ptr.i200.i.pn.i = phi ptr [ %incdec.ptr.i200.i.i, %if.end134.i.i ], [ %iter.sroa.8.8.i, %if.end66.i.i ]
   %iter.sroa.54.5.i = phi i32 [ %iter.sroa.54.4.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
-  %sub.ptr.lhs.cast.i7.i.i222.i.i = ptrtoint ptr %call2.i.i218.i.sink38.i to i64
+  %sub.ptr.lhs.cast.i7.i.i222.i.i = ptrtoint ptr %call2.i.i218.i.sink39.i to i64
   %sub.ptr.rhs.cast.i8.i.i223.i.i = ptrtoint ptr %add.ptr.i.i.i216.i.sink.i to i64
   %sub.ptr.sub.i9.i.i224.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i222.i.i, %sub.ptr.rhs.cast.i8.i.i223.i.i
   %conv.i.i.i225.i.i = trunc i64 %sub.ptr.sub.i9.i.i224.i.i to i32
   store i32 %conv.i.i.i225.i.i, ptr %.sink.i, align 1
-  store i8 0, ptr %call2.i.i218.i.sink38.i, align 1
+  store i8 0, ptr %call2.i.i218.i.sink39.i, align 1
   %iter.sroa.8.6.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i200.i.pn.i, i64 4
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i218.i.sink38.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i218.i.sink39.i, i64 1
   store ptr %storemerge.i, ptr %current_string_buf_loc.i.i, align 8
   %24 = load i32, ptr %iter.sroa.8.6.i, align 4
   %idxprom.i157.i.i = zext i32 %24 to i64
@@ -5308,7 +5309,6 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   %incdec.ptr.i184.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i200.i.pn.i, i64 16
   %this.val66.val.i.i = load ptr, ptr %doc1.i, align 8
   %this.val66.val.val.i.i = load ptr, ptr %this.val66.val.i.i, align 8
-  %this.val.i.i187.i.i = load ptr, ptr %builder.i, align 8
   %sub.ptr.lhs.cast.i.i.i188.i.i = ptrtoint ptr %this.val.i.i187.i.i to i64
   %sub.ptr.rhs.cast.i.i.i189.i.i = ptrtoint ptr %this.val66.val.val.i.i to i64
   %sub.ptr.sub.i.i.i190.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i188.i.i, %sub.ptr.rhs.cast.i.i.i189.i.i
@@ -5710,19 +5710,20 @@ if.end52.i.i:                                     ; preds = %if.end38.i.i
   br i1 %cmp.i.i.i.i, label %_ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 object_field.i.i:                                 ; preds = %if.end120.i.i, %if.end52.i.i
-  %call2.i.i202.i.sink41.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
+  %call2.i.i202.i.sink42.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
   %add.ptr.i.i.i200.i.sink.i = phi ptr [ %add.ptr.i.i.i200.i.i, %if.end120.i.i ], [ %add.ptr.i.i.i.i.i, %if.end52.i.i ]
   %.sink.i = phi ptr [ %33, %if.end120.i.i ], [ %20, %if.end52.i.i ]
+  %this.val.i.i171.i.i = phi ptr [ %incdec.ptr.i.i.i.i199.i.i, %if.end120.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end52.i.i ]
   %incdec.ptr.i184.i.pn.i = phi ptr [ %incdec.ptr.i184.i.i, %if.end120.i.i ], [ %iter.sroa.8.8.i, %if.end52.i.i ]
   %iter.sroa.54.5.i = phi i32 [ %iter.sroa.54.4.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
-  %sub.ptr.lhs.cast.i7.i.i206.i.i = ptrtoint ptr %call2.i.i202.i.sink41.i to i64
+  %sub.ptr.lhs.cast.i7.i.i206.i.i = ptrtoint ptr %call2.i.i202.i.sink42.i to i64
   %sub.ptr.rhs.cast.i8.i.i207.i.i = ptrtoint ptr %add.ptr.i.i.i200.i.sink.i to i64
   %sub.ptr.sub.i9.i.i208.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i206.i.i, %sub.ptr.rhs.cast.i8.i.i207.i.i
   %conv.i.i.i209.i.i = trunc i64 %sub.ptr.sub.i9.i.i208.i.i to i32
   store i32 %conv.i.i.i209.i.i, ptr %.sink.i, align 1
-  store i8 0, ptr %call2.i.i202.i.sink41.i, align 1
+  store i8 0, ptr %call2.i.i202.i.sink42.i, align 1
   %iter.sroa.8.6.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i184.i.pn.i, i64 4
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i202.i.sink41.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i202.i.sink42.i, i64 1
   store ptr %storemerge.i, ptr %current_string_buf_loc.i.i, align 8
   %21 = load i32, ptr %iter.sroa.8.6.i, align 4
   %idxprom.i141.i.i = zext i32 %21 to i64
@@ -5770,7 +5771,6 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   %incdec.ptr.i168.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i184.i.pn.i, i64 16
   %this.val65.val.i.i = load ptr, ptr %doc1.i, align 8
   %this.val65.val.val.i.i = load ptr, ptr %this.val65.val.i.i, align 8
-  %this.val.i.i171.i.i = load ptr, ptr %builder.i, align 8
   %sub.ptr.lhs.cast.i.i.i172.i.i = ptrtoint ptr %this.val.i.i171.i.i to i64
   %sub.ptr.rhs.cast.i.i.i173.i.i = ptrtoint ptr %this.val65.val.val.i.i to i64
   %sub.ptr.sub.i.i.i174.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i172.i.i, %sub.ptr.rhs.cast.i.i.i173.i.i
@@ -6038,14 +6038,14 @@ _ZN8simdjson7haswell12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef captures(ret: address, provenance) initializes((0, 32)) %dst, i1 noundef zeroext %replacement_char) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef initializes((0, 32)) %dst, i1 noundef zeroext %replacement_char) unnamed_addr #20 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 32)) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #19 {
+define internal fastcc noundef ptr @_ZN8simdjson7haswell12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef readonly captures(none) %src, ptr noundef writeonly initializes((0, 32)) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #19 {
 entry:
   %.val57 = load <4 x i64>, ptr %src, align 1
   store <4 x i64> %.val57, ptr %dst, align 1
@@ -6308,7 +6308,7 @@ return:                                           ; preds = %if.else23.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 32)) %dst) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7haswell25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef writeonly initializes((0, 32)) %dst) unnamed_addr #19 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %.val52.i = load <4 x i64>, ptr %src, align 1
   store <4 x i64> %.val52.i, ptr %dst, align 1
@@ -7450,19 +7450,20 @@ if.end66.i.i:                                     ; preds = %if.end52.i.i
   br i1 %cmp.i.i.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 object_field.i.i:                                 ; preds = %if.end134.i.i, %if.end66.i.i
-  %call2.i.i218.i.sink38.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
+  %call2.i.i218.i.sink39.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
   %add.ptr.i.i.i216.i.sink.i = phi ptr [ %add.ptr.i.i.i216.i.i, %if.end134.i.i ], [ %add.ptr.i.i.i.i.i, %if.end66.i.i ]
   %.sink.i = phi ptr [ %36, %if.end134.i.i ], [ %23, %if.end66.i.i ]
+  %this.val.i.i187.i.i = phi ptr [ %incdec.ptr.i.i.i.i215.i.i, %if.end134.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end66.i.i ]
   %incdec.ptr.i200.i.pn.i = phi ptr [ %incdec.ptr.i200.i.i, %if.end134.i.i ], [ %iter.sroa.8.8.i, %if.end66.i.i ]
   %iter.sroa.54.5.i = phi i32 [ %iter.sroa.54.4.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
-  %sub.ptr.lhs.cast.i7.i.i222.i.i = ptrtoint ptr %call2.i.i218.i.sink38.i to i64
+  %sub.ptr.lhs.cast.i7.i.i222.i.i = ptrtoint ptr %call2.i.i218.i.sink39.i to i64
   %sub.ptr.rhs.cast.i8.i.i223.i.i = ptrtoint ptr %add.ptr.i.i.i216.i.sink.i to i64
   %sub.ptr.sub.i9.i.i224.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i222.i.i, %sub.ptr.rhs.cast.i8.i.i223.i.i
   %conv.i.i.i225.i.i = trunc i64 %sub.ptr.sub.i9.i.i224.i.i to i32
   store i32 %conv.i.i.i225.i.i, ptr %.sink.i, align 1
-  store i8 0, ptr %call2.i.i218.i.sink38.i, align 1
+  store i8 0, ptr %call2.i.i218.i.sink39.i, align 1
   %iter.sroa.8.6.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i200.i.pn.i, i64 4
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i218.i.sink38.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i218.i.sink39.i, i64 1
   store ptr %storemerge.i, ptr %current_string_buf_loc.i.i, align 8
   %24 = load i32, ptr %iter.sroa.8.6.i, align 4
   %idxprom.i157.i.i = zext i32 %24 to i64
@@ -7510,7 +7511,6 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   %incdec.ptr.i184.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i200.i.pn.i, i64 16
   %this.val66.val.i.i = load ptr, ptr %doc1.i, align 8
   %this.val66.val.val.i.i = load ptr, ptr %this.val66.val.i.i, align 8
-  %this.val.i.i187.i.i = load ptr, ptr %builder.i, align 8
   %sub.ptr.lhs.cast.i.i.i188.i.i = ptrtoint ptr %this.val.i.i187.i.i to i64
   %sub.ptr.rhs.cast.i.i.i189.i.i = ptrtoint ptr %this.val66.val.val.i.i to i64
   %sub.ptr.sub.i.i.i190.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i188.i.i, %sub.ptr.rhs.cast.i.i.i189.i.i
@@ -7912,19 +7912,20 @@ if.end52.i.i:                                     ; preds = %if.end38.i.i
   br i1 %cmp.i.i.i.i, label %_ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 object_field.i.i:                                 ; preds = %if.end120.i.i, %if.end52.i.i
-  %call2.i.i202.i.sink41.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
+  %call2.i.i202.i.sink42.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
   %add.ptr.i.i.i200.i.sink.i = phi ptr [ %add.ptr.i.i.i200.i.i, %if.end120.i.i ], [ %add.ptr.i.i.i.i.i, %if.end52.i.i ]
   %.sink.i = phi ptr [ %33, %if.end120.i.i ], [ %20, %if.end52.i.i ]
+  %this.val.i.i171.i.i = phi ptr [ %incdec.ptr.i.i.i.i199.i.i, %if.end120.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end52.i.i ]
   %incdec.ptr.i184.i.pn.i = phi ptr [ %incdec.ptr.i184.i.i, %if.end120.i.i ], [ %iter.sroa.8.8.i, %if.end52.i.i ]
   %iter.sroa.54.5.i = phi i32 [ %iter.sroa.54.4.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
-  %sub.ptr.lhs.cast.i7.i.i206.i.i = ptrtoint ptr %call2.i.i202.i.sink41.i to i64
+  %sub.ptr.lhs.cast.i7.i.i206.i.i = ptrtoint ptr %call2.i.i202.i.sink42.i to i64
   %sub.ptr.rhs.cast.i8.i.i207.i.i = ptrtoint ptr %add.ptr.i.i.i200.i.sink.i to i64
   %sub.ptr.sub.i9.i.i208.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i206.i.i, %sub.ptr.rhs.cast.i8.i.i207.i.i
   %conv.i.i.i209.i.i = trunc i64 %sub.ptr.sub.i9.i.i208.i.i to i32
   store i32 %conv.i.i.i209.i.i, ptr %.sink.i, align 1
-  store i8 0, ptr %call2.i.i202.i.sink41.i, align 1
+  store i8 0, ptr %call2.i.i202.i.sink42.i, align 1
   %iter.sroa.8.6.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i184.i.pn.i, i64 4
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i202.i.sink41.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i202.i.sink42.i, i64 1
   store ptr %storemerge.i, ptr %current_string_buf_loc.i.i, align 8
   %21 = load i32, ptr %iter.sroa.8.6.i, align 4
   %idxprom.i141.i.i = zext i32 %21 to i64
@@ -7972,7 +7973,6 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   %incdec.ptr.i168.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i184.i.pn.i, i64 16
   %this.val65.val.i.i = load ptr, ptr %doc1.i, align 8
   %this.val65.val.val.i.i = load ptr, ptr %this.val65.val.i.i, align 8
-  %this.val.i.i171.i.i = load ptr, ptr %builder.i, align 8
   %sub.ptr.lhs.cast.i.i.i172.i.i = ptrtoint ptr %this.val.i.i171.i.i to i64
   %sub.ptr.rhs.cast.i.i.i173.i.i = ptrtoint ptr %this.val65.val.val.i.i to i64
   %sub.ptr.sub.i.i.i174.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i172.i.i, %sub.ptr.rhs.cast.i.i.i173.i.i
@@ -8240,14 +8240,14 @@ _ZN8simdjson7icelake12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef captures(ret: address, provenance) initializes((0, 64)) %dst, i1 noundef zeroext %replacement_char) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef initializes((0, 64)) %dst, i1 noundef zeroext %replacement_char) unnamed_addr #24 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 64)) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #22 {
+define internal fastcc noundef ptr @_ZN8simdjson7icelake12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef readonly captures(none) %src, ptr noundef writeonly initializes((0, 64)) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #22 {
 entry:
   %.val61 = load <8 x i64>, ptr %src, align 1
   store <8 x i64> %.val61, ptr %dst, align 1
@@ -8506,7 +8506,7 @@ return:                                           ; preds = %if.else23.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(ret: address, provenance) initializes((0, 64)) %dst) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson7icelake25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef writeonly initializes((0, 64)) %dst) unnamed_addr #22 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %.val56.i = load <8 x i64>, ptr %src, align 1
   store <8 x i64> %.val56.i, ptr %dst, align 1
@@ -9981,19 +9981,20 @@ if.end66.i.i:                                     ; preds = %if.end52.i.i
   br i1 %cmp.i.i.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb0EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 object_field.i.i:                                 ; preds = %if.end134.i.i, %if.end66.i.i
-  %call2.i.i218.i.sink38.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
+  %call2.i.i218.i.sink39.i = phi ptr [ %call2.i.i218.i.i, %if.end134.i.i ], [ %call2.i.i.i.i, %if.end66.i.i ]
   %add.ptr.i.i.i216.i.sink.i = phi ptr [ %add.ptr.i.i.i216.i.i, %if.end134.i.i ], [ %add.ptr.i.i.i.i.i, %if.end66.i.i ]
   %.sink.i = phi ptr [ %36, %if.end134.i.i ], [ %23, %if.end66.i.i ]
+  %this.val.i.i187.i.i = phi ptr [ %incdec.ptr.i.i.i.i215.i.i, %if.end134.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end66.i.i ]
   %incdec.ptr.i200.i.pn.i = phi ptr [ %incdec.ptr.i200.i.i, %if.end134.i.i ], [ %iter.sroa.8.8.i, %if.end66.i.i ]
   %iter.sroa.54.5.i = phi i32 [ %iter.sroa.54.4.i, %if.end134.i.i ], [ %inc.i.i, %if.end66.i.i ]
-  %sub.ptr.lhs.cast.i7.i.i222.i.i = ptrtoint ptr %call2.i.i218.i.sink38.i to i64
+  %sub.ptr.lhs.cast.i7.i.i222.i.i = ptrtoint ptr %call2.i.i218.i.sink39.i to i64
   %sub.ptr.rhs.cast.i8.i.i223.i.i = ptrtoint ptr %add.ptr.i.i.i216.i.sink.i to i64
   %sub.ptr.sub.i9.i.i224.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i222.i.i, %sub.ptr.rhs.cast.i8.i.i223.i.i
   %conv.i.i.i225.i.i = trunc i64 %sub.ptr.sub.i9.i.i224.i.i to i32
   store i32 %conv.i.i.i225.i.i, ptr %.sink.i, align 1
-  store i8 0, ptr %call2.i.i218.i.sink38.i, align 1
+  store i8 0, ptr %call2.i.i218.i.sink39.i, align 1
   %iter.sroa.8.6.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i200.i.pn.i, i64 4
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i218.i.sink38.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i218.i.sink39.i, i64 1
   store ptr %storemerge.i, ptr %current_string_buf_loc.i.i, align 8
   %24 = load i32, ptr %iter.sroa.8.6.i, align 4
   %idxprom.i157.i.i = zext i32 %24 to i64
@@ -10041,7 +10042,6 @@ sw.epilog117.sink.split.i.i:                      ; preds = %sw.bb99.i.i, %sw.bb
   %incdec.ptr.i184.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i200.i.pn.i, i64 16
   %this.val66.val.i.i = load ptr, ptr %doc1.i, align 8
   %this.val66.val.val.i.i = load ptr, ptr %this.val66.val.i.i, align 8
-  %this.val.i.i187.i.i = load ptr, ptr %builder.i, align 8
   %sub.ptr.lhs.cast.i.i.i188.i.i = ptrtoint ptr %this.val.i.i187.i.i to i64
   %sub.ptr.rhs.cast.i.i.i189.i.i = ptrtoint ptr %this.val66.val.val.i.i to i64
   %sub.ptr.sub.i.i.i190.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i188.i.i, %sub.ptr.rhs.cast.i.i.i189.i.i
@@ -10443,19 +10443,20 @@ if.end52.i.i:                                     ; preds = %if.end38.i.i
   br i1 %cmp.i.i.i.i, label %_ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEENS_10error_codeERNS0_25dom_parser_implementationERNS_3dom8documentE.exit, label %object_field.i.i
 
 object_field.i.i:                                 ; preds = %if.end120.i.i, %if.end52.i.i
-  %call2.i.i202.i.sink41.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
+  %call2.i.i202.i.sink42.i = phi ptr [ %call2.i.i202.i.i, %if.end120.i.i ], [ %call2.i.i.i.i, %if.end52.i.i ]
   %add.ptr.i.i.i200.i.sink.i = phi ptr [ %add.ptr.i.i.i200.i.i, %if.end120.i.i ], [ %add.ptr.i.i.i.i.i, %if.end52.i.i ]
   %.sink.i = phi ptr [ %33, %if.end120.i.i ], [ %20, %if.end52.i.i ]
+  %this.val.i.i171.i.i = phi ptr [ %incdec.ptr.i.i.i.i199.i.i, %if.end120.i.i ], [ %incdec.ptr.i.i.i.i.i.i, %if.end52.i.i ]
   %incdec.ptr.i184.i.pn.i = phi ptr [ %incdec.ptr.i184.i.i, %if.end120.i.i ], [ %iter.sroa.8.8.i, %if.end52.i.i ]
   %iter.sroa.54.5.i = phi i32 [ %iter.sroa.54.4.i, %if.end120.i.i ], [ %inc.i.i, %if.end52.i.i ]
-  %sub.ptr.lhs.cast.i7.i.i206.i.i = ptrtoint ptr %call2.i.i202.i.sink41.i to i64
+  %sub.ptr.lhs.cast.i7.i.i206.i.i = ptrtoint ptr %call2.i.i202.i.sink42.i to i64
   %sub.ptr.rhs.cast.i8.i.i207.i.i = ptrtoint ptr %add.ptr.i.i.i200.i.sink.i to i64
   %sub.ptr.sub.i9.i.i208.i.i = sub i64 %sub.ptr.lhs.cast.i7.i.i206.i.i, %sub.ptr.rhs.cast.i8.i.i207.i.i
   %conv.i.i.i209.i.i = trunc i64 %sub.ptr.sub.i9.i.i208.i.i to i32
   store i32 %conv.i.i.i209.i.i, ptr %.sink.i, align 1
-  store i8 0, ptr %call2.i.i202.i.sink41.i, align 1
+  store i8 0, ptr %call2.i.i202.i.sink42.i, align 1
   %iter.sroa.8.6.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i184.i.pn.i, i64 4
-  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i202.i.sink41.i, i64 1
+  %storemerge.i = getelementptr inbounds nuw i8, ptr %call2.i.i202.i.sink42.i, i64 1
   store ptr %storemerge.i, ptr %current_string_buf_loc.i.i, align 8
   %21 = load i32, ptr %iter.sroa.8.6.i, align 4
   %idxprom.i141.i.i = zext i32 %21 to i64
@@ -10503,7 +10504,6 @@ sw.epilog103.sink.split.i.i:                      ; preds = %sw.bb85.i.i, %sw.bb
   %incdec.ptr.i168.i.i = getelementptr inbounds nuw i8, ptr %incdec.ptr.i184.i.pn.i, i64 16
   %this.val65.val.i.i = load ptr, ptr %doc1.i, align 8
   %this.val65.val.val.i.i = load ptr, ptr %this.val65.val.i.i, align 8
-  %this.val.i.i171.i.i = load ptr, ptr %builder.i, align 8
   %sub.ptr.lhs.cast.i.i.i172.i.i = ptrtoint ptr %this.val.i.i171.i.i to i64
   %sub.ptr.rhs.cast.i.i.i173.i.i = ptrtoint ptr %this.val65.val.val.i.i to i64
   %sub.ptr.sub.i.i.i174.i.i = sub i64 %sub.ptr.lhs.cast.i.i.i172.i.i, %sub.ptr.rhs.cast.i.i.i173.i.i
@@ -10771,14 +10771,14 @@ _ZN8simdjson8westmere12_GLOBAL__N_16stage212tape_builder14parse_documentILb1EEEN
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef captures(ret: address, provenance) %dst, i1 noundef zeroext %replacement_char) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation12parse_stringEPKhPhb(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef %dst, i1 noundef zeroext %replacement_char) unnamed_addr #28 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %call = tail call fastcc noundef ptr @_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef %src, ptr noundef %dst, i1 noundef zeroext %replacement_char)
   ret ptr %call
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(ret: address, provenance) %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #26 {
+define internal fastcc noundef ptr @_ZN8simdjson8westmere12_GLOBAL__N_113stringparsing12parse_stringEPKhPhb(ptr noundef readonly captures(none) %src, ptr noundef writeonly %dst, i1 noundef zeroext %allow_replacement) unnamed_addr #26 {
 entry:
   br label %while.body
 
@@ -11035,7 +11035,7 @@ return:                                           ; preds = %if.else23.i.i, %if.
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef writeonly captures(ret: address, provenance) %dst) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local noundef ptr @_ZNK8simdjson8westmere25dom_parser_implementation19parse_wobbly_stringEPKhPh(ptr nonnull readnone align 8 captures(none) %this, ptr noundef readonly captures(none) %src, ptr noundef writeonly %dst) unnamed_addr #26 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   br label %while.body.i
 

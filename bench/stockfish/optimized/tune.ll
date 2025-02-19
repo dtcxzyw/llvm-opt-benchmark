@@ -551,7 +551,7 @@ declare void @_ZdlPv(ptr noundef) local_unnamed_addr #5
 declare void @_ZN9Stockfish6OptionlsERKS0_(ptr noundef nonnull align 8 dereferenceable(144), ptr noundef nonnull align 8 dereferenceable(144)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN9StockfishL7on_tuneERKNS_6OptionE(ptr noundef nonnull readnone align 8 captures(address) dereferenceable(144) %0) #3 {
+define internal void @_ZN9StockfishL7on_tuneERKNS_6OptionE(ptr noundef nonnull readnone align 8 dereferenceable(144) %0) #3 {
   %2 = load i8, ptr @_ZN9Stockfish4Tune14update_on_lastE, align 1
   %3 = trunc i8 %2 to i1
   %4 = load ptr, ptr @_ZN9Stockfish10LastOptionE, align 8

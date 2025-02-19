@@ -559,7 +559,7 @@ define internal fastcc ptr @_(ptr noundef %0) unnamed_addr #6 {
 declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 1) i32 @git_config_parse_key(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 1) i32 @git_config_parse_key(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #29
   %5 = icmp eq ptr %4, null
   %6 = icmp eq ptr %4, %0
@@ -1333,7 +1333,7 @@ declare void @strbuf_release(ptr noundef) local_unnamed_addr #3
 declare void @strvec_clear(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @git_config_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i32 @git_config_int(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #30
   %5 = call i32 @git_parse_int(ptr noundef %1, ptr noundef nonnull %4) #30
@@ -1353,7 +1353,7 @@ define dso_local i32 @git_config_int(ptr noundef %0, ptr noundef %1, ptr noundef
 declare i32 @git_parse_int(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: noreturn nounwind uwtable
-define internal fastcc void @die_bad_number(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #11 {
+define internal fastcc void @die_bad_number(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) unnamed_addr #11 {
   %4 = tail call ptr @__errno_location() #33
   %5 = load i32, ptr %4, align 4, !tbaa !14
   %6 = icmp eq i32 %5, 34
@@ -1432,7 +1432,7 @@ define internal fastcc void @die_bad_number(ptr noundef %0, ptr noundef %1, ptr 
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @git_config_int64(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i64 @git_config_int64(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
   %5 = call i32 @git_parse_int64(ptr noundef %1, ptr noundef nonnull %4) #30
@@ -1452,7 +1452,7 @@ define dso_local i64 @git_config_int64(ptr noundef %0, ptr noundef %1, ptr nound
 declare i32 @git_parse_int64(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @git_config_ulong(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i64 @git_config_ulong(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
   %5 = call i32 @git_parse_ulong(ptr noundef %1, ptr noundef nonnull %4) #30
@@ -1472,7 +1472,7 @@ define dso_local i64 @git_config_ulong(ptr noundef %0, ptr noundef %1, ptr nound
 declare i32 @git_parse_ulong(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @git_config_ssize_t(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local i64 @git_config_ssize_t(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
   %5 = call i32 @git_parse_ssize_t(ptr noundef %1, ptr noundef nonnull %4) #30
@@ -1492,7 +1492,7 @@ define dso_local i64 @git_config_ssize_t(ptr noundef %0, ptr noundef %1, ptr nou
 declare i32 @git_parse_ssize_t(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local double @git_config_double(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local double @git_config_double(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca double, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #30
   %5 = call i32 @git_parse_double(ptr noundef %1, ptr noundef nonnull %4) #30
@@ -1512,7 +1512,7 @@ define dso_local double @git_config_double(ptr noundef %0, ptr noundef %1, ptr n
 declare i32 @git_parse_double(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @git_config_bool_or_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
+define dso_local i32 @git_config_bool_or_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef writeonly captures(none) initializes((0, 4)) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = tail call i32 @git_parse_maybe_bool_text(ptr noundef %1) #30
   %7 = icmp sgt i32 %6, -1
@@ -3106,7 +3106,7 @@ git_config_bool.exit:                             ; preds = %4
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @git_config_from_file_with_options(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @git_config_from_file_with_options(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.config_source, align 8
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %8
@@ -3166,7 +3166,7 @@ define dso_local range(i32 -1, 1) i32 @git_config_from_file(ptr noundef readonly
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 1) i32 @git_config_from_mem(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 1) i32 @git_config_from_mem(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5, i32 noundef %6, ptr noundef %7) local_unnamed_addr #0 {
   %9 = alloca %struct.config_source, align 8
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %9) #30
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(160) %9, i8 0, i64 136, i1 false)
@@ -3253,7 +3253,7 @@ define internal i64 @config_buf_ftell(ptr noundef readonly captures(none) %0) #1
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @do_config_from(ptr noundef nonnull initializes((60, 68), (72, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly captures(address_is_null) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @do_config_from(ptr noundef nonnull initializes((60, 68), (72, 80)) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3, ptr noundef readonly %4) unnamed_addr #0 {
   %6 = alloca %struct.config_context, align 8
   %7 = alloca %struct.key_value_info, align 8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #30
@@ -6092,7 +6092,7 @@ configset_add_value.exit:                         ; preds = %configset_find_elem
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -2, 2) i32 @git_configset_get_value(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local range(i32 -2, 2) i32 @git_configset_get_value(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca %struct.config_set_element, align 8
   %6 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #30
@@ -7582,13 +7582,13 @@ declare void @llvm.va_start.p0(ptr) #17
 declare void @llvm.va_end.p0(ptr) #17
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 7) i32 @repo_config_set_in_file_gently(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 7) i32 @repo_config_set_in_file_gently(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @repo_config_set_multivar_in_file_gently(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %4, ptr noundef null, ptr noundef %3, i32 noundef 0)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 7) i32 @repo_config_set_multivar_in_file_gently(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 7) i32 @repo_config_set_multivar_in_file_gently(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef readonly %3, ptr noundef %4, ptr noundef %5, i32 noundef %6) local_unnamed_addr #0 {
   %8 = alloca %struct.strbuf, align 8
   %9 = alloca %struct.lock_file, align 8
   %10 = alloca %struct.config_store_data, align 8
@@ -8313,7 +8313,7 @@ define dso_local void @repo_config_set_multivar_in_file(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 7) i32 @repo_config_set_gently(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 7) i32 @repo_config_set_gently(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call ptr (ptr, ptr, ...) @repo_git_path(ptr noundef %0, ptr noundef nonnull @.str.46) #30
   %5 = tail call range(i32 -1, 7) i32 @repo_config_set_multivar_in_file_gently(ptr noundef %0, ptr noundef %4, ptr noundef %1, ptr noundef %2, ptr noundef null, ptr noundef null, i32 noundef 0)
   tail call void @free(ptr noundef %4) #30
@@ -8321,7 +8321,7 @@ define dso_local range(i32 -1, 7) i32 @repo_config_set_gently(ptr noundef %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 7) i32 @repo_config_set_multivar_gently(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 7) i32 @repo_config_set_multivar_gently(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef %4) local_unnamed_addr #0 {
   %6 = tail call ptr (ptr, ptr, ...) @repo_git_path(ptr noundef %0, ptr noundef nonnull @.str.46) #30
   %7 = tail call i32 @repo_config_set_multivar_in_file_gently(ptr noundef %0, ptr noundef %6, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef null, i32 noundef %4)
   tail call void @free(ptr noundef %6) #30
@@ -8329,7 +8329,7 @@ define dso_local range(i32 -1, 7) i32 @repo_config_set_multivar_gently(ptr nound
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 -1, 7) i32 @repo_config_set_worktree_gently(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define dso_local range(i32 -1, 7) i32 @repo_config_set_worktree_gently(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %5 = load i32, ptr %4, align 8, !tbaa !74
   %.not = icmp eq i32 %5, 0
@@ -9761,7 +9761,7 @@ define dso_local i32 @repo_config_copy_section(ptr noundef %0, ptr noundef reado
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define dso_local range(i32 -1, 1) i32 @parse_config_key(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #22 {
+define dso_local range(i32 -1, 1) i32 @parse_config_key(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(none) %4) local_unnamed_addr #22 {
   br label %6
 
 6:                                                ; preds = %8, %5
@@ -10119,7 +10119,7 @@ declare void @strbuf_init(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare ptr @memintern(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @handle_path_include(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @handle_path_include(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca %struct.strbuf, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #30
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) @__const.repo_config_copy_or_rename_section_in_file.copystr, i64 24, i1 false)
@@ -10315,7 +10315,7 @@ parse_config_key.exit.thread:                     ; preds = %6, %13, %11, %15
 declare i32 @access_or_die(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @include_by_gitdir(ptr noundef readonly captures(address_is_null) %0, ptr %.16.val, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @include_by_gitdir(ptr noundef readonly %0, ptr %.16.val, ptr noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #0 {
   %5 = alloca %struct.strbuf, align 8
   %6 = alloca %struct.strbuf, align 8
   %7 = alloca %struct.strbuf, align 8

@@ -1895,14 +1895,14 @@ define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_un
 declare void @_ZSt9terminatev() local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(296) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(296) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_metadata.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %m_metadata.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(296) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl17getFormatMetadataEv(ptr noundef nonnull readnone align 8 dereferenceable(296) %this) unnamed_addr #12 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %m_metadata.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   ret ptr %m_metadata.i
@@ -1964,7 +1964,7 @@ declare void @_ZN19OpenColorIO_v2_4dev9CDLOpData8setStyleENS0_5StyleE(ptr nounde
 declare noundef i32 @_ZN19OpenColorIO_v2_4dev9CDLOpData12ConvertStyleENS_8CDLStyleENS_18TransformDirectionE(i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl8setSlopeEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly captures(address_is_null) %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl8setSlopeEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
   %tobool.not = icmp eq ptr %rgb, null
@@ -2004,7 +2004,7 @@ if.end:                                           ; preds = %entry
 declare void @_ZN19OpenColorIO_v2_4dev9CDLOpData14setSlopeParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl8getSlopeEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef writeonly captures(address_is_null) %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl8getSlopeEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef writeonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %rgb, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2040,7 +2040,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl9setOffsetEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly captures(address_is_null) %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl9setOffsetEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
   %tobool.not = icmp eq ptr %rgb, null
@@ -2080,7 +2080,7 @@ if.end:                                           ; preds = %entry
 declare void @_ZN19OpenColorIO_v2_4dev9CDLOpData15setOffsetParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl9getOffsetEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef writeonly captures(address_is_null) %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl9getOffsetEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef writeonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %rgb, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2116,7 +2116,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl8setPowerEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly captures(address_is_null) %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl8setPowerEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
   %tobool.not = icmp eq ptr %rgb, null
@@ -2156,7 +2156,7 @@ if.end:                                           ; preds = %entry
 declare void @_ZN19OpenColorIO_v2_4dev9CDLOpData14setPowerParamsERKNS0_13ChannelParamsE(ptr noundef nonnull align 8 dereferenceable(256), ptr noundef nonnull align 8 dereferenceable(24)) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl8getPowerEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef writeonly captures(address_is_null) %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl8getPowerEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef writeonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %rgb, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2192,7 +2192,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl6setSOPEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly captures(address_is_null) %vec9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN19OpenColorIO_v2_4dev16CDLTransformImpl6setSOPEPKd(ptr noundef nonnull align 8 dereferenceable(296) %this, ptr noundef readonly %vec9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
   %ref.tmp5 = alloca %"struct.OpenColorIO_v2_4dev::CDLOpData::ChannelParams", align 8
@@ -2256,7 +2256,7 @@ if.end:                                           ; preds = %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl6getSOPEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef writeonly captures(address_is_null) %vec9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl6getSOPEPd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(296) %this, ptr noundef writeonly %vec9) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %vec9, null
   br i1 %tobool.not, label %if.then, label %if.end
@@ -2334,7 +2334,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl15getSatLumaCoefsEPd(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly captures(address_is_null) %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZNK19OpenColorIO_v2_4dev16CDLTransformImpl15getSatLumaCoefsEPd(ptr nonnull readnone align 8 captures(none) %this, ptr noundef writeonly %rgb) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %tobool.not = icmp eq ptr %rgb, null
   br i1 %tobool.not, label %if.then, label %if.end

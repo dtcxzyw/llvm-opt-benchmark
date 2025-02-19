@@ -74,7 +74,7 @@ declare i32 @errhint(ptr noundef, ...) local_unnamed_addr #3
 declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local i32 @forkname_chars(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #4 {
+define dso_local i32 @forkname_chars(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1) local_unnamed_addr #4 {
   br label %3
 
 3:                                                ; preds = %2, %13

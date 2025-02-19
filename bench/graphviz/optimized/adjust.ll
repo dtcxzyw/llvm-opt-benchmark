@@ -86,7 +86,7 @@ target triple = "x86_64-pc-linux-gnu"
 @deltax = external local_unnamed_addr global double, align 8
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
+define noalias noundef ptr @getSizes(ptr noundef %0, double %1, double %2, ptr noundef writeonly captures(none) %3, ptr noundef writeonly %4) local_unnamed_addr #0 {
   %6 = load i16, ptr @Ndim, align 2, !tbaa !3
   %7 = zext i16 %6 to i32
   %8 = tail call i32 @agnnodes(ptr noundef %0) #20

@@ -225,7 +225,7 @@ define noundef i32 @H5FD__splitter_unregister() local_unnamed_addr #3 {
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5Pset_fapl_splitter(i64 noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
+define i32 @H5Pset_fapl_splitter(i64 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %3) #12
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %3, i8 0, i64 480, i1 false)
@@ -382,7 +382,7 @@ declare ptr @H5I_object(i64 noundef) local_unnamed_addr #2
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr noundef captures(address_is_null) %0, ptr noundef nonnull %1) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5FD__splitter_populate_config(ptr noundef %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = alloca %struct.H5FD_driver_prop_t, align 8
   %4 = alloca i64, align 8
   %5 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -1579,7 +1579,7 @@ define internal i32 @H5FD__splitter_cmp(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD__splitter_query(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @H5FD__splitter_query(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = load i8, ptr @H5FD_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

@@ -7950,7 +7950,7 @@ _ZNSt10unique_ptrIN5osgeo4proj20VerticalShiftGridSetESt14default_deleteIS2_EED2E
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK5osgeo4proj17VerticalShiftGrid6gridAtEdd(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0, double noundef %1, double noundef %2) local_unnamed_addr #20 align 2 {
+define noundef nonnull ptr @_ZNK5osgeo4proj17VerticalShiftGrid6gridAtEdd(ptr noundef nonnull readonly align 8 dereferenceable(144) %0, double noundef %1, double noundef %2) local_unnamed_addr #20 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -13284,7 +13284,7 @@ _ZNSt10unique_ptrIN5osgeo4proj22HorizontalShiftGridSetESt14default_deleteIS2_EED
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK5osgeo4proj19HorizontalShiftGrid6gridAtEdd(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0, double noundef %1, double noundef %2) local_unnamed_addr #20 align 2 {
+define noundef nonnull ptr @_ZNK5osgeo4proj19HorizontalShiftGrid6gridAtEdd(ptr noundef nonnull readonly align 8 dereferenceable(144) %0, double noundef %1, double noundef %2) local_unnamed_addr #20 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -16066,7 +16066,7 @@ _ZNSt10unique_ptrIN5osgeo4proj19GenericShiftGridSetESt14default_deleteIS2_EED2Ev
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @_ZNK5osgeo4proj16GenericShiftGrid6gridAtEdd(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(144) %0, double noundef %1, double noundef %2) local_unnamed_addr #20 align 2 {
+define noundef nonnull ptr @_ZNK5osgeo4proj16GenericShiftGrid6gridAtEdd(ptr noundef nonnull readonly align 8 dereferenceable(144) %0, double noundef %1, double noundef %2) local_unnamed_addr #20 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 128

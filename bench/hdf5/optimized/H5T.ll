@@ -7230,7 +7230,7 @@ define range(i32 -1, 2) i32 @H5Tequal(i64 noundef %0, i64 noundef %1) local_unna
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @H5T_cmp(ptr noundef readonly captures(address) %0, ptr noundef readonly captures(address) %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
+define i32 @H5T_cmp(ptr noundef readonly %0, ptr noundef readonly %1, i1 noundef zeroext %2) local_unnamed_addr #0 {
   %4 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %5 = trunc nuw i8 %4 to i1
   %6 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -10530,7 +10530,7 @@ define internal fastcc i32 @H5T__register(i32 noundef %0, ptr noundef %1, ptr no
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(address) %2, ptr noundef captures(address) %3, ptr noundef captures(address) %4, ptr noundef readnone captures(address) %5) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T_unregister(i32 noundef %0, ptr noundef readonly %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef readnone %5) local_unnamed_addr #0 {
   %7 = alloca %struct.H5T_conv_ctx_t, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #16
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -10993,7 +10993,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Tunregister(i32 noundef %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, i64 noundef %3, ptr noundef captures(address) %4) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Tunregister(i32 noundef %0, ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %6) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %6, i8 0, i64 480, i1 false)
@@ -11114,7 +11114,7 @@ define range(i32 -1, 1) i32 @H5Tunregister(i32 noundef %0, ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5Tfind(i64 noundef %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define ptr @H5Tfind(i64 noundef %0, i64 noundef %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %4, i8 0, i64 480, i1 false)
@@ -11854,7 +11854,7 @@ declare zeroext i1 @H5S_has_extent(ptr noundef) local_unnamed_addr #2
 declare i32 @H5T_reclaim(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5Tencode(i64 noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5Tencode(i64 noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.H5CX_node_t, align 8
   call void @llvm.lifetime.start.p0(i64 480, ptr nonnull %4) #16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(480) %4, i8 0, i64 480, i1 false)
@@ -12400,7 +12400,7 @@ define internal ptr @H5T__copy_all(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 -1, 1) i32 @H5T__complete_copy(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone captures(address_is_null) %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
+define internal fastcc range(i32 -1, 1) i32 @H5T__complete_copy(ptr noundef nonnull %0, ptr noundef %1, ptr noundef readnone %2, i1 noundef zeroext %3, ptr noundef readonly captures(none) %4) unnamed_addr #0 {
   %6 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %7 = trunc nuw i8 %6 to i1
   %8 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -13608,7 +13608,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #8
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @H5T__path_find_real(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
+define internal fastcc ptr @H5T__path_find_real(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef nonnull readonly captures(none) %3) unnamed_addr #0 {
   %5 = alloca %struct.H5_user_cb_state_t, align 8
   %6 = alloca %struct.H5_user_cb_state_t, align 8
   %7 = alloca %struct.H5T_conv_ctx_t, align 8
@@ -14619,7 +14619,7 @@ define zeroext i1 @H5T_path_noop(ptr noundef readonly captures(none) %0) local_u
 }
 
 ; Function Attrs: nounwind uwtable
-define zeroext i1 @H5T_noop_conv(ptr noundef captures(address) %0, ptr noundef captures(address) %1) local_unnamed_addr #0 {
+define zeroext i1 @H5T_noop_conv(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -14893,7 +14893,7 @@ declare i32 @H5_user_cb_prepare(ptr noundef) local_unnamed_addr #2
 declare i32 @H5_user_cb_restore(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5T_oloc(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @H5T_oloc(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -14963,7 +14963,7 @@ define ptr @H5T_oloc(ptr noundef readonly captures(ret: address, provenance) %0)
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @H5T_nameof(ptr noundef readonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define ptr @H5T_nameof(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %3 = trunc nuw i8 %2 to i1
   %4 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -15140,7 +15140,7 @@ define range(i32 -1, 2) i32 @H5T_is_named(ptr noundef readonly captures(none) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @H5T_convert_committed_datatype(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #0 {
+define range(i32 -1, 1) i32 @H5T_convert_committed_datatype(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #0 {
   %3 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
@@ -16125,7 +16125,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #14
 declare i32 @H5T__print_path_stats(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nosync nounwind memory(read, inaccessiblemem: none) uwtable
-define internal fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef readonly captures(none) %0, ptr noundef nonnull captures(address) %1) unnamed_addr #10 {
+define internal fastcc zeroext i1 @H5T_path_match_find_type_with_volobj(ptr noundef readonly captures(none) %0, ptr noundef nonnull %1) unnamed_addr #10 {
   %3 = load i8, ptr @H5T_init_g, align 1, !tbaa !3, !range !7, !noundef !8
   %4 = trunc nuw i8 %3 to i1
   %5 = load i8, ptr @H5_libterm_g, align 1, !range !7

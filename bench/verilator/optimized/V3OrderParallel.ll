@@ -912,7 +912,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN14MergeCandidate11toSiblingMCEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN14MergeCandidate11toSiblingMCEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -922,7 +922,7 @@ define dso_local noundef ptr @_ZN14MergeCandidate11toSiblingMCEv(ptr noundef non
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local noundef ptr @_ZN14MergeCandidate11toMTaskEdgeEv(ptr noundef nonnull readonly align 8 captures(ret: address, provenance) dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
+define dso_local noundef ptr @_ZN14MergeCandidate11toMTaskEdgeEv(ptr noundef nonnull readonly align 8 dereferenceable(40) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i64, ptr %2, align 8
   %4 = and i64 %3, 1
@@ -1169,7 +1169,7 @@ _ZN6V3ListI9SiblingMCXadL_ZNS0_6aLinksEvEES0_E6unlinkEPKS0_.exit: ; preds = %21,
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN9SiblingMC7unlinkBEv(ptr noundef nonnull align 8 captures(address) dereferenceable(88) %0) local_unnamed_addr #6 align 2 {
+define dso_local void @_ZN9SiblingMC7unlinkBEv(ptr noundef nonnull align 8 dereferenceable(88) %0) local_unnamed_addr #6 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 256

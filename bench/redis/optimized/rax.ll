@@ -126,7 +126,7 @@ raxNewNode.exit:                                  ; preds = %6
 declare void @zfree(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @raxReallocForData(ptr noundef %0, ptr noundef readnone captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local ptr @raxReallocForData(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %23, label %4
 
@@ -568,7 +568,7 @@ raxSetData.exit:                                  ; preds = %49, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(address_is_null) %4, i32 noundef %5) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxGenericInsert(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly %4, i32 noundef %5) local_unnamed_addr #1 {
   %7 = alloca ptr, align 8
   %8 = alloca ptr, align 8
   %.099.i = load ptr, ptr %0, align 8
@@ -1644,7 +1644,7 @@ raxSetData.exit395:                               ; preds = %565, %579
 }
 
 ; Function Attrs: inlinehint nounwind uwtable
-define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef %6) unnamed_addr #10 {
+define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3, ptr noundef writeonly %4, ptr noundef nonnull writeonly captures(none) %5, ptr noundef %6) unnamed_addr #10 {
   %.099 = load ptr, ptr %0, align 8
   %8 = load i32, ptr %.099, align 4
   %9 = icmp ugt i32 %8, 7
@@ -1861,7 +1861,7 @@ define internal fastcc i64 @raxLowWalk(ptr noundef %0, ptr noundef readonly capt
 declare ptr @__errno_location() local_unnamed_addr #11
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxRemove(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxRemove(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #1 {
   %5 = alloca ptr, align 8
   %6 = alloca %struct.raxStack, align 8
   %7 = alloca i32, align 4
@@ -2343,19 +2343,19 @@ raxStackFree.exit:                                ; preds = %raxStackFree.exit.s
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxInsert(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxInsert(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @raxGenericInsert(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 1)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @raxTryInsert(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #1 {
+define dso_local range(i32 0, 2) i32 @raxTryInsert(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3, ptr noundef %4) local_unnamed_addr #1 {
   %6 = tail call i32 @raxGenericInsert(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef 0)
   ret i32 %6
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #12 {
+define dso_local range(i32 0, 2) i32 @raxFind(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #12 {
   %.099.i = load ptr, ptr %0, align 8
   %5 = load i32, ptr %.099.i, align 4
   %6 = icmp ugt i32 %5, 7
@@ -2507,7 +2507,7 @@ raxGetData.exit:                                  ; preds = %56, %58
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define dso_local noundef nonnull ptr @raxFindParentLink(ptr noundef readonly captures(ret: address, provenance) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #13 {
+define dso_local noundef nonnull ptr @raxFindParentLink(ptr noundef readonly %0, ptr noundef readnone %1) local_unnamed_addr #13 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load i32, ptr %0, align 4
   %5 = lshr i32 %4, 3
@@ -2532,7 +2532,7 @@ define dso_local noundef nonnull ptr @raxFindParentLink(ptr noundef readonly cap
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @raxRemoveChild(ptr noundef %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #1 {
+define dso_local ptr @raxRemoveChild(ptr noundef %0, ptr noundef readnone %1) local_unnamed_addr #1 {
   %3 = load i32, ptr %0, align 4
   %4 = and i32 %3, 4
   %.not = icmp eq i32 %4, 0
@@ -2674,7 +2674,7 @@ raxSetData.exit:                                  ; preds = %7, %9, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @raxRecursiveFree(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2) local_unnamed_addr #1 {
+define dso_local void @raxRecursiveFree(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load i32, ptr %1, align 4
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
@@ -2757,7 +2757,7 @@ raxGetData.exit:                                  ; preds = %28
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @raxRecursiveFreeWithCtx(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #1 {
+define dso_local void @raxRecursiveFreeWithCtx(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) local_unnamed_addr #1 {
   %5 = load i32, ptr %1, align 4
   %6 = and i32 %5, 4
   %.not = icmp eq i32 %6, 0
@@ -2840,7 +2840,7 @@ raxGetData.exit:                                  ; preds = %29
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @raxFreeWithCallback(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #1 {
+define dso_local void @raxFreeWithCallback(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = load ptr, ptr %0, align 8, !tbaa !11
   tail call void @raxRecursiveFree(ptr noundef nonnull %0, ptr noundef %3, ptr noundef %1)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2859,7 +2859,7 @@ define dso_local void @raxFreeWithCallback(ptr noundef %0, ptr noundef captures(
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @raxFreeWithCbAndContext(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) local_unnamed_addr #1 {
+define dso_local void @raxFreeWithCbAndContext(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !11
   tail call void @raxRecursiveFreeWithCtx(ptr noundef nonnull %0, ptr noundef %4, ptr noundef %1, ptr noundef %2)
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4965,7 +4965,7 @@ define dso_local range(i32 0, 2) i32 @raxCompare(ptr noundef readonly captures(n
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @raxStop(ptr noundef readonly captures(address) %0) local_unnamed_addr #1 {
+define dso_local void @raxStop(ptr noundef readonly %0) local_unnamed_addr #1 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load ptr, ptr %2, align 8, !tbaa !38
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48

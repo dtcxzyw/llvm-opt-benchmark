@@ -83,7 +83,7 @@ define void @ossl_cleanup_thread() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef readnone captures(address) %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @init_thread_deregister(ptr noundef readnone %0, i32 noundef range(i32 0, 2) %1) unnamed_addr #0 {
   %3 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @tevent_register_runonce, ptr noundef nonnull @create_global_tevent_register_ossl_) #2
   %4 = icmp eq i32 %3, 0
   %5 = load i32, ptr @create_global_tevent_register_ossl_ret_, align 4
@@ -258,7 +258,7 @@ ossl_ctx_thread_stop.exit:                        ; preds = %1, %4
 declare ptr @ossl_lib_ctx_get_concrete(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define void @ossl_ctx_thread_stop(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define void @ossl_ctx_thread_stop(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i64, ptr @destructor_key, align 8, !tbaa !17
   %.not = icmp eq i64 %2, -1
   br i1 %.not, label %5, label %3
@@ -336,7 +336,7 @@ init_thread_stop.exit:                            ; preds = %2, %6, %14, %.outer
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_thread_stop(ptr noundef readnone captures(address) %0, ptr noundef captures(address_is_null) %1) unnamed_addr #0 {
+define internal fastcc void @init_thread_stop(ptr noundef readnone %0, ptr noundef %1) unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %44, label %4
 
@@ -442,7 +442,7 @@ define internal fastcc void @init_thread_stop(ptr noundef readnone captures(addr
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @init_thread_remove_handlers(ptr noundef readnone captures(address) %0) unnamed_addr #0 {
+define internal fastcc void @init_thread_remove_handlers(ptr noundef readnone %0) unnamed_addr #0 {
   %2 = tail call i32 @CRYPTO_THREAD_run_once(ptr noundef nonnull @tevent_register_runonce, ptr noundef nonnull @create_global_tevent_register_ossl_) #2
   %3 = icmp eq i32 %2, 0
   %4 = load i32, ptr @create_global_tevent_register_ossl_ret_, align 4
@@ -573,7 +573,7 @@ init_get_thread_local.exit.thread:                ; preds = %6, %11, %init_threa
 declare noalias ptr @CRYPTO_malloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_init_thread_deregister(ptr noundef captures(address) %0) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_init_thread_deregister(ptr noundef %0) local_unnamed_addr #0 {
   %2 = tail call fastcc i32 @init_thread_deregister(ptr noundef %0, i32 noundef 0)
   ret i32 %2
 }

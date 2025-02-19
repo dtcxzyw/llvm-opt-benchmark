@@ -2655,7 +2655,7 @@ _ZNSt6vectorIPKN6Assimp7Collada4NodeESaIS4_EED2Ev.exit89: ; preds = %190, %192
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader13FillMaterialsERKNS_13ColladaParserEP7aiScene(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 captures(address) dereferenceable(772) %1, ptr readnone captures(none) %2) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp13ColladaLoader13FillMaterialsERKNS_13ColladaParserEP7aiScene(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 dereferenceable(772) %1, ptr readnone captures(none) %2) local_unnamed_addr #5 align 2 {
   %4 = alloca i32, align 4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %6 = load ptr, ptr %5, align 8
@@ -4614,7 +4614,7 @@ declare void @_ZNK6Assimp13ColladaParser24CalculateResultTransformERKSt6vectorIN
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader20ResolveNodeInstancesERKNS_13ColladaParserEPKNS_7Collada4NodeERSt6vectorIS7_SaIS7_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(772) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader20ResolveNodeInstancesERKNS_13ColladaParserEPKNS_7Collada4NodeERSt6vectorIS7_SaIS7_EE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull readonly align 8 dereferenceable(772) %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 224
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 232
   %7 = load ptr, ptr %6, align 8
@@ -7037,7 +7037,7 @@ _ZNSt6vectorImSaImEED2Ev.exit474:                 ; preds = %761, %762
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader19BuildCamerasForNodeERKNS_13ColladaParserEPKNS_7Collada4NodeEP6aiNode(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(772) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader19BuildCamerasForNodeERKNS_13ColladaParserEPKNS_7Collada4NodeEP6aiNode(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull readonly align 8 dereferenceable(772) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 200
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 208
@@ -7323,7 +7323,7 @@ _ZNSt6vectorIP8aiCameraSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP8
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader18BuildLightsForNodeERKNS_13ColladaParserEPKNS_7Collada4NodeEP6aiNode(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(772) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader18BuildLightsForNodeERKNS_13ColladaParserEPKNS_7Collada4NodeEP6aiNode(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull readonly align 8 dereferenceable(772) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 176
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 184
@@ -7652,7 +7652,7 @@ _ZNSt6vectorIP7aiLightSaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNSt6vectorIP7a
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK6Assimp13ColladaLoader8FindNodeEPKNS_7Collada4NodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(380) %0, ptr noundef readonly captures(ret: address, provenance) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK6Assimp13ColladaLoader8FindNodeEPKNS_7Collada4NodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(380) %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -7836,7 +7836,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit8: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader34ApplyVertexToEffectSemanticMappingERNS_7Collada7SamplerERKNS1_20SemanticMappingTableE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(108) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader34ApplyVertexToEffectSemanticMappingERNS_7Collada7SamplerERKNS1_20SemanticMappingTableE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(108) %1, ptr noundef nonnull readonly align 8 dereferenceable(80) %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 48
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -11460,7 +11460,7 @@ define hidden noundef nonnull align 8 dereferenceable(32) ptr @_ZNK6Assimp13Coll
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZNK6Assimp13ColladaLoader13FindNodeBySIDEPKNS_7Collada4NodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(380) %0, ptr noundef readonly captures(address_is_null, ret: address, provenance) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef ptr @_ZNK6Assimp13ColladaLoader13FindNodeBySIDEPKNS_7Collada4NodeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(380) %0, ptr noundef readonly %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %2) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %4 = icmp eq ptr %1, null
   br i1 %4, label %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread, label %5
 
@@ -17841,7 +17841,7 @@ _ZNSt12_Vector_baseIN6Assimp7Collada12ChannelEntryESaIS2_EED2Ev.exit: ; preds = 
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader10AddTextureER10aiMaterialRKNS_13ColladaParserERKNS_7Collada6EffectERKNS6_7SamplerE13aiTextureTypej(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 captures(address) dereferenceable(772) %2, ptr noundef nonnull align 8 dereferenceable(963) %3, ptr noundef nonnull align 8 dereferenceable(108) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 align 2 {
+define hidden void @_ZN6Assimp13ColladaLoader10AddTextureER10aiMaterialRKNS_13ColladaParserERKNS_7Collada6EffectERKNS6_7SamplerE13aiTextureTypej(ptr noundef nonnull align 8 captures(none) dereferenceable(380) %0, ptr noundef nonnull align 8 dereferenceable(16) %1, ptr noundef nonnull align 8 dereferenceable(772) %2, ptr noundef nonnull align 8 dereferenceable(963) %3, ptr noundef nonnull align 8 dereferenceable(108) %4, i32 noundef %5, i32 noundef %6) local_unnamed_addr #5 align 2 {
   %8 = alloca %struct.aiString, align 4
   %9 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 1028, ptr nonnull %8) #33
@@ -17965,7 +17965,7 @@ thread-pre-split.thread:                          ; preds = %56, %41, %thread-pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6Assimp13ColladaLoader28FindFilenameForEffectTextureERKNS_13ColladaParserERKNS_7Collada6EffectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%struct.aiString) align 4 initializes((0, 1028)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(380) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(772) %2, ptr noundef nonnull align 8 dereferenceable(963) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6Assimp13ColladaLoader28FindFilenameForEffectTextureERKNS_13ColladaParserERKNS_7Collada6EffectERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind noalias writable sret(%struct.aiString) align 4 initializes((0, 1028)) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(380) %1, ptr noundef nonnull readonly align 8 dereferenceable(772) %2, ptr noundef nonnull align 8 dereferenceable(963) %3, ptr noundef nonnull align 8 dereferenceable(32) %4) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.std::__cxx11::basic_string", align 8

@@ -92,7 +92,7 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare void @mbedtls_platform_zeroize(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_cmac_update(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_cipher_cmac_update(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = alloca i64, align 8
   %5 = icmp eq ptr %0, null
   br i1 %5, label %.loopexit, label %6
@@ -222,7 +222,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare i32 @mbedtls_cipher_update(ptr noundef, ptr noundef, i64 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_cmac_finish(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_cipher_cmac_finish(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca [16 x i8], align 16
   %4 = alloca [16 x i8], align 16
   %5 = alloca [16 x i8], align 16
@@ -450,7 +450,7 @@ cmac_multiply_by_u.exit:                          ; preds = %._crit_edge.i17, %2
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_cmac_reset(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_cmac_reset(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %13, label %3
 
@@ -479,7 +479,7 @@ define hidden range(i32 -24832, 1) i32 @mbedtls_cipher_cmac_reset(ptr noundef re
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_cipher_cmac(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef captures(address_is_null) %3, i64 noundef %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_cipher_cmac(ptr noundef %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, ptr noundef %5) local_unnamed_addr #0 {
   %7 = alloca %struct.mbedtls_cipher_context_t, align 8
   %8 = icmp eq ptr %0, null
   %9 = icmp eq ptr %1, null
@@ -551,7 +551,7 @@ declare i32 @mbedtls_cipher_setup(ptr noundef, ptr noundef) local_unnamed_addr #
 declare void @mbedtls_cipher_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define hidden i32 @mbedtls_aes_cmac_prf_128(ptr noundef captures(address_is_null) %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
+define hidden i32 @mbedtls_aes_cmac_prf_128(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = alloca [16 x i8], align 16
   %7 = alloca [16 x i8], align 16
   %8 = icmp eq ptr %0, null

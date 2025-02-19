@@ -245,7 +245,7 @@ declare ptr @__errno_location() local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define dso_local void @setproctitle(ptr noundef readonly captures(address_is_null) %0, ...) local_unnamed_addr #6 {
+define dso_local void @setproctitle(ptr noundef readonly %0, ...) local_unnamed_addr #6 {
   %2 = alloca [256 x i8], align 16
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %2) #14

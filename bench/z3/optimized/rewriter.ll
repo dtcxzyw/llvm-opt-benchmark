@@ -851,7 +851,7 @@ if.end:                                           ; preds = %_ZN6vectorIP9act_ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13rewriter_core13rewrites_fromEP4exprP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone captures(address) %t, ptr noundef readonly captures(address_is_null) %p) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN13rewriter_core13rewrites_fromEP4exprP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone %t, ptr noundef readonly %p) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %p, null
   br i1 %tobool.not, label %lor.end, label %lor.lhs.false
@@ -883,7 +883,7 @@ lor.end:                                          ; preds = %lor.rhs, %lor.lhs.f
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZN13rewriter_core11rewrites_toEP4exprP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone captures(address) %t, ptr noundef readonly captures(address_is_null) %p) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZN13rewriter_core11rewrites_toEP4exprP3app(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone %t, ptr noundef readonly %p) local_unnamed_addr #4 align 2 {
 entry:
   %tobool.not = icmp eq ptr %p, null
   br i1 %tobool.not, label %lor.end, label %lor.lhs.false
@@ -1307,7 +1307,7 @@ if.end12:                                         ; preds = %if.then9, %_ZNK6vec
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden noundef zeroext i1 @_ZNK13rewriter_core21is_child_of_top_frameEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone captures(address) %t) local_unnamed_addr #4 align 2 {
+define hidden noundef zeroext i1 @_ZNK13rewriter_core21is_child_of_top_frameEP4expr(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(144) %this, ptr noundef readnone %t) local_unnamed_addr #4 align 2 {
 entry:
   %m_frame_stack = getelementptr inbounds nuw i8, ptr %this, i64 40
   %0 = load ptr, ptr %m_frame_stack, align 8

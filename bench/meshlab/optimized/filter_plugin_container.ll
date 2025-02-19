@@ -1454,7 +1454,7 @@ _ZN4QMapI7QStringP7QActionE3endEv.exit:           ; preds = %_ZN4QMapI7QStringP7
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK21FilterPluginContainer14pluginOfFilterEPK7QAction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone captures(address) %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define noundef ptr @_ZNK21FilterPluginContainer14pluginOfFilterEPK7QAction(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef readnone %1) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.std::__cxx11::list", align 8
   %4 = load ptr, ptr %0, align 8
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8

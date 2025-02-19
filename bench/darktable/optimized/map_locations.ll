@@ -789,7 +789,7 @@ define void @dt_map_location_free_polygons(ptr noundef captures(none) initialize
 declare void @g_list_free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define void @dt_map_location_free_result(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @dt_map_location_free_result(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %5, label %2
 
@@ -1928,7 +1928,7 @@ define range(i32 0, 2) i32 @dt_map_location_included(float noundef %0, float nou
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @dt_map_location_convert_polygons(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #0 {
+define ptr @dt_map_location_convert_polygons(ptr noundef %0, ptr noundef writeonly %1, ptr noundef writeonly %2) local_unnamed_addr #0 {
   %4 = tail call i32 @g_list_length(ptr noundef %0) #10
   %5 = sext i32 %4 to i64
   %6 = shl nsw i64 %5, 3

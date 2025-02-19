@@ -9893,7 +9893,7 @@ _ZNSt14_Function_base13_Base_managerISt8functionIFfPK10ArrowArraymEEE10_M_destro
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata12InsertLabelsEPKfii(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata12InsertLabelsEPKfii(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %6, label %7
 
@@ -10575,7 +10575,7 @@ _ZN8LightGBM6CommonL8AvoidInfEf.exit:             ; preds = %62, %59, %57
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata13InsertWeightsEPKfii(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata13InsertWeightsEPKfii(ptr noundef nonnull align 8 dereferenceable(300) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %6
 
@@ -13686,7 +13686,7 @@ declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_str
 declare void @_ZSt20__throw_out_of_rangePKc(ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata13InsertQueriesEPKiii(ptr noundef nonnull align 8 captures(none) dereferenceable(300) initializes((298, 299)) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
+define void @_ZN8LightGBM8Metadata13InsertQueriesEPKiii(ptr noundef nonnull align 8 captures(none) dereferenceable(300) initializes((298, 299)) %0, ptr noundef readonly %1, i32 noundef %2, i32 noundef %3) local_unnamed_addr #5 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %5, label %6
 
@@ -16800,7 +16800,7 @@ _ZN8LightGBM6CommonL8AvoidInfEd.exit:             ; preds = %66, %64, %61
 declare void @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6substrEmm(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(32), i64 noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8LightGBM8Metadata8InsertAtEiiPKfS2_PKdPKi(ptr noundef nonnull align 8 dereferenceable(300) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef readonly captures(address_is_null) %4, ptr noundef readonly captures(address_is_null) %5, ptr noundef readonly captures(address_is_null) %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8LightGBM8Metadata8InsertAtEiiPKfS2_PKdPKi(ptr noundef nonnull align 8 dereferenceable(300) %0, i32 noundef %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef readonly %4, ptr noundef readonly %5, ptr noundef readonly %6) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %9 = load i32, ptr %8, align 8
   %10 = add nsw i32 %2, %1

@@ -5104,7 +5104,7 @@ declare void @expert_register_field_array(ptr noundef, ptr noundef, i32 noundef)
 declare ptr @register_dissector(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_gsm_rlcmac_uplink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_gsm_rlcmac_uplink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.csnStream_t, align 8
   %6 = alloca %struct.csnStream_t, align 8
   %7 = alloca %struct.csnStream_t, align 8
@@ -5655,7 +5655,7 @@ dissect_egprs_ul_header_block.exit:               ; preds = %299, %275, %244, %1
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal i32 @dissect_gsm_rlcmac_downlink(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3) #0 {
   %5 = alloca %struct.csnStream_t, align 8
   %6 = alloca %struct.csnStream_t, align 8
   %7 = alloca [3 x %struct.crumb_spec_t], align 16

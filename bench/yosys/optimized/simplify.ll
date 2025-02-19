@@ -880,7 +880,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3AST7AstNode18set_in_lvalue_flagEbb(ptr noundef nonnull align 8 captures(address) dereferenceable(284) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define void @_ZN5Yosys3AST7AstNode18set_in_lvalue_flagEbb(ptr noundef nonnull align 8 dereferenceable(284) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 282
   %5 = load i8, ptr %4, align 2
   %6 = trunc i8 %5 to i1
@@ -901,7 +901,7 @@ define void @_ZN5Yosys3AST7AstNode18set_in_lvalue_flagEbb(ptr noundef nonnull al
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3AST7AstNode21fixup_hierarchy_flagsEb(ptr noundef nonnull align 8 captures(address) dereferenceable(284) initializes((281, 282)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5Yosys3AST7AstNode21fixup_hierarchy_flagsEb(ptr noundef nonnull align 8 dereferenceable(284) initializes((281, 282)) %0, i1 noundef zeroext %1) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.std::pair", align 8
   %4 = alloca %"struct.std::pair", align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -1425,7 +1425,7 @@ _ZNSt4pairIKN5Yosys5RTLIL8IdStringEPNS0_3AST7AstNodeEED2Ev.exit49: ; preds = %20
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5Yosys3AST7AstNode17set_in_param_flagEbb(ptr noundef nonnull align 8 captures(address) dereferenceable(284) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
+define void @_ZN5Yosys3AST7AstNode17set_in_param_flagEbb(ptr noundef nonnull align 8 dereferenceable(284) %0, i1 noundef zeroext %1, i1 noundef zeroext %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 283
   %5 = load i8, ptr %4, align 1
   %6 = trunc i8 %5 to i1
@@ -29832,7 +29832,7 @@ _ZNSt6vectorIPN5Yosys3AST7AstNodeESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @_ZNK5Yosys3AST7AstNode17get_struct_memberEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(284) %0) local_unnamed_addr #3 align 2 {
+define noundef ptr @_ZNK5Yosys3AST7AstNode17get_struct_memberEv(ptr noundef nonnull readonly align 8 dereferenceable(284) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -32975,7 +32975,7 @@ define void @_ZN5Yosys3AST7AstNode7meminfoERiS2_S2_(ptr noundef nonnull readonly
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #11
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN5Yosys3AST7AstNode23mem2reg_as_needed_pass2ERNS_7hashlib4poolIPS1_NS2_8hash_opsIS4_EEEES4_S4_RS4_(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef captures(address) %2, ptr noundef %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
+define noundef zeroext i1 @_ZN5Yosys3AST7AstNode23mem2reg_as_needed_pass2ERNS_7hashlib4poolIPS1_NS2_8hash_opsIS4_EEEES4_S4_RS4_(ptr noundef nonnull align 8 dereferenceable(284) %0, ptr noundef nonnull align 8 dereferenceable(49) %1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"class.std::tuple.300", align 8
   %7 = alloca %"class.std::tuple.303", align 1
   %8 = alloca %"class.std::tuple.300", align 8
@@ -39299,7 +39299,7 @@ _ZNSt6vectorIN5Yosys3AST7AstNode11dimension_tESaIS3_EE9push_backEOS3_.exit118: ;
 declare noundef nonnull align 1 dereferenceable(1) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEixEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef nonnull ptr @_ZN5YosysL18make_packed_structEPNS_3AST7AstNodeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapINS_5RTLIL8IdStringES2_St4lessISC_ESaISt4pairIKSC_S2_EEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef nonnull ptr @_ZN5YosysL18make_packed_structEPNS_3AST7AstNodeERNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERSt3mapINS_5RTLIL8IdStringES2_St4lessISC_ESaISt4pairIKSC_S2_EEE(ptr noundef readonly captures(none) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 8 dereferenceable(48) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::tuple.300", align 8
   %5 = alloca %"class.std::tuple.303", align 1
   %6 = alloca %"struct.Yosys::RTLIL::IdString", align 4

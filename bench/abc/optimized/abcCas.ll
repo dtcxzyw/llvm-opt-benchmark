@@ -2170,7 +2170,7 @@ Abc_LutCascadeGenTest.exit:                       ; preds = %13
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Abc_NtkLutCascadeDeriveSop(ptr noundef %0, ptr noundef writeonly captures(ret: address, provenance) initializes((56, 64)) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
+define ptr @Abc_NtkLutCascadeDeriveSop(ptr noundef %0, ptr noundef writeonly initializes((56, 64)) %1, ptr noundef %2, i32 noundef %3, ptr noundef %4) local_unnamed_addr #0 {
   %6 = tail call i32 @Kit_TruthIsop(ptr noundef %2, i32 noundef %3, ptr noundef %4, i32 noundef 1) #25
   %7 = getelementptr i8, ptr %4, i64 4
   %.val = load i32, ptr %7, align 4, !tbaa !103

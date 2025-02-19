@@ -748,7 +748,7 @@ if.end19:                                         ; preds = %_ZN11ast_manager7de
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef ptr @_ZN9act_cache4findEP4exprj(ptr noundef nonnull align 8 captures(none) dereferenceable(92) %this, ptr noundef readonly captures(address) %k, i32 noundef %offset) local_unnamed_addr #3 align 2 {
+define hidden noundef ptr @_ZN9act_cache4findEP4exprj(ptr noundef nonnull align 8 captures(none) dereferenceable(92) %this, ptr noundef readonly %k, i32 noundef %offset) local_unnamed_addr #3 align 2 {
 entry:
   %m_table = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_slots.i.i = getelementptr inbounds nuw i8, ptr %this, i64 28

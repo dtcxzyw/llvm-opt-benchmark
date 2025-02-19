@@ -1583,7 +1583,7 @@ _list_node_destroy.exit:                          ; preds = %37, %21
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone captures(address) %1) #0 {
+define dso_local range(i32 0, 2) i32 @list_delete_ptr(ptr noundef %0, ptr noundef readnone %1) #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = tail call i32 @pthread_rwlock_wrlock(ptr noundef nonnull %3) #9
   %.not = icmp eq i32 %4, 0

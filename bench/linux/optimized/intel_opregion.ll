@@ -224,7 +224,7 @@ declare dso_local void @__warn_printk(ptr noundef, ...) local_unnamed_addr #2
 declare dso_local ptr @dev_driver_string(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc noundef range(i32 -110, 1) i32 @swsci(ptr noundef readonly captures(address_is_null) %0, i32 noundef range(i32 8, 2061) %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 align 16 {
+define internal fastcc noundef range(i32 -110, 1) i32 @swsci(ptr noundef readonly %0, i32 noundef range(i32 8, 2061) %1, i32 noundef %2, ptr noundef writeonly %3) unnamed_addr #0 align 16 {
   %5 = alloca i16, align 2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 6608
   %7 = load ptr, ptr %6, align 8
@@ -406,7 +406,7 @@ define internal fastcc noundef range(i32 -110, 1) i32 @swsci(ptr noundef readonl
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef range(i32 -110, 1) i32 @intel_opregion_notify_adapter(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
+define dso_local noundef range(i32 -110, 1) i32 @intel_opregion_notify_adapter(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 2624
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 28
@@ -1502,7 +1502,7 @@ declare dso_local zeroext i1 @intel_bios_is_valid_vbt(ptr noundef, i64 noundef) 
 declare dso_local void @memunmap(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local range(i32 -110, 16) i32 @intel_opregion_get_panel_type(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 align 16 {
+define dso_local range(i32 -110, 16) i32 @intel_opregion_get_panel_type(ptr noundef %0) local_unnamed_addr #0 align 16 {
   %2 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2) #12
   store i32 0, ptr %2, align 4, !annotation !12

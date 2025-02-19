@@ -3383,7 +3383,7 @@ Abc_TtReadHexDigit.exit:                          ; preds = %46, %50, %52
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Gls_ManConstruct(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #3 {
+define ptr @Gls_ManConstruct(ptr noundef readonly captures(none) %0, ptr noundef readonly %1) local_unnamed_addr #3 {
   %3 = alloca i64, align 8
   %calloc = tail call dereferenceable_or_null(16) ptr @calloc(i64 1, i64 16)
   %4 = getelementptr inbounds nuw i8, ptr %calloc, i64 8

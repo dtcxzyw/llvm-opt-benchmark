@@ -2711,7 +2711,7 @@ declare void @_ZN6casadi18StringDeserializerD1Ev(ptr noundef nonnull align 8 der
 declare void @_ZN6casadi16StringSerializerD1Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define ptr @external_transform_test_success__f(i8 noundef signext %0, ptr noundef readnone captures(none) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define ptr @external_transform_test_success__f(i8 noundef signext %0, ptr noundef readnone captures(none) %1, ptr noundef readonly %2, ptr noundef readonly captures(none) %3, ptr noundef readonly captures(none) %4) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %6 = alloca %"struct.std::_Rb_tree<std::__cxx11::basic_string<char>, std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>, std::_Select1st<std::pair<const std::__cxx11::basic_string<char>, casadi::GenericType>>, std::less<std::__cxx11::basic_string<char>>>::_Alloc_node", align 8
   %7 = alloca i64, align 8
   %8 = alloca %"class.casadi::StringDeserializer", align 8

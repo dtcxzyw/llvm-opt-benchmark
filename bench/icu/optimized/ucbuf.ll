@@ -111,7 +111,7 @@ declare ptr @ucnv_open_75(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare void @ucnv_toUnicode_75(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, i8 noundef signext, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucbuf_autodetect(ptr noundef %fileName, ptr noundef captures(address_is_null) %cp, ptr noundef captures(address_is_null) %conv, ptr noundef %signatureLength, ptr noundef %error) local_unnamed_addr #0 {
+define ptr @ucbuf_autodetect(ptr noundef %fileName, ptr noundef %cp, ptr noundef %conv, ptr noundef %signatureLength, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %error, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -166,7 +166,7 @@ declare void @ucnv_close_75(ptr noundef) local_unnamed_addr #2
 declare void @T_FileStream_close(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 65536) i32 @ucbuf_getc(ptr noundef captures(none) %buf, ptr noundef %error) local_unnamed_addr #0 {
+define range(i32 -1, 65536) i32 @ucbuf_getc(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %error, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -217,7 +217,7 @@ return:                                           ; preds = %if.end5, %if.then2,
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(ptr noundef captures(ret: address, provenance) %buf, ptr noundef %error) unnamed_addr #0 {
+define internal fastcc noundef ptr @_ZL15ucbuf_fillucbufP8UCHARBUFP10UErrorCode(ptr noundef %buf, ptr noundef %error) unnamed_addr #0 {
 entry:
   %target = alloca ptr, align 8
   %source = alloca ptr, align 8
@@ -449,7 +449,7 @@ return:                                           ; preds = %if.end128, %if.then
 }
 
 ; Function Attrs: mustprogress uwtable
-define range(i32 -1, 10559488) i32 @ucbuf_getc32(ptr noundef captures(none) %buf, ptr noundef %error) local_unnamed_addr #0 {
+define range(i32 -1, 10559488) i32 @ucbuf_getc32(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %cmp = icmp eq ptr %error, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -648,7 +648,7 @@ declare void @u_UCharsToChars_75(ptr noundef, ptr noundef, i32 noundef) local_un
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress uwtable
-define noundef ptr @ucbuf_open(ptr noundef %fileName, ptr noundef captures(address_is_null) %cp, i8 noundef signext %showWarning, i8 noundef signext %buffered, ptr noundef %error) local_unnamed_addr #0 {
+define noundef ptr @ucbuf_open(ptr noundef %fileName, ptr noundef %cp, i8 noundef signext %showWarning, i8 noundef signext %buffered, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %knownCp = alloca ptr, align 8
   %cmp = icmp eq ptr %error, null
@@ -959,7 +959,7 @@ if.end6:                                          ; preds = %entry, %if.then3, %
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @ucbuf_rewind(ptr noundef captures(address_is_null) %buf, ptr noundef %error) local_unnamed_addr #0 {
+define void @ucbuf_rewind(ptr noundef %buf, ptr noundef %error) local_unnamed_addr #0 {
 entry:
   %target = alloca [1 x i16], align 2
   %pTarget = alloca ptr, align 8
@@ -1043,7 +1043,7 @@ if.end35:                                         ; preds = %if.then2, %land.lhs
 declare void @ucnv_resetToUnicode_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define i32 @ucbuf_size(ptr noundef readonly captures(address_is_null) %buf) local_unnamed_addr #0 {
+define i32 @ucbuf_size(ptr noundef readonly %buf) local_unnamed_addr #0 {
 entry:
   %tobool.not = icmp eq ptr %buf, null
   br i1 %tobool.not, label %return, label %if.then
@@ -1087,7 +1087,7 @@ return:                                           ; preds = %entry, %if.else, %i
 declare signext i8 @ucnv_getMinCharSize_75(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define ptr @ucbuf_getBuffer(ptr noundef readonly captures(address_is_null) %buf, ptr noundef writeonly captures(address_is_null) %len, ptr noundef captures(address_is_null) %error) local_unnamed_addr #7 {
+define ptr @ucbuf_getBuffer(ptr noundef readonly %buf, ptr noundef writeonly %len, ptr noundef %error) local_unnamed_addr #7 {
 entry:
   %cmp = icmp eq ptr %error, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1126,7 +1126,7 @@ return:                                           ; preds = %entry, %lor.lhs.fal
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @ucbuf_resolveFileName(ptr noundef readonly captures(address_is_null) %inputDir, ptr noundef readonly captures(address_is_null) %fileName, ptr noundef %target, ptr noundef captures(address_is_null) %len, ptr noundef captures(address_is_null) %status) local_unnamed_addr #8 {
+define noundef ptr @ucbuf_resolveFileName(ptr noundef readonly %inputDir, ptr noundef readonly %fileName, ptr noundef %target, ptr noundef %len, ptr noundef %status) local_unnamed_addr #8 {
 entry:
   %cmp = icmp eq ptr %status, null
   br i1 %cmp, label %return, label %lor.lhs.false
@@ -1243,7 +1243,7 @@ declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef 
 declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
-define ptr @ucbuf_readline(ptr noundef captures(none) %buf, ptr noundef writeonly captures(none) %len, ptr noundef %err) local_unnamed_addr #0 {
+define ptr @ucbuf_readline(ptr noundef %buf, ptr noundef writeonly captures(none) %len, ptr noundef %err) local_unnamed_addr #0 {
 entry:
   %currentPos = getelementptr inbounds nuw i8, ptr %buf, i64 8
   %0 = load ptr, ptr %currentPos, align 8

@@ -816,7 +816,7 @@ define dso_local void @ttm_tt_mgr_init(i64 noundef %0, i64 noundef %1) local_unn
 declare dso_local ptr @debugfs_create_file(ptr noundef, i16 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local noundef ptr @ttm_kmap_iter_tt_init(ptr noundef returned writeonly captures(ret: address, provenance) initializes((0, 24)) %0, ptr noundef %1) #0 align 16 {
+define dso_local noundef ptr @ttm_kmap_iter_tt_init(ptr noundef returned writeonly initializes((0, 24)) %0, ptr noundef %1) #0 align 16 {
   store ptr @ttm_kmap_iter_tt_ops, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8

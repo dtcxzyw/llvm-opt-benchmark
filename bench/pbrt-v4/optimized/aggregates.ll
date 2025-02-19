@@ -5476,7 +5476,7 @@ return:                                           ; preds = %"_ZSt16__insertion_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc noundef ptr @"_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_4ET_SN_SN_T0_"(ptr noundef captures(address, ret: address, provenance) %__first, ptr noundef captures(address) %__last, ptr noundef readonly byval(%class.anon.36) align 8 captures(none) %__pred) unnamed_addr #10 {
+define internal fastcc noundef ptr @"_ZSt9partitionIPN4pbrt12BVHPrimitiveEZNS0_12BVHAggregate14buildRecursiveERNS0_11ThreadLocalIN4pstd3pmr21polymorphic_allocatorISt4byteEEEENS5_4spanIS1_EEPSt6atomicIiESG_RSt6vectorINS0_9PrimitiveESaISI_EEE3$_4ET_SN_SN_T0_"(ptr noundef %__first, ptr noundef %__last, ptr noundef readonly byval(%class.anon.36) align 8 captures(none) %__pred) unnamed_addr #10 {
 entry:
   %__tmp.i.i.i = alloca %"struct.pbrt::BVHPrimitive", align 8
   %agg.tmp.sroa.2.0.__pred.sroa_idx = getelementptr inbounds nuw i8, ptr %__pred, i64 8
@@ -8416,7 +8416,7 @@ if.end6:                                          ; preds = %invoke.cont.i, %if.
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %nodeNum, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %nodeBounds, ptr noundef nonnull align 8 dereferenceable(24) %allPrimBounds, ptr captures(address) %primNums.coerce0, i64 %primNums.coerce1, i32 noundef %depth, ptr noundef %edges, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %prims0, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %prims1, i32 noundef %badRefines) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN4pbrt15KdTreeAggregate9buildTreeEiRKNS_7Bounds3IfEERKSt6vectorIS2_SaIS2_EEN4pstd4spanIKiEEiPS5_INS_9BoundEdgeESaISE_EENSB_IiEESI_i(ptr noundef nonnull align 8 dereferenceable(104) %this, i32 noundef %nodeNum, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(24) %nodeBounds, ptr noundef nonnull align 8 dereferenceable(24) %allPrimBounds, ptr %primNums.coerce0, i64 %primNums.coerce1, i32 noundef %depth, ptr noundef %edges, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %prims0, ptr noundef readonly byval(%"class.pstd::span.94") align 8 captures(none) %prims1, i32 noundef %badRefines) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %__val.i20.i.i.i = alloca %"struct.pbrt::BoundEdge", align 4
   %__val.i.i.i.i = alloca %"struct.pbrt::BoundEdge", align 4
@@ -9286,7 +9286,7 @@ return:                                           ; preds = %_ZN4pbrt6Tuple3INS_
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr readonly captures(address) %primNums.coerce0, i64 %primNums.coerce1, ptr noundef captures(none) %primitiveIndices) local_unnamed_addr #1 align 2 {
+define dso_local void @_ZN4pbrt10KdTreeNode8InitLeafEN4pstd4spanIKiEEPSt6vectorIiSaIiEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) initializes((0, 8)) %this, ptr readonly %primNums.coerce0, i64 %primNums.coerce1, ptr noundef captures(none) %primitiveIndices) local_unnamed_addr #1 align 2 {
 entry:
   %call.tr = trunc i64 %primNums.coerce1 to i32
   %0 = shl i32 %call.tr, 2

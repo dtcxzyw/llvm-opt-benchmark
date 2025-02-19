@@ -4,13 +4,13 @@ target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:
 target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @crypto_core_salsa20(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_core_salsa20(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @crypto_core_salsa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 20)
   ret i32 0
 }
 
 ; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
-define internal fastcc void @crypto_core_salsa(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef range(i32 8, 21) %4) unnamed_addr #0 {
+define internal fastcc void @crypto_core_salsa(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef readonly %3, i32 noundef range(i32 8, 21) %4) unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %14, label %6
 
@@ -243,7 +243,7 @@ define dso_local noundef i64 @crypto_core_salsa20_constbytes() local_unnamed_add
 }
 
 ; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @crypto_core_salsa2012(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_core_salsa2012(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @crypto_core_salsa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 12)
   ret i32 0
 }
@@ -269,7 +269,7 @@ define dso_local noundef i64 @crypto_core_salsa2012_constbytes() local_unnamed_a
 }
 
 ; Function Attrs: nofree nounwind ssp memory(argmem: readwrite) uwtable
-define dso_local noundef i32 @crypto_core_salsa208(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #0 {
+define dso_local noundef i32 @crypto_core_salsa208(ptr noundef nonnull %0, ptr noundef nonnull readonly captures(none) %1, ptr noundef nonnull readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #0 {
   tail call fastcc void @crypto_core_salsa(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, i32 noundef 8)
   ret i32 0
 }

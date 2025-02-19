@@ -182,7 +182,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN8proxygen19RequestWorkerThread10flushStatsEv(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(89) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN8proxygen19RequestWorkerThread10flushStatsEv(ptr noundef nonnull readonly align 8 dereferenceable(89) %this) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %ref.tmp3 = alloca %"class.google::LogMessageFatal", align 8
   %evb_.i = getelementptr inbounds nuw i8, ptr %this, i64 80

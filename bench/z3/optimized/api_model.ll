@@ -1474,7 +1474,7 @@ terminate.lpad:                                   ; preds = %lpad16
 declare void @_Z26log_Z3_model_get_num_funcsP11_Z3_contextP9_Z3_model(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden ptr @get_model_func_decl_core(ptr noundef %c, ptr noundef readonly captures(address_is_null) %m, i32 noundef %i) local_unnamed_addr #3 {
+define hidden ptr @get_model_func_decl_core(ptr noundef %c, ptr noundef readonly %m, i32 noundef %i) local_unnamed_addr #3 {
 entry:
   %cmp = icmp eq ptr %m, null
   br i1 %cmp, label %if.then, label %if.end

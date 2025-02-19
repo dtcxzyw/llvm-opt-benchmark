@@ -1490,7 +1490,7 @@ _ZL11GetHostNamePNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZN6google14LogDestinationC2ENS_11LogSeverityEPKc(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 49)) %0, i32 noundef %1, ptr noundef readonly captures(address_is_null) %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define hidden void @_ZN6google14LogDestinationC2ENS_11LogSeverityEPKc(ptr noundef nonnull align 8 dereferenceable(208) initializes((0, 49)) %0, i32 noundef %1, ptr noundef readonly %2) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN6google12_GLOBAL__N_113LogFileObjectE, i64 16), ptr %0, align 8, !tbaa !3
@@ -1806,7 +1806,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit6: ; preds = %_ZNK
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define hidden void @_ZN6google14LogDestination13SetLoggerImplEPNS_4base6LoggerE(ptr noundef nonnull align 8 captures(address) dereferenceable(208) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
+define hidden void @_ZN6google14LogDestination13SetLoggerImplEPNS_4base6LoggerE(ptr noundef nonnull align 8 dereferenceable(208) %0, ptr noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %4 = load ptr, ptr %3, align 8, !tbaa !76
   %5 = icmp eq ptr %4, %1
@@ -3661,7 +3661,7 @@ define noundef ptr @_ZNK6google10LogMessage8basenameEv(ptr noundef nonnull reado
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK6google10LogMessage4timeEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(80) ptr @_ZNK6google10LogMessage4timeEv(ptr noundef nonnull readnone align 8 dereferenceable(96) %0) local_unnamed_addr #3 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   ret ptr %2
 }
@@ -5245,7 +5245,7 @@ _ZN6google10LogMessage9LogStreamC2EPcil.exit:     ; preds = %.noexc
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6streamEv(ptr noundef nonnull readnone returned align 8 captures(ret: address, provenance) dereferenceable(91) %0) local_unnamed_addr #3 align 2 {
+define noundef nonnull align 8 dereferenceable(91) ptr @_ZN6google10NullStream6streamEv(ptr noundef nonnull readnone returned align 8 dereferenceable(91) %0) local_unnamed_addr #3 align 2 {
   ret ptr %0
 }
 
@@ -7441,13 +7441,13 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %1
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef zeroext i1 @_ZN6google9SendEmailEPKcS1_S1_(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define noundef zeroext i1 @_ZN6google9SendEmailEPKcS1_S1_(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = tail call fastcc noundef zeroext i1 @_ZN6googleL17SendEmailInternalEPKcS1_S1_b(ptr noundef %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext true)
   ret i1 %4
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef zeroext i1 @_ZN6googleL17SendEmailInternalEPKcS1_S1_b(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN6googleL17SendEmailInternalEPKcS1_S1_b(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, i1 noundef zeroext %3) unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %5 = alloca i64, align 8
   %6 = alloca i64, align 8
   %7 = alloca i64, align 8

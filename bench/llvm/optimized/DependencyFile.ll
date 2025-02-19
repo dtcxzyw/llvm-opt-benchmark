@@ -1336,7 +1336,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit62:               ; preds = %126, %124, %109
 declare void @_ZN4llvm14raw_fd_ostreamD1Ev(ptr noundef nonnull align 8 dereferenceable(96)) unnamed_addr #6
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13PrintFilenameRN4llvm11raw_ostreamENS_9StringRefEN5clang22DependencyOutputFormatE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly captures(address_is_null) %1, i64 %2, i32 noundef %3) unnamed_addr #0 {
+define internal fastcc void @_ZL13PrintFilenameRN4llvm11raw_ostreamENS_9StringRefEN5clang22DependencyOutputFormatE(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr readonly %1, i64 %2, i32 noundef %3) unnamed_addr #0 {
   %5 = alloca %"class.llvm::StringRef", align 8
   %6 = alloca i64, align 8
   %7 = alloca %"class.llvm::SmallString.866", align 8

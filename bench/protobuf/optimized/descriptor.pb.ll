@@ -4753,7 +4753,7 @@ if.end21:                                         ; preds = %if.end13, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf30DescriptorProto_ExtensionRange8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf30DescriptorProto_ExtensionRange8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -5279,7 +5279,7 @@ if.end14:                                         ; preds = %if.end, %if.then9, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf29DescriptorProto_ReservedRange8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf29DescriptorProto_ReservedRange8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -8441,7 +8441,7 @@ if.end33:                                         ; preds = %if.end22, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf33ExtensionRangeOptions_Declaration8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf33ExtensionRangeOptions_Declaration8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -11058,7 +11058,7 @@ if.end86:                                         ; preds = %if.end77, %if.then8
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf20FieldDescriptorProto8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(96) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf20FieldDescriptorProto8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(96) %this, ptr noundef nonnull readonly align 8 dereferenceable(96) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -11777,7 +11777,7 @@ if.end15:                                         ; preds = %if.end, %if.then10,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf20OneofDescriptorProto8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf20OneofDescriptorProto8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -12319,7 +12319,7 @@ if.end14:                                         ; preds = %if.end, %if.then9, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf37EnumDescriptorProto_EnumReservedRange8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(32) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf37EnumDescriptorProto_EnumReservedRange8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(32) %this, ptr noundef nonnull readonly align 8 dereferenceable(32) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -14343,7 +14343,7 @@ if.end22:                                         ; preds = %if.end14, %if.then1
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf24EnumValueDescriptorProto8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf24EnumValueDescriptorProto8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(48) %this, ptr noundef nonnull readonly align 8 dereferenceable(48) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -16447,7 +16447,7 @@ if.end41:                                         ; preds = %if.end30, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf21MethodDescriptorProto8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(64) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf21MethodDescriptorProto8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(64) %this, ptr noundef nonnull readonly align 8 dereferenceable(64) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -20084,7 +20084,7 @@ if.end16:                                         ; preds = %if.end, %if.then10,
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf27FieldOptions_EditionDefault8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf27FieldOptions_EditionDefault8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -24877,7 +24877,7 @@ if.end13:                                         ; preds = %if.end, %entry
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf28UninterpretedOption_NamePart8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf28UninterpretedOption_NamePart8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -27342,7 +27342,7 @@ if.end15:                                         ; preds = %if.end, %if.then9, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf43FeatureSetDefaults_FeatureSetEditionDefault8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(40) %this, ptr noundef nonnull readonly align 8 dereferenceable(40) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end
@@ -30493,7 +30493,7 @@ if.end37:                                         ; preds = %if.end28, %if.then3
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN6google8protobuf28GeneratedCodeInfo_Annotation8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(72) %from) local_unnamed_addr #3 align 2 {
+define void @_ZN6google8protobuf28GeneratedCodeInfo_Annotation8CopyFromERKS1_(ptr noundef nonnull align 8 dereferenceable(72) %this, ptr noundef nonnull readonly align 8 dereferenceable(72) %from) local_unnamed_addr #3 align 2 {
 entry:
   %cmp = icmp eq ptr %from, %this
   br i1 %cmp, label %return, label %if.end

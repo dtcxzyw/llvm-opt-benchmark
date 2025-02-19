@@ -54,7 +54,7 @@ module asm ".section \22.export_symbol\22,\22a\22 ; __export_symbol_drm_crtc_cre
 @llvm.compiler.used = appending global [8 x ptr] [ptr @__UNIQUE_ID___addressable___drmm_crtc_alloc_with_planes403, ptr @__UNIQUE_ID___addressable_drm_crtc_check_viewport412, ptr @__UNIQUE_ID___addressable_drm_crtc_cleanup406, ptr @__UNIQUE_ID___addressable_drm_crtc_create_scaling_filter_property413, ptr @__UNIQUE_ID___addressable_drm_crtc_from_index381, ptr @__UNIQUE_ID___addressable_drm_crtc_init_with_planes395, ptr @__UNIQUE_ID___addressable_drm_mode_set_config_internal411, ptr @__UNIQUE_ID___addressable_drmm_crtc_init_with_planes400], section "llvm.metadata"
 
 ; Function Attrs: fn_ret_thunk_extern nofree norecurse nosync nounwind null_pointer_is_valid memory(read, inaccessiblemem: none)
-define dso_local ptr @drm_crtc_from_index(ptr noundef readonly captures(address) %0, i32 noundef %1) #0 align 16 {
+define dso_local ptr @drm_crtc_from_index(ptr noundef readonly %0, i32 noundef %1) #0 align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 736
   br label %4
 
@@ -205,7 +205,7 @@ define dso_local i32 @drm_mode_set_config_internal(ptr noundef %0) #2 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @drm_crtc_register_all(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 align 16 {
+define dso_local i32 @drm_crtc_register_all(ptr noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 736
   br label %3
 
@@ -243,7 +243,7 @@ define dso_local i32 @drm_crtc_register_all(ptr noundef readonly captures(addres
 declare dso_local void @drm_debugfs_crtc_add(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @drm_crtc_unregister_all(ptr noundef readonly captures(address) %0) local_unnamed_addr #2 align 16 {
+define dso_local void @drm_crtc_unregister_all(ptr noundef readonly %0) local_unnamed_addr #2 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 736
   %3 = load ptr, ptr %2, align 8
   %4 = icmp eq ptr %3, %2

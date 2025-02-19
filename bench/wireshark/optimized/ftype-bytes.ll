@@ -98,7 +98,7 @@ declare ptr @bytes_to_hexstr_punct(ptr noundef, ptr noundef, i64 noundef, i8 nou
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden ptr @byte_array_from_literal(ptr noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   %4 = alloca i8, align 1
   %5 = load i8, ptr %0, align 1
@@ -230,7 +230,7 @@ declare noalias ptr @wmem_strdup_printf(ptr noundef, ptr noundef, ...) local_unn
 declare ptr @g_byte_array_free(ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define hidden noundef ptr @byte_array_from_charconst(i64 noundef %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define hidden noundef ptr @byte_array_from_charconst(i64 noundef %0, ptr noundef writeonly %1) local_unnamed_addr #0 {
   %3 = alloca i8, align 1
   %4 = icmp ugt i64 %0, 255
   br i1 %4, label %5, label %8
@@ -306,7 +306,7 @@ define internal void @bytes_fvalue_free(ptr noundef captures(none) %0) #0 {
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @bytes_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @bytes_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef %3)
   %6 = icmp ne ptr %5, null
   br i1 %6, label %7, label %12
@@ -362,7 +362,7 @@ bytes_fvalue_free.exit:                           ; preds = %9, %14
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @bytes_from_charconst(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(address_is_null) %2) #0 {
+define internal noundef zeroext i1 @bytes_from_charconst(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef writeonly %2) #0 {
   %4 = alloca i8, align 1
   %5 = icmp ugt i64 %1, 255
   br i1 %5, label %6, label %byte_array_from_charconst.exit
@@ -408,7 +408,7 @@ byte_array_from_charconst.exit.thread:            ; preds = %6, %7, %byte_array_
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @bytes_from_uinteger64(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @bytes_from_uinteger64(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca i8, align 1
   %6 = icmp ugt i64 %2, 255
   br i1 %6, label %7, label %byte_array_from_charconst.exit.i
@@ -454,7 +454,7 @@ bytes_from_charconst.exit:                        ; preds = %bytes_fvalue_free.e
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @bytes_from_sinteger64(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @bytes_from_sinteger64(ptr noundef captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef writeonly %3) #0 {
   %5 = alloca i8, align 1
   %6 = icmp slt i64 %2, 0
   br i1 %6, label %7, label %10
@@ -758,7 +758,7 @@ define internal noundef i32 @bytes_bitwise_and(ptr noundef writeonly captures(no
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @vines_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @vines_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %bytes_from_literal.exit, label %6
@@ -812,7 +812,7 @@ bytes_from_literal.exit:                          ; preds = %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @ether_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @ether_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %bytes_from_literal.exit, label %6
@@ -866,7 +866,7 @@ bytes_from_literal.exit:                          ; preds = %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @oid_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @oid_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @g_byte_array_new()
   %6 = tail call zeroext i1 @oid_str_to_bytes(ptr noundef %1, ptr noundef %5)
   br i1 %6, label %12, label %7
@@ -917,7 +917,7 @@ define internal ptr @oid_to_repr(ptr noundef %0, ptr noundef readonly captures(n
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @rel_oid_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @rel_oid_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @g_byte_array_new()
   %6 = tail call zeroext i1 @rel_oid_str_to_bytes(ptr noundef %1, ptr noundef %5, i1 noundef zeroext false)
   br i1 %6, label %12, label %7
@@ -968,7 +968,7 @@ define internal ptr @rel_oid_to_repr(ptr noundef %0, ptr noundef readonly captur
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @system_id_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @system_id_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %bytes_from_literal.exit, label %6
@@ -1023,7 +1023,7 @@ define internal ptr @system_id_to_repr(ptr noundef %0, ptr noundef readonly capt
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @fcwwn_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @fcwwn_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not12 = icmp eq ptr %5, null
   br i1 %.not12, label %bytes_from_literal.exit, label %6
@@ -1066,7 +1066,7 @@ bytes_from_literal.exit:                          ; preds = %4
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal noundef zeroext i1 @eui64_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly captures(address_is_null) %3) #0 {
+define internal noundef zeroext i1 @eui64_from_literal(ptr noundef captures(none) %0, ptr noundef %1, i1 noundef zeroext %2, ptr noundef writeonly %3) #0 {
   %5 = tail call ptr @byte_array_from_literal(ptr noundef %1, ptr noundef null)
   %.not18 = icmp eq ptr %5, null
   br i1 %.not18, label %bytes_from_literal.exit, label %6

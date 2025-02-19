@@ -254,7 +254,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_sort_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_sort_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -295,7 +295,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager11export_termERKN4cvc54TermE(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_term_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP11cvc5_term_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -336,7 +336,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager9export_opERKN4cvc52OpE(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_op_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_op_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -377,7 +377,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager9export_dtERKN4cvc58DatatypeE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_dt_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP9cvc5_dt_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -418,7 +418,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager14export_dt_consERKN4cvc519Datat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_cons_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_cons_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -459,7 +459,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager13export_dt_selERKN4cvc516Dataty
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP13cvc5_dt_sel_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP13cvc5_dt_sel_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -500,7 +500,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager14export_dt_declERKN4cvc512Datat
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_decl_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP14cvc5_dt_decl_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -541,7 +541,7 @@ define noundef nonnull ptr @_ZN15Cvc5TermManager19export_dt_cons_declERKN4cvc523
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define noundef ptr @_ZN15Cvc5TermManager4copyEP19cvc5_dt_cons_decl_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned captures(address_is_null, ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define noundef ptr @_ZN15Cvc5TermManager4copyEP19cvc5_dt_cons_decl_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(520) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %7, label %3
 
@@ -1287,7 +1287,7 @@ define hidden noundef nonnull ptr @_ZN4Cvc513export_resultERKN4cvc56ResultE(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN4Cvc54copyEP13cvc5_result_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN4Cvc54copyEP13cvc5_result_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !232
   %5 = add i32 %4, 1
@@ -1339,7 +1339,7 @@ define hidden noundef nonnull ptr @_ZN4Cvc519export_synth_resultERKN4cvc511Synth
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN4Cvc54copyEP19cvc5_synth_result_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN4Cvc54copyEP19cvc5_synth_result_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8, !tbaa !238
   %5 = add i32 %4, 1
@@ -1391,7 +1391,7 @@ define hidden noundef nonnull ptr @_ZN4Cvc512export_proofERKN4cvc55ProofE(ptr no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN4Cvc54copyEP12cvc5_proof_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN4Cvc54copyEP12cvc5_proof_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !244
   %5 = add i32 %4, 1
@@ -1443,7 +1443,7 @@ define hidden noundef nonnull ptr @_ZN4Cvc514export_grammarERKN4cvc57GrammarE(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden noundef ptr @_ZN4Cvc54copyEP14cvc5_grammar_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned captures(ret: address, provenance) %1) local_unnamed_addr #6 align 2 {
+define hidden noundef ptr @_ZN4Cvc54copyEP14cvc5_grammar_t(ptr noundef nonnull readnone align 8 captures(none) dereferenceable(800) %0, ptr noundef returned %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !250
   %5 = add i32 %4, 1

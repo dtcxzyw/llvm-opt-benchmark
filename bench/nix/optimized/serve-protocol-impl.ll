@@ -940,7 +940,7 @@ _ZN3nix9BaseErrorC2IJEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDp
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3nix10ServeProto21BasicClientConnection15queryValidPathsERKNS_5StoreEbRKSt3setINS_9StorePathESt4lessIS6_ESaIS6_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull align 8 dereferenceable(264) %2, i1 noundef zeroext %3, ptr noundef nonnull readonly align 8 captures(address) dereferenceable(48) %4, i1 noundef zeroext %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3nix10ServeProto21BasicClientConnection15queryValidPathsERKNS_5StoreEbRKSt3setINS_9StorePathESt4lessIS6_ESaIS6_EENS_14SubstituteFlagE(ptr dead_on_unwind noalias writable sret(%"class.std::set.17") align 8 %0, ptr noundef nonnull align 8 dereferenceable(164) %1, ptr noundef nonnull align 8 dereferenceable(264) %2, i1 noundef zeroext %3, ptr noundef nonnull readonly align 8 dereferenceable(48) %4, i1 noundef zeroext %5) local_unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %7 = alloca [8 x i8], align 1
   %8 = alloca [8 x i8], align 1
   %9 = alloca [8 x i8], align 1

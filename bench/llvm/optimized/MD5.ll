@@ -22,7 +22,7 @@ $_ZZN4llvm8hexdigitEjbE3LUT = comdat any
 @_ZN4llvm3MD5C1Ev = unnamed_addr alias void (ptr), ptr @_ZN4llvm3MD5C2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) initializes((88, 152)) %0, ptr readonly captures(ret: address, provenance) %1, i64 %2) local_unnamed_addr #0 align 2 {
+define dso_local noundef nonnull ptr @_ZN4llvm3MD54bodyENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) initializes((88, 152)) %0, ptr readonly %1, i64 %2) local_unnamed_addr #0 align 2 {
   %4 = load i32, ptr %0, align 4, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %6 = load i32, ptr %5, align 4, !tbaa !9
@@ -813,7 +813,7 @@ define dso_local void @_ZN4llvm3MD5C2Ev(ptr noundef nonnull writeonly align 4 ca
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) %0, ptr captures(none) %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
 ._crit_edge:
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !22
@@ -881,7 +881,7 @@ define dso_local void @_ZN4llvm3MD56updateENS_8ArrayRefIhEE(ptr noundef nonnull 
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define dso_local void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 captures(none) dereferenceable(152) %0, ptr captures(none) %1, i64 %2) local_unnamed_addr #3 align 2 {
+define dso_local void @_ZN4llvm3MD56updateENS_9StringRefE(ptr noundef nonnull align 4 dereferenceable(152) %0, ptr %1, i64 %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %5 = load i32, ptr %4, align 4, !tbaa !22
   %6 = trunc i64 %2 to i32
@@ -1206,7 +1206,7 @@ _ZN4llvm5toHexENS_8ArrayRefIhEEbRNS_15SmallVectorImplIcEE.exit: ; preds = %.lr.p
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local { i64, i64 } @_ZN4llvm3MD54hashENS_8ArrayRefIhEE(ptr captures(none) %0, i64 %1) local_unnamed_addr #8 align 2 {
+define dso_local { i64, i64 } @_ZN4llvm3MD54hashENS_8ArrayRefIhEE(ptr %0, i64 %1) local_unnamed_addr #8 align 2 {
   %3 = alloca %"class.llvm::MD5", align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %3) #12
   call void @_ZN4llvm3MD5C1Ev(ptr noundef nonnull align 4 dereferenceable(152) %3) #12

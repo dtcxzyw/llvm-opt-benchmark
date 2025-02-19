@@ -291,7 +291,7 @@ define i32 @lv_fs_close(ptr noundef captures(none) %0) local_unnamed_addr #0 {
 declare void @lv_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @lv_fs_read(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
@@ -516,7 +516,7 @@ lv_fs_read_cached.exit:                           ; preds = %117, %115, %123
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @lv_fs_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define i32 @lv_fs_write(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2, ptr noundef writeonly %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %7, label %6
@@ -981,7 +981,7 @@ declare ptr @lv_ll_get_head(ptr noundef) local_unnamed_addr #1
 declare ptr @lv_ll_get_next(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define noundef ptr @lv_fs_get_letters(ptr noundef returned writeonly captures(ret: address, provenance) %0) local_unnamed_addr #0 {
+define noundef ptr @lv_fs_get_letters(ptr noundef returned writeonly %0) local_unnamed_addr #0 {
   %2 = tail call ptr @lv_ll_get_head(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @lv_global, i64 832)) #6
   %.not9 = icmp eq ptr %2, null
   br i1 %.not9, label %._crit_edge, label %.lr.ph

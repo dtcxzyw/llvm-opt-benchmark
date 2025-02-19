@@ -329,7 +329,7 @@ define internal i32 @buffer_puts(ptr noundef %0, ptr noundef %1) #1 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @buffer_gets(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #1 {
+define internal i32 @buffer_gets(ptr noundef %0, ptr noundef writeonly %1, i32 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %6 = icmp eq ptr %1, null
@@ -739,7 +739,7 @@ define internal range(i32 0, 2) i32 @buffer_new(ptr noundef writeonly captures(n
 }
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
-define internal range(i32 0, 2) i32 @buffer_free(ptr noundef captures(address_is_null) %0) #4 {
+define internal range(i32 0, 2) i32 @buffer_free(ptr noundef %0) #4 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %15, label %3
 

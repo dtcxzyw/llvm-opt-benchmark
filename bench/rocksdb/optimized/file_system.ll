@@ -2692,7 +2692,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St4h
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN7rocksdb16ReadFileToStringEPNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 captures(address) %agg.result, ptr noundef %fs, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
+define void @_ZN7rocksdb16ReadFileToStringEPNS_10FileSystemERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS7_(ptr noalias sret(%"class.rocksdb::IOStatus") align 8 %agg.result, ptr noundef %fs, ptr noundef nonnull align 8 dereferenceable(32) %fname, ptr noundef %data) local_unnamed_addr #5 personality ptr @__gxx_personality_v0 {
 entry:
   %soptions = alloca %"struct.rocksdb::FileOptions", align 8
   %file = alloca %"class.std::unique_ptr.63", align 8

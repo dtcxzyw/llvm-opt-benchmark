@@ -1863,7 +1863,7 @@ define hidden void @_ZN4time16offset_date_time14OffsetDateTime6format17heffdea91
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h851ed36e6c399493E.llvm.926505738866763462"(ptr noalias noundef readonly returned align 8 captures(ret: address, provenance) dereferenceable(24) %0) unnamed_addr #5 {
+define hidden noundef nonnull align 8 dereferenceable(24) ptr @"_ZN51_$LT$T$u20$as$u20$core..borrow..Borrow$LT$T$GT$$GT$6borrow17h851ed36e6c399493E.llvm.926505738866763462"(ptr noalias noundef readonly returned align 8 dereferenceable(24) %0) unnamed_addr #5 {
   ret ptr %0
 }
 
@@ -5999,7 +5999,7 @@ define { i64, i32 } @_ZN9actix_web4http6header4date4Date3now17h35bc43bd2a1ed55aE
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind memory(argmem: read) uwtable
-define noundef zeroext i1 @_ZN9actix_web4http6header6entity20check_slice_validity17h7784906e3357f26fE(ptr noalias noundef nonnull readonly align 1 captures(address) %0, i64 noundef %1) unnamed_addr #15 personality ptr @rust_eh_personality {
+define noundef zeroext i1 @_ZN9actix_web4http6header6entity20check_slice_validity17h7784906e3357f26fE(ptr noalias noundef nonnull readonly align 1 %0, i64 noundef %1) unnamed_addr #15 personality ptr @rust_eh_personality {
   %3 = getelementptr inbounds i8, ptr %0, i64 %1
   br label %4
 

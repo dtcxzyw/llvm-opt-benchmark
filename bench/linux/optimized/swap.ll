@@ -1750,7 +1750,7 @@ define dso_local void @lru_add_drain_cpu(i32 noundef %0) local_unnamed_addr #1 a
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0, ptr noundef readonly captures(address) %1) unnamed_addr #1 align 16 {
+define internal fastcc void @folio_batch_move_lru(ptr noundef captures(none) %0, ptr noundef readonly %1) unnamed_addr #1 align 16 {
   %3 = load i8, ptr %0, align 8
   %4 = icmp eq i8 %3, 0
   br i1 %4, label %.thread, label %5

@@ -379,7 +379,7 @@ define noundef nonnull align 4 dereferenceable(4) ptr @_ZN3net14StrikeRegister22
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 6) i32 @_ZN3net14StrikeRegister6InsertEPKhj(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 0, 6) i32 @_ZN3net14StrikeRegister6InsertEPKhj(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca [24 x i8], align 16
   %5 = alloca %"class.logging::LogMessage", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 28
@@ -824,7 +824,7 @@ _ZNK3net14StrikeRegister9BestMatchEPKh.exit.thread: ; preds = %102
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define void @_ZN3net14StrikeRegister14DropOldestNodeEv(ptr noundef nonnull align 8 captures(address) dereferenceable(56) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net14StrikeRegister14DropOldestNodeEv(ptr noundef nonnull align 8 dereferenceable(56) %0) local_unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.0.in20 = load i32, ptr %2, align 8, !tbaa !3
   %.021 = lshr i32 %.0.in20, 8
@@ -1053,7 +1053,7 @@ define noundef i32 @_ZN3net14StrikeRegister19GetFreeInternalNodeEv(ptr noundef n
 declare void @_ZN7logging10LogMessageC1EPKciS2_(ptr noundef nonnull align 8 dereferenceable(404), ptr noundef, i32 noundef, ptr noundef) unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define noundef nonnull ptr @_ZNK3net14StrikeRegister5orbitEv(ptr noundef nonnull readnone align 8 captures(ret: address, provenance) dereferenceable(56) %0) local_unnamed_addr #13 align 2 {
+define noundef nonnull ptr @_ZNK3net14StrikeRegister5orbitEv(ptr noundef nonnull readnone align 8 dereferenceable(56) %0) local_unnamed_addr #13 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 12
   ret ptr %2
 }
@@ -1678,7 +1678,7 @@ _ZNSt3setIjSt4lessIjESaIjEED2Ev.exit92:           ; preds = %_ZNSt3setIjSt4lessI
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3net14StrikeRegister12ValidateTreeEjiRKSt6vectorISt4pairIjbESaIS3_EERKSt3setIjSt4lessIjESaIjEESE_PSC_SF_(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %4, ptr noundef nonnull align 8 captures(address) dereferenceable(48) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN3net14StrikeRegister12ValidateTreeEjiRKSt6vectorISt4pairIjbESaIS3_EERKSt3setIjSt4lessIjESaIjEESE_PSC_SF_(ptr noundef nonnull align 8 dereferenceable(56) %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(48) %4, ptr noundef nonnull align 8 dereferenceable(48) %5, ptr noundef %6, ptr noundef %7) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %9 = alloca i32, align 4
   %10 = alloca %"class.logging::LogMessage", align 8
   %11 = alloca i32, align 4

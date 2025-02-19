@@ -1972,7 +1972,7 @@ declare ptr @try_val_to_str(i32 noundef, ptr noundef) local_unnamed_addr #2
 declare i32 @tvb_get_ntohl(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
-define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5, ptr noundef writeonly captures(address_is_null) %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly captures(none) %9) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @dissect_pim_addr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef range(i32 0, 3) %4, ptr noundef %5, ptr noundef writeonly %6, i32 noundef %7, i32 noundef %8, ptr noundef writeonly captures(none) %9) unnamed_addr #0 {
   %11 = alloca %struct.e_in6_addr, align 1
   %12 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #4

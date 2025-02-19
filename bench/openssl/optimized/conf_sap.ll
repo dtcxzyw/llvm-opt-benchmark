@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @openssl_configured = internal unnamed_addr global i1 false, align 4
 
 ; Function Attrs: nounwind uwtable
-define void @OPENSSL_config(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @OPENSSL_config(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca %struct.ossl_init_settings_st, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 0, i64 16, i1 false)
@@ -50,7 +50,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define i32 @ossl_config_int(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define i32 @ossl_config_int(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.b = load i1, ptr @openssl_configured, align 4
   br i1 %.b, label %14, label %2
 

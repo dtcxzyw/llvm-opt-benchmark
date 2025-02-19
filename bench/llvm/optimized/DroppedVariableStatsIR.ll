@@ -1195,7 +1195,7 @@ _ZN4llvm11raw_ostreamlsEPKc.exit30:               ; preds = %.critedge2.i9.i15.i
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22DroppedVariableStatsIR11runOnModuleENS_9StringRefEPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly captures(address) %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22DroppedVariableStatsIR11runOnModuleENS_9StringRefEPKNS_6ModuleEb(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr readnone captures(none) %1, i64 %2, ptr noundef readonly %3, i1 noundef zeroext %4) local_unnamed_addr #0 align 2 {
   %6 = alloca ptr, align 8
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %8 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -1240,7 +1240,7 @@ define dso_local void @_ZN4llvm22DroppedVariableStatsIR11runOnModuleENS_9StringR
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef readonly captures(address) %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
+define dso_local void @_ZN4llvm22DroppedVariableStatsIR32calculateDroppedVarStatsOnModuleEPKNS_6ModuleENS_9StringRefES4_S4_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef readonly %1, ptr %2, i64 %3, ptr %4, i64 %5, ptr noundef readonly byval(%"class.llvm::StringRef") align 8 captures(none) %6) local_unnamed_addr #0 align 2 {
   %8 = alloca ptr, align 8
   %9 = alloca %"class.llvm::StringRef", align 8
   %10 = alloca %"class.llvm::StringRef", align 8

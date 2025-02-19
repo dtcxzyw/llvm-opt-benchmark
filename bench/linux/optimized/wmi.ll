@@ -207,7 +207,7 @@ define dso_local zeroext i8 @wmidev_instance_count(ptr noundef readonly captures
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @wmi_evaluate_method(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #0 align 16 {
+define dso_local i32 @wmi_evaluate_method(ptr noundef %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 align 16 {
   %6 = alloca %struct.acpi_object_list, align 8
   %7 = alloca [3 x %union.acpi_object], align 16
   %8 = alloca [5 x i8], align 1
@@ -324,7 +324,7 @@ define dso_local i32 @wmi_evaluate_method(ptr noundef %0, i8 noundef zeroext %1,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @wmidev_evaluate_method(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) #0 align 16 {
+define dso_local i32 @wmidev_evaluate_method(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, i32 noundef %2, ptr noundef readonly %3, ptr noundef %4) #0 align 16 {
   %6 = alloca %struct.acpi_object_list, align 8
   %7 = alloca [3 x %union.acpi_object], align 16
   %8 = alloca [5 x i8], align 1
@@ -581,7 +581,7 @@ define dso_local ptr @wmidev_block_query(ptr noundef %0, i8 noundef zeroext %1) 
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @wmi_set_block(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define dso_local i32 @wmi_set_block(ptr noundef %0, i8 noundef zeroext %1, ptr noundef readonly %2) #0 align 16 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca %struct.acpi_object_list, align 8
   %6 = alloca [2 x %union.acpi_object], align 16
@@ -689,7 +689,7 @@ define dso_local i32 @wmi_set_block(ptr noundef %0, i8 noundef zeroext %1, ptr n
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local i32 @wmidev_block_set(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly captures(address_is_null) %2) #0 align 16 {
+define dso_local i32 @wmidev_block_set(ptr noundef readonly captures(none) %0, i8 noundef zeroext %1, ptr noundef readonly %2) #0 align 16 {
   %4 = alloca [5 x i8], align 1
   %5 = alloca %struct.acpi_object_list, align 8
   %6 = alloca [2 x %union.acpi_object], align 16
@@ -1879,7 +1879,7 @@ define internal void @acpi_wmi_remove_bus_device(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @acpi_install_address_space_handler(ptr noundef, i8 noundef zeroext, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef range(i32 0, 4098) i32 @acpi_wmi_ec_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef captures(address_is_null) %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 align 16 {
+define internal noundef range(i32 0, 4098) i32 @acpi_wmi_ec_space_handler(i32 noundef %0, i64 noundef %1, i32 noundef %2, ptr noundef %3, ptr readnone captures(none) %4, ptr readnone captures(none) %5) #0 align 16 {
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #12
   store i8 0, ptr %7, align 1

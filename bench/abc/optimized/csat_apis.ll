@@ -277,7 +277,7 @@ define ptr @ABC_Get_Target_Result(ptr noundef readonly captures(none) %0, i32 no
 }
 
 ; Function Attrs: nounwind uwtable
-define void @ABC_TargetResFree(ptr noundef captures(address_is_null) %0) local_unnamed_addr #0 {
+define void @ABC_TargetResFree(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %25, label %3
 

@@ -1895,7 +1895,7 @@ Vec_WrdPush.exit..critedge.loopexit_crit_edge:    ; preds = %Vec_WrdPush.exit
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @Cec3_ManSimulate(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
+define i32 @Cec3_ManSimulate(ptr noundef readonly captures(none) %0, ptr noundef readonly %1, ptr noundef captures(none) %2) local_unnamed_addr #2 {
   %4 = alloca %struct.timespec, align 8
   %5 = alloca %struct.timespec, align 8
   %6 = alloca %struct.timespec, align 8
@@ -4455,7 +4455,7 @@ Abc_Clock.exit71:                                 ; preds = %Abc_Clock.exit69, %
 declare void @bmcg_sat_solver_reset(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define void @Cec3_ManPrintStats(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define void @Cec3_ManPrintStats(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef readonly %2) local_unnamed_addr #2 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %5 = load i32, ptr %4, align 4, !tbaa !119
   %.not = icmp eq i32 %5, 0
@@ -4496,7 +4496,7 @@ define void @Cec3_ManPrintStats(ptr noundef %0, ptr noundef readonly captures(no
 declare void @Gia_ManEquivPrintClasses(ptr noundef, i32 noundef, float noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @Cec3_ManPerformSweeping(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #2 {
+define range(i32 0, 2) i32 @Cec3_ManPerformSweeping(ptr noundef %0, ptr noundef %1, ptr noundef writeonly %2) local_unnamed_addr #2 {
   %4 = tail call ptr @Cec3_ManCreate(ptr noundef %0, ptr noundef %1)
   %5 = tail call i64 @Gia_ManRandomW(i32 noundef 1) #22
   tail call void @Gia_ManSetPhase(ptr noundef %0) #22

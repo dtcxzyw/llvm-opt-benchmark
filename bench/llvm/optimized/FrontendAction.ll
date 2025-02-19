@@ -8600,7 +8600,7 @@ define linkonce_odr hidden noundef i32 @_ZN5clang15PluginASTAction13getActionTyp
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 captures(address) dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
+define dso_local void @_ZN5clang14FrontendActionD2Ev(ptr noundef nonnull align 8 dereferenceable(104) initializes((0, 8)) %0) unnamed_addr #0 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 136) (i8, ptr @_ZTVN5clang14FrontendActionE, i64 16), ptr %0, align 8, !tbaa !15
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %3 = load ptr, ptr %2, align 8, !tbaa !36
@@ -18436,7 +18436,7 @@ _ZN12_GLOBAL__N_124DeserializedDeclsCheckerD2Ev.exit: ; preds = %1, %8, %12
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_124DeserializedDeclsChecker8DeclReadEN5clang12GlobalDeclIDEPKNS1_4DeclE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(80) %0, i64 %1, ptr noundef %2) unnamed_addr #0 align 2 {
+define internal void @_ZN12_GLOBAL__N_124DeserializedDeclsChecker8DeclReadEN5clang12GlobalDeclIDEPKNS1_4DeclE(ptr noundef nonnull readonly align 8 dereferenceable(80) %0, i64 %1, ptr noundef %2) unnamed_addr #0 align 2 {
   %4 = alloca %"class.llvm::StringRef", align 8
   %5 = alloca i8, align 1
   %6 = alloca %"class.clang::DiagnosticIDs::CustomDiagDesc", align 8

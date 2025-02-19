@@ -19,7 +19,7 @@ target triple = "x86_64-pc-linux-gnu"
 @switch.table.ossl_qrl_enc_level_set_have_el = private unnamed_addr constant [4 x i32] [i32 0, i32 1, i32 1, i32 1], align 4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define ptr @ossl_qrl_enc_level_set_get(ptr noundef readonly captures(ret: address, provenance) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+define ptr @ossl_qrl_enc_level_set_get(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ult i32 %1, 4
   br i1 %4, label %5, label %12, !prof !3
 
@@ -73,7 +73,7 @@ switch.lookup:                                    ; preds = %ossl_qrl_enc_level_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_has_keyslot(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, i8 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_qrl_enc_level_set_has_keyslot(ptr noundef readonly %0, i32 noundef %1, i8 noundef zeroext %2, i64 noundef %3) local_unnamed_addr #0 {
   %5 = icmp ult i32 %1, 4
   br i1 %5, label %ossl_qrl_enc_level_set_get.exit, label %ossl_qrl_enc_level_set_get.exit.thread, !prof !3
 

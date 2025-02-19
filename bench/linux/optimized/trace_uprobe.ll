@@ -1334,7 +1334,7 @@ define internal i32 @trace_uprobe_release(ptr noundef %0) #0 align 16 {
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal zeroext i1 @trace_uprobe_match(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
+define internal zeroext i1 @trace_uprobe_match(ptr noundef readonly %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef %3, ptr noundef %4) #0 align 16 {
   %6 = alloca [64 x i8], align 16
   %7 = load i8, ptr %1, align 1
   %8 = icmp eq i8 %7, 0
@@ -2827,7 +2827,7 @@ declare dso_local zeroext i1 @__trace_trigger_soft_disabled(ptr noundef) local_u
 declare dso_local void @__rcu_read_unlock() local_unnamed_addr #3
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define internal noundef zeroext i1 @uprobe_perf_filter(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef readnone captures(address) %2) #0 align 16 {
+define internal noundef zeroext i1 @uprobe_perf_filter(ptr noundef readonly captures(none) %0, i32 %1, ptr noundef readnone %2) #0 align 16 {
   %4 = getelementptr i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 240

@@ -247,7 +247,7 @@ declare dso_local i32 @trace_event_reg(ptr noundef, i32 noundef, ptr noundef) #0
 declare dso_local i32 @trace_event_raw_init(ptr noundef) #0
 
 ; Function Attrs: cold fn_ret_thunk_extern mustprogress nofree nounwind null_pointer_is_valid optsize willreturn memory(write, argmem: read, inaccessiblemem: none)
-define internal noundef range(i32 -22, 1) i32 @vsyscall_setup(ptr noundef readonly captures(address_is_null) %0) #4 section ".init.text" align 16 {
+define internal noundef range(i32 -22, 1) i32 @vsyscall_setup(ptr noundef readonly %0) #4 section ".init.text" align 16 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %14, label %3
 

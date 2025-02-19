@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 @Curl_cfree = external local_unnamed_addr global ptr, align 8
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_slist_append_nodup(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @Curl_slist_append_nodup(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @Curl_cmalloc, align 8, !tbaa !4
   %4 = tail call ptr %3(i64 noundef 16) #1
   %.not = icmp eq ptr %4, null
@@ -39,7 +39,7 @@ slist_get_last.exit:                              ; preds = %.preheader
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @curl_slist_append(ptr noundef captures(address_is_null, ret: address, provenance) %0, ptr noundef %1) local_unnamed_addr #0 {
+define dso_local ptr @curl_slist_append(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @Curl_cstrdup, align 8, !tbaa !4
   %4 = tail call ptr %3(ptr noundef %1) #1
   %.not = icmp eq ptr %4, null
@@ -81,7 +81,7 @@ Curl_slist_append_nodup.exit.thread13:            ; preds = %Curl_slist_append_n
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local ptr @Curl_slist_duplicate(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+define dso_local ptr @Curl_slist_duplicate(ptr noundef readonly %0) local_unnamed_addr #0 {
   %.not28 = icmp eq ptr %0, null
   br i1 %.not28, label %curl_slist_free_all.exit, label %.lr.ph
 

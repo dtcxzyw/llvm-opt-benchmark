@@ -1942,7 +1942,7 @@ declare void @php_info_print_table_row(i32 noundef, ...) local_unnamed_addr #3
 declare void @php_info_print_table_end() local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_startElementHandler(ptr noundef captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2) #0 {
+define hidden void @xml_startElementHandler(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2) #0 {
   %4 = alloca i64, align 8
   %5 = alloca i64, align 8
   %6 = alloca [3 x %struct._zval_struct], align 16
@@ -2728,7 +2728,7 @@ declare ptr @zend_hash_next_index_insert(ptr noundef, ptr noundef) local_unnamed
 declare void @php_error_docref(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_endElementHandler(ptr noundef captures(address_is_null) %0, ptr noundef %1) #0 {
+define hidden void @xml_endElementHandler(ptr noundef %0, ptr noundef %1) #0 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %4 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %0, null
@@ -3090,7 +3090,7 @@ zend_gc_try_delref.exit:                          ; preds = %20, %1, %zend_hash_
 declare void @_efree(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_characterDataHandler(ptr noundef captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #0 {
+define hidden void @xml_characterDataHandler(ptr noundef %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca [2 x %struct._zval_struct], align 16
   %5 = alloca %struct._zval_struct, align 8
   %.not = icmp eq ptr %0, null
@@ -3764,7 +3764,7 @@ declare ptr @zend_hash_str_find(ptr noundef, ptr noundef, i64 noundef) local_unn
 declare ptr @zend_array_dup(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_processingInstructionHandler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
+define hidden void @xml_processingInstructionHandler(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca [3 x %struct._zval_struct], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %69, label %5
@@ -3916,7 +3916,7 @@ zend_call_known_fcc.exit:                         ; preds = %62, %54, %xml_xmlch
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_defaultHandler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, i32 noundef %2) #0 {
+define hidden void @xml_defaultHandler(ptr noundef readonly %0, ptr noundef %1, i32 noundef %2) #0 {
   %4 = alloca [2 x %struct._zval_struct], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %56, label %5
@@ -4029,7 +4029,7 @@ zend_call_known_fcc.exit:                         ; preds = %49, %41, %xml_xmlch
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_unparsedEntityDeclHandler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
+define hidden void @xml_unparsedEntityDeclHandler(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #0 {
   %7 = alloca [6 x %struct._zval_struct], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %117, label %8
@@ -4301,7 +4301,7 @@ zend_call_known_fcc.exit:                         ; preds = %110, %102, %xml_xml
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_notationDeclHandler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
+define hidden void @xml_notationDeclHandler(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #0 {
   %6 = alloca [5 x %struct._zval_struct], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %101, label %7
@@ -4787,7 +4787,7 @@ declare ptr @XML_GetUserData(ptr noundef) local_unnamed_addr #3
 declare void @convert_to_long(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_startNamespaceDeclHandler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef %2) #0 {
+define hidden void @xml_startNamespaceDeclHandler(ptr noundef readonly %0, ptr noundef %1, ptr noundef %2) #0 {
   %4 = alloca [3 x %struct._zval_struct], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %69, label %5
@@ -4939,7 +4939,7 @@ zend_call_known_fcc.exit:                         ; preds = %62, %54, %xml_xmlch
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @xml_endNamespaceDeclHandler(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0 {
+define hidden void @xml_endNamespaceDeclHandler(ptr noundef readonly %0, ptr noundef %1) #0 {
   %3 = alloca [2 x %struct._zval_struct], align 16
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %53, label %4

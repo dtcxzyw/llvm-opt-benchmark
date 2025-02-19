@@ -665,7 +665,7 @@ define dso_local void @input_event(ptr noundef %0, i32 noundef %1, i32 noundef %
 declare dso_local i64 @_raw_spin_lock_irqsave(ptr noundef) local_unnamed_addr #2 section ".spinlock.text"
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @input_inject_event(ptr noundef readonly captures(address) %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
+define dso_local void @input_inject_event(ptr noundef readonly %0, i32 noundef %1, i32 noundef %2, i32 noundef %3) #0 align 16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %6 = load ptr, ptr %5, align 8
   %7 = icmp ugt i32 %1, 31
@@ -1024,7 +1024,7 @@ declare dso_local i32 @mutex_lock_interruptible(ptr noundef) local_unnamed_addr 
 declare dso_local void @mutex_unlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @input_release_device(ptr noundef readonly captures(address) %0) #0 align 16 {
+define dso_local void @input_release_device(ptr noundef readonly %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 504
@@ -1186,7 +1186,7 @@ define dso_local i32 @input_flush_device(ptr noundef readonly captures(none) %0,
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local void @input_close_device(ptr noundef captures(address) %0) #0 align 16 {
+define dso_local void @input_close_device(ptr noundef %0) #0 align 16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load ptr, ptr %2, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 504
@@ -2097,7 +2097,7 @@ define dso_local void @input_free_device(ptr noundef %0) #0 align 16 {
 declare dso_local i32 @devres_destroy(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern mustprogress nofree norecurse nosync nounwind null_pointer_is_valid willreturn memory(argmem: read)
-define internal range(i32 0, 2) i32 @devm_input_device_match(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone captures(address) %2) #6 align 16 {
+define internal range(i32 0, 2) i32 @devm_input_device_match(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readnone %2) #6 align 16 {
   %4 = load ptr, ptr %1, align 8
   %5 = icmp eq ptr %4, %2
   %6 = zext i1 %5 to i32
@@ -2121,7 +2121,7 @@ define dso_local void @input_set_timestamp(ptr noundef writeonly captures(none) 
 declare dso_local i64 @ktime_mono_to_any(i64 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
-define dso_local nonnull ptr @input_get_timestamp(ptr noundef captures(ret: address, provenance) %0) #0 align 16 {
+define dso_local nonnull ptr @input_get_timestamp(ptr noundef %0) #0 align 16 {
   %2 = getelementptr i8, ptr %0, i64 1336
   %3 = load i64, ptr %2, align 8
   %4 = icmp eq i64 %3, 0

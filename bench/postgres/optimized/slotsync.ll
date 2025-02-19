@@ -2037,7 +2037,7 @@ define internal fastcc noundef zeroext i1 @update_and_persist_local_synced_slot(
 declare i32 @errdetail_internal(ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly captures(address_is_null) %3) unnamed_addr #0 {
+define internal fastcc noundef zeroext i1 @update_local_synced_slot(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef writeonly %3) unnamed_addr #0 {
   %5 = alloca %struct.nameData, align 1
   %6 = load ptr, ptr @MyReplicationSlot, align 8
   %.not = icmp eq ptr %2, null

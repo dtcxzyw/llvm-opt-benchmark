@@ -129,7 +129,7 @@ define ptr @ossl_ecx_key_allocate_privkey(ptr noundef captures(none) initializes
 declare noalias ptr @CRYPTO_secure_zalloc(i64 noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 2) i32 @ossl_ecx_compute_key(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
+define range(i32 0, 2) i32 @ossl_ecx_compute_key(ptr noundef %0, ptr noundef readonly %1, i64 noundef %2, ptr noundef %3, ptr noundef writeonly captures(none) %4, i64 noundef %5) local_unnamed_addr #0 {
   %7 = icmp eq ptr %1, null
   br i1 %7, label %13, label %8
 

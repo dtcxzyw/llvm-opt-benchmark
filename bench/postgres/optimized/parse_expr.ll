@@ -2604,7 +2604,7 @@ list_length.exit67:                               ; preds = %40, %44
 declare ptr @transformGroupingFunc(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @transformMergeSupportFunc(ptr noundef %0, ptr noundef nonnull readonly returned captures(ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformMergeSupportFunc(ptr noundef %0, ptr noundef nonnull readonly returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %.not = icmp eq i32 %4, 25
@@ -2638,7 +2638,7 @@ define internal fastcc noundef nonnull ptr @transformMergeSupportFunc(ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @transformSubLink(ptr noundef %0, ptr noundef nonnull returned captures(ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformSubLink(ptr noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %4 = load i32, ptr %3, align 8
   %switch.tableidx = add i32 %4, -28
@@ -3381,7 +3381,7 @@ define internal fastcc noundef ptr @transformMinMaxExpr(ptr noundef %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @transformSQLValueFunction(ptr noundef nonnull returned captures(ret: address, provenance) %0) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformSQLValueFunction(ptr noundef nonnull returned %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %3 = load i32, ptr %2, align 4
   switch i32 %3, label %36 [
@@ -3784,7 +3784,7 @@ declare zeroext i1 @type_is_rowtype(i32 noundef) local_unnamed_addr #3
 declare i32 @exprType(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @transformBooleanTest(ptr noundef %0, ptr noundef nonnull returned captures(ret: address, provenance) %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformBooleanTest(ptr noundef %0, ptr noundef nonnull returned %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8
   %5 = icmp ult i32 %4, 6
@@ -3812,7 +3812,7 @@ switch.lookup:                                    ; preds = %2
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noundef nonnull ptr @transformCurrentOfExpr(ptr noundef %0, ptr noundef nonnull returned captures(ret: address, provenance) initializes((4, 8)) %1) unnamed_addr #0 {
+define internal fastcc noundef nonnull ptr @transformCurrentOfExpr(ptr noundef %0, ptr noundef nonnull returned initializes((4, 8)) %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %4 = load ptr, ptr %3, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5341,7 +5341,7 @@ declare zeroext i1 @type_is_collatable(i32 noundef) local_unnamed_addr #3
 declare i32 @LookupCollation(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @make_row_comparison_op(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3, i32 noundef %4) unnamed_addr #0 {
+define internal fastcc ptr @make_row_comparison_op(ptr noundef %0, ptr noundef %1, ptr noundef readonly %2, ptr noundef readonly %3, i32 noundef %4) unnamed_addr #0 {
   %.not.i = icmp eq ptr %2, null
   br i1 %.not.i, label %list_length.exit, label %6
 
@@ -6151,7 +6151,7 @@ declare void @get_type_category_preferred(i32 noundef, ptr noundef, ptr noundef)
 declare ptr @makeFuncExpr(i32 noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @getJsonEncodingConst(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #0 {
+define internal fastcc ptr @getJsonEncodingConst(ptr noundef readonly %0) unnamed_addr #0 {
   %2 = tail call ptr @palloc(i64 noundef 64) #9
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.thread, label %3
@@ -6194,7 +6194,7 @@ declare void @namestrcpy(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare ptr @makeConst(i32 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef, i1 noundef zeroext, i1 noundef zeroext) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonOutput(ptr noundef %0, ptr noundef readonly %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca i8, align 1
   %5 = alloca i8, align 1
   %.not = icmp eq ptr %1, null
@@ -6531,7 +6531,7 @@ define internal fastcc ptr @transformJsonParseArg(ptr noundef %0, ptr noundef %1
 declare ptr @makeJsonIsPredicate(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc ptr @transformJsonReturning(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef %2) unnamed_addr #0 {
+define internal fastcc ptr @transformJsonReturning(ptr noundef %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %20, label %4
 

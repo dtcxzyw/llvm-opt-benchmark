@@ -64,7 +64,7 @@ up_irq_restore.exit:                              ; preds = %.loopexit, %19
 }
 
 ; Function Attrs: nounwind uwtable
-define void @panic_notifier_chain_unregister(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 {
+define void @panic_notifier_chain_unregister(ptr noundef readonly %0) local_unnamed_addr #0 {
   %2 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2)
   call void asm sideeffect "\09pushfq\0A\09popq $0\0A", "=*rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %2) #2, !srcloc !6

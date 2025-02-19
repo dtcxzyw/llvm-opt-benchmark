@@ -74,7 +74,7 @@ declare dso_local i32 @acpi_get_table(ptr noundef, i32 noundef, ptr noundef) loc
 declare dso_local i32 @acpi_table_parse_entries(ptr noundef, i64 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3 section ".init.text"
 
 ; Function Attrs: cold fn_ret_thunk_extern nounwind null_pointer_is_valid optsize
-define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef readonly captures(address) %0, i64 %1) #0 section ".init.text" align 16 {
+define internal noundef range(i32 -12, 1) i32 @acpi_parse_prmt(ptr noundef readonly %0, i64 %1) #0 section ".init.text" align 16 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i16, ptr %3, align 1
   %5 = zext i16 %4 to i64

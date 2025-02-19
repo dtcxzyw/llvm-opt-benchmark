@@ -1800,7 +1800,7 @@ Min_CubesDistOne.exit:                            ; preds = %28, %27, %Min_Cubes
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+define ptr @Min_SopComplement(ptr noundef %0, ptr noundef readonly %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
   %4 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #11

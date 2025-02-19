@@ -334,7 +334,7 @@ declare void @ReleaseSysCache(ptr noundef) local_unnamed_addr #3
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local noundef i32 @index_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly captures(address_is_null) %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef readonly captures(address_is_null) %12, ptr noundef %13, ptr noundef readonly captures(address_is_null) %14, i64 noundef %15, i16 noundef zeroext %16, i16 noundef zeroext %17, i1 noundef zeroext %18, i1 noundef zeroext %19, ptr noundef writeonly captures(address_is_null) %20) local_unnamed_addr #0 {
+define dso_local noundef i32 @index_create(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef %6, ptr noundef readonly %7, i32 noundef %8, i32 noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef readonly %12, ptr noundef %13, ptr noundef readonly %14, i64 noundef %15, i16 noundef zeroext %16, i16 noundef zeroext %17, i1 noundef zeroext %18, i1 noundef zeroext %19, ptr noundef writeonly %20) local_unnamed_addr #0 {
   %22 = alloca [21 x i64], align 16
   %23 = alloca [21 x i8], align 16
   %24 = alloca i32, align 4

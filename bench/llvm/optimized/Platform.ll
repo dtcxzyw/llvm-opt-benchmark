@@ -151,7 +151,7 @@ define dso_local noundef range(i32 0, 13) i32 @_ZN4llvm5MachO17mapToPlatformType
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local void @_ZN4llvm5MachO16mapToPlatformSetENS_8ArrayRefINS_6TripleEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallSet") align 8 %0, ptr readonly captures(address) %1, i64 %2) local_unnamed_addr #2 {
+define dso_local void @_ZN4llvm5MachO16mapToPlatformSetENS_8ArrayRefINS_6TripleEEE(ptr dead_on_unwind noalias writable sret(%"class.llvm::SmallSet") align 8 %0, ptr readonly %1, i64 %2) local_unnamed_addr #2 {
   %4 = alloca %"struct.std::pair", align 8
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16

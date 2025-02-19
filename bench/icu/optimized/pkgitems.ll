@@ -804,7 +804,7 @@ declare noundef i32 @_ZNK6icu_757Package8findItemEPKci(ptr noundef nonnull align
 declare noundef ptr @_ZNK6icu_757Package7getItemEi(ptr noundef nonnull align 8 dereferenceable(201237), i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef nonnull %pResData, i32 noundef %res, ptr noundef %inKey, ptr noundef readonly captures(address_is_null) %parentKey, i32 noundef %depth, ptr noundef %check, ptr noundef %context, ptr noundef nonnull %pErrorCode) unnamed_addr #0 {
+define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_75L21ures_enumDependenciesEPKcPK12ResourceDatajS1_S1_iPFvPvS1_S1_ES5_PNS_7PackageEP10UErrorCode(ptr noundef %itemName, ptr noundef nonnull %pResData, i32 noundef %res, ptr noundef %inKey, ptr noundef readonly %parentKey, i32 noundef %depth, ptr noundef %check, ptr noundef %context, ptr noundef nonnull %pErrorCode) unnamed_addr #0 {
 entry:
   %length = alloca i32, align 4
   %length15 = alloca i32, align 4

@@ -324,7 +324,7 @@ define internal noundef nonnull ptr @ml_kem_settable_params(ptr readnone capture
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 0, 2) i32 @ml_kem_has(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) #0 {
+define internal range(i32 0, 2) i32 @ml_kem_has(ptr noundef readonly %0, i32 noundef %1) #0 {
   %3 = tail call i32 @ossl_prov_is_running() #7
   %4 = icmp eq i32 %3, 0
   %5 = icmp eq ptr %0, null
@@ -499,7 +499,7 @@ define internal noundef nonnull ptr @ml_kem_gen_settable_params(ptr readnone cap
 }
 
 ; Function Attrs: nounwind uwtable
-define internal ptr @ml_kem_gen(ptr noundef captures(address_is_null) %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
+define internal ptr @ml_kem_gen(ptr noundef %0, ptr readnone captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = icmp eq ptr %0, null
   br i1 %4, label %ml_kem_new.exit.thread, label %5
 

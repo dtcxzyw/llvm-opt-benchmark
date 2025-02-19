@@ -481,7 +481,7 @@ define internal range(i32 0, 2) i32 @ecx_set_pub_key(ptr noundef %0, ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @ecx_get_priv_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(none) %2) #3 {
+define internal range(i32 0, 2) i32 @ecx_get_priv_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = icmp eq ptr %1, null
@@ -559,7 +559,7 @@ define internal range(i32 0, 2) i32 @ecx_get_priv_key(ptr noundef readonly captu
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define internal range(i32 0, 2) i32 @ecx_get_pub_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef captures(none) %2) #3 {
+define internal range(i32 0, 2) i32 @ecx_get_pub_key(ptr noundef readonly captures(none) %0, ptr noundef writeonly %1, ptr noundef captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load ptr, ptr %4, align 8, !tbaa !27
   %6 = icmp eq ptr %1, null
@@ -1266,7 +1266,7 @@ define internal range(i32 0, 2) i32 @pkey_ecx_derive448(ptr noundef readonly cap
 declare i32 @ossl_x448(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -2, 2) i32 @pkey_ecd_ctrl(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readnone captures(address) %3) #0 {
+define internal range(i32 -2, 2) i32 @pkey_ecd_ctrl(ptr readnone captures(none) %0, i32 noundef %1, i32 %2, ptr noundef readnone %3) #0 {
   switch i32 %1, label %11 [
     i32 1, label %5
     i32 7, label %12

@@ -183,7 +183,7 @@ be_socket_setfd.exit:                             ; preds = %35, %31, %3, %38
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define nonnull ptr @bufferevent_socket_get_conn_address_(ptr noundef readnone captures(ret: address, provenance) %0) local_unnamed_addr #2 {
+define nonnull ptr @bufferevent_socket_get_conn_address_(ptr noundef readnone %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 480
   ret ptr %2
 }

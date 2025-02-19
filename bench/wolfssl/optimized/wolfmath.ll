@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 @wc_off_on_addr = local_unnamed_addr constant [2 x i64] [i64 0, i64 -1], align 16
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define void @mp_reverse(ptr noundef captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #0 {
+define void @mp_reverse(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp ne ptr %0, null
   %4 = icmp sgt i32 %1, 1
   %or.cond = and i1 %3, %4
@@ -42,7 +42,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 65536) i32 @get_digit_count(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #2 {
+define range(i32 0, 65536) i32 @get_digit_count(ptr noundef readonly %0) local_unnamed_addr #2 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %6, label %3
 
@@ -57,7 +57,7 @@ define range(i32 0, 65536) i32 @get_digit_count(ptr noundef readonly captures(ad
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @get_digit(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1) local_unnamed_addr #2 {
+define i64 @get_digit(ptr noundef readonly %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq ptr %0, null
   %4 = icmp slt i32 %1, 0
   %or.cond = or i1 %3, %4
@@ -82,7 +82,7 @@ define i64 @get_digit(ptr noundef readonly captures(address_is_null) %0, i32 nou
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @mp_cond_copy(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
+define i32 @mp_cond_copy(ptr noundef readonly %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #3 {
   %4 = sext i32 %1 to i64
   %5 = sub nsw i64 0, %4
   %6 = icmp ne ptr %0, null
@@ -233,7 +233,7 @@ define i32 @mp_rand(ptr noundef %0, i32 noundef %1, ptr noundef %2) local_unname
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @wc_export_int(ptr noundef %0, ptr noundef %1, ptr noundef captures(address_is_null) %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
+define i32 @wc_export_int(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %3, i32 noundef %4) local_unnamed_addr #3 {
   %6 = alloca i32, align 4
   %7 = icmp eq ptr %0, null
   %8 = icmp eq ptr %1, null

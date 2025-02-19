@@ -3376,7 +3376,7 @@ declare void @start_timer() local_unnamed_addr #1
 declare void @solve_model(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noundef writeonly captures(address_is_null) %5) unnamed_addr #0 {
+define internal fastcc noalias noundef ptr @makeGraphData(ptr noundef %0, i32 noundef range(i32 2, -2147483648) %1, ptr noundef nonnull writeonly captures(none) %2, i32 noundef %3, i32 noundef range(i32 0, 4) %4, ptr noundef writeonly %5) unnamed_addr #0 {
   %7 = tail call i32 @agnedges(ptr noundef %0) #22
   %8 = tail call ptr @newPM() #22
   %.not = icmp eq i32 %4, 2
