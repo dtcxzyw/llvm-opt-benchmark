@@ -6228,50 +6228,50 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit135:         ; preds = %_ZNSt7__cxx1112basi
 .outer._crit_edge:                                ; preds = %.outer, %122
   %.lcssa = phi i16 [ %124, %122 ], [ %179, %.outer ]
   %181 = shl nuw nsw i8 %.033.ph, 1
-  %182 = zext nneg i8 %181 to i32
+  %spec.select = zext nneg i8 %181 to i32
   %spec.select = or i32 %.030.ph, %182
   %.not307 = icmp eq i16 %.lcssa, 23
-  br i1 %.not307, label %187, label %183
+  br i1 %.not307, label %186, label %182
 
-183:                                              ; preds = %.outer._crit_edge
+182:                                              ; preds = %.outer._crit_edge
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %10) #23
-  %184 = load ptr, ptr %45, align 8, !tbaa !20
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 48
-  %186 = load ptr, ptr %185, align 8, !tbaa !1111, !noalias !1233
-  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %10, ptr noundef nonnull align 8 dereferenceable(15248) %186, i32 %3, i32 noundef 2077) #23
+  %183 = load ptr, ptr %45, align 8, !tbaa !20
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 48
+  %185 = load ptr, ptr %184, align 8, !tbaa !1111, !noalias !1233
+  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %10, ptr noundef nonnull align 8 dereferenceable(15248) %185, i32 %3, i32 noundef 2077) #23
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %10, ptr %1, i64 %2)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %10) #23
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %10) #23
   br label %.loopexit
 
-187:                                              ; preds = %.outer._crit_edge
-  %188 = load ptr, ptr %45, align 8, !tbaa !20
-  call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %188, ptr noundef nonnull align 8 dereferenceable(20) %12) #23
-  %189 = load i16, ptr %13, align 8, !tbaa !1105
-  %.not308 = icmp eq i16 %189, 1
-  br i1 %.not308, label %194, label %190
+186:                                              ; preds = %.outer._crit_edge
+  %187 = load ptr, ptr %45, align 8, !tbaa !20
+  call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %187, ptr noundef nonnull align 8 dereferenceable(20) %12) #23
+  %188 = load i16, ptr %13, align 8, !tbaa !1105
+  %.not308 = icmp eq i16 %188, 1
+  br i1 %.not308, label %193, label %189
 
-190:                                              ; preds = %187
+189:                                              ; preds = %186
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %11) #23
-  %191 = load ptr, ptr %45, align 8, !tbaa !20
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 48
-  %193 = load ptr, ptr %192, align 8, !tbaa !1111, !noalias !1236
-  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %11, ptr noundef nonnull align 8 dereferenceable(15248) %193, i32 %3, i32 noundef 2083) #23
+  %190 = load ptr, ptr %45, align 8, !tbaa !20
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 48
+  %192 = load ptr, ptr %191, align 8, !tbaa !1111, !noalias !1236
+  call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %11, ptr noundef nonnull align 8 dereferenceable(15248) %192, i32 %3, i32 noundef 2083) #23
   call void @_ZNK5clang19StreamingDiagnostic9AddStringEN4llvm9StringRefE(ptr noundef nonnull align 8 dereferenceable(66) %11, ptr %1, i64 %2)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %11) #23
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %11) #23
   br label %.loopexit
 
-194:                                              ; preds = %187
-  %195 = load ptr, ptr %45, align 8, !tbaa !20
-  call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %195, ptr noundef nonnull align 8 dereferenceable(20) %12) #23
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %197 = load ptr, ptr %196, align 8, !tbaa !135
-  call void @_ZN5clang4Sema20ActOnPragmaMSSectionENS_14SourceLocationEiPNS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(17504) %197, i32 %3, i32 noundef %spec.select, ptr noundef nonnull %81) #23
+193:                                              ; preds = %186
+  %194 = load ptr, ptr %45, align 8, !tbaa !20
+  call void @_ZN5clang12Preprocessor3LexERNS_5TokenE(ptr noundef nonnull align 8 dereferenceable(3288) %194, ptr noundef nonnull align 8 dereferenceable(20) %12) #23
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %196 = load ptr, ptr %195, align 8, !tbaa !135
+  call void @_ZN5clang4Sema20ActOnPragmaMSSectionENS_14SourceLocationEiPNS_13StringLiteralE(ptr noundef nonnull align 8 dereferenceable(17504) %196, i32 %3, i32 noundef %spec.select, ptr noundef nonnull %81) #23
   br label %.loopexit
 
-.loopexit:                                        ; preds = %178, %178, %76, %129, %183, %190, %194, %_ZN5clang17DiagnosticBuilderD2Ev.exit57, %_ZN5clang17DiagnosticBuilderD2Ev.exit47, %_ZN5clang17DiagnosticBuilderD2Ev.exit
-  %.0 = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit47 ], [ false, %76 ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit57 ], [ false, %129 ], [ false, %183 ], [ false, %190 ], [ true, %194 ], [ false, %178 ], [ false, %178 ]
+.loopexit:                                        ; preds = %178, %178, %76, %129, %182, %189, %193, %_ZN5clang17DiagnosticBuilderD2Ev.exit57, %_ZN5clang17DiagnosticBuilderD2Ev.exit47, %_ZN5clang17DiagnosticBuilderD2Ev.exit
+  %.0 = phi i1 [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit47 ], [ false, %76 ], [ false, %_ZN5clang17DiagnosticBuilderD2Ev.exit57 ], [ false, %129 ], [ false, %182 ], [ false, %189 ], [ true, %193 ], [ false, %178 ], [ false, %178 ]
   ret i1 %.0
 }
 

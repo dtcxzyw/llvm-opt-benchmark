@@ -5513,18 +5513,18 @@ define internal { ptr, i32 } @_ZN12_GLOBAL__N_115MicrosoftCXXABI28getAddrOfCXXCa
   %22 = load i8, ptr %4, align 1, !tbaa !873, !range !405, !noundef !406
   %23 = load i8, ptr %5, align 1, !tbaa !873, !range !405, !noundef !406
   %24 = shl nuw nsw i8 %23, 1
-  %.111 = or disjoint i8 %24, %22
-  %25 = load i8, ptr %6, align 1, !tbaa !873, !range !405, !noundef !406
+  %25 = or disjoint i8 %24, %22
+  %.1 = load i8, ptr %6, align 1, !tbaa !873, !range !405, !noundef !406
   %26 = shl nuw nsw i8 %25, 2
-  %.212 = or disjoint i8 %.111, %26
-  %.2 = zext nneg i8 %.212 to i32
-  %27 = or disjoint i32 %.2, 8
-  %.3 = select i1 %spec.select.i.i.i.i.i.i.i.i.i, i32 %27, i32 %.2
-  %28 = load ptr, ptr %0, align 8, !tbaa !348
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 272
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 %11) #25
-  %32 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
+  %27 = or disjoint i8 %25, %26
+  %28 = zext nneg i8 %27 to i32
+  %.2 = or disjoint i32 %28, 8
+  %29 = select i1 %spec.select.i.i.i.i.i.i.i.i.i, i32 %.2, i32 %28
+  %.3 = load ptr, ptr %0, align 8, !tbaa !348
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 272
+  %31 = load ptr, ptr %30, align 8
+  %32 = tail call noundef ptr %30(ptr noundef nonnull align 8 dereferenceable(336) %0, i64 %11) #25
+  %33 = tail call noundef ptr @_ZNK4llvm5Value17stripPointerCastsEv(ptr noundef nonnull align 8 dereferenceable(24) %31) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #25

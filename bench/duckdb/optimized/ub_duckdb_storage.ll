@@ -70128,9 +70128,9 @@ define { i64, i64 } @_ZNK6duckdb22SingleFileBlockManager12GetFileFlagsEb(ptr nou
   %7 = load i8, ptr %6, align 1, !tbaa !1774, !range !203, !noundef !204
   %8 = shl nuw nsw i8 %7, 2
   %9 = zext nneg i8 %8 to i64
-  %10 = select i1 %1, i64 267, i64 259
-  %spec.select66 = select i1 %5, i64 385, i64 %10
-  %11 = or disjoint i64 %spec.select66, %9
+  %spec.select66 = select i1 %1, i64 267, i64 259
+  %10 = select i1 %5, i64 385, i64 %spec.select66
+  %.fca.0.insert = or disjoint i64 %10, %9
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %11, 0
   %.sroa.10.8.insert.ext = select i1 %5, i64 257, i64 258
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.10.8.insert.ext, 1

@@ -1653,10 +1653,10 @@ _ZNK4llvm11MCInstrInfo7getNameEj.exit.i:          ; preds = %643
   %694 = load i8, ptr %23, align 1, !tbaa !67, !range !79, !noundef !80
   %695 = shl nuw nsw i8 %694, 5
   %696 = load i8, ptr %24, align 2, !tbaa !66, !range !79, !noundef !80
-  %697 = shl nuw nsw i8 %696, 4
-  %698 = or disjoint i8 %697, %695
-  %699 = zext nneg i8 %698 to i16
-  %.19.i = or i16 %.15.i, %699
+  %spec.select232.i = shl nuw nsw i8 %696, 4
+  %697 = or disjoint i8 %spec.select232.i, %695
+  %698 = zext nneg i8 %697 to i16
+  %699 = or i16 %.15.i, %699
   %700 = load i32, ptr %20, align 8, !tbaa !59
   %701 = icmp eq i32 %700, 0
   br i1 %701, label %702, label %708

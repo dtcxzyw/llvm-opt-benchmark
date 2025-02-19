@@ -3195,13 +3195,13 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %310, %308, %298, %3
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %75
   %.0143.lcssa = phi i32 [ 0, %75 ], [ %325, %._crit_edge.loopexit ]
   %.1139 = phi ptr [ %80, %75 ], [ %.1139.ph, %._crit_edge.loopexit ]
-  %326 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %.1139, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8)
-  %327 = getelementptr inbounds nuw i8, ptr %.1139, i64 24
-  %328 = load i32, ptr %327, align 4
-  %.not179 = icmp eq i32 %328, %2
-  %329 = or disjoint i32 %326, 64
-  %spec.select186 = select i1 %.not179, i32 %326, i32 %329
-  %.1 = add nuw nsw i32 %spec.select186, %.0143.lcssa
+  %325 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %.1139, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8)
+  %326 = getelementptr inbounds nuw i8, ptr %.1139, i64 24
+  %327 = load i32, ptr %326, align 4
+  %.not179 = icmp eq i32 %327, %2
+  %328 = or disjoint i32 %325, 64
+  %spec.select186 = select i1 %.not179, i32 %325, i32 %328
+  %329 = add nuw nsw i32 %spec.select186, %.0143.lcssa
   br label %_Z11dtVisfinitePKf.exit.thread
 
 _Z11dtVisfinitePKf.exit.thread:                   ; preds = %56, %60, %42, %46, %35, %38, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit187, %34, %._crit_edge, %74

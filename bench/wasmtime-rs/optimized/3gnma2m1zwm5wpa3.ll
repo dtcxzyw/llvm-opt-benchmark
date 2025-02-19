@@ -7969,47 +7969,47 @@ define hidden void @"_ZN124_$LT$wasmtime_wasi..preview1..WasiP1Ctx$u20$as$u20$wa
   %16 = alloca { { { { i64, ptr, {} }, i64 }, { { ptr, [1 x i64] }, i64, { {} }, {} } }, ptr }, align 8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 38
   %18 = load i8, ptr %17, align 2, !range !68, !noundef !4
-  switch i8 %18, label %default.unreachable248 [
+  switch i8 %18, label %default.unreachable247 [
     i8 0, label %22
     i8 1, label %121
     i8 2, label %122
     i8 3, label %._crit_edge
-    i8 4, label %._crit_edge243
+    i8 4, label %._crit_edge242
   ]
 
-._crit_edge243:                                   ; preds = %3
-  %.phi.trans.insert244 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.pre245 = load ptr, ptr %.phi.trans.insert244, align 8, !alias.scope !1207, !noalias !1212
-  %.phi.trans.insert246 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %.pre247 = load ptr, ptr %.phi.trans.insert246, align 8, !alias.scope !1207, !noalias !1212
+._crit_edge242:                                   ; preds = %3
+  %.phi.trans.insert243 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.pre244 = load ptr, ptr %.phi.trans.insert243, align 8, !alias.scope !1207, !noalias !1212
+  %.phi.trans.insert245 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %.pre246 = load ptr, ptr %.phi.trans.insert245, align 8, !alias.scope !1207, !noalias !1212
   br label %175
 
 ._crit_edge:                                      ; preds = %3
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !alias.scope !1215, !noalias !1220
-  %.phi.trans.insert241 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.pre242 = load ptr, ptr %.phi.trans.insert241, align 8, !alias.scope !1215, !noalias !1220
+  %.phi.trans.insert240 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %.pre241 = load ptr, ptr %.phi.trans.insert240, align 8, !alias.scope !1215, !noalias !1220
   br label %123
 
-default.unreachable248:                           ; preds = %3
+default.unreachable247:                           ; preds = %3
   unreachable
 
 19:                                               ; preds = %48
   unreachable
 
 common.ret:                                       ; preds = %194, %142, %21
-  %.sink249 = phi i8 [ 9, %194 ], [ 9, %142 ], [ %.sroa.18170.0, %21 ]
+  %.sink248 = phi i8 [ 9, %194 ], [ 9, %142 ], [ %.sroa.18170.0, %21 ]
   %.sink = phi i8 [ 4, %194 ], [ 3, %142 ], [ 1, %21 ]
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 18
-  store i8 %.sink249, ptr %20, align 2
+  store i8 %.sink248, ptr %20, align 2
   store i8 %.sink, ptr %17, align 2
   ret void
 
-21:                                               ; preds = %240, %220, %.thread229, %173, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit"
-  %.sroa.0168.0 = phi i64 [ %.2, %.thread229 ], [ %174, %173 ], [ %.sroa.0168.2, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit" ], [ %221, %220 ], [ %241, %240 ]
-  %.sroa.10169.0 = phi i64 [ %.2, %.thread229 ], [ undef, %173 ], [ %.sroa.10169.2, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit" ], [ undef, %220 ], [ undef, %240 ]
-  %.sroa.14.0 = phi i16 [ %.4, %.thread229 ], [ undef, %173 ], [ 0, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit" ], [ undef, %220 ], [ undef, %240 ]
-  %.sroa.18170.0 = phi i8 [ %.sroa.10142.0.ph231, %.thread229 ], [ 8, %173 ], [ %.sroa.18170.2, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit" ], [ 8, %220 ], [ 8, %240 ]
+21:                                               ; preds = %241, %220, %.thread229, %173, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit"
+  %.sroa.0168.0 = phi i64 [ %.2, %.thread229 ], [ %174, %173 ], [ %.sroa.0168.2, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit" ], [ %221, %220 ], [ %242, %241 ]
+  %.sroa.10169.0 = phi i64 [ %.2, %.thread229 ], [ undef, %173 ], [ %.sroa.10169.2, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit" ], [ undef, %220 ], [ undef, %241 ]
+  %.sroa.14.0 = phi i16 [ %.4, %.thread229 ], [ undef, %173 ], [ 0, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit" ], [ undef, %220 ], [ undef, %241 ]
+  %.sroa.18170.0 = phi i8 [ %.sroa.10142.0.ph231, %.thread229 ], [ 8, %173 ], [ %.sroa.18170.2, %"_ZN4core3ptr57drop_in_place$LT$wasmtime_wasi..preview1..Transaction$GT$17h871314f43a90cae1E.exit" ], [ 8, %220 ], [ 8, %241 ]
   store i64 %.sroa.0168.0, ptr %0, align 8
   %.sroa.10169.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.10169.0, ptr %.sroa.10169.0..sroa_idx, align 8
@@ -8338,7 +8338,7 @@ common.ret:                                       ; preds = %194, %142, %21
   unreachable
 
 123:                                              ; preds = %._crit_edge, %114
-  %124 = phi ptr [ %.pre242, %._crit_edge ], [ @anon.0af95c1f9456ea7116a16e4f925340d1.72.llvm.10002545943538650143, %114 ]
+  %124 = phi ptr [ %.pre241, %._crit_edge ], [ @anon.0af95c1f9456ea7116a16e4f925340d1.72.llvm.10002545943538650143, %114 ]
   %125 = phi ptr [ %.pre, %._crit_edge ], [ %107, %114 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14)
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -8486,9 +8486,9 @@ common.ret:                                       ; preds = %194, %142, %21
   %174 = ptrtoint ptr %.0.i.i.i to i64
   br label %21
 
-175:                                              ; preds = %._crit_edge243, %171
-  %176 = phi ptr [ %.pre247, %._crit_edge243 ], [ @anon.0af95c1f9456ea7116a16e4f925340d1.77.llvm.10002545943538650143, %171 ]
-  %177 = phi ptr [ %.pre245, %._crit_edge243 ], [ %164, %171 ]
+175:                                              ; preds = %._crit_edge242, %171
+  %176 = phi ptr [ %.pre246, %._crit_edge242 ], [ @anon.0af95c1f9456ea7116a16e4f925340d1.77.llvm.10002545943538650143, %171 ]
+  %177 = phi ptr [ %.pre244, %._crit_edge242 ], [ %164, %171 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13)
   %178 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call void @llvm.experimental.noalias.scope.decl(metadata !1290)
@@ -8573,12 +8573,12 @@ common.ret:                                       ; preds = %194, %142, %21
 
 .noexc98:                                         ; preds = %200
   %204 = invoke noundef nonnull ptr @"_ZN6anyhow5error72_$LT$impl$u20$core..convert..From$LT$E$GT$$u20$for$u20$anyhow..Error$GT$4from17h437debc8ba700dedE"(i8 noundef %203)
-          to label %240 unwind label %195
+          to label %241 unwind label %195
 
 205:                                              ; preds = %.noexc97
   %206 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %207 = load ptr, ptr %206, align 8, !noalias !1299, !nonnull !4, !noundef !4
-  br label %240
+  br label %241
 
 208:                                              ; preds = %"_ZN4core3ptr371drop_in_place$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DescriptorType$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$u2b$core..marker..Send$GT$$GT$$GT$17h589947b148b21b4aE.exit"
   switch i8 %.sroa.2156.0.copyload, label %default.unreachable.i [
@@ -8658,14 +8658,14 @@ default.unreachable.i:                            ; preds = %208
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %238 = load i8, ptr %237, align 4, !range !27, !noundef !4
   %239 = shl nuw nsw i8 %238, 2
-  %.4240 = or disjoint i8 %.3239, %239
-  %.4 = zext nneg i8 %.4240 to i16
+  %240 = or disjoint i8 %.3239, %239
+  %.4 = zext nneg i8 %240 to i16
   br label %21
 
-240:                                              ; preds = %.noexc98, %205
+241:                                              ; preds = %.noexc98, %205
   %.0.i.i.i96 = phi ptr [ %207, %205 ], [ %204, %.noexc98 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5), !noalias !1299
-  %241 = ptrtoint ptr %.0.i.i.i96 to i64
+  %242 = ptrtoint ptr %.0.i.i.i96 to i64
   br label %21
 }
 

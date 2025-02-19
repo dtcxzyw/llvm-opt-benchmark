@@ -148,13 +148,13 @@ if.end25:                                         ; preds = %if.then5, %if.else1
   %call30 = tail call noundef i64 @_ZNK3zmq5msg_t4sizeEv(ptr noundef nonnull align 8 dereferenceable(64) %4)
   %5 = load i8, ptr %_is_binary, align 8
   %6 = and i8 %5, 1
-  %7 = zext nneg i8 %6 to i64
-  %spec.select = add i64 %call30, %7
-  %8 = load ptr, ptr %_in_progress.i, align 8
-  %flags.i = getelementptr inbounds nuw i8, ptr %8, i64 43
-  %9 = load i8, ptr %flags.i, align 1
-  %10 = and i8 %9, 28
-  switch i8 %10, label %if.end42 [
+  %inc34 = zext nneg i8 %6 to i64
+  %spec.select = add i64 %call30, %inc34
+  %7 = load ptr, ptr %_in_progress.i, align 8
+  %flags.i = getelementptr inbounds nuw i8, ptr %7, i64 43
+  %8 = load i8, ptr %flags.i, align 1
+  %9 = and i8 %8, 28
+  switch i8 %9, label %if.end42 [
     i8 12, label %if.then40
     i8 16, label %if.then40
   ]
@@ -166,12 +166,12 @@ if.then40:                                        ; preds = %if.end25, %if.end25
 if.end42:                                         ; preds = %if.end25, %if.then40
   %size.1 = phi i64 [ %inc41, %if.then40 ], [ %spec.select, %if.end25 ]
   %cmp = icmp ult i64 %size.1, 126
-  %11 = load i8, ptr %arrayidx28, align 1
+  %10 = load i8, ptr %arrayidx28, align 1
   br i1 %cmp, label %if.then43, label %if.else52
 
 if.then43:                                        ; preds = %if.end42
   %conv44 = trunc nuw i64 %size.1 to i8
-  %or = or i8 %11, %conv44
+  %or = or i8 %10, %conv44
   store i8 %or, ptr %arrayidx28, align 1
   br label %if.end84
 
@@ -180,8 +180,8 @@ if.else52:                                        ; preds = %if.end42
   br i1 %cmp53, label %if.then54, label %if.else74
 
 if.then54:                                        ; preds = %if.else52
-  %12 = or i8 %11, 126
-  store i8 %12, ptr %arrayidx28, align 1
+  %11 = or i8 %10, 126
+  store i8 %11, ptr %arrayidx28, align 1
   %shr = lshr i64 %size.1, 8
   %conv63 = trunc nuw i64 %shr to i8
   %arrayidx67 = getelementptr inbounds nuw i8, ptr %this, i64 74
@@ -192,8 +192,8 @@ if.then54:                                        ; preds = %if.else52
   br label %if.end84
 
 if.else74:                                        ; preds = %if.else52
-  %13 = or i8 %11, 127
-  store i8 %13, ptr %arrayidx28, align 1
+  %12 = or i8 %10, 127
+  store i8 %12, ptr %arrayidx28, align 1
   %add.ptr = getelementptr inbounds nuw i8, ptr %this, i64 74
   %shr.i = lshr i64 %size.1, 56
   %conv.i = trunc nuw i64 %shr.i to i8
@@ -229,8 +229,8 @@ if.else74:                                        ; preds = %if.else52
 
 if.end84:                                         ; preds = %if.then54, %if.else74, %if.then43
   %offset.1 = phi i32 [ 2, %if.then43 ], [ 4, %if.then54 ], [ 10, %if.else74 ]
-  %14 = load i8, ptr %_must_mask, align 8
-  %tobool86 = trunc i8 %14 to i1
+  %13 = load i8, ptr %_must_mask, align 8
+  %tobool86 = trunc i8 %13 to i1
   br i1 %tobool86, label %if.then87, label %if.end95
 
 if.then87:                                        ; preds = %if.end84
@@ -265,26 +265,26 @@ if.then87:                                        ; preds = %if.end84
   br label %if.end95
 
 if.end95:                                         ; preds = %if.then87, %if.end84
-  %.pre67 = phi ptr [ %.pre67.pre, %if.then87 ], [ %8, %if.end84 ]
-  %15 = phi i8 [ %.pre, %if.then87 ], [ %5, %if.end84 ]
+  %.pre67 = phi ptr [ %.pre67.pre, %if.then87 ], [ %7, %if.end84 ]
+  %14 = phi i8 [ %.pre, %if.then87 ], [ %5, %if.end84 ]
   %offset.2 = phi i32 [ %add94, %if.then87 ], [ %offset.1, %if.end84 ]
-  %tobool97 = trunc i8 %15 to i1
+  %tobool97 = trunc i8 %14 to i1
   br i1 %tobool97, label %if.then98, label %if.end134
 
 if.then98:                                        ; preds = %if.end95
   %call100 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %.pre67)
-  %16 = and i8 %call100, 1
-  %17 = load ptr, ptr %_in_progress.i, align 8
-  %call110 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %17)
-  %18 = and i8 %call110, 2
-  %protocol_flags.1 = or disjoint i8 %18, %16
-  %19 = load i8, ptr %_must_mask, align 8
-  %tobool120 = trunc i8 %19 to i1
+  %15 = and i8 %call100, 1
+  %16 = load ptr, ptr %_in_progress.i, align 8
+  %call110 = tail call noundef zeroext i8 @_ZNK3zmq5msg_t5flagsEv(ptr noundef nonnull align 8 dereferenceable(64) %16)
+  %17 = and i8 %call110, 2
+  %protocol_flags.1 = or disjoint i8 %17, %15
+  %18 = load i8, ptr %_must_mask, align 8
+  %tobool120 = trunc i8 %18 to i1
   %_mask122 = getelementptr inbounds nuw i8, ptr %this, i64 89
-  %20 = load i8, ptr %_mask122, align 1
-  %tobool120.mask = and i8 %19, 1
+  %19 = load i8, ptr %_mask122, align 1
+  %tobool120.mask = and i8 %18, 1
   %mask_index.1 = zext nneg i8 %tobool120.mask to i64
-  %xor31 = select i1 %tobool120, i8 %20, i8 0
+  %xor31 = select i1 %tobool120, i8 %19, i8 0
   %cond128.in = xor i8 %xor31, %protocol_flags.1
   %inc131 = add nuw nsw i32 %offset.2, 1
   %idxprom132 = zext nneg i32 %offset.2 to i64
@@ -294,42 +294,42 @@ if.then98:                                        ; preds = %if.end95
   br label %if.end134
 
 if.end134:                                        ; preds = %if.then98, %if.end95
-  %21 = phi ptr [ %.pre66, %if.then98 ], [ %.pre67, %if.end95 ]
+  %20 = phi ptr [ %.pre66, %if.then98 ], [ %.pre67, %if.end95 ]
   %mask_index.0 = phi i64 [ %mask_index.1, %if.then98 ], [ 0, %if.end95 ]
   %offset.3 = phi i32 [ %inc131, %if.then98 ], [ %offset.2, %if.end95 ]
-  %flags.i61 = getelementptr inbounds nuw i8, ptr %21, i64 43
-  %22 = load i8, ptr %flags.i61, align 1
-  %23 = and i8 %22, 28
-  switch i8 %23, label %if.end177 [
+  %flags.i61 = getelementptr inbounds nuw i8, ptr %20, i64 43
+  %21 = load i8, ptr %flags.i61, align 1
+  %22 = and i8 %21, 28
+  switch i8 %22, label %if.end177 [
     i8 12, label %if.then137
     i8 16, label %if.then158
   ]
 
 if.then137:                                       ; preds = %if.end134
-  %24 = load i8, ptr %_must_mask, align 8
-  %tobool139 = trunc i8 %24 to i1
+  %23 = load i8, ptr %_must_mask, align 8
+  %tobool139 = trunc i8 %23 to i1
   br i1 %tobool139, label %cond.true140, label %if.end177.sink.split
 
 cond.true140:                                     ; preds = %if.then137
   %_mask141 = getelementptr inbounds nuw i8, ptr %this, i64 89
   %arrayidx144 = getelementptr inbounds nuw [4 x i8], ptr %_mask141, i64 0, i64 %mask_index.0
-  %25 = load i8, ptr %arrayidx144, align 1
-  %26 = xor i8 %25, 1
+  %24 = load i8, ptr %arrayidx144, align 1
+  %25 = xor i8 %24, 1
   br label %if.end177.sink.split
 
 if.then158:                                       ; preds = %if.end134
-  %27 = load i8, ptr %_must_mask, align 8
-  %tobool160 = trunc i8 %27 to i1
+  %26 = load i8, ptr %_must_mask, align 8
+  %tobool160 = trunc i8 %26 to i1
   br i1 %tobool160, label %cond.true161, label %if.end177.sink.split
 
 cond.true161:                                     ; preds = %if.then158
   %_mask162 = getelementptr inbounds nuw i8, ptr %this, i64 89
   %arrayidx165 = getelementptr inbounds nuw [4 x i8], ptr %_mask162, i64 0, i64 %mask_index.0
-  %28 = load i8, ptr %arrayidx165, align 1
+  %27 = load i8, ptr %arrayidx165, align 1
   br label %if.end177.sink.split
 
 if.end177.sink.split:                             ; preds = %cond.true161, %if.then158, %cond.true140, %if.then137
-  %cond170.sink = phi i8 [ %26, %cond.true140 ], [ 1, %if.then137 ], [ %28, %cond.true161 ], [ 0, %if.then158 ]
+  %cond170.sink = phi i8 [ %25, %cond.true140 ], [ 1, %if.then137 ], [ %27, %cond.true161 ], [ 0, %if.then158 ]
   %inc173 = add nuw nsw i32 %offset.3, 1
   %idxprom174 = zext nneg i32 %offset.3 to i64
   %arrayidx175 = getelementptr inbounds nuw [16 x i8], ptr %_tmp_buf26, i64 0, i64 %idxprom174

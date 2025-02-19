@@ -306,9 +306,9 @@ define noundef nonnull ptr @_ZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS_8Arr
   br i1 %.not123130, label %._crit_edge135, label %.lr.ph134
 
 .lr.ph134:                                        ; preds = %._crit_edge129, %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit
-  %60 = phi i32 [ %179, %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ 0, %._crit_edge129 ]
+  %60 = phi i32 [ %180, %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ 0, %._crit_edge129 ]
   %.0132 = phi i8 [ %.1, %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ 0, %._crit_edge129 ]
-  %.sroa.0110.0131 = phi ptr [ %180, %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ %57, %._crit_edge129 ]
+  %.sroa.0110.0131 = phi ptr [ %181, %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ %57, %._crit_edge129 ]
   %61 = load i32, ptr %.sroa.0110.0131, align 8
   %62 = sext i32 %61 to i64
   %63 = getelementptr inbounds %"class.gmx::ListOfLists", ptr %3, i64 %62
@@ -470,11 +470,11 @@ define noundef nonnull ptr @_ZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS_8Arr
   br i1 %exitcond.not.i, label %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit, label %92, !llvm.loop !8
 
 _ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit: ; preds = %._crit_edge.i
-  %148 = mul nsw i32 %spec.select.i, %65
-  %149 = add nsw i32 %60, %148
-  store i32 %149, ptr %55, align 8
-  %150 = trunc nuw i8 %.0132 to i1
-  br i1 %150, label %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit, label %.lr.ph.i96
+  %149 = mul nsw i32 %spec.select.i, %65
+  %150 = add nsw i32 %60, %149
+  store i32 %150, ptr %55, align 8
+  %151 = trunc nuw i8 %.0132 to i1
+  br i1 %151, label %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit, label %.lr.ph.i96
 
 _ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit.thread: ; preds = %.lr.ph134
   store i32 %60, ptr %55, align 8
@@ -482,242 +482,242 @@ _ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11Li
   br label %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit
 
 .lr.ph.i96:                                       ; preds = %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit
-  %151 = ashr exact i64 %74, 2
-  %152 = sub nsw i64 0, %151
-  %invariant.gep.i = getelementptr i32, ptr %81, i64 %152
+  %152 = ashr exact i64 %74, 2
+  %153 = sub nsw i64 0, %152
+  %invariant.gep.i = getelementptr i32, ptr %81, i64 %153
   %wide.trip.count.i97 = zext nneg i32 %88 to i64
-  br label %153
+  br label %154
 
-153:                                              ; preds = %.critedge.i, %.lr.ph.i96
+154:                                              ; preds = %.critedge.i, %.lr.ph.i96
   %indvars.iv.i98 = phi i64 [ 0, %.lr.ph.i96 ], [ %indvars.iv.next.i101, %.critedge.i ]
-  %154 = mul nuw nsw i64 %indvars.iv.i98, 3
-  %155 = icmp sgt i64 %151, %154
-  %.0.i.v.i99 = select i1 %155, ptr %71, ptr %invariant.gep.i
-  %.0.i.i100 = getelementptr i32, ptr %.0.i.v.i99, i64 %154
-  %156 = getelementptr inbounds nuw i8, ptr %.0.i.i100, i64 4
-  %157 = load i32, ptr %156, align 4
-  %158 = sext i32 %157 to i64
-  %159 = getelementptr i32, ptr %.val, i64 %158
-  %160 = load i32, ptr %159, align 4
-  %161 = sext i32 %160 to i64
-  %162 = getelementptr i8, ptr %159, i64 4
-  %163 = load i32, ptr %162, align 4
-  %164 = sext i32 %163 to i64
-  %165 = sub nsw i64 %164, %161
-  %166 = icmp sgt i64 %165, 1
-  br i1 %166, label %167, label %.critedge.i
+  %155 = mul nuw nsw i64 %indvars.iv.i98, 3
+  %156 = icmp sgt i64 %152, %155
+  %.0.i.v.i99 = select i1 %156, ptr %71, ptr %invariant.gep.i
+  %.0.i.i100 = getelementptr i32, ptr %.0.i.v.i99, i64 %155
+  %157 = getelementptr inbounds nuw i8, ptr %.0.i.i100, i64 4
+  %158 = load i32, ptr %157, align 4
+  %159 = sext i32 %158 to i64
+  %160 = getelementptr i32, ptr %.val, i64 %159
+  %161 = load i32, ptr %160, align 4
+  %162 = sext i32 %161 to i64
+  %163 = getelementptr i8, ptr %160, i64 4
+  %164 = load i32, ptr %163, align 4
+  %165 = sext i32 %164 to i64
+  %166 = sub nsw i64 %165, %162
+  %167 = icmp sgt i64 %166, 1
+  br i1 %167, label %168, label %.critedge.i
 
-167:                                              ; preds = %153
-  %168 = getelementptr inbounds nuw i8, ptr %.0.i.i100, i64 8
-  %169 = load i32, ptr %168, align 4
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr i32, ptr %.val, i64 %170
-  %172 = load i32, ptr %171, align 4
-  %173 = sext i32 %172 to i64
-  %174 = getelementptr i8, ptr %171, i64 4
-  %175 = load i32, ptr %174, align 4
-  %176 = sext i32 %175 to i64
-  %177 = sub nsw i64 %176, %173
-  %178 = icmp sgt i64 %177, 1
-  br i1 %178, label %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit, label %.critedge.i
+168:                                              ; preds = %154
+  %169 = getelementptr inbounds nuw i8, ptr %.0.i.i100, i64 8
+  %170 = load i32, ptr %169, align 4
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr i32, ptr %.val, i64 %171
+  %173 = load i32, ptr %172, align 4
+  %174 = sext i32 %173 to i64
+  %175 = getelementptr i8, ptr %172, i64 4
+  %176 = load i32, ptr %175, align 4
+  %177 = sext i32 %176 to i64
+  %178 = sub nsw i64 %177, %174
+  %179 = icmp sgt i64 %178, 1
+  br i1 %179, label %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit, label %.critedge.i
 
-.critedge.i:                                      ; preds = %167, %153
+.critedge.i:                                      ; preds = %168, %154
   %indvars.iv.next.i101 = add nuw nsw i64 %indvars.iv.i98, 1
   %exitcond.not.i102 = icmp eq i64 %indvars.iv.next.i101, %wide.trip.count.i97
-  br i1 %exitcond.not.i102, label %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit, label %153, !llvm.loop !9
+  br i1 %exitcond.not.i102, label %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit, label %154, !llvm.loop !9
 
-_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit: ; preds = %.critedge.i, %167, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit.thread, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit
-  %179 = phi i32 [ %149, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ %60, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit.thread ], [ %149, %167 ], [ %149, %.critedge.i ]
-  %.1 = phi i8 [ 1, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ %spec.select, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit.thread ], [ %.0132, %.critedge.i ], [ 1, %167 ]
-  %180 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0131, i64 56
-  %.not123 = icmp eq ptr %180, %59
+_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit: ; preds = %.critedge.i, %168, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit.thread, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit
+  %180 = phi i32 [ %150, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ %60, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit.thread ], [ %150, %168 ], [ %150, %.critedge.i ]
+  %.1 = phi i8 [ 1, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit ], [ %spec.select, %_ZN3gmxL26count_triangle_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit.thread ], [ %.0132, %.critedge.i ], [ 1, %168 ]
+  %181 = getelementptr inbounds nuw i8, ptr %.sroa.0110.0131, i64 56
+  %.not123 = icmp eq ptr %181, %59
   br i1 %.not123, label %._crit_edge135.loopexit, label %.lr.ph134
 
 ._crit_edge135.loopexit:                          ; preds = %_ZN3gmxL36more_than_two_sequential_constraintsERKSt5arrayI15InteractionListLm94EERKNS_11ListOfListsIiEE.exit
-  %181 = trunc nuw i8 %.1 to i1
+  %182 = trunc nuw i8 %.1 to i1
   br label %._crit_edge135
 
 ._crit_edge135:                                   ; preds = %._crit_edge135.loopexit, %._crit_edge129
-  %.0.lcssa = phi i1 [ false, %._crit_edge129 ], [ %181, %._crit_edge135.loopexit ]
-  br i1 %5, label %183, label %.thread
+  %.0.lcssa = phi i1 [ false, %._crit_edge129 ], [ %182, %._crit_edge135.loopexit ]
+  br i1 %5, label %184, label %.thread
 
 .thread:                                          ; preds = %._crit_edge135
-  %182 = getelementptr inbounds nuw i8, ptr %16, i64 240
-  store i8 0, ptr %182, align 8
-  br label %192
+  %183 = getelementptr inbounds nuw i8, ptr %16, i64 240
+  store i8 0, ptr %183, align 8
+  br label %193
 
-183:                                              ; preds = %._crit_edge135
-  %184 = icmp slt i32 %7, 1
-  %185 = select i1 %184, i1 true, i1 %.0.lcssa
-  %186 = getelementptr inbounds nuw i8, ptr %16, i64 240
-  %187 = zext i1 %185 to i8
-  store i8 %187, ptr %186, align 8
-  %188 = load ptr, ptr @debug, align 8
-  %.not85 = icmp eq ptr %188, null
-  br i1 %.not85, label %192, label %189
+184:                                              ; preds = %._crit_edge135
+  %185 = icmp slt i32 %7, 1
+  %186 = select i1 %185, i1 true, i1 %.0.lcssa
+  %187 = getelementptr inbounds nuw i8, ptr %16, i64 240
+  %188 = zext i1 %186 to i8
+  store i8 %188, ptr %187, align 8
+  %189 = load ptr, ptr @debug, align 8
+  %.not85 = icmp eq ptr %189, null
+  br i1 %.not85, label %193, label %190
 
-189:                                              ; preds = %183
-  %190 = zext i1 %185 to i32
-  %191 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %188, ptr noundef nonnull @.str.4, i32 noundef %190) #19
-  br label %192
+190:                                              ; preds = %184
+  %191 = zext i1 %186 to i32
+  %192 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %189, ptr noundef nonnull @.str.4, i32 noundef %191) #19
+  br label %193
 
-192:                                              ; preds = %.thread, %183, %189
-  %193 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 8)
-  %194 = getelementptr inbounds nuw i8, ptr %16, i64 344
-  store i32 %193, ptr %194, align 8
-  %195 = icmp sgt i32 %193, 1
-  %196 = select i1 %195, i1 %.0.lcssa, i1 false
-  %197 = getelementptr inbounds nuw i8, ptr %16, i64 400
-  %198 = zext i1 %196 to i8
-  store i8 %198, ptr %197, align 8
-  %199 = load ptr, ptr @debug, align 8
-  %.not86 = icmp eq ptr %199, null
-  br i1 %.not86, label %203, label %200
+193:                                              ; preds = %.thread, %184, %190
+  %194 = tail call noundef i32 @_Z20gmx_omp_nthreads_get17ModuleMultiThread(i32 noundef 8)
+  %195 = getelementptr inbounds nuw i8, ptr %16, i64 344
+  store i32 %194, ptr %195, align 8
+  %196 = icmp sgt i32 %194, 1
+  %197 = select i1 %196, i1 %.0.lcssa, i1 false
+  %198 = getelementptr inbounds nuw i8, ptr %16, i64 400
+  %199 = zext i1 %197 to i8
+  store i8 %199, ptr %198, align 8
+  %200 = load ptr, ptr @debug, align 8
+  %.not86 = icmp eq ptr %200, null
+  br i1 %.not86, label %204, label %201
 
-200:                                              ; preds = %192
-  %201 = select i1 %196, ptr @.str.3, ptr @.str.6
-  %202 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %199, ptr noundef nonnull @.str.5, i32 noundef %193, ptr noundef nonnull %201) #19
-  br label %203
+201:                                              ; preds = %193
+  %202 = select i1 %197, ptr @.str.3, ptr @.str.6
+  %203 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %200, ptr noundef nonnull @.str.5, i32 noundef %194, ptr noundef nonnull %202) #19
+  br label %204
 
-203:                                              ; preds = %200, %192
-  %204 = icmp eq i32 %193, 1
-  %205 = add nsw i32 %193, 1
-  %narrow = select i1 %204, i32 1, i32 %205
+204:                                              ; preds = %201, %193
+  %205 = icmp eq i32 %194, 1
+  %206 = add nsw i32 %194, 1
+  %narrow = select i1 %205, i32 1, i32 %206
   %.sink = sext i32 %narrow to i64
   tail call fastcc void @_ZNSt6vectorIN12_GLOBAL__N_14TaskESaIS1_EE6resizeEm(ptr noundef nonnull align 8 dereferenceable(24) %18, i64 noundef %.sink)
-  br i1 %5, label %209, label %206
+  br i1 %5, label %210, label %207
 
-206:                                              ; preds = %203
-  %207 = load i32, ptr %55, align 8
-  %208 = icmp sgt i32 %207, 0
-  br i1 %208, label %209, label %.thread121
+207:                                              ; preds = %204
+  %208 = load i32, ptr %55, align 8
+  %209 = icmp sgt i32 %208, 0
+  br i1 %209, label %210, label %.thread121
 
-209:                                              ; preds = %203, %206
+210:                                              ; preds = %204, %207
   tail call void @_Z11please_citeP8_IO_FILEPKc(ptr noundef %0, ptr noundef nonnull @.str.7)
-  br i1 %.not, label %223, label %212
+  br i1 %.not, label %224, label %213
 
-.thread121:                                       ; preds = %206
+.thread121:                                       ; preds = %207
   tail call void @_Z11please_citeP8_IO_FILEPKc(ptr noundef %0, ptr noundef nonnull @.str.8)
-  br i1 %.not, label %223, label %.thread122
+  br i1 %.not, label %224, label %.thread122
 
 .thread122:                                       ; preds = %.thread121
-  %210 = load i32, ptr %16, align 8
-  %211 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %210) #19
-  br label %217
+  %211 = load i32, ptr %16, align 8
+  %212 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %211) #19
+  br label %218
 
-212:                                              ; preds = %209
-  %213 = load i32, ptr %16, align 8
-  %214 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %213) #19
-  br i1 %5, label %215, label %217
+213:                                              ; preds = %210
+  %214 = load i32, ptr %16, align 8
+  %215 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, i32 noundef %214) #19
+  br i1 %5, label %216, label %218
 
-215:                                              ; preds = %212
-  %216 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 131, i64 1, ptr nonnull %0)
-  br label %217
+216:                                              ; preds = %213
+  %217 = tail call i64 @fwrite(ptr nonnull @.str.10, i64 131, i64 1, ptr nonnull %0)
+  br label %218
 
-217:                                              ; preds = %.thread122, %215, %212
-  %218 = load i32, ptr %55, align 8
-  %219 = icmp sgt i32 %218, 0
-  br i1 %219, label %220, label %223
+218:                                              ; preds = %.thread122, %216, %213
+  %219 = load i32, ptr %55, align 8
+  %220 = icmp sgt i32 %219, 0
+  br i1 %220, label %221, label %224
 
-220:                                              ; preds = %217
-  %221 = load i32, ptr %28, align 8
-  %222 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %218, i32 noundef %221) #19
-  br label %223
+221:                                              ; preds = %218
+  %222 = load i32, ptr %28, align 8
+  %223 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %0, ptr noundef nonnull @.str.11, i32 noundef %219, i32 noundef %222) #19
+  br label %224
 
-223:                                              ; preds = %.thread121, %217, %220, %209
+224:                                              ; preds = %.thread121, %218, %221, %210
   %.not87 = icmp eq ptr %8, null
-  br i1 %.not87, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit, label %224
+  br i1 %.not87, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit, label %225
 
-224:                                              ; preds = %223
-  %225 = ptrtoint ptr %16 to i64
-  %226 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %227 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %228 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %228, align 8
-  store i64 %225, ptr %10, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS7_IKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_", ptr %227, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS7_IKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %226, align 8
-  %229 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %230 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  %231 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  store i64 0, ptr %231, align 8
-  store i64 %225, ptr %11, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvlEZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS1_8ArrayRefIKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_1E9_M_invokeERKSt9_Any_dataOl", ptr %230, align 8
-  store ptr @"_ZNSt17_Function_handlerIFvlEZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS1_8ArrayRefIKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %229, align 8
+225:                                              ; preds = %224
+  %226 = ptrtoint ptr %16 to i64
+  %227 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %228 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %229 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 0, ptr %229, align 8
+  store i64 %226, ptr %10, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS7_IKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_0E9_M_invokeERKSt9_Any_dataS6_OS8_", ptr %228, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvOSt8functionIFN3gmx24ObservablesReducerStatusENS1_20ReductionRequirementEEENS1_8ArrayRefIdEEEZNS1_10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS7_IKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_0E10_M_managerERSt9_Any_dataRKSN_St18_Manager_operation", ptr %227, align 8
+  %230 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %231 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %232 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  store i64 0, ptr %232, align 8
+  store i64 %226, ptr %11, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvlEZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS1_8ArrayRefIKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_1E9_M_invokeERKSt9_Any_dataOl", ptr %231, align 8
+  store ptr @"_ZNSt17_Function_handlerIFvlEZN3gmx10init_lincsEP8_IO_FILERK10gmx_mtop_tiNS1_8ArrayRefIKNS1_11ListOfListsIiEEEEbiiPNS1_25ObservablesReducerBuilderEE3$_1E10_M_managerERSt9_Any_dataRKSG_St18_Manager_operation", ptr %230, align 8
   invoke void @_ZN3gmx25ObservablesReducerBuilder13addSubscriberEiOSt8functionIFvOS1_IFNS_24ObservablesReducerStatusENS_20ReductionRequirementEEENS_8ArrayRefIdEEEEOS1_IFvlEE(ptr noundef nonnull align 8 dereferenceable(8) %8, i32 noundef 2, ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %11)
-          to label %232 unwind label %245
+          to label %233 unwind label %246
 
-232:                                              ; preds = %224
-  %233 = load ptr, ptr %229, align 8
-  %.not.i.i = icmp eq ptr %233, null
-  br i1 %.not.i.i, label %_ZNSt8functionIFvlEED2Ev.exit, label %234
+233:                                              ; preds = %225
+  %234 = load ptr, ptr %230, align 8
+  %.not.i.i = icmp eq ptr %234, null
+  br i1 %.not.i.i, label %_ZNSt8functionIFvlEED2Ev.exit, label %235
 
-234:                                              ; preds = %232
-  %235 = invoke noundef zeroext i1 %233(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
-          to label %_ZNSt8functionIFvlEED2Ev.exit unwind label %236
+235:                                              ; preds = %233
+  %236 = invoke noundef zeroext i1 %233(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
+          to label %_ZNSt8functionIFvlEED2Ev.exit unwind label %237
 
-236:                                              ; preds = %234
-  %237 = landingpad { ptr, i32 }
+237:                                              ; preds = %235
+  %238 = landingpad { ptr, i32 }
           catch ptr null
-  %238 = extractvalue { ptr, i32 } %237, 0
-  call void @__clang_call_terminate(ptr %238) #40
+  %239 = extractvalue { ptr, i32 } %238, 0
+  call void @__clang_call_terminate(ptr %239) #40
   unreachable
 
-_ZNSt8functionIFvlEED2Ev.exit:                    ; preds = %232, %234
-  %239 = load ptr, ptr %226, align 8
-  %.not.i.i103 = icmp eq ptr %239, null
-  br i1 %.not.i.i103, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit, label %240
+_ZNSt8functionIFvlEED2Ev.exit:                    ; preds = %233, %235
+  %240 = load ptr, ptr %227, align 8
+  %.not.i.i103 = icmp eq ptr %240, null
+  br i1 %.not.i.i103, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit, label %241
 
-240:                                              ; preds = %_ZNSt8functionIFvlEED2Ev.exit
-  %241 = invoke noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
-          to label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit unwind label %242
+241:                                              ; preds = %_ZNSt8functionIFvlEED2Ev.exit
+  %242 = invoke noundef zeroext i1 %239(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
+          to label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit unwind label %243
 
-242:                                              ; preds = %240
-  %243 = landingpad { ptr, i32 }
+243:                                              ; preds = %241
+  %244 = landingpad { ptr, i32 }
           catch ptr null
-  %244 = extractvalue { ptr, i32 } %243, 0
-  call void @__clang_call_terminate(ptr %244) #40
+  %245 = extractvalue { ptr, i32 } %244, 0
+  call void @__clang_call_terminate(ptr %245) #40
   unreachable
 
-245:                                              ; preds = %224
-  %246 = landingpad { ptr, i32 }
+246:                                              ; preds = %225
+  %247 = landingpad { ptr, i32 }
           cleanup
-  %247 = load ptr, ptr %229, align 8
-  %.not.i.i104 = icmp eq ptr %247, null
-  br i1 %.not.i.i104, label %_ZNSt8functionIFvlEED2Ev.exit105, label %248
+  %248 = load ptr, ptr %230, align 8
+  %.not.i.i104 = icmp eq ptr %248, null
+  br i1 %.not.i.i104, label %_ZNSt8functionIFvlEED2Ev.exit105, label %249
 
-248:                                              ; preds = %245
-  %249 = invoke noundef zeroext i1 %247(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
-          to label %_ZNSt8functionIFvlEED2Ev.exit105 unwind label %250
+249:                                              ; preds = %246
+  %250 = invoke noundef zeroext i1 %247(ptr noundef nonnull align 8 dereferenceable(32) %11, ptr noundef nonnull align 8 dereferenceable(32) %11, i32 noundef 3)
+          to label %_ZNSt8functionIFvlEED2Ev.exit105 unwind label %251
 
-250:                                              ; preds = %248
-  %251 = landingpad { ptr, i32 }
+251:                                              ; preds = %249
+  %252 = landingpad { ptr, i32 }
           catch ptr null
-  %252 = extractvalue { ptr, i32 } %251, 0
-  call void @__clang_call_terminate(ptr %252) #40
+  %253 = extractvalue { ptr, i32 } %252, 0
+  call void @__clang_call_terminate(ptr %253) #40
   unreachable
 
-_ZNSt8functionIFvlEED2Ev.exit105:                 ; preds = %245, %248
-  %253 = load ptr, ptr %226, align 8
-  %.not.i.i106 = icmp eq ptr %253, null
-  br i1 %.not.i.i106, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit107, label %254
+_ZNSt8functionIFvlEED2Ev.exit105:                 ; preds = %246, %249
+  %254 = load ptr, ptr %227, align 8
+  %.not.i.i106 = icmp eq ptr %254, null
+  br i1 %.not.i.i106, label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit107, label %255
 
-254:                                              ; preds = %_ZNSt8functionIFvlEED2Ev.exit105
-  %255 = invoke noundef zeroext i1 %253(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
-          to label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit107 unwind label %256
+255:                                              ; preds = %_ZNSt8functionIFvlEED2Ev.exit105
+  %256 = invoke noundef zeroext i1 %253(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3)
+          to label %_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit107 unwind label %257
 
-256:                                              ; preds = %254
-  %257 = landingpad { ptr, i32 }
+257:                                              ; preds = %255
+  %258 = landingpad { ptr, i32 }
           catch ptr null
-  %258 = extractvalue { ptr, i32 } %257, 0
-  call void @__clang_call_terminate(ptr %258) #40
+  %259 = extractvalue { ptr, i32 } %258, 0
+  call void @__clang_call_terminate(ptr %259) #40
   unreachable
 
-_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit: ; preds = %240, %_ZNSt8functionIFvlEED2Ev.exit, %223
+_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit: ; preds = %241, %_ZNSt8functionIFvlEED2Ev.exit, %224
   ret ptr %16
 
-_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit107: ; preds = %254, %_ZNSt8functionIFvlEED2Ev.exit105
-  resume { ptr, i32 } %246
+_ZNSt8functionIFvOS_IFN3gmx24ObservablesReducerStatusENS0_20ReductionRequirementEEENS0_8ArrayRefIdEEEED2Ev.exit107: ; preds = %255, %_ZNSt8functionIFvlEED2Ev.exit105
+  resume { ptr, i32 } %247
 }
 
 ; Function Attrs: nofree nounwind

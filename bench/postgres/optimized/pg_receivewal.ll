@@ -690,7 +690,7 @@ get_destination_dir.exit.preheader.i.i:           ; preds = %221
   unreachable
 
 .lr.ph.i.i:                                       ; preds = %get_destination_dir.exit.preheader.i.i, %is_xlogfilename.exit.thread.i.i
-  %228 = phi ptr [ %325, %is_xlogfilename.exit.thread.i.i ], [ %226, %get_destination_dir.exit.preheader.i.i ]
+  %228 = phi ptr [ %324, %is_xlogfilename.exit.thread.i.i ], [ %226, %get_destination_dir.exit.preheader.i.i ]
   %.041117.i.i = phi i64 [ %.1.i.i, %is_xlogfilename.exit.thread.i.i ], [ 0, %get_destination_dir.exit.preheader.i.i ]
   %.042116.i.i = phi i32 [ %.143.i.i, %is_xlogfilename.exit.thread.i.i ], [ 0, %get_destination_dir.exit.preheader.i.i ]
   %.045115.i.i = phi i8 [ %.146.i.i, %is_xlogfilename.exit.thread.i.i ], [ 0, %get_destination_dir.exit.preheader.i.i ]
@@ -888,41 +888,41 @@ is_xlogfilename.exit.i.i:                         ; preds = %249, %245, %241, %2
 315:                                              ; preds = %.critedge66.i.i, %.critedge.i.i, %313
   %316 = icmp ugt i64 %265, %.041117.i.i
   %.pre.i.i = load i32, ptr %5, align 4
-  br i1 %316, label %324, label %317
+  br i1 %316, label %323, label %317
 
 317:                                              ; preds = %315
   %318 = icmp eq i64 %265, %.041117.i.i
   %319 = icmp ugt i32 %.pre.i.i, %.042116.i.i
   %or.cond.i.i = select i1 %318, i1 %319, i1 false
-  br i1 %or.cond.i.i, label %324, label %320
+  br i1 %or.cond.i.i, label %323, label %320
 
 320:                                              ; preds = %317
   %321 = icmp eq i32 %.pre.i.i, %.042116.i.i
-  %or.cond69.i.i = select i1 %318, i1 %321, i1 false
-  br i1 %or.cond69.i.i, label %322, label %is_xlogfilename.exit.thread.i.i
+  %not..i.i = select i1 %318, i1 %321, i1 false
+  br i1 %not..i.i, label %322, label %is_xlogfilename.exit.thread.i.i
 
-322:                                              ; preds = %320
+322:; preds = %320
   %323 = trunc nuw i8 %.045115.i.i to i1
   %.not86.i.i = xor i1 %323, true
   %brmerge.i.i = or i1 %.not86.i.i, %266
-  %.mux.i.i = and i8 %.045115.i.i, 1
-  br i1 %brmerge.i.i, label %is_xlogfilename.exit.thread.i.i, label %324
+  %or.cond133.i.i = and i8 %.045115.i.i, 1
+  br i1 %brmerge.i.i, label %is_xlogfilename.exit.thread.i.i, label %323
 
-324:                                              ; preds = %322, %317, %315
+323:                                              ; preds = %322, %317, %315
   br label %is_xlogfilename.exit.thread.i.i
 
 is_xlogfilename.exit.thread.i.i:                  ; preds = %324, %322, %320, %312, %276, %249, %245, %241, %237, %233, %231, %.lr.ph.i.i
-  %.146.i.i = phi i8 [ %.045115.i.i, %276 ], [ %.045115.i.i, %312 ], [ %.sink27.i.i.i, %324 ], [ %.mux.i.i, %322 ], [ %.045115.i.i, %320 ], [ %.045115.i.i, %.lr.ph.i.i ], [ %.045115.i.i, %231 ], [ %.045115.i.i, %249 ], [ %.045115.i.i, %233 ], [ %.045115.i.i, %237 ], [ %.045115.i.i, %241 ], [ %.045115.i.i, %245 ]
-  %.143.i.i = phi i32 [ %.042116.i.i, %276 ], [ %.042116.i.i, %312 ], [ %.pre.i.i, %324 ], [ %.042116.i.i, %322 ], [ %.042116.i.i, %320 ], [ %.042116.i.i, %.lr.ph.i.i ], [ %.042116.i.i, %231 ], [ %.042116.i.i, %249 ], [ %.042116.i.i, %233 ], [ %.042116.i.i, %237 ], [ %.042116.i.i, %241 ], [ %.042116.i.i, %245 ]
-  %.1.i.i = phi i64 [ %.041117.i.i, %276 ], [ %.041117.i.i, %312 ], [ %265, %324 ], [ %.041117.i.i, %322 ], [ %.041117.i.i, %320 ], [ %.041117.i.i, %.lr.ph.i.i ], [ %.041117.i.i, %231 ], [ %.041117.i.i, %249 ], [ %.041117.i.i, %233 ], [ %.041117.i.i, %237 ], [ %.041117.i.i, %241 ], [ %.041117.i.i, %245 ]
+  %.146.i.i = phi i8 [ %.045115.i.i, %276 ], [ %.045115.i.i, %312 ], [ %.sink27.i.i.i, %323 ], [ %.mux.i.i, %322 ], [ %.045115.i.i, %320 ], [ %.045115.i.i, %.lr.ph.i.i ], [ %.045115.i.i, %231 ], [ %.045115.i.i, %249 ], [ %.045115.i.i, %233 ], [ %.045115.i.i, %237 ], [ %.045115.i.i, %241 ], [ %.045115.i.i, %245 ]
+  %.143.i.i = phi i32 [ %.042116.i.i, %276 ], [ %.042116.i.i, %312 ], [ %.pre.i.i, %323 ], [ %.042116.i.i, %322 ], [ %.042116.i.i, %320 ], [ %.042116.i.i, %.lr.ph.i.i ], [ %.042116.i.i, %231 ], [ %.042116.i.i, %249 ], [ %.042116.i.i, %233 ], [ %.042116.i.i, %237 ], [ %.042116.i.i, %241 ], [ %.042116.i.i, %245 ]
+  %.1.i.i = phi i64 [ %.041117.i.i, %276 ], [ %.041117.i.i, %312 ], [ %265, %323 ], [ %.041117.i.i, %322 ], [ %.041117.i.i, %320 ], [ %.041117.i.i, %.lr.ph.i.i ], [ %.041117.i.i, %231 ], [ %.041117.i.i, %249 ], [ %.041117.i.i, %233 ], [ %.041117.i.i, %237 ], [ %.041117.i.i, %241 ], [ %.041117.i.i, %245 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #12
   store i32 0, ptr %225, align 4
-  %325 = call ptr @readdir(ptr noundef nonnull %223) #12
-  %.not56.i.i = icmp eq ptr %325, null
+  %324 = call ptr @readdir(ptr noundef nonnull %223) #12
+  %.not56.i.i = icmp eq ptr %324, null
   br i1 %.not56.i.i, label %get_destination_dir.exit._crit_edge.loopexit.i.i, label %.lr.ph.i.i
 
 get_destination_dir.exit._crit_edge.loopexit.i.i: ; preds = %is_xlogfilename.exit.thread.i.i
-  %326 = xor i8 %.146.i.i, 1
+  %325 = xor i8 %.146.i.i, 1
   %327 = zext nneg i8 %326 to i64
   br label %get_destination_dir.exit._crit_edge.i.i
 

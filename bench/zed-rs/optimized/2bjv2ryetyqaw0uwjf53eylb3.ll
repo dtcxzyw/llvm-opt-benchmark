@@ -37630,15 +37630,15 @@ define noundef range(i8 0, 16) i8 @_ZN6search13SearchOptions13from_settings17h6f
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %4 = load i8, ptr %3, align 1, !range !40, !noundef !4
   %5 = shl nuw nsw i8 %4, 1
-  %.sroa.0.1 = or disjoint i8 %5, %2
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = or disjoint i8 %5, %2
+  %.sroa.0.1 = getelementptr inbounds nuw i8, ptr %0, i64 2
   %7 = load i8, ptr %6, align 1, !range !40, !noundef !4
   %8 = shl nuw nsw i8 %7, 2
-  %.sroa.0.2 = or disjoint i8 %.sroa.0.1, %8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %10 = load i8, ptr %9, align 1, !range !40, !noundef !4
+  %9 = or disjoint i8 %6, %8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  %.sroa.0.2 = load i8, ptr %9, align 1, !range !40, !noundef !4
   %11 = shl nuw nsw i8 %10, 3
-  %.sroa.0.3 = or disjoint i8 %.sroa.0.2, %11
+  %12 = or disjoint i8 %9, %11
   ret i8 %.sroa.0.3
 }
 

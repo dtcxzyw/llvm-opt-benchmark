@@ -5028,113 +5028,113 @@ define void @_ZN6Assimp13SceneCombiner13AttachToGraphEP6aiNodeRSt6vectorINS_18No
   %.not4953 = icmp eq ptr %14, %16
   br i1 %.not4953, label %.loopexit, label %.lr.ph57
 
-._crit_edge58:                                    ; preds = %25
+._crit_edge58:                                    ; preds = %24
   %.not = icmp eq i32 %.2, 0
-  br i1 %.not, label %.loopexit, label %27
+  br i1 %.not, label %.loopexit, label %26
 
-.lr.ph57:                                         ; preds = %._crit_edge, %25
-  %.155 = phi i32 [ %.2, %25 ], [ 0, %._crit_edge ]
-  %.sroa.045.054 = phi ptr [ %26, %25 ], [ %14, %._crit_edge ]
+.lr.ph57:                                         ; preds = %._crit_edge, %24
+  %.155 = phi i32 [ %.2, %24 ], [ 0, %._crit_edge ]
+  %.sroa.045.054 = phi ptr [ %25, %24 ], [ %14, %._crit_edge ]
   %17 = getelementptr inbounds nuw i8, ptr %.sroa.045.054, i64 8
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, %0
-  br i1 %19, label %20, label %25
+  br i1 %19, label %20, label %24
 
 20:                                               ; preds = %.lr.ph57
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.045.054, i64 16
   %22 = load i8, ptr %21, align 8, !range !49, !noundef !50
   %23 = xor i8 %22, 1
-  %24 = zext nneg i8 %23 to i32
-  %spec.select = add i32 %.155, %24
-  br label %25
+  %not. = zext nneg i8 %23 to i32
+  %spec.select = add i32 %.155, %not.
+  br label %24
 
-25:                                               ; preds = %20, %.lr.ph57
+24:                                               ; preds = %20, %.lr.ph57
   %.2 = phi i32 [ %.155, %.lr.ph57 ], [ %spec.select, %20 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.045.054, i64 32
-  %.not49 = icmp eq ptr %26, %16
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.045.054, i64 32
+  %.not49 = icmp eq ptr %25, %16
   br i1 %.not49, label %._crit_edge58, label %.lr.ph57, !llvm.loop !56
 
-27:                                               ; preds = %._crit_edge58
-  %28 = add i32 %.2, %13
-  %29 = zext i32 %28 to i64
-  %30 = shl nuw nsw i64 %29, 3
-  %31 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %30) #22
+26:                                               ; preds = %._crit_edge58
+  %27 = add i32 %.2, %13
+  %28 = zext i32 %27 to i64
+  %29 = shl nuw nsw i64 %28, 3
+  %30 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %29) #22
   %.not44 = icmp eq i32 %13, 0
-  br i1 %.not44, label %39, label %32
+  br i1 %.not44, label %38, label %31
 
-32:                                               ; preds = %27
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  %34 = load ptr, ptr %33, align 8
-  %35 = zext i32 %13 to i64
-  %36 = shl nuw nsw i64 %35, 3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %31, ptr align 8 %34, i64 %36, i1 false)
-  %37 = icmp eq ptr %34, null
-  br i1 %37, label %39, label %38
+31:                                               ; preds = %26
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  %33 = load ptr, ptr %32, align 8
+  %34 = zext i32 %13 to i64
+  %35 = shl nuw nsw i64 %34, 3
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %30, ptr align 8 %33, i64 %35, i1 false)
+  %36 = icmp eq ptr %33, null
+  br i1 %36, label %38, label %37
 
-38:                                               ; preds = %32
-  tail call void @_ZdaPv(ptr noundef nonnull %34) #24
+37:                                               ; preds = %31
+  tail call void @_ZdaPv(ptr noundef nonnull %33) #24
   %.pre = load i32, ptr %3, align 8
-  br label %39
+  br label %38
 
-39:                                               ; preds = %32, %38, %27
-  %40 = phi i32 [ %13, %32 ], [ %.pre, %38 ], [ 0, %27 ]
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 1112
-  store ptr %31, ptr %41, align 8
-  %42 = add i32 %40, %.2
-  store i32 %42, ptr %3, align 8
-  %43 = load ptr, ptr %15, align 8
-  %44 = load ptr, ptr %1, align 8
-  %.not65 = icmp eq ptr %43, %44
+38:                                               ; preds = %31, %37, %26
+  %39 = phi i32 [ %13, %31 ], [ %.pre, %37 ], [ 0, %26 ]
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 1112
+  store ptr %30, ptr %40, align 8
+  %41 = add i32 %39, %.2
+  store i32 %41, ptr %3, align 8
+  %42 = load ptr, ptr %15, align 8
+  %43 = load ptr, ptr %1, align 8
+  %.not65 = icmp eq ptr %42, %43
   br i1 %.not65, label %.loopexit, label %.lr.ph63.preheader
 
-.lr.ph63.preheader:                               ; preds = %39
-  %45 = zext i32 %40 to i64
-  %46 = getelementptr inbounds nuw ptr, ptr %31, i64 %45
+.lr.ph63.preheader:                               ; preds = %38
+  %44 = zext i32 %39 to i64
+  %45 = getelementptr inbounds nuw ptr, ptr %30, i64 %44
   br label %.lr.ph63
 
-.lr.ph63:                                         ; preds = %.lr.ph63.preheader, %62
-  %47 = phi ptr [ %63, %62 ], [ %44, %.lr.ph63.preheader ]
-  %48 = phi ptr [ %64, %62 ], [ %43, %.lr.ph63.preheader ]
-  %49 = phi i64 [ %66, %62 ], [ 0, %.lr.ph63.preheader ]
-  %.03761 = phi i32 [ %65, %62 ], [ 0, %.lr.ph63.preheader ]
-  %.03860 = phi ptr [ %.139, %62 ], [ %46, %.lr.ph63.preheader ]
-  %50 = getelementptr inbounds nuw %"struct.Assimp::NodeAttachmentInfo", ptr %47, i64 %49
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = icmp eq ptr %52, %0
-  br i1 %53, label %54, label %62
+.lr.ph63:                                         ; preds = %.lr.ph63.preheader, %61
+  %46 = phi ptr [ %62, %61 ], [ %43, %.lr.ph63.preheader ]
+  %47 = phi ptr [ %63, %61 ], [ %42, %.lr.ph63.preheader ]
+  %48 = phi i64 [ %65, %61 ], [ 0, %.lr.ph63.preheader ]
+  %.03761 = phi i32 [ %64, %61 ], [ 0, %.lr.ph63.preheader ]
+  %.03860 = phi ptr [ %.139, %61 ], [ %45, %.lr.ph63.preheader ]
+  %49 = getelementptr inbounds nuw %"struct.Assimp::NodeAttachmentInfo", ptr %46, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = icmp eq ptr %51, %0
+  br i1 %52, label %53, label %61
 
-54:                                               ; preds = %.lr.ph63
-  %55 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %56 = load i8, ptr %55, align 8, !range !49, !noundef !50
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %62, label %58
+53:                                               ; preds = %.lr.ph63
+  %54 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %55 = load i8, ptr %54, align 8, !range !49, !noundef !50
+  %56 = trunc nuw i8 %55 to i1
+  br i1 %56, label %61, label %57
 
-58:                                               ; preds = %54
-  %59 = load ptr, ptr %50, align 8
-  store ptr %59, ptr %.03860, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1096
-  store ptr %0, ptr %60, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %.03860, i64 8
-  store i8 1, ptr %55, align 8
+57:                                               ; preds = %53
+  %58 = load ptr, ptr %49, align 8
+  store ptr %58, ptr %.03860, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 1096
+  store ptr %0, ptr %59, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %.03860, i64 8
+  store i8 1, ptr %54, align 8
   %.pre67 = load ptr, ptr %15, align 8
   %.pre68 = load ptr, ptr %1, align 8
-  br label %62
+  br label %61
 
-62:                                               ; preds = %58, %54, %.lr.ph63
-  %63 = phi ptr [ %47, %54 ], [ %.pre68, %58 ], [ %47, %.lr.ph63 ]
-  %64 = phi ptr [ %48, %54 ], [ %.pre67, %58 ], [ %48, %.lr.ph63 ]
-  %.139 = phi ptr [ %.03860, %54 ], [ %61, %58 ], [ %.03860, %.lr.ph63 ]
-  %65 = add i32 %.03761, 1
-  %66 = zext i32 %65 to i64
-  %67 = ptrtoint ptr %64 to i64
-  %68 = ptrtoint ptr %63 to i64
-  %69 = sub i64 %67, %68
-  %70 = ashr exact i64 %69, 5
-  %71 = icmp ugt i64 %70, %66
-  br i1 %71, label %.lr.ph63, label %.loopexit, !llvm.loop !57
+61:                                               ; preds = %57, %53, %.lr.ph63
+  %62 = phi ptr [ %46, %53 ], [ %.pre68, %57 ], [ %46, %.lr.ph63 ]
+  %63 = phi ptr [ %47, %53 ], [ %.pre67, %57 ], [ %47, %.lr.ph63 ]
+  %.139 = phi ptr [ %.03860, %53 ], [ %60, %57 ], [ %.03860, %.lr.ph63 ]
+  %64 = add i32 %.03761, 1
+  %65 = zext i32 %64 to i64
+  %66 = ptrtoint ptr %63 to i64
+  %67 = ptrtoint ptr %62 to i64
+  %68 = sub i64 %66, %67
+  %69 = ashr exact i64 %68, 5
+  %70 = icmp ugt i64 %69, %65
+  br i1 %70, label %.lr.ph63, label %.loopexit, !llvm.loop !57
 
-.loopexit:                                        ; preds = %62, %._crit_edge, %39, %._crit_edge58
+.loopexit:                                        ; preds = %61, %._crit_edge, %38, %._crit_edge58
   ret void
 }
 

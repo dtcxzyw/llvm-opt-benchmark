@@ -980,15 +980,15 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   %49 = load i8, ptr %48, align 2, !range !4, !noundef !5
   %50 = shl nuw nsw i8 %49, 3
   %51 = getelementptr inbounds nuw i8, ptr %46, i64 19
-  %52 = load i8, ptr %51, align 1, !range !4, !noundef !5
-  %53 = shl nuw nsw i8 %52, 2
-  %54 = or disjoint i8 %53, %50
-  %55 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %56 = load i8, ptr %55, align 8, !range !4, !noundef !5
-  %57 = shl nuw nsw i8 %56, 4
-  %58 = or disjoint i8 %54, %57
-  %59 = zext nneg i8 %58 to i32
-  %.7 = or i32 %.079, %59
+  %spec.select = load i8, ptr %51, align 1, !range !4, !noundef !5
+  %spec.select = shl nuw nsw i8 %52, 2
+  %53 = or disjoint i8 %52, %50
+  %54 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %55 = load i8, ptr %55, align 8, !range !4, !noundef !5
+  %.6 = shl nuw nsw i8 %55, 4
+  %56 = or disjoint i8 %54, %.6
+  %57 = zext nneg i8 %56 to i32
+  %58 = or i32 %.079, %57
   %60 = icmp eq i32 %.7, 28
   br i1 %60, label %61, label %.thread
 

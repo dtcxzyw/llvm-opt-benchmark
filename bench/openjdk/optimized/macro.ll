@@ -11571,9 +11571,9 @@ _ZN12PhaseIterGVN16replace_input_ofEP4NodejS1_.exit: ; preds = %_ZN9VectorSet8te
 .loopexit98:                                      ; preds = %._crit_edge, %235, %230, %_ZN12FastLockNode12set_box_nodeEP4Node.exit
   %.2 = phi i8 [ %.177, %230 ], [ %.177, %_ZN12FastLockNode12set_box_nodeEP4Node.exit ], [ %.177, %235 ], [ %.4.lcssa, %._crit_edge ]
   %307 = zext nneg i8 %.2 to i32
-  %spec.select = add i32 %.075109, %307
-  %308 = load i32, ptr %54, align 8
-  %309 = icmp ult i32 %spec.select, %308
+  %308 = add i32 %.075109, %307
+  %spec.select = load i32, ptr %54, align 8
+  %309 = icmp ult i32 %308, %308
   br i1 %309, label %60, label %.loopexit, !llvm.loop !41
 
 .loopexit:                                        ; preds = %.loopexit98, %44, %48, %12, %3
