@@ -2848,7 +2848,7 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   br label %126
 
 .loopexit:                                        ; preds = %319, %.thread
-  %.1144.lcssa = phi i1 [ %.0143211, %.thread ], [ %.2145, %319 ]
+  %.1144.lcssa = phi i8 [ %.0143211, %.thread ], [ %.2145, %319 ]
   %.1141.lcssa = phi float [ %.0140212, %.thread ], [ %.2142, %319 ]
   %.2.lcssa = phi ptr [ %.0138213, %.thread ], [ %.3, %319 ]
   %122 = load ptr, ptr %31, align 8
@@ -2863,7 +2863,7 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   %129 = phi ptr [ %111, %.lr.ph214 ], [ %122, %.loopexit ]
   %.0138213 = phi ptr [ %80, %.lr.ph214 ], [ %.2.lcssa, %.loopexit ]
   %.0140212 = phi float [ %115, %.lr.ph214 ], [ %.1141.lcssa, %.loopexit ]
-  %.0143211 = phi i1 [ false, %.lr.ph214 ], [ %.1144.lcssa, %.loopexit ]
+  %.0143211 = phi i8 [ 0, %.lr.ph214 ], [ %.1144.lcssa, %.loopexit ]
   %130 = load ptr, ptr %129, align 8
   %131 = load ptr, ptr %130, align 8
   %132 = add nsw i32 %127, -1
@@ -2931,7 +2931,7 @@ _Z11dtVisfinitePKf.exit187:                       ; preds = %60
   %.0150208 = phi i32 [ %.0150203, %.lr.ph ], [ %.0150, %319 ]
   %.2207 = phi ptr [ %.0138213, %.lr.ph ], [ %.3, %319 ]
   %.1141206 = phi float [ %.0140212, %.lr.ph ], [ %.2142, %319 ]
-  %.1144205 = phi i1 [ %.0143211, %.lr.ph ], [ %.2145, %319 ]
+  %.1144205 = phi i8 [ %.0143211, %.lr.ph ], [ %.2145, %319 ]
   %163 = zext i32 %.0150208 to i64
   %164 = getelementptr inbounds nuw %struct.dtLink, ptr %162, i64 %163
   %165 = load i32, ptr %164, align 4
@@ -3174,7 +3174,7 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %310, %308, %298, %3
   br label %319
 
 319:                                              ; preds = %178, %_ZN11dtNodeQueue6modifyEP6dtNode.exit, %318, %281, %275, %167, %161
-  %.2145 = phi i1 [ %.1144205, %275 ], [ %.1144205, %281 ], [ %.1144205, %318 ], [ %.1144205, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1144205, %167 ], [ %.1144205, %161 ], [ true, %178 ]
+  %.2145 = phi i8 [ %.1144205, %275 ], [ %.1144205, %281 ], [ %.1144205, %318 ], [ %.1144205, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1144205, %167 ], [ %.1144205, %161 ], [ 1, %178 ]
   %.2142 = phi float [ %.1141206, %275 ], [ %.1141206, %281 ], [ %.0146, %318 ], [ %.1141206, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.1141206, %167 ], [ %.1141206, %161 ], [ %.1141206, %178 ]
   %.3 = phi ptr [ %.2207, %275 ], [ %.2207, %281 ], [ %186, %318 ], [ %.2207, %_ZN11dtNodeQueue6modifyEP6dtNode.exit ], [ %.2207, %167 ], [ %.2207, %161 ], [ %.2207, %178 ]
   %320 = load ptr, ptr %12, align 8
@@ -3186,26 +3186,26 @@ _ZN11dtNodeQueue6modifyEP6dtNode.exit:            ; preds = %310, %308, %298, %3
   br i1 %.not172, label %.loopexit, label %161, !llvm.loop !28
 
 ._crit_edge.loopexit:                             ; preds = %126, %.loopexit
-  %.0143.lcssa.ph = phi i1 [ %.1144.lcssa, %.loopexit ], [ %.0143211, %126 ]
+  %.0143.lcssa.ph = phi i8 [ %.1144.lcssa, %.loopexit ], [ %.0143211, %126 ]
   %.1139.ph = phi ptr [ %.2.lcssa, %.loopexit ], [ %131, %126 ]
-  %324 = freeze i1 %.0143.lcssa.ph
+  %324 = zext nneg i8 %.0143.lcssa.ph to i32
+  %325 = shl nuw nsw i32 %324, 5
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %75
-  %.0143.lcssa = phi i1 [ false, %75 ], [ %324, %._crit_edge.loopexit ]
+  %.0143.lcssa = phi i32 [ 0, %75 ], [ %325, %._crit_edge.loopexit ]
   %.1139 = phi ptr [ %80, %75 ], [ %.1139.ph, %._crit_edge.loopexit ]
-  %325 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %.1139, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8)
-  %326 = getelementptr inbounds nuw i8, ptr %.1139, i64 24
-  %327 = load i32, ptr %326, align 4
-  %.not179 = icmp eq i32 %327, %2
-  %328 = or disjoint i32 %325, 64
-  %spec.select186 = select i1 %.not179, i32 %325, i32 %328
-  %329 = or disjoint i32 %spec.select186, 32
-  %spec.select223 = select i1 %.0143.lcssa, i32 %329, i32 %spec.select186
+  %326 = call noundef i32 @_ZNK14dtNavMeshQuery13getPathToNodeEP6dtNodePjPii(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef %.1139, ptr noundef nonnull %6, ptr noundef nonnull %7, i32 noundef %8)
+  %327 = getelementptr inbounds nuw i8, ptr %.1139, i64 24
+  %328 = load i32, ptr %327, align 4
+  %.not179 = icmp eq i32 %328, %2
+  %329 = or disjoint i32 %326, 64
+  %spec.select186 = select i1 %.not179, i32 %326, i32 %329
+  %.1 = add nuw nsw i32 %spec.select186, %.0143.lcssa
   br label %_Z11dtVisfinitePKf.exit.thread
 
-_Z11dtVisfinitePKf.exit.thread:                   ; preds = %._crit_edge, %56, %60, %42, %46, %35, %38, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit187, %34, %74
-  %.0137 = phi i32 [ 1073741824, %74 ], [ -2147483640, %34 ], [ -2147483640, %_Z11dtVisfinitePKf.exit187 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %38 ], [ -2147483640, %35 ], [ -2147483640, %46 ], [ -2147483640, %42 ], [ -2147483640, %60 ], [ -2147483640, %56 ], [ %spec.select223, %._crit_edge ]
+_Z11dtVisfinitePKf.exit.thread:                   ; preds = %56, %60, %42, %46, %35, %38, %_Z11dtVisfinitePKf.exit, %_Z11dtVisfinitePKf.exit187, %34, %._crit_edge, %74
+  %.0137 = phi i32 [ 1073741824, %74 ], [ %.1, %._crit_edge ], [ -2147483640, %34 ], [ -2147483640, %_Z11dtVisfinitePKf.exit187 ], [ -2147483640, %_Z11dtVisfinitePKf.exit ], [ -2147483640, %38 ], [ -2147483640, %35 ], [ -2147483640, %46 ], [ -2147483640, %42 ], [ -2147483640, %60 ], [ -2147483640, %56 ]
   ret i32 %.0137
 }
 

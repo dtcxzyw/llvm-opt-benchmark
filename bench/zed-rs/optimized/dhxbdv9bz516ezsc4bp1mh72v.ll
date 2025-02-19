@@ -15790,11 +15790,11 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h53d37973a4506e24E.exit: ; preds = 
   %1106 = load ptr, ptr %64, align 8, !nonnull !4, !align !140, !noundef !4
   %1107 = getelementptr inbounds nuw i8, ptr %1106, i64 80
   %1108 = load i8, ptr %1107, align 8, !range !256, !noundef !4
-  %1109 = trunc nuw i8 %1108 to i1
-  %1110 = shl i64 %.sroa.0142.0, 1
-  %1111 = add i64 %.sroa.0.0.i384, %1110
-  %1112 = add i64 %1111, 2
-  %spec.select.i387 = select i1 %1109, i64 %1112, i64 %1111
+  %1109 = shl i64 %.sroa.0142.0, 1
+  %1110 = add i64 %.sroa.0.0.i384, %1109
+  %1111 = shl nuw nsw i8 %1108, 1
+  %1112 = zext nneg i8 %1111 to i64
+  %spec.select.i387 = add i64 %1110, %1112
   call void @llvm.experimental.noalias.scope.decl(metadata !3019)
   %1113 = load i64, ptr %52, align 8, !range !35, !alias.scope !3019, !noundef !4
   %1114 = icmp eq i64 %1113, -9223372036854775808

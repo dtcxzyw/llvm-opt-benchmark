@@ -5155,7 +5155,7 @@ define hidden noundef i64 @_ZN12clap_builder7builder10styled_str9StyledStr13disp
 
 56:                                               ; preds = %53
   %spec.select.i = and i8 %.018.i, 1
-  %57 = xor i8 %spec.select.i, 1
+  %57 = xor i8 %.018.i, 1
   %58 = zext nneg i8 %57 to i64
   %spec.select36.i = add i64 %.0.ph.i.ph, %58
   br label %.outer.i.outer
@@ -8883,7 +8883,7 @@ define hidden noundef i64 @_ZN12clap_builder6output8textwrap4core13display_width
 
 49:                                               ; preds = %46
   %spec.select = and i8 %.018, 1
-  %50 = xor i8 %spec.select, 1
+  %50 = xor i8 %.018, 1
   %51 = zext nneg i8 %50 to i64
   %spec.select36 = add i64 %.0.ph.ph, %51
   br label %.outer.outer

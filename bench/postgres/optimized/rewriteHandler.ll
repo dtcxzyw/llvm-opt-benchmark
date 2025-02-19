@@ -978,19 +978,17 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 14
   %49 = load i8, ptr %48, align 2, !range !4, !noundef !5
-  %50 = trunc nuw i8 %49 to i1
-  %51 = or i32 %.079, 8
-  %spec.select = select i1 %50, i32 %51, i32 %.079
-  %52 = getelementptr inbounds nuw i8, ptr %46, i64 19
-  %53 = load i8, ptr %52, align 1, !range !4, !noundef !5
-  %54 = trunc nuw i8 %53 to i1
-  %55 = or i32 %spec.select, 4
-  %.6 = select i1 %54, i32 %55, i32 %spec.select
-  %56 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %57 = load i8, ptr %56, align 8, !range !4, !noundef !5
-  %58 = trunc nuw i8 %57 to i1
-  %59 = or i32 %.6, 16
-  %.7 = select i1 %58, i32 %59, i32 %.6
+  %50 = shl nuw nsw i8 %49, 3
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 19
+  %52 = load i8, ptr %51, align 1, !range !4, !noundef !5
+  %53 = shl nuw nsw i8 %52, 2
+  %54 = or disjoint i8 %53, %50
+  %55 = getelementptr inbounds nuw i8, ptr %46, i64 24
+  %56 = load i8, ptr %55, align 8, !range !4, !noundef !5
+  %57 = shl nuw nsw i8 %56, 4
+  %58 = or disjoint i8 %54, %57
+  %59 = zext nneg i8 %58 to i32
+  %.7 = or i32 %.079, %59
   %60 = icmp eq i32 %.7, 28
   br i1 %60, label %61, label %.thread
 

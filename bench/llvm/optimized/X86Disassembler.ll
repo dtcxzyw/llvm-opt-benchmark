@@ -1383,9 +1383,9 @@ _ZL4isNFPN4llvm15X86Disassembler19InternalInstructionE.exit.i: ; preds = %_ZL13i
   %spec.select225.i = select i1 %.not189.i, i16 0, i16 %563
   %.10.i = select i1 %562, i16 %spec.select225.i, i16 %spec.select.i111
   %564 = load i8, ptr %23, align 1, !tbaa !67, !range !79, !noundef !80
-  %565 = trunc nuw i8 %564 to i1
-  %566 = or disjoint i16 %.10.i, 32
-  %spec.select226.i = select i1 %565, i16 %566, i16 %.10.i
+  %565 = shl nuw nsw i8 %564, 5
+  %566 = zext nneg i8 %565 to i16
+  %spec.select226.i = or disjoint i16 %.10.i, %566
   %567 = icmp eq i32 %557, 0
   %568 = load i8, ptr %29, align 8, !tbaa !64
   br i1 %567, label %569, label %574
@@ -1396,7 +1396,7 @@ _ZL4isNFPN4llvm15X86Disassembler19InternalInstructionE.exit.i: ; preds = %_ZL13i
 
 571:                                              ; preds = %569
   %572 = icmp eq i8 %558, -112
-  %573 = or i16 %spec.select226.i, 2
+  %573 = or disjoint i16 %spec.select226.i, 2
   %spec.select227.i = select i1 %572, i16 %573, i16 %spec.select226.i
   br label %590
 
@@ -1407,11 +1407,11 @@ _ZL4isNFPN4llvm15X86Disassembler19InternalInstructionE.exit.i: ; preds = %_ZL13i
   ]
 
 575:                                              ; preds = %574
-  %576 = or i16 %spec.select226.i, 4
+  %576 = or disjoint i16 %spec.select226.i, 4
   br label %590
 
 577:                                              ; preds = %574
-  %578 = or i16 %spec.select226.i, 2
+  %578 = or disjoint i16 %spec.select226.i, 2
   br label %590
 
 579:                                              ; preds = %554
@@ -1427,9 +1427,9 @@ _ZL4isNFPN4llvm15X86Disassembler19InternalInstructionE.exit.i: ; preds = %_ZL13i
   %584 = or disjoint i16 %spec.select.i111, 16
   %spec.select228.i = select i1 %.not190.i, i16 0, i16 %584
   %585 = load i8, ptr %23, align 1, !tbaa !67, !range !79, !noundef !80
-  %586 = trunc nuw i8 %585 to i1
-  %587 = or disjoint i16 %spec.select228.i, 32
-  %spec.select236.i = select i1 %586, i16 %587, i16 %spec.select228.i
+  %586 = shl nuw nsw i8 %585, 5
+  %587 = zext nneg i8 %586 to i16
+  %spec.select236.i = or disjoint i16 %spec.select228.i, %587
   br label %590
 
 588:                                              ; preds = %554
@@ -1651,13 +1651,12 @@ _ZNK4llvm11MCInstrInfo7getNameEj.exit.i:          ; preds = %643
 692:                                              ; preds = %688, %684, %680, %674
   %693 = phi i8 [ -8, %688 ], [ -8, %684 ], [ -82, %680 ], [ %676, %674 ]
   %694 = load i8, ptr %23, align 1, !tbaa !67, !range !79, !noundef !80
-  %695 = trunc nuw i8 %694 to i1
-  %696 = or i16 %.15.i, 32
-  %spec.select232.i = select i1 %695, i16 %696, i16 %.15.i
-  %697 = load i8, ptr %24, align 2, !tbaa !66, !range !79, !noundef !80
-  %698 = trunc nuw i8 %697 to i1
-  %699 = or i16 %spec.select232.i, 16
-  %.19.i = select i1 %698, i16 %699, i16 %spec.select232.i
+  %695 = shl nuw nsw i8 %694, 5
+  %696 = load i8, ptr %24, align 2, !tbaa !66, !range !79, !noundef !80
+  %697 = shl nuw nsw i8 %696, 4
+  %698 = or disjoint i8 %697, %695
+  %699 = zext nneg i8 %698 to i16
+  %.19.i = or i16 %.15.i, %699
   %700 = load i32, ptr %20, align 8, !tbaa !59
   %701 = icmp eq i32 %700, 0
   br i1 %701, label %702, label %708
@@ -2700,9 +2699,9 @@ _ZL12readPrefixesPN4llvm15X86Disassembler19InternalInstructionE.exit.thread: ; p
 1220:                                             ; preds = %1215, %1213
   %.3 = phi i32 [ %1214, %1213 ], [ %spec.select30, %1215 ]
   %1221 = load i8, ptr %27, align 1, !tbaa !62, !range !79, !noundef !80
-  %1222 = trunc nuw i8 %1221 to i1
-  %1223 = or i32 %.3, 16
-  %spec.select31 = select i1 %1222, i32 %1223, i32 %.3
+  %1222 = shl nuw nsw i8 %1221, 4
+  %1223 = zext nneg i8 %1222 to i32
+  %spec.select31 = or i32 %.3, %1223
   br label %1224
 
 1224:                                             ; preds = %1220, %1204

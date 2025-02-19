@@ -73,7 +73,7 @@ define internal ptr @ExecSort(ptr noundef captures(none) %0) #0 {
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 240
   %12 = load i8, ptr %11, align 8, !range !5, !noundef !6
   %13 = trunc nuw i8 %12 to i1
-  br i1 %13, label %119, label %14
+  br i1 %13, label %118, label %14
 
 14:                                               ; preds = %4
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -84,206 +84,205 @@ define internal ptr @ExecSort(ptr noundef captures(none) %0) #0 {
   %19 = tail call ptr @ExecGetResultType(ptr noundef %18) #4
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %21 = load i8, ptr %20, align 8, !range !5, !noundef !6
-  %spec.select = zext nneg i8 %21 to i32
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 225
   %23 = load i8, ptr %22, align 1, !range !5, !noundef !6
-  %24 = trunc nuw i8 %23 to i1
-  %25 = or disjoint i32 %spec.select, 2
-  %.169 = select i1 %24, i32 %25, i32 %spec.select
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 265
-  %27 = load i8, ptr %26, align 1, !range !5, !noundef !6
-  %28 = trunc nuw i8 %27 to i1
-  br i1 %28, label %29, label %48
+  %24 = shl nuw nsw i8 %23, 1
+  %.16978 = or disjoint i8 %24, %21
+  %.169 = zext nneg i8 %.16978 to i32
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 265
+  %26 = load i8, ptr %25, align 1, !range !5, !noundef !6
+  %27 = trunc nuw i8 %26 to i1
+  br i1 %27, label %28, label %47
 
-29:                                               ; preds = %14
-  %30 = load i32, ptr %19, align 8
-  %31 = sext i32 %30 to i64
-  %32 = shl nsw i64 %31, 4
-  %33 = getelementptr i8, ptr %19, i64 %32
-  %34 = getelementptr i8, ptr %33, i64 92
-  %35 = load i32, ptr %34, align 4
-  %36 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  %37 = load ptr, ptr %36, align 8
-  %38 = load i32, ptr %37, align 4
-  %39 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %40 = load ptr, ptr %39, align 8
-  %41 = load i32, ptr %40, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %16, i64 136
-  %43 = load ptr, ptr %42, align 8
-  %44 = load i8, ptr %43, align 1, !range !5, !noundef !6
-  %45 = trunc nuw i8 %44 to i1
-  %46 = load i32, ptr @work_mem, align 4
-  %47 = tail call ptr @tuplesort_begin_datum(i32 noundef %35, i32 noundef %38, i32 noundef %41, i1 noundef zeroext %45, i32 noundef %46, ptr noundef null, i32 noundef %.169) #4
-  br label %61
+28:                                               ; preds = %14
+  %29 = load i32, ptr %19, align 8
+  %30 = sext i32 %29 to i64
+  %31 = shl nsw i64 %30, 4
+  %32 = getelementptr i8, ptr %19, i64 %31
+  %33 = getelementptr i8, ptr %32, i64 92
+  %34 = load i32, ptr %33, align 4
+  %35 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  %36 = load ptr, ptr %35, align 8
+  %37 = load i32, ptr %36, align 4
+  %38 = getelementptr inbounds nuw i8, ptr %16, i64 128
+  %39 = load ptr, ptr %38, align 8
+  %40 = load i32, ptr %39, align 4
+  %41 = getelementptr inbounds nuw i8, ptr %16, i64 136
+  %42 = load ptr, ptr %41, align 8
+  %43 = load i8, ptr %42, align 1, !range !5, !noundef !6
+  %44 = trunc nuw i8 %43 to i1
+  %45 = load i32, ptr @work_mem, align 4
+  %46 = tail call ptr @tuplesort_begin_datum(i32 noundef %34, i32 noundef %37, i32 noundef %40, i1 noundef zeroext %44, i32 noundef %45, ptr noundef null, i32 noundef %.169) #4
+  br label %60
 
-48:                                               ; preds = %14
-  %49 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  %50 = load i32, ptr %49, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %16, i64 120
-  %54 = load ptr, ptr %53, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %16, i64 128
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %16, i64 136
-  %58 = load ptr, ptr %57, align 8
-  %59 = load i32, ptr @work_mem, align 4
-  %60 = tail call ptr @tuplesort_begin_heap(ptr noundef %19, i32 noundef %50, ptr noundef %52, ptr noundef %54, ptr noundef %56, ptr noundef %58, i32 noundef %59, ptr noundef null, i32 noundef %.169) #4
-  br label %61
+47:                                               ; preds = %14
+  %48 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  %49 = load i32, ptr %48, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %16, i64 120
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %16, i64 128
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %16, i64 136
+  %57 = load ptr, ptr %56, align 8
+  %58 = load i32, ptr @work_mem, align 4
+  %59 = tail call ptr @tuplesort_begin_heap(ptr noundef %19, i32 noundef %49, ptr noundef %51, ptr noundef %53, ptr noundef %55, ptr noundef %57, i32 noundef %58, ptr noundef null, i32 noundef %.169) #4
+  br label %60
 
-61:                                               ; preds = %48, %29
-  %.1 = phi ptr [ %47, %29 ], [ %60, %48 ]
-  %62 = load i8, ptr %22, align 1, !range !5, !noundef !6
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %67
+60:                                               ; preds = %47, %28
+  %.1 = phi ptr [ %46, %28 ], [ %59, %47 ]
+  %61 = load i8, ptr %22, align 1, !range !5, !noundef !6
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %66
 
-64:                                               ; preds = %61
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %66 = load i64, ptr %65, align 8
-  tail call void @tuplesort_set_bound(ptr noundef %.1, i64 noundef %66) #4
-  br label %67
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %65 = load i64, ptr %64, align 8
+  tail call void @tuplesort_set_bound(ptr noundef %.1, i64 noundef %65) #4
+  br label %66
 
-67:                                               ; preds = %64, %61
+66:                                               ; preds = %63, %60
   store ptr %.1, ptr %9, align 8
-  %68 = load i8, ptr %26, align 1, !range !5, !noundef !6
-  %69 = trunc nuw i8 %68 to i1
-  %70 = getelementptr inbounds nuw i8, ptr %18, i64 104
-  %71 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  br i1 %69, label %.preheader, label %.preheader78
+  %67 = load i8, ptr %25, align 1, !range !5, !noundef !6
+  %68 = trunc nuw i8 %67 to i1
+  %69 = getelementptr inbounds nuw i8, ptr %18, i64 104
+  %70 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  br i1 %68, label %.preheader, label %.preheader79
 
-.preheader:                                       ; preds = %67, %slot_getsomeattrs.exit
-  %72 = load ptr, ptr %70, align 8
-  %.not.i = icmp eq ptr %72, null
-  br i1 %.not.i, label %ExecProcNode.exit, label %73
+.preheader:                                       ; preds = %66, %slot_getsomeattrs.exit
+  %71 = load ptr, ptr %69, align 8
+  %.not.i = icmp eq ptr %71, null
+  br i1 %.not.i, label %ExecProcNode.exit, label %72
 
-73:                                               ; preds = %.preheader
+72:                                               ; preds = %.preheader
   tail call void @ExecReScan(ptr noundef nonnull %18) #4
   br label %ExecProcNode.exit
 
-ExecProcNode.exit:                                ; preds = %.preheader, %73
-  %74 = load ptr, ptr %71, align 8
-  %75 = tail call ptr %74(ptr noundef nonnull %18) #4
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %.loopexit, label %77
+ExecProcNode.exit:                                ; preds = %.preheader, %72
+  %73 = load ptr, ptr %70, align 8
+  %74 = tail call ptr %73(ptr noundef nonnull %18) #4
+  %75 = icmp eq ptr %74, null
+  br i1 %75, label %.loopexit, label %76
 
-77:                                               ; preds = %ExecProcNode.exit
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %79 = load i16, ptr %78, align 4
-  %80 = and i16 %79, 2
-  %.not74 = icmp eq i16 %80, 0
-  br i1 %.not74, label %81, label %.loopexit
+76:                                               ; preds = %ExecProcNode.exit
+  %77 = getelementptr inbounds nuw i8, ptr %74, i64 4
+  %78 = load i16, ptr %77, align 4
+  %79 = and i16 %78, 2
+  %.not74 = icmp eq i16 %79, 0
+  br i1 %.not74, label %80, label %.loopexit
 
-81:                                               ; preds = %77
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 6
-  %83 = load i16, ptr %82, align 2
-  %84 = icmp slt i16 %83, 1
-  br i1 %84, label %85, label %slot_getsomeattrs.exit
+80:                                               ; preds = %76
+  %81 = getelementptr inbounds nuw i8, ptr %74, i64 6
+  %82 = load i16, ptr %81, align 2
+  %83 = icmp slt i16 %82, 1
+  br i1 %83, label %84, label %slot_getsomeattrs.exit
 
-85:                                               ; preds = %81
-  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %75, i32 noundef 1) #4
+84:                                               ; preds = %80
+  tail call void @slot_getsomeattrs_int(ptr noundef nonnull %74, i32 noundef 1) #4
   br label %slot_getsomeattrs.exit
 
-slot_getsomeattrs.exit:                           ; preds = %81, %85
-  %86 = getelementptr inbounds nuw i8, ptr %75, i64 24
-  %87 = load ptr, ptr %86, align 8
-  %88 = load i64, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %90 = load ptr, ptr %89, align 8
-  %91 = load i8, ptr %90, align 1, !range !5, !noundef !6
-  %92 = trunc nuw i8 %91 to i1
-  tail call void @tuplesort_putdatum(ptr noundef %.1, i64 noundef %88, i1 noundef zeroext %92) #4
+slot_getsomeattrs.exit:                           ; preds = %80, %84
+  %85 = getelementptr inbounds nuw i8, ptr %74, i64 24
+  %86 = load ptr, ptr %85, align 8
+  %87 = load i64, ptr %86, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %74, i64 32
+  %89 = load ptr, ptr %88, align 8
+  %90 = load i8, ptr %89, align 1, !range !5, !noundef !6
+  %91 = trunc nuw i8 %90 to i1
+  tail call void @tuplesort_putdatum(ptr noundef %.1, i64 noundef %87, i1 noundef zeroext %91) #4
   br label %.preheader
 
-.preheader78:                                     ; preds = %67, %102
-  %93 = load ptr, ptr %70, align 8
-  %.not.i76 = icmp eq ptr %93, null
-  br i1 %.not.i76, label %ExecProcNode.exit77, label %94
+.preheader79:                                     ; preds = %66, %101
+  %92 = load ptr, ptr %69, align 8
+  %.not.i76 = icmp eq ptr %92, null
+  br i1 %.not.i76, label %ExecProcNode.exit77, label %93
 
-94:                                               ; preds = %.preheader78
+93:                                               ; preds = %.preheader79
   tail call void @ExecReScan(ptr noundef nonnull %18) #4
   br label %ExecProcNode.exit77
 
-ExecProcNode.exit77:                              ; preds = %.preheader78, %94
-  %95 = load ptr, ptr %71, align 8
-  %96 = tail call ptr %95(ptr noundef nonnull %18) #4
-  %97 = icmp eq ptr %96, null
-  br i1 %97, label %.loopexit, label %98
+ExecProcNode.exit77:                              ; preds = %.preheader79, %93
+  %94 = load ptr, ptr %70, align 8
+  %95 = tail call ptr %94(ptr noundef nonnull %18) #4
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %.loopexit, label %97
 
-98:                                               ; preds = %ExecProcNode.exit77
-  %99 = getelementptr inbounds nuw i8, ptr %96, i64 4
-  %100 = load i16, ptr %99, align 4
-  %101 = and i16 %100, 2
-  %.not73 = icmp eq i16 %101, 0
-  br i1 %.not73, label %102, label %.loopexit
+97:                                               ; preds = %ExecProcNode.exit77
+  %98 = getelementptr inbounds nuw i8, ptr %95, i64 4
+  %99 = load i16, ptr %98, align 4
+  %100 = and i16 %99, 2
+  %.not73 = icmp eq i16 %100, 0
+  br i1 %.not73, label %101, label %.loopexit
 
-102:                                              ; preds = %98
-  tail call void @tuplesort_puttupleslot(ptr noundef %.1, ptr noundef nonnull %96) #4
-  br label %.preheader78
+101:                                              ; preds = %97
+  tail call void @tuplesort_puttupleslot(ptr noundef %.1, ptr noundef nonnull %95) #4
+  br label %.preheader79
 
-.loopexit:                                        ; preds = %98, %ExecProcNode.exit77, %77, %ExecProcNode.exit
+.loopexit:                                        ; preds = %97, %ExecProcNode.exit77, %76, %ExecProcNode.exit
   tail call void @tuplesort_performsort(ptr noundef %.1) #4
   store i32 %8, ptr %7, align 4
   store i8 1, ptr %11, align 8
-  %103 = load i8, ptr %22, align 1, !range !5, !noundef !6
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 241
-  store i8 %103, ptr %104, align 1
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  store i64 %106, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 272
-  %109 = load ptr, ptr %108, align 8
-  %.not75 = icmp eq ptr %109, null
-  br i1 %.not75, label %119, label %110
+  %102 = load i8, ptr %22, align 1, !range !5, !noundef !6
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 241
+  store i8 %102, ptr %103, align 1
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %105 = load i64, ptr %104, align 8
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  store i64 %105, ptr %106, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 272
+  %108 = load ptr, ptr %107, align 8
+  %.not75 = icmp eq ptr %108, null
+  br i1 %.not75, label %118, label %109
 
-110:                                              ; preds = %.loopexit
-  %111 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  %112 = load i8, ptr %111, align 8, !range !5, !noundef !6
-  %113 = trunc nuw i8 %112 to i1
-  br i1 %113, label %114, label %119
+109:                                              ; preds = %.loopexit
+  %110 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  %111 = load i8, ptr %110, align 8, !range !5, !noundef !6
+  %112 = trunc nuw i8 %111 to i1
+  br i1 %112, label %113, label %118
 
-114:                                              ; preds = %110
-  %115 = getelementptr inbounds nuw i8, ptr %109, i64 8
-  %116 = load i32, ptr @ParallelWorkerNumber, align 4
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds [0 x %struct.TuplesortInstrumentation], ptr %115, i64 0, i64 %117
-  tail call void @tuplesort_get_stats(ptr noundef %.1, ptr noundef nonnull %118) #4
-  br label %119
+113:                                              ; preds = %109
+  %114 = getelementptr inbounds nuw i8, ptr %108, i64 8
+  %115 = load i32, ptr @ParallelWorkerNumber, align 4
+  %116 = sext i32 %115 to i64
+  %117 = getelementptr inbounds [0 x %struct.TuplesortInstrumentation], ptr %114, i64 0, i64 %116
+  tail call void @tuplesort_get_stats(ptr noundef %.1, ptr noundef nonnull %117) #4
+  br label %118
 
-119:                                              ; preds = %.loopexit, %110, %114, %4
-  %.0 = phi ptr [ %10, %4 ], [ %.1, %114 ], [ %.1, %110 ], [ %.1, %.loopexit ]
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %121 = load ptr, ptr %120, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 265
-  %123 = load i8, ptr %122, align 1, !range !5, !noundef !6
-  %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %125, label %138
+118:                                              ; preds = %.loopexit, %109, %113, %4
+  %.0 = phi ptr [ %10, %4 ], [ %.1, %113 ], [ %.1, %109 ], [ %.1, %.loopexit ]
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %120 = load ptr, ptr %119, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 265
+  %122 = load i8, ptr %121, align 1, !range !5, !noundef !6
+  %123 = trunc nuw i8 %122 to i1
+  br i1 %123, label %124, label %137
 
-125:                                              ; preds = %119
-  %126 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %127 = load ptr, ptr %126, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
-  %129 = load ptr, ptr %128, align 8
-  tail call void %129(ptr noundef %121) #4
-  %130 = icmp eq i32 %8, 1
-  %131 = getelementptr inbounds nuw i8, ptr %121, i64 24
-  %132 = load ptr, ptr %131, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %121, i64 32
-  %134 = load ptr, ptr %133, align 8
-  %135 = tail call zeroext i1 @tuplesort_getdatum(ptr noundef %.0, i1 noundef zeroext %130, i1 noundef zeroext false, ptr noundef %132, ptr noundef %134, ptr noundef null) #4
-  br i1 %135, label %136, label %141
+124:                                              ; preds = %118
+  %125 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %126 = load ptr, ptr %125, align 8
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 24
+  %128 = load ptr, ptr %127, align 8
+  tail call void %128(ptr noundef %120) #4
+  %129 = icmp eq i32 %8, 1
+  %130 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %131 = load ptr, ptr %130, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %120, i64 32
+  %133 = load ptr, ptr %132, align 8
+  %134 = tail call zeroext i1 @tuplesort_getdatum(ptr noundef %.0, i1 noundef zeroext %129, i1 noundef zeroext false, ptr noundef %131, ptr noundef %133, ptr noundef null) #4
+  br i1 %134, label %135, label %140
 
-136:                                              ; preds = %125
-  %137 = tail call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %121) #4
-  br label %141
+135:                                              ; preds = %124
+  %136 = tail call ptr @ExecStoreVirtualTuple(ptr noundef nonnull %120) #4
+  br label %140
 
-138:                                              ; preds = %119
-  %139 = icmp eq i32 %8, 1
-  %140 = tail call zeroext i1 @tuplesort_gettupleslot(ptr noundef %.0, i1 noundef zeroext %139, i1 noundef zeroext false, ptr noundef %121, ptr noundef null) #4
-  br label %141
+137:                                              ; preds = %118
+  %138 = icmp eq i32 %8, 1
+  %139 = tail call zeroext i1 @tuplesort_gettupleslot(ptr noundef %.0, i1 noundef zeroext %138, i1 noundef zeroext false, ptr noundef %120, ptr noundef null) #4
+  br label %140
 
-141:                                              ; preds = %125, %136, %138
-  ret ptr %121
+140:                                              ; preds = %124, %135, %137
+  ret ptr %120
 }
 
 declare ptr @ExecInitNode(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

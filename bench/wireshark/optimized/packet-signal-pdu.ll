@@ -5196,60 +5196,59 @@ define internal zeroext i1 @dissect_spdu_message_uds_heur(ptr noundef %0, ptr no
 
 get_uds_mapping.exit.thread:                      ; preds = %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  br label %44
+  br label %43
 
 10:                                               ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %12 = load i8, ptr %11, align 4, !range !6, !noundef !7
-  %13 = trunc nuw i8 %12 to i1
-  %14 = getelementptr inbounds nuw i8, ptr %3, i64 9
-  %15 = load i8, ptr %14, align 1
-  %16 = or i8 %15, 64
-  %.011.in.i = select i1 %13, i8 %16, i8 %15
-  %17 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %18 = load i32, ptr %17, align 4
-  %19 = zext i32 %18 to i64
-  %20 = load i32, ptr %3, align 4
-  %21 = and i32 %20, 65535
-  %22 = zext nneg i32 %21 to i64
-  %23 = shl nuw nsw i64 %22, 32
-  %24 = or disjoint i64 %23, %19
-  %25 = zext i8 %.011.in.i to i64
-  %26 = shl nuw nsw i64 %25, 48
-  %27 = or disjoint i64 %24, %26
-  store i64 %27, ptr %5, align 8
-  %28 = call ptr @g_hash_table_lookup(ptr noundef nonnull %8, ptr noundef nonnull %5)
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %get_uds_mapping.exit, label %get_uds_mapping.exit.thread12
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 9
+  %14 = load i8, ptr %13, align 1
+  %15 = shl nuw nsw i8 %12, 6
+  %.011.in.i = or i8 %14, %15
+  %16 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %17 = load i32, ptr %16, align 4
+  %18 = zext i32 %17 to i64
+  %19 = load i32, ptr %3, align 4
+  %20 = and i32 %19, 65535
+  %21 = zext nneg i32 %20 to i64
+  %22 = shl nuw nsw i64 %21, 32
+  %23 = or disjoint i64 %22, %18
+  %24 = zext i8 %.011.in.i to i64
+  %25 = shl nuw nsw i64 %24, 48
+  %26 = or disjoint i64 %23, %25
+  store i64 %26, ptr %5, align 8
+  %27 = call ptr @g_hash_table_lookup(ptr noundef nonnull %8, ptr noundef nonnull %5)
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %get_uds_mapping.exit, label %get_uds_mapping.exit.thread12
 
 get_uds_mapping.exit.thread12:                    ; preds = %10
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  br label %39
+  br label %38
 
 get_uds_mapping.exit:                             ; preds = %10
-  %30 = load i32, ptr %3, align 4
-  %31 = and i32 %30, 65535
-  %32 = zext nneg i32 %31 to i64
-  %33 = shl nuw nsw i64 %32, 32
-  %34 = or disjoint i64 %33, %26
-  %35 = or disjoint i64 %34, 4294967295
-  store i64 %35, ptr %5, align 8
-  %36 = load ptr, ptr @data_spdu_uds_mappings, align 8
-  %37 = call ptr @g_hash_table_lookup(ptr noundef %36, ptr noundef nonnull %5)
+  %29 = load i32, ptr %3, align 4
+  %30 = and i32 %29, 65535
+  %31 = zext nneg i32 %30 to i64
+  %32 = shl nuw nsw i64 %31, 32
+  %33 = or disjoint i64 %32, %25
+  %34 = or disjoint i64 %33, 4294967295
+  store i64 %34, ptr %5, align 8
+  %35 = load ptr, ptr @data_spdu_uds_mappings, align 8
+  %36 = call ptr @g_hash_table_lookup(ptr noundef %35, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %44, label %39
+  %37 = icmp eq ptr %36, null
+  br i1 %37, label %43, label %38
 
-39:                                               ; preds = %get_uds_mapping.exit.thread12, %get_uds_mapping.exit
-  %.012.i14 = phi ptr [ %28, %get_uds_mapping.exit.thread12 ], [ %37, %get_uds_mapping.exit ]
-  %40 = getelementptr inbounds nuw i8, ptr %.012.i14, i64 16
-  %41 = load i32, ptr %40, align 4
-  %42 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %41, i1 noundef zeroext false)
-  %43 = icmp ne i32 %42, 0
-  br label %44
+38:                                               ; preds = %get_uds_mapping.exit.thread12, %get_uds_mapping.exit
+  %.012.i14 = phi ptr [ %27, %get_uds_mapping.exit.thread12 ], [ %36, %get_uds_mapping.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %.012.i14, i64 16
+  %40 = load i32, ptr %39, align 4
+  %41 = call fastcc i32 @dissect_spdu_payload(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %40, i1 noundef zeroext false)
+  %42 = icmp ne i32 %41, 0
+  br label %43
 
-44:                                               ; preds = %get_uds_mapping.exit.thread, %get_uds_mapping.exit, %39
-  %.0 = phi i1 [ %43, %39 ], [ false, %get_uds_mapping.exit ], [ false, %get_uds_mapping.exit.thread ]
+43:                                               ; preds = %get_uds_mapping.exit.thread, %get_uds_mapping.exit, %38
+  %.0 = phi i1 [ %42, %38 ], [ false, %get_uds_mapping.exit ], [ false, %get_uds_mapping.exit.thread ]
   ret i1 %.0
 }
 

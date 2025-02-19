@@ -64,8 +64,8 @@ define noundef zeroext i1 @_ZN25JSONStringValueSerializer9SerializeERKN4base5Val
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i8, ptr %6, align 8, !tbaa !13, !range !14, !noundef !15
-  %8 = trunc nuw i8 %7 to i1
-  %.1.i = select i1 %8, i32 4, i32 0
+  %8 = shl nuw nsw i8 %7, 2
+  %.1.i = zext nneg i8 %8 to i32
   %9 = tail call noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.1.i, ptr noundef nonnull %4)
   br label %_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit
 
@@ -79,20 +79,20 @@ define noundef zeroext i1 @_ZN25JSONStringValueSerializer17SerializeInternalERKN
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !6
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %12, label %6
+  br i1 %.not, label %13, label %6
 
 6:                                                ; preds = %3
-  %spec.select = zext i1 %2 to i32
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %8 = load i8, ptr %7, align 8, !tbaa !13, !range !14, !noundef !15
-  %9 = trunc nuw i8 %8 to i1
-  %10 = or disjoint i32 %spec.select, 4
-  %.1 = select i1 %9, i32 %10, i32 %spec.select
-  %11 = tail call noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.1, ptr noundef nonnull %5)
-  br label %12
+  %9 = shl nuw nsw i8 %8, 2
+  %10 = zext i1 %2 to i8
+  %11 = or disjoint i8 %9, %10
+  %.1 = zext nneg i8 %11 to i32
+  %12 = tail call noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.1, ptr noundef nonnull %5)
+  br label %13
 
-12:                                               ; preds = %3, %6
-  %.06 = phi i1 [ %11, %6 ], [ false, %3 ]
+13:                                               ; preds = %3, %6
+  %.06 = phi i1 [ %12, %6 ], [ false, %3 ]
   ret i1 %.06
 }
 
@@ -106,13 +106,14 @@ define noundef zeroext i1 @_ZN25JSONStringValueSerializer28SerializeAndOmitBinar
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i8, ptr %6, align 8, !tbaa !13, !range !14, !noundef !15
-  %8 = trunc nuw i8 %7 to i1
-  %.1.i = select i1 %8, i32 5, i32 1
-  %9 = tail call noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.1.i, ptr noundef nonnull %4)
+  %8 = shl nuw nsw i8 %7, 2
+  %9 = or disjoint i8 %8, 1
+  %.1.i = zext nneg i8 %9 to i32
+  %10 = tail call noundef zeroext i1 @_ZN4base10JSONWriter16WriteWithOptionsERKNS_5ValueEiPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(12) %1, i32 noundef %.1.i, ptr noundef nonnull %4)
   br label %_ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit
 
 _ZN25JSONStringValueSerializer17SerializeInternalERKN4base5ValueEb.exit: ; preds = %2, %5
-  %.06.i = phi i1 [ %9, %5 ], [ false, %2 ]
+  %.06.i = phi i1 [ %10, %5 ], [ false, %2 ]
   ret i1 %.06.i
 }
 
