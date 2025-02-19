@@ -1989,22 +1989,21 @@ declare noundef ptr @_ZNK5clang15CXXForRangeStmt12getRangeInitEv(ptr noundef non
 define linkonce_odr hidden noundef zeroext i1 @_ZNK5clang12ast_matchers8internal33matcher_hasArgumentOfType0Matcher7matchesERKNS_24UnaryExprOrTypeTraitExprEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(40) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2, ptr noundef %3) unnamed_addr #1 comdat align 2 {
   %5 = alloca %"class.clang::DynTypedNode", align 8
   %6 = load i24, ptr %1, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8
-  %9 = lshr i24 %6, 19
-  %10 = and i24 %9, 8
-  %11 = xor i24 %10, 8
-  %.sroa.0.0.in.idx.i = zext nneg i24 %11 to i64
-  %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.in.idx.i
+  %7 = and i24 %6, 4194304
+  %.not.i = icmp eq i24 %7, 0
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %9 = load ptr, ptr %8, align 8
+  %.sroa.0.0.in.idx.i = select i1 %.not.i, i64 8, i64 0
+  %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.0.0.in.idx.i
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !tbaa !30
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #25
   store i32 6, ptr %5, align 8, !tbaa !10, !alias.scope !31
-  %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 %.sroa.0.0.i, ptr %13, align 8, !tbaa !30, !alias.scope !31
-  %14 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(24) %12, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %2, ptr noundef %3) #25
+  %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 %.sroa.0.0.i, ptr %11, align 8, !tbaa !30, !alias.scope !31
+  %12 = call noundef zeroext i1 @_ZNK5clang12ast_matchers8internal15DynTypedMatcher7matchesERKNS_12DynTypedNodeEPNS1_14ASTMatchFinderEPNS1_21BoundNodesTreeBuilderE(ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef %2, ptr noundef %3) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #25
-  ret i1 %14
+  ret i1 %12
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable

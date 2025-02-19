@@ -4874,9 +4874,9 @@ define void @_ZN6Assimp11BatchLoader7LoadAllEv(ptr noundef nonnull readonly alig
   %7 = load i32, ptr %6, align 8
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 76
   %9 = load i8, ptr %8, align 4, !range !60, !noundef !61
-  %10 = trunc nuw i8 %9 to i1
-  %11 = or i32 %7, 1024
-  %spec.select = select i1 %10, i32 %11, i32 %7
+  %10 = zext nneg i8 %9 to i32
+  %11 = shl nuw nsw i32 %10, 10
+  %spec.select = or i32 %11, %7
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = load ptr, ptr %13, align 8

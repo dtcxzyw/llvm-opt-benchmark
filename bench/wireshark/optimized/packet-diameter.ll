@@ -3763,7 +3763,7 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   %63 = load i32, ptr %6, align 4
   %64 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %60, ptr noundef %62, ptr noundef nonnull @ei_diameter_invalid_avp_len, ptr noundef %1, i32 noundef %10, i32 noundef 4, ptr noundef nonnull @.str.62, i32 noundef %63, i32 noundef %26)
   %65 = call i32 @tvb_reported_length(ptr noundef %1)
-  br label %218
+  br label %216
 
 66:                                               ; preds = %56
   %67 = add i32 %26, %2
@@ -3893,13 +3893,13 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
 150:                                              ; preds = %146
   %151 = load i32, ptr %3, align 8
   %152 = icmp eq i32 %151, 4
-  br i1 %152, label %218, label %153
+  br i1 %152, label %216, label %153
 
 153:                                              ; preds = %150, %146, %142, %139
   %154 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %155 = load ptr, ptr %154, align 8
   %156 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %155, ptr noundef nonnull @ei_diameter_avp_no_data, ptr noundef %1, i32 noundef %.0177, i32 noundef 0)
-  br label %218
+  br label %216
 
 157:                                              ; preds = %136
   %158 = getelementptr inbounds nuw i8, ptr %3, i64 12
@@ -3918,120 +3918,119 @@ define internal fastcc i32 @dissect_diameter_avp(ptr noundef %0, ptr noundef %1,
   br label %166
 
 166:                                              ; preds = %163, %157
-  %167 = and i32 %12, 4
-  %168 = or disjoint i32 %167, 8
-  %169 = sub nsw i32 %26, %168
-  %170 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %.0177, i32 noundef %169)
-  %171 = add i32 %.0177, %169
-  %172 = load ptr, ptr %0, align 8
+  %.neg = select i1 %13, i32 -8, i32 -12
+  %167 = add nsw i32 %.neg, %26
+  %168 = call ptr @tvb_new_subset_length(ptr noundef %1, i32 noundef %.0177, i32 noundef %167)
+  %169 = add i32 %.0177, %167
+  %170 = load ptr, ptr %0, align 8
   store ptr %81, ptr %0, align 8
-  %173 = load i8, ptr %158, align 4, !range !6, !noundef !7
-  %174 = trunc nuw i8 %173 to i1
-  %or.cond6.not193 = and i1 %13, %174
-  %175 = load i32, ptr %6, align 4
-  %176 = icmp eq i32 %175, 298
-  %or.cond8 = select i1 %or.cond6.not193, i1 %176, i1 false
-  br i1 %or.cond8, label %177, label %190
+  %171 = load i8, ptr %158, align 4, !range !6, !noundef !7
+  %172 = trunc nuw i8 %171 to i1
+  %or.cond6.not193 = and i1 %13, %172
+  %173 = load i32, ptr %6, align 4
+  %174 = icmp eq i32 %173, 298
+  %or.cond8 = select i1 %or.cond6.not193, i1 %174, i1 false
+  br i1 %or.cond8, label %175, label %188
 
-177:                                              ; preds = %166
-  %178 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %179 = load i32, ptr %178, align 8
-  switch i32 %179, label %180 [
-    i32 0, label %190
-    i32 10415, label %190
+175:                                              ; preds = %166
+  %176 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %177 = load i32, ptr %176, align 8
+  switch i32 %177, label %178 [
+    i32 0, label %188
+    i32 10415, label %188
   ]
 
-180:                                              ; preds = %177
-  %181 = load ptr, ptr @diameter_expr_result_vnd_table, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %183 = load ptr, ptr %182, align 8
-  %184 = call i32 @dissector_try_uint_with_data(ptr noundef %181, i32 noundef %179, ptr noundef %170, ptr noundef %183, ptr noundef %81, i1 noundef zeroext false, ptr noundef %3)
-  %.not195 = icmp eq i32 %184, 0
-  br i1 %.not195, label %185, label %186
+178:                                              ; preds = %175
+  %179 = load ptr, ptr @diameter_expr_result_vnd_table, align 8
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %181 = load ptr, ptr %180, align 8
+  %182 = call i32 @dissector_try_uint_with_data(ptr noundef %179, i32 noundef %177, ptr noundef %168, ptr noundef %181, ptr noundef %81, i1 noundef zeroext false, ptr noundef %3)
+  %.not195 = icmp eq i32 %182, 0
+  br i1 %.not195, label %183, label %184
 
-185:                                              ; preds = %180
-  call fastcc void @dissect_diameter_other_vendor_exp_res(ptr noundef %0, ptr noundef %170, ptr noundef %81, ptr noundef %3)
-  br label %186
+183:                                              ; preds = %178
+  call fastcc void @dissect_diameter_other_vendor_exp_res(ptr noundef %0, ptr noundef %168, ptr noundef %81, ptr noundef %3)
+  br label %184
 
-186:                                              ; preds = %185, %180
-  %187 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %188 = load ptr, ptr %187, align 8
-  %.not196 = icmp eq ptr %188, null
-  br i1 %.not196, label %194, label %189
+184:                                              ; preds = %183, %178
+  %185 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %186 = load ptr, ptr %185, align 8
+  %.not196 = icmp eq ptr %186, null
+  br i1 %.not196, label %192, label %187
 
-189:                                              ; preds = %186
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull %188)
-  br label %194
+187:                                              ; preds = %184
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull %186)
+  br label %192
 
-190:                                              ; preds = %177, %177, %166
-  %191 = getelementptr inbounds nuw i8, ptr %.0181, i64 16
-  %192 = load ptr, ptr %191, align 8
-  %193 = call ptr %192(ptr noundef %0, ptr noundef nonnull %.0181, ptr noundef %170, ptr noundef %3)
-  br label %194
+188:                                              ; preds = %175, %175, %166
+  %189 = getelementptr inbounds nuw i8, ptr %.0181, i64 16
+  %190 = load ptr, ptr %189, align 8
+  %191 = call ptr %190(ptr noundef %0, ptr noundef nonnull %.0181, ptr noundef %168, ptr noundef %3)
+  br label %192
 
-194:                                              ; preds = %186, %189, %190
-  %.0179 = phi ptr [ null, %189 ], [ null, %186 ], [ %193, %190 ]
-  store ptr %172, ptr %0, align 8
-  %195 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr null, ptr %195, align 8
-  %196 = load i32, ptr %7, align 4
-  %197 = load i32, ptr %6, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %199 = load ptr, ptr %198, align 8
-  call fastcc void @call_avp_subdissector(i32 noundef %196, i32 noundef %197, ptr noundef %170, ptr noundef %199, ptr noundef %81, ptr noundef %3)
-  %200 = load ptr, ptr %195, align 8
-  %.not197 = icmp eq ptr %200, null
-  br i1 %.not197, label %201, label %.sink.split
+192:                                              ; preds = %184, %187, %188
+  %.0179 = phi ptr [ null, %187 ], [ null, %184 ], [ %191, %188 ]
+  store ptr %170, ptr %0, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr null, ptr %193, align 8
+  %194 = load i32, ptr %7, align 4
+  %195 = load i32, ptr %6, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %197 = load ptr, ptr %196, align 8
+  call fastcc void @call_avp_subdissector(i32 noundef %194, i32 noundef %195, ptr noundef %168, ptr noundef %197, ptr noundef %81, ptr noundef %3)
+  %198 = load ptr, ptr %193, align 8
+  %.not197 = icmp eq ptr %198, null
+  br i1 %.not197, label %199, label %.sink.split
 
-201:                                              ; preds = %194
+199:                                              ; preds = %192
   %.not198 = icmp eq ptr %.0179, null
-  br i1 %.not198, label %202, label %.sink.split
+  br i1 %.not198, label %200, label %.sink.split
 
-.sink.split:                                      ; preds = %201, %194
-  %.0179.sink = phi ptr [ %200, %194 ], [ %.0179, %201 ]
+.sink.split:                                      ; preds = %199, %192
+  %.0179.sink = phi ptr [ %198, %192 ], [ %.0179, %199 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %78, ptr noundef nonnull @.str.68, ptr noundef nonnull %.0179.sink)
-  br label %202
+  br label %200
 
-202:                                              ; preds = %.sink.split, %201
+200:                                              ; preds = %.sink.split, %199
   %.not199 = icmp eq i8 %.0178, 0
-  br i1 %.not199, label %.loopexit, label %203
+  br i1 %.not199, label %.loopexit, label %201
 
-203:                                              ; preds = %202
-  %204 = load i32, ptr @hf_diameter_avp_pad, align 4
-  %205 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %204, ptr noundef %1, i32 noundef %171, i32 noundef %.pre-phi, i32 noundef 0)
-  br label %208
+201:                                              ; preds = %200
+  %202 = load i32, ptr @hf_diameter_avp_pad, align 4
+  %203 = call ptr @proto_tree_add_item(ptr noundef %81, i32 noundef %202, ptr noundef %1, i32 noundef %169, i32 noundef %.pre-phi, i32 noundef 0)
+  br label %206
 
-206:                                              ; preds = %208
-  %207 = add nuw i8 %.0204, 1
-  %exitcond.not = icmp eq i8 %207, %.0178
-  br i1 %exitcond.not, label %.loopexit, label %208, !llvm.loop !18
+204:                                              ; preds = %206
+  %205 = add nuw i8 %.0204, 1
+  %exitcond.not = icmp eq i8 %205, %.0178
+  br i1 %exitcond.not, label %.loopexit, label %206, !llvm.loop !18
 
-208:                                              ; preds = %203, %206
-  %.0204 = phi i8 [ 0, %203 ], [ %207, %206 ]
-  %.2203 = phi i32 [ %171, %203 ], [ %209, %206 ]
-  %209 = add i32 %.2203, 1
-  %210 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.2203)
-  %.not200 = icmp eq i8 %210, 0
-  br i1 %.not200, label %206, label %211
+206:                                              ; preds = %201, %204
+  %.0204 = phi i8 [ 0, %201 ], [ %205, %204 ]
+  %.2203 = phi i32 [ %169, %201 ], [ %207, %204 ]
+  %207 = add i32 %.2203, 1
+  %208 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %.2203)
+  %.not200 = icmp eq i8 %208, 0
+  br i1 %.not200, label %204, label %209
 
-211:                                              ; preds = %208
-  %212 = load ptr, ptr %198, align 8
-  %213 = call ptr @expert_add_info(ptr noundef %212, ptr noundef %205, ptr noundef nonnull @ei_diameter_avp_pad)
+209:                                              ; preds = %206
+  %210 = load ptr, ptr %196, align 8
+  %211 = call ptr @expert_add_info(ptr noundef %210, ptr noundef %203, ptr noundef nonnull @ei_diameter_avp_pad)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %206, %211, %202
-  %.1 = phi i32 [ %171, %202 ], [ %209, %211 ], [ %209, %206 ]
-  %214 = and i32 %77, 3
-  %.not201 = icmp eq i32 %214, 0
-  br i1 %.not201, label %218, label %215
+.loopexit:                                        ; preds = %204, %209, %200
+  %.1 = phi i32 [ %169, %200 ], [ %207, %209 ], [ %207, %204 ]
+  %212 = and i32 %77, 3
+  %.not201 = icmp eq i32 %212, 0
+  br i1 %.not201, label %216, label %213
 
-215:                                              ; preds = %.loopexit
-  %216 = load ptr, ptr %198, align 8
-  %217 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %216, ptr noundef nonnull @ei_diameter_avp_pad_missing, ptr noundef %1, i32 noundef %.1, i32 noundef %.pre-phi)
-  br label %218
+213:                                              ; preds = %.loopexit
+  %214 = load ptr, ptr %196, align 8
+  %215 = call ptr @proto_tree_add_expert(ptr noundef %81, ptr noundef %214, ptr noundef nonnull @ei_diameter_avp_pad_missing, ptr noundef %1, i32 noundef %.1, i32 noundef %.pre-phi)
+  br label %216
 
-218:                                              ; preds = %.loopexit, %215, %150, %153, %59
-  %.0176 = phi i32 [ %65, %59 ], [ %77, %153 ], [ %77, %150 ], [ %77, %215 ], [ %77, %.loopexit ]
+216:                                              ; preds = %.loopexit, %213, %150, %153, %59
+  %.0176 = phi i32 [ %65, %59 ], [ %77, %153 ], [ %77, %150 ], [ %77, %213 ], [ %77, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16

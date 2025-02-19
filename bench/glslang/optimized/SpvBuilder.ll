@@ -17710,7 +17710,7 @@ define linkonce_odr void @_ZN8spvutils8HexFloatINS_10FloatProxyIfEENS_14HexFloat
   br i1 %7, label %8, label %9
 
 8:                                                ; preds = %3
-  br i1 %5, label %.sink.split, label %57
+  br i1 %5, label %.sink.split, label %55
 
 9:                                                ; preds = %3
   %10 = and i32 %.sroa.0.0.copyload.i.i, 8388607
@@ -17798,23 +17798,21 @@ _ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51
   %brmerge.i = or i1 %.023.i, %or.cond.not28.i
   %spec.select.i = select i1 %38, i16 1, i16 %.1.lcssa.i
   %.2.i = select i1 %brmerge.i, i16 %.1.lcssa.i, i16 %spec.select.i
-  %49 = lshr i32 %.sroa.0.0.copyload.i.i, 16
-  %50 = trunc nuw i32 %49 to i16
-  %spec.select26.i = and i16 %50, -32768
-  %51 = shl i16 %.0.lcssa.i, 10
-  %52 = add i16 %51, 15360
-  %53 = and i16 %52, 31744
-  %54 = and i16 %.2.i, 1023
-  %55 = or disjoint i16 %53, %spec.select26.i
-  %56 = or disjoint i16 %55, %54
+  %spec.select26.i = select i1 %5, i16 -32768, i16 0
+  %49 = shl i16 %.0.lcssa.i, 10
+  %50 = add i16 %49, 15360
+  %51 = and i16 %50, 31744
+  %52 = and i16 %.2.i, 1023
+  %53 = or disjoint i16 %51, %spec.select26.i
+  %54 = or disjoint i16 %53, %52
   br label %.sink.split
 
 .sink.split:                                      ; preds = %8, %.critedge38, %.critedge39, %_ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51setFromSignUnbiasedExponentAndNormalizedSignificandEbstb.exit
-  %.sink = phi i16 [ %56, %_ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51setFromSignUnbiasedExponentAndNormalizedSignificandEbstb.exit ], [ %36, %.critedge39 ], [ %31, %.critedge38 ], [ -32768, %8 ]
+  %.sink = phi i16 [ %54, %_ZN8spvutils8HexFloatINS_10FloatProxyINS_7Float16EEENS_14HexFloatTraitsIS3_EEE51setFromSignUnbiasedExponentAndNormalizedSignificandEbstb.exit ], [ %36, %.critedge39 ], [ %31, %.critedge38 ], [ -32768, %8 ]
   store i16 %.sink, ptr %1, align 2
-  br label %57
+  br label %55
 
-57:                                               ; preds = %.sink.split, %8
+55:                                               ; preds = %.sink.split, %8
   ret void
 }
 

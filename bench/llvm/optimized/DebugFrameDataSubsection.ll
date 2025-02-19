@@ -924,9 +924,9 @@ define dso_local noundef range(i32 0, -24) i32 @_ZNK4llvm8codeview24DebugFrameDa
   %10 = and i32 %9, -32
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i8, ptr %11, align 4, !tbaa !69, !range !8, !noundef !9
-  %13 = trunc nuw i8 %12 to i1
-  %14 = or disjoint i32 %10, 4
-  %spec.select = select i1 %13, i32 %14, i32 %10
+  %13 = shl nuw nsw i8 %12, 2
+  %14 = zext nneg i8 %13 to i32
+  %spec.select = or disjoint i32 %10, %14
   ret i32 %spec.select
 }
 

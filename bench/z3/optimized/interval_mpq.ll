@@ -6779,12 +6779,11 @@ entry:
   %bf.load.i.i.i = load i8, ptr %m_lower_inf.i.i.i, align 8
   %0 = and i8 %bf.load.i.i.i, 4
   %tobool.i.i.not.i = icmp eq i8 %0, 0
+  %1 = and i8 %bf.load.i.i.i, 8
+  %tobool.i.i14.not.i = icmp eq i8 %1, 0
   %m_upper_combine13.i = getelementptr inbounds nuw i8, ptr %b_deps, i64 2
   %..i = zext i1 %tobool.i.i.not.i to i16
-  %1 = lshr i8 %bf.load.i.i.i, 2
-  %2 = and i8 %1, 2
-  %3 = xor i8 %2, 2
-  %.16.i = zext nneg i8 %3 to i16
+  %.16.i = select i1 %tobool.i.i14.not.i, i16 2, i16 0
   store i16 %.16.i, ptr %b_deps, align 2
   store i16 %..i, ptr %m_upper_combine13.i, align 2
   tail call void @_ZN16interval_managerI17im_default_configE3negERKNS0_8intervalERS2_(ptr noundef nonnull align 8 dereferenceable(600) %this, ptr noundef nonnull align 8 dereferenceable(65) %a, ptr noundef nonnull align 8 dereferenceable(65) %b)
@@ -6798,12 +6797,11 @@ entry:
   %bf.load.i.i = load i8, ptr %m_lower_inf.i.i, align 8
   %0 = and i8 %bf.load.i.i, 4
   %tobool.i.i.not = icmp eq i8 %0, 0
+  %1 = and i8 %bf.load.i.i, 8
+  %tobool.i.i14.not = icmp eq i8 %1, 0
   %m_upper_combine13 = getelementptr inbounds nuw i8, ptr %b_deps, i64 2
   %. = zext i1 %tobool.i.i.not to i16
-  %1 = lshr i8 %bf.load.i.i, 2
-  %2 = and i8 %1, 2
-  %3 = xor i8 %2, 2
-  %.16 = zext nneg i8 %3 to i16
+  %.16 = select i1 %tobool.i.i14.not, i16 2, i16 0
   store i16 %.16, ptr %b_deps, align 2
   store i16 %., ptr %m_upper_combine13, align 2
   ret void

@@ -1116,12 +1116,12 @@ define dso_local ptr @do_item_alloc(ptr noundef readonly captures(none) %0, i64 
   %11 = add nuw nsw i64 %10, 48
   %12 = select i1 %9, i64 0, i64 4
   %13 = zext nneg i32 %4 to i64
-  %14 = add nuw nsw i64 %11, %12
-  %15 = add nuw nsw i64 %14, %13
-  %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8, !tbaa !62, !range !24, !noundef !25
-  %17 = trunc nuw i8 %16 to i1
-  %18 = add nuw nsw i64 %15, 8
-  %spec.select = select i1 %17, i64 %18, i64 %15
+  %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8, !tbaa !62, !range !24, !noundef !25
+  %15 = shl nuw nsw i8 %14, 3
+  %16 = zext nneg i8 %15 to i64
+  %17 = add nuw nsw i64 %11, %12
+  %18 = add nuw nsw i64 %17, %13
+  %spec.select = add nuw nsw i64 %18, %16
   %19 = tail call i32 @slabs_clsid(i64 noundef %spec.select) #19
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %109, label %21
@@ -1307,9 +1307,9 @@ define dso_local zeroext i1 @item_size_ok(i64 noundef %0, i32 noundef %1, i32 no
   %12 = add nuw nsw i64 %9, %11
   %13 = add nuw nsw i64 %12, %10
   %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 104), align 8, !tbaa !62, !range !24, !noundef !25
-  %15 = trunc nuw i8 %14 to i1
-  %16 = add nuw nsw i64 %13, 8
-  %spec.select = select i1 %15, i64 %16, i64 %13
+  %15 = shl nuw nsw i8 %14, 3
+  %16 = zext nneg i8 %15 to i64
+  %spec.select = add nuw nsw i64 %13, %16
   %17 = tail call i32 @slabs_clsid(i64 noundef %spec.select) #19
   %18 = icmp ne i32 %17, 0
   br label %19

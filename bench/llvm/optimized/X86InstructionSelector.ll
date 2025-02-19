@@ -226,9 +226,9 @@ define dso_local noundef nonnull ptr @_ZN4llvm28createX86InstructionSelectorERKN
   %28 = phi i64 [ 2097152, %25 ], [ 0, %3 ]
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 360
   %30 = load i8, ptr %29, align 8, !tbaa !159, !range !154, !noalias !18, !noundef !155
-  %31 = trunc nuw i8 %30 to i1
-  %32 = or disjoint i64 %21, 1073741824
-  %spec.select87.i.i = select i1 %31, i64 %32, i64 %21
+  %31 = zext nneg i8 %30 to i64
+  %32 = shl nuw nsw i64 %31, 30
+  %spec.select87.i.i = or disjoint i64 %32, %21
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 365
   %34 = load i8, ptr %33, align 1, !tbaa !160, !range !154, !noalias !18, !noundef !155
   %35 = trunc nuw i8 %34 to i1
@@ -262,7 +262,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit156.i.i: ; preds = %_ZNK4llvm12X86Subt
   %46 = load i8, ptr %45, align 1, !tbaa !162, !range !154, !noalias !18, !noundef !155
   %47 = trunc nuw i8 %46 to i1
   %spec.select88.i8.i = select i1 %47, i64 8796093022208, i64 0
-  br label %76
+  br label %78
 
 48:                                               ; preds = %27
   %49 = or disjoint i64 %spec.select87.i.i, 536870912
@@ -270,7 +270,7 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit156.i.i: ; preds = %_ZNK4llvm12X86Subt
   %51 = load i8, ptr %50, align 1, !tbaa !162, !range !154, !noalias !18, !noundef !155
   %52 = trunc nuw i8 %51 to i1
   %spec.select88.i.i = select i1 %52, i64 8796093022208, i64 0
-  br i1 %38, label %53, label %76
+  br i1 %38, label %53, label %78
 
 53:                                               ; preds = %48
   %54 = icmp samesign ugt i32 %37, 6
@@ -279,24 +279,24 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit156.i.i: ; preds = %_ZNK4llvm12X86Subt
 55:                                               ; preds = %53
   %56 = or disjoint i64 %spec.select87.i.i, 18155136534708224
   %.not69.i.i = icmp eq i32 %37, 1
-  br i1 %.not69.i.i, label %76, label %57
+  br i1 %.not69.i.i, label %78, label %57
 
 57:                                               ; preds = %55
   %58 = or disjoint i64 %spec.select87.i.i, 54254302297849856
   store i64 %58, ptr %13, align 8, !tbaa !157, !alias.scope !18
   %59 = icmp samesign ugt i32 %37, 2
-  br i1 %59, label %60, label %76
+  br i1 %59, label %60, label %78
 
 60:                                               ; preds = %57
   %61 = or disjoint i64 %spec.select87.i.i, 54254577175756800
   %62 = or disjoint i64 %spec.select88.i.i, 1
   %.not70.i.i = icmp eq i32 %37, 3
-  br i1 %.not70.i.i, label %76, label %63
+  br i1 %.not70.i.i, label %78, label %63
 
 63:                                               ; preds = %60
   %64 = or disjoint i64 %spec.select88.i.i, 17592186044419
   %65 = icmp samesign ugt i32 %37, 4
-  br i1 %65, label %66, label %76
+  br i1 %65, label %66, label %78
 
 66:                                               ; preds = %63
   %67 = or disjoint i64 %spec.select87.i.i, 4665940595603144704
@@ -304,1012 +304,1013 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit156.i.i: ; preds = %_ZNK4llvm12X86Subt
   %68 = icmp eq i32 %37, 6
   %69 = or disjoint i64 %spec.select88.i.i, 17592186044451
   %spec.select.i = select i1 %68, i64 %69, i64 %64
-  br label %76
+  br label %78
 
 70:                                               ; preds = %53
   %71 = or disjoint i64 %spec.select87.i.i, 211381647310848
   store i64 %71, ptr %13, align 8, !tbaa !157, !alias.scope !18
   %72 = getelementptr inbounds nuw i8, ptr %1, i64 447
   %73 = load i8, ptr %72, align 1, !tbaa !163, !range !154, !noalias !18, !noundef !155
-  %74 = trunc nuw i8 %73 to i1
-  %spec.select89.i.v.i = select i1 %74, i64 17592186077184, i64 17592186044416
-  %spec.select89.i.i = or disjoint i64 %spec.select89.i.v.i, %spec.select88.i.i
+  %74 = zext nneg i8 %73 to i64
+  %75 = shl nuw nsw i64 %74, 15
+  %76 = or disjoint i64 %75, %spec.select88.i.i
+  %spec.select89.i.i = or disjoint i64 %76, 17592186044416
   %.not71.i.i = icmp eq i32 %37, 7
-  br i1 %.not71.i.i, label %82, label %.thread33.i.i
+  br i1 %.not71.i.i, label %84, label %.thread33.i.i
 
 .thread33.i.i:                                    ; preds = %70
-  %75 = or disjoint i64 %spec.select87.i.i, 73394875592081408
-  store i64 %75, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  br label %84
+  %77 = or disjoint i64 %spec.select87.i.i, 73394875592081408
+  store i64 %77, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  br label %86
 
-76:                                               ; preds = %66, %63, %60, %57, %55, %48, %.thread.i
+78:                                               ; preds = %66, %63, %60, %57, %55, %48, %.thread.i
   %.ph9.i = phi i64 [ %.ph.i, %.thread.i ], [ %28, %60 ], [ %28, %57 ], [ %28, %48 ], [ %28, %55 ], [ %28, %63 ], [ %28, %66 ]
   %.ph10.i = phi i64 [ %.ph7.i, %.thread.i ], [ %61, %60 ], [ %58, %57 ], [ %49, %48 ], [ %56, %55 ], [ %61, %63 ], [ %67, %66 ]
   %.ph11.i = phi i64 [ %spec.select88.i8.i, %.thread.i ], [ %62, %60 ], [ %spec.select88.i.i, %57 ], [ %spec.select88.i.i, %48 ], [ %spec.select88.i.i, %55 ], [ %64, %63 ], [ %spec.select.i, %66 ]
   %.ph12.i = phi i1 [ false, %.thread.i ], [ true, %60 ], [ true, %57 ], [ false, %48 ], [ false, %55 ], [ true, %63 ], [ true, %66 ]
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 447
-  %78 = load i8, ptr %77, align 1, !tbaa !163, !range !154, !noalias !18, !noundef !155
-  %79 = trunc nuw i8 %78 to i1
-  %80 = or i64 %.ph11.i, 32768
-  %spec.select89.i13.i = select i1 %79, i64 %80, i64 %.ph11.i
-  %81 = or i64 %spec.select89.i13.i, 2048
-  store i64 %81, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %84
+  %79 = getelementptr inbounds nuw i8, ptr %1, i64 447
+  %80 = load i8, ptr %79, align 1, !tbaa !163, !range !154, !noalias !18, !noundef !155
+  %81 = zext nneg i8 %80 to i64
+  %82 = shl nuw nsw i64 %81, 15
+  %spec.select89.i13.i = or i64 %.ph11.i, %82
+  %83 = or i64 %spec.select89.i13.i, 2048
+  store i64 %83, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %86
 
-82:                                               ; preds = %70
-  %83 = or disjoint i64 %spec.select87.i.i, 72550450661949440
-  br label %84
+84:                                               ; preds = %70
+  %85 = or disjoint i64 %spec.select87.i.i, 72550450661949440
+  br label %86
 
-84:                                               ; preds = %82, %76, %.thread33.i.i
-  %85 = phi i1 [ true, %.thread33.i.i ], [ false, %76 ], [ true, %82 ]
-  %86 = phi i1 [ true, %.thread33.i.i ], [ %.ph12.i, %76 ], [ true, %82 ]
-  %87 = phi i64 [ %28, %.thread33.i.i ], [ %.ph9.i, %76 ], [ %28, %82 ]
-  %88 = phi i64 [ %75, %.thread33.i.i ], [ %.ph10.i, %76 ], [ %83, %82 ]
-  %89 = phi i64 [ %spec.select89.i.i, %.thread33.i.i ], [ %81, %76 ], [ %spec.select89.i.i, %82 ]
-  %90 = getelementptr inbounds nuw i8, ptr %1, i64 374
-  %91 = load i8, ptr %90, align 2, !tbaa !164, !range !154, !noalias !18, !noundef !155
-  %92 = trunc nuw i8 %91 to i1
-  br i1 %92, label %93, label %96
+86:                                               ; preds = %84, %78, %.thread33.i.i
+  %87 = phi i1 [ true, %.thread33.i.i ], [ false, %78 ], [ true, %84 ]
+  %88 = phi i1 [ true, %.thread33.i.i ], [ %.ph12.i, %78 ], [ true, %84 ]
+  %89 = phi i64 [ %28, %.thread33.i.i ], [ %.ph9.i, %78 ], [ %28, %84 ]
+  %90 = phi i64 [ %77, %.thread33.i.i ], [ %.ph10.i, %78 ], [ %85, %84 ]
+  %91 = phi i64 [ %spec.select89.i.i, %.thread33.i.i ], [ %83, %78 ], [ %spec.select89.i.i, %84 ]
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 374
+  %93 = load i8, ptr %92, align 2, !tbaa !164, !range !154, !noalias !18, !noundef !155
+  %94 = trunc nuw i8 %93 to i1
+  br i1 %94, label %95, label %98
 
-93:                                               ; preds = %84
-  %94 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %95 = or i64 %87, 16384
-  store i64 %95, ptr %94, align 8, !tbaa !157, !alias.scope !18
-  br label %96
+95:                                               ; preds = %86
+  %96 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %97 = or i64 %89, 16384
+  store i64 %97, ptr %96, align 8, !tbaa !157, !alias.scope !18
+  br label %98
 
-96:                                               ; preds = %93, %84
-  %97 = phi i64 [ %95, %93 ], [ %87, %84 ]
-  %98 = getelementptr inbounds nuw i8, ptr %1, i64 344
-  %99 = load i8, ptr %98, align 8, !tbaa !165, !range !154, !noalias !18, !noundef !155
-  %100 = trunc nuw i8 %99 to i1
-  %101 = or i64 %89, 4398046511104
-  %spec.select90.i.i = select i1 %100, i64 %101, i64 %89
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 345
-  %103 = load i8, ptr %102, align 1, !tbaa !166, !range !154, !noalias !18, !noundef !155
-  %104 = trunc nuw i8 %103 to i1
-  %105 = or i64 %spec.select90.i.i, 2199023255552
-  %106 = select i1 %104, i64 %105, i64 %spec.select90.i.i
-  %107 = or i64 %106, 16
-  %108 = select i1 %100, i64 %106, i64 %107
-  %109 = icmp sgt i32 %37, 8
-  br i1 %109, label %113, label %110
+98:                                               ; preds = %95, %86
+  %99 = phi i64 [ %97, %95 ], [ %89, %86 ]
+  %100 = getelementptr inbounds nuw i8, ptr %1, i64 344
+  %101 = load i8, ptr %100, align 8, !tbaa !165, !range !154, !noalias !18, !noundef !155
+  %102 = trunc nuw i8 %101 to i1
+  %103 = or i64 %91, 4398046511104
+  %spec.select90.i.i = select i1 %102, i64 %103, i64 %91
+  %104 = getelementptr inbounds nuw i8, ptr %1, i64 345
+  %105 = load i8, ptr %104, align 1, !tbaa !166, !range !154, !noalias !18, !noundef !155
+  %106 = zext nneg i8 %105 to i64
+  %107 = shl nuw nsw i64 %106, 41
+  %108 = or i64 %107, %spec.select90.i.i
+  %109 = or i64 %108, 16
+  %110 = select i1 %102, i64 %108, i64 %109
+  %111 = icmp sgt i32 %37, 8
+  br i1 %111, label %115, label %112
 
-110:                                              ; preds = %96
-  br i1 %85, label %111, label %115
+112:                                              ; preds = %98
+  br i1 %87, label %113, label %117
 
-111:                                              ; preds = %110
-  %112 = or i64 %88, 4503599627370496
-  store i64 %112, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  br label %115
+113:                                              ; preds = %112
+  %114 = or i64 %90, 4503599627370496
+  store i64 %114, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  br label %117
 
-113:                                              ; preds = %96
-  %114 = or i64 %108, 268435456
+115:                                              ; preds = %98
+  %116 = or i64 %110, 268435456
   br label %.thread38.i.i
 
-115:                                              ; preds = %111, %110
-  %116 = phi i64 [ %112, %111 ], [ %88, %110 ]
-  %117 = or i64 %116, 8796093022208
+117:                                              ; preds = %113, %112
+  %118 = phi i64 [ %114, %113 ], [ %90, %112 ]
+  %119 = or i64 %118, 8796093022208
   br label %.thread38.i.i
 
-.thread38.i.i:                                    ; preds = %115, %113
-  %118 = phi i64 [ %88, %113 ], [ %117, %115 ]
-  %119 = phi i64 [ %114, %113 ], [ %108, %115 ]
-  %120 = getelementptr inbounds nuw i8, ptr %1, i64 359
-  %121 = load i8, ptr %120, align 1, !tbaa !167, !range !154, !noalias !18, !noundef !155
-  %122 = trunc nuw i8 %121 to i1
-  %123 = or i64 %119, 4294967296
-  %spec.select91.i.i = select i1 %122, i64 %123, i64 %119
-  %124 = getelementptr inbounds nuw i8, ptr %1, i64 462
-  %125 = load i8, ptr %124, align 2, !tbaa !168, !range !154, !noalias !18, !noundef !155
-  %126 = trunc nuw i8 %125 to i1
-  %127 = or i64 %spec.select91.i.i, 68719476736
-  %128 = select i1 %126, i64 %127, i64 %spec.select91.i.i
-  %129 = getelementptr inbounds nuw i8, ptr %1, i64 370
-  %130 = load i8, ptr %129, align 2, !tbaa !169, !range !154, !noalias !18, !noundef !155
-  %131 = trunc nuw i8 %130 to i1
-  %.sink94.i.i = select i1 %131, i64 1073741824, i64 4
-  %132 = or i64 %128, %.sink94.i.i
-  %133 = getelementptr inbounds nuw i8, ptr %1, i64 355
-  %134 = load i8, ptr %133, align 1, !tbaa !170, !range !154, !noalias !18, !noundef !155
-  %135 = trunc nuw i8 %134 to i1
-  %136 = getelementptr inbounds nuw i8, ptr %1, i64 458
-  %137 = load i8, ptr %136, align 2, !tbaa !171, !range !154, !noalias !18, !noundef !155
-  %138 = trunc nuw i8 %137 to i1
-  br i1 %135, label %139, label %.thread42.i.i
+.thread38.i.i:                                    ; preds = %117, %115
+  %120 = phi i64 [ %90, %115 ], [ %119, %117 ]
+  %121 = phi i64 [ %116, %115 ], [ %110, %117 ]
+  %122 = getelementptr inbounds nuw i8, ptr %1, i64 359
+  %123 = load i8, ptr %122, align 1, !tbaa !167, !range !154, !noalias !18, !noundef !155
+  %124 = zext nneg i8 %123 to i64
+  %125 = shl nuw nsw i64 %124, 32
+  %spec.select91.i.i = or i64 %125, %121
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 462
+  %127 = load i8, ptr %126, align 2, !tbaa !168, !range !154, !noalias !18, !noundef !155
+  %128 = zext nneg i8 %127 to i64
+  %129 = shl nuw nsw i64 %128, 36
+  %130 = or i64 %spec.select91.i.i, %129
+  %131 = getelementptr inbounds nuw i8, ptr %1, i64 370
+  %132 = load i8, ptr %131, align 2, !tbaa !169, !range !154, !noalias !18, !noundef !155
+  %133 = trunc nuw i8 %132 to i1
+  %.sink94.i.i = select i1 %133, i64 1073741824, i64 4
+  %134 = or i64 %130, %.sink94.i.i
+  %135 = getelementptr inbounds nuw i8, ptr %1, i64 355
+  %136 = load i8, ptr %135, align 1, !tbaa !170, !range !154, !noalias !18, !noundef !155
+  %137 = trunc nuw i8 %136 to i1
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 458
+  %139 = load i8, ptr %138, align 2, !tbaa !171, !range !154, !noalias !18, !noundef !155
+  %140 = trunc nuw i8 %139 to i1
+  br i1 %137, label %141, label %.thread42.i.i
 
-139:                                              ; preds = %.thread38.i.i
-  %140 = or i64 %132, 2147483648
-  br i1 %138, label %147, label %143
+141:                                              ; preds = %.thread38.i.i
+  %142 = or i64 %134, 2147483648
+  br i1 %140, label %149, label %145
 
 .thread42.i.i:                                    ; preds = %.thread38.i.i
-  %141 = or i64 %118, -9223372036854775808
-  br i1 %138, label %.thread43.i.i, label %143
+  %143 = or i64 %120, -9223372036854775808
+  br i1 %140, label %.thread43.i.i, label %145
 
 .thread43.i.i:                                    ; preds = %.thread42.i.i
-  %142 = or i64 %132, 536870912
-  br label %149
+  %144 = or i64 %134, 536870912
+  br label %151
 
-143:                                              ; preds = %.thread42.i.i, %139
-  %144 = phi i64 [ %132, %.thread42.i.i ], [ %140, %139 ]
-  %145 = phi i64 [ %141, %.thread42.i.i ], [ %118, %139 ]
-  %146 = or i64 %145, 4398046511104
-  br label %149
+145:                                              ; preds = %.thread42.i.i, %141
+  %146 = phi i64 [ %134, %.thread42.i.i ], [ %142, %141 ]
+  %147 = phi i64 [ %143, %.thread42.i.i ], [ %120, %141 ]
+  %148 = or i64 %147, 4398046511104
+  br label %151
 
-147:                                              ; preds = %139
-  %148 = or i64 %132, 2684354560
-  br label %154
+149:                                              ; preds = %141
+  %150 = or i64 %134, 2684354560
+  br label %156
 
-149:                                              ; preds = %143, %.thread43.i.i
-  %150 = phi i64 [ %144, %143 ], [ %142, %.thread43.i.i ]
-  %151 = phi i64 [ %146, %143 ], [ %141, %.thread43.i.i ]
-  %152 = phi i1 [ false, %143 ], [ true, %.thread43.i.i ]
-  %153 = or i64 %151, 1152921504606846976
-  store i64 %153, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  br label %154
+151:                                              ; preds = %145, %.thread43.i.i
+  %152 = phi i64 [ %146, %145 ], [ %144, %.thread43.i.i ]
+  %153 = phi i64 [ %148, %145 ], [ %143, %.thread43.i.i ]
+  %154 = phi i1 [ false, %145 ], [ true, %.thread43.i.i ]
+  %155 = or i64 %153, 1152921504606846976
+  store i64 %155, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  br label %156
 
-154:                                              ; preds = %149, %147
-  %155 = phi i64 [ %153, %149 ], [ %118, %147 ]
-  %156 = phi i64 [ %150, %149 ], [ %148, %147 ]
-  %157 = phi i1 [ %152, %149 ], [ true, %147 ]
-  %158 = getelementptr inbounds nuw i8, ptr %1, i64 459
-  %159 = load i8, ptr %158, align 1, !tbaa !172, !range !154, !noalias !18, !noundef !155
-  %160 = trunc nuw i8 %159 to i1
-  %161 = or i64 %156, 274877906944
-  %spec.select19.i = select i1 %160, i64 %161, i64 %156
-  %162 = getelementptr inbounds nuw i8, ptr %1, i64 460
-  %163 = load i8, ptr %162, align 4, !tbaa !173, !range !154, !noalias !18, !noundef !155
-  %164 = trunc nuw i8 %163 to i1
-  %165 = or i64 %spec.select19.i, 1099511627776
-  %spec.select95.i.i = select i1 %164, i64 %165, i64 %spec.select19.i
-  %166 = getelementptr inbounds nuw i8, ptr %1, i64 378
-  %167 = load i8, ptr %166, align 2, !tbaa !174, !range !154, !noalias !18, !noundef !155
-  %168 = trunc nuw i8 %167 to i1
-  %169 = or i64 %spec.select95.i.i, 17179869184
-  %170 = select i1 %168, i64 %169, i64 %spec.select95.i.i
-  %171 = getelementptr inbounds nuw i8, ptr %1, i64 349
-  %172 = load i8, ptr %171, align 1, !tbaa !175, !range !154, !noalias !18, !noundef !155
-  %173 = trunc nuw i8 %172 to i1
-  %174 = or i64 %170, 134217728
-  %175 = select i1 %173, i64 %174, i64 %170
-  %176 = getelementptr inbounds nuw i8, ptr %1, i64 350
-  %177 = load i8, ptr %176, align 2, !tbaa !176, !range !154, !noalias !18, !noundef !155
-  %178 = trunc nuw i8 %177 to i1
-  %179 = or i64 %175, 4194304
-  %180 = select i1 %178, i64 %179, i64 %175
-  %181 = getelementptr inbounds nuw i8, ptr %1, i64 348
-  %182 = load i8, ptr %181, align 4, !tbaa !177, !range !154, !noalias !18, !noundef !155
-  %183 = trunc nuw i8 %182 to i1
-  %184 = or i64 %180, 65536
-  %spec.select96.i.i = select i1 %183, i64 %184, i64 %180
-  %brmerge.demorgan.i.i = and i1 %157, %160
-  %185 = or i64 %spec.select96.i.i, 131072
-  %186 = select i1 %brmerge.demorgan.i.i, i64 %spec.select96.i.i, i64 %185
-  %187 = getelementptr inbounds nuw i8, ptr %1, i64 352
-  %188 = load i8, ptr %187, align 8, !tbaa !178, !range !154, !noalias !18, !noundef !155
-  %189 = trunc nuw i8 %188 to i1
-  %190 = or i64 %186, 549755813888
-  %191 = select i1 %189, i64 %190, i64 %186
-  %192 = getelementptr inbounds nuw i8, ptr %1, i64 425
-  %193 = load i8, ptr %192, align 1, !tbaa !179, !range !154, !noalias !18, !noundef !155
-  %194 = trunc nuw i8 %193 to i1
-  %195 = or i64 %191, 8
-  %196 = select i1 %194, i64 %195, i64 %191
-  %197 = getelementptr inbounds nuw i8, ptr %1, i64 331
-  %198 = load i8, ptr %197, align 1, !tbaa !180, !range !154, !noalias !18, !noundef !155
-  %199 = trunc nuw i8 %198 to i1
-  %200 = or i64 %196, 256
-  %201 = select i1 %199, i64 %200, i64 %196
-  %202 = getelementptr inbounds nuw i8, ptr %1, i64 455
-  %203 = load i8, ptr %202, align 1, !tbaa !181, !range !154, !noalias !18, !noundef !155
-  %204 = trunc nuw i8 %203 to i1
-  br i1 %204, label %205, label %.thread45.i.i
+156:                                              ; preds = %151, %149
+  %157 = phi i64 [ %155, %151 ], [ %120, %149 ]
+  %158 = phi i64 [ %152, %151 ], [ %150, %149 ]
+  %159 = phi i1 [ %154, %151 ], [ true, %149 ]
+  %160 = getelementptr inbounds nuw i8, ptr %1, i64 459
+  %161 = load i8, ptr %160, align 1, !tbaa !172, !range !154, !noalias !18, !noundef !155
+  %162 = trunc nuw i8 %161 to i1
+  %163 = or i64 %158, 274877906944
+  %spec.select19.i = select i1 %162, i64 %163, i64 %158
+  %164 = getelementptr inbounds nuw i8, ptr %1, i64 460
+  %165 = load i8, ptr %164, align 4, !tbaa !173, !range !154, !noalias !18, !noundef !155
+  %166 = zext nneg i8 %165 to i64
+  %167 = shl nuw nsw i64 %166, 40
+  %spec.select95.i.i = or i64 %167, %spec.select19.i
+  %168 = getelementptr inbounds nuw i8, ptr %1, i64 378
+  %169 = load i8, ptr %168, align 2, !tbaa !174, !range !154, !noalias !18, !noundef !155
+  %170 = zext nneg i8 %169 to i64
+  %171 = shl nuw nsw i64 %170, 34
+  %172 = or i64 %spec.select95.i.i, %171
+  %173 = getelementptr inbounds nuw i8, ptr %1, i64 349
+  %174 = load i8, ptr %173, align 1, !tbaa !175, !range !154, !noalias !18, !noundef !155
+  %175 = zext nneg i8 %174 to i64
+  %176 = shl nuw nsw i64 %175, 27
+  %177 = or i64 %172, %176
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 350
+  %179 = load i8, ptr %178, align 2, !tbaa !176, !range !154, !noalias !18, !noundef !155
+  %180 = zext nneg i8 %179 to i64
+  %181 = shl nuw nsw i64 %180, 22
+  %182 = or i64 %177, %181
+  %183 = getelementptr inbounds nuw i8, ptr %1, i64 348
+  %184 = load i8, ptr %183, align 4, !tbaa !177, !range !154, !noalias !18, !noundef !155
+  %185 = zext nneg i8 %184 to i64
+  %186 = shl nuw nsw i64 %185, 16
+  %spec.select96.i.i = or i64 %182, %186
+  %brmerge.demorgan.i.i = and i1 %159, %162
+  %187 = or i64 %spec.select96.i.i, 131072
+  %188 = select i1 %brmerge.demorgan.i.i, i64 %spec.select96.i.i, i64 %187
+  %189 = getelementptr inbounds nuw i8, ptr %1, i64 352
+  %190 = load i8, ptr %189, align 8, !tbaa !178, !range !154, !noalias !18, !noundef !155
+  %191 = zext nneg i8 %190 to i64
+  %192 = shl nuw nsw i64 %191, 39
+  %193 = getelementptr inbounds nuw i8, ptr %1, i64 425
+  %194 = load i8, ptr %193, align 1, !tbaa !179, !range !154, !noalias !18, !noundef !155
+  %195 = shl nuw nsw i8 %194, 3
+  %196 = zext nneg i8 %195 to i64
+  %197 = or disjoint i64 %192, %196
+  %198 = or i64 %197, %188
+  %199 = getelementptr inbounds nuw i8, ptr %1, i64 331
+  %200 = load i8, ptr %199, align 1, !tbaa !180, !range !154, !noalias !18, !noundef !155
+  %201 = zext nneg i8 %200 to i64
+  %202 = shl nuw nsw i64 %201, 8
+  %203 = or i64 %198, %202
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 455
+  %205 = load i8, ptr %204, align 1, !tbaa !181, !range !154, !noalias !18, !noundef !155
+  %206 = trunc nuw i8 %205 to i1
+  br i1 %206, label %207, label %.thread45.i.i
 
-205:                                              ; preds = %154
-  %206 = or i64 %201, 1024
-  br i1 %157, label %209, label %.thread45.i.i
+207:                                              ; preds = %156
+  %208 = or i64 %203, 1024
+  br i1 %159, label %211, label %.thread45.i.i
 
-.thread45.i.i:                                    ; preds = %205, %154
-  %207 = phi i64 [ %201, %154 ], [ %206, %205 ]
-  %208 = or i64 %207, 512
-  br label %209
+.thread45.i.i:                                    ; preds = %207, %156
+  %209 = phi i64 [ %203, %156 ], [ %208, %207 ]
+  %210 = or i64 %209, 512
+  br label %211
 
-209:                                              ; preds = %.thread45.i.i, %205
-  %210 = phi i64 [ %206, %205 ], [ %208, %.thread45.i.i ]
-  %211 = getelementptr inbounds nuw i8, ptr %1, i64 381
-  %212 = load i8, ptr %211, align 1, !tbaa !182, !range !154, !noalias !18, !noundef !155
-  %213 = trunc nuw i8 %212 to i1
-  %214 = or i64 %155, 549755813888
-  %spec.select97.i.i = select i1 %213, i64 %214, i64 %155
-  %215 = getelementptr inbounds nuw i8, ptr %1, i64 467
-  %216 = load i8, ptr %215, align 1, !tbaa !183, !range !154, !noalias !18, !noundef !155
-  %217 = trunc nuw i8 %216 to i1
-  br i1 %217, label %218, label %220
+211:                                              ; preds = %.thread45.i.i, %207
+  %212 = phi i64 [ %208, %207 ], [ %210, %.thread45.i.i ]
+  %213 = getelementptr inbounds nuw i8, ptr %1, i64 381
+  %214 = load i8, ptr %213, align 1, !tbaa !182, !range !154, !noalias !18, !noundef !155
+  %215 = zext nneg i8 %214 to i64
+  %216 = shl nuw nsw i64 %215, 39
+  %spec.select97.i.i = or i64 %216, %157
+  %217 = getelementptr inbounds nuw i8, ptr %1, i64 467
+  %218 = load i8, ptr %217, align 1, !tbaa !183, !range !154, !noalias !18, !noundef !155
+  %219 = trunc nuw i8 %218 to i1
+  br i1 %219, label %220, label %222
 
-218:                                              ; preds = %209
-  %219 = or i64 %spec.select97.i.i, 137438953472
-  store i64 %219, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  br label %220
+220:                                              ; preds = %211
+  %221 = or i64 %spec.select97.i.i, 137438953472
+  store i64 %221, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  br label %222
 
-220:                                              ; preds = %218, %209
-  %221 = phi i64 [ %219, %218 ], [ %spec.select97.i.i, %209 ]
-  %222 = getelementptr inbounds nuw i8, ptr %1, i64 469
-  %223 = load i8, ptr %222, align 1, !tbaa !184, !range !154, !noalias !18, !noundef !155
-  %224 = trunc nuw i8 %223 to i1
-  %225 = or i64 %210, 1152921504606846976
-  %spec.select98.i.i = select i1 %224, i64 %225, i64 %210
-  %226 = getelementptr inbounds nuw i8, ptr %1, i64 471
-  %227 = load i8, ptr %226, align 1, !tbaa !185, !range !154, !noalias !18, !noundef !155
-  %228 = trunc nuw i8 %227 to i1
-  %229 = or i64 %spec.select98.i.i, 2305843009213693952
-  %230 = select i1 %228, i64 %229, i64 %spec.select98.i.i
-  %231 = getelementptr inbounds nuw i8, ptr %1, i64 470
-  %232 = load i8, ptr %231, align 2, !tbaa !186, !range !154, !noalias !18, !noundef !155
-  %233 = trunc nuw i8 %232 to i1
-  %234 = or i64 %230, 4611686018427387904
-  %235 = select i1 %233, i64 %234, i64 %230
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  %237 = load i8, ptr %236, align 8, !tbaa !187, !range !154, !noalias !18, !noundef !155
-  %238 = trunc nuw i8 %237 to i1
-  %239 = or i64 %235, -9223372036854775808
-  %240 = select i1 %238, i64 %239, i64 %235
-  %241 = getelementptr inbounds nuw i8, ptr %1, i64 421
-  %242 = load i8, ptr %241, align 1, !tbaa !188, !range !154, !noalias !18, !noundef !155
-  %243 = trunc nuw i8 %242 to i1
-  %244 = or i64 %240, 4096
-  %245 = select i1 %243, i64 %244, i64 %240
-  %246 = getelementptr inbounds nuw i8, ptr %1, i64 461
-  %247 = load i8, ptr %246, align 1, !tbaa !189, !range !154, !noalias !18
-  br i1 %157, label %248, label %251
+222:                                              ; preds = %220, %211
+  %223 = phi i64 [ %221, %220 ], [ %spec.select97.i.i, %211 ]
+  %224 = getelementptr inbounds nuw i8, ptr %1, i64 469
+  %225 = load i8, ptr %224, align 1, !tbaa !184, !range !154, !noalias !18, !noundef !155
+  %226 = zext nneg i8 %225 to i64
+  %227 = shl nuw nsw i64 %226, 60
+  %spec.select98.i.i = or i64 %227, %212
+  %228 = getelementptr inbounds nuw i8, ptr %1, i64 471
+  %229 = load i8, ptr %228, align 1, !tbaa !185, !range !154, !noalias !18, !noundef !155
+  %230 = zext nneg i8 %229 to i64
+  %231 = shl nuw nsw i64 %230, 61
+  %232 = or i64 %spec.select98.i.i, %231
+  %233 = getelementptr inbounds nuw i8, ptr %1, i64 470
+  %234 = load i8, ptr %233, align 2, !tbaa !186, !range !154, !noalias !18, !noundef !155
+  %235 = zext nneg i8 %234 to i64
+  %236 = shl nuw nsw i64 %235, 62
+  %237 = or i64 %232, %236
+  %238 = getelementptr inbounds nuw i8, ptr %1, i64 472
+  %239 = load i8, ptr %238, align 8, !tbaa !187, !range !154, !noalias !18, !noundef !155
+  %240 = zext nneg i8 %239 to i64
+  %241 = shl nuw i64 %240, 63
+  %242 = or i64 %237, %241
+  %243 = getelementptr inbounds nuw i8, ptr %1, i64 421
+  %244 = load i8, ptr %243, align 1, !tbaa !188, !range !154, !noalias !18, !noundef !155
+  %245 = zext nneg i8 %244 to i64
+  %246 = shl nuw nsw i64 %245, 12
+  %247 = or i64 %242, %246
+  %248 = getelementptr inbounds nuw i8, ptr %1, i64 461
+  %249 = load i8, ptr %248, align 1, !tbaa !189, !range !154, !noalias !18
+  br i1 %159, label %250, label %253
 
-248:                                              ; preds = %220
-  %249 = trunc nuw i8 %247 to i1
-  br i1 %249, label %.thread82.i.i, label %.thread83.i.i
+250:                                              ; preds = %222
+  %251 = trunc nuw i8 %249 to i1
+  br i1 %251, label %.thread82.i.i, label %.thread83.i.i
 
-.thread83.i.i:                                    ; preds = %248
-  %250 = or i64 %245, 8192
+.thread83.i.i:                                    ; preds = %250
+  %252 = or i64 %247, 8192
   br label %.sink.split.i
 
-251:                                              ; preds = %220
-  %252 = or i64 %245, 8192
-  store i64 %252, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  %253 = trunc nuw i8 %247 to i1
-  br i1 %253, label %.thread82.i.i, label %256
+253:                                              ; preds = %222
+  %254 = or i64 %247, 8192
+  store i64 %254, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  %255 = trunc nuw i8 %249 to i1
+  br i1 %255, label %.thread82.i.i, label %258
 
-.thread82.i.i:                                    ; preds = %251, %248
-  %254 = phi i64 [ %252, %251 ], [ %245, %248 ]
-  %255 = or i64 %254, 16384
+.thread82.i.i:                                    ; preds = %253, %250
+  %256 = phi i64 [ %254, %253 ], [ %247, %250 ]
+  %257 = or i64 %256, 16384
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %.thread82.i.i, %.thread83.i.i
-  %.sink.i = phi i64 [ %255, %.thread82.i.i ], [ %250, %.thread83.i.i ]
+  %.sink.i = phi i64 [ %257, %.thread82.i.i ], [ %252, %.thread83.i.i ]
   store i64 %.sink.i, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %256
+  br label %258
 
-256:                                              ; preds = %.sink.split.i, %251
-  %257 = phi i64 [ %252, %251 ], [ %.sink.i, %.sink.split.i ]
-  %258 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %259 = load i8, ptr %258, align 8, !tbaa !190, !range !154, !noalias !18, !noundef !155
-  %260 = trunc nuw i8 %259 to i1
-  br i1 %260, label %261, label %263
+258:                                              ; preds = %.sink.split.i, %253
+  %259 = phi i64 [ %254, %253 ], [ %.sink.i, %.sink.split.i ]
+  %260 = getelementptr inbounds nuw i8, ptr %1, i64 400
+  %261 = load i8, ptr %260, align 8, !tbaa !190, !range !154, !noalias !18, !noundef !155
+  %262 = trunc nuw i8 %261 to i1
+  br i1 %262, label %263, label %265
 
-261:                                              ; preds = %256
-  %262 = or i64 %257, 524288
-  store i64 %262, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %263
+263:                                              ; preds = %258
+  %264 = or i64 %259, 524288
+  store i64 %264, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %265
 
-263:                                              ; preds = %261, %256
-  %264 = phi i64 [ %262, %261 ], [ %257, %256 ]
-  %265 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %266 = load i8, ptr %265, align 8, !tbaa !191, !range !154, !noalias !18, !noundef !155
-  %267 = trunc nuw i8 %266 to i1
-  %268 = or i64 %221, 1099511627776
-  %spec.select99.i.i = select i1 %267, i64 %268, i64 %221
-  %269 = getelementptr inbounds nuw i8, ptr %1, i64 377
-  %270 = load i8, ptr %269, align 1, !tbaa !192, !range !154, !noalias !18, !noundef !155
-  %271 = trunc nuw i8 %270 to i1
-  %.118.i.i = select i1 %271, i64 17592186044416, i64 2199023255552
-  %272 = or i64 %.118.i.i, %spec.select99.i.i
-  %273 = getelementptr inbounds nuw i8, ptr %1, i64 468
-  %274 = load i8, ptr %273, align 4, !tbaa !193, !range !154, !noalias !18, !noundef !155
-  %275 = trunc nuw i8 %274 to i1
-  %276 = or i64 %272, 35184372088832
-  %277 = select i1 %275, i64 %276, i64 %272
-  %278 = getelementptr inbounds nuw i8, ptr %1, i64 451
-  %279 = load i8, ptr %278, align 1, !tbaa !194, !range !154, !noalias !18, !noundef !155
-  %280 = trunc nuw i8 %279 to i1
-  %281 = or i64 %277, 67108864
-  %282 = or i64 %97, 4096
-  %283 = select i1 %280, i64 %97, i64 %282
-  %284 = select i1 %280, i64 %281, i64 %277
-  %285 = getelementptr inbounds nuw i8, ptr %1, i64 406
-  %286 = load i8, ptr %285, align 2, !tbaa !195, !range !154, !noalias !18, !noundef !155
-  %287 = trunc nuw i8 %286 to i1
-  %288 = or i64 %284, 4096
-  %spec.select101.i.i = select i1 %287, i64 %288, i64 %284
-  %289 = getelementptr inbounds nuw i8, ptr %1, i64 410
-  %290 = load i8, ptr %289, align 2, !tbaa !196, !range !154, !noalias !18, !noundef !155
-  %291 = trunc nuw i8 %290 to i1
-  br i1 %291, label %292, label %.thread49.i.i
+265:                                              ; preds = %263, %258
+  %266 = phi i64 [ %264, %263 ], [ %259, %258 ]
+  %267 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  %268 = load i8, ptr %267, align 8, !tbaa !191, !range !154, !noalias !18, !noundef !155
+  %269 = zext nneg i8 %268 to i64
+  %270 = shl nuw nsw i64 %269, 40
+  %spec.select99.i.i = or i64 %270, %223
+  %271 = getelementptr inbounds nuw i8, ptr %1, i64 377
+  %272 = load i8, ptr %271, align 1, !tbaa !192, !range !154, !noalias !18, !noundef !155
+  %273 = trunc nuw i8 %272 to i1
+  %.118.i.i = select i1 %273, i64 17592186044416, i64 2199023255552
+  %274 = or i64 %spec.select99.i.i, %.118.i.i
+  %275 = getelementptr inbounds nuw i8, ptr %1, i64 468
+  %276 = load i8, ptr %275, align 4, !tbaa !193, !range !154, !noalias !18, !noundef !155
+  %277 = zext nneg i8 %276 to i64
+  %278 = shl nuw nsw i64 %277, 45
+  %279 = or i64 %274, %278
+  %280 = getelementptr inbounds nuw i8, ptr %1, i64 451
+  %281 = load i8, ptr %280, align 1, !tbaa !194, !range !154, !noalias !18, !noundef !155
+  %282 = trunc nuw i8 %281 to i1
+  %283 = or i64 %279, 67108864
+  %284 = or i64 %99, 4096
+  %285 = select i1 %282, i64 %99, i64 %284
+  %286 = select i1 %282, i64 %283, i64 %279
+  %287 = getelementptr inbounds nuw i8, ptr %1, i64 406
+  %288 = load i8, ptr %287, align 2, !tbaa !195, !range !154, !noalias !18, !noundef !155
+  %289 = zext nneg i8 %288 to i64
+  %290 = shl nuw nsw i64 %289, 12
+  %spec.select101.i.i = or i64 %290, %286
+  %291 = getelementptr inbounds nuw i8, ptr %1, i64 410
+  %292 = load i8, ptr %291, align 2, !tbaa !196, !range !154, !noalias !18, !noundef !155
+  %293 = trunc nuw i8 %292 to i1
+  br i1 %293, label %294, label %.thread49.i.i
 
-292:                                              ; preds = %263
-  %293 = or i64 %spec.select101.i.i, 8
-  br i1 %20, label %296, label %.thread49.i.i
+294:                                              ; preds = %265
+  %295 = or i64 %spec.select101.i.i, 8
+  br i1 %20, label %298, label %.thread49.i.i
 
-.thread49.i.i:                                    ; preds = %292, %263
-  %294 = phi i64 [ %spec.select101.i.i, %263 ], [ %293, %292 ]
-  %295 = or i64 %294, 4
-  br label %296
+.thread49.i.i:                                    ; preds = %294, %265
+  %296 = phi i64 [ %spec.select101.i.i, %265 ], [ %295, %294 ]
+  %297 = or i64 %296, 4
+  br label %298
 
-296:                                              ; preds = %.thread49.i.i, %292
-  %storemerge.i.i = phi i64 [ %295, %.thread49.i.i ], [ %293, %292 ]
-  %297 = getelementptr inbounds nuw i8, ptr %1, i64 436
-  %298 = load i8, ptr %297, align 4, !tbaa !197, !range !154, !noalias !18, !noundef !155
-  %299 = trunc nuw i8 %298 to i1
-  %300 = or i64 %storemerge.i.i, 128
-  %spec.select = select i1 %299, i64 %300, i64 %storemerge.i.i
-  %301 = getelementptr inbounds nuw i8, ptr %1, i64 375
-  %302 = load i8, ptr %301, align 1, !tbaa !198, !range !154, !noalias !18, !noundef !155
-  %303 = trunc nuw i8 %302 to i1
-  br i1 %303, label %304, label %306
+298:                                              ; preds = %.thread49.i.i, %294
+  %storemerge.i.i = phi i64 [ %297, %.thread49.i.i ], [ %295, %294 ]
+  %299 = getelementptr inbounds nuw i8, ptr %1, i64 436
+  %300 = load i8, ptr %299, align 4, !tbaa !197, !range !154, !noalias !18, !noundef !155
+  %301 = shl nuw i8 %300, 7
+  %302 = zext i8 %301 to i64
+  %spec.select = or i64 %storemerge.i.i, %302
+  %303 = getelementptr inbounds nuw i8, ptr %1, i64 375
+  %304 = load i8, ptr %303, align 1, !tbaa !198, !range !154, !noalias !18, !noundef !155
+  %305 = trunc nuw i8 %304 to i1
+  br i1 %305, label %306, label %308
 
-304:                                              ; preds = %296
-  %305 = or i64 %264, 262144
-  store i64 %305, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %306
+306:                                              ; preds = %298
+  %307 = or i64 %266, 262144
+  store i64 %307, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %308
 
-306:                                              ; preds = %304, %296
-  %307 = phi i64 [ %305, %304 ], [ %264, %296 ]
-  %308 = getelementptr inbounds nuw i8, ptr %1, i64 379
-  %309 = load i8, ptr %308, align 1, !tbaa !199, !range !154, !noalias !18, !noundef !155
-  %310 = zext nneg i8 %309 to i64
-  %spec.select21.i = or i64 %283, %310
-  %311 = getelementptr inbounds nuw i8, ptr %1, i64 407
-  %312 = load i8, ptr %311, align 1, !tbaa !200, !range !154, !noalias !18, !noundef !155
-  %313 = trunc nuw i8 %312 to i1
-  %314 = or i64 %spec.select, 512
-  %315 = select i1 %313, i64 %314, i64 %spec.select
-  %316 = getelementptr inbounds nuw i8, ptr %1, i64 353
-  %317 = load i8, ptr %316, align 1, !tbaa !201, !range !154, !noalias !18, !noundef !155
-  %318 = trunc nuw i8 %317 to i1
-  %319 = or i64 %315, 1024
-  %spec.select102.i.i = select i1 %318, i64 %319, i64 %315
-  %320 = getelementptr inbounds nuw i8, ptr %1, i64 354
-  %321 = load i8, ptr %320, align 2, !tbaa !202, !range !154, !noalias !18, !noundef !155
-  %322 = trunc nuw i8 %321 to i1
-  br i1 %322, label %.thread50.i.i, label %324
+308:                                              ; preds = %306, %298
+  %309 = phi i64 [ %307, %306 ], [ %266, %298 ]
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 379
+  %311 = load i8, ptr %310, align 1, !tbaa !199, !range !154, !noalias !18, !noundef !155
+  %312 = zext nneg i8 %311 to i64
+  %spec.select21.i = or i64 %285, %312
+  %313 = getelementptr inbounds nuw i8, ptr %1, i64 407
+  %314 = load i8, ptr %313, align 1, !tbaa !200, !range !154, !noalias !18, !noundef !155
+  %315 = zext nneg i8 %314 to i64
+  %316 = shl nuw nsw i64 %315, 9
+  %317 = or i64 %316, %spec.select
+  %318 = getelementptr inbounds nuw i8, ptr %1, i64 353
+  %319 = load i8, ptr %318, align 1, !tbaa !201, !range !154, !noalias !18, !noundef !155
+  %320 = zext nneg i8 %319 to i64
+  %321 = shl nuw nsw i64 %320, 10
+  %spec.select102.i.i = or i64 %317, %321
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 354
+  %323 = load i8, ptr %322, align 2, !tbaa !202, !range !154, !noalias !18, !noundef !155
+  %324 = trunc nuw i8 %323 to i1
+  br i1 %324, label %.thread50.i.i, label %326
 
-.thread50.i.i:                                    ; preds = %306
-  %323 = or i64 %spec.select102.i.i, 2048
-  store i64 %323, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  br label %327
+.thread50.i.i:                                    ; preds = %308
+  %325 = or i64 %spec.select102.i.i, 2048
+  store i64 %325, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  br label %329
 
-324:                                              ; preds = %306
-  %325 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %326 = or i64 %spec.select21.i, 2048
-  store i64 %326, ptr %325, align 8, !tbaa !157, !alias.scope !18
-  br label %327
+326:                                              ; preds = %308
+  %327 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %328 = or i64 %spec.select21.i, 2048
+  store i64 %328, ptr %327, align 8, !tbaa !157, !alias.scope !18
+  br label %329
 
-327:                                              ; preds = %324, %.thread50.i.i
-  %328 = phi i64 [ %spec.select21.i, %.thread50.i.i ], [ %326, %324 ]
-  %329 = phi i64 [ %323, %.thread50.i.i ], [ %spec.select102.i.i, %324 ]
-  %330 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %331 = load i8, ptr %330, align 8, !tbaa !203, !range !154, !noalias !18, !noundef !155
-  %332 = trunc nuw i8 %331 to i1
-  br i1 %332, label %333, label %335
+329:                                              ; preds = %326, %.thread50.i.i
+  %330 = phi i64 [ %spec.select21.i, %.thread50.i.i ], [ %328, %326 ]
+  %331 = phi i64 [ %325, %.thread50.i.i ], [ %spec.select102.i.i, %326 ]
+  %332 = getelementptr inbounds nuw i8, ptr %1, i64 456
+  %333 = load i8, ptr %332, align 8, !tbaa !203, !range !154, !noalias !18, !noundef !155
+  %334 = trunc nuw i8 %333 to i1
+  br i1 %334, label %335, label %337
 
-333:                                              ; preds = %327
-  %334 = or i64 %307, 8589934592
-  store i64 %334, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %335
+335:                                              ; preds = %329
+  %336 = or i64 %309, 8589934592
+  store i64 %336, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %337
 
-335:                                              ; preds = %333, %327
-  %336 = phi i64 [ %334, %333 ], [ %307, %327 ]
-  %337 = getelementptr inbounds nuw i8, ptr %1, i64 457
-  %338 = load i8, ptr %337, align 1, !tbaa !204, !range !154, !noalias !18, !noundef !155
-  %339 = trunc nuw i8 %338 to i1
-  br i1 %339, label %340, label %342
+337:                                              ; preds = %335, %329
+  %338 = phi i64 [ %336, %335 ], [ %309, %329 ]
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 457
+  %340 = load i8, ptr %339, align 1, !tbaa !204, !range !154, !noalias !18, !noundef !155
+  %341 = trunc nuw i8 %340 to i1
+  br i1 %341, label %342, label %344
 
-340:                                              ; preds = %335
-  %341 = or i64 %336, 137438953472
-  store i64 %341, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %342
+342:                                              ; preds = %337
+  %343 = or i64 %338, 137438953472
+  store i64 %343, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %344
 
-342:                                              ; preds = %340, %335
-  %343 = phi i64 [ %341, %340 ], [ %336, %335 ]
-  %344 = getelementptr inbounds nuw i8, ptr %1, i64 402
-  %345 = load i8, ptr %344, align 2, !tbaa !205, !range !154, !noalias !18, !noundef !155
-  %346 = trunc nuw i8 %345 to i1
-  br i1 %346, label %347, label %349
+344:                                              ; preds = %342, %337
+  %345 = phi i64 [ %343, %342 ], [ %338, %337 ]
+  %346 = getelementptr inbounds nuw i8, ptr %1, i64 402
+  %347 = load i8, ptr %346, align 2, !tbaa !205, !range !154, !noalias !18, !noundef !155
+  %348 = trunc nuw i8 %347 to i1
+  br i1 %348, label %349, label %351
 
-347:                                              ; preds = %342
-  %348 = or i64 %343, 34359738368
-  store i64 %348, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %349
+349:                                              ; preds = %344
+  %350 = or i64 %345, 34359738368
+  store i64 %350, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %351
 
-349:                                              ; preds = %347, %342
-  %350 = phi i64 [ %348, %347 ], [ %343, %342 ]
-  %351 = getelementptr inbounds nuw i8, ptr %1, i64 346
-  %352 = load i8, ptr %351, align 2, !tbaa !206, !range !154, !noalias !18, !noundef !155
-  %353 = trunc nuw i8 %352 to i1
-  %354 = or i64 %350, 1048576
-  %355 = select i1 %353, i64 %354, i64 %350
-  %brmerge67.demorgan.i.i = and i1 %157, %346
-  %356 = or i64 %355, 2097152
-  %357 = select i1 %brmerge67.demorgan.i.i, i64 %355, i64 %356
-  %358 = xor i1 %brmerge67.demorgan.i.i, true
-  %359 = or i1 %358, %353
-  br i1 %359, label %360, label %361
+351:                                              ; preds = %349, %344
+  %352 = phi i64 [ %350, %349 ], [ %345, %344 ]
+  %353 = getelementptr inbounds nuw i8, ptr %1, i64 346
+  %354 = load i8, ptr %353, align 2, !tbaa !206, !range !154, !noalias !18, !noundef !155
+  %355 = trunc nuw i8 %354 to i1
+  %356 = or i64 %352, 1048576
+  %357 = select i1 %355, i64 %356, i64 %352
+  %brmerge67.demorgan.i.i = and i1 %159, %348
+  %358 = or i64 %357, 2097152
+  %359 = select i1 %brmerge67.demorgan.i.i, i64 %357, i64 %358
+  %360 = xor i1 %brmerge67.demorgan.i.i, true
+  %361 = or i1 %360, %355
+  br i1 %361, label %362, label %363
 
-360:                                              ; preds = %349
-  store i64 %357, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %361
+362:                                              ; preds = %351
+  store i64 %359, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %363
 
-361:                                              ; preds = %360, %349
-  %362 = getelementptr inbounds nuw i8, ptr %1, i64 438
-  %363 = load i8, ptr %362, align 2, !tbaa !207, !range !154, !noalias !18, !noundef !155
-  %364 = trunc nuw i8 %363 to i1
-  br i1 %364, label %365, label %367
+363:                                              ; preds = %362, %351
+  %364 = getelementptr inbounds nuw i8, ptr %1, i64 438
+  %365 = load i8, ptr %364, align 2, !tbaa !207, !range !154, !noalias !18, !noundef !155
+  %366 = trunc nuw i8 %365 to i1
+  br i1 %366, label %367, label %369
 
-365:                                              ; preds = %361
-  %366 = or i64 %357, 70368744177664
-  store i64 %366, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %367
+367:                                              ; preds = %363
+  %368 = or i64 %359, 70368744177664
+  store i64 %368, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %369
 
-367:                                              ; preds = %365, %361
-  %368 = phi i64 [ %366, %365 ], [ %357, %361 ]
-  %369 = getelementptr inbounds nuw i8, ptr %1, i64 442
-  %370 = load i8, ptr %369, align 2, !tbaa !208, !range !154, !noalias !18, !noundef !155
-  %371 = trunc nuw i8 %370 to i1
-  br i1 %371, label %372, label %374
+369:                                              ; preds = %367, %363
+  %370 = phi i64 [ %368, %367 ], [ %359, %363 ]
+  %371 = getelementptr inbounds nuw i8, ptr %1, i64 442
+  %372 = load i8, ptr %371, align 2, !tbaa !208, !range !154, !noalias !18, !noundef !155
+  %373 = trunc nuw i8 %372 to i1
+  br i1 %373, label %374, label %376
 
-372:                                              ; preds = %367
-  %373 = or i64 %368, 128
-  store i64 %373, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %374
+374:                                              ; preds = %369
+  %375 = or i64 %370, 128
+  store i64 %375, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %376
 
-374:                                              ; preds = %372, %367
-  %375 = phi i64 [ %373, %372 ], [ %368, %367 ]
-  %376 = getelementptr inbounds nuw i8, ptr %1, i64 443
-  %377 = load i8, ptr %376, align 1, !tbaa !209, !range !154, !noalias !18, !noundef !155
-  %378 = trunc nuw i8 %377 to i1
-  br i1 %378, label %379, label %381
+376:                                              ; preds = %374, %369
+  %377 = phi i64 [ %375, %374 ], [ %370, %369 ]
+  %378 = getelementptr inbounds nuw i8, ptr %1, i64 443
+  %379 = load i8, ptr %378, align 1, !tbaa !209, !range !154, !noalias !18, !noundef !155
+  %380 = trunc nuw i8 %379 to i1
+  br i1 %380, label %381, label %383
 
-379:                                              ; preds = %374
-  %380 = or i64 %375, 16777216
-  store i64 %380, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %381
+381:                                              ; preds = %376
+  %382 = or i64 %377, 16777216
+  store i64 %382, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %383
 
-381:                                              ; preds = %379, %374
-  %382 = phi i64 [ %380, %379 ], [ %375, %374 ]
-  %383 = getelementptr inbounds nuw i8, ptr %1, i64 445
-  %384 = load i8, ptr %383, align 1, !tbaa !210, !range !154, !noalias !18, !noundef !155
-  %385 = trunc nuw i8 %384 to i1
-  br i1 %385, label %386, label %388
+383:                                              ; preds = %381, %376
+  %384 = phi i64 [ %382, %381 ], [ %377, %376 ]
+  %385 = getelementptr inbounds nuw i8, ptr %1, i64 445
+  %386 = load i8, ptr %385, align 1, !tbaa !210, !range !154, !noalias !18, !noundef !155
+  %387 = trunc nuw i8 %386 to i1
+  br i1 %387, label %388, label %390
 
-386:                                              ; preds = %381
-  %387 = or i64 %382, 33554432
-  store i64 %387, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %388
+388:                                              ; preds = %383
+  %389 = or i64 %384, 33554432
+  store i64 %389, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %390
 
-388:                                              ; preds = %386, %381
-  %389 = phi i64 [ %387, %386 ], [ %382, %381 ]
-  %390 = getelementptr inbounds nuw i8, ptr %1, i64 437
-  %391 = load i8, ptr %390, align 1, !tbaa !211, !range !154, !noalias !18, !noundef !155
-  %392 = trunc nuw i8 %391 to i1
-  %393 = or i64 %329, 256
-  %spec.select103.i.i = select i1 %392, i64 %393, i64 %329
-  br i1 %38, label %401, label %394
+390:                                              ; preds = %388, %383
+  %391 = phi i64 [ %389, %388 ], [ %384, %383 ]
+  %392 = getelementptr inbounds nuw i8, ptr %1, i64 437
+  %393 = load i8, ptr %392, align 1, !tbaa !211, !range !154, !noalias !18, !noundef !155
+  %394 = zext nneg i8 %393 to i64
+  %395 = shl nuw nsw i64 %394, 8
+  %spec.select103.i.i = or i64 %395, %331
+  br i1 %38, label %403, label %396
 
-394:                                              ; preds = %388
-  %395 = getelementptr inbounds nuw i8, ptr %1, i64 429
-  %396 = load i8, ptr %395, align 1, !tbaa !212, !range !154, !noalias !18, !noundef !155
-  %397 = trunc nuw i8 %396 to i1
-  br i1 %397, label %401, label %_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i
+396:                                              ; preds = %390
+  %397 = getelementptr inbounds nuw i8, ptr %1, i64 429
+  %398 = load i8, ptr %397, align 1, !tbaa !212, !range !154, !noalias !18, !noundef !155
+  %399 = trunc nuw i8 %398 to i1
+  br i1 %399, label %403, label %_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i
 
-_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i: ; preds = %394
-  %398 = getelementptr inbounds nuw i8, ptr %1, i64 428
-  %399 = load i8, ptr %398, align 4, !tbaa !213, !range !154, !noalias !18, !noundef !155
-  %400 = trunc nuw i8 %399 to i1
-  br i1 %400, label %401, label %.thread85.i.i
+_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i: ; preds = %396
+  %400 = getelementptr inbounds nuw i8, ptr %1, i64 428
+  %401 = load i8, ptr %400, align 4, !tbaa !213, !range !154, !noalias !18, !noundef !155
+  %402 = trunc nuw i8 %401 to i1
+  br i1 %402, label %403, label %.thread85.i.i
 
-401:                                              ; preds = %_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i, %394, %388
-  %402 = or i64 %spec.select103.i.i, 144115188075855872
+403:                                              ; preds = %_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i, %396, %390
+  %404 = or i64 %spec.select103.i.i, 144115188075855872
   %.phi.trans.insert75.i.i = getelementptr inbounds nuw i8, ptr %1, i64 428
   %.pre76.i.i = load i8, ptr %.phi.trans.insert75.i.i, align 4, !tbaa !213, !range !154, !noalias !18
-  %403 = trunc nuw i8 %.pre76.i.i to i1
-  br i1 %403, label %404, label %.thread85.i.i
+  %405 = trunc nuw i8 %.pre76.i.i to i1
+  br i1 %405, label %406, label %.thread85.i.i
 
-404:                                              ; preds = %401
-  %405 = or i64 %spec.select103.i.i, 144115188076904448
-  store i64 %405, ptr %13, align 8, !tbaa !157, !alias.scope !18
+406:                                              ; preds = %403
+  %407 = or i64 %spec.select103.i.i, 144115188076904448
+  store i64 %407, ptr %13, align 8, !tbaa !157, !alias.scope !18
   br label %.thread85.i.i
 
-.thread85.i.i:                                    ; preds = %404, %401, %_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i
-  %406 = phi i64 [ %405, %404 ], [ %402, %401 ], [ %spec.select103.i.i, %_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i ]
-  %407 = getelementptr inbounds nuw i8, ptr %1, i64 429
-  %408 = load i8, ptr %407, align 1, !tbaa !212, !range !154, !noalias !18, !noundef !155
-  %409 = trunc nuw i8 %408 to i1
-  br i1 %409, label %410, label %412
+.thread85.i.i:                                    ; preds = %406, %403, %_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i
+  %408 = phi i64 [ %407, %406 ], [ %404, %403 ], [ %spec.select103.i.i, %_ZNK4llvm12X86Subtarget14hasSSEPrefetchEv.exit.i.i ]
+  %409 = getelementptr inbounds nuw i8, ptr %1, i64 429
+  %410 = load i8, ptr %409, align 1, !tbaa !212, !range !154, !noalias !18, !noundef !155
+  %411 = trunc nuw i8 %410 to i1
+  br i1 %411, label %412, label %414
 
-410:                                              ; preds = %.thread85.i.i
-  %411 = or i64 %389, 35184372088832
-  store i64 %411, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %412
+412:                                              ; preds = %.thread85.i.i
+  %413 = or i64 %391, 35184372088832
+  store i64 %413, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %414
 
-412:                                              ; preds = %410, %.thread85.i.i
-  %413 = phi i64 [ %411, %410 ], [ %389, %.thread85.i.i ]
-  %414 = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %415 = load i8, ptr %414, align 8, !tbaa !214, !range !154, !noalias !18, !noundef !155
-  %416 = trunc nuw i8 %415 to i1
-  %417 = or i64 %328, 1024
-  %spec.select22.i = select i1 %416, i64 %417, i64 %328
-  %418 = getelementptr inbounds nuw i8, ptr %1, i64 361
-  %419 = load i8, ptr %418, align 1, !tbaa !215, !range !154, !noalias !18, !noundef !155
-  %420 = trunc nuw i8 %419 to i1
-  %421 = or i64 %406, 16777216
-  %422 = select i1 %420, i64 %421, i64 %406
-  %423 = getelementptr inbounds nuw i8, ptr %1, i64 412
-  %424 = load i8, ptr %423, align 4, !tbaa !216, !range !154, !noalias !18, !noundef !155
-  %425 = trunc nuw i8 %424 to i1
-  %426 = or i64 %422, 16384
-  %spec.select104.i.i = select i1 %425, i64 %426, i64 %422
-  %427 = getelementptr inbounds nuw i8, ptr %1, i64 411
-  %428 = load i8, ptr %427, align 1, !tbaa !217, !range !154, !noalias !18, !noundef !155
-  %429 = trunc nuw i8 %428 to i1
-  %430 = or i64 %spec.select104.i.i, 32768
-  %spec.select3 = select i1 %429, i64 %430, i64 %spec.select104.i.i
-  %431 = getelementptr inbounds nuw i8, ptr %1, i64 413
-  %432 = load i8, ptr %431, align 1, !tbaa !218, !range !154, !noalias !18, !noundef !155
-  %433 = trunc nuw i8 %432 to i1
-  %434 = or i64 %spec.select3, 33554432
-  %spec.select105.i.i = select i1 %433, i64 %434, i64 %spec.select3
-  %435 = getelementptr inbounds nuw i8, ptr %1, i64 430
-  %436 = load i8, ptr %435, align 2, !tbaa !219, !range !154, !noalias !18, !noundef !155
-  %437 = trunc nuw i8 %436 to i1
-  %438 = or i64 %spec.select22.i, 8
-  %439 = select i1 %437, i64 %438, i64 %spec.select22.i
-  %440 = or i64 %spec.select105.i.i, 34359738368
-  %spec.select23.i = select i1 %38, i64 %spec.select105.i.i, i64 %440
-  %441 = or i64 %spec.select23.i, 68719476736
-  %spec.select106.i.i = select i1 %86, i64 %spec.select23.i, i64 %441
-  %442 = getelementptr inbounds nuw i8, ptr %1, i64 446
-  %443 = load i8, ptr %442, align 2, !tbaa !220, !range !154, !noalias !18, !noundef !155
-  %444 = trunc nuw i8 %443 to i1
-  br i1 %444, label %445, label %447
+414:                                              ; preds = %412, %.thread85.i.i
+  %415 = phi i64 [ %413, %412 ], [ %391, %.thread85.i.i ]
+  %416 = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %417 = load i8, ptr %416, align 8, !tbaa !214, !range !154, !noalias !18, !noundef !155
+  %418 = zext nneg i8 %417 to i64
+  %419 = shl nuw nsw i64 %418, 10
+  %spec.select22.i = or i64 %419, %330
+  %420 = getelementptr inbounds nuw i8, ptr %1, i64 361
+  %421 = load i8, ptr %420, align 1, !tbaa !215, !range !154, !noalias !18, !noundef !155
+  %422 = zext nneg i8 %421 to i64
+  %423 = shl nuw nsw i64 %422, 24
+  %424 = or i64 %423, %408
+  %425 = getelementptr inbounds nuw i8, ptr %1, i64 412
+  %426 = load i8, ptr %425, align 4, !tbaa !216, !range !154, !noalias !18, !noundef !155
+  %427 = zext nneg i8 %426 to i64
+  %428 = shl nuw nsw i64 %427, 14
+  %spec.select104.i.i = or i64 %424, %428
+  %429 = getelementptr inbounds nuw i8, ptr %1, i64 411
+  %430 = load i8, ptr %429, align 1, !tbaa !217, !range !154, !noalias !18, !noundef !155
+  %431 = zext nneg i8 %430 to i64
+  %432 = shl nuw nsw i64 %431, 15
+  %spec.select3 = or i64 %spec.select104.i.i, %432
+  %433 = getelementptr inbounds nuw i8, ptr %1, i64 413
+  %434 = load i8, ptr %433, align 1, !tbaa !218, !range !154, !noalias !18, !noundef !155
+  %435 = zext nneg i8 %434 to i64
+  %436 = shl nuw nsw i64 %435, 25
+  %spec.select105.i.i = or i64 %436, %spec.select3
+  %437 = getelementptr inbounds nuw i8, ptr %1, i64 430
+  %438 = load i8, ptr %437, align 2, !tbaa !219, !range !154, !noalias !18, !noundef !155
+  %439 = shl nuw nsw i8 %438, 3
+  %440 = zext nneg i8 %439 to i64
+  %441 = or i64 %spec.select22.i, %440
+  %442 = or i64 %spec.select105.i.i, 34359738368
+  %spec.select23.i = select i1 %38, i64 %spec.select105.i.i, i64 %442
+  %443 = or i64 %spec.select23.i, 68719476736
+  %spec.select106.i.i = select i1 %88, i64 %spec.select23.i, i64 %443
+  %444 = getelementptr inbounds nuw i8, ptr %1, i64 446
+  %445 = load i8, ptr %444, align 2, !tbaa !220, !range !154, !noalias !18, !noundef !155
+  %446 = trunc nuw i8 %445 to i1
+  br i1 %446, label %447, label %449
 
-445:                                              ; preds = %412
-  %446 = or i64 %413, 67108864
-  store i64 %446, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %447
+447:                                              ; preds = %414
+  %448 = or i64 %415, 67108864
+  store i64 %448, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %449
 
-447:                                              ; preds = %445, %412
-  %448 = phi i64 [ %446, %445 ], [ %413, %412 ]
-  %449 = getelementptr inbounds nuw i8, ptr %1, i64 477
-  %450 = load i8, ptr %449, align 1, !range !154, !noalias !18
-  %451 = trunc nuw i8 %450 to i1
-  %452 = select i1 %86, i1 true, i1 %451
-  %453 = or i64 %spec.select106.i.i, 288230376151711744
-  %spec.select24.i = select i1 %452, i64 %453, i64 %spec.select106.i.i
-  %454 = getelementptr inbounds nuw i8, ptr %1, i64 362
-  %455 = load i8, ptr %454, align 2, !tbaa !221, !range !154, !noalias !18, !noundef !155
-  %456 = trunc nuw i8 %455 to i1
-  %457 = or i64 %spec.select24.i, 4194304
-  %spec.select107.i.i = select i1 %456, i64 %457, i64 %spec.select24.i
-  %458 = getelementptr inbounds nuw i8, ptr %1, i64 363
-  %459 = load i8, ptr %458, align 1, !tbaa !222, !range !154, !noalias !18, !noundef !155
-  %460 = trunc nuw i8 %459 to i1
-  br i1 %460, label %461, label %463
+449:                                              ; preds = %447, %414
+  %450 = phi i64 [ %448, %447 ], [ %415, %414 ]
+  %451 = getelementptr inbounds nuw i8, ptr %1, i64 477
+  %452 = load i8, ptr %451, align 1, !range !154, !noalias !18
+  %453 = trunc nuw i8 %452 to i1
+  %454 = select i1 %88, i1 true, i1 %453
+  %455 = or i64 %spec.select106.i.i, 288230376151711744
+  %spec.select24.i = select i1 %454, i64 %455, i64 %spec.select106.i.i
+  %456 = getelementptr inbounds nuw i8, ptr %1, i64 362
+  %457 = load i8, ptr %456, align 2, !tbaa !221, !range !154, !noalias !18, !noundef !155
+  %458 = zext nneg i8 %457 to i64
+  %459 = shl nuw nsw i64 %458, 22
+  %spec.select107.i.i = or i64 %459, %spec.select24.i
+  %460 = getelementptr inbounds nuw i8, ptr %1, i64 363
+  %461 = load i8, ptr %460, align 1, !tbaa !222, !range !154, !noalias !18, !noundef !155
+  %462 = trunc nuw i8 %461 to i1
+  br i1 %462, label %463, label %465
 
-461:                                              ; preds = %447
-  %462 = or i64 %spec.select107.i.i, 8388608
-  store i64 %462, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  br label %463
+463:                                              ; preds = %449
+  %464 = or i64 %spec.select107.i.i, 8388608
+  store i64 %464, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  br label %465
 
-463:                                              ; preds = %461, %447
-  %464 = phi i64 [ %462, %461 ], [ %spec.select107.i.i, %447 ]
-  %465 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %466 = load i8, ptr %465, align 8, !tbaa !223, !range !154, !noalias !18, !noundef !155
-  %467 = trunc nuw i8 %466 to i1
-  br i1 %467, label %468, label %470
+465:                                              ; preds = %463, %449
+  %466 = phi i64 [ %464, %463 ], [ %spec.select107.i.i, %449 ]
+  %467 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  %468 = load i8, ptr %467, align 8, !tbaa !223, !range !154, !noalias !18, !noundef !155
+  %469 = trunc nuw i8 %468 to i1
+  br i1 %469, label %470, label %472
 
-468:                                              ; preds = %463
-  %469 = or i64 %448, 576460752303423488
-  store i64 %469, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %470
+470:                                              ; preds = %465
+  %471 = or i64 %450, 576460752303423488
+  store i64 %471, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %472
 
-470:                                              ; preds = %468, %463
-  %471 = phi i64 [ %469, %468 ], [ %448, %463 ]
-  %472 = getelementptr inbounds nuw i8, ptr %1, i64 434
-  %473 = load i8, ptr %472, align 2, !tbaa !224, !range !154, !noalias !18, !noundef !155
-  %474 = trunc nuw i8 %473 to i1
-  %475 = or i64 %439, 4
-  %spec.select4 = select i1 %474, i64 %475, i64 %439
-  %476 = getelementptr inbounds nuw i8, ptr %1, i64 463
-  %477 = load i8, ptr %476, align 1, !tbaa !225, !range !154, !noalias !18, !noundef !155
-  %478 = trunc nuw i8 %477 to i1
-  %479 = or i64 %464, 8192
-  %spec.select108.i.i = select i1 %478, i64 %479, i64 %464
-  %480 = getelementptr inbounds nuw i8, ptr %1, i64 403
-  %481 = load i8, ptr %480, align 1, !tbaa !226, !range !154, !noalias !18, !noundef !155
-  %482 = trunc nuw i8 %481 to i1
-  %483 = or i64 %spec.select4, 2
-  %spec.select25.i = select i1 %482, i64 %483, i64 %spec.select4
-  %484 = getelementptr inbounds nuw i8, ptr %1, i64 369
-  %485 = load i8, ptr %484, align 1, !tbaa !227, !range !154, !noalias !18, !noundef !155
-  %486 = trunc nuw i8 %485 to i1
-  %487 = or i64 %spec.select25.i, 256
-  %488 = select i1 %486, i64 %487, i64 %spec.select25.i
-  %489 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %490 = load i8, ptr %489, align 8, !tbaa !228, !range !154, !noalias !18, !noundef !155
-  %491 = trunc nuw i8 %490 to i1
-  br i1 %491, label %492, label %495
+472:                                              ; preds = %470, %465
+  %473 = phi i64 [ %471, %470 ], [ %450, %465 ]
+  %474 = getelementptr inbounds nuw i8, ptr %1, i64 434
+  %475 = load i8, ptr %474, align 2, !tbaa !224, !range !154, !noalias !18, !noundef !155
+  %476 = shl nuw nsw i8 %475, 2
+  %477 = zext nneg i8 %476 to i64
+  %spec.select4 = or i64 %441, %477
+  %478 = getelementptr inbounds nuw i8, ptr %1, i64 463
+  %479 = load i8, ptr %478, align 1, !tbaa !225, !range !154, !noalias !18, !noundef !155
+  %480 = zext nneg i8 %479 to i64
+  %481 = shl nuw nsw i64 %480, 13
+  %spec.select108.i.i = or i64 %481, %466
+  %482 = getelementptr inbounds nuw i8, ptr %1, i64 403
+  %483 = load i8, ptr %482, align 1, !tbaa !226, !range !154, !noalias !18, !noundef !155
+  %484 = shl nuw nsw i8 %483, 1
+  %485 = zext nneg i8 %484 to i64
+  %spec.select25.i = or i64 %spec.select4, %485
+  %486 = getelementptr inbounds nuw i8, ptr %1, i64 369
+  %487 = load i8, ptr %486, align 1, !tbaa !227, !range !154, !noalias !18, !noundef !155
+  %488 = zext nneg i8 %487 to i64
+  %489 = shl nuw nsw i64 %488, 8
+  %490 = or i64 %spec.select25.i, %489
+  %491 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %492 = load i8, ptr %491, align 8, !tbaa !228, !range !154, !noalias !18, !noundef !155
+  %493 = trunc nuw i8 %492 to i1
+  br i1 %493, label %494, label %497
 
-492:                                              ; preds = %470
-  %493 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %494 = or i64 %488, 512
-  store i64 %494, ptr %493, align 8, !tbaa !157, !alias.scope !18
-  br label %495
+494:                                              ; preds = %472
+  %495 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %496 = or i64 %490, 512
+  store i64 %496, ptr %495, align 8, !tbaa !157, !alias.scope !18
+  br label %497
 
-495:                                              ; preds = %492, %470
-  %496 = phi i64 [ %494, %492 ], [ %488, %470 ]
-  %497 = getelementptr inbounds nuw i8, ptr %1, i64 372
-  %498 = load i8, ptr %497, align 4, !tbaa !229, !range !154, !noalias !18, !noundef !155
-  %499 = trunc nuw i8 %498 to i1
-  %500 = or i64 %spec.select108.i.i, 65536
-  %spec.select26.i = select i1 %499, i64 %500, i64 %spec.select108.i.i
-  %501 = getelementptr inbounds nuw i8, ptr %1, i64 335
-  %502 = load i8, ptr %501, align 1, !tbaa !230, !range !154, !noalias !18, !noundef !155
-  %503 = trunc nuw i8 %502 to i1
-  br i1 %503, label %504, label %506
+497:                                              ; preds = %494, %472
+  %498 = phi i64 [ %496, %494 ], [ %490, %472 ]
+  %499 = getelementptr inbounds nuw i8, ptr %1, i64 372
+  %500 = load i8, ptr %499, align 4, !tbaa !229, !range !154, !noalias !18, !noundef !155
+  %501 = zext nneg i8 %500 to i64
+  %502 = shl nuw nsw i64 %501, 16
+  %spec.select26.i = or i64 %spec.select108.i.i, %502
+  %503 = getelementptr inbounds nuw i8, ptr %1, i64 335
+  %504 = load i8, ptr %503, align 1, !tbaa !230, !range !154, !noalias !18, !noundef !155
+  %505 = trunc nuw i8 %504 to i1
+  br i1 %505, label %506, label %508
 
-504:                                              ; preds = %495
-  %505 = or i64 %471, 2251799813685248
-  store i64 %505, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %506
+506:                                              ; preds = %497
+  %507 = or i64 %473, 2251799813685248
+  store i64 %507, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %508
 
-506:                                              ; preds = %504, %495
-  %507 = phi i64 [ %505, %504 ], [ %471, %495 ]
-  %508 = getelementptr inbounds nuw i8, ptr %1, i64 366
-  %509 = load i8, ptr %508, align 2, !tbaa !231, !range !154, !noalias !18, !noundef !155
-  %510 = trunc nuw i8 %509 to i1
-  %511 = or i64 %spec.select26.i, 2097152
-  %spec.select109.i.i = select i1 %510, i64 %511, i64 %spec.select26.i
-  %512 = getelementptr inbounds nuw i8, ptr %1, i64 347
-  %513 = load i8, ptr %512, align 1, !tbaa !232, !range !154, !noalias !18, !noundef !155
-  %514 = trunc nuw i8 %513 to i1
-  br i1 %514, label %515, label %517
+508:                                              ; preds = %506, %497
+  %509 = phi i64 [ %507, %506 ], [ %473, %497 ]
+  %510 = getelementptr inbounds nuw i8, ptr %1, i64 366
+  %511 = load i8, ptr %510, align 2, !tbaa !231, !range !154, !noalias !18, !noundef !155
+  %512 = zext nneg i8 %511 to i64
+  %513 = shl nuw nsw i64 %512, 21
+  %spec.select109.i.i = or i64 %spec.select26.i, %513
+  %514 = getelementptr inbounds nuw i8, ptr %1, i64 347
+  %515 = load i8, ptr %514, align 1, !tbaa !232, !range !154, !noalias !18, !noundef !155
+  %516 = trunc nuw i8 %515 to i1
+  br i1 %516, label %517, label %519
 
-515:                                              ; preds = %506
-  %516 = or i64 %507, 8388608
-  store i64 %516, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %517
+517:                                              ; preds = %508
+  %518 = or i64 %509, 8388608
+  store i64 %518, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %519
 
-517:                                              ; preds = %515, %506
-  %518 = phi i64 [ %516, %515 ], [ %507, %506 ]
-  %519 = getelementptr inbounds nuw i8, ptr %1, i64 404
-  %520 = load i8, ptr %519, align 4, !tbaa !233, !range !154, !noalias !18, !noundef !155
-  %521 = trunc nuw i8 %520 to i1
-  br i1 %521, label %522, label %524
+519:                                              ; preds = %517, %508
+  %520 = phi i64 [ %518, %517 ], [ %509, %508 ]
+  %521 = getelementptr inbounds nuw i8, ptr %1, i64 404
+  %522 = load i8, ptr %521, align 4, !tbaa !233, !range !154, !noalias !18, !noundef !155
+  %523 = trunc nuw i8 %522 to i1
+  br i1 %523, label %524, label %526
 
-522:                                              ; preds = %517
-  %523 = or i64 %518, 140737488355328
-  store i64 %523, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %524
+524:                                              ; preds = %519
+  %525 = or i64 %520, 140737488355328
+  store i64 %525, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %526
 
-524:                                              ; preds = %522, %517
-  %525 = phi i64 [ %523, %522 ], [ %518, %517 ]
-  %526 = getelementptr inbounds nuw i8, ptr %1, i64 433
-  %527 = load i8, ptr %526, align 1, !tbaa !234, !range !154, !noalias !18, !noundef !155
-  %528 = trunc nuw i8 %527 to i1
-  br i1 %528, label %529, label %531
+526:                                              ; preds = %524, %519
+  %527 = phi i64 [ %525, %524 ], [ %520, %519 ]
+  %528 = getelementptr inbounds nuw i8, ptr %1, i64 433
+  %529 = load i8, ptr %528, align 1, !tbaa !234, !range !154, !noalias !18, !noundef !155
+  %530 = trunc nuw i8 %529 to i1
+  br i1 %530, label %531, label %533
 
-529:                                              ; preds = %524
-  %530 = or i64 %525, 144115188075855872
-  store i64 %530, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %531
+531:                                              ; preds = %526
+  %532 = or i64 %527, 144115188075855872
+  store i64 %532, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %533
 
-531:                                              ; preds = %529, %524
-  %532 = phi i64 [ %530, %529 ], [ %525, %524 ]
-  %533 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %534 = load i8, ptr %533, align 8, !tbaa !235, !range !154, !noalias !18, !noundef !155
-  %535 = trunc nuw i8 %534 to i1
-  %536 = or i64 %spec.select109.i.i, 131072
-  %spec.select110.i.i = select i1 %535, i64 %536, i64 %spec.select109.i.i
-  %537 = getelementptr inbounds nuw i8, ptr %1, i64 452
-  %538 = load i8, ptr %537, align 4, !tbaa !236, !range !154, !noalias !18, !noundef !155
-  %539 = trunc nuw i8 %538 to i1
-  br i1 %539, label %540, label %542
+533:                                              ; preds = %531, %526
+  %534 = phi i64 [ %532, %531 ], [ %527, %526 ]
+  %535 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %536 = load i8, ptr %535, align 8, !tbaa !235, !range !154, !noalias !18, !noundef !155
+  %537 = zext nneg i8 %536 to i64
+  %538 = shl nuw nsw i64 %537, 17
+  %spec.select110.i.i = or i64 %spec.select109.i.i, %538
+  %539 = getelementptr inbounds nuw i8, ptr %1, i64 452
+  %540 = load i8, ptr %539, align 4, !tbaa !236, !range !154, !noalias !18, !noundef !155
+  %541 = trunc nuw i8 %540 to i1
+  br i1 %541, label %542, label %544
 
-540:                                              ; preds = %531
-  %541 = or i64 %spec.select110.i.i, 262144
-  store i64 %541, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  br label %542
+542:                                              ; preds = %533
+  %543 = or i64 %spec.select110.i.i, 262144
+  store i64 %543, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  br label %544
 
-542:                                              ; preds = %540, %531
-  %543 = phi i64 [ %541, %540 ], [ %spec.select110.i.i, %531 ]
-  %544 = getelementptr inbounds nuw i8, ptr %1, i64 340
-  %545 = load i8, ptr %544, align 4, !tbaa !237, !range !154, !noalias !18, !noundef !155
-  %546 = trunc nuw i8 %545 to i1
-  br i1 %546, label %547, label %549
+544:                                              ; preds = %542, %533
+  %545 = phi i64 [ %543, %542 ], [ %spec.select110.i.i, %533 ]
+  %546 = getelementptr inbounds nuw i8, ptr %1, i64 340
+  %547 = load i8, ptr %546, align 4, !tbaa !237, !range !154, !noalias !18, !noundef !155
+  %548 = trunc nuw i8 %547 to i1
+  br i1 %548, label %549, label %551
 
-547:                                              ; preds = %542
-  %548 = or i64 %532, 281474976710656
-  store i64 %548, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %549
+549:                                              ; preds = %544
+  %550 = or i64 %534, 281474976710656
+  store i64 %550, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %551
 
-549:                                              ; preds = %547, %542
-  %550 = phi i64 [ %548, %547 ], [ %532, %542 ]
-  %551 = getelementptr inbounds nuw i8, ptr %1, i64 333
-  %552 = load i8, ptr %551, align 1, !tbaa !238, !range !154, !noalias !18, !noundef !155
-  %553 = trunc nuw i8 %552 to i1
-  br i1 %553, label %554, label %556
+551:                                              ; preds = %549, %544
+  %552 = phi i64 [ %550, %549 ], [ %534, %544 ]
+  %553 = getelementptr inbounds nuw i8, ptr %1, i64 333
+  %554 = load i8, ptr %553, align 1, !tbaa !238, !range !154, !noalias !18, !noundef !155
+  %555 = trunc nuw i8 %554 to i1
+  br i1 %555, label %556, label %558
 
-554:                                              ; preds = %549
-  %555 = or i64 %550, 1125899906842624
-  store i64 %555, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %556
+556:                                              ; preds = %551
+  %557 = or i64 %552, 1125899906842624
+  store i64 %557, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %558
 
-556:                                              ; preds = %554, %549
-  %557 = phi i64 [ %555, %554 ], [ %550, %549 ]
-  %558 = getelementptr inbounds nuw i8, ptr %1, i64 337
-  %559 = load i8, ptr %558, align 1, !tbaa !239, !range !154, !noalias !18, !noundef !155
-  %560 = trunc nuw i8 %559 to i1
-  br i1 %560, label %561, label %563
+558:                                              ; preds = %556, %551
+  %559 = phi i64 [ %557, %556 ], [ %552, %551 ]
+  %560 = getelementptr inbounds nuw i8, ptr %1, i64 337
+  %561 = load i8, ptr %560, align 1, !tbaa !239, !range !154, !noalias !18, !noundef !155
+  %562 = trunc nuw i8 %561 to i1
+  br i1 %562, label %563, label %565
 
-561:                                              ; preds = %556
-  %562 = or i64 %557, 562949953421312
-  store i64 %562, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %563
+563:                                              ; preds = %558
+  %564 = or i64 %559, 562949953421312
+  store i64 %564, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %565
 
-563:                                              ; preds = %561, %556
-  %564 = phi i64 [ %562, %561 ], [ %557, %556 ]
-  %565 = getelementptr inbounds nuw i8, ptr %1, i64 334
-  %566 = load i8, ptr %565, align 2, !tbaa !240, !range !154, !noalias !18, !noundef !155
-  %567 = trunc nuw i8 %566 to i1
-  br i1 %567, label %568, label %570
+565:                                              ; preds = %563, %558
+  %566 = phi i64 [ %564, %563 ], [ %559, %558 ]
+  %567 = getelementptr inbounds nuw i8, ptr %1, i64 334
+  %568 = load i8, ptr %567, align 2, !tbaa !240, !range !154, !noalias !18, !noundef !155
+  %569 = trunc nuw i8 %568 to i1
+  br i1 %569, label %570, label %572
 
-568:                                              ; preds = %563
-  %569 = or i64 %564, 4503599627370496
-  store i64 %569, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %570
+570:                                              ; preds = %565
+  %571 = or i64 %566, 4503599627370496
+  store i64 %571, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %572
 
-570:                                              ; preds = %568, %563
-  %571 = phi i64 [ %569, %568 ], [ %564, %563 ]
-  %572 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %573 = load i8, ptr %572, align 8, !tbaa !241, !range !154, !noalias !18, !noundef !155
-  %574 = trunc nuw i8 %573 to i1
-  br i1 %574, label %575, label %577
+572:                                              ; preds = %570, %565
+  %573 = phi i64 [ %571, %570 ], [ %566, %565 ]
+  %574 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %575 = load i8, ptr %574, align 8, !tbaa !241, !range !154, !noalias !18, !noundef !155
+  %576 = trunc nuw i8 %575 to i1
+  br i1 %576, label %577, label %579
 
-575:                                              ; preds = %570
-  %576 = or i64 %571, 9007199254740992
-  store i64 %576, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %577
+577:                                              ; preds = %572
+  %578 = or i64 %573, 9007199254740992
+  store i64 %578, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %579
 
-577:                                              ; preds = %575, %570
-  %578 = phi i64 [ %576, %575 ], [ %571, %570 ]
-  %579 = getelementptr inbounds nuw i8, ptr %1, i64 341
-  %580 = load i8, ptr %579, align 1, !tbaa !242, !range !154, !noalias !18, !noundef !155
-  %581 = trunc nuw i8 %580 to i1
-  br i1 %581, label %582, label %584
+579:                                              ; preds = %577, %572
+  %580 = phi i64 [ %578, %577 ], [ %573, %572 ]
+  %581 = getelementptr inbounds nuw i8, ptr %1, i64 341
+  %582 = load i8, ptr %581, align 1, !tbaa !242, !range !154, !noalias !18, !noundef !155
+  %583 = trunc nuw i8 %582 to i1
+  br i1 %583, label %584, label %586
 
-582:                                              ; preds = %577
-  %583 = or i64 %578, 18014398509481984
-  store i64 %583, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %584
+584:                                              ; preds = %579
+  %585 = or i64 %580, 18014398509481984
+  store i64 %585, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %586
 
-584:                                              ; preds = %582, %577
-  %585 = phi i64 [ %583, %582 ], [ %578, %577 ]
-  %586 = getelementptr inbounds nuw i8, ptr %1, i64 332
-  %587 = load i8, ptr %586, align 4, !tbaa !243, !range !154, !noalias !18, !noundef !155
-  %588 = trunc nuw i8 %587 to i1
-  br i1 %588, label %589, label %591
+586:                                              ; preds = %584, %579
+  %587 = phi i64 [ %585, %584 ], [ %580, %579 ]
+  %588 = getelementptr inbounds nuw i8, ptr %1, i64 332
+  %589 = load i8, ptr %588, align 4, !tbaa !243, !range !154, !noalias !18, !noundef !155
+  %590 = trunc nuw i8 %589 to i1
+  br i1 %590, label %591, label %593
 
-589:                                              ; preds = %584
-  %590 = or i64 %585, 36028797018963968
-  store i64 %590, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %591
+591:                                              ; preds = %586
+  %592 = or i64 %587, 36028797018963968
+  store i64 %592, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %593
 
-591:                                              ; preds = %589, %584
-  %592 = phi i64 [ %590, %589 ], [ %585, %584 ]
-  %593 = getelementptr inbounds nuw i8, ptr %1, i64 339
-  %594 = load i8, ptr %593, align 1, !tbaa !244, !range !154, !noalias !18, !noundef !155
-  %595 = trunc nuw i8 %594 to i1
-  br i1 %595, label %596, label %598
+593:                                              ; preds = %591, %586
+  %594 = phi i64 [ %592, %591 ], [ %587, %586 ]
+  %595 = getelementptr inbounds nuw i8, ptr %1, i64 339
+  %596 = load i8, ptr %595, align 1, !tbaa !244, !range !154, !noalias !18, !noundef !155
+  %597 = trunc nuw i8 %596 to i1
+  br i1 %597, label %598, label %600
 
-596:                                              ; preds = %591
-  %597 = or i64 %592, 72057594037927936
-  store i64 %597, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %598
+598:                                              ; preds = %593
+  %599 = or i64 %594, 72057594037927936
+  store i64 %599, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %600
 
-598:                                              ; preds = %596, %591
-  %599 = phi i64 [ %597, %596 ], [ %592, %591 ]
-  %600 = getelementptr inbounds nuw i8, ptr %1, i64 453
-  %601 = load i8, ptr %600, align 1, !tbaa !245, !range !154, !noalias !18, !noundef !155
-  %602 = trunc nuw i8 %601 to i1
-  %603 = or i64 %543, 524288
-  %spec.select111.i.i = select i1 %602, i64 %603, i64 %543
-  %604 = getelementptr inbounds nuw i8, ptr %1, i64 454
-  %605 = load i8, ptr %604, align 2, !tbaa !246, !range !154, !noalias !18, !noundef !155
-  %606 = trunc nuw i8 %605 to i1
-  br i1 %606, label %607, label %609
+600:                                              ; preds = %598, %593
+  %601 = phi i64 [ %599, %598 ], [ %594, %593 ]
+  %602 = getelementptr inbounds nuw i8, ptr %1, i64 453
+  %603 = load i8, ptr %602, align 1, !tbaa !245, !range !154, !noalias !18, !noundef !155
+  %604 = zext nneg i8 %603 to i64
+  %605 = shl nuw nsw i64 %604, 19
+  %spec.select111.i.i = or i64 %605, %545
+  %606 = getelementptr inbounds nuw i8, ptr %1, i64 454
+  %607 = load i8, ptr %606, align 2, !tbaa !246, !range !154, !noalias !18, !noundef !155
+  %608 = trunc nuw i8 %607 to i1
+  br i1 %608, label %609, label %611
 
-607:                                              ; preds = %598
-  %608 = or i64 %599, 288230376151711744
-  store i64 %608, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %609
+609:                                              ; preds = %600
+  %610 = or i64 %601, 288230376151711744
+  store i64 %610, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %611
 
-609:                                              ; preds = %607, %598
-  %610 = phi i64 [ %608, %607 ], [ %599, %598 ]
-  %611 = getelementptr inbounds nuw i8, ptr %1, i64 367
-  %612 = load i8, ptr %611, align 1, !tbaa !247, !range !154, !noalias !18, !noundef !155
-  %613 = trunc nuw i8 %612 to i1
-  br i1 %613, label %614, label %616
+611:                                              ; preds = %609, %600
+  %612 = phi i64 [ %610, %609 ], [ %601, %600 ]
+  %613 = getelementptr inbounds nuw i8, ptr %1, i64 367
+  %614 = load i8, ptr %613, align 1, !tbaa !247, !range !154, !noalias !18, !noundef !155
+  %615 = trunc nuw i8 %614 to i1
+  br i1 %615, label %616, label %618
 
-614:                                              ; preds = %609
-  %615 = or i64 %610, 64
-  store i64 %615, ptr %14, align 8, !tbaa !157, !alias.scope !18
-  br label %616
+616:                                              ; preds = %611
+  %617 = or i64 %612, 64
+  store i64 %617, ptr %14, align 8, !tbaa !157, !alias.scope !18
+  br label %618
 
-616:                                              ; preds = %614, %609
-  br i1 %451, label %617, label %623
+618:                                              ; preds = %616, %611
+  br i1 %453, label %619, label %625
 
-617:                                              ; preds = %616
-  %618 = or i64 %spec.select111.i.i, 2
-  store i64 %618, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  %619 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  %620 = load i32, ptr %619, align 8, !tbaa !248, !noalias !18
-  switch i32 %620, label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i [
+619:                                              ; preds = %618
+  %620 = or i64 %spec.select111.i.i, 2
+  store i64 %620, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  %621 = getelementptr inbounds nuw i8, ptr %1, i64 568
+  %622 = load i32, ptr %621, align 8, !tbaa !248, !noalias !18
+  switch i32 %622, label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i [
     i32 25, label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i
     i32 12, label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i
   ]
 
-_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i: ; preds = %617
-  %621 = getelementptr inbounds nuw i8, ptr %1, i64 564
-  %622 = load i32, ptr %621, align 4, !tbaa !249, !noalias !18
-  %.not.i.i = icmp eq i32 %622, 18
+_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i: ; preds = %619
+  %623 = getelementptr inbounds nuw i8, ptr %1, i64 564
+  %624 = load i32, ptr %623, align 4, !tbaa !249, !noalias !18
+  %.not.i.i = icmp eq i32 %624, 18
   br i1 %.not.i.i, label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i, label %.thread54.i.i
 
-623:                                              ; preds = %616
-  %624 = or i64 %spec.select111.i.i, 1
-  store i64 %624, ptr %13, align 8, !tbaa !157, !alias.scope !18
+625:                                              ; preds = %618
+  %626 = or i64 %spec.select111.i.i, 1
+  store i64 %626, ptr %13, align 8, !tbaa !157, !alias.scope !18
   br label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i
 
 .thread54.i.i:                                    ; preds = %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i
-  %625 = or i64 %496, 32
-  %cond.i = icmp eq i32 %620, 25
-  br i1 %cond.i, label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i, label %628
+  %627 = or i64 %498, 32
+  %cond.i = icmp eq i32 %622, 25
+  br i1 %cond.i, label %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i, label %630
 
-_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i: ; preds = %.thread54.i.i, %623, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i, %617, %617
-  %626 = phi i64 [ %625, %.thread54.i.i ], [ %496, %623 ], [ %496, %617 ], [ %496, %617 ], [ %496, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i ]
-  %627 = or i64 %626, 16
-  br label %628
+_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i: ; preds = %.thread54.i.i, %625, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i, %619, %619
+  %628 = phi i64 [ %627, %.thread54.i.i ], [ %498, %625 ], [ %498, %619 ], [ %498, %619 ], [ %498, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit.i.i ]
+  %629 = or i64 %628, 16
+  br label %630
 
-628:                                              ; preds = %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i, %.thread54.i.i
-  %629 = phi i64 [ %625, %.thread54.i.i ], [ %627, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i ]
-  %630 = getelementptr inbounds nuw i8, ptr %1, i64 552
-  %631 = load i32, ptr %630, align 8, !tbaa !250, !noalias !18
-  %632 = icmp eq i32 %631, 38
-  %633 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %634 = load i32, ptr %633, align 8, !noalias !18
-  %635 = icmp eq i32 %634, 3
-  %or.cond.i.i.i.i.i = select i1 %632, i1 %635, i1 false
+630:                                              ; preds = %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i, %.thread54.i.i
+  %631 = phi i64 [ %627, %.thread54.i.i ], [ %629, %_ZNK4llvm12X86Subtarget17isTarget64BitLP64Ev.exit157.thread.i.i ]
+  %632 = getelementptr inbounds nuw i8, ptr %1, i64 552
+  %633 = load i32, ptr %632, align 8, !tbaa !250, !noalias !18
+  %634 = icmp eq i32 %633, 38
+  %635 = getelementptr inbounds nuw i8, ptr %1, i64 560
+  %636 = load i32, ptr %635, align 8, !noalias !18
+  %637 = icmp eq i32 %636, 3
+  %or.cond.i.i.i.i.i = select i1 %634, i1 %637, i1 false
   br i1 %or.cond.i.i.i.i.i, label %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit.i.i, label %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread.i.i
 
-_ZNK4llvm12X86Subtarget10isTargetPSEv.exit.i.i:   ; preds = %628
-  %636 = getelementptr inbounds nuw i8, ptr %1, i64 564
-  %637 = load i32, ptr %636, align 4, !tbaa !249, !noalias !18
-  %638 = add i32 %637, -23
-  %spec.select.i.i.i.i = icmp ult i32 %638, 2
+_ZNK4llvm12X86Subtarget10isTargetPSEv.exit.i.i:   ; preds = %630
+  %638 = getelementptr inbounds nuw i8, ptr %1, i64 564
+  %639 = load i32, ptr %638, align 4, !tbaa !249, !noalias !18
+  %640 = add i32 %639, -23
+  %spec.select.i.i.i.i = icmp ult i32 %640, 2
   br i1 %spec.select.i.i.i.i, label %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i, label %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread.i.i
 
-_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread.i.i: ; preds = %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit.i.i, %628
+_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread.i.i: ; preds = %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit.i.i, %630
   br label %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i
 
 _ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i: ; preds = %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread.i.i, %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit.i.i
   %.sink115.i.i = phi i64 [ 32768, %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread.i.i ], [ 65536, %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit.i.i ]
-  %639 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %640 = or i64 %.sink115.i.i, %629
-  store i64 %640, ptr %639, align 8, !tbaa !157, !alias.scope !18
-  %641 = getelementptr inbounds nuw i8, ptr %0, i64 636
-  %642 = load i32, ptr %641, align 4, !tbaa !251, !noalias !18
-  switch i32 %642, label %646 [
+  %641 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %642 = or i64 %.sink115.i.i, %631
+  store i64 %642, ptr %641, align 8, !tbaa !157, !alias.scope !18
+  %643 = getelementptr inbounds nuw i8, ptr %0, i64 636
+  %644 = load i32, ptr %643, align 4, !tbaa !251, !noalias !18
+  switch i32 %644, label %648 [
     i32 2, label %.thread60.i.i
     i32 1, label %._crit_edge.i.i
   ]
 
 .thread60.i.i:                                    ; preds = %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i
-  %643 = or i64 %640, 131072
+  %645 = or i64 %642, 131072
   br label %._crit_edge.i.i
 
 ._crit_edge.i.i:                                  ; preds = %.thread60.i.i, %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i
-  %644 = phi i64 [ %643, %.thread60.i.i ], [ %640, %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i ]
-  %645 = or i64 %644, 524288
-  store i64 %645, ptr %639, align 8, !tbaa !157, !alias.scope !18
-  br label %646
+  %646 = phi i64 [ %645, %.thread60.i.i ], [ %642, %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i ]
+  %647 = or i64 %646, 524288
+  store i64 %647, ptr %641, align 8, !tbaa !157, !alias.scope !18
+  br label %648
 
-646:                                              ; preds = %._crit_edge.i.i, %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i
-  %647 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1304) %0) #20
-  br i1 %647, label %651, label %648
+648:                                              ; preds = %._crit_edge.i.i, %_ZNK4llvm12X86Subtarget10isTargetPSEv.exit161.thread86.i.i
+  %649 = tail call noundef zeroext i1 @_ZNK4llvm13TargetMachine21isPositionIndependentEv(ptr noundef nonnull align 8 dereferenceable(1304) %0) #20
+  br i1 %649, label %653, label %650
 
-648:                                              ; preds = %646
-  %649 = load i64, ptr %639, align 8, !tbaa !157, !alias.scope !18
-  %650 = or i64 %649, 262144
-  store i64 %650, ptr %639, align 8, !tbaa !157, !alias.scope !18
-  br label %651
+650:                                              ; preds = %648
+  %651 = load i64, ptr %641, align 8, !tbaa !157, !alias.scope !18
+  %652 = or i64 %651, 262144
+  store i64 %652, ptr %641, align 8, !tbaa !157, !alias.scope !18
+  br label %653
 
-651:                                              ; preds = %648, %646
-  %652 = tail call noundef zeroext i1 @_ZNK4llvm12X86Subtarget26isLegalToCallImmediateAddrEv(ptr noundef nonnull align 8 dereferenceable(413568) %1) #20
-  br i1 %652, label %653, label %_ZNK12_GLOBAL__N_122X86InstructionSelector30computeAvailableModuleFeaturesEPKN4llvm12X86SubtargetE.exit.i
+653:                                              ; preds = %650, %648
+  %654 = tail call noundef zeroext i1 @_ZNK4llvm12X86Subtarget26isLegalToCallImmediateAddrEv(ptr noundef nonnull align 8 dereferenceable(413568) %1) #20
+  br i1 %654, label %655, label %_ZNK12_GLOBAL__N_122X86InstructionSelector30computeAvailableModuleFeaturesEPKN4llvm12X86SubtargetE.exit.i
 
-653:                                              ; preds = %651
-  %654 = load i64, ptr %639, align 8, !tbaa !157, !alias.scope !18
-  %655 = or i64 %654, 1048576
-  store i64 %655, ptr %639, align 8, !tbaa !157, !alias.scope !18
+655:                                              ; preds = %653
+  %656 = load i64, ptr %641, align 8, !tbaa !157, !alias.scope !18
+  %657 = or i64 %656, 1048576
+  store i64 %657, ptr %641, align 8, !tbaa !157, !alias.scope !18
   br label %_ZNK12_GLOBAL__N_122X86InstructionSelector30computeAvailableModuleFeaturesEPKN4llvm12X86SubtargetE.exit.i
 
-_ZNK12_GLOBAL__N_122X86InstructionSelector30computeAvailableModuleFeaturesEPKN4llvm12X86SubtargetE.exit.i: ; preds = %653, %651
-  %656 = getelementptr inbounds nuw i8, ptr %1, i64 500
-  %657 = load i8, ptr %656, align 4, !tbaa !345, !range !154, !noalias !18, !noundef !155
-  %658 = trunc nuw i8 %657 to i1
+_ZNK12_GLOBAL__N_122X86InstructionSelector30computeAvailableModuleFeaturesEPKN4llvm12X86SubtargetE.exit.i: ; preds = %655, %653
+  %658 = getelementptr inbounds nuw i8, ptr %1, i64 500
+  %659 = load i8, ptr %658, align 4, !tbaa !345, !range !154, !noalias !18, !noundef !155
+  %660 = trunc nuw i8 %659 to i1
   %.pre.pre.pre.i = load i64, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  %659 = or i64 %.pre.pre.pre.i, 2147483648
-  %spec.select27.i = select i1 %658, i64 %.pre.pre.pre.i, i64 %659
-  %660 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %661 = load i8, ptr %660, align 8, !tbaa !346, !range !154, !noalias !18, !noundef !155
-  %662 = trunc nuw i8 %661 to i1
-  %663 = or i64 %spec.select27.i, 17179869184
-  %.pre.i = select i1 %662, i64 %663, i64 %spec.select27.i
-  %664 = load i32, ptr %36, align 8, !tbaa !347, !noalias !18
-  %665 = icmp sgt i32 %664, 1
-  %666 = load i8, ptr %449, align 1, !range !154, !noalias !18
-  %667 = trunc nuw i8 %666 to i1
-  %668 = select i1 %665, i1 true, i1 %667
-  %669 = or i64 %.pre.i, 576460752303423488
-  %670 = select i1 %668, i64 %669, i64 %.pre.i
-  %671 = getelementptr inbounds nuw i8, ptr %1, i64 508
-  %672 = load i8, ptr %671, align 4, !tbaa !348, !range !154, !noalias !18, !noundef !155
-  %673 = trunc nuw i8 %672 to i1
-  %674 = getelementptr inbounds nuw i8, ptr %1, i64 503
-  %675 = load i8, ptr %674, align 1, !range !154, !noalias !18
-  %676 = trunc nuw i8 %675 to i1
-  %677 = select i1 %673, i1 true, i1 %676
-  %.119.i.i = select i1 %677, i64 8589934592, i64 4294967296
-  %678 = or i64 %.119.i.i, %670
-  store i64 %678, ptr %13, align 8, !tbaa !157, !alias.scope !18
-  %679 = getelementptr inbounds nuw i8, ptr %4, i64 144
-  %680 = getelementptr inbounds nuw i8, ptr %4, i64 168
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %679, i8 0, i64 24, i1 false)
-  tail call void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnull align 8 dereferenceable(168) %680, i32 noundef 0) #20
-  %681 = getelementptr inbounds nuw i8, ptr %4, i64 336
-  store ptr @_ZL11TypeObjects, ptr %681, align 8, !tbaa !349
-  %682 = getelementptr inbounds nuw i8, ptr %4, i64 344
-  store ptr @_ZL14FeatureBitsets, ptr %682, align 8, !tbaa !355
-  %683 = getelementptr inbounds nuw i8, ptr %4, i64 352
-  store ptr @_ZN12_GLOBAL__N_122X86InstructionSelector19ComplexPredicateFnsE, ptr %683, align 8, !tbaa !356
-  %684 = getelementptr inbounds nuw i8, ptr %4, i64 360
-  store ptr @_ZN12_GLOBAL__N_122X86InstructionSelector15CustomRenderersE, ptr %684, align 8, !tbaa !357
-  %685 = getelementptr inbounds nuw i8, ptr %4, i64 368
-  store i32 1, ptr %685, align 8
-  %686 = getelementptr inbounds nuw i8, ptr %4, i64 372
-  store i32 0, ptr %686, align 4, !tbaa !358
+  %661 = or i64 %.pre.pre.pre.i, 2147483648
+  %spec.select27.i = select i1 %660, i64 %.pre.pre.pre.i, i64 %661
+  %662 = getelementptr inbounds nuw i8, ptr %1, i64 392
+  %663 = load i8, ptr %662, align 8, !tbaa !346, !range !154, !noalias !18, !noundef !155
+  %664 = zext nneg i8 %663 to i64
+  %665 = shl nuw nsw i64 %664, 34
+  %.pre.i = or i64 %665, %spec.select27.i
+  %666 = load i32, ptr %36, align 8, !tbaa !347, !noalias !18
+  %667 = icmp sgt i32 %666, 1
+  %668 = load i8, ptr %451, align 1, !range !154, !noalias !18
+  %669 = trunc nuw i8 %668 to i1
+  %670 = select i1 %667, i1 true, i1 %669
+  %671 = or i64 %.pre.i, 576460752303423488
+  %672 = select i1 %670, i64 %671, i64 %.pre.i
+  %673 = getelementptr inbounds nuw i8, ptr %1, i64 508
+  %674 = load i8, ptr %673, align 4, !tbaa !348, !range !154, !noalias !18, !noundef !155
+  %675 = trunc nuw i8 %674 to i1
+  %676 = getelementptr inbounds nuw i8, ptr %1, i64 503
+  %677 = load i8, ptr %676, align 1, !range !154, !noalias !18
+  %678 = trunc nuw i8 %677 to i1
+  %679 = select i1 %675, i1 true, i1 %678
+  %.119.i.i = select i1 %679, i64 8589934592, i64 4294967296
+  %680 = or i64 %.119.i.i, %672
+  store i64 %680, ptr %13, align 8, !tbaa !157, !alias.scope !18
+  %681 = getelementptr inbounds nuw i8, ptr %4, i64 144
+  %682 = getelementptr inbounds nuw i8, ptr %4, i64 168
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %681, i8 0, i64 24, i1 false)
+  tail call void @_ZN4llvm20GIMatchTableExecutor12MatcherStateC1Ej(ptr noundef nonnull align 8 dereferenceable(168) %682, i32 noundef 0) #20
+  %683 = getelementptr inbounds nuw i8, ptr %4, i64 336
+  store ptr @_ZL11TypeObjects, ptr %683, align 8, !tbaa !349
+  %684 = getelementptr inbounds nuw i8, ptr %4, i64 344
+  store ptr @_ZL14FeatureBitsets, ptr %684, align 8, !tbaa !355
+  %685 = getelementptr inbounds nuw i8, ptr %4, i64 352
+  store ptr @_ZN12_GLOBAL__N_122X86InstructionSelector19ComplexPredicateFnsE, ptr %685, align 8, !tbaa !356
+  %686 = getelementptr inbounds nuw i8, ptr %4, i64 360
+  store ptr @_ZN12_GLOBAL__N_122X86InstructionSelector15CustomRenderersE, ptr %686, align 8, !tbaa !357
+  %687 = getelementptr inbounds nuw i8, ptr %4, i64 368
+  store i32 1, ptr %687, align 8
+  %688 = getelementptr inbounds nuw i8, ptr %4, i64 372
+  store i32 0, ptr %688, align 4, !tbaa !358
   br label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i.i, %_ZNK12_GLOBAL__N_122X86InstructionSelector30computeAvailableModuleFeaturesEPKN4llvm12X86SubtargetE.exit.i
   %.06.i.i.i.idx.i.i = phi i64 [ %.06.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i ], [ 40, %_ZNK12_GLOBAL__N_122X86InstructionSelector30computeAvailableModuleFeaturesEPKN4llvm12X86SubtargetE.exit.i ]
-  %.06.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %681, i64 %.06.i.i.i.idx.i.i
+  %.06.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %683, i64 %.06.i.i.i.idx.i.i
   store i64 2, ptr %.06.i.i.i.ptr.i.i, align 8, !tbaa !359
   %.06.i.i.i.add.i.i = add nuw nsw i64 %.06.i.i.i.idx.i.i, 16
   %.not.i.i.i.i.i = icmp eq i64 %.06.i.i.i.add.i.i, 1064
   br i1 %.not.i.i.i.i.i, label %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !360
 
 _ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i
-  %.01.i.i = phi i64 [ %690, %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
-  %687 = trunc nuw nsw i64 %.01.i.i to i32
-  %688 = getelementptr inbounds nuw %"class.llvm::LLT", ptr @_ZL11TypeObjects, i64 %.01.i.i
-  %689 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_EixERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %685, ptr noundef nonnull align 8 dereferenceable(8) %688)
-  store i32 %687, ptr %689, align 4, !tbaa !362
-  %690 = add nuw nsw i64 %.01.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %690, 25
+  %.01.i.i = phi i64 [ %692, %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i ], [ 0, %.lr.ph.i.i.i.i.i ]
+  %689 = trunc nuw nsw i64 %.01.i.i to i32
+  %690 = getelementptr inbounds nuw %"class.llvm::LLT", ptr @_ZL11TypeObjects, i64 %.01.i.i
+  %691 = tail call noundef nonnull align 4 dereferenceable(4) ptr @_ZN4llvm12DenseMapBaseINS_13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_jEEEES2_jS4_S7_EixERKS2_(ptr noundef nonnull align 1 dereferenceable(1) %687, ptr noundef nonnull align 8 dereferenceable(8) %690)
+  store i32 %689, ptr %691, align 4, !tbaa !362
+  %692 = add nuw nsw i64 %.01.i.i, 1
+  %exitcond.not.i.i = icmp eq i64 %692, 25
   br i1 %exitcond.not.i.i, label %_ZN12_GLOBAL__N_122X86InstructionSelectorC2ERKN4llvm16X86TargetMachineERKNS1_12X86SubtargetERKNS1_19X86RegisterBankInfoE.exit, label %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i, !llvm.loop !363
 
 _ZN12_GLOBAL__N_122X86InstructionSelectorC2ERKN4llvm16X86TargetMachineERKNS1_12X86SubtargetERKNS1_19X86RegisterBankInfoE.exit: ; preds = %_ZN4llvm13SmallDenseMapINS_3LLTEjLj64ENS_12DenseMapInfoIS1_vEENS_6detail12DenseMapPairIS1_jEEEC2Ej.exit.i.i

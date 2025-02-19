@@ -416,7 +416,7 @@ ossl_quic_reactor_tick.exit:                      ; preds = %.lr.ph.i.i, %31, %4
   %.1 = phi i32 [ %.025, %ossl_quic_reactor_tick.exit ], [ 0, %29 ]
   %60 = call i32 %1(ptr noundef %2) #10
   %.not28 = icmp eq i32 %60, 0
-  br i1 %.not28, label %61, label %134
+  br i1 %.not28, label %61, label %133
 
 61:                                               ; preds = %59
   %62 = load i8, ptr %7, align 8
@@ -429,7 +429,7 @@ ossl_quic_reactor_tick.exit:                      ; preds = %.lr.ph.i.i, %31, %4
   %.not36 = icmp eq i8 %67, 0
   %.not33 = icmp eq i64 %.sroa.0.0.copyload.i, -1
   %or.cond = select i1 %.not36, i1 %.not33, i1 false
-  br i1 %or.cond, label %134, label %68
+  br i1 %or.cond, label %133, label %68
 
 68:                                               ; preds = %61
   %69 = load i64, ptr %20, align 8, !tbaa !20
@@ -477,7 +477,7 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   %.not56.i.i = icmp ne i8 %83, 0
   %or.cond.not.i.i = select i1 %85, i1 %.not56.i.i, i1 false
   %spec.select64.i.i = zext i1 %or.cond.not.i.i to i64
-  br label %94
+  br label %93
 
 86:                                               ; preds = %poll_descriptor_to_fd.exit10.i
   %87 = zext nneg i8 %63 to i16
@@ -488,131 +488,130 @@ poll_descriptor_to_fd.exit10.i:                   ; preds = %77, %poll_descripto
   %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %or.cond61.not.i.i, i64 8, i64 0
   %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %5, i64 %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   store i32 %.sink.i8.i, ptr %.1.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.i.sroa.sel.idx.sroa.sel.idx.sroa.sel, align 8, !tbaa !33
-  %89 = shl nuw nsw i8 %65, 2
-  %90 = zext nneg i8 %89 to i16
-  %.1.sroa.sel.sroa.sel.i.i = select i1 %or.cond61.not.i.i, ptr %.sroa.gep65.sroa.gep.i.i, ptr %27
-  store i16 %90, ptr %.1.sroa.sel.sroa.sel.i.i, align 4, !tbaa !36
-  %91 = icmp sgt i32 %.sink.i8.i, -1
-  br i1 %91, label %92, label %94
-
-92:                                               ; preds = %86
   %.not52.i.i = icmp eq i8 %65, 0
-  %93 = select i1 %or.cond61.not.i.i, i64 2, i64 1
-  %spec.select.i.i = select i1 %.not52.i.i, i64 %.1.i.i, i64 %93
-  br label %94
+  %89 = select i1 %.not52.i.i, i16 0, i16 4
+  %.1.sroa.sel.sroa.sel.i.i = select i1 %or.cond61.not.i.i, ptr %.sroa.gep65.sroa.gep.i.i, ptr %27
+  store i16 %89, ptr %.1.sroa.sel.sroa.sel.i.i, align 4, !tbaa !36
+  %90 = icmp sgt i32 %.sink.i8.i, -1
+  br i1 %90, label %91, label %93
 
-94:                                               ; preds = %92, %86, %81
-  %.045.i.i = phi i64 [ %.1.i.i, %86 ], [ %spec.select.i.i, %92 ], [ %spec.select64.i.i, %81 ]
-  br i1 %28, label %.thread.i.i, label %98
+91:                                               ; preds = %86
+  %92 = select i1 %or.cond61.not.i.i, i64 2, i64 1
+  %spec.select.i.i = select i1 %.not52.i.i, i64 %.1.i.i, i64 %92
+  br label %93
 
-.thread.i.i:                                      ; preds = %94
-  %95 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %5, i64 0, i64 %.045.i.i
-  store i32 %13, ptr %95, align 8, !tbaa !33
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 4
-  store i16 1, ptr %96, align 4, !tbaa !36
-  %97 = add nuw nsw i64 %.045.i.i, 1
+93:                                               ; preds = %91, %86, %81
+  %.045.i.i = phi i64 [ %.1.i.i, %86 ], [ %spec.select.i.i, %91 ], [ %spec.select64.i.i, %81 ]
+  br i1 %28, label %.thread.i.i, label %97
+
+.thread.i.i:                                      ; preds = %93
+  %94 = getelementptr inbounds nuw [3 x %struct.pollfd], ptr %5, i64 0, i64 %.045.i.i
+  store i32 %13, ptr %94, align 8, !tbaa !33
+  %95 = getelementptr inbounds nuw i8, ptr %94, i64 4
+  store i16 1, ptr %95, align 4, !tbaa !36
+  %96 = add nuw nsw i64 %.045.i.i, 1
   br label %.critedge63.i.i
 
-98:                                               ; preds = %94
+97:                                               ; preds = %93
   %.not57.i.i = icmp eq i64 %.045.i.i, 0
   %brmerge.not = select i1 %.not57.i.i, i1 %.not33, i1 false
   br i1 %brmerge.not, label %poll_two_fds.exit.i, label %.critedge63.i.i, !prof !37
 
-.critedge63.i.i:                                  ; preds = %98, %.thread.i.i
-  %.268.i.i = phi i64 [ %97, %.thread.i.i ], [ %.045.i.i, %98 ]
+.critedge63.i.i:                                  ; preds = %97, %.thread.i.i
+  %.268.i.i = phi i64 [ %96, %.thread.i.i ], [ %.045.i.i, %97 ]
   %.not59.i.i = icmp eq ptr %71, null
-  br i1 %.not59.i.i, label %100, label %99
+  br i1 %.not59.i.i, label %99, label %98
 
-99:                                               ; preds = %.critedge63.i.i
+98:                                               ; preds = %.critedge63.i.i
   call void @ossl_crypto_mutex_unlock(ptr noundef nonnull %71) #10
-  br label %100
+  br label %99
 
-100:                                              ; preds = %99, %.critedge63.i.i
+99:                                               ; preds = %98, %.critedge63.i.i
   br i1 %.not33, label %.split.us.i.i, label %.split.i.i
 
-.split.us.i.i:                                    ; preds = %100, %103
-  %101 = call i32 @poll(ptr noundef nonnull %5, i64 noundef %.268.i.i, i32 noundef -1) #10
-  %102 = icmp eq i32 %101, -1
-  br i1 %102, label %103, label %.critedge.i.i
+.split.us.i.i:                                    ; preds = %99, %102
+  %100 = call i32 @poll(ptr noundef nonnull %5, i64 noundef %.268.i.i, i32 noundef -1) #10
+  %101 = icmp eq i32 %100, -1
+  br i1 %101, label %102, label %.critedge.i.i
 
-103:                                              ; preds = %.split.us.i.i
-  %104 = tail call ptr @__errno_location() #11
-  %105 = load i32, ptr %104, align 4, !tbaa !23
-  %106 = icmp eq i32 %105, 4
-  br i1 %106, label %.split.us.i.i, label %.critedge.i.i, !llvm.loop !38
+102:                                              ; preds = %.split.us.i.i
+  %103 = tail call ptr @__errno_location() #11
+  %104 = load i32, ptr %103, align 4, !tbaa !23
+  %105 = icmp eq i32 %104, 4
+  br i1 %105, label %.split.us.i.i, label %.critedge.i.i, !llvm.loop !38
 
-.split.i.i:                                       ; preds = %100, %112
-  %107 = call i64 @ossl_time_now() #10
-  %..i.i.i = call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.copyload.i, i64 %107)
-  %108 = udiv i64 %..i.i.i, 1000000
-  %109 = trunc i64 %108 to i32
-  %110 = call i32 @poll(ptr noundef nonnull %5, i64 noundef %.268.i.i, i32 noundef %109) #10
-  %111 = icmp eq i32 %110, -1
-  br i1 %111, label %112, label %.critedge.i.i
+.split.i.i:                                       ; preds = %99, %111
+  %106 = call i64 @ossl_time_now() #10
+  %..i.i.i = call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.copyload.i, i64 %106)
+  %107 = udiv i64 %..i.i.i, 1000000
+  %108 = trunc i64 %107 to i32
+  %109 = call i32 @poll(ptr noundef nonnull %5, i64 noundef %.268.i.i, i32 noundef %108) #10
+  %110 = icmp eq i32 %109, -1
+  br i1 %110, label %111, label %.critedge.i.i
 
-112:                                              ; preds = %.split.i.i
-  %113 = tail call ptr @__errno_location() #11
-  %114 = load i32, ptr %113, align 4, !tbaa !23
-  %115 = icmp eq i32 %114, 4
-  br i1 %115, label %.split.i.i, label %.critedge.i.i, !llvm.loop !38
+111:                                              ; preds = %.split.i.i
+  %112 = tail call ptr @__errno_location() #11
+  %113 = load i32, ptr %112, align 4, !tbaa !23
+  %114 = icmp eq i32 %113, 4
+  br i1 %114, label %.split.i.i, label %.critedge.i.i, !llvm.loop !38
 
-.critedge.i.i:                                    ; preds = %112, %.split.i.i, %103, %.split.us.i.i
-  %.us-phi.i.i = phi i32 [ %101, %.split.us.i.i ], [ -1, %103 ], [ -1, %112 ], [ %110, %.split.i.i ]
-  br i1 %.not59.i.i, label %117, label %116
+.critedge.i.i:                                    ; preds = %111, %.split.i.i, %102, %.split.us.i.i
+  %.us-phi.i.i = phi i32 [ %100, %.split.us.i.i ], [ -1, %102 ], [ -1, %111 ], [ %109, %.split.i.i ]
+  br i1 %.not59.i.i, label %116, label %115
 
-116:                                              ; preds = %.critedge.i.i
+115:                                              ; preds = %.critedge.i.i
   call void @ossl_crypto_mutex_lock(ptr noundef nonnull %71) #10
-  br label %117
+  br label %116
 
-117:                                              ; preds = %116, %.critedge.i.i
-  %118 = icmp slt i32 %.us-phi.i.i, 0
+116:                                              ; preds = %115, %.critedge.i.i
+  %117 = icmp slt i32 %.us-phi.i.i, 0
   %.pre.pre = load i64, ptr %20, align 8, !tbaa !20
   %.pre40.pre = load i8, ptr %7, align 8
-  %119 = add i64 %.pre.pre, -1
+  %118 = add i64 %.pre.pre, -1
   br label %poll_two_fds.exit.i
 
-poll_two_fds.exit.i:                              ; preds = %98, %117
-  %.pre40 = phi i8 [ %.pre40.pre, %117 ], [ %62, %98 ]
-  %.pre = phi i64 [ %119, %117 ], [ %69, %98 ]
-  %.0.i11.i = phi i1 [ %118, %117 ], [ true, %98 ]
+poll_two_fds.exit.i:                              ; preds = %97, %116
+  %.pre40 = phi i8 [ %.pre40.pre, %116 ], [ %62, %97 ]
+  %.pre = phi i64 [ %118, %116 ], [ %69, %97 ]
+  %.0.i11.i = phi i1 [ %117, %116 ], [ true, %97 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #10
   br label %poll_two_descriptors.exit
 
 poll_two_descriptors.exit:                        ; preds = %68, %73, %poll_descriptor_to_fd.exit.i, %77, %poll_two_fds.exit.i
-  %120 = phi i8 [ %.pre40, %poll_two_fds.exit.i ], [ %62, %68 ], [ %62, %73 ], [ %62, %poll_descriptor_to_fd.exit.i ], [ %62, %77 ]
-  %121 = phi i64 [ %.pre, %poll_two_fds.exit.i ], [ %69, %68 ], [ %69, %73 ], [ %69, %poll_descriptor_to_fd.exit.i ], [ %69, %77 ]
+  %119 = phi i8 [ %.pre40, %poll_two_fds.exit.i ], [ %62, %68 ], [ %62, %73 ], [ %62, %poll_descriptor_to_fd.exit.i ], [ %62, %77 ]
+  %120 = phi i64 [ %.pre, %poll_two_fds.exit.i ], [ %69, %68 ], [ %69, %73 ], [ %69, %poll_descriptor_to_fd.exit.i ], [ %69, %77 ]
   %.0.i = phi i1 [ %.0.i11.i, %poll_two_fds.exit.i ], [ true, %68 ], [ true, %73 ], [ true, %poll_descriptor_to_fd.exit.i ], [ true, %77 ]
-  store i64 %121, ptr %20, align 8, !tbaa !20
-  %122 = and i8 %120, 48
-  %or.cond.not.i = icmp eq i8 %122, 48
-  br i1 %or.cond.not.i, label %123, label %ossl_quic_reactor_leave_blocking_section.exit
+  store i64 %120, ptr %20, align 8, !tbaa !20
+  %121 = and i8 %119, 48
+  %or.cond.not.i = icmp eq i8 %121, 48
+  br i1 %or.cond.not.i, label %122, label %ossl_quic_reactor_leave_blocking_section.exit
 
-123:                                              ; preds = %poll_two_descriptors.exit
-  %124 = icmp eq i64 %121, 0
-  br i1 %124, label %125, label %.lr.ph.i
+122:                                              ; preds = %poll_two_descriptors.exit
+  %123 = icmp eq i64 %120, 0
+  br i1 %123, label %124, label %.lr.ph.i
 
-125:                                              ; preds = %123
-  %126 = call i32 @ossl_rio_notifier_unsignal(ptr noundef nonnull %21) #10
-  %127 = load i8, ptr %7, align 8
-  %128 = and i8 %127, -33
-  store i8 %128, ptr %7, align 8
-  %129 = load ptr, ptr %22, align 8, !tbaa !21
-  call void @ossl_crypto_condvar_broadcast(ptr noundef %129) #10
+124:                                              ; preds = %122
+  %125 = call i32 @ossl_rio_notifier_unsignal(ptr noundef nonnull %21) #10
+  %126 = load i8, ptr %7, align 8
+  %127 = and i8 %126, -33
+  store i8 %127, ptr %7, align 8
+  %128 = load ptr, ptr %22, align 8, !tbaa !21
+  call void @ossl_crypto_condvar_broadcast(ptr noundef %128) #10
   br label %ossl_quic_reactor_leave_blocking_section.exit
 
-.lr.ph.i:                                         ; preds = %123, %.lr.ph.i
-  %130 = load ptr, ptr %22, align 8, !tbaa !21
-  %131 = load ptr, ptr %23, align 8, !tbaa !19
-  call void @ossl_crypto_condvar_wait(ptr noundef %130, ptr noundef %131) #10
-  %132 = load i8, ptr %7, align 8
-  %133 = and i8 %132, 32
-  %.not11.i = icmp eq i8 %133, 0
+.lr.ph.i:                                         ; preds = %122, %.lr.ph.i
+  %129 = load ptr, ptr %22, align 8, !tbaa !21
+  %130 = load ptr, ptr %23, align 8, !tbaa !19
+  call void @ossl_crypto_condvar_wait(ptr noundef %129, ptr noundef %130) #10
+  %131 = load i8, ptr %7, align 8
+  %132 = and i8 %131, 32
+  %.not11.i = icmp eq i8 %132, 0
   br i1 %.not11.i, label %ossl_quic_reactor_leave_blocking_section.exit, label %.lr.ph.i, !llvm.loop !39
 
-ossl_quic_reactor_leave_blocking_section.exit:    ; preds = %.lr.ph.i, %poll_two_descriptors.exit, %125
-  br i1 %.0.i, label %134, label %29
+ossl_quic_reactor_leave_blocking_section.exit:    ; preds = %.lr.ph.i, %poll_two_descriptors.exit, %124
+  br i1 %.0.i, label %133, label %29
 
-134:                                              ; preds = %61, %ossl_quic_reactor_leave_blocking_section.exit, %59
+133:                                              ; preds = %61, %ossl_quic_reactor_leave_blocking_section.exit, %59
   %.0 = phi i32 [ %60, %59 ], [ 0, %ossl_quic_reactor_leave_blocking_section.exit ], [ 0, %61 ]
   ret i32 %.0
 }

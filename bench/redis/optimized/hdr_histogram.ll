@@ -2840,7 +2840,6 @@ format_line_string.exit:                          ; preds = %11, %13, %15
   br label %31
 
 31:                                               ; preds = %.preheader, %34
-  %.1 = phi i32 [ %..1, %34 ], [ 0, %.preheader ]
   %32 = load ptr, ptr %23, align 8, !tbaa !47
   %33 = call zeroext i1 %32(ptr noundef nonnull %8) #21
   br i1 %33, label %34, label %45
@@ -2855,10 +2854,8 @@ format_line_string.exit:                          ; preds = %11, %13, %15
   %41 = fsub double 1.000000e+00, %39
   %42 = fdiv double 1.000000e+00, %41
   %43 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull %7, double noundef %37, double noundef %39, i64 noundef %40, double noundef %42) #21
-  %44 = icmp slt i32 %43, 0
-  %..1 = select i1 %44, i32 5, i32 %.1
-  %cond = icmp sgt i32 %43, -1
-  br i1 %cond, label %31, label %.loopexit
+  %44 = icmp sgt i32 %43, -1
+  br i1 %44, label %31, label %.loopexit
 
 45:                                               ; preds = %31
   %46 = icmp eq i32 %4, 0
@@ -3035,11 +3032,11 @@ hdr_max.exit:                                     ; preds = %hdr_mean.exit.hdr_m
   %154 = load i32, ptr %153, align 4, !tbaa !40
   %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1, ptr noundef nonnull @CLASSIC_FOOTER, double noundef %120, double noundef %122, double noundef %151, i64 noundef %152, i32 noundef %154, i32 noundef %150) #21
   %156 = icmp slt i32 %155, 0
-  %..136 = select i1 %156, i32 5, i32 %.1
+  %..136 = select i1 %156, i32 5, i32 0
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %hdr_max.exit, %45, %format_line_string.exit
-  %.0 = phi i32 [ %..136, %hdr_max.exit ], [ %.1, %45 ], [ 5, %format_line_string.exit ], [ %..1, %34 ]
+  %.0 = phi i32 [ %..136, %hdr_max.exit ], [ 0, %45 ], [ 5, %format_line_string.exit ], [ 5, %34 ]
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 25, ptr nonnull %7) #21
   ret i32 %.0

@@ -7560,6 +7560,8 @@ entry:
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %dec.i)
   %0 = bitcast double %value to i64
+  %1 = icmp sgt i64 %0, -1
+  %fspecs.sroa.2.0.i = select i1 %1, i32 0, i32 256
   %value.addr.0.i = tail call double @llvm.fabs.f64(double %value)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %specs.i, ptr noundef nonnull align 4 dereferenceable(16) @__const._ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.specs, i64 16, i1 false)
   %and.i = and i64 %0, 9218868437227405312
@@ -7570,17 +7572,15 @@ _ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_sp
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %specs.i.i)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %ref.tmp.i.i)
   store i64 -4294967296, ptr %specs.i.i, align 8
-  %1 = getelementptr inbounds nuw i8, ptr %specs.i.i, i64 8
-  store i64 72057594574798848, ptr %1, align 8
-  %2 = fcmp oeq double %value.addr.0.i, 0x7FF0000000000000
-  %cond-lvalue14.i.i = select i1 %2, ptr @.str.27, ptr @.str.29
-  %sum.shift.i = lshr i64 %0, 63
-  %bf.lshr17.i5.i = trunc nuw nsw i64 %sum.shift.i to i32
-  %tobool19.not.not.i.i = icmp sgt i64 %0, -1
-  %add.i.i = select i1 %tobool19.not.not.i.i, i64 3, i64 4
-  store i32 %bf.lshr17.i5.i, ptr %ref.tmp.i.i, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
-  store ptr %cond-lvalue14.i.i, ptr %3, align 8
+  %2 = getelementptr inbounds nuw i8, ptr %specs.i.i, i64 8
+  store i64 72057594574798848, ptr %2, align 8
+  %3 = fcmp oeq double %value.addr.0.i, 0x7FF0000000000000
+  %cond-lvalue14.i.i = select i1 %3, ptr @.str.27, ptr @.str.29
+  %bf.lshr17.i.i = lshr exact i32 %fspecs.sroa.2.0.i, 8
+  %add.i.i = select i1 %1, i64 3, i64 4
+  store i32 %bf.lshr17.i.i, ptr %ref.tmp.i.i, align 8
+  %4 = getelementptr inbounds nuw i8, ptr %ref.tmp.i.i, i64 8
+  store ptr %cond-lvalue14.i.i, ptr %4, align 8
   %call.i.i.i = call ptr @_ZN3fmt2v86detail12write_paddedILNS0_5align4typeE1ENS0_8appenderEcRZNS1_15write_nonfiniteIcS5_EET0_S7_bNS0_18basic_format_specsIT_EERKNS1_11float_specsEEUlS5_E_EES7_S7_RKNS8_IT1_EEmmOT2_(ptr %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 4 dereferenceable(16) %specs.i.i, i64 noundef %add.i.i, i64 noundef %add.i.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %specs.i.i)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp.i.i)
@@ -7588,13 +7588,13 @@ _ZN3fmt2v86detail15write_nonfiniteIcNS0_8appenderEEET0_S4_bNS0_18basic_format_sp
 
 if.end16.i:                                       ; preds = %entry
   %call17.i = tail call { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimalIdEENS2_10decimal_fpIT_EES5_(double noundef %value.addr.0.i) #26
-  %4 = extractvalue { i64, i32 } %call17.i, 0
-  store i64 %4, ptr %dec.i, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %dec.i, i64 8
-  %6 = extractvalue { i64, i32 } %call17.i, 1
-  store i32 %6, ptr %5, align 8
-  %7 = lshr i64 %0, 23
-  %fspecs.sroa.2.0.insert.shift.i = and i64 %7, 1099511627776
+  %5 = extractvalue { i64, i32 } %call17.i, 0
+  store i64 %5, ptr %dec.i, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %dec.i, i64 8
+  %7 = extractvalue { i64, i32 } %call17.i, 1
+  store i32 %7, ptr %6, align 8
+  %fspecs.sroa.2.0.insert.ext.i = zext nneg i32 %fspecs.sroa.2.0.i to i64
+  %fspecs.sroa.2.0.insert.shift.i = shl nuw nsw i64 %fspecs.sroa.2.0.insert.ext.i, 32
   %call.i.i = call ptr @_ZN3fmt2v86detail14do_write_floatINS0_8appenderENS1_9dragonbox10decimal_fpIdEEcNS1_14digit_groupingIcEEEET_S9_RKT0_RKNS0_18basic_format_specsIT1_EENS1_11float_specsENS1_10locale_refE(ptr %agg.tmp.sroa.0.0.copyload, ptr noundef nonnull align 8 dereferenceable(16) %dec.i, ptr noundef nonnull align 4 dereferenceable(16) %specs.i, i64 %fspecs.sroa.2.0.insert.shift.i, ptr null)
   br label %_ZN3fmt2v86detail5writeIcNS0_8appenderEdTnNSt9enable_ifIXsr13is_fast_floatIT1_EE5valueEiE4typeELi0EEET0_S8_S5_.exit
 

@@ -419,20 +419,19 @@ declare zeroext i1 @lv_area_intersect(ptr noundef, ptr noundef, ptr noundef) loc
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define range(i32 0, 4) i32 @lv_image_src_get_type(ptr noundef readonly %0) local_unnamed_addr #4 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %8, label %3
+  br i1 %2, label %7, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1, !tbaa !57
   %or.cond = icmp sgt i8 %4, 31
-  br i1 %or.cond, label %8, label %5
+  br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = lshr i8 %4, 6
-  %7 = and i8 %6, 2
-  %. = zext nneg i8 %7 to i32
-  br label %8
+  %6 = icmp slt i8 %4, 0
+  %. = select i1 %6, i32 2, i32 0
+  br label %7
 
-8:                                                ; preds = %3, %5, %1
+7:                                                ; preds = %3, %5, %1
   %.0 = phi i32 [ 3, %1 ], [ 1, %3 ], [ %., %5 ]
   ret i32 %.0
 }

@@ -362,9 +362,9 @@ define dso_local noundef zeroext i1 @blkconf_apply_backend_options(ptr noundef r
   %.028 = select i1 %2, i64 13, i64 5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %7 = load i8, ptr %6, align 8, !range !5, !noundef !6
-  %8 = trunc nuw i8 %7 to i1
-  %9 = or disjoint i64 %.028, 2
-  %.1 = select i1 %8, i64 %9, i64 %.028
+  %8 = shl nuw nsw i8 %7, 1
+  %9 = zext nneg i8 %8 to i64
+  %.1 = or disjoint i64 %.028, %9
   %10 = tail call i32 @blk_set_perm(ptr noundef %5, i64 noundef %spec.select, i64 noundef %.1, ptr noundef %3) #6
   %11 = icmp sgt i32 %10, -1
   br i1 %11, label %12, label %37

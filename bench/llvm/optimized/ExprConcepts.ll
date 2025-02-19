@@ -260,10 +260,10 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   br i1 %.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph63:                                         ; preds = %.lr.ph63.preheader, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread
-  %53 = phi i24 [ %97, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread ], [ %40, %.lr.ph63.preheader ]
+  %53 = phi i24 [ %96, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread ], [ %40, %.lr.ph63.preheader ]
   %.161 = phi i8 [ %58, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread ], [ %.0.lcssa, %.lr.ph63.preheader ]
   %.13560 = phi i8 [ %60, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread ], [ %.034.lcssa, %.lr.ph63.preheader ]
-  %.03759 = phi ptr [ %98, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread ], [ %38, %.lr.ph63.preheader ]
+  %.03759 = phi ptr [ %97, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread ], [ %38, %.lr.ph63.preheader ]
   %54 = load ptr, ptr %.03759, align 8, !tbaa !48
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 4
   %56 = load i8, ptr %55, align 4
@@ -272,141 +272,140 @@ _ZN5clang4ExprC2ENS_4Stmt9StmtClassENS_8QualTypeENS_13ExprValueKindENS_14ExprObj
   %.not40 = icmp eq i8 %58, 0
   %59 = lshr i8 %56, 1
   %60 = or i8 %59, %.13560
-  br i1 %.not40, label %61, label %69
+  br i1 %.not40, label %61, label %68
 
 61:                                               ; preds = %.lr.ph63
   %62 = and i8 %56, 4
   %.not48 = icmp eq i8 %62, 0
   %63 = load i32, ptr %0, align 8
-  %64 = zext nneg i8 %62 to i32
-  %65 = shl nuw nsw i32 %64, 17
-  %66 = and i32 %63, -524289
-  %67 = or disjoint i32 %66, %65
-  store i32 %67, ptr %0, align 8
-  %68 = trunc i32 %67 to i24
-  br i1 %.not48, label %.critedge, label %69
+  %64 = select i1 %.not48, i32 0, i32 524288
+  %65 = and i32 %63, -524289
+  %66 = or disjoint i32 %65, %64
+  store i32 %66, ptr %0, align 8
+  %67 = trunc i32 %66 to i24
+  br i1 %.not48, label %.critedge, label %68
 
-69:                                               ; preds = %61, %.lr.ph63
-  %70 = phi i24 [ %68, %61 ], [ %53, %.lr.ph63 ]
-  %71 = load i32, ptr %54, align 4, !tbaa !50
-  %72 = add i32 %71, -1
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %72, 2
-  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %73, label %78
+68:                                               ; preds = %61, %.lr.ph63
+  %69 = phi i24 [ %67, %61 ], [ %53, %.lr.ph63 ]
+  %70 = load i32, ptr %54, align 4, !tbaa !50
+  %71 = add i32 %70, -1
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp ult i32 %71, 2
+  br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %72, label %77
 
-73:                                               ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %74, align 8
-  %75 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
-  %.not15.i = icmp eq i64 %75, 0
-  br i1 %.not15.i, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread, label %76
+72:                                               ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i = load i64, ptr %73, align 8
+  %74 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i, -4
+  %.not15.i = icmp eq i64 %74, 0
+  br i1 %.not15.i, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread, label %75
 
-76:                                               ; preds = %73
-  %77 = inttoptr i64 %75 to ptr
+75:                                               ; preds = %72
+  %76 = inttoptr i64 %74 to ptr
   br label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit
 
-78:                                               ; preds = %69
-  %.not.i = icmp eq i32 %71, 3
-  br i1 %.not.i, label %79, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread
+77:                                               ; preds = %68
+  %.not.i = icmp eq i32 %70, 3
+  br i1 %.not.i, label %78, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread
 
-79:                                               ; preds = %78
-  %80 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %81 = load i8, ptr %80, align 8, !tbaa !53, !range !8, !noundef !9
-  %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread, label %83
+78:                                               ; preds = %77
+  %79 = getelementptr inbounds nuw i8, ptr %54, i64 24
+  %80 = load i8, ptr %79, align 8, !tbaa !53, !range !8, !noundef !9
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread, label %82
 
-83:                                               ; preds = %79
-  %84 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %85 = load ptr, ptr %84, align 8, !tbaa !58
-  %.not17.i = icmp eq ptr %85, null
+82:                                               ; preds = %78
+  %83 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %84 = load ptr, ptr %83, align 8, !tbaa !58
+  %.not17.i = icmp eq ptr %84, null
   br i1 %.not17.i, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit
 
-_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit: ; preds = %76, %83
-  %.sink.i = phi ptr [ %77, %76 ], [ %85, %83 ]
-  %86 = load i24, ptr %.sink.i, align 8
-  %87 = and i24 %86, 262144
-  %.not49 = icmp eq i24 %87, 0
-  br i1 %.not49, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread, label %88
+_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit: ; preds = %75, %82
+  %.sink.i = phi ptr [ %76, %75 ], [ %84, %82 ]
+  %85 = load i24, ptr %.sink.i, align 8
+  %86 = and i24 %85, 262144
+  %.not49 = icmp eq i24 %86, 0
+  br i1 %.not49, label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread, label %87
 
-88:                                               ; preds = %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit
-  %89 = lshr i24 %70, 14
-  %90 = trunc i24 %89 to i8
-  %91 = and i8 %90, 15
-  %92 = or disjoint i8 %91, 16
-  %93 = zext nneg i8 %92 to i24
-  %94 = shl nuw nsw i24 %93, 14
-  %95 = and i24 %70, -507905
-  %96 = or disjoint i24 %94, %95
-  store i24 %96, ptr %0, align 8
+87:                                               ; preds = %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit
+  %88 = lshr i24 %69, 14
+  %89 = trunc i24 %88 to i8
+  %90 = and i8 %89, 15
+  %91 = or disjoint i8 %90, 16
+  %92 = zext nneg i8 %91 to i24
+  %93 = shl nuw nsw i24 %92, 14
+  %94 = and i24 %69, -507905
+  %95 = or disjoint i24 %93, %94
+  store i24 %95, ptr %0, align 8
   br label %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread
 
-_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread: ; preds = %78, %79, %83, %73, %88, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit
-  %97 = phi i24 [ %70, %78 ], [ %70, %79 ], [ %70, %83 ], [ %70, %73 ], [ %96, %88 ], [ %70, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit ]
-  %98 = getelementptr inbounds nuw i8, ptr %.03759, i64 8
-  %.not39 = icmp eq ptr %98, %39
+_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread: ; preds = %77, %78, %82, %72, %87, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit
+  %96 = phi i24 [ %69, %77 ], [ %69, %78 ], [ %69, %82 ], [ %69, %72 ], [ %95, %87 ], [ %69, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit ]
+  %97 = getelementptr inbounds nuw i8, ptr %.03759, i64 8
+  %.not39 = icmp eq ptr %97, %39
   br i1 %.not39, label %.critedge, label %.lr.ph63
 
 .critedge:                                        ; preds = %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread, %61, %._crit_edge
   %.236 = phi i8 [ %.034.lcssa, %._crit_edge ], [ %60, %61 ], [ %60, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread ]
   %.2 = phi i8 [ %.0.lcssa, %._crit_edge ], [ %58, %_ZL24RequirementContainsErrorPN5clang8concepts11RequirementE.exit.thread ], [ 0, %61 ]
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %.not53, label %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit, label %100
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  br i1 %.not53, label %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit, label %99
 
-100:                                              ; preds = %.critedge
+99:                                               ; preds = %.critedge
   %.idx = shl nuw nsw i64 %22, 3
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %99, ptr align 8 %35, i64 %.idx, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %98, ptr align 8 %35, i64 %.idx, i1 false)
   br label %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit
 
-_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit: ; preds = %.critedge, %100
-  br i1 %.not3958, label %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit, label %101
+_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit: ; preds = %.critedge, %99
+  br i1 %.not3958, label %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit, label %100
 
-101:                                              ; preds = %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit
+100:                                              ; preds = %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit
   %.idx51 = shl nuw nsw i64 %26, 3
-  %102 = and i64 %22, 4294967295
-  %103 = getelementptr inbounds nuw ptr, ptr %99, i64 %102
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %103, ptr align 8 %38, i64 %.idx51, i1 false)
+  %101 = and i64 %22, 4294967295
+  %102 = getelementptr inbounds nuw ptr, ptr %98, i64 %101
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %102, ptr align 8 %38, i64 %.idx51, i1 false)
   br label %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit
 
-_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit: ; preds = %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit, %101
-  %104 = trunc i8 %.2 to i1
-  %105 = zext i8 %.2 to i32
-  %106 = load i32, ptr %0, align 8
-  %107 = shl nuw nsw i32 %105, 19
-  %108 = and i32 %107, 524288
-  %109 = or i32 %106, %108
-  store i32 %109, ptr %0, align 8
-  %110 = trunc i8 %.236 to i1
-  %111 = trunc i32 %109 to i24
-  br i1 %110, label %112, label %121
+_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit: ; preds = %_ZSt4copyIPKPN5clang11ParmVarDeclEPS2_ET0_T_S7_S6_.exit, %100
+  %103 = trunc i8 %.2 to i1
+  %104 = zext i8 %.2 to i32
+  %105 = load i32, ptr %0, align 8
+  %106 = shl nuw nsw i32 %104, 19
+  %107 = and i32 %106, 524288
+  %108 = or i32 %105, %107
+  store i32 %108, ptr %0, align 8
+  %109 = trunc i8 %.236 to i1
+  %110 = trunc i32 %108 to i24
+  br i1 %109, label %111, label %120
 
-112:                                              ; preds = %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit
-  %113 = lshr i32 %106, 14
-  %114 = trunc i32 %113 to i8
-  %115 = and i8 %114, 30
-  %116 = or disjoint i8 %115, 1
-  %117 = zext nneg i8 %116 to i24
-  %118 = shl nuw nsw i24 %117, 14
-  %119 = and i24 %111, -507905
-  %120 = or disjoint i24 %118, %119
-  store i24 %120, ptr %0, align 8
-  br label %121
+111:                                              ; preds = %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit
+  %112 = lshr i32 %105, 14
+  %113 = trunc i32 %112 to i8
+  %114 = and i8 %113, 30
+  %115 = or disjoint i8 %114, 1
+  %116 = zext nneg i8 %115 to i24
+  %117 = shl nuw nsw i24 %116, 14
+  %118 = and i24 %110, -507905
+  %119 = or disjoint i24 %117, %118
+  store i24 %119, ptr %0, align 8
+  br label %120
 
-121:                                              ; preds = %112, %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit
-  %122 = phi i24 [ %120, %112 ], [ %111, %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit ]
-  br i1 %104, label %123, label %132
+120:                                              ; preds = %111, %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit
+  %121 = phi i24 [ %119, %111 ], [ %110, %_ZSt4copyIPKPN5clang8concepts11RequirementEPS3_ET0_T_S8_S7_.exit ]
+  br i1 %103, label %122, label %131
 
-123:                                              ; preds = %121
-  %124 = lshr i24 %122, 14
-  %125 = trunc i24 %124 to i8
-  %126 = and i8 %125, 21
-  %127 = or disjoint i8 %126, 10
-  %128 = zext nneg i8 %127 to i24
-  %129 = shl nuw nsw i24 %128, 14
-  %130 = and i24 %122, -507905
-  %131 = or disjoint i24 %129, %130
-  store i24 %131, ptr %0, align 8
-  br label %132
+122:                                              ; preds = %120
+  %123 = lshr i24 %121, 14
+  %124 = trunc i24 %123 to i8
+  %125 = and i8 %124, 21
+  %126 = or disjoint i8 %125, 10
+  %127 = zext nneg i8 %126 to i24
+  %128 = shl nuw nsw i24 %127, 14
+  %129 = and i24 %121, -507905
+  %130 = or disjoint i24 %128, %129
+  store i24 %130, ptr %0, align 8
+  br label %131
 
-132:                                              ; preds = %123, %121
+131:                                              ; preds = %122, %120
   ret void
 }
 

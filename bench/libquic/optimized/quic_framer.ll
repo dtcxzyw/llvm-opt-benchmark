@@ -2300,193 +2300,192 @@ define noundef zeroext i1 @_ZN3net10QuicFramer18AppendPacketHeaderERKNS_16QuicPa
   %spec.select = select i1 %7, i8 2, i8 0
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 14
   %9 = load i8, ptr %8, align 2, !tbaa !169, !range !141, !noundef !142
-  %.140 = or disjoint i8 %spec.select, %9
+  %.140 = or disjoint i8 %9, %spec.select
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %11 = load i8, ptr %10, align 4, !tbaa !170, !range !141, !noundef !142
-  %12 = trunc nuw i8 %11 to i1
-  %13 = or disjoint i8 %.140, 64
-  %.2 = select i1 %12, i8 %13, i8 %.140
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 15
-  %15 = load i8, ptr %14, align 1, !tbaa !171
-  %switch.tableidx = add i8 %15, -1
-  %16 = icmp ult i8 %switch.tableidx, 6
-  br i1 %16, label %switch.hole_check, label %17
+  %12 = shl nuw nsw i8 %11, 6
+  %.2 = or disjoint i8 %.140, %12
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 15
+  %14 = load i8, ptr %13, align 1, !tbaa !171
+  %switch.tableidx = add i8 %14, -1
+  %15 = icmp ult i8 %switch.tableidx, 6
+  br i1 %15, label %switch.hole_check, label %16
 
-17:                                               ; preds = %switch.hole_check, %3
-  %18 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %18, label %19, label %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
+16:                                               ; preds = %switch.hole_check, %3
+  %17 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %17, label %18, label %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
 
-19:                                               ; preds = %17
+18:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %4) #26
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %4, ptr noundef nonnull @.str, i32 noundef 999, i32 noundef 2)
-  %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef nonnull @.str.38, i64 noundef 27)
-          to label %.critedge.i unwind label %22
+  %19 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull @.str.38, i64 noundef 27)
+          to label %.critedge.i unwind label %21
 
-.critedge.i:                                      ; preds = %19
+.critedge.i:                                      ; preds = %18
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #26
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #26
   br label %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
 
-22:                                               ; preds = %19
-  %23 = landingpad { ptr, i32 }
+21:                                               ; preds = %18
+  %22 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %4) #26
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %4) #26
-  resume { ptr, i32 } %23
+  resume { ptr, i32 } %22
 
 switch.hole_check:                                ; preds = %3
   %switch.shifted = lshr i8 43, %switch.tableidx
   %switch.lobit = trunc i8 %switch.shifted to i1
-  br i1 %switch.lobit, label %switch.lookup, label %17
+  br i1 %switch.lobit, label %switch.lookup, label %16
 
 switch.lookup:                                    ; preds = %switch.hole_check
-  %24 = shl nuw nsw i8 %switch.tableidx, 3
-  %switch.shiftamt = zext nneg i8 %24 to i48
+  %23 = shl nuw nsw i8 %switch.tableidx, 3
+  %switch.shiftamt = zext nneg i8 %23 to i48
   %switch.downshift = lshr i48 52777095008256, %switch.shiftamt
   %switch.masked = trunc i48 %switch.downshift to i8
   br label %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
 
-_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ; preds = %switch.lookup, %17, %.critedge.i
-  %.0.i = phi i8 [ 48, %17 ], [ 48, %.critedge.i ], [ %switch.masked, %switch.lookup ]
-  %25 = or disjoint i8 %.0.i, %.2
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %27 = load ptr, ptr %26, align 8, !tbaa !172
-  %.not = icmp eq ptr %27, null
-  %28 = or disjoint i8 %25, 4
-  %spec.select54 = select i1 %.not, i8 %25, i8 %28
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %30 = load i32, ptr %29, align 8, !tbaa !173
-  switch i32 %30, label %50 [
-    i32 0, label %31
-    i32 8, label %33
+_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit: ; preds = %switch.lookup, %16, %.critedge.i
+  %.0.i = phi i8 [ 48, %16 ], [ 48, %.critedge.i ], [ %switch.masked, %switch.lookup ]
+  %24 = or disjoint i8 %.0.i, %.2
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %26 = load ptr, ptr %25, align 8, !tbaa !172
+  %.not = icmp eq ptr %26, null
+  %27 = or disjoint i8 %24, 4
+  %spec.select54 = select i1 %.not, i8 %24, i8 %27
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %29 = load i32, ptr %28, align 8, !tbaa !173
+  switch i32 %29, label %49 [
+    i32 0, label %30
+    i32 8, label %32
   ]
 
-31:                                               ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
-  %32 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %spec.select54)
-  br i1 %32, label %50, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+30:                                               ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
+  %31 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %spec.select54)
+  br i1 %31, label %49, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-33:                                               ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %35 = load i32, ptr %34, align 4, !tbaa !67
-  %36 = icmp sgt i32 %35, 32
-  br i1 %36, label %37, label %43
+32:                                               ; preds = %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %34 = load i32, ptr %33, align 4, !tbaa !67
+  %35 = icmp sgt i32 %34, 32
+  br i1 %35, label %36, label %42
 
-37:                                               ; preds = %33
-  %38 = load i8, ptr @FLAGS_quic_remove_v33_hacks, align 1, !tbaa !174, !range !141, !noundef !142
-  %39 = trunc nuw i8 %38 to i1
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 344
-  %41 = load i32, ptr %40, align 8
-  %42 = icmp ne i32 %41, 1
-  %or.cond.not = select i1 %39, i1 true, i1 %42
+36:                                               ; preds = %32
+  %37 = load i8, ptr @FLAGS_quic_remove_v33_hacks, align 1, !tbaa !174, !range !141, !noundef !142
+  %38 = trunc nuw i8 %37 to i1
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 344
+  %40 = load i32, ptr %39, align 8
+  %41 = icmp ne i32 %40, 1
+  %or.cond.not = select i1 %38, i1 true, i1 %41
   %spec.select47.v = select i1 %or.cond.not, i8 8, i8 12
   %spec.select47 = or i8 %spec.select47.v, %spec.select54
-  br label %45
+  br label %44
 
-43:                                               ; preds = %33
-  %44 = or i8 %spec.select54, 12
-  br label %45
+42:                                               ; preds = %32
+  %43 = or i8 %spec.select54, 12
+  br label %44
 
-45:                                               ; preds = %37, %43
-  %.4 = phi i8 [ %44, %43 ], [ %spec.select47, %37 ]
-  %46 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %.4)
-  br i1 %46, label %47, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+44:                                               ; preds = %36, %42
+  %.4 = phi i8 [ %43, %42 ], [ %spec.select47, %36 ]
+  %45 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %.4)
+  br i1 %45, label %46, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-47:                                               ; preds = %45
-  %48 = load i64, ptr %1, align 8, !tbaa !175
-  %49 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt64Em(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %48)
-  br i1 %49, label %50, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+46:                                               ; preds = %44
+  %47 = load i64, ptr %1, align 8, !tbaa !175
+  %48 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt64Em(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %47)
+  br i1 %48, label %49, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-50:                                               ; preds = %47, %31, %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
-  %51 = load i64, ptr %1, align 8, !tbaa !175
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  store i64 %51, ptr %52, align 8, !tbaa !54
-  %53 = load i8, ptr %8, align 2, !tbaa !169, !range !141, !noundef !142
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %60
+49:                                               ; preds = %46, %30, %_ZN3net10QuicFramer22GetSequenceNumberFlagsENS_22QuicPacketNumberLengthE.exit
+  %50 = load i64, ptr %1, align 8, !tbaa !175
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  store i64 %50, ptr %51, align 8, !tbaa !54
+  %52 = load i8, ptr %8, align 2, !tbaa !169, !range !141, !noundef !142
+  %53 = trunc nuw i8 %52 to i1
+  br i1 %53, label %54, label %59
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %57 = load i32, ptr %56, align 4, !tbaa !67
-  %58 = call noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %57)
-  %59 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %58)
-  br label %60
+54:                                               ; preds = %49
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %56 = load i32, ptr %55, align 4, !tbaa !67
+  %57 = call noundef i32 @_ZN3net20QuicVersionToQuicTagENS_11QuicVersionE(i32 noundef %56)
+  %58 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %57)
+  br label %59
 
-60:                                               ; preds = %55, %50
-  %61 = load i8, ptr %10, align 4, !tbaa !170, !range !141, !noundef !142
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %67
+59:                                               ; preds = %54, %49
+  %60 = load i8, ptr %10, align 4, !tbaa !170, !range !141, !noundef !142
+  %61 = trunc nuw i8 %60 to i1
+  br i1 %61, label %62, label %66
 
-63:                                               ; preds = %60
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %65 = load i8, ptr %64, align 8, !tbaa !176
-  %66 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %65)
-  br i1 %66, label %67, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+62:                                               ; preds = %59
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %64 = load i8, ptr %63, align 8, !tbaa !176
+  %65 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %64)
+  br i1 %65, label %66, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-67:                                               ; preds = %63, %60
-  %68 = load ptr, ptr %26, align 8, !tbaa !172
-  %.not42 = icmp eq ptr %68, null
-  br i1 %.not42, label %71, label %69
+66:                                               ; preds = %62, %59
+  %67 = load ptr, ptr %25, align 8, !tbaa !172
+  %.not42 = icmp eq ptr %67, null
+  br i1 %.not42, label %70, label %68
 
-69:                                               ; preds = %67
-  %70 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %68, i64 noundef 32)
-  br i1 %70, label %71, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+68:                                               ; preds = %66
+  %69 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteBytesEPKvm(ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull %67, i64 noundef 32)
+  br i1 %69, label %70, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-71:                                               ; preds = %69, %67
-  %72 = load i8, ptr %14, align 1, !tbaa !171
-  %73 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %74 = load i64, ptr %73, align 8, !tbaa !143
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %76 = load i64, ptr %75, align 8, !tbaa !177
-  %77 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %78 = load i64, ptr %77, align 8, !tbaa !166
-  %79 = sub i64 %76, %78
-  %80 = sext i8 %72 to i64
-  %81 = icmp ult i64 %79, %80
-  br i1 %81, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread, label %82
+70:                                               ; preds = %68, %66
+  %71 = load i8, ptr %13, align 1, !tbaa !171
+  %72 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %73 = load i64, ptr %72, align 8, !tbaa !143
+  %74 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %75 = load i64, ptr %74, align 8, !tbaa !177
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %77 = load i64, ptr %76, align 8, !tbaa !166
+  %78 = sub i64 %75, %77
+  %79 = sext i8 %71 to i64
+  %80 = icmp ult i64 %78, %79
+  br i1 %80, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread, label %81
 
-82:                                               ; preds = %71
-  switch i8 %72, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread [
+81:                                               ; preds = %70
+  switch i8 %71, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread [
     i8 1, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit
-    i8 2, label %83
-    i8 4, label %86
-    i8 6, label %89
+    i8 2, label %82
+    i8 4, label %85
+    i8 6, label %88
   ]
 
-83:                                               ; preds = %82
-  %84 = trunc i64 %74 to i16
-  %85 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr noundef nonnull align 8 dereferenceable(24) %2, i16 noundef zeroext %84)
-  br i1 %85, label %94, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+82:                                               ; preds = %81
+  %83 = trunc i64 %73 to i16
+  %84 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt16Et(ptr noundef nonnull align 8 dereferenceable(24) %2, i16 noundef zeroext %83)
+  br i1 %84, label %93, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-86:                                               ; preds = %82
-  %87 = trunc i64 %74 to i32
-  %88 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %87)
-  br i1 %88, label %94, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+85:                                               ; preds = %81
+  %86 = trunc i64 %73 to i32
+  %87 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt32Ej(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %86)
+  br i1 %87, label %93, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-89:                                               ; preds = %82
-  %90 = and i64 %74, 281474976710655
-  %91 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt48Em(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %90)
-  br i1 %91, label %94, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+88:                                               ; preds = %81
+  %89 = and i64 %73, 281474976710655
+  %90 = call noundef zeroext i1 @_ZN3net14QuicDataWriter11WriteUInt48Em(ptr noundef nonnull align 8 dereferenceable(24) %2, i64 noundef %89)
+  br i1 %90, label %93, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit: ; preds = %82
-  %92 = trunc i64 %74 to i8
-  %93 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %92)
-  br i1 %93, label %94, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
+_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit: ; preds = %81
+  %91 = trunc i64 %73 to i8
+  %92 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %91)
+  br i1 %92, label %93, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-94:                                               ; preds = %83, %86, %89, %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  %96 = load i32, ptr %95, align 4, !tbaa !67
-  %97 = icmp sgt i32 %96, 33
-  br i1 %97, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread, label %98
+93:                                               ; preds = %82, %85, %88, %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  %95 = load i32, ptr %94, align 4, !tbaa !67
+  %96 = icmp sgt i32 %95, 33
+  br i1 %96, label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread, label %97
 
-98:                                               ; preds = %94
-  %99 = getelementptr inbounds nuw i8, ptr %1, i64 57
-  %100 = load i8, ptr %99, align 1, !tbaa !135, !range !141, !noundef !142
-  %101 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %100)
+97:                                               ; preds = %93
+  %98 = getelementptr inbounds nuw i8, ptr %1, i64 57
+  %99 = load i8, ptr %98, align 1, !tbaa !135, !range !141, !noundef !142
+  %100 = call noundef zeroext i1 @_ZN3net14QuicDataWriter10WriteUInt8Eh(ptr noundef nonnull align 8 dereferenceable(24) %2, i8 noundef zeroext %99)
   br label %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread
 
-_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread: ; preds = %82, %71, %83, %86, %89, %94, %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit, %69, %63, %45, %47, %31, %98
-  %.038 = phi i1 [ %101, %98 ], [ false, %31 ], [ false, %47 ], [ false, %45 ], [ false, %63 ], [ false, %69 ], [ false, %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit ], [ true, %94 ], [ false, %89 ], [ false, %86 ], [ false, %83 ], [ false, %71 ], [ false, %82 ]
+_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit.thread: ; preds = %81, %70, %82, %85, %88, %93, %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit, %68, %62, %44, %46, %30, %97
+  %.038 = phi i1 [ %100, %97 ], [ false, %30 ], [ false, %46 ], [ false, %44 ], [ false, %62 ], [ false, %68 ], [ false, %_ZN3net10QuicFramer26AppendPacketSequenceNumberENS_22QuicPacketNumberLengthEmPNS_14QuicDataWriterE.exit ], [ true, %93 ], [ false, %88 ], [ false, %85 ], [ false, %82 ], [ false, %70 ], [ false, %81 ]
   ret i1 %.038
 }
 

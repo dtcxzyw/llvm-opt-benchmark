@@ -482,25 +482,25 @@ _init_flags.exit.i:                               ; preds = %135, %104
   %spec.select34.i = select i1 %138, ptr @.str.18, ptr @.str.12
   %spec.select35.i = zext nneg i8 %137 to i16
   %139 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 40), align 8, !range !14, !noundef !15
-  %140 = trunc nuw i8 %139 to i1
-  %141 = or disjoint i16 %spec.select35.i, 4096
-  %spec.select.i.i = select i1 %140, i16 %141, i16 %spec.select35.i
+  %140 = zext nneg i8 %139 to i16
+  %141 = shl nuw nsw i16 %140, 12
+  %spec.select.i.i = or disjoint i16 %141, %spec.select35.i
   %142 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 41), align 1, !range !14, !noundef !15
   %143 = trunc nuw i8 %142 to i1
   %144 = or disjoint i16 %spec.select.i.i, 8
   %.1.i = select i1 %143, ptr @.str.19, ptr %spec.select34.i
   %.2.i.i = select i1 %143, i16 %144, i16 %spec.select.i.i
   %145 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 42), align 2, !range !14, !noundef !15
-  %146 = trunc nuw i8 %145 to i1
-  %147 = or i16 %.2.i.i, 32
-  %spec.select10.i.i = select i1 %146, i16 %147, i16 %.2.i.i
+  %146 = shl nuw nsw i8 %145, 5
+  %147 = zext nneg i8 %146 to i16
+  %spec.select10.i.i = or disjoint i16 %.2.i.i, %147
   store i16 %spec.select10.i.i, ptr %106, align 8
   %148 = load i32, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 104), align 8
   %.not26.i = icmp eq i32 %148, 0
   br i1 %.not26.i, label %151, label %149
 
 149:                                              ; preds = %_init_flags.exit.i
-  %150 = or i16 %spec.select10.i.i, 2048
+  %150 = or disjoint i16 %spec.select10.i.i, 2048
   store i16 %150, ptr %106, align 8
   br label %151
 
@@ -1472,18 +1472,18 @@ _init_flags.exit:
   %spec.select56 = select i1 %7, ptr @.str.18, ptr @.str.12
   %spec.select57 = zext nneg i8 %6 to i16
   %8 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 40), align 8, !range !14, !noundef !15
-  %9 = trunc nuw i8 %8 to i1
-  %10 = or disjoint i16 %spec.select57, 4096
-  %spec.select.i = select i1 %9, i16 %10, i16 %spec.select57
+  %9 = zext nneg i8 %8 to i16
+  %10 = shl nuw nsw i16 %9, 12
+  %spec.select.i = or disjoint i16 %10, %spec.select57
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 41), align 1, !range !14, !noundef !15
   %12 = trunc nuw i8 %11 to i1
   %13 = or disjoint i16 %spec.select.i, 8
   %.148 = select i1 %12, ptr @.str.19, ptr %spec.select56
   %.2.i = select i1 %12, i16 %13, i16 %spec.select.i
   %14 = load i8, ptr getelementptr inbounds nuw (i8, ptr @opt, i64 42), align 2, !range !14, !noundef !15
-  %15 = trunc nuw i8 %14 to i1
-  %16 = or i16 %.2.i, 32
-  %spec.select10.i = select i1 %15, i16 %16, i16 %.2.i
+  %15 = shl nuw nsw i8 %14, 5
+  %16 = zext nneg i8 %15 to i16
+  %spec.select10.i = or disjoint i16 %.2.i, %16
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %18 = load i16, ptr %17, align 8
   %19 = icmp eq i16 %18, -2

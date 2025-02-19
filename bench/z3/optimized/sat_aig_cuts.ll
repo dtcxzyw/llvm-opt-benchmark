@@ -7364,6 +7364,7 @@ for.body145:                                      ; preds = %for.cond143.prehead
   %i142.0312 = phi i32 [ 0, %for.cond143.preheader ], [ %inc179, %_ZNKSt8functionIFvRK7svectorIN3sat7literalEjEEEclES5_.exit209 ]
   %70 = load i32, ptr %m_size.i164, align 8
   %71 = trunc i32 %70 to i8
+  %frombool = and i8 %71, 1
   %72 = load ptr, ptr %m_clause, align 8
   %tobool.not.i167 = icmp eq ptr %72, null
   br i1 %tobool.not.i167, label %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170, label %if.then.i168
@@ -7381,7 +7382,7 @@ _ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170:  ; preds = %for.body145, %if.th
 
 for.body152:                                      ; preds = %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit189
   %j.0311 = phi i32 [ %inc167, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit189 ], [ 0, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170 ]
-  %parity.0310 = phi i8 [ %parity.1, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit189 ], [ %71, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170 ]
+  %parity.0310 = phi i8 [ %parity.1, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit189 ], [ %frombool, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170 ]
   %74 = load i32, ptr %m_offset.i172, align 4
   %add155 = add i32 %74, %j.0311
   %75 = load ptr, ptr %m_literals153, align 8
@@ -7508,11 +7509,10 @@ for.end168.loopexit:                              ; preds = %_ZN6vectorIN3sat7li
 
 for.end168:                                       ; preds = %for.end168.loopexit, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170
   %87 = phi i32 [ %69, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170 ], [ %.pre322, %for.end168.loopexit ]
-  %parity.0.lcssa = phi i8 [ %71, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170 ], [ %parity.1, %for.end168.loopexit ]
-  %88 = and i8 %parity.0.lcssa, 1
-  %89 = xor i8 %88, 1
-  %xor.i190 = zext nneg i8 %89 to i32
-  %storemerge44 = xor i32 %87, %xor.i190
+  %parity.0.lcssa = phi i8 [ %frombool, %_ZN6vectorIN3sat7literalELb0EjE5resetEv.exit170 ], [ %parity.1, %for.end168.loopexit ]
+  %88 = xor i8 %parity.0.lcssa, 1
+  %89 = zext nneg i8 %88 to i32
+  %storemerge44 = xor i32 %87, %89
   %90 = load ptr, ptr %m_clause, align 8
   %cmp.i191 = icmp eq ptr %90, null
   br i1 %cmp.i191, label %if.then.i200, label %lor.lhs.false.i192

@@ -1054,135 +1054,134 @@ define ptr @format_size_wmem(ptr noundef %0, i64 noundef %1, i32 noundef %2, i16
 13:                                               ; preds = %8, %4
   %14 = and i16 %3, 2
   %.not = icmp eq i16 %14, 0
-  %15 = shl nuw nsw i16 %14, 1
-  %spec.select = zext nneg i16 %15 to i32
+  %spec.select = select i1 %.not, i32 0, i32 4
   %spec.select70 = select i1 %.not, i64 1000, i64 1024
-  %16 = sdiv i64 %1, %spec.select70
+  %15 = sdiv i64 %1, %spec.select70
+  %16 = sdiv i64 %15, %spec.select70
   %17 = sdiv i64 %16, %spec.select70
   %18 = sdiv i64 %17, %spec.select70
-  %19 = sdiv i64 %18, %spec.select70
-  %20 = icmp sgt i64 %19, 9
-  br i1 %20, label %21, label %26
+  %19 = icmp sgt i64 %18, 9
+  br i1 %19, label %20, label %25
 
-21:                                               ; preds = %13
-  %22 = load ptr, ptr @thousands_grouping_fmt, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %22, i64 noundef %19)
-  %23 = zext nneg i16 %15 to i64
-  %24 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %23
-  %25 = load ptr, ptr %24, align 16
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %25)
-  br label %51
+20:                                               ; preds = %13
+  %21 = load ptr, ptr @thousands_grouping_fmt, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %21, i64 noundef %18)
+  %22 = zext nneg i32 %spec.select to i64
+  %23 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %22
+  %24 = load ptr, ptr %23, align 16
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %24)
+  br label %50
 
-26:                                               ; preds = %13
-  %27 = icmp sgt i64 %18, 9
-  br i1 %27, label %28, label %34
+25:                                               ; preds = %13
+  %26 = icmp sgt i64 %17, 9
+  br i1 %26, label %27, label %33
 
-28:                                               ; preds = %26
-  %29 = load ptr, ptr @thousands_grouping_fmt, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %29, i64 noundef %18)
-  %30 = or disjoint i32 %spec.select, 1
-  %31 = zext nneg i32 %30 to i64
-  %32 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %31
-  %33 = load ptr, ptr %32, align 8
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %33)
-  br label %51
+27:                                               ; preds = %25
+  %28 = load ptr, ptr @thousands_grouping_fmt, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %28, i64 noundef %17)
+  %29 = or disjoint i32 %spec.select, 1
+  %30 = zext nneg i32 %29 to i64
+  %31 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %30
+  %32 = load ptr, ptr %31, align 8
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %32)
+  br label %50
 
-34:                                               ; preds = %26
-  %35 = icmp sgt i64 %17, 9
-  br i1 %35, label %36, label %42
+33:                                               ; preds = %25
+  %34 = icmp sgt i64 %16, 9
+  br i1 %34, label %35, label %41
 
-36:                                               ; preds = %34
-  %37 = load ptr, ptr @thousands_grouping_fmt, align 8
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %37, i64 noundef %17)
-  %38 = or disjoint i32 %spec.select, 2
-  %39 = zext nneg i32 %38 to i64
-  %40 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %39
-  %41 = load ptr, ptr %40, align 16
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %41)
-  br label %51
+35:                                               ; preds = %33
+  %36 = load ptr, ptr @thousands_grouping_fmt, align 8
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %36, i64 noundef %16)
+  %37 = or disjoint i32 %spec.select, 2
+  %38 = zext nneg i32 %37 to i64
+  %39 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %38
+  %40 = load ptr, ptr %39, align 16
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %40)
+  br label %50
 
-42:                                               ; preds = %34
-  %43 = icmp sgt i64 %16, 9
-  %44 = load ptr, ptr @thousands_grouping_fmt, align 8
-  br i1 %43, label %45, label %50
+41:                                               ; preds = %33
+  %42 = icmp sgt i64 %15, 9
+  %43 = load ptr, ptr @thousands_grouping_fmt, align 8
+  br i1 %42, label %44, label %49
 
-45:                                               ; preds = %42
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %44, i64 noundef %16)
-  %46 = or disjoint i32 %spec.select, 3
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %47
-  %49 = load ptr, ptr %48, align 8
-  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %49)
-  br label %51
+44:                                               ; preds = %41
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %43, i64 noundef %15)
+  %45 = or disjoint i32 %spec.select, 3
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr [8 x ptr], ptr @format_size_wmem.prefix, i64 0, i64 %46
+  %48 = load ptr, ptr %47, align 8
+  tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef %48)
+  br label %50
 
-50:                                               ; preds = %42
-  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %44, i64 noundef %1)
-  br label %51
+49:                                               ; preds = %41
+  tail call void (ptr, ptr, ...) @wmem_strbuf_append_printf(ptr noundef %5, ptr noundef %43, i64 noundef %1)
+  br label %50
 
-51:                                               ; preds = %28, %45, %50, %36, %21
-  %.064 = phi i1 [ false, %21 ], [ false, %28 ], [ false, %36 ], [ false, %45 ], [ true, %50 ]
-  switch i32 %2, label %70 [
-    i32 0, label %71
-    i32 1, label %52
-    i32 2, label %54
-    i32 3, label %56
-    i32 4, label %58
-    i32 5, label %60
-    i32 6, label %62
-    i32 9, label %64
-    i32 10, label %66
-    i32 11, label %68
+50:                                               ; preds = %27, %44, %49, %35, %20
+  %.064 = phi i1 [ false, %20 ], [ false, %27 ], [ false, %35 ], [ false, %44 ], [ true, %49 ]
+  switch i32 %2, label %69 [
+    i32 0, label %70
+    i32 1, label %51
+    i32 2, label %53
+    i32 3, label %55
+    i32 4, label %57
+    i32 5, label %59
+    i32 6, label %61
+    i32 9, label %63
+    i32 10, label %65
+    i32 11, label %67
   ]
 
-52:                                               ; preds = %51
-  %53 = select i1 %.064, ptr @.str.46, ptr @.str.23
+51:                                               ; preds = %50
+  %52 = select i1 %.064, ptr @.str.46, ptr @.str.23
   br label %.sink.split
 
-54:                                               ; preds = %51
-  %55 = select i1 %.064, ptr @.str.47, ptr @.str.25
+53:                                               ; preds = %50
+  %54 = select i1 %.064, ptr @.str.47, ptr @.str.25
   br label %.sink.split
 
-56:                                               ; preds = %51
-  %57 = select i1 %.064, ptr @.str.48, ptr @.str.27
+55:                                               ; preds = %50
+  %56 = select i1 %.064, ptr @.str.48, ptr @.str.27
   br label %.sink.split
 
-58:                                               ; preds = %51
-  %59 = select i1 %.064, ptr @.str.49, ptr @.str.29
+57:                                               ; preds = %50
+  %58 = select i1 %.064, ptr @.str.49, ptr @.str.29
   br label %.sink.split
 
-60:                                               ; preds = %51
-  %61 = select i1 %.064, ptr @.str.50, ptr @.str.30
+59:                                               ; preds = %50
+  %60 = select i1 %.064, ptr @.str.50, ptr @.str.30
   br label %.sink.split
 
-62:                                               ; preds = %51
-  %63 = select i1 %.064, ptr @.str.51, ptr @.str.32
+61:                                               ; preds = %50
+  %62 = select i1 %.064, ptr @.str.51, ptr @.str.32
   br label %.sink.split
 
-64:                                               ; preds = %51
-  %65 = select i1 %.064, ptr @.str.52, ptr @.str.38
+63:                                               ; preds = %50
+  %64 = select i1 %.064, ptr @.str.52, ptr @.str.38
   br label %.sink.split
 
-66:                                               ; preds = %51
-  %67 = select i1 %.064, ptr @.str.53, ptr @.str.41
+65:                                               ; preds = %50
+  %66 = select i1 %.064, ptr @.str.53, ptr @.str.41
   br label %.sink.split
 
-68:                                               ; preds = %51
-  %69 = select i1 %.064, ptr @.str.54, ptr @.str.43
+67:                                               ; preds = %50
+  %68 = select i1 %.064, ptr @.str.54, ptr @.str.43
   br label %.sink.split
 
-70:                                               ; preds = %51
+69:                                               ; preds = %50
   tail call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str, i32 noundef 7, ptr noundef nonnull @.str.44, i64 noundef 664, ptr noundef nonnull @__func__.format_size_wmem, ptr noundef nonnull @.str.45) #27
   unreachable
 
-.sink.split:                                      ; preds = %52, %54, %56, %58, %60, %62, %64, %66, %68
-  %.sink = phi ptr [ %69, %68 ], [ %67, %66 ], [ %65, %64 ], [ %63, %62 ], [ %61, %60 ], [ %59, %58 ], [ %57, %56 ], [ %55, %54 ], [ %53, %52 ]
+.sink.split:                                      ; preds = %51, %53, %55, %57, %59, %61, %63, %65, %67
+  %.sink = phi ptr [ %68, %67 ], [ %66, %65 ], [ %64, %63 ], [ %62, %61 ], [ %60, %59 ], [ %58, %57 ], [ %56, %55 ], [ %54, %53 ], [ %52, %51 ]
   tail call void @wmem_strbuf_append(ptr noundef %5, ptr noundef nonnull %.sink)
-  br label %71
+  br label %70
 
-71:                                               ; preds = %.sink.split, %51
-  %72 = tail call ptr @wmem_strbuf_finalize(ptr noundef %5)
-  %73 = tail call ptr @g_strchomp(ptr noundef %72)
-  ret ptr %73
+70:                                               ; preds = %.sink.split, %50
+  %71 = tail call ptr @wmem_strbuf_finalize(ptr noundef %5)
+  %72 = tail call ptr @g_strchomp(ptr noundef %71)
+  ret ptr %72
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(read, inaccessiblemem: none) uwtable

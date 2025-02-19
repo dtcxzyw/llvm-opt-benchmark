@@ -560,7 +560,7 @@ define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr noundef readonly ca
   %.12331.i.i = phi i8 [ %20, %19 ], [ %.022.i.i, %6 ]
   %17 = udiv i16 %.132.i.i, 10
   %18 = icmp eq i8 %.12331.i.i, 7
-  br i1 %18, label %._crit_edge.i.i, label %19
+  br i1 %18, label %._crit_edge.thread.i.i, label %19
 
 19:                                               ; preds = %.lr.ph.i.i
   %20 = add i8 %.12331.i.i, 1
@@ -570,274 +570,298 @@ define internal noundef i32 @sfloat_ieee_11073_cmp_order(ptr noundef readonly ca
   %23 = and i1 %22, %.not27.i.i
   br i1 %23, label %.lr.ph.i.i, label %._crit_edge.i.i, !llvm.loop !31
 
-._crit_edge.i.i:                                  ; preds = %19, %.lr.ph.i.i, %6
-  %.123.lcssa.i.i = phi i8 [ %.022.i.i, %6 ], [ 7, %.lr.ph.i.i ], [ %20, %19 ]
-  %.2.i.i = phi i16 [ %.021.i.i, %6 ], [ %17, %.lr.ph.i.i ], [ %17, %19 ]
-  %24 = lshr i8 %.123.lcssa.i.i, 4
-  %25 = and i8 %24, 8
-  %26 = and i8 %.123.lcssa.i.i, 7
-  %27 = or disjoint i8 %25, %26
-  %28 = zext nneg i8 %27 to i16
-  %29 = shl nuw i16 %28, 12
-  %30 = or i16 %.2.i.i, %29
-  %31 = or i16 %30, %7
+._crit_edge.i.i:                                  ; preds = %19, %6
+  %.123.lcssa.i.i = phi i8 [ %.022.i.i, %6 ], [ %20, %19 ]
+  %.2.i.i = phi i16 [ %.021.i.i, %6 ], [ %17, %19 ]
+  %.123.lcssa.fr.i.i = freeze i8 %.123.lcssa.i.i
+  %.not28.i.i = icmp sgt i8 %.123.lcssa.fr.i.i, -1
+  %spec.select.i.i = select i1 %.not28.i.i, i16 0, i16 8
+  %24 = and i8 %.123.lcssa.fr.i.i, 7
+  %25 = zext nneg i8 %24 to i16
+  %26 = or disjoint i16 %spec.select.i.i, %25
+  %27 = shl nuw i16 %26, 12
+  br label %._crit_edge.thread.i.i
+
+._crit_edge.thread.i.i:                           ; preds = %.lr.ph.i.i, %._crit_edge.i.i
+  %.243.i.i = phi i16 [ %.2.i.i, %._crit_edge.i.i ], [ %17, %.lr.ph.i.i ]
+  %28 = phi i16 [ %27, %._crit_edge.i.i ], [ 28672, %.lr.ph.i.i ]
+  %29 = or i16 %.243.i.i, %28
+  %30 = or i16 %29, %7
   br label %sfloat_to_normal_form.exit.i
 
-sfloat_to_normal_form.exit.i:                     ; preds = %._crit_edge.i.i, %3
-  %.024.i.i = phi i16 [ %31, %._crit_edge.i.i ], [ %.val, %3 ]
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %33 = load i16, ptr %32, align 8
-  %34 = add i16 %33, -2046
-  %or.cond.i69.i = icmp ult i16 %34, 5
-  br i1 %or.cond.i69.i, label %sfloat_to_normal_form.exit83.i, label %35
+sfloat_to_normal_form.exit.i:                     ; preds = %._crit_edge.thread.i.i, %3
+  %.024.i.i = phi i16 [ %30, %._crit_edge.thread.i.i ], [ %.val, %3 ]
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %32 = load i16, ptr %31, align 8
+  %33 = add i16 %32, -2046
+  %or.cond.i69.i = icmp ult i16 %33, 5
+  br i1 %or.cond.i69.i, label %sfloat_to_normal_form.exit88.i, label %34
 
-35:                                               ; preds = %sfloat_to_normal_form.exit.i
-  %36 = and i16 %33, 2048
-  %.not.i70.i = icmp eq i16 %36, 0
-  %37 = or i16 %33, -2048
-  %38 = sub nsw i16 0, %37
-  %39 = and i16 %33, 2047
-  %.021.i71.i = select i1 %.not.i70.i, i16 %39, i16 %38
-  %40 = lshr i16 %33, 12
-  %41 = trunc nuw nsw i16 %40 to i8
-  %42 = or disjoint i8 %41, -16
-  %.not2629.i72.i = icmp slt i16 %33, 0
-  %.022.i73.i = select i1 %.not2629.i72.i, i8 %42, i8 %41
-  %43 = urem i16 %.021.i71.i, 10
-  %.not2730.i74.i = icmp eq i16 %43, 0
-  %44 = icmp ne i16 %.021.i71.i, 0
-  %45 = and i1 %44, %.not2730.i74.i
-  br i1 %45, label %.lr.ph.i79.i, label %._crit_edge.i75.i
+34:                                               ; preds = %sfloat_to_normal_form.exit.i
+  %35 = and i16 %32, 2048
+  %.not.i70.i = icmp eq i16 %35, 0
+  %36 = or i16 %32, -2048
+  %37 = sub nsw i16 0, %36
+  %38 = and i16 %32, 2047
+  %.021.i71.i = select i1 %.not.i70.i, i16 %38, i16 %37
+  %39 = lshr i16 %32, 12
+  %40 = trunc nuw nsw i16 %39 to i8
+  %41 = or disjoint i8 %40, -16
+  %.not2629.i72.i = icmp slt i16 %32, 0
+  %.022.i73.i = select i1 %.not2629.i72.i, i8 %41, i8 %40
+  %42 = urem i16 %.021.i71.i, 10
+  %.not2730.i74.i = icmp eq i16 %42, 0
+  %43 = icmp ne i16 %.021.i71.i, 0
+  %44 = and i1 %43, %.not2730.i74.i
+  br i1 %44, label %.lr.ph.i84.i, label %._crit_edge.i75.i
 
-.lr.ph.i79.i:                                     ; preds = %35, %48
-  %.132.i80.i = phi i16 [ %46, %48 ], [ %.021.i71.i, %35 ]
-  %.12331.i81.i = phi i8 [ %49, %48 ], [ %.022.i73.i, %35 ]
-  %46 = udiv i16 %.132.i80.i, 10
-  %47 = icmp eq i8 %.12331.i81.i, 7
-  br i1 %47, label %._crit_edge.i75.i, label %48
+.lr.ph.i84.i:                                     ; preds = %34, %47
+  %.132.i85.i = phi i16 [ %45, %47 ], [ %.021.i71.i, %34 ]
+  %.12331.i86.i = phi i8 [ %48, %47 ], [ %.022.i73.i, %34 ]
+  %45 = udiv i16 %.132.i85.i, 10
+  %46 = icmp eq i8 %.12331.i86.i, 7
+  br i1 %46, label %._crit_edge.thread.i81.i, label %47
 
-48:                                               ; preds = %.lr.ph.i79.i
-  %49 = add i8 %.12331.i81.i, 1
-  %50 = urem i16 %46, 10
-  %.not27.i82.i = icmp eq i16 %50, 0
-  %51 = icmp samesign ugt i16 %.132.i80.i, 9
-  %52 = and i1 %51, %.not27.i82.i
-  br i1 %52, label %.lr.ph.i79.i, label %._crit_edge.i75.i, !llvm.loop !31
+47:                                               ; preds = %.lr.ph.i84.i
+  %48 = add i8 %.12331.i86.i, 1
+  %49 = urem i16 %45, 10
+  %.not27.i87.i = icmp eq i16 %49, 0
+  %50 = icmp samesign ugt i16 %.132.i85.i, 9
+  %51 = and i1 %50, %.not27.i87.i
+  br i1 %51, label %.lr.ph.i84.i, label %._crit_edge.i75.i, !llvm.loop !31
 
-._crit_edge.i75.i:                                ; preds = %48, %.lr.ph.i79.i, %35
-  %.123.lcssa.i76.i = phi i8 [ %.022.i73.i, %35 ], [ 7, %.lr.ph.i79.i ], [ %49, %48 ]
-  %.2.i77.i = phi i16 [ %.021.i71.i, %35 ], [ %46, %.lr.ph.i79.i ], [ %46, %48 ]
-  %53 = lshr i8 %.123.lcssa.i76.i, 4
-  %54 = and i8 %53, 8
-  %55 = and i8 %.123.lcssa.i76.i, 7
-  %56 = or disjoint i8 %54, %55
-  %57 = zext nneg i8 %56 to i16
-  %58 = shl nuw i16 %57, 12
-  %59 = or i16 %.2.i77.i, %58
-  %60 = or i16 %59, %36
-  br label %sfloat_to_normal_form.exit83.i
+._crit_edge.i75.i:                                ; preds = %47, %34
+  %.123.lcssa.i76.i = phi i8 [ %.022.i73.i, %34 ], [ %48, %47 ]
+  %.2.i77.i = phi i16 [ %.021.i71.i, %34 ], [ %45, %47 ]
+  %.123.lcssa.fr.i78.i = freeze i8 %.123.lcssa.i76.i
+  %.not28.i79.i = icmp sgt i8 %.123.lcssa.fr.i78.i, -1
+  %spec.select.i80.i = select i1 %.not28.i79.i, i16 0, i16 8
+  %52 = and i8 %.123.lcssa.fr.i78.i, 7
+  %53 = zext nneg i8 %52 to i16
+  %54 = or disjoint i16 %spec.select.i80.i, %53
+  %55 = shl nuw i16 %54, 12
+  br label %._crit_edge.thread.i81.i
 
-sfloat_to_normal_form.exit83.i:                   ; preds = %._crit_edge.i75.i, %sfloat_to_normal_form.exit.i
-  %.024.i78.i = phi i16 [ %60, %._crit_edge.i75.i ], [ %33, %sfloat_to_normal_form.exit.i ]
-  %61 = icmp eq i16 %.024.i.i, %.024.i78.i
-  br i1 %61, label %sfloat_ieee_11073_cmp_lt.exit.thread24, label %62
+._crit_edge.thread.i81.i:                         ; preds = %.lr.ph.i84.i, %._crit_edge.i75.i
+  %.243.i82.i = phi i16 [ %.2.i77.i, %._crit_edge.i75.i ], [ %45, %.lr.ph.i84.i ]
+  %56 = phi i16 [ %55, %._crit_edge.i75.i ], [ 28672, %.lr.ph.i84.i ]
+  %57 = or i16 %.243.i82.i, %56
+  %58 = or i16 %57, %35
+  br label %sfloat_to_normal_form.exit88.i
 
-62:                                               ; preds = %sfloat_to_normal_form.exit83.i
-  switch i16 %.024.i.i, label %65 [
-    i16 2047, label %sfloat_ieee_11073_cmp_lt.exit.thread24
-    i16 2048, label %sfloat_ieee_11073_cmp_lt.exit.thread24
-    i16 2049, label %sfloat_ieee_11073_cmp_lt.exit.thread24
-    i16 2046, label %sfloat_ieee_11073_cmp_lt.exit.thread24
-    i16 2050, label %63
+sfloat_to_normal_form.exit88.i:                   ; preds = %._crit_edge.thread.i81.i, %sfloat_to_normal_form.exit.i
+  %.024.i83.i = phi i16 [ %58, %._crit_edge.thread.i81.i ], [ %32, %sfloat_to_normal_form.exit.i ]
+  %59 = icmp eq i16 %.024.i.i, %.024.i83.i
+  br i1 %59, label %sfloat_ieee_11073_cmp_lt.exit.thread29, label %60
+
+60:                                               ; preds = %sfloat_to_normal_form.exit88.i
+  switch i16 %.024.i.i, label %63 [
+    i16 2047, label %sfloat_ieee_11073_cmp_lt.exit.thread29
+    i16 2048, label %sfloat_ieee_11073_cmp_lt.exit.thread29
+    i16 2049, label %sfloat_ieee_11073_cmp_lt.exit.thread29
+    i16 2046, label %sfloat_ieee_11073_cmp_lt.exit.thread29
+    i16 2050, label %61
   ]
 
-63:                                               ; preds = %62
-  %64 = add i16 %.024.i78.i, -2051
-  %switch.i = icmp ult i16 %64, -4
-  br i1 %switch.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %sfloat_ieee_11073_cmp_lt.exit.thread24
+61:                                               ; preds = %60
+  %62 = add i16 %.024.i83.i, -2051
+  %switch.i = icmp ult i16 %62, -4
+  br i1 %switch.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %sfloat_ieee_11073_cmp_lt.exit.thread29
 
-65:                                               ; preds = %62
-  %66 = and i16 %.024.i.i, 4095
-  %67 = and i16 %.024.i78.i, 4095
-  %68 = and i16 %.024.i.i, 2048
-  %.not.i = icmp eq i16 %68, 0
+63:                                               ; preds = %60
+  %64 = and i16 %.024.i.i, 4095
+  %65 = and i16 %.024.i83.i, 4095
+  %66 = and i16 %.024.i.i, 2048
+  %.not.i = icmp eq i16 %66, 0
   %masksel.i = select i1 %.not.i, i16 0, i16 -4096
-  %spec.select.i = or disjoint i16 %masksel.i, %66
-  %69 = and i16 %.024.i78.i, 2048
-  %.not62.i = icmp eq i16 %69, 0
+  %spec.select.i = or disjoint i16 %masksel.i, %64
+  %67 = and i16 %.024.i83.i, 2048
+  %.not62.i = icmp eq i16 %67, 0
   %masksel4.i = select i1 %.not62.i, i16 0, i16 -4096
-  %.047.i = or disjoint i16 %masksel4.i, %67
-  %70 = lshr i16 %.024.i.i, 12
+  %.047.i = or disjoint i16 %masksel4.i, %65
+  %68 = lshr i16 %.024.i.i, 12
+  %69 = trunc nuw nsw i16 %68 to i8
+  %70 = lshr i16 %.024.i83.i, 12
   %71 = trunc nuw nsw i16 %70 to i8
-  %72 = lshr i16 %.024.i78.i, 12
-  %73 = trunc nuw nsw i16 %72 to i8
-  %74 = or disjoint i8 %71, -16
+  %72 = or disjoint i8 %69, -16
   %.not635.i = icmp slt i16 %.024.i.i, 0
-  %.046.i = select i1 %.not635.i, i8 %74, i8 %71
-  %75 = or disjoint i8 %73, -16
-  %.not646.i = icmp slt i16 %.024.i78.i, 0
-  %.045.i = select i1 %.not646.i, i8 %75, i8 %73
-  %76 = icmp eq i16 %spec.select.i, %.047.i
-  %77 = icmp slt i8 %.046.i, %.045.i
-  %or.cond.i = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %78
+  %.046.i = select i1 %.not635.i, i8 %72, i8 %69
+  %73 = or disjoint i8 %71, -16
+  %.not646.i = icmp slt i16 %.024.i83.i, 0
+  %.045.i = select i1 %.not646.i, i8 %73, i8 %71
+  %74 = icmp eq i16 %spec.select.i, %.047.i
+  %75 = icmp slt i8 %.046.i, %.045.i
+  %or.cond.i = select i1 %74, i1 %75, i1 false
+  br i1 %or.cond.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %76
 
-78:                                               ; preds = %65
-  %79 = icmp eq i8 %.046.i, %.045.i
-  %80 = icmp slt i16 %spec.select.i, %.047.i
-  %or.cond67.i = and i1 %79, %80
-  br i1 %or.cond67.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %81
+76:                                               ; preds = %63
+  %77 = icmp eq i8 %.046.i, %.045.i
+  %78 = icmp slt i16 %spec.select.i, %.047.i
+  %or.cond67.i = and i1 %77, %78
+  br i1 %or.cond67.i, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %79
 
-81:                                               ; preds = %78
-  br i1 %77, label %82, label %86
+79:                                               ; preds = %76
+  br i1 %75, label %80, label %84
 
-82:                                               ; preds = %81
+80:                                               ; preds = %79
   %narrow.i = sub nsw i8 %.045.i, %.046.i
-  %83 = icmp ult i8 %narrow.i, 4
-  br i1 %83, label %.preheader.i, label %sfloat_ieee_11073_cmp_lt.exit.thread
+  %81 = icmp ult i8 %narrow.i, 4
+  br i1 %81, label %.preheader.i, label %sfloat_ieee_11073_cmp_lt.exit.thread
 
-.preheader.i:                                     ; preds = %82
-  %.not6613.i = icmp eq i8 %narrow.i, 0
-  br i1 %.not6613.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph16.i
+.preheader.i:                                     ; preds = %80
+  %.not6617.i = icmp eq i8 %narrow.i, 0
+  br i1 %.not6617.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph20.i
 
-.lr.ph16.i:                                       ; preds = %.preheader.i, %.lr.ph16.i
-  %.04315.i = phi i8 [ %84, %.lr.ph16.i ], [ %narrow.i, %.preheader.i ]
-  %.214.i = phi i16 [ %85, %.lr.ph16.i ], [ %.047.i, %.preheader.i ]
-  %84 = add i8 %.04315.i, -1
-  %85 = mul i16 %.214.i, 10
-  %.not66.i = icmp eq i8 %84, 0
-  br i1 %.not66.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph16.i, !llvm.loop !32
+.lr.ph20.i:                                       ; preds = %.preheader.i, %.lr.ph20.i
+  %.04319.i = phi i8 [ %82, %.lr.ph20.i ], [ %narrow.i, %.preheader.i ]
+  %.218.i = phi i16 [ %83, %.lr.ph20.i ], [ %.047.i, %.preheader.i ]
+  %82 = add i8 %.04319.i, -1
+  %83 = mul i16 %.218.i, 10
+  %.not66.i = icmp eq i8 %82, 0
+  br i1 %.not66.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph20.i, !llvm.loop !32
 
-86:                                               ; preds = %81
-  %87 = sub nsw i8 %.046.i, %.045.i
-  %88 = icmp ult i8 %87, 4
-  br i1 %88, label %.preheader7.i, label %sfloat_ieee_11073_cmp_lt.exit.thread24
+84:                                               ; preds = %79
+  %85 = sub nsw i8 %.046.i, %.045.i
+  %86 = icmp ult i8 %85, 4
+  br i1 %86, label %.preheader7.i, label %sfloat_ieee_11073_cmp_lt.exit.thread29
 
-.preheader7.i:                                    ; preds = %86
-  %.not6510.i = icmp eq i8 %87, 0
-  br i1 %.not6510.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i
+.preheader7.i:                                    ; preds = %84
+  %.not6514.i = icmp eq i8 %85, 0
+  br i1 %.not6514.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader7.i, %.lr.ph.i
-  %.012.i = phi i8 [ %89, %.lr.ph.i ], [ %87, %.preheader7.i ]
-  %.35211.i = phi i16 [ %90, %.lr.ph.i ], [ %spec.select.i, %.preheader7.i ]
-  %89 = add i8 %.012.i, -1
-  %90 = mul i16 %.35211.i, 10
-  %.not65.i = icmp eq i8 %89, 0
+  %.016.i = phi i8 [ %87, %.lr.ph.i ], [ %85, %.preheader7.i ]
+  %.35215.i = phi i16 [ %88, %.lr.ph.i ], [ %spec.select.i, %.preheader7.i ]
+  %87 = add i8 %.016.i, -1
+  %88 = mul i16 %.35215.i, 10
+  %.not65.i = icmp eq i8 %87, 0
   br i1 %.not65.i, label %sfloat_ieee_11073_cmp_lt.exit, label %.lr.ph.i, !llvm.loop !33
 
-sfloat_ieee_11073_cmp_lt.exit:                    ; preds = %.lr.ph.i, %.lr.ph16.i, %.preheader.i, %.preheader7.i
-  %.150.i = phi i16 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader7.i ], [ %spec.select.i, %.lr.ph16.i ], [ %90, %.lr.ph.i ]
-  %.3.i = phi i16 [ %.047.i, %.preheader.i ], [ %.047.i, %.preheader7.i ], [ %85, %.lr.ph16.i ], [ %.047.i, %.lr.ph.i ]
-  %91 = icmp slt i16 %.150.i, %.3.i
-  br i1 %91, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %sfloat_ieee_11073_cmp_lt.exit.thread24
+sfloat_ieee_11073_cmp_lt.exit:                    ; preds = %.lr.ph.i, %.lr.ph20.i, %.preheader.i, %.preheader7.i
+  %.150.i = phi i16 [ %spec.select.i, %.preheader.i ], [ %spec.select.i, %.preheader7.i ], [ %spec.select.i, %.lr.ph20.i ], [ %88, %.lr.ph.i ]
+  %.3.i = phi i16 [ %.047.i, %.preheader.i ], [ %.047.i, %.preheader7.i ], [ %83, %.lr.ph20.i ], [ %.047.i, %.lr.ph.i ]
+  %89 = icmp slt i16 %.150.i, %.3.i
+  br i1 %89, label %sfloat_ieee_11073_cmp_lt.exit.thread, label %sfloat_ieee_11073_cmp_lt.exit.thread29
 
-sfloat_ieee_11073_cmp_lt.exit.thread24:           ; preds = %86, %62, %62, %62, %62, %sfloat_to_normal_form.exit83.i, %63, %sfloat_ieee_11073_cmp_lt.exit
-  br i1 %or.cond.i.i, label %sfloat_to_normal_form.exit.i16, label %92
+sfloat_ieee_11073_cmp_lt.exit.thread29:           ; preds = %84, %60, %60, %60, %60, %sfloat_to_normal_form.exit88.i, %61, %sfloat_ieee_11073_cmp_lt.exit
+  br i1 %or.cond.i.i, label %sfloat_to_normal_form.exit.i21, label %90
 
-92:                                               ; preds = %sfloat_ieee_11073_cmp_lt.exit.thread24
-  %93 = and i16 %.val, 2048
-  %.not.i.i8 = icmp eq i16 %93, 0
-  %94 = or i16 %.val, -2048
-  %95 = sub nsw i16 0, %94
-  %96 = and i16 %.val, 2047
-  %.021.i.i9 = select i1 %.not.i.i8, i16 %96, i16 %95
-  %97 = lshr i16 %.val, 12
-  %98 = trunc nuw nsw i16 %97 to i8
-  %99 = or disjoint i8 %98, -16
+90:                                               ; preds = %sfloat_ieee_11073_cmp_lt.exit.thread29
+  %91 = and i16 %.val, 2048
+  %.not.i.i8 = icmp eq i16 %91, 0
+  %92 = or i16 %.val, -2048
+  %93 = sub nsw i16 0, %92
+  %94 = and i16 %.val, 2047
+  %.021.i.i9 = select i1 %.not.i.i8, i16 %94, i16 %93
+  %95 = lshr i16 %.val, 12
+  %96 = trunc nuw nsw i16 %95 to i8
+  %97 = or disjoint i8 %96, -16
   %.not2629.i.i10 = icmp slt i16 %.val, 0
-  %.022.i.i11 = select i1 %.not2629.i.i10, i8 %99, i8 %98
-  %100 = urem i16 %.021.i.i9, 10
-  %.not2730.i.i12 = icmp eq i16 %100, 0
-  %101 = icmp ne i16 %.021.i.i9, 0
-  %102 = and i1 %101, %.not2730.i.i12
-  br i1 %102, label %.lr.ph.i.i18, label %._crit_edge.i.i13
+  %.022.i.i11 = select i1 %.not2629.i.i10, i8 %97, i8 %96
+  %98 = urem i16 %.021.i.i9, 10
+  %.not2730.i.i12 = icmp eq i16 %98, 0
+  %99 = icmp ne i16 %.021.i.i9, 0
+  %100 = and i1 %99, %.not2730.i.i12
+  br i1 %100, label %.lr.ph.i.i23, label %._crit_edge.i.i13
 
-.lr.ph.i.i18:                                     ; preds = %92, %105
-  %.132.i.i19 = phi i16 [ %103, %105 ], [ %.021.i.i9, %92 ]
-  %.12331.i.i20 = phi i8 [ %106, %105 ], [ %.022.i.i11, %92 ]
-  %103 = udiv i16 %.132.i.i19, 10
-  %104 = icmp eq i8 %.12331.i.i20, 7
-  br i1 %104, label %._crit_edge.i.i13, label %105
+.lr.ph.i.i23:                                     ; preds = %90, %103
+  %.132.i.i24 = phi i16 [ %101, %103 ], [ %.021.i.i9, %90 ]
+  %.12331.i.i25 = phi i8 [ %104, %103 ], [ %.022.i.i11, %90 ]
+  %101 = udiv i16 %.132.i.i24, 10
+  %102 = icmp eq i8 %.12331.i.i25, 7
+  br i1 %102, label %._crit_edge.thread.i.i19, label %103
 
-105:                                              ; preds = %.lr.ph.i.i18
-  %106 = add i8 %.12331.i.i20, 1
-  %107 = urem i16 %103, 10
-  %.not27.i.i21 = icmp eq i16 %107, 0
-  %108 = icmp samesign ugt i16 %.132.i.i19, 9
-  %109 = and i1 %108, %.not27.i.i21
-  br i1 %109, label %.lr.ph.i.i18, label %._crit_edge.i.i13, !llvm.loop !31
+103:                                              ; preds = %.lr.ph.i.i23
+  %104 = add i8 %.12331.i.i25, 1
+  %105 = urem i16 %101, 10
+  %.not27.i.i26 = icmp eq i16 %105, 0
+  %106 = icmp samesign ugt i16 %.132.i.i24, 9
+  %107 = and i1 %106, %.not27.i.i26
+  br i1 %107, label %.lr.ph.i.i23, label %._crit_edge.i.i13, !llvm.loop !31
 
-._crit_edge.i.i13:                                ; preds = %105, %.lr.ph.i.i18, %92
-  %.123.lcssa.i.i14 = phi i8 [ %.022.i.i11, %92 ], [ 7, %.lr.ph.i.i18 ], [ %106, %105 ]
-  %.2.i.i15 = phi i16 [ %.021.i.i9, %92 ], [ %103, %.lr.ph.i.i18 ], [ %103, %105 ]
-  %110 = lshr i8 %.123.lcssa.i.i14, 4
-  %111 = and i8 %110, 8
-  %112 = and i8 %.123.lcssa.i.i14, 7
-  %113 = or disjoint i8 %111, %112
-  %114 = zext nneg i8 %113 to i16
-  %115 = shl nuw i16 %114, 12
-  %116 = or i16 %.2.i.i15, %115
-  %117 = or i16 %116, %93
-  br label %sfloat_to_normal_form.exit.i16
+._crit_edge.i.i13:                                ; preds = %103, %90
+  %.123.lcssa.i.i14 = phi i8 [ %.022.i.i11, %90 ], [ %104, %103 ]
+  %.2.i.i15 = phi i16 [ %.021.i.i9, %90 ], [ %101, %103 ]
+  %.123.lcssa.fr.i.i16 = freeze i8 %.123.lcssa.i.i14
+  %.not28.i.i17 = icmp sgt i8 %.123.lcssa.fr.i.i16, -1
+  %spec.select.i.i18 = select i1 %.not28.i.i17, i16 0, i16 8
+  %108 = and i8 %.123.lcssa.fr.i.i16, 7
+  %109 = zext nneg i8 %108 to i16
+  %110 = or disjoint i16 %spec.select.i.i18, %109
+  %111 = shl nuw i16 %110, 12
+  br label %._crit_edge.thread.i.i19
 
-sfloat_to_normal_form.exit.i16:                   ; preds = %._crit_edge.i.i13, %sfloat_ieee_11073_cmp_lt.exit.thread24
-  %.024.i.i17 = phi i16 [ %117, %._crit_edge.i.i13 ], [ %.val, %sfloat_ieee_11073_cmp_lt.exit.thread24 ]
-  br i1 %or.cond.i69.i, label %sfloat_ieee_11073_cmp_eq.exit, label %118
+._crit_edge.thread.i.i19:                         ; preds = %.lr.ph.i.i23, %._crit_edge.i.i13
+  %.243.i.i20 = phi i16 [ %.2.i.i15, %._crit_edge.i.i13 ], [ %101, %.lr.ph.i.i23 ]
+  %112 = phi i16 [ %111, %._crit_edge.i.i13 ], [ 28672, %.lr.ph.i.i23 ]
+  %113 = or i16 %.243.i.i20, %112
+  %114 = or i16 %113, %91
+  br label %sfloat_to_normal_form.exit.i21
 
-118:                                              ; preds = %sfloat_to_normal_form.exit.i16
-  %119 = and i16 %33, 2048
-  %.not.i3.i = icmp eq i16 %119, 0
-  %120 = or i16 %33, -2048
-  %121 = sub nsw i16 0, %120
-  %122 = and i16 %33, 2047
-  %.021.i4.i = select i1 %.not.i3.i, i16 %122, i16 %121
-  %123 = lshr i16 %33, 12
-  %124 = trunc nuw nsw i16 %123 to i8
-  %125 = or disjoint i8 %124, -16
-  %.not2629.i5.i = icmp slt i16 %33, 0
-  %.022.i6.i = select i1 %.not2629.i5.i, i8 %125, i8 %124
-  %126 = urem i16 %.021.i4.i, 10
-  %.not2730.i7.i = icmp eq i16 %126, 0
-  %127 = icmp ne i16 %.021.i4.i, 0
-  %128 = and i1 %127, %.not2730.i7.i
-  br i1 %128, label %.lr.ph.i12.i, label %._crit_edge.i8.i
+sfloat_to_normal_form.exit.i21:                   ; preds = %._crit_edge.thread.i.i19, %sfloat_ieee_11073_cmp_lt.exit.thread29
+  %.024.i.i22 = phi i16 [ %114, %._crit_edge.thread.i.i19 ], [ %.val, %sfloat_ieee_11073_cmp_lt.exit.thread29 ]
+  br i1 %or.cond.i69.i, label %sfloat_ieee_11073_cmp_eq.exit, label %115
 
-.lr.ph.i12.i:                                     ; preds = %118, %131
-  %.132.i13.i = phi i16 [ %129, %131 ], [ %.021.i4.i, %118 ]
-  %.12331.i14.i = phi i8 [ %132, %131 ], [ %.022.i6.i, %118 ]
-  %129 = udiv i16 %.132.i13.i, 10
-  %130 = icmp eq i8 %.12331.i14.i, 7
-  br i1 %130, label %._crit_edge.i8.i, label %131
+115:                                              ; preds = %sfloat_to_normal_form.exit.i21
+  %116 = and i16 %32, 2048
+  %.not.i3.i = icmp eq i16 %116, 0
+  %117 = or i16 %32, -2048
+  %118 = sub nsw i16 0, %117
+  %119 = and i16 %32, 2047
+  %.021.i4.i = select i1 %.not.i3.i, i16 %119, i16 %118
+  %120 = lshr i16 %32, 12
+  %121 = trunc nuw nsw i16 %120 to i8
+  %122 = or disjoint i8 %121, -16
+  %.not2629.i5.i = icmp slt i16 %32, 0
+  %.022.i6.i = select i1 %.not2629.i5.i, i8 %122, i8 %121
+  %123 = urem i16 %.021.i4.i, 10
+  %.not2730.i7.i = icmp eq i16 %123, 0
+  %124 = icmp ne i16 %.021.i4.i, 0
+  %125 = and i1 %124, %.not2730.i7.i
+  br i1 %125, label %.lr.ph.i17.i, label %._crit_edge.i8.i
 
-131:                                              ; preds = %.lr.ph.i12.i
-  %132 = add i8 %.12331.i14.i, 1
-  %133 = urem i16 %129, 10
-  %.not27.i15.i = icmp eq i16 %133, 0
-  %134 = icmp samesign ugt i16 %.132.i13.i, 9
-  %135 = and i1 %134, %.not27.i15.i
-  br i1 %135, label %.lr.ph.i12.i, label %._crit_edge.i8.i, !llvm.loop !31
+.lr.ph.i17.i:                                     ; preds = %115, %128
+  %.132.i18.i = phi i16 [ %126, %128 ], [ %.021.i4.i, %115 ]
+  %.12331.i19.i = phi i8 [ %129, %128 ], [ %.022.i6.i, %115 ]
+  %126 = udiv i16 %.132.i18.i, 10
+  %127 = icmp eq i8 %.12331.i19.i, 7
+  br i1 %127, label %._crit_edge.thread.i14.i, label %128
 
-._crit_edge.i8.i:                                 ; preds = %131, %.lr.ph.i12.i, %118
-  %.123.lcssa.i9.i = phi i8 [ %.022.i6.i, %118 ], [ 7, %.lr.ph.i12.i ], [ %132, %131 ]
-  %.2.i10.i = phi i16 [ %.021.i4.i, %118 ], [ %129, %.lr.ph.i12.i ], [ %129, %131 ]
-  %136 = lshr i8 %.123.lcssa.i9.i, 4
-  %137 = and i8 %136, 8
-  %138 = and i8 %.123.lcssa.i9.i, 7
-  %139 = or disjoint i8 %137, %138
-  %140 = zext nneg i8 %139 to i16
-  %141 = shl nuw i16 %140, 12
-  %142 = or i16 %.2.i10.i, %141
-  %143 = or i16 %142, %119
+128:                                              ; preds = %.lr.ph.i17.i
+  %129 = add i8 %.12331.i19.i, 1
+  %130 = urem i16 %126, 10
+  %.not27.i20.i = icmp eq i16 %130, 0
+  %131 = icmp samesign ugt i16 %.132.i18.i, 9
+  %132 = and i1 %131, %.not27.i20.i
+  br i1 %132, label %.lr.ph.i17.i, label %._crit_edge.i8.i, !llvm.loop !31
+
+._crit_edge.i8.i:                                 ; preds = %128, %115
+  %.123.lcssa.i9.i = phi i8 [ %.022.i6.i, %115 ], [ %129, %128 ]
+  %.2.i10.i = phi i16 [ %.021.i4.i, %115 ], [ %126, %128 ]
+  %.123.lcssa.fr.i11.i = freeze i8 %.123.lcssa.i9.i
+  %.not28.i12.i = icmp sgt i8 %.123.lcssa.fr.i11.i, -1
+  %spec.select.i13.i = select i1 %.not28.i12.i, i16 0, i16 8
+  %133 = and i8 %.123.lcssa.fr.i11.i, 7
+  %134 = zext nneg i8 %133 to i16
+  %135 = or disjoint i16 %spec.select.i13.i, %134
+  %136 = shl nuw i16 %135, 12
+  br label %._crit_edge.thread.i14.i
+
+._crit_edge.thread.i14.i:                         ; preds = %.lr.ph.i17.i, %._crit_edge.i8.i
+  %.243.i15.i = phi i16 [ %.2.i10.i, %._crit_edge.i8.i ], [ %126, %.lr.ph.i17.i ]
+  %137 = phi i16 [ %136, %._crit_edge.i8.i ], [ 28672, %.lr.ph.i17.i ]
+  %138 = or i16 %.243.i15.i, %137
+  %139 = or i16 %138, %116
   br label %sfloat_ieee_11073_cmp_eq.exit
 
-sfloat_ieee_11073_cmp_eq.exit:                    ; preds = %sfloat_to_normal_form.exit.i16, %._crit_edge.i8.i
-  %.024.i11.i = phi i16 [ %143, %._crit_edge.i8.i ], [ %33, %sfloat_to_normal_form.exit.i16 ]
-  %144 = icmp ne i16 %.024.i.i17, %.024.i11.i
-  %145 = zext i1 %144 to i32
+sfloat_ieee_11073_cmp_eq.exit:                    ; preds = %sfloat_to_normal_form.exit.i21, %._crit_edge.thread.i14.i
+  %.024.i16.i = phi i16 [ %139, %._crit_edge.thread.i14.i ], [ %32, %sfloat_to_normal_form.exit.i21 ]
+  %140 = icmp ne i16 %.024.i.i22, %.024.i16.i
+  %141 = zext i1 %140 to i32
   br label %sfloat_ieee_11073_cmp_lt.exit.thread
 
-sfloat_ieee_11073_cmp_lt.exit.thread:             ; preds = %82, %78, %65, %63, %sfloat_ieee_11073_cmp_lt.exit, %sfloat_ieee_11073_cmp_eq.exit
-  %storemerge = phi i32 [ %145, %sfloat_ieee_11073_cmp_eq.exit ], [ -1, %sfloat_ieee_11073_cmp_lt.exit ], [ -1, %63 ], [ -1, %65 ], [ -1, %78 ], [ -1, %82 ]
+sfloat_ieee_11073_cmp_lt.exit.thread:             ; preds = %80, %76, %63, %61, %sfloat_ieee_11073_cmp_lt.exit, %sfloat_ieee_11073_cmp_eq.exit
+  %storemerge = phi i32 [ %141, %sfloat_ieee_11073_cmp_eq.exit ], [ -1, %sfloat_ieee_11073_cmp_lt.exit ], [ -1, %61 ], [ -1, %63 ], [ -1, %76 ], [ -1, %80 ]
   store i32 %storemerge, ptr %2, align 4
   ret i32 0
 }

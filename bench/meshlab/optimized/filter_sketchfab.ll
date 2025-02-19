@@ -14813,175 +14813,174 @@ _ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_ta
 
 143:                                              ; preds = %.thread
   %144 = add i64 %130, %3
-  %145 = lshr exact i32 %19, 7
-  %spec.select203 = trunc nuw nsw i32 %145 to i16
-  br label %164
+  %spec.select203 = select i1 %20, i16 8, i16 0
+  br label %163
 
 tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %131
   store ptr %0, ptr %15, align 8
-  %146 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %130, ptr %146, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  store i64 0, ptr %147, align 8
-  %148 = zext nneg i32 %18 to i64
-  %149 = getelementptr inbounds nuw [11 x i32], ptr @_ZZ42tdefl_write_image_to_png_file_in_memory_exE22s_tdefl_png_num_probes, i64 0, i64 %148
-  %150 = load i32, ptr %149, align 4
-  %151 = icmp samesign ult i32 %18, 4
-  %152 = select i1 %151, i32 16384, i32 0
-  %153 = or i32 %150, %152
-  %154 = call i32 @tdefl_init(ptr noundef %.0166, ptr noundef nonnull @_ZL34mz_zip_writer_add_put_buf_callbackPKviPv, ptr noundef nonnull %15, i32 noundef %153)
+  %145 = getelementptr inbounds nuw i8, ptr %15, i64 8
+  store i64 %130, ptr %145, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %15, i64 16
+  store i64 0, ptr %146, align 8
+  %147 = zext nneg i32 %18 to i64
+  %148 = getelementptr inbounds nuw [11 x i32], ptr @_ZZ42tdefl_write_image_to_png_file_in_memory_exE22s_tdefl_png_num_probes, i64 0, i64 %147
+  %149 = load i32, ptr %148, align 4
+  %150 = icmp samesign ult i32 %18, 4
+  %151 = select i1 %150, i32 16384, i32 0
+  %152 = or i32 %149, %151
+  %153 = call i32 @tdefl_init(ptr noundef %.0166, ptr noundef nonnull @_ZL34mz_zip_writer_add_put_buf_callbackPKviPv, ptr noundef nonnull %15, i32 noundef %152)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   store i64 %3, ptr %10, align 8
-  %155 = call i32 @tdefl_compress(ptr noundef %.0166, ptr noundef %2, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, i32 noundef 4)
+  %154 = call i32 @tdefl_compress(ptr noundef %.0166, ptr noundef %2, ptr noundef nonnull %10, ptr noundef null, ptr noundef null, i32 noundef 4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  %.not196 = icmp eq i32 %155, 1
-  br i1 %.not196, label %161, label %156
+  %.not196 = icmp eq i32 %154, 1
+  br i1 %.not196, label %160, label %155
 
-156:                                              ; preds = %tdefl_create_comp_flags_from_zip_params.exit
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %158 = load ptr, ptr %157, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %160 = load ptr, ptr %159, align 8
-  call void %158(ptr noundef %160, ptr noundef %.0166)
+155:                                              ; preds = %tdefl_create_comp_flags_from_zip_params.exit
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %157 = load ptr, ptr %156, align 8
+  %158 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %159 = load ptr, ptr %158, align 8
+  call void %157(ptr noundef %159, ptr noundef %.0166)
   br label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
 
-161:                                              ; preds = %tdefl_create_comp_flags_from_zip_params.exit
-  %162 = load i64, ptr %147, align 8
-  %163 = load i64, ptr %146, align 8
-  br label %164
+160:                                              ; preds = %tdefl_create_comp_flags_from_zip_params.exit
+  %161 = load i64, ptr %146, align 8
+  %162 = load i64, ptr %145, align 8
+  br label %163
 
-164:                                              ; preds = %143, %161
-  %.0174216 = phi i32 [ %133, %161 ], [ %.0174217, %143 ]
-  %.0175214 = phi i64 [ %3, %161 ], [ %.0175215, %143 ]
-  %.0173 = phi i16 [ 8, %161 ], [ %spec.select203, %143 ]
-  %.0169 = phi i64 [ %163, %161 ], [ %144, %143 ]
-  %.0168 = phi i64 [ %162, %161 ], [ %3, %143 ]
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %166 = load ptr, ptr %165, align 8
-  %167 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %168 = load ptr, ptr %167, align 8
-  call void %166(ptr noundef %168, ptr noundef %.0166)
-  %169 = icmp ugt i64 %.0168, 4294967295
-  %170 = icmp ugt i64 %.0169, 4294967295
-  %or.cond17 = select i1 %169, i1 true, i1 %170
-  br i1 %or.cond17, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %171
+163:                                              ; preds = %143, %160
+  %.0174216 = phi i32 [ %133, %160 ], [ %.0174217, %143 ]
+  %.0175214 = phi i64 [ %3, %160 ], [ %.0175215, %143 ]
+  %.0173 = phi i16 [ 8, %160 ], [ %spec.select203, %143 ]
+  %.0169 = phi i64 [ %162, %160 ], [ %144, %143 ]
+  %.0168 = phi i64 [ %161, %160 ], [ %3, %143 ]
+  %164 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %165 = load ptr, ptr %164, align 8
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %167 = load ptr, ptr %166, align 8
+  call void %165(ptr noundef %167, ptr noundef %.0166)
+  %168 = icmp ugt i64 %.0168, 4294967295
+  %169 = icmp ugt i64 %.0169, 4294967295
+  %or.cond17 = select i1 %168, i1 true, i1 %169
+  br i1 %or.cond17, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %170
 
-171:                                              ; preds = %164
-  %172 = load i16, ptr %11, align 2
-  %173 = load i16, ptr %12, align 2
+170:                                              ; preds = %163
+  %171 = load i16, ptr %11, align 2
+  %172 = load i16, ptr %12, align 2
   store i8 80, ptr %13, align 16
-  %174 = getelementptr inbounds nuw i8, ptr %13, i64 1
-  store i8 75, ptr %174, align 1
-  %175 = getelementptr inbounds nuw i8, ptr %13, i64 2
-  store i8 3, ptr %175, align 2
-  %176 = getelementptr inbounds nuw i8, ptr %13, i64 3
-  store i8 4, ptr %176, align 1
-  %177 = getelementptr inbounds nuw i8, ptr %13, i64 4
+  %173 = getelementptr inbounds nuw i8, ptr %13, i64 1
+  store i8 75, ptr %173, align 1
+  %174 = getelementptr inbounds nuw i8, ptr %13, i64 2
+  store i8 3, ptr %174, align 2
+  %175 = getelementptr inbounds nuw i8, ptr %13, i64 3
+  store i8 4, ptr %175, align 1
+  %176 = getelementptr inbounds nuw i8, ptr %13, i64 4
   %.not.i207 = icmp eq i16 %.0173, 0
-  %178 = select i1 %.not.i207, i8 0, i8 20
-  store i8 %178, ptr %177, align 4
-  %179 = getelementptr inbounds nuw i8, ptr %13, i64 5
-  store i8 0, ptr %179, align 1
-  %180 = getelementptr inbounds nuw i8, ptr %13, i64 6
-  store i8 0, ptr %180, align 2
-  %181 = getelementptr inbounds nuw i8, ptr %13, i64 7
-  store i8 0, ptr %181, align 1
-  %182 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %183 = trunc nuw nsw i16 %.0173 to i8
-  store i8 %183, ptr %182, align 8
-  %184 = getelementptr inbounds nuw i8, ptr %13, i64 9
-  store i8 0, ptr %184, align 1
-  %185 = getelementptr inbounds nuw i8, ptr %13, i64 10
-  %186 = trunc i16 %172 to i8
-  store i8 %186, ptr %185, align 2
-  %187 = lshr i16 %172, 8
-  %188 = trunc nuw i16 %187 to i8
-  %189 = getelementptr inbounds nuw i8, ptr %13, i64 11
-  store i8 %188, ptr %189, align 1
-  %190 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  %191 = trunc i16 %173 to i8
-  store i8 %191, ptr %190, align 4
-  %192 = lshr i16 %173, 8
-  %193 = trunc nuw i16 %192 to i8
-  %194 = getelementptr inbounds nuw i8, ptr %13, i64 13
-  store i8 %193, ptr %194, align 1
-  %195 = getelementptr inbounds nuw i8, ptr %13, i64 14
-  %196 = trunc i32 %.0174216 to i8
-  store i8 %196, ptr %195, align 2
-  %197 = lshr i32 %.0174216, 8
-  %198 = trunc i32 %197 to i8
-  %199 = getelementptr inbounds nuw i8, ptr %13, i64 15
-  store i8 %198, ptr %199, align 1
-  %200 = lshr i32 %.0174216, 16
-  %201 = trunc i32 %200 to i8
-  %202 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  store i8 %201, ptr %202, align 16
-  %203 = lshr i32 %.0174216, 24
-  %204 = trunc nuw i32 %203 to i8
-  %205 = getelementptr inbounds nuw i8, ptr %13, i64 17
-  store i8 %204, ptr %205, align 1
-  %206 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  %207 = trunc i64 %.0168 to i8
-  store i8 %207, ptr %206, align 2
-  %208 = lshr i64 %.0168, 8
-  %209 = trunc i64 %208 to i8
-  %210 = getelementptr inbounds nuw i8, ptr %13, i64 19
-  store i8 %209, ptr %210, align 1
-  %211 = lshr i64 %.0168, 16
-  %212 = trunc i64 %211 to i8
-  %213 = getelementptr inbounds nuw i8, ptr %13, i64 20
-  store i8 %212, ptr %213, align 4
-  %214 = lshr i64 %.0168, 24
-  %215 = trunc nuw i64 %214 to i8
-  %216 = getelementptr inbounds nuw i8, ptr %13, i64 21
-  store i8 %215, ptr %216, align 1
-  %217 = getelementptr inbounds nuw i8, ptr %13, i64 22
-  %218 = trunc i64 %.0175214 to i8
-  store i8 %218, ptr %217, align 2
-  %219 = lshr i64 %.0175214, 8
-  %220 = trunc i64 %219 to i8
-  %221 = getelementptr inbounds nuw i8, ptr %13, i64 23
-  store i8 %220, ptr %221, align 1
-  %222 = lshr i64 %.0175214, 16
-  %223 = trunc i64 %222 to i8
-  %224 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  store i8 %223, ptr %224, align 8
-  %225 = lshr i64 %.0175214, 24
-  %226 = trunc nuw i64 %225 to i8
-  %227 = getelementptr inbounds nuw i8, ptr %13, i64 25
-  store i8 %226, ptr %227, align 1
-  %228 = getelementptr inbounds nuw i8, ptr %13, i64 26
-  %229 = trunc i64 %50 to i8
-  store i8 %229, ptr %228, align 2
-  %230 = lshr i64 %50, 8
-  %231 = trunc nuw i64 %230 to i8
-  %232 = getelementptr inbounds nuw i8, ptr %13, i64 27
-  store i8 %231, ptr %232, align 1
-  %233 = getelementptr inbounds nuw i8, ptr %13, i64 28
-  store i8 0, ptr %233, align 4
-  %234 = getelementptr inbounds nuw i8, ptr %13, i64 29
-  store i8 0, ptr %234, align 1
-  %235 = load ptr, ptr %119, align 8
-  %236 = load ptr, ptr %121, align 8
-  %237 = call noundef i64 %235(ptr noundef %236, i64 noundef %117, ptr noundef nonnull %13, i64 noundef 30)
-  %.not198 = icmp eq i64 %237, 30
-  br i1 %.not198, label %238, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
+  %177 = select i1 %.not.i207, i8 0, i8 20
+  store i8 %177, ptr %176, align 4
+  %178 = getelementptr inbounds nuw i8, ptr %13, i64 5
+  store i8 0, ptr %178, align 1
+  %179 = getelementptr inbounds nuw i8, ptr %13, i64 6
+  store i8 0, ptr %179, align 2
+  %180 = getelementptr inbounds nuw i8, ptr %13, i64 7
+  store i8 0, ptr %180, align 1
+  %181 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %182 = trunc nuw nsw i16 %.0173 to i8
+  store i8 %182, ptr %181, align 8
+  %183 = getelementptr inbounds nuw i8, ptr %13, i64 9
+  store i8 0, ptr %183, align 1
+  %184 = getelementptr inbounds nuw i8, ptr %13, i64 10
+  %185 = trunc i16 %171 to i8
+  store i8 %185, ptr %184, align 2
+  %186 = lshr i16 %171, 8
+  %187 = trunc nuw i16 %186 to i8
+  %188 = getelementptr inbounds nuw i8, ptr %13, i64 11
+  store i8 %187, ptr %188, align 1
+  %189 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  %190 = trunc i16 %172 to i8
+  store i8 %190, ptr %189, align 4
+  %191 = lshr i16 %172, 8
+  %192 = trunc nuw i16 %191 to i8
+  %193 = getelementptr inbounds nuw i8, ptr %13, i64 13
+  store i8 %192, ptr %193, align 1
+  %194 = getelementptr inbounds nuw i8, ptr %13, i64 14
+  %195 = trunc i32 %.0174216 to i8
+  store i8 %195, ptr %194, align 2
+  %196 = lshr i32 %.0174216, 8
+  %197 = trunc i32 %196 to i8
+  %198 = getelementptr inbounds nuw i8, ptr %13, i64 15
+  store i8 %197, ptr %198, align 1
+  %199 = lshr i32 %.0174216, 16
+  %200 = trunc i32 %199 to i8
+  %201 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  store i8 %200, ptr %201, align 16
+  %202 = lshr i32 %.0174216, 24
+  %203 = trunc nuw i32 %202 to i8
+  %204 = getelementptr inbounds nuw i8, ptr %13, i64 17
+  store i8 %203, ptr %204, align 1
+  %205 = getelementptr inbounds nuw i8, ptr %13, i64 18
+  %206 = trunc i64 %.0168 to i8
+  store i8 %206, ptr %205, align 2
+  %207 = lshr i64 %.0168, 8
+  %208 = trunc i64 %207 to i8
+  %209 = getelementptr inbounds nuw i8, ptr %13, i64 19
+  store i8 %208, ptr %209, align 1
+  %210 = lshr i64 %.0168, 16
+  %211 = trunc i64 %210 to i8
+  %212 = getelementptr inbounds nuw i8, ptr %13, i64 20
+  store i8 %211, ptr %212, align 4
+  %213 = lshr i64 %.0168, 24
+  %214 = trunc nuw i64 %213 to i8
+  %215 = getelementptr inbounds nuw i8, ptr %13, i64 21
+  store i8 %214, ptr %215, align 1
+  %216 = getelementptr inbounds nuw i8, ptr %13, i64 22
+  %217 = trunc i64 %.0175214 to i8
+  store i8 %217, ptr %216, align 2
+  %218 = lshr i64 %.0175214, 8
+  %219 = trunc i64 %218 to i8
+  %220 = getelementptr inbounds nuw i8, ptr %13, i64 23
+  store i8 %219, ptr %220, align 1
+  %221 = lshr i64 %.0175214, 16
+  %222 = trunc i64 %221 to i8
+  %223 = getelementptr inbounds nuw i8, ptr %13, i64 24
+  store i8 %222, ptr %223, align 8
+  %224 = lshr i64 %.0175214, 24
+  %225 = trunc nuw i64 %224 to i8
+  %226 = getelementptr inbounds nuw i8, ptr %13, i64 25
+  store i8 %225, ptr %226, align 1
+  %227 = getelementptr inbounds nuw i8, ptr %13, i64 26
+  %228 = trunc i64 %50 to i8
+  store i8 %228, ptr %227, align 2
+  %229 = lshr i64 %50, 8
+  %230 = trunc nuw i64 %229 to i8
+  %231 = getelementptr inbounds nuw i8, ptr %13, i64 27
+  store i8 %230, ptr %231, align 1
+  %232 = getelementptr inbounds nuw i8, ptr %13, i64 28
+  store i8 0, ptr %232, align 4
+  %233 = getelementptr inbounds nuw i8, ptr %13, i64 29
+  store i8 0, ptr %233, align 1
+  %234 = load ptr, ptr %119, align 8
+  %235 = load ptr, ptr %121, align 8
+  %236 = call noundef i64 %234(ptr noundef %235, i64 noundef %117, ptr noundef nonnull %13, i64 noundef 30)
+  %.not198 = icmp eq i64 %236, 30
+  br i1 %.not198, label %237, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
 
-238:                                              ; preds = %171
-  %239 = trunc nuw i64 %50 to i16
-  %240 = call fastcc noundef i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %239, ptr noundef %4, i16 noundef zeroext %5, i64 noundef %.0175214, i64 noundef %.0168, i32 noundef %.0174216, i16 noundef zeroext %.0173, i16 noundef zeroext %172, i16 noundef zeroext %173, i64 noundef %117, i32 noundef %.0171)
-  %.not199 = icmp eq i32 %240, 0
-  br i1 %.not199, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %241
+237:                                              ; preds = %170
+  %238 = trunc nuw i64 %50 to i16
+  %239 = call fastcc noundef i32 @_ZL32mz_zip_writer_add_to_central_dirP18mz_zip_archive_tagPKctPKvtS4_tyyjttttyj(ptr noundef nonnull %0, ptr noundef %1, i16 noundef zeroext %238, ptr noundef %4, i16 noundef zeroext %5, i64 noundef %.0175214, i64 noundef %.0168, i32 noundef %.0174216, i16 noundef zeroext %.0173, i16 noundef zeroext %171, i16 noundef zeroext %172, i64 noundef %117, i32 noundef %.0171)
+  %.not199 = icmp eq i32 %239, 0
+  br i1 %.not199, label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread, label %240
 
-241:                                              ; preds = %238
-  %242 = load i32, ptr %35, align 8
-  %243 = add i32 %242, 1
-  store i32 %243, ptr %35, align 8
+240:                                              ; preds = %237
+  %241 = load i32, ptr %35, align 8
+  %242 = add i32 %241, 1
+  store i32 %242, ptr %35, align 8
   store i64 %.0169, ptr %0, align 8
   br label %_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread
 
-_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread: ; preds = %.preheader.i, %.preheader.i, %42, %238, %171, %164, %100, %89, %97, %79, %_ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_tag.exit, %65, %_ZL35mz_zip_writer_validate_archive_namePKc.exit, %39, %9, %24, %34, %27, %31, %241, %156, %138, %124, %111
-  %.0170 = phi i32 [ 0, %124 ], [ 0, %138 ], [ 1, %241 ], [ 0, %156 ], [ 0, %111 ], [ 0, %31 ], [ 0, %27 ], [ 0, %34 ], [ 0, %24 ], [ 0, %9 ], [ 0, %39 ], [ 0, %_ZL35mz_zip_writer_validate_archive_namePKc.exit ], [ 0, %65 ], [ 0, %_ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_tag.exit ], [ 0, %79 ], [ 0, %97 ], [ 0, %89 ], [ 0, %100 ], [ 0, %164 ], [ 0, %171 ], [ 0, %238 ], [ 0, %42 ], [ 0, %.preheader.i ], [ 0, %.preheader.i ]
+_ZL35mz_zip_writer_validate_archive_namePKc.exit.thread: ; preds = %.preheader.i, %.preheader.i, %42, %237, %170, %163, %100, %89, %97, %79, %_ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_tag.exit, %65, %_ZL35mz_zip_writer_validate_archive_namePKc.exit, %39, %9, %24, %34, %27, %31, %240, %155, %138, %124, %111
+  %.0170 = phi i32 [ 0, %124 ], [ 0, %138 ], [ 1, %240 ], [ 0, %155 ], [ 0, %111 ], [ 0, %31 ], [ 0, %27 ], [ 0, %34 ], [ 0, %24 ], [ 0, %9 ], [ 0, %39 ], [ 0, %_ZL35mz_zip_writer_validate_archive_namePKc.exit ], [ 0, %65 ], [ 0, %_ZL55mz_zip_writer_compute_padding_needed_for_file_alignmentP18mz_zip_archive_tag.exit ], [ 0, %79 ], [ 0, %97 ], [ 0, %89 ], [ 0, %100 ], [ 0, %163 ], [ 0, %170 ], [ 0, %237 ], [ 0, %42 ], [ 0, %.preheader.i ], [ 0, %.preheader.i ]
   ret i32 %.0170
 }
 

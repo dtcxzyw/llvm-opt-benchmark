@@ -4037,8 +4037,8 @@ url_proto_and_rewrite.exit:                       ; preds = %10, %13, %42
   br i1 %147, label %.sink.split, label %149
 
 .sink.split:                                      ; preds = %144, %140, %136, %132, %128
-  %.sink1215 = phi i64 [ -17, %128 ], [ 4, %132 ], [ 8, %136 ], [ 2, %140 ], [ 1, %144 ]
-  %148 = call i32 @tool_setopt_bitmask(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.54, i32 noundef 111, ptr noundef nonnull @setopt_nv_CURLAUTH, i64 noundef %.sink1215) #16
+  %.sink1217 = phi i64 [ -17, %128 ], [ 4, %132 ], [ 8, %136 ], [ 2, %140 ], [ 1, %144 ]
+  %148 = call i32 @tool_setopt_bitmask(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.54, i32 noundef 111, ptr noundef nonnull @setopt_nv_CURLAUTH, i64 noundef %.sink1217) #16
   br label %149
 
 149:                                              ; preds = %.sink.split, %144
@@ -4084,12 +4084,12 @@ url_proto_and_rewrite.exit:                       ; preds = %10, %13, %42
   %184 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %185 = load ptr, ptr %184, align 8, !tbaa !221
   %.not1098 = icmp eq ptr %185, null
-  %spec.select1224 = select i1 %.not1098, i64 0, i64 2
+  %spec.select = select i1 %.not1098, i64 0, i64 2
   br label %186
 
 186:                                              ; preds = %183, %179, %149
-  %.sink1216 = phi i64 [ 1, %149 ], [ 2, %179 ], [ %spec.select1224, %183 ]
-  %187 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.62, i32 noundef 51, ptr noundef nonnull @setopt_nv_CURL_NETRC, i64 noundef %.sink1216) #16
+  %.sink1218 = phi i64 [ 1, %149 ], [ 2, %179 ], [ %spec.select, %183 ]
+  %187 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.62, i32 noundef 51, ptr noundef nonnull @setopt_nv_CURL_NETRC, i64 noundef %.sink1218) #16
   %188 = getelementptr inbounds nuw i8, ptr %1, i64 496
   %189 = load ptr, ptr %188, align 8, !tbaa !221
   %.not1099 = icmp eq ptr %189, null
@@ -4266,1404 +4266,1402 @@ url_proto_and_rewrite.exit:                       ; preds = %10, %13, %42
   %294 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %295 = load i64, ptr %294, align 8, !tbaa !240
   %.not1109 = icmp eq i64 %295, 0
-  br i1 %.not1109, label %296, label %.sink.split1217
+  br i1 %.not1109, label %296, label %.sink.split1219
 
 296:                                              ; preds = %290
   %297 = load i8, ptr @feature_http2, align 1, !tbaa !34, !range !35, !noundef !36
   %298 = trunc nuw i8 %297 to i1
-  br i1 %298, label %.sink.split1217, label %300
+  br i1 %298, label %.sink.split1219, label %300
 
-.sink.split1217:                                  ; preds = %296, %290
-  %.sink1218 = phi i64 [ %295, %290 ], [ 4, %296 ]
-  %299 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.87, i32 noundef 84, ptr noundef nonnull @setopt_nv_CURL_HTTP_VERSION, i64 noundef %.sink1218) #16
+.sink.split1219:                                  ; preds = %296, %290
+  %.sink1220 = phi i64 [ %295, %290 ], [ 4, %296 ]
+  %299 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.87, i32 noundef 84, ptr noundef nonnull @setopt_nv_CURL_HTTP_VERSION, i64 noundef %.sink1220) #16
   br label %300
 
-300:                                              ; preds = %.sink.split1217, %296
+300:                                              ; preds = %.sink.split1219, %296
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 1172
   %302 = load i8, ptr %301, align 4, !tbaa !241, !range !35, !noundef !36
-  %spec.select = zext nneg i8 %302 to i64
   %303 = getelementptr inbounds nuw i8, ptr %1, i64 1173
   %304 = load i8, ptr %303, align 1, !tbaa !242, !range !35, !noundef !36
-  %305 = trunc nuw i8 %304 to i1
-  %306 = or disjoint i64 %spec.select, 2
-  %.11015 = select i1 %305, i64 %306, i64 %spec.select
-  %307 = getelementptr inbounds nuw i8, ptr %1, i64 1174
-  %308 = load i8, ptr %307, align 2, !tbaa !243, !range !35, !noundef !36
-  %309 = trunc nuw i8 %308 to i1
-  %310 = or disjoint i64 %.11015, 4
-  %.21016 = select i1 %309, i64 %310, i64 %.11015
-  %311 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.88, i32 noundef 161, i64 noundef %.21016) #16
-  %312 = getelementptr inbounds nuw i8, ptr %1, i64 57
-  %313 = load i8, ptr %312, align 1, !tbaa !244, !range !35, !noundef !36
-  %314 = trunc nuw i8 %313 to i1
-  br i1 %314, label %315, label %317
+  %305 = shl nuw nsw i8 %304, 1
+  %.110151206 = or disjoint i8 %305, %302
+  %306 = getelementptr inbounds nuw i8, ptr %1, i64 1174
+  %307 = load i8, ptr %306, align 2, !tbaa !243, !range !35, !noundef !36
+  %308 = shl nuw nsw i8 %307, 2
+  %.210161207 = or disjoint i8 %.110151206, %308
+  %.21016 = zext nneg i8 %.210161207 to i64
+  %309 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.88, i32 noundef 161, i64 noundef %.21016) #16
+  %310 = getelementptr inbounds nuw i8, ptr %1, i64 57
+  %311 = load i8, ptr %310, align 1, !tbaa !244, !range !35, !noundef !36
+  %312 = trunc nuw i8 %311 to i1
+  br i1 %312, label %313, label %315
 
-315:                                              ; preds = %300
-  %316 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.89, i32 noundef 10102, ptr noundef nonnull @.str) #16
-  br label %317
+313:                                              ; preds = %300
+  %314 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.89, i32 noundef 10102, ptr noundef nonnull @.str) #16
+  br label %315
 
-317:                                              ; preds = %315, %300
-  %318 = getelementptr inbounds nuw i8, ptr %1, i64 58
-  %319 = load i8, ptr %318, align 2, !tbaa !245, !range !35, !noundef !36
-  %320 = trunc nuw i8 %319 to i1
-  br i1 %320, label %321, label %323
+315:                                              ; preds = %313, %300
+  %316 = getelementptr inbounds nuw i8, ptr %1, i64 58
+  %317 = load i8, ptr %316, align 2, !tbaa !245, !range !35, !noundef !36
+  %318 = trunc nuw i8 %317 to i1
+  br i1 %318, label %319, label %321
 
-321:                                              ; preds = %317
-  %322 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.90, i32 noundef 207, i64 noundef 1) #16
-  br label %323
+319:                                              ; preds = %315
+  %320 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.90, i32 noundef 207, i64 noundef 1) #16
+  br label %321
 
-323:                                              ; preds = %317, %321
-  %324 = getelementptr inbounds nuw i8, ptr %1, i64 840
-  %325 = load i8, ptr %324, align 8, !tbaa !246, !range !35, !noundef !36
-  %326 = zext nneg i8 %325 to i64
-  %327 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.91, i32 noundef 285, i64 noundef %326) #16
-  %.not1110 = icmp eq i32 %327, 0
-  br i1 %.not1110, label %.critedge, label %328
+321:                                              ; preds = %315, %319
+  %322 = getelementptr inbounds nuw i8, ptr %1, i64 840
+  %323 = load i8, ptr %322, align 8, !tbaa !246, !range !35, !noundef !36
+  %324 = zext nneg i8 %323 to i64
+  %325 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.91, i32 noundef 285, i64 noundef %324) #16
+  %.not1110 = icmp eq i32 %325, 0
+  br i1 %.not1110, label %.critedge, label %326
 
-328:                                              ; preds = %323
+326:                                              ; preds = %321
   call void (ptr, ptr, ...) @errorf(ptr noundef nonnull %0, ptr noundef nonnull @.str.92) #16
   br label %.thread
 
-.critedge:                                        ; preds = %254, %323, %262
-  %329 = load ptr, ptr @proto_ftp, align 8, !tbaa !14
-  %.not1111 = icmp eq ptr %329, null
-  br i1 %.not1111, label %334, label %330
+.critedge:                                        ; preds = %254, %321, %262
+  %327 = load ptr, ptr @proto_ftp, align 8, !tbaa !14
+  %.not1111 = icmp eq ptr %327, null
+  br i1 %.not1111, label %332, label %328
 
-330:                                              ; preds = %.critedge
-  %331 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %332 = load ptr, ptr %331, align 8, !tbaa !247
-  %333 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.93, i32 noundef 10017, ptr noundef %332) #16
-  br label %334
+328:                                              ; preds = %.critedge
+  %329 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %330 = load ptr, ptr %329, align 8, !tbaa !247
+  %331 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.93, i32 noundef 10017, ptr noundef %330) #16
+  br label %332
 
-334:                                              ; preds = %.critedge, %330
-  %335 = getelementptr inbounds nuw i8, ptr %1, i64 280
-  %336 = load i64, ptr %335, align 8, !tbaa !248
-  %337 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.94, i32 noundef 19, i64 noundef %336) #16
-  %338 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  %339 = load i64, ptr %338, align 8, !tbaa !249
-  %340 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.95, i32 noundef 20, i64 noundef %339) #16
-  %341 = getelementptr inbounds nuw i8, ptr %1, i64 1024
-  %342 = load i64, ptr %341, align 8, !tbaa !250
-  %343 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.96, i32 noundef 30145, i64 noundef %342) #16
-  %344 = load i64, ptr %75, align 8, !tbaa !203
-  %345 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, i32 noundef 30146, i64 noundef %344) #16
-  %346 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  %347 = load i8, ptr %346, align 8, !tbaa !251, !range !35, !noundef !36
-  %348 = trunc nuw i8 %347 to i1
-  br i1 %348, label %349, label %352
+332:                                              ; preds = %.critedge, %328
+  %333 = getelementptr inbounds nuw i8, ptr %1, i64 280
+  %334 = load i64, ptr %333, align 8, !tbaa !248
+  %335 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.94, i32 noundef 19, i64 noundef %334) #16
+  %336 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  %337 = load i64, ptr %336, align 8, !tbaa !249
+  %338 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.95, i32 noundef 20, i64 noundef %337) #16
+  %339 = getelementptr inbounds nuw i8, ptr %1, i64 1024
+  %340 = load i64, ptr %339, align 8, !tbaa !250
+  %341 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.96, i32 noundef 30145, i64 noundef %340) #16
+  %342 = load i64, ptr %75, align 8, !tbaa !203
+  %343 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.97, i32 noundef 30146, i64 noundef %342) #16
+  %344 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %345 = load i8, ptr %344, align 8, !tbaa !251, !range !35, !noundef !36
+  %346 = trunc nuw i8 %345 to i1
+  br i1 %346, label %347, label %350
 
-349:                                              ; preds = %334
-  %350 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %351 = load i64, ptr %350, align 8, !tbaa !180
-  br label %352
+347:                                              ; preds = %332
+  %348 = getelementptr inbounds nuw i8, ptr %1, i64 120
+  %349 = load i64, ptr %348, align 8, !tbaa !180
+  br label %350
 
-352:                                              ; preds = %334, %349
-  %.sink1219 = phi i64 [ %351, %349 ], [ 0, %334 ]
-  %353 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.98, i32 noundef 30116, i64 noundef %.sink1219) #16
-  %354 = getelementptr inbounds nuw i8, ptr %1, i64 728
-  %355 = load ptr, ptr %354, align 8, !tbaa !252
-  %356 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.99, i32 noundef 10026, ptr noundef %355) #16
-  %357 = getelementptr inbounds nuw i8, ptr %1, i64 736
-  %358 = load ptr, ptr %357, align 8, !tbaa !253
-  %359 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.100, i32 noundef 10258, ptr noundef %358) #16
-  %360 = load ptr, ptr @proto_scp, align 8, !tbaa !14
+350:                                              ; preds = %332, %347
+  %.sink1221 = phi i64 [ %349, %347 ], [ 0, %332 ]
+  %351 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.98, i32 noundef 30116, i64 noundef %.sink1221) #16
+  %352 = getelementptr inbounds nuw i8, ptr %1, i64 728
+  %353 = load ptr, ptr %352, align 8, !tbaa !252
+  %354 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.99, i32 noundef 10026, ptr noundef %353) #16
+  %355 = getelementptr inbounds nuw i8, ptr %1, i64 736
+  %356 = load ptr, ptr %355, align 8, !tbaa !253
+  %357 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.100, i32 noundef 10258, ptr noundef %356) #16
+  %358 = load ptr, ptr @proto_scp, align 8, !tbaa !14
+  %359 = icmp eq ptr %44, %358
+  %360 = load ptr, ptr @proto_sftp, align 8
   %361 = icmp eq ptr %44, %360
-  %362 = load ptr, ptr @proto_sftp, align 8
-  %363 = icmp eq ptr %44, %362
-  %or.cond1186 = select i1 %361, i1 true, i1 %363
-  br i1 %or.cond1186, label %364, label %.thread1200
+  %or.cond1186 = select i1 %359, i1 true, i1 %361
+  br i1 %or.cond1186, label %362, label %.thread1200
 
-364:                                              ; preds = %352
-  %365 = getelementptr inbounds nuw i8, ptr %1, i64 696
-  %366 = load ptr, ptr %365, align 8, !tbaa !155
-  %367 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.101, i32 noundef 10153, ptr noundef %366) #16
-  %368 = getelementptr inbounds nuw i8, ptr %1, i64 744
-  %369 = load ptr, ptr %368, align 8, !tbaa !254
-  %370 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.102, i32 noundef 10152, ptr noundef %369) #16
-  %371 = getelementptr inbounds nuw i8, ptr %1, i64 752
-  %372 = load ptr, ptr %371, align 8, !tbaa !255
-  %373 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.103, i32 noundef 10162, ptr noundef %372) #16
-  %374 = getelementptr inbounds nuw i8, ptr %1, i64 760
-  %375 = load ptr, ptr %374, align 8, !tbaa !256
-  %376 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.104, i32 noundef 10311, ptr noundef %375) #16
-  %377 = getelementptr inbounds nuw i8, ptr %1, i64 1274
-  %378 = load i8, ptr %377, align 2, !tbaa !257, !range !35, !noundef !36
-  %379 = trunc nuw i8 %378 to i1
-  br i1 %379, label %380, label %382
+362:                                              ; preds = %350
+  %363 = getelementptr inbounds nuw i8, ptr %1, i64 696
+  %364 = load ptr, ptr %363, align 8, !tbaa !155
+  %365 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.101, i32 noundef 10153, ptr noundef %364) #16
+  %366 = getelementptr inbounds nuw i8, ptr %1, i64 744
+  %367 = load ptr, ptr %366, align 8, !tbaa !254
+  %368 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.102, i32 noundef 10152, ptr noundef %367) #16
+  %369 = getelementptr inbounds nuw i8, ptr %1, i64 752
+  %370 = load ptr, ptr %369, align 8, !tbaa !255
+  %371 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.103, i32 noundef 10162, ptr noundef %370) #16
+  %372 = getelementptr inbounds nuw i8, ptr %1, i64 760
+  %373 = load ptr, ptr %372, align 8, !tbaa !256
+  %374 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.104, i32 noundef 10311, ptr noundef %373) #16
+  %375 = getelementptr inbounds nuw i8, ptr %1, i64 1274
+  %376 = load i8, ptr %375, align 2, !tbaa !257, !range !35, !noundef !36
+  %377 = trunc nuw i8 %376 to i1
+  br i1 %377, label %378, label %380
 
-380:                                              ; preds = %364
-  %381 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.105, i32 noundef 268, i64 noundef 1) #16
-  br label %382
+378:                                              ; preds = %362
+  %379 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.105, i32 noundef 268, i64 noundef 1) #16
+  br label %380
 
-382:                                              ; preds = %380, %364
-  %383 = getelementptr inbounds nuw i8, ptr %1, i64 845
-  %384 = load i8, ptr %383, align 1, !tbaa !140, !range !35, !noundef !36
-  %385 = trunc nuw i8 %384 to i1
-  br i1 %385, label %.thread1200, label %386
+380:                                              ; preds = %378, %362
+  %381 = getelementptr inbounds nuw i8, ptr %1, i64 845
+  %382 = load i8, ptr %381, align 1, !tbaa !140, !range !35, !noundef !36
+  %383 = trunc nuw i8 %382 to i1
+  br i1 %383, label %.thread1200, label %384
 
-386:                                              ; preds = %382
-  %387 = call ptr @findfile(ptr noundef nonnull @.str.106, i32 noundef 0) #16
-  %.not1112 = icmp eq ptr %387, null
-  br i1 %.not1112, label %390, label %388
+384:                                              ; preds = %380
+  %385 = call ptr @findfile(ptr noundef nonnull @.str.106, i32 noundef 0) #16
+  %.not1112 = icmp eq ptr %385, null
+  br i1 %.not1112, label %388, label %386
 
-388:                                              ; preds = %386
-  %389 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.107, i32 noundef 10183, ptr noundef nonnull %387) #16
-  call void @curl_free(ptr noundef nonnull %387) #16
-  switch i32 %389, label %.thread [
+386:                                              ; preds = %384
+  %387 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.107, i32 noundef 10183, ptr noundef nonnull %385) #16
+  call void @curl_free(ptr noundef nonnull %385) #16
+  switch i32 %387, label %.thread [
     i32 48, label %.thread1200
     i32 0, label %.thread1200
   ]
 
-390:                                              ; preds = %386
+388:                                              ; preds = %384
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.108) #16
   br label %.thread1200
 
-.thread1200:                                      ; preds = %388, %388, %390, %352, %382
-  %391 = getelementptr inbounds nuw i8, ptr %1, i64 632
-  %392 = load ptr, ptr %391, align 8, !tbaa !138
-  %.not1114 = icmp eq ptr %392, null
-  br i1 %.not1114, label %395, label %393
+.thread1200:                                      ; preds = %386, %386, %388, %350, %380
+  %389 = getelementptr inbounds nuw i8, ptr %1, i64 632
+  %390 = load ptr, ptr %389, align 8, !tbaa !138
+  %.not1114 = icmp eq ptr %390, null
+  br i1 %.not1114, label %393, label %391
 
-393:                                              ; preds = %.thread1200
-  %394 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.109, i32 noundef 10065, ptr noundef nonnull %392) #16
-  br label %395
+391:                                              ; preds = %.thread1200
+  %392 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.109, i32 noundef 10065, ptr noundef nonnull %390) #16
+  br label %393
 
-395:                                              ; preds = %393, %.thread1200
-  %396 = getelementptr inbounds nuw i8, ptr %1, i64 640
-  %397 = load ptr, ptr %396, align 8, !tbaa !258
-  %.not1115 = icmp eq ptr %397, null
-  br i1 %.not1115, label %400, label %398
+393:                                              ; preds = %391, %.thread1200
+  %394 = getelementptr inbounds nuw i8, ptr %1, i64 640
+  %395 = load ptr, ptr %394, align 8, !tbaa !258
+  %.not1115 = icmp eq ptr %395, null
+  br i1 %.not1115, label %398, label %396
 
-398:                                              ; preds = %395
-  %399 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.110, i32 noundef 10246, ptr noundef nonnull %397) #16
-  br label %400
+396:                                              ; preds = %393
+  %397 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.110, i32 noundef 10246, ptr noundef nonnull %395) #16
+  br label %398
 
-400:                                              ; preds = %398, %395
-  %401 = getelementptr inbounds nuw i8, ptr %1, i64 648
-  %402 = load ptr, ptr %401, align 8, !tbaa !139
-  %.not1116 = icmp eq ptr %402, null
-  br i1 %.not1116, label %406, label %403
+398:                                              ; preds = %396, %393
+  %399 = getelementptr inbounds nuw i8, ptr %1, i64 648
+  %400 = load ptr, ptr %399, align 8, !tbaa !139
+  %.not1116 = icmp eq ptr %400, null
+  br i1 %.not1116, label %404, label %401
 
-403:                                              ; preds = %400
-  %404 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.111, i32 noundef 10097, ptr noundef nonnull %402) #16
-  switch i32 %404, label %.thread [
-    i32 4, label %405
-    i32 0, label %406
+401:                                              ; preds = %398
+  %402 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.111, i32 noundef 10097, ptr noundef nonnull %400) #16
+  switch i32 %402, label %.thread [
+    i32 4, label %403
+    i32 0, label %404
   ]
 
-405:                                              ; preds = %403
+403:                                              ; preds = %401
   call fastcc void @ssl_backend()
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.114, ptr noundef nonnull @ssl_backend.ssl_ver) #16
-  br label %406
+  br label %404
 
-406:                                              ; preds = %403, %405, %400
-  %407 = getelementptr inbounds nuw i8, ptr %1, i64 656
-  %408 = load ptr, ptr %407, align 8, !tbaa !259
-  %.not1118 = icmp eq ptr %408, null
-  br i1 %.not1118, label %409, label %411
+404:                                              ; preds = %401, %403, %398
+  %405 = getelementptr inbounds nuw i8, ptr %1, i64 656
+  %406 = load ptr, ptr %405, align 8, !tbaa !259
+  %.not1118 = icmp eq ptr %406, null
+  br i1 %.not1118, label %407, label %409
 
-409:                                              ; preds = %406
-  %410 = load ptr, ptr %401, align 8, !tbaa !139
-  %.not1119 = icmp eq ptr %410, null
-  br i1 %.not1119, label %417, label %411
+407:                                              ; preds = %404
+  %408 = load ptr, ptr %399, align 8, !tbaa !139
+  %.not1119 = icmp eq ptr %408, null
+  br i1 %.not1119, label %415, label %409
 
-411:                                              ; preds = %409, %406
-  %412 = phi ptr [ %408, %406 ], [ %410, %409 ]
-  %413 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.115, i32 noundef 10247, ptr noundef nonnull %412) #16
-  switch i32 %413, label %.thread [
-    i32 48, label %414
-    i32 4, label %414
-    i32 0, label %417
+409:                                              ; preds = %407, %404
+  %410 = phi ptr [ %406, %404 ], [ %408, %407 ]
+  %411 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.115, i32 noundef 10247, ptr noundef nonnull %410) #16
+  switch i32 %411, label %.thread [
+    i32 48, label %412
+    i32 4, label %412
+    i32 0, label %415
   ]
 
-414:                                              ; preds = %411, %411
-  %415 = load ptr, ptr %407, align 8, !tbaa !259
-  %.not1122 = icmp eq ptr %415, null
-  br i1 %.not1122, label %417, label %416
+412:                                              ; preds = %409, %409
+  %413 = load ptr, ptr %405, align 8, !tbaa !259
+  %.not1122 = icmp eq ptr %413, null
+  br i1 %.not1122, label %415, label %414
 
-416:                                              ; preds = %414
+414:                                              ; preds = %412
   call fastcc void @ssl_backend()
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.116, ptr noundef nonnull @ssl_backend.ssl_ver) #16
-  br label %417
+  br label %415
 
-417:                                              ; preds = %411, %416, %414, %409
-  %418 = getelementptr inbounds nuw i8, ptr %1, i64 664
-  %419 = load ptr, ptr %418, align 8, !tbaa !260
-  %.not1123 = icmp eq ptr %419, null
-  br i1 %.not1123, label %422, label %420
+415:                                              ; preds = %409, %414, %412, %407
+  %416 = getelementptr inbounds nuw i8, ptr %1, i64 664
+  %417 = load ptr, ptr %416, align 8, !tbaa !260
+  %.not1123 = icmp eq ptr %417, null
+  br i1 %.not1123, label %420, label %418
 
-420:                                              ; preds = %417
-  %421 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.117, i32 noundef 10169, ptr noundef nonnull %419) #16
-  br label %422
+418:                                              ; preds = %415
+  %419 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.117, i32 noundef 10169, ptr noundef nonnull %417) #16
+  br label %420
 
-422:                                              ; preds = %420, %417
-  %423 = getelementptr inbounds nuw i8, ptr %1, i64 672
-  %424 = load ptr, ptr %423, align 8, !tbaa !261
-  %.not1124 = icmp eq ptr %424, null
-  br i1 %.not1124, label %425, label %.sink.split1220
+420:                                              ; preds = %418, %415
+  %421 = getelementptr inbounds nuw i8, ptr %1, i64 672
+  %422 = load ptr, ptr %421, align 8, !tbaa !261
+  %.not1124 = icmp eq ptr %422, null
+  br i1 %.not1124, label %423, label %.sink.split1222
 
-425:                                              ; preds = %422
-  %426 = load ptr, ptr %418, align 8, !tbaa !260
-  %.not1125 = icmp eq ptr %426, null
-  br i1 %.not1125, label %428, label %.sink.split1220
+423:                                              ; preds = %420
+  %424 = load ptr, ptr %416, align 8, !tbaa !260
+  %.not1125 = icmp eq ptr %424, null
+  br i1 %.not1125, label %426, label %.sink.split1222
 
-.sink.split1220:                                  ; preds = %425, %422
-  %.sink1221 = phi ptr [ %424, %422 ], [ %426, %425 ]
-  %427 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.118, i32 noundef 10260, ptr noundef nonnull %.sink1221) #16
-  br label %428
+.sink.split1222:                                  ; preds = %423, %420
+  %.sink1223 = phi ptr [ %422, %420 ], [ %424, %423 ]
+  %425 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.118, i32 noundef 10260, ptr noundef nonnull %.sink1223) #16
+  br label %426
 
-428:                                              ; preds = %.sink.split1220, %425
-  %429 = getelementptr inbounds nuw i8, ptr %1, i64 680
-  %430 = load ptr, ptr %429, align 8, !tbaa !262
-  %.not1126 = icmp eq ptr %430, null
-  br i1 %.not1126, label %435, label %431
+426:                                              ; preds = %.sink.split1222, %423
+  %427 = getelementptr inbounds nuw i8, ptr %1, i64 680
+  %428 = load ptr, ptr %427, align 8, !tbaa !262
+  %.not1126 = icmp eq ptr %428, null
+  br i1 %.not1126, label %433, label %429
 
-431:                                              ; preds = %428
-  %432 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.119, i32 noundef 10230, ptr noundef nonnull %430) #16
-  %433 = icmp eq i32 %432, 4
-  br i1 %433, label %434, label %435
+429:                                              ; preds = %426
+  %430 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.119, i32 noundef 10230, ptr noundef nonnull %428) #16
+  %431 = icmp eq i32 %430, 4
+  br i1 %431, label %432, label %433
 
-434:                                              ; preds = %431
+432:                                              ; preds = %429
   call fastcc void @ssl_backend()
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.120, ptr noundef nonnull @ssl_backend.ssl_ver) #16
-  br label %435
+  br label %433
 
-435:                                              ; preds = %431, %434, %428
-  %436 = getelementptr inbounds nuw i8, ptr %1, i64 688
-  %437 = load ptr, ptr %436, align 8, !tbaa !263
-  %.not1127 = icmp eq ptr %437, null
-  br i1 %.not1127, label %442, label %438
+433:                                              ; preds = %429, %432, %426
+  %434 = getelementptr inbounds nuw i8, ptr %1, i64 688
+  %435 = load ptr, ptr %434, align 8, !tbaa !263
+  %.not1127 = icmp eq ptr %435, null
+  br i1 %.not1127, label %440, label %436
 
-438:                                              ; preds = %435
-  %439 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.121, i32 noundef 10263, ptr noundef nonnull %437) #16
-  %440 = icmp eq i32 %439, 4
-  br i1 %440, label %441, label %442
+436:                                              ; preds = %433
+  %437 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.121, i32 noundef 10263, ptr noundef nonnull %435) #16
+  %438 = icmp eq i32 %437, 4
+  br i1 %438, label %439, label %440
 
-441:                                              ; preds = %438
+439:                                              ; preds = %436
   call fastcc void @ssl_backend()
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.122, ptr noundef nonnull @ssl_backend.ssl_ver) #16
-  br label %442
+  br label %440
 
-442:                                              ; preds = %438, %441, %435
-  %443 = getelementptr inbounds nuw i8, ptr %1, i64 808
-  %444 = load ptr, ptr %443, align 8, !tbaa !264
-  %.not1128 = icmp eq ptr %444, null
-  br i1 %.not1128, label %447, label %445
+440:                                              ; preds = %436, %439, %433
+  %441 = getelementptr inbounds nuw i8, ptr %1, i64 808
+  %442 = load ptr, ptr %441, align 8, !tbaa !264
+  %.not1128 = icmp eq ptr %442, null
+  br i1 %.not1128, label %445, label %443
 
-445:                                              ; preds = %442
-  %446 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.123, i32 noundef 10298, ptr noundef nonnull %444) #16
-  br label %447
+443:                                              ; preds = %440
+  %444 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.123, i32 noundef 10298, ptr noundef nonnull %442) #16
+  br label %445
 
-447:                                              ; preds = %445, %442
-  %448 = getelementptr inbounds nuw i8, ptr %1, i64 864
-  %449 = load ptr, ptr %448, align 8, !tbaa !118
-  %.not1129 = icmp eq ptr %449, null
-  br i1 %.not1129, label %452, label %450
+445:                                              ; preds = %443, %440
+  %446 = getelementptr inbounds nuw i8, ptr %1, i64 864
+  %447 = load ptr, ptr %446, align 8, !tbaa !118
+  %.not1129 = icmp eq ptr %447, null
+  br i1 %.not1129, label %450, label %448
 
-450:                                              ; preds = %447
-  %451 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.124, i32 noundef 172, i64 noundef 1) #16
-  br label %452
+448:                                              ; preds = %445
+  %449 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.124, i32 noundef 172, i64 noundef 1) #16
+  br label %450
 
-452:                                              ; preds = %450, %447
-  %453 = load i8, ptr @feature_ssl, align 1, !tbaa !34, !range !35, !noundef !36
-  %454 = trunc nuw i8 %453 to i1
-  br i1 %454, label %455, label %577
+450:                                              ; preds = %448, %445
+  %451 = load i8, ptr @feature_ssl, align 1, !tbaa !34, !range !35, !noundef !36
+  %452 = trunc nuw i8 %451 to i1
+  br i1 %452, label %453, label %575
 
-455:                                              ; preds = %452
-  %456 = getelementptr inbounds nuw i8, ptr %1, i64 600
-  %457 = load ptr, ptr %456, align 8, !tbaa !153
-  %458 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.125, i32 noundef 10025, ptr noundef %457) #16
-  %459 = getelementptr inbounds nuw i8, ptr %1, i64 608
-  %460 = load ptr, ptr %459, align 8, !tbaa !157
-  %461 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.126, i32 noundef 10254, ptr noundef %460) #16
-  %462 = getelementptr inbounds nuw i8, ptr %1, i64 616
-  %463 = load ptr, ptr %462, align 8, !tbaa !154
-  %464 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.127, i32 noundef 10086, ptr noundef %463) #16
-  %465 = getelementptr inbounds nuw i8, ptr %1, i64 624
-  %466 = load ptr, ptr %465, align 8, !tbaa !158
-  %467 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.128, i32 noundef 10255, ptr noundef %466) #16
-  %468 = getelementptr inbounds nuw i8, ptr %1, i64 696
-  %469 = load ptr, ptr %468, align 8, !tbaa !155
-  %470 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.129, i32 noundef 10087, ptr noundef %469) #16
-  %471 = getelementptr inbounds nuw i8, ptr %1, i64 704
-  %472 = load ptr, ptr %471, align 8, !tbaa !159
-  %473 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.130, i32 noundef 10256, ptr noundef %472) #16
-  %474 = getelementptr inbounds nuw i8, ptr %1, i64 712
-  %475 = load ptr, ptr %474, align 8, !tbaa !156
-  %476 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.131, i32 noundef 10088, ptr noundef %475) #16
-  %477 = getelementptr inbounds nuw i8, ptr %1, i64 720
-  %478 = load ptr, ptr %477, align 8, !tbaa !160
-  %479 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.132, i32 noundef 10257, ptr noundef %478) #16
-  %480 = getelementptr inbounds nuw i8, ptr %1, i64 845
-  %481 = load i8, ptr %480, align 1, !tbaa !140, !range !35, !noundef !36
-  %482 = trunc nuw i8 %481 to i1
-  br i1 %482, label %483, label %486
+453:                                              ; preds = %450
+  %454 = getelementptr inbounds nuw i8, ptr %1, i64 600
+  %455 = load ptr, ptr %454, align 8, !tbaa !153
+  %456 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.125, i32 noundef 10025, ptr noundef %455) #16
+  %457 = getelementptr inbounds nuw i8, ptr %1, i64 608
+  %458 = load ptr, ptr %457, align 8, !tbaa !157
+  %459 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.126, i32 noundef 10254, ptr noundef %458) #16
+  %460 = getelementptr inbounds nuw i8, ptr %1, i64 616
+  %461 = load ptr, ptr %460, align 8, !tbaa !154
+  %462 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.127, i32 noundef 10086, ptr noundef %461) #16
+  %463 = getelementptr inbounds nuw i8, ptr %1, i64 624
+  %464 = load ptr, ptr %463, align 8, !tbaa !158
+  %465 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.128, i32 noundef 10255, ptr noundef %464) #16
+  %466 = getelementptr inbounds nuw i8, ptr %1, i64 696
+  %467 = load ptr, ptr %466, align 8, !tbaa !155
+  %468 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.129, i32 noundef 10087, ptr noundef %467) #16
+  %469 = getelementptr inbounds nuw i8, ptr %1, i64 704
+  %470 = load ptr, ptr %469, align 8, !tbaa !159
+  %471 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.130, i32 noundef 10256, ptr noundef %470) #16
+  %472 = getelementptr inbounds nuw i8, ptr %1, i64 712
+  %473 = load ptr, ptr %472, align 8, !tbaa !156
+  %474 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.131, i32 noundef 10088, ptr noundef %473) #16
+  %475 = getelementptr inbounds nuw i8, ptr %1, i64 720
+  %476 = load ptr, ptr %475, align 8, !tbaa !160
+  %477 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.132, i32 noundef 10257, ptr noundef %476) #16
+  %478 = getelementptr inbounds nuw i8, ptr %1, i64 845
+  %479 = load i8, ptr %478, align 1, !tbaa !140, !range !35, !noundef !36
+  %480 = trunc nuw i8 %479 to i1
+  br i1 %480, label %481, label %484
 
-483:                                              ; preds = %455
-  %484 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.133, i32 noundef 64, i64 noundef 0) #16
-  %485 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.134, i32 noundef 81, i64 noundef 0) #16
-  br label %486
+481:                                              ; preds = %453
+  %482 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.133, i32 noundef 64, i64 noundef 0) #16
+  %483 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.134, i32 noundef 81, i64 noundef 0) #16
+  br label %484
 
-486:                                              ; preds = %483, %455
-  %487 = getelementptr inbounds nuw i8, ptr %1, i64 846
-  %488 = load i8, ptr %487, align 2, !tbaa !142, !range !35, !noundef !36
-  %489 = trunc nuw i8 %488 to i1
-  br i1 %489, label %490, label %493
+484:                                              ; preds = %481, %453
+  %485 = getelementptr inbounds nuw i8, ptr %1, i64 846
+  %486 = load i8, ptr %485, align 2, !tbaa !142, !range !35, !noundef !36
+  %487 = trunc nuw i8 %486 to i1
+  br i1 %487, label %488, label %491
 
-490:                                              ; preds = %486
-  %491 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.135, i32 noundef 306, i64 noundef 0) #16
-  %492 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.136, i32 noundef 307, i64 noundef 0) #16
-  br label %493
+488:                                              ; preds = %484
+  %489 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.135, i32 noundef 306, i64 noundef 0) #16
+  %490 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.136, i32 noundef 307, i64 noundef 0) #16
+  br label %491
 
-493:                                              ; preds = %490, %486
-  %494 = getelementptr inbounds nuw i8, ptr %1, i64 847
-  %495 = load i8, ptr %494, align 1, !tbaa !265, !range !35, !noundef !36
-  %496 = trunc nuw i8 %495 to i1
-  br i1 %496, label %497, label %500
+491:                                              ; preds = %488, %484
+  %492 = getelementptr inbounds nuw i8, ptr %1, i64 847
+  %493 = load i8, ptr %492, align 1, !tbaa !265, !range !35, !noundef !36
+  %494 = trunc nuw i8 %493 to i1
+  br i1 %494, label %495, label %498
 
-497:                                              ; preds = %493
-  %498 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.137, i32 noundef 248, i64 noundef 0) #16
-  %499 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.138, i32 noundef 249, i64 noundef 0) #16
-  br label %500
+495:                                              ; preds = %491
+  %496 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.137, i32 noundef 248, i64 noundef 0) #16
+  %497 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.138, i32 noundef 249, i64 noundef 0) #16
+  br label %498
 
-500:                                              ; preds = %497, %493
-  %501 = getelementptr inbounds nuw i8, ptr %1, i64 849
-  %502 = load i8, ptr %501, align 1, !tbaa !266, !range !35, !noundef !36
-  %503 = trunc nuw i8 %502 to i1
-  br i1 %503, label %504, label %506
+498:                                              ; preds = %495, %491
+  %499 = getelementptr inbounds nuw i8, ptr %1, i64 849
+  %500 = load i8, ptr %499, align 1, !tbaa !266, !range !35, !noundef !36
+  %501 = trunc nuw i8 %500 to i1
+  br i1 %501, label %502, label %504
 
-504:                                              ; preds = %500
-  %505 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.139, i32 noundef 232, i64 noundef 1) #16
-  br label %506
+502:                                              ; preds = %498
+  %503 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.139, i32 noundef 232, i64 noundef 1) #16
+  br label %504
 
-506:                                              ; preds = %504, %500
-  %507 = getelementptr inbounds nuw i8, ptr %1, i64 850
-  %508 = load i8, ptr %507, align 2, !tbaa !267, !range !35, !noundef !36
-  %509 = trunc nuw i8 %508 to i1
-  br i1 %509, label %510, label %512
+504:                                              ; preds = %502, %498
+  %505 = getelementptr inbounds nuw i8, ptr %1, i64 850
+  %506 = load i8, ptr %505, align 2, !tbaa !267, !range !35, !noundef !36
+  %507 = trunc nuw i8 %506 to i1
+  br i1 %507, label %508, label %510
 
-510:                                              ; preds = %506
-  %511 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.140, i32 noundef 308, i64 noundef 1) #16
-  br label %512
+508:                                              ; preds = %504
+  %509 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.140, i32 noundef 308, i64 noundef 1) #16
+  br label %510
 
-512:                                              ; preds = %510, %506
-  %513 = getelementptr inbounds nuw i8, ptr %1, i64 1257
-  %514 = load i8, ptr %513, align 1, !tbaa !268, !range !35, !noundef !36
-  %515 = trunc nuw i8 %514 to i1
-  br i1 %515, label %516, label %518
+510:                                              ; preds = %508, %504
+  %511 = getelementptr inbounds nuw i8, ptr %1, i64 1257
+  %512 = load i8, ptr %511, align 1, !tbaa !268, !range !35, !noundef !36
+  %513 = trunc nuw i8 %512 to i1
+  br i1 %513, label %514, label %516
 
-516:                                              ; preds = %512
-  %517 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.141, i32 noundef 233, i64 noundef 1) #16
-  br label %518
+514:                                              ; preds = %510
+  %515 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.141, i32 noundef 233, i64 noundef 1) #16
+  br label %516
 
-518:                                              ; preds = %512, %516
-  %519 = getelementptr inbounds nuw i8, ptr %1, i64 896
-  %520 = load i64, ptr %519, align 8, !tbaa !269
-  %521 = getelementptr inbounds nuw i8, ptr %1, i64 904
-  %522 = load i64, ptr %521, align 8, !tbaa !270
-  %523 = or i64 %522, %520
-  %524 = call i32 @tool_setopt_SSLVERSION(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.142, i32 noundef 32, i64 noundef %523) #16
-  %525 = load ptr, ptr %102, align 8, !tbaa !205
-  %.not1130 = icmp eq ptr %525, null
-  br i1 %.not1130, label %530, label %526
+516:                                              ; preds = %510, %514
+  %517 = getelementptr inbounds nuw i8, ptr %1, i64 896
+  %518 = load i64, ptr %517, align 8, !tbaa !269
+  %519 = getelementptr inbounds nuw i8, ptr %1, i64 904
+  %520 = load i64, ptr %519, align 8, !tbaa !270
+  %521 = or i64 %520, %518
+  %522 = call i32 @tool_setopt_SSLVERSION(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.142, i32 noundef 32, i64 noundef %521) #16
+  %523 = load ptr, ptr %102, align 8, !tbaa !205
+  %.not1130 = icmp eq ptr %523, null
+  br i1 %.not1130, label %528, label %524
 
-526:                                              ; preds = %518
-  %527 = getelementptr inbounds nuw i8, ptr %1, i64 912
-  %528 = load i64, ptr %527, align 8, !tbaa !271
-  %529 = call i32 @tool_setopt_SSLVERSION(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.143, i32 noundef 250, i64 noundef %528) #16
-  br label %530
+524:                                              ; preds = %516
+  %525 = getelementptr inbounds nuw i8, ptr %1, i64 912
+  %526 = load i64, ptr %525, align 8, !tbaa !271
+  %527 = call i32 @tool_setopt_SSLVERSION(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.143, i32 noundef 250, i64 noundef %526) #16
+  br label %528
 
-530:                                              ; preds = %526, %518
-  %531 = getelementptr inbounds nuw i8, ptr %1, i64 1216
-  %532 = load i8, ptr %531, align 8, !tbaa !272, !range !35, !noundef !36
-  %533 = zext nneg i8 %532 to i64
-  %534 = getelementptr inbounds nuw i8, ptr %1, i64 1217
-  %535 = load i8, ptr %534, align 1, !tbaa !273, !range !35, !noundef !36
-  %536 = trunc nuw i8 %535 to i1
-  %537 = select i1 %536, i64 64, i64 0
-  %538 = or disjoint i64 %537, %533
-  %539 = getelementptr inbounds nuw i8, ptr %1, i64 1219
-  %540 = load i8, ptr %539, align 1, !tbaa !274, !range !35, !noundef !36
-  %541 = trunc nuw i8 %540 to i1
-  %542 = select i1 %541, i64 2, i64 0
-  %543 = or disjoint i64 %538, %542
-  %544 = getelementptr inbounds nuw i8, ptr %1, i64 1220
-  %545 = load i8, ptr %544, align 4, !tbaa !275, !range !35, !noundef !36
-  %546 = trunc nuw i8 %545 to i1
-  %547 = select i1 %546, i64 8, i64 0
-  %548 = or disjoint i64 %543, %547
-  %549 = getelementptr inbounds nuw i8, ptr %1, i64 1221
-  %550 = load i8, ptr %549, align 1, !tbaa !276, !range !35, !noundef !36
-  %551 = trunc nuw i8 %550 to i1
-  %552 = select i1 %551, i64 16, i64 0
-  %553 = or disjoint i64 %548, %552
-  %554 = getelementptr inbounds nuw i8, ptr %1, i64 1223
-  %555 = load i8, ptr %554, align 1, !tbaa !277, !range !35, !noundef !36
-  %556 = trunc nuw i8 %555 to i1
-  %557 = select i1 %556, i64 32, i64 0
-  %558 = or i64 %553, %557
-  %.not1131 = icmp eq i64 %558, 0
-  br i1 %.not1131, label %561, label %559
+528:                                              ; preds = %524, %516
+  %529 = getelementptr inbounds nuw i8, ptr %1, i64 1216
+  %530 = load i8, ptr %529, align 8, !tbaa !272, !range !35, !noundef !36
+  %531 = zext nneg i8 %530 to i64
+  %532 = getelementptr inbounds nuw i8, ptr %1, i64 1217
+  %533 = load i8, ptr %532, align 1, !tbaa !273, !range !35, !noundef !36
+  %534 = trunc nuw i8 %533 to i1
+  %535 = select i1 %534, i64 64, i64 0
+  %536 = or disjoint i64 %535, %531
+  %537 = getelementptr inbounds nuw i8, ptr %1, i64 1219
+  %538 = load i8, ptr %537, align 1, !tbaa !274, !range !35, !noundef !36
+  %539 = trunc nuw i8 %538 to i1
+  %540 = select i1 %539, i64 2, i64 0
+  %541 = or disjoint i64 %536, %540
+  %542 = getelementptr inbounds nuw i8, ptr %1, i64 1220
+  %543 = load i8, ptr %542, align 4, !tbaa !275, !range !35, !noundef !36
+  %544 = trunc nuw i8 %543 to i1
+  %545 = select i1 %544, i64 8, i64 0
+  %546 = or disjoint i64 %541, %545
+  %547 = getelementptr inbounds nuw i8, ptr %1, i64 1221
+  %548 = load i8, ptr %547, align 1, !tbaa !276, !range !35, !noundef !36
+  %549 = trunc nuw i8 %548 to i1
+  %550 = select i1 %549, i64 16, i64 0
+  %551 = or disjoint i64 %546, %550
+  %552 = getelementptr inbounds nuw i8, ptr %1, i64 1223
+  %553 = load i8, ptr %552, align 1, !tbaa !277, !range !35, !noundef !36
+  %554 = trunc nuw i8 %553 to i1
+  %555 = select i1 %554, i64 32, i64 0
+  %556 = or i64 %551, %555
+  %.not1131 = icmp eq i64 %556, 0
+  br i1 %.not1131, label %559, label %557
 
-559:                                              ; preds = %530
-  %560 = call i32 @tool_setopt_bitmask(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.144, i32 noundef 216, ptr noundef nonnull @setopt_nv_CURLSSLOPT, i64 noundef %558) #16
-  br label %561
+557:                                              ; preds = %528
+  %558 = call i32 @tool_setopt_bitmask(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.144, i32 noundef 216, ptr noundef nonnull @setopt_nv_CURLSSLOPT, i64 noundef %556) #16
+  br label %559
 
-561:                                              ; preds = %559, %530
-  %562 = getelementptr inbounds nuw i8, ptr %1, i64 1218
-  %563 = load i8, ptr %562, align 2, !tbaa !278, !range !35, !noundef !36
-  %564 = zext nneg i8 %563 to i64
-  %565 = getelementptr inbounds nuw i8, ptr %1, i64 1224
-  %566 = load i8, ptr %565, align 8, !tbaa !279, !range !35, !noundef !36
-  %567 = trunc nuw i8 %566 to i1
-  %568 = select i1 %567, i64 32, i64 0
-  %569 = or disjoint i64 %568, %564
-  %570 = getelementptr inbounds nuw i8, ptr %1, i64 1222
-  %571 = load i8, ptr %570, align 2, !tbaa !280, !range !35, !noundef !36
-  %572 = trunc nuw i8 %571 to i1
-  %573 = select i1 %572, i64 16, i64 0
-  %574 = or disjoint i64 %569, %573
-  %.not1132 = icmp eq i64 %574, 0
-  br i1 %.not1132, label %577, label %575
+559:                                              ; preds = %557, %528
+  %560 = getelementptr inbounds nuw i8, ptr %1, i64 1218
+  %561 = load i8, ptr %560, align 2, !tbaa !278, !range !35, !noundef !36
+  %562 = zext nneg i8 %561 to i64
+  %563 = getelementptr inbounds nuw i8, ptr %1, i64 1224
+  %564 = load i8, ptr %563, align 8, !tbaa !279, !range !35, !noundef !36
+  %565 = trunc nuw i8 %564 to i1
+  %566 = select i1 %565, i64 32, i64 0
+  %567 = or disjoint i64 %566, %562
+  %568 = getelementptr inbounds nuw i8, ptr %1, i64 1222
+  %569 = load i8, ptr %568, align 2, !tbaa !280, !range !35, !noundef !36
+  %570 = trunc nuw i8 %569 to i1
+  %571 = select i1 %570, i64 16, i64 0
+  %572 = or disjoint i64 %567, %571
+  %.not1132 = icmp eq i64 %572, 0
+  br i1 %.not1132, label %575, label %573
 
-575:                                              ; preds = %561
-  %576 = call i32 @tool_setopt_bitmask(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.145, i32 noundef 261, ptr noundef nonnull @setopt_nv_CURLSSLOPT, i64 noundef %574) #16
-  br label %577
+573:                                              ; preds = %559
+  %574 = call i32 @tool_setopt_bitmask(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.145, i32 noundef 261, ptr noundef nonnull @setopt_nv_CURLSSLOPT, i64 noundef %572) #16
+  br label %575
 
-577:                                              ; preds = %561, %575, %452
-  %578 = getelementptr inbounds nuw i8, ptr %1, i64 1258
-  %579 = load i8, ptr %578, align 2, !tbaa !281, !range !35, !noundef !36
-  %580 = trunc nuw i8 %579 to i1
-  br i1 %580, label %581, label %583
+575:                                              ; preds = %559, %573, %450
+  %576 = getelementptr inbounds nuw i8, ptr %1, i64 1258
+  %577 = load i8, ptr %576, align 2, !tbaa !281, !range !35, !noundef !36
+  %578 = trunc nuw i8 %577 to i1
+  br i1 %578, label %579, label %581
 
-581:                                              ; preds = %577
-  %582 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.146, i32 noundef 234, i64 noundef 1) #16
-  br label %583
+579:                                              ; preds = %575
+  %580 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.146, i32 noundef 234, i64 noundef 1) #16
+  br label %581
 
-583:                                              ; preds = %581, %577
-  %584 = load i8, ptr %91, align 8, !tbaa !150, !range !35, !noundef !36
-  %585 = trunc nuw i8 %584 to i1
-  br i1 %585, label %589, label %586
+581:                                              ; preds = %579, %575
+  %582 = load i8, ptr %91, align 8, !tbaa !150, !range !35, !noundef !36
+  %583 = trunc nuw i8 %582 to i1
+  br i1 %583, label %587, label %584
 
-586:                                              ; preds = %583
-  %587 = load i8, ptr %1, align 8, !tbaa !117, !range !35, !noundef !36
-  %588 = trunc nuw i8 %587 to i1
-  br i1 %588, label %589, label %591
+584:                                              ; preds = %581
+  %585 = load i8, ptr %1, align 8, !tbaa !117, !range !35, !noundef !36
+  %586 = trunc nuw i8 %585 to i1
+  br i1 %586, label %587, label %589
 
-589:                                              ; preds = %583, %586
-  %590 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.147, i32 noundef 69, i64 noundef 1) #16
-  br label %591
+587:                                              ; preds = %581, %584
+  %588 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.147, i32 noundef 69, i64 noundef 1) #16
+  br label %589
 
-591:                                              ; preds = %586, %589
-  %592 = getelementptr inbounds nuw i8, ptr %1, i64 792
-  %593 = load i8, ptr %592, align 8, !tbaa !282, !range !35, !noundef !36
-  %594 = zext nneg i8 %593 to i64
-  %595 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.148, i32 noundef 27, i64 noundef %594) #16
-  %596 = getelementptr inbounds nuw i8, ptr %1, i64 872
-  %597 = load ptr, ptr %596, align 8, !tbaa !283
-  %598 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.149, i32 noundef 10028, ptr noundef %597) #16
-  %599 = getelementptr inbounds nuw i8, ptr %1, i64 880
-  %600 = load ptr, ptr %599, align 8, !tbaa !284
-  %601 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.150, i32 noundef 10039, ptr noundef %600) #16
-  %602 = getelementptr inbounds nuw i8, ptr %1, i64 888
-  %603 = load ptr, ptr %602, align 8, !tbaa !285
-  %604 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.151, i32 noundef 10093, ptr noundef %603) #16
-  %605 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %606 = load ptr, ptr %605, align 8, !tbaa !286
-  %.not1133 = icmp eq ptr %606, null
-  br i1 %.not1133, label %617, label %607
+589:                                              ; preds = %584, %587
+  %590 = getelementptr inbounds nuw i8, ptr %1, i64 792
+  %591 = load i8, ptr %590, align 8, !tbaa !282, !range !35, !noundef !36
+  %592 = zext nneg i8 %591 to i64
+  %593 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.148, i32 noundef 27, i64 noundef %592) #16
+  %594 = getelementptr inbounds nuw i8, ptr %1, i64 872
+  %595 = load ptr, ptr %594, align 8, !tbaa !283
+  %596 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.149, i32 noundef 10028, ptr noundef %595) #16
+  %597 = getelementptr inbounds nuw i8, ptr %1, i64 880
+  %598 = load ptr, ptr %597, align 8, !tbaa !284
+  %599 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.150, i32 noundef 10039, ptr noundef %598) #16
+  %600 = getelementptr inbounds nuw i8, ptr %1, i64 888
+  %601 = load ptr, ptr %600, align 8, !tbaa !285
+  %602 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.151, i32 noundef 10093, ptr noundef %601) #16
+  %603 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %604 = load ptr, ptr %603, align 8, !tbaa !286
+  %.not1133 = icmp eq ptr %604, null
+  br i1 %.not1133, label %615, label %605
 
-607:                                              ; preds = %591
+605:                                              ; preds = %589
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #16
   call void @curlx_dyn_init(ptr noundef nonnull %7, i64 noundef 8200) #16
-  %.010031207 = load ptr, ptr %605, align 8, !tbaa !287
-  %.not11341208 = icmp eq ptr %.010031207, null
-  br i1 %.not11341208, label %.thread1204, label %.lr.ph
+  %.010031209 = load ptr, ptr %603, align 8, !tbaa !287
+  %.not11341210 = icmp eq ptr %.010031209, null
+  br i1 %.not11341210, label %.thread1204, label %.lr.ph
 
-608:                                              ; preds = %.lr.ph
-  %609 = getelementptr inbounds nuw i8, ptr %.010031209, i64 8
-  %.01003 = load ptr, ptr %609, align 8, !tbaa !287
+606:                                              ; preds = %.lr.ph
+  %607 = getelementptr inbounds nuw i8, ptr %.010031211, i64 8
+  %.01003 = load ptr, ptr %607, align 8, !tbaa !287
   %.not1134 = icmp eq ptr %.01003, null
   br i1 %.not1134, label %.thread1204, label %.lr.ph, !llvm.loop !288
 
-.lr.ph:                                           ; preds = %607, %608
-  %.010031209 = phi ptr [ %.01003, %608 ], [ %.010031207, %607 ]
-  %610 = load ptr, ptr %605, align 8, !tbaa !286
-  %611 = icmp eq ptr %.010031209, %610
-  %612 = load ptr, ptr %.010031209, align 8, !tbaa !289
-  %.str.152..str.153 = select i1 %611, ptr @.str.152, ptr @.str.153
-  %613 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %7, ptr noundef nonnull %.str.152..str.153, ptr noundef %612) #16
-  %.not1135 = icmp eq i32 %613, 0
-  br i1 %.not1135, label %608, label %616
+.lr.ph:                                           ; preds = %605, %606
+  %.010031211 = phi ptr [ %.01003, %606 ], [ %.010031209, %605 ]
+  %608 = load ptr, ptr %603, align 8, !tbaa !286
+  %609 = icmp eq ptr %.010031211, %608
+  %610 = load ptr, ptr %.010031211, align 8, !tbaa !289
+  %.str.152..str.153 = select i1 %609, ptr @.str.152, ptr @.str.153
+  %611 = call i32 (ptr, ptr, ...) @curlx_dyn_addf(ptr noundef nonnull %7, ptr noundef nonnull %.str.152..str.153, ptr noundef %610) #16
+  %.not1135 = icmp eq i32 %611, 0
+  br i1 %.not1135, label %606, label %614
 
-.thread1204:                                      ; preds = %608, %607
-  %614 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %7) #16
-  %615 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.155, i32 noundef 10022, ptr noundef %614) #16
+.thread1204:                                      ; preds = %606, %605
+  %612 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %7) #16
+  %613 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.155, i32 noundef 10022, ptr noundef %612) #16
   call void @curlx_dyn_free(ptr noundef nonnull %7) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
-  br label %617
+  br label %615
 
-616:                                              ; preds = %.lr.ph
+614:                                              ; preds = %.lr.ph
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.154, i32 noundef 8200) #16
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #16
   br label %.thread
 
-617:                                              ; preds = %.thread1204, %591
-  %618 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %619 = load ptr, ptr %618, align 8, !tbaa !291
-  %.not1136 = icmp eq ptr %619, null
+615:                                              ; preds = %.thread1204, %589
+  %616 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %617 = load ptr, ptr %616, align 8, !tbaa !291
+  %.not1136 = icmp eq ptr %617, null
   br i1 %.not1136, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %617, %.preheader
-  %.01210 = phi ptr [ %623, %.preheader ], [ %619, %617 ]
-  %620 = load ptr, ptr %.01210, align 8, !tbaa !289
-  %621 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.156, i32 noundef 10031, ptr noundef %620) #16
-  %622 = getelementptr inbounds nuw i8, ptr %.01210, i64 8
-  %623 = load ptr, ptr %622, align 8, !tbaa !292
-  %.not1137 = icmp eq ptr %623, null
+.preheader:                                       ; preds = %615, %.preheader
+  %.01212 = phi ptr [ %621, %.preheader ], [ %617, %615 ]
+  %618 = load ptr, ptr %.01212, align 8, !tbaa !289
+  %619 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.156, i32 noundef 10031, ptr noundef %618) #16
+  %620 = getelementptr inbounds nuw i8, ptr %.01212, i64 8
+  %621 = load ptr, ptr %620, align 8, !tbaa !292
+  %.not1137 = icmp eq ptr %621, null
   br i1 %.not1137, label %.loopexit, label %.preheader, !llvm.loop !293
 
-.loopexit:                                        ; preds = %.preheader, %617
-  %624 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %625 = load ptr, ptr %624, align 8, !tbaa !294
-  %.not1138 = icmp eq ptr %625, null
-  br i1 %.not1138, label %628, label %626
+.loopexit:                                        ; preds = %.preheader, %615
+  %622 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %623 = load ptr, ptr %622, align 8, !tbaa !294
+  %.not1138 = icmp eq ptr %623, null
+  br i1 %.not1138, label %626, label %624
 
-626:                                              ; preds = %.loopexit
-  %627 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.157, i32 noundef 10082, ptr noundef nonnull %625) #16
-  br label %628
+624:                                              ; preds = %.loopexit
+  %625 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.157, i32 noundef 10082, ptr noundef nonnull %623) #16
+  br label %626
 
-628:                                              ; preds = %.loopexit, %626
-  %629 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %630 = load i8, ptr %629, align 8, !tbaa !295, !range !35, !noundef !36
-  %631 = zext nneg i8 %630 to i64
-  %632 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.158, i32 noundef 96, i64 noundef %631) #16
-  %633 = getelementptr inbounds nuw i8, ptr %1, i64 936
-  %634 = load i32, ptr %633, align 8, !tbaa !296
-  %635 = zext i32 %634 to i64
-  %636 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.159, i32 noundef 33, ptr noundef nonnull @setopt_nv_CURL_TIMECOND, i64 noundef %635) #16
-  %637 = getelementptr inbounds nuw i8, ptr %1, i64 944
-  %638 = load i64, ptr %637, align 8, !tbaa !297
-  %639 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.160, i32 noundef 30270, i64 noundef %638) #16
-  %640 = getelementptr inbounds nuw i8, ptr %1, i64 800
-  %641 = load ptr, ptr %640, align 8, !tbaa !298
-  %642 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.161, i32 noundef 10036, ptr noundef %641) #16
-  %643 = load i32, ptr %218, align 8, !tbaa !227
-  %644 = load ptr, ptr %640, align 8, !tbaa !298
-  call void @customrequest_helper(ptr noundef nonnull %1, i32 noundef %643, ptr noundef %644) #16
-  %645 = load ptr, ptr @tool_stderr, align 8, !tbaa !30
-  %646 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.162, i32 noundef 10037, ptr noundef %645) #16
-  %647 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  %648 = load ptr, ptr %647, align 8, !tbaa !299
-  %649 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.163, i32 noundef 10062, ptr noundef %648) #16
-  %650 = getelementptr inbounds nuw i8, ptr %1, i64 816
-  %651 = load ptr, ptr %650, align 8, !tbaa !300
-  %652 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.164, i32 noundef 10063, ptr noundef %651) #16
-  %653 = getelementptr inbounds nuw i8, ptr %2, i64 136
-  call void @progressbarinit(ptr noundef nonnull %653, ptr noundef nonnull %1) #16
-  %654 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %655 = load i32, ptr %654, align 4, !tbaa !110
-  %656 = icmp eq i32 %655, 1
-  br i1 %656, label %657, label %664
+626:                                              ; preds = %.loopexit, %624
+  %627 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %628 = load i8, ptr %627, align 8, !tbaa !295, !range !35, !noundef !36
+  %629 = zext nneg i8 %628 to i64
+  %630 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.158, i32 noundef 96, i64 noundef %629) #16
+  %631 = getelementptr inbounds nuw i8, ptr %1, i64 936
+  %632 = load i32, ptr %631, align 8, !tbaa !296
+  %633 = zext i32 %632 to i64
+  %634 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.159, i32 noundef 33, ptr noundef nonnull @setopt_nv_CURL_TIMECOND, i64 noundef %633) #16
+  %635 = getelementptr inbounds nuw i8, ptr %1, i64 944
+  %636 = load i64, ptr %635, align 8, !tbaa !297
+  %637 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.160, i32 noundef 30270, i64 noundef %636) #16
+  %638 = getelementptr inbounds nuw i8, ptr %1, i64 800
+  %639 = load ptr, ptr %638, align 8, !tbaa !298
+  %640 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.161, i32 noundef 10036, ptr noundef %639) #16
+  %641 = load i32, ptr %218, align 8, !tbaa !227
+  %642 = load ptr, ptr %638, align 8, !tbaa !298
+  call void @customrequest_helper(ptr noundef nonnull %1, i32 noundef %641, ptr noundef %642) #16
+  %643 = load ptr, ptr @tool_stderr, align 8, !tbaa !30
+  %644 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.162, i32 noundef 10037, ptr noundef %643) #16
+  %645 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  %646 = load ptr, ptr %645, align 8, !tbaa !299
+  %647 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.163, i32 noundef 10062, ptr noundef %646) #16
+  %648 = getelementptr inbounds nuw i8, ptr %1, i64 816
+  %649 = load ptr, ptr %648, align 8, !tbaa !300
+  %650 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.164, i32 noundef 10063, ptr noundef %649) #16
+  %651 = getelementptr inbounds nuw i8, ptr %2, i64 136
+  call void @progressbarinit(ptr noundef nonnull %651, ptr noundef nonnull %1) #16
+  %652 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %653 = load i32, ptr %652, align 4, !tbaa !110
+  %654 = icmp eq i32 %653, 1
+  br i1 %654, label %655, label %662
 
-657:                                              ; preds = %628
-  %658 = load i8, ptr %81, align 2, !tbaa !41, !range !35, !noundef !36
-  %659 = trunc nuw i8 %658 to i1
-  br i1 %659, label %664, label %660
+655:                                              ; preds = %626
+  %656 = load i8, ptr %81, align 2, !tbaa !41, !range !35, !noundef !36
+  %657 = trunc nuw i8 %656 to i1
+  br i1 %657, label %662, label %658
 
-660:                                              ; preds = %657
-  %661 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %662 = load i8, ptr %661, align 1, !tbaa !89, !range !35, !noundef !36
-  %663 = trunc nuw i8 %662 to i1
-  br i1 %663, label %664, label %.tail.thread.sink.split
+658:                                              ; preds = %655
+  %659 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %660 = load i8, ptr %659, align 1, !tbaa !89, !range !35, !noundef !36
+  %661 = trunc nuw i8 %660 to i1
+  br i1 %661, label %662, label %.tail.thread.sink.split
 
-664:                                              ; preds = %660, %657, %628
-  %665 = load ptr, ptr %164, align 8, !tbaa !129
-  %.not1139 = icmp eq ptr %665, null
+662:                                              ; preds = %658, %655, %626
+  %663 = load ptr, ptr %164, align 8, !tbaa !129
+  %.not1139 = icmp eq ptr %663, null
   br i1 %.not1139, label %.tail.thread, label %sub_0
 
-sub_0:                                            ; preds = %664
-  %666 = load i8, ptr %665, align 1
-  %.not1211 = icmp eq i8 %666, 46
-  br i1 %.not1211, label %.tail, label %.tail.thread
+sub_0:                                            ; preds = %662
+  %664 = load i8, ptr %663, align 1
+  %.not1213 = icmp eq i8 %664, 46
+  br i1 %.not1213, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %667 = getelementptr inbounds nuw i8, ptr %665, i64 1
-  %668 = load i8, ptr %667, align 1
-  %669 = icmp eq i8 %668, 0
-  br i1 %669, label %670, label %.tail.thread
+  %665 = getelementptr inbounds nuw i8, ptr %663, i64 1
+  %666 = load i8, ptr %665, align 1
+  %667 = icmp eq i8 %666, 0
+  br i1 %667, label %668, label %.tail.thread
 
-670:                                              ; preds = %.tail
-  %671 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.45, i32 noundef 43, i64 noundef 0) #16
+668:                                              ; preds = %.tail
+  %669 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.45, i32 noundef 43, i64 noundef 0) #16
   br label %.tail.thread.sink.split
 
-.tail.thread.sink.split:                          ; preds = %660, %670
-  %tool_readbusy_cb.sink = phi ptr [ @tool_readbusy_cb, %670 ], [ @tool_progress_cb, %660 ]
-  %672 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.165, i32 noundef 20219, ptr noundef nonnull %tool_readbusy_cb.sink) #16
-  %673 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.166, i32 noundef 10057, ptr noundef nonnull %2) #16
+.tail.thread.sink.split:                          ; preds = %658, %668
+  %tool_readbusy_cb.sink = phi ptr [ @tool_readbusy_cb, %668 ], [ @tool_progress_cb, %658 ]
+  %670 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.165, i32 noundef 20219, ptr noundef nonnull %tool_readbusy_cb.sink) #16
+  %671 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.166, i32 noundef 10057, ptr noundef nonnull %2) #16
   br label %.tail.thread
 
-.tail.thread:                                     ; preds = %.tail.thread.sink.split, %sub_0, %664, %.tail
-  %674 = getelementptr inbounds nuw i8, ptr %1, i64 312
-  %675 = load ptr, ptr %674, align 8, !tbaa !301
-  %.not1141 = icmp eq ptr %675, null
-  br i1 %.not1141, label %678, label %676
+.tail.thread:                                     ; preds = %.tail.thread.sink.split, %sub_0, %662, %.tail
+  %672 = getelementptr inbounds nuw i8, ptr %1, i64 312
+  %673 = load ptr, ptr %672, align 8, !tbaa !301
+  %.not1141 = icmp eq ptr %673, null
+  br i1 %.not1141, label %676, label %674
 
-676:                                              ; preds = %.tail.thread
-  %677 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.167, i32 noundef 10211, ptr noundef nonnull %675) #16
-  br label %678
+674:                                              ; preds = %.tail.thread
+  %675 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.167, i32 noundef 10211, ptr noundef nonnull %673) #16
+  br label %676
 
-678:                                              ; preds = %676, %.tail.thread
-  %679 = getelementptr inbounds nuw i8, ptr %1, i64 320
-  %680 = load ptr, ptr %679, align 8, !tbaa !302
-  %.not1142 = icmp eq ptr %680, null
-  br i1 %.not1142, label %683, label %681
+676:                                              ; preds = %674, %.tail.thread
+  %677 = getelementptr inbounds nuw i8, ptr %1, i64 320
+  %678 = load ptr, ptr %677, align 8, !tbaa !302
+  %.not1142 = icmp eq ptr %678, null
+  br i1 %.not1142, label %681, label %679
 
-681:                                              ; preds = %678
-  %682 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.168, i32 noundef 10221, ptr noundef nonnull %680) #16
-  br label %683
+679:                                              ; preds = %676
+  %680 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.168, i32 noundef 10221, ptr noundef nonnull %678) #16
+  br label %681
 
-683:                                              ; preds = %681, %678
-  %684 = getelementptr inbounds nuw i8, ptr %1, i64 328
-  %685 = load ptr, ptr %684, align 8, !tbaa !303
-  %.not1143 = icmp eq ptr %685, null
-  br i1 %.not1143, label %688, label %686
+681:                                              ; preds = %679, %676
+  %682 = getelementptr inbounds nuw i8, ptr %1, i64 328
+  %683 = load ptr, ptr %682, align 8, !tbaa !303
+  %.not1143 = icmp eq ptr %683, null
+  br i1 %.not1143, label %686, label %684
 
-686:                                              ; preds = %683
-  %687 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.169, i32 noundef 10222, ptr noundef nonnull %685) #16
-  br label %688
+684:                                              ; preds = %681
+  %685 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.169, i32 noundef 10222, ptr noundef nonnull %683) #16
+  br label %686
 
-688:                                              ; preds = %686, %683
-  %689 = getelementptr inbounds nuw i8, ptr %1, i64 336
-  %690 = load ptr, ptr %689, align 8, !tbaa !304
-  %.not1144 = icmp eq ptr %690, null
-  br i1 %.not1144, label %693, label %691
+686:                                              ; preds = %684, %681
+  %687 = getelementptr inbounds nuw i8, ptr %1, i64 336
+  %688 = load ptr, ptr %687, align 8, !tbaa !304
+  %.not1144 = icmp eq ptr %688, null
+  br i1 %.not1144, label %691, label %689
 
-691:                                              ; preds = %688
-  %692 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.170, i32 noundef 10223, ptr noundef nonnull %690) #16
-  br label %693
+689:                                              ; preds = %686
+  %690 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.170, i32 noundef 10223, ptr noundef nonnull %688) #16
+  br label %691
 
-693:                                              ; preds = %688, %691
-  %694 = getelementptr inbounds nuw i8, ptr %1, i64 992
-  %695 = load ptr, ptr %694, align 8, !tbaa !305
-  %696 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.171, i32 noundef 10070, ptr noundef %695) #16
-  %697 = getelementptr inbounds nuw i8, ptr %1, i64 192
-  %698 = load i64, ptr %697, align 8, !tbaa !306
-  %699 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.172, i32 noundef 156, i64 noundef %698) #16
-  %700 = getelementptr inbounds nuw i8, ptr %1, i64 560
-  %701 = load ptr, ptr %700, align 8, !tbaa !141
-  %.not1145 = icmp eq ptr %701, null
-  br i1 %.not1145, label %704, label %702
+691:                                              ; preds = %686, %689
+  %692 = getelementptr inbounds nuw i8, ptr %1, i64 992
+  %693 = load ptr, ptr %692, align 8, !tbaa !305
+  %694 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.171, i32 noundef 10070, ptr noundef %693) #16
+  %695 = getelementptr inbounds nuw i8, ptr %1, i64 192
+  %696 = load i64, ptr %695, align 8, !tbaa !306
+  %697 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.172, i32 noundef 156, i64 noundef %696) #16
+  %698 = getelementptr inbounds nuw i8, ptr %1, i64 560
+  %699 = load ptr, ptr %698, align 8, !tbaa !141
+  %.not1145 = icmp eq ptr %699, null
+  br i1 %.not1145, label %702, label %700
 
-702:                                              ; preds = %693
-  %703 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.173, i32 noundef 10279, ptr noundef nonnull %701) #16
-  br label %704
+700:                                              ; preds = %691
+  %701 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.173, i32 noundef 10279, ptr noundef nonnull %699) #16
+  br label %702
 
-704:                                              ; preds = %702, %693
-  %705 = getelementptr inbounds nuw i8, ptr %1, i64 568
-  %706 = load ptr, ptr %705, align 8, !tbaa !307
-  %.not1146 = icmp eq ptr %706, null
-  br i1 %.not1146, label %711, label %707
+702:                                              ; preds = %700, %691
+  %703 = getelementptr inbounds nuw i8, ptr %1, i64 568
+  %704 = load ptr, ptr %703, align 8, !tbaa !307
+  %.not1146 = icmp eq ptr %704, null
+  br i1 %.not1146, label %709, label %705
 
-707:                                              ; preds = %704
-  %708 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.174, i32 noundef 10083, ptr noundef nonnull %706) #16
-  %709 = icmp eq i32 %708, 4
-  br i1 %709, label %710, label %711
+705:                                              ; preds = %702
+  %706 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.174, i32 noundef 10083, ptr noundef nonnull %704) #16
+  %707 = icmp eq i32 %706, 4
+  br i1 %707, label %708, label %709
 
-710:                                              ; preds = %707
+708:                                              ; preds = %705
   call fastcc void @ssl_backend()
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.175, ptr noundef nonnull @ssl_backend.ssl_ver) #16
-  br label %711
+  br label %709
 
-711:                                              ; preds = %707, %710, %704
-  %712 = getelementptr inbounds nuw i8, ptr %1, i64 576
-  %713 = load ptr, ptr %712, align 8, !tbaa !308
-  %.not1147 = icmp eq ptr %713, null
-  br i1 %.not1147, label %718, label %714
+709:                                              ; preds = %705, %708, %702
+  %710 = getelementptr inbounds nuw i8, ptr %1, i64 576
+  %711 = load ptr, ptr %710, align 8, !tbaa !308
+  %.not1147 = icmp eq ptr %711, null
+  br i1 %.not1147, label %716, label %712
 
-714:                                              ; preds = %711
-  %715 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.176, i32 noundef 10259, ptr noundef nonnull %713) #16
-  %716 = icmp eq i32 %715, 4
-  br i1 %716, label %717, label %718
+712:                                              ; preds = %709
+  %713 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.176, i32 noundef 10259, ptr noundef nonnull %711) #16
+  %714 = icmp eq i32 %713, 4
+  br i1 %714, label %715, label %716
 
-717:                                              ; preds = %714
+715:                                              ; preds = %712
   call fastcc void @ssl_backend()
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.177, ptr noundef nonnull @ssl_backend.ssl_ver) #16
-  br label %718
+  br label %716
 
-718:                                              ; preds = %714, %717, %711
-  %719 = getelementptr inbounds nuw i8, ptr %1, i64 584
-  %720 = load ptr, ptr %719, align 8, !tbaa !309
-  %.not1148 = icmp eq ptr %720, null
-  br i1 %.not1148, label %725, label %721
+716:                                              ; preds = %712, %715, %709
+  %717 = getelementptr inbounds nuw i8, ptr %1, i64 584
+  %718 = load ptr, ptr %717, align 8, !tbaa !309
+  %.not1148 = icmp eq ptr %718, null
+  br i1 %.not1148, label %723, label %719
 
-721:                                              ; preds = %718
-  %722 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.178, i32 noundef 10276, ptr noundef nonnull %720) #16
-  %723 = icmp eq i32 %722, 4
-  br i1 %723, label %724, label %725
+719:                                              ; preds = %716
+  %720 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.178, i32 noundef 10276, ptr noundef nonnull %718) #16
+  %721 = icmp eq i32 %720, 4
+  br i1 %721, label %722, label %723
 
-724:                                              ; preds = %721
+722:                                              ; preds = %719
   call fastcc void @ssl_backend()
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.179, ptr noundef nonnull @ssl_backend.ssl_ver) #16
-  br label %725
+  br label %723
 
-725:                                              ; preds = %721, %724, %718
-  %726 = getelementptr inbounds nuw i8, ptr %1, i64 592
-  %727 = load ptr, ptr %726, align 8, !tbaa !310
-  %.not1149 = icmp eq ptr %727, null
-  br i1 %.not1149, label %732, label %728
+723:                                              ; preds = %719, %722, %716
+  %724 = getelementptr inbounds nuw i8, ptr %1, i64 592
+  %725 = load ptr, ptr %724, align 8, !tbaa !310
+  %.not1149 = icmp eq ptr %725, null
+  br i1 %.not1149, label %730, label %726
 
-728:                                              ; preds = %725
-  %729 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.180, i32 noundef 10277, ptr noundef nonnull %727) #16
-  %730 = icmp eq i32 %729, 4
-  br i1 %730, label %731, label %732
+726:                                              ; preds = %723
+  %727 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.180, i32 noundef 10277, ptr noundef nonnull %725) #16
+  %728 = icmp eq i32 %727, 4
+  br i1 %728, label %729, label %730
 
-731:                                              ; preds = %728
+729:                                              ; preds = %726
   call fastcc void @ssl_backend()
   call void (ptr, ptr, ...) @warnf(ptr noundef nonnull %0, ptr noundef nonnull @.str.112, ptr noundef nonnull @.str.181, ptr noundef nonnull @ssl_backend.ssl_ver) #16
-  br label %732
-
-732:                                              ; preds = %728, %731, %725
-  %733 = getelementptr inbounds nuw i8, ptr %1, i64 74
-  %734 = load i8, ptr %733, align 2, !tbaa !311, !range !35, !noundef !36
-  %735 = trunc nuw i8 %734 to i1
-  br i1 %735, label %736, label %738
-
-736:                                              ; preds = %732
-  %737 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.182, i32 noundef 85, i64 noundef 0) #16
-  br label %738
-
-738:                                              ; preds = %736, %732
-  %739 = getelementptr inbounds nuw i8, ptr %1, i64 75
-  %740 = load i8, ptr %739, align 1, !tbaa !312, !range !35, !noundef !36
-  %741 = trunc nuw i8 %740 to i1
-  br i1 %741, label %742, label %744
-
-742:                                              ; preds = %738
-  %743 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.183, i32 noundef 106, i64 noundef 0) #16
-  br label %744
-
-744:                                              ; preds = %742, %738
-  %745 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %746 = load i32, ptr %745, align 4, !tbaa !313
-  %.not1150 = icmp eq i32 %746, 0
-  br i1 %.not1150, label %751, label %747
-
-747:                                              ; preds = %744
-  %748 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.184, i32 noundef 20094, ptr noundef nonnull @tool_debug_cb) #16
-  %749 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.185, i32 noundef 10095, ptr noundef nonnull %1) #16
-  %750 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.186, i32 noundef 41, i64 noundef 1) #16
-  br label %751
-
-751:                                              ; preds = %747, %744
-  %752 = getelementptr inbounds nuw i8, ptr %1, i64 768
-  %753 = load ptr, ptr %752, align 8, !tbaa !314
-  %.not1151 = icmp eq ptr %753, null
-  br i1 %.not1151, label %756, label %754
-
-754:                                              ; preds = %751
-  %755 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.187, i32 noundef 10089, ptr noundef nonnull %753) #16
-  %.not1152 = icmp eq i32 %755, 0
-  br i1 %.not1152, label %756, label %.thread
-
-756:                                              ; preds = %751, %754
-  %757 = getelementptr inbounds nuw i8, ptr %1, i64 852
-  %758 = load i8, ptr %757, align 4, !tbaa !315, !range !35, !noundef !36
-  %759 = trunc nuw i8 %758 to i1
-  %760 = select i1 %759, i64 2, i64 0
-  %761 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.188, i32 noundef 110, i64 noundef %760) #16
-  %762 = getelementptr inbounds nuw i8, ptr %1, i64 208
-  %763 = load i64, ptr %762, align 8, !tbaa !316
-  %.not1153 = icmp eq i64 %763, 0
-  br i1 %.not1153, label %766, label %764
-
-764:                                              ; preds = %756
-  %765 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.189, i32 noundef 30117, i64 noundef %763) #16
-  br label %766
-
-766:                                              ; preds = %756, %764
-  %767 = getelementptr inbounds nuw i8, ptr %1, i64 920
-  %768 = load i64, ptr %767, align 8, !tbaa !317
-  %769 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.190, i32 noundef 113, i64 noundef %768) #16
-  %770 = getelementptr inbounds nuw i8, ptr %1, i64 1041
-  %771 = load i8, ptr %770, align 1, !tbaa !318, !range !35, !noundef !36
-  %772 = trunc nuw i8 %771 to i1
-  br i1 %772, label %.sink.split1222, label %773
-
-773:                                              ; preds = %766
-  %774 = getelementptr inbounds nuw i8, ptr %1, i64 1040
-  %775 = load i8, ptr %774, align 8, !tbaa !319, !range !35, !noundef !36
-  %776 = trunc nuw i8 %775 to i1
-  br i1 %776, label %.sink.split1222, label %777
-
-777:                                              ; preds = %773
-  %778 = getelementptr inbounds nuw i8, ptr %1, i64 1042
-  %779 = load i8, ptr %778, align 2, !tbaa !320, !range !35, !noundef !36
-  %780 = trunc nuw i8 %779 to i1
-  br i1 %780, label %.sink.split1222, label %782
-
-.sink.split1222:                                  ; preds = %777, %773, %766
-  %.sink1223 = phi i64 [ 3, %766 ], [ 1, %773 ], [ 2, %777 ]
-  %781 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.191, i32 noundef 119, ptr noundef nonnull @setopt_nv_CURLUSESSL, i64 noundef %.sink1223) #16
-  br label %782
-
-782:                                              ; preds = %.sink.split1222, %777
-  %783 = getelementptr inbounds nuw i8, ptr %1, i64 1043
-  %784 = load i8, ptr %783, align 1, !tbaa !321, !range !35, !noundef !36
-  %785 = trunc nuw i8 %784 to i1
-  br i1 %785, label %786, label %791
-
-786:                                              ; preds = %782
-  %787 = getelementptr inbounds nuw i8, ptr %1, i64 1044
-  %788 = load i32, ptr %787, align 4, !tbaa !322
-  %789 = sext i32 %788 to i64
-  %790 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.192, i32 noundef 154, ptr noundef nonnull @setopt_nv_CURLFTPSSL_CCC, i64 noundef %789) #16
-  br label %791
-
-791:                                              ; preds = %786, %782
-  %792 = getelementptr inbounds nuw i8, ptr %1, i64 1056
-  %793 = load i8, ptr %792, align 8, !tbaa !323, !range !35, !noundef !36
-  %794 = trunc nuw i8 %793 to i1
-  br i1 %794, label %795, label %797
-
-795:                                              ; preds = %791
-  %796 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.193, i32 noundef 180, i64 noundef 1) #16
-  br label %797
-
-797:                                              ; preds = %795, %791
-  %798 = getelementptr inbounds nuw i8, ptr %1, i64 1064
-  %799 = load i64, ptr %798, align 8, !tbaa !324
-  %.not1154 = icmp eq i64 %799, 0
-  br i1 %.not1154, label %802, label %800
-
-800:                                              ; preds = %797
-  %801 = call i32 @tool_setopt_bitmask(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.194, i32 noundef 267, ptr noundef nonnull @setopt_nv_CURLAUTH, i64 noundef %799) #16
-  br label %802
-
-802:                                              ; preds = %800, %797
-  %803 = getelementptr inbounds nuw i8, ptr %1, i64 1072
-  %804 = load ptr, ptr %803, align 8, !tbaa !325
-  %.not1155 = icmp eq ptr %804, null
-  br i1 %.not1155, label %807, label %805
-
-805:                                              ; preds = %802
-  %806 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.195, i32 noundef 10235, ptr noundef nonnull %804) #16
-  br label %807
-
-807:                                              ; preds = %805, %802
-  %808 = getelementptr inbounds nuw i8, ptr %1, i64 1080
-  %809 = load ptr, ptr %808, align 8, !tbaa !326
-  %.not1156 = icmp eq ptr %809, null
-  br i1 %.not1156, label %812, label %810
-
-810:                                              ; preds = %807
-  %811 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.196, i32 noundef 10236, ptr noundef nonnull %809) #16
-  br label %812
-
-812:                                              ; preds = %807, %810
-  %813 = getelementptr inbounds nuw i8, ptr %1, i64 1128
-  %814 = load ptr, ptr %813, align 8, !tbaa !327
-  %815 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.197, i32 noundef 10134, ptr noundef %814) #16
-  %816 = getelementptr inbounds nuw i8, ptr %1, i64 1169
-  %817 = load i8, ptr %816, align 1, !tbaa !328, !range !35, !noundef !36
-  %818 = zext nneg i8 %817 to i64
-  %819 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.198, i32 noundef 136, i64 noundef %818) #16
-  %820 = getelementptr inbounds nuw i8, ptr %1, i64 853
-  %821 = load i8, ptr %820, align 1, !tbaa !329, !range !35, !noundef !36
-  %822 = zext nneg i8 %821 to i64
-  %823 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.199, i32 noundef 137, i64 noundef %822) #16
-  %824 = load ptr, ptr @proto_ftp, align 8, !tbaa !14
-  %.not1157 = icmp eq ptr %824, null
-  br i1 %.not1157, label %830, label %825
-
-825:                                              ; preds = %812
-  %826 = getelementptr inbounds nuw i8, ptr %1, i64 1144
-  %827 = load i32, ptr %826, align 8, !tbaa !330
-  %828 = sext i32 %827 to i64
-  %829 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.200, i32 noundef 138, i64 noundef %828) #16
-  br label %830
-
-830:                                              ; preds = %825, %812
-  %831 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %832 = load i64, ptr %831, align 8, !tbaa !331
-  %.not1158 = icmp eq i64 %832, 0
-  br i1 %.not1158, label %838, label %833
-
-833:                                              ; preds = %830
-  %834 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.201, i32 noundef 139, i64 noundef %832) #16
-  %835 = getelementptr inbounds nuw i8, ptr %1, i64 256
-  %836 = load i64, ptr %835, align 8, !tbaa !332
-  %837 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.202, i32 noundef 140, i64 noundef %836) #16
-  br label %838
-
-838:                                              ; preds = %830, %833
-  %839 = getelementptr inbounds nuw i8, ptr %1, i64 1136
-  %840 = load ptr, ptr %839, align 8, !tbaa !333
-  %841 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.203, i32 noundef 10147, ptr noundef %840) #16
-  %842 = getelementptr inbounds nuw i8, ptr %1, i64 1170
-  %843 = load i8, ptr %842, align 2, !tbaa !334, !range !35, !noundef !36
-  %844 = trunc nuw i8 %843 to i1
-  br i1 %844, label %845, label %847
-
-845:                                              ; preds = %838
-  %846 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.204, i32 noundef 150, i64 noundef 0) #16
-  br label %847
-
-847:                                              ; preds = %845, %838
-  %848 = getelementptr inbounds nuw i8, ptr %1, i64 1171
-  %849 = load i8, ptr %848, align 1, !tbaa !335, !range !35, !noundef !36
-  %850 = trunc nuw i8 %849 to i1
-  br i1 %850, label %851, label %854
-
-851:                                              ; preds = %847
-  %852 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.205, i32 noundef 158, i64 noundef 0) #16
-  %853 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.206, i32 noundef 157, i64 noundef 0) #16
-  br label %854
-
-854:                                              ; preds = %851, %847
-  %855 = getelementptr inbounds nuw i8, ptr %1, i64 1175
-  %856 = load i8, ptr %855, align 1, !tbaa !336, !range !35, !noundef !36
-  %857 = trunc nuw i8 %856 to i1
-  br i1 %857, label %871, label %858
-
-858:                                              ; preds = %854
-  %859 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.207, i32 noundef 213, i64 noundef 1) #16
-  %860 = getelementptr inbounds nuw i8, ptr %1, i64 1176
-  %861 = load i64, ptr %860, align 8, !tbaa !337
-  %.not1159 = icmp eq i64 %861, 0
-  br i1 %.not1159, label %866, label %862
-
-862:                                              ; preds = %858
-  %863 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.208, i32 noundef 214, i64 noundef %861) #16
-  %864 = load i64, ptr %860, align 8, !tbaa !337
-  %865 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.209, i32 noundef 215, i64 noundef %864) #16
-  br label %866
-
-866:                                              ; preds = %862, %858
-  %867 = getelementptr inbounds nuw i8, ptr %1, i64 1184
-  %868 = load i64, ptr %867, align 8, !tbaa !338
-  %.not1160 = icmp eq i64 %868, 0
-  br i1 %.not1160, label %873, label %869
-
-869:                                              ; preds = %866
-  %870 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.210, i32 noundef 326, i64 noundef %868) #16
-  br label %873
-
-871:                                              ; preds = %854
-  %872 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.207, i32 noundef 213, i64 noundef 0) #16
-  br label %873
-
-873:                                              ; preds = %866, %869, %871
-  %874 = getelementptr inbounds nuw i8, ptr %1, i64 1160
-  %875 = load i64, ptr %874, align 8, !tbaa !339
-  %876 = icmp ne i64 %875, 0
-  %877 = load ptr, ptr @proto_tftp, align 8
-  %878 = icmp ne ptr %877, null
-  %or.cond9 = select i1 %876, i1 %878, i1 false
-  br i1 %or.cond9, label %879, label %881
-
-879:                                              ; preds = %873
-  %880 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.211, i32 noundef 178, i64 noundef %875) #16
-  br label %881
-
-881:                                              ; preds = %879, %873
-  %882 = getelementptr inbounds nuw i8, ptr %1, i64 440
-  %883 = load ptr, ptr %882, align 8, !tbaa !340
-  %.not1161 = icmp eq ptr %883, null
-  br i1 %.not1161, label %886, label %884
-
-884:                                              ; preds = %881
-  %885 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.212, i32 noundef 10186, ptr noundef nonnull %883) #16
-  br label %886
-
-886:                                              ; preds = %884, %881
-  %887 = getelementptr inbounds nuw i8, ptr %1, i64 448
-  %888 = load ptr, ptr %887, align 8, !tbaa !341
-  %.not1162 = icmp eq ptr %888, null
-  br i1 %.not1162, label %891, label %889
-
-889:                                              ; preds = %886
-  %890 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.213, i32 noundef 10187, ptr noundef nonnull %888) #16
-  br label %891
-
-891:                                              ; preds = %886, %889
-  %892 = getelementptr inbounds nuw i8, ptr %1, i64 464
-  %893 = load i8, ptr %892, align 8, !tbaa !342, !range !35, !noundef !36
-  %894 = zext nneg i8 %893 to i64
-  %895 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.214, i32 noundef 290, i64 noundef %894) #16
-  %896 = getelementptr inbounds nuw i8, ptr %1, i64 76
-  %897 = load i8, ptr %896, align 4, !tbaa !343, !range !35, !noundef !36
-  %898 = trunc nuw i8 %897 to i1
-  br i1 %898, label %899, label %901
-
-899:                                              ; preds = %891
-  %900 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.215, i32 noundef 188, i64 noundef 1) #16
-  br label %901
-
-901:                                              ; preds = %899, %891
-  %902 = getelementptr inbounds nuw i8, ptr %1, i64 928
-  %903 = load i64, ptr %902, align 8, !tbaa !344
-  %.not1163 = icmp eq i64 %903, 0
-  br i1 %.not1163, label %906, label %904
-
-904:                                              ; preds = %901
-  %905 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.216, i32 noundef 159, i64 noundef %903) #16
-  br label %906
-
-906:                                              ; preds = %904, %901
-  %907 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %908 = load i8, ptr %907, align 8, !tbaa !345, !range !35, !noundef !36
-  %909 = trunc nuw i8 %908 to i1
-  br i1 %909, label %910, label %914
-
-910:                                              ; preds = %906
-  %911 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %912 = load ptr, ptr %911, align 8, !tbaa !346
-  %913 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.217, i32 noundef 10318, ptr noundef %912) #16
-  br label %914
-
-914:                                              ; preds = %910, %906
-  %915 = getelementptr inbounds nuw i8, ptr %1, i64 104
-  %916 = load i8, ptr %915, align 8, !tbaa !347, !range !35, !noundef !36
-  %917 = trunc nuw i8 %916 to i1
-  br i1 %917, label %918, label %922
-
-918:                                              ; preds = %914
-  %919 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %920 = load ptr, ptr %919, align 8, !tbaa !348
-  %921 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.218, i32 noundef 10319, ptr noundef %920) #16
-  br label %922
-
-922:                                              ; preds = %914, %918
-  %923 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.219, i32 noundef 20079, ptr noundef nonnull @tool_header_cb) #16
-  %924 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.220, i32 noundef 10029, ptr noundef nonnull %2) #16
-  %925 = getelementptr inbounds nuw i8, ptr %1, i64 1000
-  %926 = load ptr, ptr %925, align 8, !tbaa !349
-  %.not1164 = icmp eq ptr %926, null
-  br i1 %.not1164, label %929, label %927
-
-927:                                              ; preds = %922
-  %928 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.221, i32 noundef 10203, ptr noundef nonnull %926) #16
-  br label %929
-
-929:                                              ; preds = %927, %922
-  %.41009 = phi i32 [ %928, %927 ], [ %924, %922 ]
-  %930 = getelementptr inbounds nuw i8, ptr %1, i64 1008
-  %931 = load ptr, ptr %930, align 8, !tbaa !350
-  %.not1165 = icmp eq ptr %931, null
-  br i1 %.not1165, label %934, label %932
-
-932:                                              ; preds = %929
-  %933 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.222, i32 noundef 10243, ptr noundef nonnull %931) #16
-  br label %934
-
-934:                                              ; preds = %932, %929
-  %.51010 = phi i32 [ %933, %932 ], [ %.41009, %929 ]
-  %935 = load i8, ptr @feature_tls_srp, align 1, !tbaa !34, !range !35, !noundef !36
-  %936 = trunc nuw i8 %935 to i1
-  br i1 %936, label %937, label %967
-
-937:                                              ; preds = %934
-  %938 = getelementptr inbounds nuw i8, ptr %1, i64 360
-  %939 = load ptr, ptr %938, align 8, !tbaa !351
-  %.not1166 = icmp eq ptr %939, null
-  br i1 %.not1166, label %942, label %940
-
-940:                                              ; preds = %937
-  %941 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.223, i32 noundef 10204, ptr noundef nonnull %939) #16
-  br label %942
-
-942:                                              ; preds = %940, %937
-  %.7 = phi i32 [ %941, %940 ], [ %.51010, %937 ]
-  %943 = getelementptr inbounds nuw i8, ptr %1, i64 368
-  %944 = load ptr, ptr %943, align 8, !tbaa !352
-  %.not1167 = icmp eq ptr %944, null
-  br i1 %.not1167, label %947, label %945
-
-945:                                              ; preds = %942
-  %946 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.224, i32 noundef 10205, ptr noundef nonnull %944) #16
-  br label %947
-
-947:                                              ; preds = %945, %942
-  %.8 = phi i32 [ %946, %945 ], [ %.7, %942 ]
-  %948 = getelementptr inbounds nuw i8, ptr %1, i64 376
-  %949 = load ptr, ptr %948, align 8, !tbaa !353
-  %.not1168 = icmp eq ptr %949, null
-  br i1 %.not1168, label %952, label %950
-
-950:                                              ; preds = %947
-  %951 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.225, i32 noundef 10206, ptr noundef nonnull %949) #16
-  br label %952
-
-952:                                              ; preds = %950, %947
-  %.9 = phi i32 [ %951, %950 ], [ %.8, %947 ]
-  %953 = getelementptr inbounds nuw i8, ptr %1, i64 384
-  %954 = load ptr, ptr %953, align 8, !tbaa !354
-  %.not1169 = icmp eq ptr %954, null
-  br i1 %.not1169, label %957, label %955
-
-955:                                              ; preds = %952
-  %956 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.226, i32 noundef 10251, ptr noundef nonnull %954) #16
-  br label %957
-
-957:                                              ; preds = %955, %952
-  %.10 = phi i32 [ %956, %955 ], [ %.9, %952 ]
-  %958 = getelementptr inbounds nuw i8, ptr %1, i64 392
-  %959 = load ptr, ptr %958, align 8, !tbaa !355
-  %.not1170 = icmp eq ptr %959, null
-  br i1 %.not1170, label %962, label %960
-
-960:                                              ; preds = %957
-  %961 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.227, i32 noundef 10252, ptr noundef nonnull %959) #16
-  br label %962
-
-962:                                              ; preds = %960, %957
-  %.11 = phi i32 [ %961, %960 ], [ %.10, %957 ]
-  %963 = getelementptr inbounds nuw i8, ptr %1, i64 400
-  %964 = load ptr, ptr %963, align 8, !tbaa !356
-  %.not1171 = icmp eq ptr %964, null
-  br i1 %.not1171, label %967, label %965
-
-965:                                              ; preds = %962
-  %966 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.228, i32 noundef 10253, ptr noundef nonnull %964) #16
-  br label %967
-
-967:                                              ; preds = %962, %965, %934
-  %.6 = phi i32 [ %966, %965 ], [ %.11, %962 ], [ %.51010, %934 ]
-  %968 = getelementptr inbounds nuw i8, ptr %1, i64 1208
-  %969 = load i64, ptr %968, align 8, !tbaa !357
-  %.not1172 = icmp eq i64 %969, 0
-  br i1 %.not1172, label %972, label %970
-
-970:                                              ; preds = %967
-  %971 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.229, i32 noundef 210, i64 noundef %969) #16
-  br label %972
-
-972:                                              ; preds = %970, %967
-  %.12 = phi i32 [ %971, %970 ], [ %.6, %967 ]
-  %973 = getelementptr inbounds nuw i8, ptr %1, i64 456
-  %974 = load ptr, ptr %973, align 8, !tbaa !358
-  %.not1173 = icmp eq ptr %974, null
-  br i1 %.not1173, label %977, label %975
-
-975:                                              ; preds = %972
-  %976 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.230, i32 noundef 10217, ptr noundef nonnull %974) #16
-  br label %977
-
-977:                                              ; preds = %975, %972
-  %.13 = phi i32 [ %976, %975 ], [ %.12, %972 ]
-  %978 = getelementptr inbounds nuw i8, ptr %1, i64 472
-  %979 = load ptr, ptr %978, align 8, !tbaa !359
-  %.not1174 = icmp eq ptr %979, null
-  br i1 %.not1174, label %982, label %980
-
-980:                                              ; preds = %977
-  %981 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.231, i32 noundef 10289, ptr noundef nonnull %979) #16
-  br label %982
-
-982:                                              ; preds = %980, %977
-  %.14 = phi i32 [ %981, %980 ], [ %.13, %977 ]
-  %983 = getelementptr inbounds nuw i8, ptr %1, i64 480
-  %984 = load i8, ptr %983, align 8, !tbaa !360, !range !35, !noundef !36
-  %985 = trunc nuw i8 %984 to i1
-  br i1 %985, label %986, label %988
-
-986:                                              ; preds = %982
-  %987 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.232, i32 noundef 218, i64 noundef 1) #16
-  br label %988
-
-988:                                              ; preds = %986, %982
-  %.15 = phi i32 [ %987, %986 ], [ %.14, %982 ]
-  %989 = getelementptr inbounds nuw i8, ptr %1, i64 1240
-  %990 = load i8, ptr %989, align 8, !tbaa !361, !range !35, !noundef !36
-  %991 = trunc nuw i8 %990 to i1
-  br i1 %991, label %992, label %994
-
-992:                                              ; preds = %988
-  %993 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.233, i32 noundef 226, i64 noundef 0) #16
-  br label %994
-
-994:                                              ; preds = %992, %988
-  %.16 = phi i32 [ %993, %992 ], [ %.15, %988 ]
-  %995 = getelementptr inbounds nuw i8, ptr %1, i64 1248
-  %996 = load ptr, ptr %995, align 8, !tbaa !362
-  %.not1175 = icmp eq ptr %996, null
-  br i1 %.not1175, label %1005, label %997
-
-997:                                              ; preds = %994
-  %998 = getelementptr inbounds nuw i8, ptr %1, i64 1256
-  %999 = load i8, ptr %998, align 8, !tbaa !363, !range !35, !noundef !36
-  %1000 = trunc nuw i8 %999 to i1
-  br i1 %1000, label %1001, label %1003
-
-1001:                                             ; preds = %997
-  %1002 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.234, i32 noundef 10264, ptr noundef nonnull %996) #16
-  br label %1005
-
-1003:                                             ; preds = %997
-  %1004 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.235, i32 noundef 10231, ptr noundef nonnull %996) #16
-  br label %1005
-
-1005:                                             ; preds = %1001, %1003, %994
-  %.17 = phi i32 [ %1002, %1001 ], [ %1004, %1003 ], [ %.16, %994 ]
-  %1006 = getelementptr inbounds nuw i8, ptr %1, i64 112
-  %1007 = load ptr, ptr %1006, align 8, !tbaa !364
-  %.not1176 = icmp eq ptr %1007, null
-  br i1 %.not1176, label %1010, label %1008
-
-1008:                                             ; preds = %1005
-  %1009 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.236, i32 noundef 10238, ptr noundef nonnull %1007) #16
-  br label %1010
-
-1010:                                             ; preds = %1008, %1005
-  %.18 = phi i32 [ %1009, %1008 ], [ %.17, %1005 ]
-  %1011 = getelementptr inbounds nuw i8, ptr %1, i64 1264
-  %1012 = load i64, ptr %1011, align 8, !tbaa !365
-  %1013 = icmp sgt i64 %1012, 0
-  br i1 %1013, label %1014, label %1016
-
-1014:                                             ; preds = %1010
-  %1015 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.237, i32 noundef 227, i64 noundef %1012) #16
-  br label %1016
-
-1016:                                             ; preds = %1014, %1010
-  %.19 = phi i32 [ %1015, %1014 ], [ %.18, %1010 ]
-  %1017 = getelementptr inbounds nuw i8, ptr %1, i64 1168
-  %1018 = load i8, ptr %1017, align 8, !tbaa !366, !range !35, !noundef !36
-  %1019 = trunc nuw i8 %1018 to i1
-  %1020 = load ptr, ptr @proto_tftp, align 8
-  %1021 = icmp ne ptr %1020, null
-  %or.cond11 = select i1 %1019, i1 %1021, i1 false
-  br i1 %or.cond11, label %1022, label %1024
-
-1022:                                             ; preds = %1016
-  %1023 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.238, i32 noundef 242, i64 noundef 1) #16
-  br label %1024
-
-1024:                                             ; preds = %1022, %1016
-  %.20 = phi i32 [ %1023, %1022 ], [ %.19, %1016 ]
-  %1025 = getelementptr inbounds nuw i8, ptr %1, i64 1280
-  %1026 = load i64, ptr %1025, align 8, !tbaa !367
-  %.not1177 = icmp eq i64 %1026, 200
-  br i1 %.not1177, label %1029, label %1027
-
-1027:                                             ; preds = %1024
-  %1028 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.239, i32 noundef 271, i64 noundef %1026) #16
-  br label %1029
-
-1029:                                             ; preds = %1027, %1024
-  %.21 = phi i32 [ %1028, %1027 ], [ %.20, %1024 ]
-  %1030 = getelementptr inbounds nuw i8, ptr %1, i64 1288
-  %1031 = load i8, ptr %1030, align 8, !tbaa !368, !range !35, !noundef !36
-  %1032 = trunc nuw i8 %1031 to i1
-  br i1 %1032, label %1033, label %1035
-
-1033:                                             ; preds = %1029
-  %1034 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.240, i32 noundef 274, i64 noundef 1) #16
-  br label %1035
-
-1035:                                             ; preds = %1033, %1029
-  %.22 = phi i32 [ %1034, %1033 ], [ %.21, %1029 ]
-  %1036 = getelementptr inbounds nuw i8, ptr %1, i64 1296
-  %1037 = load ptr, ptr %1036, align 8, !tbaa !369
-  %.not1178 = icmp eq ptr %1037, null
-  br i1 %.not1178, label %1040, label %1038
-
-1038:                                             ; preds = %1035
-  %1039 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.241, i32 noundef 10323, ptr noundef nonnull %1037) #16
-  br label %1040
-
-1040:                                             ; preds = %1038, %1035
-  %.23 = phi i32 [ %1039, %1038 ], [ %.22, %1035 ]
-  %1041 = getelementptr inbounds nuw i8, ptr %1, i64 1304
-  %1042 = load i8, ptr %1041, align 8, !tbaa !370, !range !35, !noundef !36
-  %1043 = trunc nuw i8 %1042 to i1
-  br i1 %1043, label %1044, label %1046
-
-1044:                                             ; preds = %1040
-  %1045 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.242, i32 noundef 278, i64 noundef 1) #16
-  br label %1046
-
-1046:                                             ; preds = %1044, %1040
-  %.24 = phi i32 [ %1045, %1044 ], [ %.23, %1040 ]
-  %1047 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %1048 = load ptr, ptr %1047, align 8, !tbaa !371
-  %.not1179 = icmp eq ptr %1048, null
-  br i1 %.not1179, label %1051, label %1049
-
-1049:                                             ; preds = %1046
-  %1050 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.243, i32 noundef 10287, ptr noundef nonnull %1048) #16
-  br label %1051
-
-1051:                                             ; preds = %1049, %1046
-  %.25 = phi i32 [ %1050, %1049 ], [ %.24, %1046 ]
-  %1052 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %1053 = load ptr, ptr %1052, align 8, !tbaa !372
-  %.not1180 = icmp eq ptr %1053, null
-  br i1 %.not1180, label %1056, label %1054
-
-1054:                                             ; preds = %1051
-  %1055 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.244, i32 noundef 10300, ptr noundef nonnull %1053) #16
-  br label %1056
-
-1056:                                             ; preds = %1054, %1051
-  %.26 = phi i32 [ %1055, %1054 ], [ %.25, %1051 ]
-  %1057 = load i8, ptr @feature_ech, align 1, !tbaa !34, !range !35, !noundef !36
-  %1058 = trunc nuw i8 %1057 to i1
-  br i1 %1058, label %1059, label %1074
-
-1059:                                             ; preds = %1056
-  %1060 = getelementptr inbounds nuw i8, ptr %1, i64 1440
-  %1061 = load ptr, ptr %1060, align 8, !tbaa !373
-  %.not1181 = icmp eq ptr %1061, null
-  br i1 %.not1181, label %1064, label %1062
-
-1062:                                             ; preds = %1059
-  %1063 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.245, i32 noundef 10325, ptr noundef nonnull %1061) #16
-  br label %1064
-
-1064:                                             ; preds = %1062, %1059
-  %.28 = phi i32 [ %1063, %1062 ], [ %.26, %1059 ]
-  %1065 = getelementptr inbounds nuw i8, ptr %1, i64 1456
-  %1066 = load ptr, ptr %1065, align 8, !tbaa !374
-  %.not1182 = icmp eq ptr %1066, null
-  br i1 %.not1182, label %1069, label %1067
-
-1067:                                             ; preds = %1064
-  %1068 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.245, i32 noundef 10325, ptr noundef nonnull %1066) #16
-  br label %1069
-
-1069:                                             ; preds = %1067, %1064
-  %.29 = phi i32 [ %1068, %1067 ], [ %.28, %1064 ]
-  %1070 = getelementptr inbounds nuw i8, ptr %1, i64 1448
-  %1071 = load ptr, ptr %1070, align 8, !tbaa !375
-  %.not1183 = icmp eq ptr %1071, null
-  br i1 %.not1183, label %1074, label %1072
-
-1072:                                             ; preds = %1069
-  %1073 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.245, i32 noundef 10325, ptr noundef nonnull %1071) #16
-  br label %1074
-
-1074:                                             ; preds = %1069, %1072, %1056
-  %.27 = phi i32 [ %1073, %1072 ], [ %.29, %1069 ], [ %.26, %1056 ]
-  %1075 = getelementptr inbounds nuw i8, ptr %1, i64 296
-  %1076 = load i64, ptr %1075, align 8, !tbaa !376
-  %1077 = icmp sgt i64 %1076, 0
-  br i1 %1077, label %1082, label %1078
-
-1078:                                             ; preds = %1074
-  %1079 = getelementptr inbounds nuw i8, ptr %1, i64 304
-  %1080 = load i64, ptr %1079, align 8, !tbaa !377
-  %1081 = icmp sgt i64 %1080, 0
-  br i1 %1081, label %1082, label %.thread
-
-1082:                                             ; preds = %1074, %1078
-  %1083 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.246, i32 noundef 20148, ptr noundef nonnull @sockopt_callback) #16
-  %1084 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.247, i32 noundef 10149, ptr noundef nonnull %1) #16
+  br label %730
+
+730:                                              ; preds = %726, %729, %723
+  %731 = getelementptr inbounds nuw i8, ptr %1, i64 74
+  %732 = load i8, ptr %731, align 2, !tbaa !311, !range !35, !noundef !36
+  %733 = trunc nuw i8 %732 to i1
+  br i1 %733, label %734, label %736
+
+734:                                              ; preds = %730
+  %735 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.182, i32 noundef 85, i64 noundef 0) #16
+  br label %736
+
+736:                                              ; preds = %734, %730
+  %737 = getelementptr inbounds nuw i8, ptr %1, i64 75
+  %738 = load i8, ptr %737, align 1, !tbaa !312, !range !35, !noundef !36
+  %739 = trunc nuw i8 %738 to i1
+  br i1 %739, label %740, label %742
+
+740:                                              ; preds = %736
+  %741 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.183, i32 noundef 106, i64 noundef 0) #16
+  br label %742
+
+742:                                              ; preds = %740, %736
+  %743 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  %744 = load i32, ptr %743, align 4, !tbaa !313
+  %.not1150 = icmp eq i32 %744, 0
+  br i1 %.not1150, label %749, label %745
+
+745:                                              ; preds = %742
+  %746 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.184, i32 noundef 20094, ptr noundef nonnull @tool_debug_cb) #16
+  %747 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.185, i32 noundef 10095, ptr noundef nonnull %1) #16
+  %748 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.186, i32 noundef 41, i64 noundef 1) #16
+  br label %749
+
+749:                                              ; preds = %745, %742
+  %750 = getelementptr inbounds nuw i8, ptr %1, i64 768
+  %751 = load ptr, ptr %750, align 8, !tbaa !314
+  %.not1151 = icmp eq ptr %751, null
+  br i1 %.not1151, label %754, label %752
+
+752:                                              ; preds = %749
+  %753 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.187, i32 noundef 10089, ptr noundef nonnull %751) #16
+  %.not1152 = icmp eq i32 %753, 0
+  br i1 %.not1152, label %754, label %.thread
+
+754:                                              ; preds = %749, %752
+  %755 = getelementptr inbounds nuw i8, ptr %1, i64 852
+  %756 = load i8, ptr %755, align 4, !tbaa !315, !range !35, !noundef !36
+  %757 = trunc nuw i8 %756 to i1
+  %758 = select i1 %757, i64 2, i64 0
+  %759 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.188, i32 noundef 110, i64 noundef %758) #16
+  %760 = getelementptr inbounds nuw i8, ptr %1, i64 208
+  %761 = load i64, ptr %760, align 8, !tbaa !316
+  %.not1153 = icmp eq i64 %761, 0
+  br i1 %.not1153, label %764, label %762
+
+762:                                              ; preds = %754
+  %763 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.189, i32 noundef 30117, i64 noundef %761) #16
+  br label %764
+
+764:                                              ; preds = %754, %762
+  %765 = getelementptr inbounds nuw i8, ptr %1, i64 920
+  %766 = load i64, ptr %765, align 8, !tbaa !317
+  %767 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.190, i32 noundef 113, i64 noundef %766) #16
+  %768 = getelementptr inbounds nuw i8, ptr %1, i64 1041
+  %769 = load i8, ptr %768, align 1, !tbaa !318, !range !35, !noundef !36
+  %770 = trunc nuw i8 %769 to i1
+  br i1 %770, label %.sink.split1224, label %771
+
+771:                                              ; preds = %764
+  %772 = getelementptr inbounds nuw i8, ptr %1, i64 1040
+  %773 = load i8, ptr %772, align 8, !tbaa !319, !range !35, !noundef !36
+  %774 = trunc nuw i8 %773 to i1
+  br i1 %774, label %.sink.split1224, label %775
+
+775:                                              ; preds = %771
+  %776 = getelementptr inbounds nuw i8, ptr %1, i64 1042
+  %777 = load i8, ptr %776, align 2, !tbaa !320, !range !35, !noundef !36
+  %778 = trunc nuw i8 %777 to i1
+  br i1 %778, label %.sink.split1224, label %780
+
+.sink.split1224:                                  ; preds = %775, %771, %764
+  %.sink1225 = phi i64 [ 3, %764 ], [ 1, %771 ], [ 2, %775 ]
+  %779 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.191, i32 noundef 119, ptr noundef nonnull @setopt_nv_CURLUSESSL, i64 noundef %.sink1225) #16
+  br label %780
+
+780:                                              ; preds = %.sink.split1224, %775
+  %781 = getelementptr inbounds nuw i8, ptr %1, i64 1043
+  %782 = load i8, ptr %781, align 1, !tbaa !321, !range !35, !noundef !36
+  %783 = trunc nuw i8 %782 to i1
+  br i1 %783, label %784, label %789
+
+784:                                              ; preds = %780
+  %785 = getelementptr inbounds nuw i8, ptr %1, i64 1044
+  %786 = load i32, ptr %785, align 4, !tbaa !322
+  %787 = sext i32 %786 to i64
+  %788 = call i32 @tool_setopt_enum(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.192, i32 noundef 154, ptr noundef nonnull @setopt_nv_CURLFTPSSL_CCC, i64 noundef %787) #16
+  br label %789
+
+789:                                              ; preds = %784, %780
+  %790 = getelementptr inbounds nuw i8, ptr %1, i64 1056
+  %791 = load i8, ptr %790, align 8, !tbaa !323, !range !35, !noundef !36
+  %792 = trunc nuw i8 %791 to i1
+  br i1 %792, label %793, label %795
+
+793:                                              ; preds = %789
+  %794 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.193, i32 noundef 180, i64 noundef 1) #16
+  br label %795
+
+795:                                              ; preds = %793, %789
+  %796 = getelementptr inbounds nuw i8, ptr %1, i64 1064
+  %797 = load i64, ptr %796, align 8, !tbaa !324
+  %.not1154 = icmp eq i64 %797, 0
+  br i1 %.not1154, label %800, label %798
+
+798:                                              ; preds = %795
+  %799 = call i32 @tool_setopt_bitmask(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.194, i32 noundef 267, ptr noundef nonnull @setopt_nv_CURLAUTH, i64 noundef %797) #16
+  br label %800
+
+800:                                              ; preds = %798, %795
+  %801 = getelementptr inbounds nuw i8, ptr %1, i64 1072
+  %802 = load ptr, ptr %801, align 8, !tbaa !325
+  %.not1155 = icmp eq ptr %802, null
+  br i1 %.not1155, label %805, label %803
+
+803:                                              ; preds = %800
+  %804 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.195, i32 noundef 10235, ptr noundef nonnull %802) #16
+  br label %805
+
+805:                                              ; preds = %803, %800
+  %806 = getelementptr inbounds nuw i8, ptr %1, i64 1080
+  %807 = load ptr, ptr %806, align 8, !tbaa !326
+  %.not1156 = icmp eq ptr %807, null
+  br i1 %.not1156, label %810, label %808
+
+808:                                              ; preds = %805
+  %809 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.196, i32 noundef 10236, ptr noundef nonnull %807) #16
+  br label %810
+
+810:                                              ; preds = %805, %808
+  %811 = getelementptr inbounds nuw i8, ptr %1, i64 1128
+  %812 = load ptr, ptr %811, align 8, !tbaa !327
+  %813 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.197, i32 noundef 10134, ptr noundef %812) #16
+  %814 = getelementptr inbounds nuw i8, ptr %1, i64 1169
+  %815 = load i8, ptr %814, align 1, !tbaa !328, !range !35, !noundef !36
+  %816 = zext nneg i8 %815 to i64
+  %817 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.198, i32 noundef 136, i64 noundef %816) #16
+  %818 = getelementptr inbounds nuw i8, ptr %1, i64 853
+  %819 = load i8, ptr %818, align 1, !tbaa !329, !range !35, !noundef !36
+  %820 = zext nneg i8 %819 to i64
+  %821 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.199, i32 noundef 137, i64 noundef %820) #16
+  %822 = load ptr, ptr @proto_ftp, align 8, !tbaa !14
+  %.not1157 = icmp eq ptr %822, null
+  br i1 %.not1157, label %828, label %823
+
+823:                                              ; preds = %810
+  %824 = getelementptr inbounds nuw i8, ptr %1, i64 1144
+  %825 = load i32, ptr %824, align 8, !tbaa !330
+  %826 = sext i32 %825 to i64
+  %827 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.200, i32 noundef 138, i64 noundef %826) #16
+  br label %828
+
+828:                                              ; preds = %823, %810
+  %829 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %830 = load i64, ptr %829, align 8, !tbaa !331
+  %.not1158 = icmp eq i64 %830, 0
+  br i1 %.not1158, label %836, label %831
+
+831:                                              ; preds = %828
+  %832 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.201, i32 noundef 139, i64 noundef %830) #16
+  %833 = getelementptr inbounds nuw i8, ptr %1, i64 256
+  %834 = load i64, ptr %833, align 8, !tbaa !332
+  %835 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.202, i32 noundef 140, i64 noundef %834) #16
+  br label %836
+
+836:                                              ; preds = %828, %831
+  %837 = getelementptr inbounds nuw i8, ptr %1, i64 1136
+  %838 = load ptr, ptr %837, align 8, !tbaa !333
+  %839 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.203, i32 noundef 10147, ptr noundef %838) #16
+  %840 = getelementptr inbounds nuw i8, ptr %1, i64 1170
+  %841 = load i8, ptr %840, align 2, !tbaa !334, !range !35, !noundef !36
+  %842 = trunc nuw i8 %841 to i1
+  br i1 %842, label %843, label %845
+
+843:                                              ; preds = %836
+  %844 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.204, i32 noundef 150, i64 noundef 0) #16
+  br label %845
+
+845:                                              ; preds = %843, %836
+  %846 = getelementptr inbounds nuw i8, ptr %1, i64 1171
+  %847 = load i8, ptr %846, align 1, !tbaa !335, !range !35, !noundef !36
+  %848 = trunc nuw i8 %847 to i1
+  br i1 %848, label %849, label %852
+
+849:                                              ; preds = %845
+  %850 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.205, i32 noundef 158, i64 noundef 0) #16
+  %851 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.206, i32 noundef 157, i64 noundef 0) #16
+  br label %852
+
+852:                                              ; preds = %849, %845
+  %853 = getelementptr inbounds nuw i8, ptr %1, i64 1175
+  %854 = load i8, ptr %853, align 1, !tbaa !336, !range !35, !noundef !36
+  %855 = trunc nuw i8 %854 to i1
+  br i1 %855, label %869, label %856
+
+856:                                              ; preds = %852
+  %857 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.207, i32 noundef 213, i64 noundef 1) #16
+  %858 = getelementptr inbounds nuw i8, ptr %1, i64 1176
+  %859 = load i64, ptr %858, align 8, !tbaa !337
+  %.not1159 = icmp eq i64 %859, 0
+  br i1 %.not1159, label %864, label %860
+
+860:                                              ; preds = %856
+  %861 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.208, i32 noundef 214, i64 noundef %859) #16
+  %862 = load i64, ptr %858, align 8, !tbaa !337
+  %863 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.209, i32 noundef 215, i64 noundef %862) #16
+  br label %864
+
+864:                                              ; preds = %860, %856
+  %865 = getelementptr inbounds nuw i8, ptr %1, i64 1184
+  %866 = load i64, ptr %865, align 8, !tbaa !338
+  %.not1160 = icmp eq i64 %866, 0
+  br i1 %.not1160, label %871, label %867
+
+867:                                              ; preds = %864
+  %868 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.210, i32 noundef 326, i64 noundef %866) #16
+  br label %871
+
+869:                                              ; preds = %852
+  %870 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.207, i32 noundef 213, i64 noundef 0) #16
+  br label %871
+
+871:                                              ; preds = %864, %867, %869
+  %872 = getelementptr inbounds nuw i8, ptr %1, i64 1160
+  %873 = load i64, ptr %872, align 8, !tbaa !339
+  %874 = icmp ne i64 %873, 0
+  %875 = load ptr, ptr @proto_tftp, align 8
+  %876 = icmp ne ptr %875, null
+  %or.cond9 = select i1 %874, i1 %876, i1 false
+  br i1 %or.cond9, label %877, label %879
+
+877:                                              ; preds = %871
+  %878 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.211, i32 noundef 178, i64 noundef %873) #16
+  br label %879
+
+879:                                              ; preds = %877, %871
+  %880 = getelementptr inbounds nuw i8, ptr %1, i64 440
+  %881 = load ptr, ptr %880, align 8, !tbaa !340
+  %.not1161 = icmp eq ptr %881, null
+  br i1 %.not1161, label %884, label %882
+
+882:                                              ; preds = %879
+  %883 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.212, i32 noundef 10186, ptr noundef nonnull %881) #16
+  br label %884
+
+884:                                              ; preds = %882, %879
+  %885 = getelementptr inbounds nuw i8, ptr %1, i64 448
+  %886 = load ptr, ptr %885, align 8, !tbaa !341
+  %.not1162 = icmp eq ptr %886, null
+  br i1 %.not1162, label %889, label %887
+
+887:                                              ; preds = %884
+  %888 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.213, i32 noundef 10187, ptr noundef nonnull %886) #16
+  br label %889
+
+889:                                              ; preds = %884, %887
+  %890 = getelementptr inbounds nuw i8, ptr %1, i64 464
+  %891 = load i8, ptr %890, align 8, !tbaa !342, !range !35, !noundef !36
+  %892 = zext nneg i8 %891 to i64
+  %893 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.214, i32 noundef 290, i64 noundef %892) #16
+  %894 = getelementptr inbounds nuw i8, ptr %1, i64 76
+  %895 = load i8, ptr %894, align 4, !tbaa !343, !range !35, !noundef !36
+  %896 = trunc nuw i8 %895 to i1
+  br i1 %896, label %897, label %899
+
+897:                                              ; preds = %889
+  %898 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.215, i32 noundef 188, i64 noundef 1) #16
+  br label %899
+
+899:                                              ; preds = %897, %889
+  %900 = getelementptr inbounds nuw i8, ptr %1, i64 928
+  %901 = load i64, ptr %900, align 8, !tbaa !344
+  %.not1163 = icmp eq i64 %901, 0
+  br i1 %.not1163, label %904, label %902
+
+902:                                              ; preds = %899
+  %903 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.216, i32 noundef 159, i64 noundef %901) #16
+  br label %904
+
+904:                                              ; preds = %902, %899
+  %905 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %906 = load i8, ptr %905, align 8, !tbaa !345, !range !35, !noundef !36
+  %907 = trunc nuw i8 %906 to i1
+  br i1 %907, label %908, label %912
+
+908:                                              ; preds = %904
+  %909 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %910 = load ptr, ptr %909, align 8, !tbaa !346
+  %911 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.217, i32 noundef 10318, ptr noundef %910) #16
+  br label %912
+
+912:                                              ; preds = %908, %904
+  %913 = getelementptr inbounds nuw i8, ptr %1, i64 104
+  %914 = load i8, ptr %913, align 8, !tbaa !347, !range !35, !noundef !36
+  %915 = trunc nuw i8 %914 to i1
+  br i1 %915, label %916, label %920
+
+916:                                              ; preds = %912
+  %917 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %918 = load ptr, ptr %917, align 8, !tbaa !348
+  %919 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.218, i32 noundef 10319, ptr noundef %918) #16
+  br label %920
+
+920:                                              ; preds = %912, %916
+  %921 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.219, i32 noundef 20079, ptr noundef nonnull @tool_header_cb) #16
+  %922 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.220, i32 noundef 10029, ptr noundef nonnull %2) #16
+  %923 = getelementptr inbounds nuw i8, ptr %1, i64 1000
+  %924 = load ptr, ptr %923, align 8, !tbaa !349
+  %.not1164 = icmp eq ptr %924, null
+  br i1 %.not1164, label %927, label %925
+
+925:                                              ; preds = %920
+  %926 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.221, i32 noundef 10203, ptr noundef nonnull %924) #16
+  br label %927
+
+927:                                              ; preds = %925, %920
+  %.41009 = phi i32 [ %926, %925 ], [ %922, %920 ]
+  %928 = getelementptr inbounds nuw i8, ptr %1, i64 1008
+  %929 = load ptr, ptr %928, align 8, !tbaa !350
+  %.not1165 = icmp eq ptr %929, null
+  br i1 %.not1165, label %932, label %930
+
+930:                                              ; preds = %927
+  %931 = call i32 @tool_setopt_slist(ptr noundef %3, ptr noundef nonnull %0, ptr noundef nonnull @.str.222, i32 noundef 10243, ptr noundef nonnull %929) #16
+  br label %932
+
+932:                                              ; preds = %930, %927
+  %.51010 = phi i32 [ %931, %930 ], [ %.41009, %927 ]
+  %933 = load i8, ptr @feature_tls_srp, align 1, !tbaa !34, !range !35, !noundef !36
+  %934 = trunc nuw i8 %933 to i1
+  br i1 %934, label %935, label %965
+
+935:                                              ; preds = %932
+  %936 = getelementptr inbounds nuw i8, ptr %1, i64 360
+  %937 = load ptr, ptr %936, align 8, !tbaa !351
+  %.not1166 = icmp eq ptr %937, null
+  br i1 %.not1166, label %940, label %938
+
+938:                                              ; preds = %935
+  %939 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.223, i32 noundef 10204, ptr noundef nonnull %937) #16
+  br label %940
+
+940:                                              ; preds = %938, %935
+  %.7 = phi i32 [ %939, %938 ], [ %.51010, %935 ]
+  %941 = getelementptr inbounds nuw i8, ptr %1, i64 368
+  %942 = load ptr, ptr %941, align 8, !tbaa !352
+  %.not1167 = icmp eq ptr %942, null
+  br i1 %.not1167, label %945, label %943
+
+943:                                              ; preds = %940
+  %944 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.224, i32 noundef 10205, ptr noundef nonnull %942) #16
+  br label %945
+
+945:                                              ; preds = %943, %940
+  %.8 = phi i32 [ %944, %943 ], [ %.7, %940 ]
+  %946 = getelementptr inbounds nuw i8, ptr %1, i64 376
+  %947 = load ptr, ptr %946, align 8, !tbaa !353
+  %.not1168 = icmp eq ptr %947, null
+  br i1 %.not1168, label %950, label %948
+
+948:                                              ; preds = %945
+  %949 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.225, i32 noundef 10206, ptr noundef nonnull %947) #16
+  br label %950
+
+950:                                              ; preds = %948, %945
+  %.9 = phi i32 [ %949, %948 ], [ %.8, %945 ]
+  %951 = getelementptr inbounds nuw i8, ptr %1, i64 384
+  %952 = load ptr, ptr %951, align 8, !tbaa !354
+  %.not1169 = icmp eq ptr %952, null
+  br i1 %.not1169, label %955, label %953
+
+953:                                              ; preds = %950
+  %954 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.226, i32 noundef 10251, ptr noundef nonnull %952) #16
+  br label %955
+
+955:                                              ; preds = %953, %950
+  %.10 = phi i32 [ %954, %953 ], [ %.9, %950 ]
+  %956 = getelementptr inbounds nuw i8, ptr %1, i64 392
+  %957 = load ptr, ptr %956, align 8, !tbaa !355
+  %.not1170 = icmp eq ptr %957, null
+  br i1 %.not1170, label %960, label %958
+
+958:                                              ; preds = %955
+  %959 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.227, i32 noundef 10252, ptr noundef nonnull %957) #16
+  br label %960
+
+960:                                              ; preds = %958, %955
+  %.11 = phi i32 [ %959, %958 ], [ %.10, %955 ]
+  %961 = getelementptr inbounds nuw i8, ptr %1, i64 400
+  %962 = load ptr, ptr %961, align 8, !tbaa !356
+  %.not1171 = icmp eq ptr %962, null
+  br i1 %.not1171, label %965, label %963
+
+963:                                              ; preds = %960
+  %964 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.228, i32 noundef 10253, ptr noundef nonnull %962) #16
+  br label %965
+
+965:                                              ; preds = %960, %963, %932
+  %.6 = phi i32 [ %964, %963 ], [ %.11, %960 ], [ %.51010, %932 ]
+  %966 = getelementptr inbounds nuw i8, ptr %1, i64 1208
+  %967 = load i64, ptr %966, align 8, !tbaa !357
+  %.not1172 = icmp eq i64 %967, 0
+  br i1 %.not1172, label %970, label %968
+
+968:                                              ; preds = %965
+  %969 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.229, i32 noundef 210, i64 noundef %967) #16
+  br label %970
+
+970:                                              ; preds = %968, %965
+  %.12 = phi i32 [ %969, %968 ], [ %.6, %965 ]
+  %971 = getelementptr inbounds nuw i8, ptr %1, i64 456
+  %972 = load ptr, ptr %971, align 8, !tbaa !358
+  %.not1173 = icmp eq ptr %972, null
+  br i1 %.not1173, label %975, label %973
+
+973:                                              ; preds = %970
+  %974 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.230, i32 noundef 10217, ptr noundef nonnull %972) #16
+  br label %975
+
+975:                                              ; preds = %973, %970
+  %.13 = phi i32 [ %974, %973 ], [ %.12, %970 ]
+  %976 = getelementptr inbounds nuw i8, ptr %1, i64 472
+  %977 = load ptr, ptr %976, align 8, !tbaa !359
+  %.not1174 = icmp eq ptr %977, null
+  br i1 %.not1174, label %980, label %978
+
+978:                                              ; preds = %975
+  %979 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.231, i32 noundef 10289, ptr noundef nonnull %977) #16
+  br label %980
+
+980:                                              ; preds = %978, %975
+  %.14 = phi i32 [ %979, %978 ], [ %.13, %975 ]
+  %981 = getelementptr inbounds nuw i8, ptr %1, i64 480
+  %982 = load i8, ptr %981, align 8, !tbaa !360, !range !35, !noundef !36
+  %983 = trunc nuw i8 %982 to i1
+  br i1 %983, label %984, label %986
+
+984:                                              ; preds = %980
+  %985 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.232, i32 noundef 218, i64 noundef 1) #16
+  br label %986
+
+986:                                              ; preds = %984, %980
+  %.15 = phi i32 [ %985, %984 ], [ %.14, %980 ]
+  %987 = getelementptr inbounds nuw i8, ptr %1, i64 1240
+  %988 = load i8, ptr %987, align 8, !tbaa !361, !range !35, !noundef !36
+  %989 = trunc nuw i8 %988 to i1
+  br i1 %989, label %990, label %992
+
+990:                                              ; preds = %986
+  %991 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.233, i32 noundef 226, i64 noundef 0) #16
+  br label %992
+
+992:                                              ; preds = %990, %986
+  %.16 = phi i32 [ %991, %990 ], [ %.15, %986 ]
+  %993 = getelementptr inbounds nuw i8, ptr %1, i64 1248
+  %994 = load ptr, ptr %993, align 8, !tbaa !362
+  %.not1175 = icmp eq ptr %994, null
+  br i1 %.not1175, label %1003, label %995
+
+995:                                              ; preds = %992
+  %996 = getelementptr inbounds nuw i8, ptr %1, i64 1256
+  %997 = load i8, ptr %996, align 8, !tbaa !363, !range !35, !noundef !36
+  %998 = trunc nuw i8 %997 to i1
+  br i1 %998, label %999, label %1001
+
+999:                                              ; preds = %995
+  %1000 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.234, i32 noundef 10264, ptr noundef nonnull %994) #16
+  br label %1003
+
+1001:                                             ; preds = %995
+  %1002 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.235, i32 noundef 10231, ptr noundef nonnull %994) #16
+  br label %1003
+
+1003:                                             ; preds = %999, %1001, %992
+  %.17 = phi i32 [ %1000, %999 ], [ %1002, %1001 ], [ %.16, %992 ]
+  %1004 = getelementptr inbounds nuw i8, ptr %1, i64 112
+  %1005 = load ptr, ptr %1004, align 8, !tbaa !364
+  %.not1176 = icmp eq ptr %1005, null
+  br i1 %.not1176, label %1008, label %1006
+
+1006:                                             ; preds = %1003
+  %1007 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.236, i32 noundef 10238, ptr noundef nonnull %1005) #16
+  br label %1008
+
+1008:                                             ; preds = %1006, %1003
+  %.18 = phi i32 [ %1007, %1006 ], [ %.17, %1003 ]
+  %1009 = getelementptr inbounds nuw i8, ptr %1, i64 1264
+  %1010 = load i64, ptr %1009, align 8, !tbaa !365
+  %1011 = icmp sgt i64 %1010, 0
+  br i1 %1011, label %1012, label %1014
+
+1012:                                             ; preds = %1008
+  %1013 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.237, i32 noundef 227, i64 noundef %1010) #16
+  br label %1014
+
+1014:                                             ; preds = %1012, %1008
+  %.19 = phi i32 [ %1013, %1012 ], [ %.18, %1008 ]
+  %1015 = getelementptr inbounds nuw i8, ptr %1, i64 1168
+  %1016 = load i8, ptr %1015, align 8, !tbaa !366, !range !35, !noundef !36
+  %1017 = trunc nuw i8 %1016 to i1
+  %1018 = load ptr, ptr @proto_tftp, align 8
+  %1019 = icmp ne ptr %1018, null
+  %or.cond11 = select i1 %1017, i1 %1019, i1 false
+  br i1 %or.cond11, label %1020, label %1022
+
+1020:                                             ; preds = %1014
+  %1021 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.238, i32 noundef 242, i64 noundef 1) #16
+  br label %1022
+
+1022:                                             ; preds = %1020, %1014
+  %.20 = phi i32 [ %1021, %1020 ], [ %.19, %1014 ]
+  %1023 = getelementptr inbounds nuw i8, ptr %1, i64 1280
+  %1024 = load i64, ptr %1023, align 8, !tbaa !367
+  %.not1177 = icmp eq i64 %1024, 200
+  br i1 %.not1177, label %1027, label %1025
+
+1025:                                             ; preds = %1022
+  %1026 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.239, i32 noundef 271, i64 noundef %1024) #16
+  br label %1027
+
+1027:                                             ; preds = %1025, %1022
+  %.21 = phi i32 [ %1026, %1025 ], [ %.20, %1022 ]
+  %1028 = getelementptr inbounds nuw i8, ptr %1, i64 1288
+  %1029 = load i8, ptr %1028, align 8, !tbaa !368, !range !35, !noundef !36
+  %1030 = trunc nuw i8 %1029 to i1
+  br i1 %1030, label %1031, label %1033
+
+1031:                                             ; preds = %1027
+  %1032 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.240, i32 noundef 274, i64 noundef 1) #16
+  br label %1033
+
+1033:                                             ; preds = %1031, %1027
+  %.22 = phi i32 [ %1032, %1031 ], [ %.21, %1027 ]
+  %1034 = getelementptr inbounds nuw i8, ptr %1, i64 1296
+  %1035 = load ptr, ptr %1034, align 8, !tbaa !369
+  %.not1178 = icmp eq ptr %1035, null
+  br i1 %.not1178, label %1038, label %1036
+
+1036:                                             ; preds = %1033
+  %1037 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.241, i32 noundef 10323, ptr noundef nonnull %1035) #16
+  br label %1038
+
+1038:                                             ; preds = %1036, %1033
+  %.23 = phi i32 [ %1037, %1036 ], [ %.22, %1033 ]
+  %1039 = getelementptr inbounds nuw i8, ptr %1, i64 1304
+  %1040 = load i8, ptr %1039, align 8, !tbaa !370, !range !35, !noundef !36
+  %1041 = trunc nuw i8 %1040 to i1
+  br i1 %1041, label %1042, label %1044
+
+1042:                                             ; preds = %1038
+  %1043 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.242, i32 noundef 278, i64 noundef 1) #16
+  br label %1044
+
+1044:                                             ; preds = %1042, %1038
+  %.24 = phi i32 [ %1043, %1042 ], [ %.23, %1038 ]
+  %1045 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %1046 = load ptr, ptr %1045, align 8, !tbaa !371
+  %.not1179 = icmp eq ptr %1046, null
+  br i1 %.not1179, label %1049, label %1047
+
+1047:                                             ; preds = %1044
+  %1048 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.243, i32 noundef 10287, ptr noundef nonnull %1046) #16
+  br label %1049
+
+1049:                                             ; preds = %1047, %1044
+  %.25 = phi i32 [ %1048, %1047 ], [ %.24, %1044 ]
+  %1050 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %1051 = load ptr, ptr %1050, align 8, !tbaa !372
+  %.not1180 = icmp eq ptr %1051, null
+  br i1 %.not1180, label %1054, label %1052
+
+1052:                                             ; preds = %1049
+  %1053 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.244, i32 noundef 10300, ptr noundef nonnull %1051) #16
+  br label %1054
+
+1054:                                             ; preds = %1052, %1049
+  %.26 = phi i32 [ %1053, %1052 ], [ %.25, %1049 ]
+  %1055 = load i8, ptr @feature_ech, align 1, !tbaa !34, !range !35, !noundef !36
+  %1056 = trunc nuw i8 %1055 to i1
+  br i1 %1056, label %1057, label %1072
+
+1057:                                             ; preds = %1054
+  %1058 = getelementptr inbounds nuw i8, ptr %1, i64 1440
+  %1059 = load ptr, ptr %1058, align 8, !tbaa !373
+  %.not1181 = icmp eq ptr %1059, null
+  br i1 %.not1181, label %1062, label %1060
+
+1060:                                             ; preds = %1057
+  %1061 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.245, i32 noundef 10325, ptr noundef nonnull %1059) #16
+  br label %1062
+
+1062:                                             ; preds = %1060, %1057
+  %.28 = phi i32 [ %1061, %1060 ], [ %.26, %1057 ]
+  %1063 = getelementptr inbounds nuw i8, ptr %1, i64 1456
+  %1064 = load ptr, ptr %1063, align 8, !tbaa !374
+  %.not1182 = icmp eq ptr %1064, null
+  br i1 %.not1182, label %1067, label %1065
+
+1065:                                             ; preds = %1062
+  %1066 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.245, i32 noundef 10325, ptr noundef nonnull %1064) #16
+  br label %1067
+
+1067:                                             ; preds = %1065, %1062
+  %.29 = phi i32 [ %1066, %1065 ], [ %.28, %1062 ]
+  %1068 = getelementptr inbounds nuw i8, ptr %1, i64 1448
+  %1069 = load ptr, ptr %1068, align 8, !tbaa !375
+  %.not1183 = icmp eq ptr %1069, null
+  br i1 %.not1183, label %1072, label %1070
+
+1070:                                             ; preds = %1067
+  %1071 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext true, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.245, i32 noundef 10325, ptr noundef nonnull %1069) #16
+  br label %1072
+
+1072:                                             ; preds = %1067, %1070, %1054
+  %.27 = phi i32 [ %1071, %1070 ], [ %.29, %1067 ], [ %.26, %1054 ]
+  %1073 = getelementptr inbounds nuw i8, ptr %1, i64 296
+  %1074 = load i64, ptr %1073, align 8, !tbaa !376
+  %1075 = icmp sgt i64 %1074, 0
+  br i1 %1075, label %1080, label %1076
+
+1076:                                             ; preds = %1072
+  %1077 = getelementptr inbounds nuw i8, ptr %1, i64 304
+  %1078 = load i64, ptr %1077, align 8, !tbaa !377
+  %1079 = icmp sgt i64 %1078, 0
+  br i1 %1079, label %1080, label %.thread
+
+1080:                                             ; preds = %1072, %1076
+  %1081 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.246, i32 noundef 20148, ptr noundef nonnull @sockopt_callback) #16
+  %1082 = call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %3, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.247, i32 noundef 10149, ptr noundef nonnull %1) #16
   br label %.thread
 
-.thread:                                          ; preds = %388, %223, %236, %235, %5, %url_proto_and_rewrite.exit, %616, %328, %1078, %1082, %754, %411, %403, %243, %47, %45, %108
-  %.01004 = phi i32 [ 4, %108 ], [ %613, %616 ], [ %327, %328 ], [ %46, %45 ], [ %48, %47 ], [ %.11006, %243 ], [ %404, %403 ], [ %413, %411 ], [ %755, %754 ], [ %1084, %1082 ], [ %.27, %1078 ], [ %389, %388 ], [ %.014.i, %url_proto_and_rewrite.exit ], [ 27, %5 ], [ 2, %223 ], [ %239, %236 ], [ 2, %235 ]
+.thread:                                          ; preds = %386, %223, %236, %235, %5, %url_proto_and_rewrite.exit, %614, %326, %1076, %1080, %752, %409, %401, %243, %47, %45, %108
+  %.01004 = phi i32 [ 4, %108 ], [ %611, %614 ], [ %325, %326 ], [ %46, %45 ], [ %48, %47 ], [ %.11006, %243 ], [ %402, %401 ], [ %411, %409 ], [ %753, %752 ], [ %1082, %1080 ], [ %.27, %1076 ], [ %387, %386 ], [ %.014.i, %url_proto_and_rewrite.exit ], [ 27, %5 ], [ 2, %223 ], [ %239, %236 ], [ 2, %235 ]
   ret i32 %.01004
 }
 

@@ -259,9 +259,9 @@ define noundef zeroext i1 @_ZN4File4OpenEPKwj(ptr noundef nonnull align 8 derefe
   %15 = select i1 %13, i32 2, i32 %.lobit
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 35
   %17 = load i8, ptr %16, align 1, !tbaa !27, !range !31, !noundef !32
-  %18 = trunc nuw i8 %17 to i1
-  %19 = or disjoint i32 %15, 262144
-  %spec.select = select i1 %18, i32 %19, i32 %15
+  %18 = zext nneg i8 %17 to i32
+  %19 = shl nuw nsw i32 %18, 18
+  %spec.select = or disjoint i32 %19, %15
   call void @llvm.lifetime.start.p0(i64 2048, ptr nonnull %4) #19
   %20 = call noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef %1, ptr noundef nonnull %4, i64 noundef 2048)
   %21 = call i32 (ptr, i32, ...) @open64(ptr noundef nonnull %4, i32 noundef %spec.select)

@@ -42996,9 +42996,9 @@ _ZNK4llvm12LoopInfoBaseINS_10BasicBlockENS_4LoopEE10getLoopForEPKS1_.exit: ; pre
   %spec.select = select i1 %62, i32 2, i32 0
   %63 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %64 = load i8, ptr %63, align 8, !tbaa !923, !range !54, !noundef !55
-  %65 = trunc nuw i8 %64 to i1
-  %66 = or disjoint i32 %spec.select, 4
-  %.135 = select i1 %65, i32 %66, i32 %spec.select
+  %65 = shl nuw nsw i8 %64, 2
+  %66 = zext nneg i8 %65 to i32
+  %.135 = or disjoint i32 %spec.select, %66
   %67 = tail call noundef ptr @_ZN4llvm15ScalarEvolution7getSCEVEPNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %3)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %6) #31
   %68 = getelementptr inbounds nuw i8, ptr %6, i64 16
@@ -44495,9 +44495,9 @@ _ZN4llvm23SmallVectorTemplateBaseIPKNS_4SCEVELb1EE9push_backES3_.exit: ; preds =
   %spec.select = select i1 %191, i32 2, i32 0
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %193 = load i8, ptr %192, align 8, !tbaa !923, !range !54, !noundef !55
-  %194 = trunc nuw i8 %193 to i1
-  %195 = or disjoint i32 %spec.select, 4
-  %spec.select231 = select i1 %194, i32 %195, i32 %spec.select
+  %194 = shl nuw nsw i8 %193, 2
+  %195 = zext nneg i8 %194 to i32
+  %spec.select231 = or disjoint i32 %spec.select, %195
   br label %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit.thread
 
 196:                                              ; preds = %177
@@ -85521,7 +85521,7 @@ define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm15ScalarEvolution29getMon
   %5 = alloca %"class.llvm::APInt", align 8
   %6 = and i32 %2, -2
   %.not = icmp eq i32 %6, 32
-  br i1 %.not, label %59, label %7
+  br i1 %.not, label %58, label %7
 
 7:                                                ; preds = %3
   %8 = and i32 %2, -6
@@ -85529,121 +85529,120 @@ define dso_local range(i64 0, 4294967298) i64 @_ZN4llvm15ScalarEvolution29getMon
   %9 = tail call noundef zeroext i1 @_ZN4llvm7CmpInst10isUnsignedENS0_9PredicateE(i32 noundef %2) #31
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %11 = load i16, ptr %10, align 4, !tbaa !108
-  br i1 %9, label %12, label %15
+  br i1 %9, label %12, label %14
 
 12:                                               ; preds = %7
   %13 = and i16 %11, 2
   %.not18 = icmp ne i16 %13, 0
   %not.12 = xor i1 %spec.select, true
   %spec.select19 = and i1 %.not18, %not.12
-  %14 = zext nneg i16 %13 to i64
-  %spec.select20 = shl nuw nsw i64 %14, 31
-  br label %59
+  %spec.select20 = select i1 %.not18, i64 4294967296, i64 0
+  br label %58
 
-15:                                               ; preds = %7
-  %16 = and i16 %11, 4
-  %.not17 = icmp eq i16 %16, 0
-  br i1 %.not17, label %59, label %17
+14:                                               ; preds = %7
+  %15 = and i16 %11, 4
+  %.not17 = icmp eq i16 %15, 0
+  br i1 %.not17, label %58, label %16
 
-17:                                               ; preds = %15
-  %18 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %0)
+16:                                               ; preds = %14
+  %17 = tail call noundef ptr @_ZNK4llvm14SCEVAddRecExpr17getStepRecurrenceERNS_15ScalarEvolutionE(ptr noundef nonnull align 8 dereferenceable(56) %1, ptr noundef nonnull align 8 dereferenceable(1344) %0)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #31
-  %19 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15ScalarEvolution11getRangeRefEPKNS_4SCEVENS0_13RangeSignHintEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %18, i32 noundef 1, i32 noundef 0) #33, !noalias !1703
-  call void @_ZNK4llvm13ConstantRange12getSignedMinEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %19) #31
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %21 = load i32, ptr %20, align 8, !tbaa !119
-  %22 = add i32 %21, -1
-  %23 = icmp ult i32 %21, 65
-  %24 = load ptr, ptr %5, align 8
-  %25 = lshr i32 %22, 6
-  %26 = zext nneg i32 %25 to i64
-  %27 = getelementptr inbounds nuw i64, ptr %24, i64 %26
-  %.in.i.i.i.i = select i1 %23, ptr %5, ptr %27
-  %28 = load i64, ptr %.in.i.i.i.i, align 8, !tbaa !68
-  %29 = icmp eq ptr %24, null
-  %or.cond.i = select i1 %23, i1 true, i1 %29
-  br i1 %or.cond.i, label %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit, label %30
+  %18 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15ScalarEvolution11getRangeRefEPKNS_4SCEVENS0_13RangeSignHintEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %17, i32 noundef 1, i32 noundef 0) #33, !noalias !1703
+  call void @_ZNK4llvm13ConstantRange12getSignedMinEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %5, ptr noundef nonnull align 8 dereferenceable(32) %18) #31
+  %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %20 = load i32, ptr %19, align 8, !tbaa !119
+  %21 = add i32 %20, -1
+  %22 = icmp ult i32 %20, 65
+  %23 = load ptr, ptr %5, align 8
+  %24 = lshr i32 %21, 6
+  %25 = zext nneg i32 %24 to i64
+  %26 = getelementptr inbounds nuw i64, ptr %23, i64 %25
+  %.in.i.i.i.i = select i1 %22, ptr %5, ptr %26
+  %27 = load i64, ptr %.in.i.i.i.i, align 8, !tbaa !68
+  %28 = icmp eq ptr %23, null
+  %or.cond.i = select i1 %22, i1 true, i1 %28
+  br i1 %or.cond.i, label %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit, label %29
 
-30:                                               ; preds = %17
-  call void @_ZdaPv(ptr noundef nonnull %24) #34
+29:                                               ; preds = %16
+  call void @_ZdaPv(ptr noundef nonnull %23) #34
   br label %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit
 
-_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit: ; preds = %17, %30
-  %31 = and i32 %22, 63
-  %32 = zext nneg i32 %31 to i64
-  %33 = shl nuw i64 1, %32
-  %34 = and i64 %33, %28
-  %.not.i = icmp eq i64 %34, 0
+_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit: ; preds = %16, %29
+  %30 = and i32 %21, 63
+  %31 = zext nneg i32 %30 to i64
+  %32 = shl nuw i64 1, %31
+  %33 = and i64 %32, %27
+  %.not.i = icmp eq i64 %33, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #31
-  br i1 %.not.i, label %35, label %36
+  br i1 %.not.i, label %34, label %35
+
+34:                                               ; preds = %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit
+  %not. = xor i1 %spec.select, true
+  br label %58
 
 35:                                               ; preds = %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit
-  %not. = xor i1 %spec.select, true
-  br label %59
-
-36:                                               ; preds = %_ZN4llvm15ScalarEvolution18isKnownNonNegativeEPKNS_4SCEVE.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #31
-  %37 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15ScalarEvolution11getRangeRefEPKNS_4SCEVENS0_13RangeSignHintEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %18, i32 noundef 1, i32 noundef 0) #33, !noalias !1706
-  call void @_ZNK4llvm13ConstantRange12getSignedMaxEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %37) #31
-  %38 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %39 = load i32, ptr %38, align 8, !tbaa !119
-  %40 = add i32 %39, -1
-  %41 = and i32 %40, 63
-  %42 = zext nneg i32 %41 to i64
-  %43 = shl nuw i64 1, %42
-  %44 = icmp ult i32 %39, 65
-  %45 = load ptr, ptr %4, align 8
-  %46 = lshr i32 %40, 6
-  %47 = zext nneg i32 %46 to i64
-  %48 = getelementptr inbounds nuw i64, ptr %45, i64 %47
-  %.in.i.i.i.i.i.i = select i1 %44, ptr %4, ptr %48
-  %49 = load i64, ptr %.in.i.i.i.i.i.i, align 8, !tbaa !68
-  %50 = and i64 %43, %49
-  %.not.i.i.i = icmp eq i64 %50, 0
-  br i1 %.not.i.i.i, label %51, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i.thread
+  %36 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZN4llvm15ScalarEvolution11getRangeRefEPKNS_4SCEVENS0_13RangeSignHintEj(ptr noundef nonnull align 8 dereferenceable(1344) %0, ptr noundef %17, i32 noundef 1, i32 noundef 0) #33, !noalias !1706
+  call void @_ZNK4llvm13ConstantRange12getSignedMaxEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::APInt") align 8 %4, ptr noundef nonnull align 8 dereferenceable(32) %36) #31
+  %37 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %38 = load i32, ptr %37, align 8, !tbaa !119
+  %39 = add i32 %38, -1
+  %40 = and i32 %39, 63
+  %41 = zext nneg i32 %40 to i64
+  %42 = shl nuw i64 1, %41
+  %43 = icmp ult i32 %38, 65
+  %44 = load ptr, ptr %4, align 8
+  %45 = lshr i32 %39, 6
+  %46 = zext nneg i32 %45 to i64
+  %47 = getelementptr inbounds nuw i64, ptr %44, i64 %46
+  %.in.i.i.i.i.i.i = select i1 %43, ptr %4, ptr %47
+  %48 = load i64, ptr %.in.i.i.i.i.i.i, align 8, !tbaa !68
+  %49 = and i64 %42, %48
+  %.not.i.i.i = icmp eq i64 %49, 0
+  br i1 %.not.i.i.i, label %50, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i.thread
 
-51:                                               ; preds = %36
-  br i1 %44, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i
+50:                                               ; preds = %35
+  br i1 %43, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i, label %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i
 
-_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i: ; preds = %51
-  %52 = icmp eq ptr %45, null
+_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i: ; preds = %50
+  %51 = icmp eq ptr %44, null
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
-  br i1 %52, label %58, label %59
+  br i1 %51, label %57, label %58
 
-_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i:     ; preds = %51
-  %53 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #32
-  %54 = icmp eq i32 %53, %39
-  %55 = icmp eq ptr %45, null
-  br i1 %55, label %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit, label %57
+_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i:     ; preds = %50
+  %52 = call noundef i32 @_ZNK4llvm5APInt25countLeadingZerosSlowCaseEv(ptr noundef nonnull align 8 dereferenceable(12) %4) #32
+  %53 = icmp eq i32 %52, %38
+  %54 = icmp eq ptr %44, null
+  br i1 %54, label %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit, label %56
 
-_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i.thread: ; preds = %36
-  %56 = icmp eq ptr %45, null
-  %or.cond.i1316 = select i1 %44, i1 true, i1 %56
+_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i.thread: ; preds = %35
+  %55 = icmp eq ptr %44, null
+  %or.cond.i1316 = select i1 %43, i1 true, i1 %55
   br i1 %or.cond.i1316, label %.sink.split, label %.thread
 
 .thread:                                          ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i.thread
-  call void @_ZdaPv(ptr noundef nonnull %45) #34
+  call void @_ZdaPv(ptr noundef nonnull %44) #34
   br label %.sink.split
 
-57:                                               ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %45) #34
+56:                                               ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %44) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
-  br i1 %54, label %58, label %59
+  br i1 %53, label %57, label %58
 
 _ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit: ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
-  br i1 %54, label %58, label %59
+  br i1 %53, label %57, label %58
 
 .sink.split:                                      ; preds = %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.i.thread, %.thread
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #31
+  br label %57
+
+57:                                               ; preds = %.sink.split, %56, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i, %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit
   br label %58
 
-58:                                               ; preds = %.sink.split, %57, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i, %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit
-  br label %59
-
-59:                                               ; preds = %12, %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i, %57, %15, %3, %58, %35
-  %.sroa.0.0.shrunk = phi i1 [ %not., %35 ], [ %spec.select, %58 ], [ false, %3 ], [ false, %15 ], [ false, %57 ], [ false, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i ], [ false, %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit ], [ %spec.select19, %12 ]
-  %.sroa.4.0 = phi i64 [ 4294967296, %35 ], [ 4294967296, %58 ], [ 0, %3 ], [ 0, %15 ], [ 0, %57 ], [ 0, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i ], [ 0, %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit ], [ %spec.select20, %12 ]
+58:                                               ; preds = %12, %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i, %56, %14, %3, %57, %34
+  %.sroa.0.0.shrunk = phi i1 [ %not., %34 ], [ %spec.select, %57 ], [ false, %3 ], [ false, %14 ], [ false, %56 ], [ false, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i ], [ false, %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit ], [ %spec.select19, %12 ]
+  %.sroa.4.0 = phi i64 [ 4294967296, %34 ], [ 4294967296, %57 ], [ 0, %3 ], [ 0, %14 ], [ 0, %56 ], [ 0, %_ZNK4llvm5APInt18isStrictlyPositiveEv.exit.thread.i ], [ 0, %_ZN4llvm15ScalarEvolution18isKnownNonPositiveEPKNS_4SCEVE.exit ], [ %spec.select20, %12 ]
   %.sroa.0.0 = zext i1 %.sroa.0.0.shrunk to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.4.0, %.sroa.0.0
   ret i64 %.sroa.0.0.insert.insert

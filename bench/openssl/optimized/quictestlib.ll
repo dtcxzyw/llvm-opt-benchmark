@@ -1312,7 +1312,7 @@ define dso_local range(i32 0, 2) i32 @qtest_shutdown(ptr noundef %0, ptr noundef
   %9 = zext i1 %8 to i32
   %10 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 645, ptr noundef nonnull @.str.33, i32 noundef %9) #10
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %28, label %.split.us
+  br i1 %.not, label %26, label %.split.us
 
 .split.us:                                        ; preds = %6, %13
   %11 = call i32 @SSL_shutdown(ptr noundef %1) #10
@@ -1323,43 +1323,36 @@ define dso_local range(i32 0, 2) i32 @qtest_shutdown(ptr noundef %0, ptr noundef
   %switch.us = icmp sgt i32 %11, -1
   br i1 %switch.us, label %.split.us, label %.thread
 
-.split:                                           ; preds = %2, %21
+.split:                                           ; preds = %2, %18
   %14 = tail call i32 @SSL_shutdown(ptr noundef %1) #10
   %15 = icmp eq i32 %14, 1
   br i1 %15, label %.thread, label %16
 
 16:                                               ; preds = %.split
-  %17 = icmp slt i32 %14, 0
-  %18 = lshr i32 %14, 30
-  %.mux = and i32 %18, 2
-  br i1 %17, label %21, label %19
+  %17 = icmp sgt i32 %14, -1
+  br i1 %17, label %18, label %.thread
 
-19:                                               ; preds = %16
-  %20 = tail call i32 @ossl_quic_tserver_tick(ptr noundef %0) #10
-  br label %21
+18:                                               ; preds = %16
+  %19 = tail call i32 @ossl_quic_tserver_tick(ptr noundef %0) #10
+  br label %.split
 
-21:                                               ; preds = %16, %19
-  %.012 = phi i32 [ %.mux, %16 ], [ 0, %19 ]
-  %switch = icmp eq i32 %.012, 0
-  br i1 %switch, label %.split, label %.thread
-
-.thread:                                          ; preds = %21, %.split, %.split.us, %13
-  %.us-phi = phi i32 [ 0, %13 ], [ 1, %.split.us ], [ 0, %21 ], [ 1, %.split ]
+.thread:                                          ; preds = %.split, %16, %.split.us, %13
+  %.us-phi = phi i32 [ 0, %13 ], [ 1, %.split.us ], [ 0, %16 ], [ 1, %.split ]
   store atomic i32 1, ptr @shutdowndone monotonic, align 4
-  br i1 %5, label %22, label %28
+  br i1 %5, label %20, label %26
 
-22:                                               ; preds = %.thread
-  %23 = load i64, ptr %3, align 8, !tbaa !46
-  %24 = call i32 @pthread_join(i64 noundef %23, ptr noundef null) #10
-  %25 = icmp eq i32 %24, 0
-  %26 = zext i1 %25 to i32
-  %27 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 674, ptr noundef nonnull @.str.31, i32 noundef %26) #10
-  %.not17 = icmp eq i32 %27, 0
+20:                                               ; preds = %.thread
+  %21 = load i64, ptr %3, align 8, !tbaa !46
+  %22 = call i32 @pthread_join(i64 noundef %21, ptr noundef null) #10
+  %23 = icmp eq i32 %22, 0
+  %24 = zext i1 %23 to i32
+  %25 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 674, ptr noundef nonnull @.str.31, i32 noundef %24) #10
+  %.not17 = icmp eq i32 %25, 0
   %spec.select = select i1 %.not17, i32 0, i32 %.us-phi
-  br label %28
+  br label %26
 
-28:                                               ; preds = %22, %.thread, %6
-  %.0 = phi i32 [ 0, %6 ], [ %.us-phi, %.thread ], [ %spec.select, %22 ]
+26:                                               ; preds = %20, %.thread, %6
+  %.0 = phi i32 [ 0, %6 ], [ %.us-phi, %.thread ], [ %spec.select, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #10
   ret i32 %.0
 }

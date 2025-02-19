@@ -1888,8 +1888,8 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE17ParseStackEle
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE11consumeTermEv(ptr noundef nonnull align 8 dereferenceable(41) %this) local_unnamed_addr #0 comdat align 2 {
 entry:
-  %ref.tmp10.i79 = alloca %"class.llvh::SmallVector.261", align 8
-  %ref.tmp12.i80 = alloca %"class.hermes::regex::SyntaxFlags", align 1
+  %ref.tmp10.i80 = alloca %"class.llvh::SmallVector.261", align 8
+  %ref.tmp12.i81 = alloca %"class.hermes::regex::SyntaxFlags", align 1
   %ref.tmp10.i56 = alloca %"class.llvh::SmallVector.261", align 8
   %ref.tmp12.i57 = alloca %"class.hermes::regex::SyntaxFlags", align 1
   %ref.tmp10.i = alloca %"class.llvh::SmallVector.261", align 8
@@ -1903,8 +1903,8 @@ entry:
   %end_ = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %current_, align 8
   %1 = load ptr, ptr %end_, align 8
-  %cmp.not151 = icmp eq ptr %0, %1
-  br i1 %cmp.not151, label %while.end, label %while.body.lr.ph
+  %cmp.not152 = icmp eq ptr %0, %1
+  br i1 %cmp.not152, label %while.end, label %while.body.lr.ph
 
 while.body.lr.ph:                                 ; preds = %entry
   %max_.i.i = getelementptr inbounds nuw i8, ptr %quant, i64 4
@@ -1918,17 +1918,17 @@ while.body.lr.ph:                                 ; preds = %entry
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp10.i, i64 16
   %Size.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp10.i, i64 8
   %Capacity2.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %ref.tmp10.i, i64 12
-  %add.ptr.i.i.i.i.i.i94 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i79, i64 16
-  %Size.i.i.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i79, i64 8
-  %Capacity2.i.i.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i79, i64 12
-  %add.ptr.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i56, i64 16
-  %Size.i.i.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i56, i64 8
-  %Capacity2.i.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i56, i64 12
+  %add.ptr.i.i.i.i.i.i95 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i80, i64 16
+  %Size.i.i.i.i.i.i96 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i80, i64 8
+  %Capacity2.i.i.i.i.i.i97 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i80, i64 12
+  %add.ptr.i.i.i.i.i.i66 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i56, i64 16
+  %Size.i.i.i.i.i.i67 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i56, i64 8
+  %Capacity2.i.i.i.i.i.i68 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i56, i64 12
   br label %while.body
 
 while.body:                                       ; preds = %while.body.lr.ph, %if.end67
-  %2 = phi ptr [ %1, %while.body.lr.ph ], [ %52, %if.end67 ]
-  %3 = phi ptr [ %0, %while.body.lr.ph ], [ %51, %if.end67 ]
+  %2 = phi ptr [ %1, %while.body.lr.ph ], [ %50, %if.end67 ]
+  %3 = phi ptr [ %0, %while.body.lr.ph ], [ %49, %if.end67 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !32)
   store i32 0, ptr %quant, align 8, !alias.scope !32
   store i32 -1, ptr %max_.i.i, align 4, !alias.scope !32
@@ -2185,140 +2185,138 @@ if.then54:                                        ; preds = %_ZN6hermes5regex6Pa
   %retval.sroa.0.0.copyload.i.i59 = load i8, ptr %flags_.i.i58, align 8
   %bf.clear.i60 = and i8 %retval.sroa.0.0.copyload.i.i59, 1
   %tobool.not.i61 = icmp eq i8 %bf.clear.i60, 0
-  br i1 %tobool.not.i61, label %if.end.i63, label %if.then.i62
+  br i1 %tobool.not.i61, label %if.end.i64, label %if.then.i62
 
 if.then.i62:                                      ; preds = %if.then54
   %37 = and i8 %retval.sroa.0.0.copyload.i.i59, 8
+  %tobool8.i63 = icmp ne i8 %37, 0
   %cmp.i.i = icmp ult i32 %add2.i.i, 128
-  br i1 %cmp.i.i, label %if.then.i.i71, label %if.end7.i.i
+  br i1 %cmp.i.i, label %if.then.i.i72, label %if.end7.i.i
 
-if.then.i.i71:                                    ; preds = %if.then.i62
+if.then.i.i72:                                    ; preds = %if.then.i62
   %38 = and i32 %add2.i.i, 95
   %39 = add nsw i32 %38, -65
-  %or.cond11.i.i72 = icmp ult i32 %39, 26
-  %40 = shl nuw nsw i8 %37, 2
-  %shl.i.i73 = zext nneg i8 %40 to i32
-  %or.i.i74 = or disjoint i32 %38, %shl.i.i73
-  %c.addr.0.i.i75 = select i1 %or.cond11.i.i72, i32 %or.i.i74, i32 %add2.i.i
-  br label %if.end.i63
+  %or.cond11.i.i73 = icmp ult i32 %39, 26
+  %shl.i.i74 = select i1 %tobool8.i63, i32 32, i32 0
+  %or.i.i75 = or disjoint i32 %shl.i.i74, %38
+  %c.addr.0.i.i76 = select i1 %or.cond11.i.i73, i32 %or.i.i75, i32 %add2.i.i
+  br label %if.end.i64
 
 if.end7.i.i:                                      ; preds = %if.then.i62
-  %tobool8.i = icmp ne i8 %37, 0
-  %call.i.i = call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %add2.i.i, i1 noundef zeroext %tobool8.i) #16
+  %call.i.i = call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %add2.i.i, i1 noundef zeroext %tobool8.i63) #16
   %retval.sroa.0.0.copyload.i5.pre.i = load i8, ptr %flags_.i.i58, align 8
-  br label %if.end.i63
+  br label %if.end.i64
 
-if.end.i63:                                       ; preds = %if.end7.i.i, %if.then.i.i71, %if.then54
-  %retval.sroa.0.0.copyload.i5.i = phi i8 [ %retval.sroa.0.0.copyload.i.i59, %if.then54 ], [ %retval.sroa.0.0.copyload.i.i59, %if.then.i.i71 ], [ %retval.sroa.0.0.copyload.i5.pre.i, %if.end7.i.i ]
-  %c.addr.0.i64 = phi i32 [ %add2.i.i, %if.then54 ], [ %c.addr.0.i.i75, %if.then.i.i71 ], [ %call.i.i, %if.end7.i.i ]
-  store ptr %add.ptr.i.i.i.i.i.i65, ptr %ref.tmp10.i56, align 8
-  store i32 5, ptr %Capacity2.i.i.i.i.i.i67, align 4
-  store i32 %c.addr.0.i64, ptr %add.ptr.i.i.i.i.i.i65, align 8
-  store i32 1, ptr %Size.i.i.i.i.i.i66, align 8
+if.end.i64:                                       ; preds = %if.end7.i.i, %if.then.i.i72, %if.then54
+  %retval.sroa.0.0.copyload.i5.i = phi i8 [ %retval.sroa.0.0.copyload.i.i59, %if.then54 ], [ %retval.sroa.0.0.copyload.i.i59, %if.then.i.i72 ], [ %retval.sroa.0.0.copyload.i5.pre.i, %if.end7.i.i ]
+  %c.addr.0.i65 = phi i32 [ %add2.i.i, %if.then54 ], [ %c.addr.0.i.i76, %if.then.i.i72 ], [ %call.i.i, %if.end7.i.i ]
+  store ptr %add.ptr.i.i.i.i.i.i66, ptr %ref.tmp10.i56, align 8
+  store i32 5, ptr %Capacity2.i.i.i.i.i.i68, align 4
+  store i32 %c.addr.0.i65, ptr %add.ptr.i.i.i.i.i.i66, align 8
+  store i32 1, ptr %Size.i.i.i.i.i.i67, align 8
   store i8 %retval.sroa.0.0.copyload.i5.i, ptr %ref.tmp12.i57, align 1
-  %call15.i68 = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_13MatchCharNodeEJN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp10.i56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i57)
-  %41 = load ptr, ptr %ref.tmp10.i56, align 8
-  %cmp.i.i.i.i69 = icmp eq ptr %41, %add.ptr.i.i.i.i.i.i65
-  br i1 %cmp.i.i.i.i69, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit76, label %if.then.i.i.i70
+  %call15.i69 = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_13MatchCharNodeEJN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp10.i56, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i57)
+  %40 = load ptr, ptr %ref.tmp10.i56, align 8
+  %cmp.i.i.i.i70 = icmp eq ptr %40, %add.ptr.i.i.i.i.i.i66
+  br i1 %cmp.i.i.i.i70, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit77, label %if.then.i.i.i71
 
-if.then.i.i.i70:                                  ; preds = %if.end.i63
-  call void @free(ptr noundef %41) #16
-  br label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit76
+if.then.i.i.i71:                                  ; preds = %if.end.i64
+  call void @free(ptr noundef %40) #16
+  br label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit77
 
-_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit76: ; preds = %if.end.i63, %if.then.i.i.i70
+_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit77: ; preds = %if.end.i64, %if.then.i.i.i71
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp10.i56)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12.i57)
   br label %sw.epilog
 
 if.else57:                                        ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIFbjEEEN4llvh8OptionalIDsEERKT_.exit.i, %land.lhs.true.i4.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE13consumeCharIfIFbjEEEN4llvh8OptionalIDsEERKT_.exit12.i, %sw.bb42, %sw.default
-  %incdec.ptr.i78 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store ptr %incdec.ptr.i78, ptr %current_, align 8
+  %incdec.ptr.i79 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store ptr %incdec.ptr.i79, ptr %current_, align 8
   %conv60 = zext i16 %8 to i32
-  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp10.i79)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp12.i80)
-  %flags_.i.i81 = getelementptr inbounds nuw i8, ptr %4, i64 136
-  %retval.sroa.0.0.copyload.i.i82 = load i8, ptr %flags_.i.i81, align 8
-  %bf.clear.i83 = and i8 %retval.sroa.0.0.copyload.i.i82, 1
-  %tobool.not.i84 = icmp eq i8 %bf.clear.i83, 0
-  br i1 %tobool.not.i84, label %if.end.i91, label %if.then.i85
+  call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp10.i80)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp12.i81)
+  %flags_.i.i82 = getelementptr inbounds nuw i8, ptr %4, i64 136
+  %retval.sroa.0.0.copyload.i.i83 = load i8, ptr %flags_.i.i82, align 8
+  %bf.clear.i84 = and i8 %retval.sroa.0.0.copyload.i.i83, 1
+  %tobool.not.i85 = icmp eq i8 %bf.clear.i84, 0
+  br i1 %tobool.not.i85, label %if.end.i92, label %if.then.i86
 
-if.then.i85:                                      ; preds = %if.else57
-  %42 = and i8 %retval.sroa.0.0.copyload.i.i82, 8
-  %cmp.i.i86 = icmp ult i16 %8, 128
-  br i1 %cmp.i.i86, label %if.then.i.i100, label %if.end7.i.i87
+if.then.i86:                                      ; preds = %if.else57
+  %41 = and i8 %retval.sroa.0.0.copyload.i.i83, 8
+  %tobool8.i87 = icmp ne i8 %41, 0
+  %cmp.i.i88 = icmp ult i16 %8, 128
+  br i1 %cmp.i.i88, label %if.then.i.i101, label %if.end7.i.i89
 
-if.then.i.i100:                                   ; preds = %if.then.i85
-  %43 = and i32 %conv60, 95
-  %44 = add nsw i32 %43, -65
-  %or.cond11.i.i101 = icmp ult i32 %44, 26
-  %45 = shl nuw nsw i8 %42, 2
-  %shl.i.i102 = zext nneg i8 %45 to i32
-  %or.i.i103 = or disjoint i32 %43, %shl.i.i102
-  %c.addr.0.i.i104 = select i1 %or.cond11.i.i101, i32 %or.i.i103, i32 %conv60
-  br label %if.end.i91
+if.then.i.i101:                                   ; preds = %if.then.i86
+  %42 = and i32 %conv60, 95
+  %43 = add nsw i32 %42, -65
+  %or.cond11.i.i102 = icmp ult i32 %43, 26
+  %shl.i.i103 = select i1 %tobool8.i87, i32 32, i32 0
+  %or.i.i104 = or disjoint i32 %shl.i.i103, %42
+  %c.addr.0.i.i105 = select i1 %or.cond11.i.i102, i32 %or.i.i104, i32 %conv60
+  br label %if.end.i92
 
-if.end7.i.i87:                                    ; preds = %if.then.i85
-  %tobool8.i88 = icmp ne i8 %42, 0
-  %call.i.i89 = call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %conv60, i1 noundef zeroext %tobool8.i88) #16
-  %retval.sroa.0.0.copyload.i5.pre.i90 = load i8, ptr %flags_.i.i81, align 8
-  br label %if.end.i91
+if.end7.i.i89:                                    ; preds = %if.then.i86
+  %call.i.i90 = call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %conv60, i1 noundef zeroext %tobool8.i87) #16
+  %retval.sroa.0.0.copyload.i5.pre.i91 = load i8, ptr %flags_.i.i82, align 8
+  br label %if.end.i92
 
-if.end.i91:                                       ; preds = %if.end7.i.i87, %if.then.i.i100, %if.else57
-  %retval.sroa.0.0.copyload.i5.i92 = phi i8 [ %retval.sroa.0.0.copyload.i.i82, %if.else57 ], [ %retval.sroa.0.0.copyload.i.i82, %if.then.i.i100 ], [ %retval.sroa.0.0.copyload.i5.pre.i90, %if.end7.i.i87 ]
-  %c.addr.0.i93 = phi i32 [ %conv60, %if.else57 ], [ %c.addr.0.i.i104, %if.then.i.i100 ], [ %call.i.i89, %if.end7.i.i87 ]
-  store ptr %add.ptr.i.i.i.i.i.i94, ptr %ref.tmp10.i79, align 8
-  store i32 5, ptr %Capacity2.i.i.i.i.i.i96, align 4
-  store i32 %c.addr.0.i93, ptr %add.ptr.i.i.i.i.i.i94, align 8
-  store i32 1, ptr %Size.i.i.i.i.i.i95, align 8
-  store i8 %retval.sroa.0.0.copyload.i5.i92, ptr %ref.tmp12.i80, align 1
-  %call15.i97 = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_13MatchCharNodeEJN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp10.i79, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i80)
-  %46 = load ptr, ptr %ref.tmp10.i79, align 8
-  %cmp.i.i.i.i98 = icmp eq ptr %46, %add.ptr.i.i.i.i.i.i94
-  br i1 %cmp.i.i.i.i98, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit105, label %if.then.i.i.i99
+if.end.i92:                                       ; preds = %if.end7.i.i89, %if.then.i.i101, %if.else57
+  %retval.sroa.0.0.copyload.i5.i93 = phi i8 [ %retval.sroa.0.0.copyload.i.i83, %if.else57 ], [ %retval.sroa.0.0.copyload.i.i83, %if.then.i.i101 ], [ %retval.sroa.0.0.copyload.i5.pre.i91, %if.end7.i.i89 ]
+  %c.addr.0.i94 = phi i32 [ %conv60, %if.else57 ], [ %c.addr.0.i.i105, %if.then.i.i101 ], [ %call.i.i90, %if.end7.i.i89 ]
+  store ptr %add.ptr.i.i.i.i.i.i95, ptr %ref.tmp10.i80, align 8
+  store i32 5, ptr %Capacity2.i.i.i.i.i.i97, align 4
+  store i32 %c.addr.0.i94, ptr %add.ptr.i.i.i.i.i.i95, align 8
+  store i32 1, ptr %Size.i.i.i.i.i.i96, align 8
+  store i8 %retval.sroa.0.0.copyload.i5.i93, ptr %ref.tmp12.i81, align 1
+  %call15.i98 = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_13MatchCharNodeEJN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %4, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp10.i80, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i81)
+  %44 = load ptr, ptr %ref.tmp10.i80, align 8
+  %cmp.i.i.i.i99 = icmp eq ptr %44, %add.ptr.i.i.i.i.i.i95
+  br i1 %cmp.i.i.i.i99, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106, label %if.then.i.i.i100
 
-if.then.i.i.i99:                                  ; preds = %if.end.i91
-  call void @free(ptr noundef %46) #16
-  br label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit105
+if.then.i.i.i100:                                 ; preds = %if.end.i92
+  call void @free(ptr noundef %44) #16
+  br label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106
 
-_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit105: ; preds = %if.end.i91, %if.then.i.i.i99
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp10.i79)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12.i80)
+_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106: ; preds = %if.end.i92, %if.then.i.i.i100
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %ref.tmp10.i80)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %ref.tmp12.i81)
   br label %sw.epilog
 
-sw.epilog:                                        ; preds = %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit76, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit105, %if.else24, %if.then17, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit, %sw.bb29, %sw.bb26, %sw.bb3, %sw.bb
-  %quantifierAllowed.0 = phi i1 [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit76 ], [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit105 ], [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit ], [ true, %sw.bb29 ], [ true, %sw.bb26 ], [ false, %if.then17 ], [ true, %if.else24 ], [ false, %sw.bb3 ], [ false, %sw.bb ]
-  %call.i106 = call noundef zeroext i1 @_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE26tryConsumeQuantifierPrefixEPNS7_10QuantifierE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull %quant)
-  br i1 %call.i106, label %if.end.i107, label %if.end67
+sw.epilog:                                        ; preds = %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit77, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106, %if.else24, %if.then17, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit, %sw.bb29, %sw.bb26, %sw.bb3, %sw.bb
+  %quantifierAllowed.0 = phi i1 [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit77 ], [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit106 ], [ true, %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit ], [ true, %sw.bb29 ], [ true, %sw.bb26 ], [ false, %if.then17 ], [ true, %if.else24 ], [ false, %sw.bb3 ], [ false, %sw.bb ]
+  %call.i107 = call noundef zeroext i1 @_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE26tryConsumeQuantifierPrefixEPNS7_10QuantifierE(ptr noundef nonnull align 8 dereferenceable(41) %this, ptr noundef nonnull %quant)
+  br i1 %call.i107, label %if.end.i108, label %if.end67
 
-if.end.i107:                                      ; preds = %sw.epilog
-  %47 = load ptr, ptr %current_, align 8
-  %48 = load ptr, ptr %end_, align 8
-  %cmp.not.i.i.i110 = icmp eq ptr %47, %48
-  br i1 %cmp.not.i.i.i110, label %if.then63, label %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i111
+if.end.i108:                                      ; preds = %sw.epilog
+  %45 = load ptr, ptr %current_, align 8
+  %46 = load ptr, ptr %end_, align 8
+  %cmp.not.i.i.i111 = icmp eq ptr %45, %46
+  br i1 %cmp.not.i.i.i111, label %if.then63, label %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i112
 
-_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i111: ; preds = %if.end.i107
-  %49 = load i16, ptr %47, align 2
-  %cmp4.i.i.i112 = icmp eq i16 %49, 63
-  br i1 %cmp4.i.i.i112, label %if.end.i.i116, label %if.then63
+_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i112: ; preds = %if.end.i108
+  %47 = load i16, ptr %45, align 2
+  %cmp4.i.i.i113 = icmp eq i16 %47, 63
+  br i1 %cmp4.i.i.i113, label %if.end.i.i117, label %if.then63
 
-if.end.i.i116:                                    ; preds = %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i111
-  %incdec.ptr.i.i.i117 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store ptr %incdec.ptr.i.i.i117, ptr %current_, align 8
+if.end.i.i117:                                    ; preds = %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i112
+  %incdec.ptr.i.i.i118 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  store ptr %incdec.ptr.i.i.i118, ptr %current_, align 8
   br label %if.then63
 
-if.then63:                                        ; preds = %if.end.i107, %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i111, %if.end.i.i116
-  %lnot.i114 = phi i8 [ 1, %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i111 ], [ 0, %if.end.i.i116 ], [ 1, %if.end.i107 ]
-  store i8 %lnot.i114, ptr %greedy_.i.i, align 8
+if.then63:                                        ; preds = %if.end.i108, %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i112, %if.end.i.i117
+  %lnot.i115 = phi i8 [ 1, %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i.i112 ], [ 0, %if.end.i.i117 ], [ 1, %if.end.i108 ]
+  store i8 %lnot.i115, ptr %greedy_.i.i, align 8
   br i1 %quantifierAllowed.0, label %if.end66, label %if.then65
 
 if.then65:                                        ; preds = %if.then63
-  %error_.i119 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %50 = load i32, ptr %error_.i119, align 8
-  %cmp.i120 = icmp eq i32 %50, 0
-  br i1 %cmp.i120, label %if.then.i122, label %while.end
+  %error_.i120 = getelementptr inbounds nuw i8, ptr %this, i64 24
+  %48 = load i32, ptr %error_.i120, align 8
+  %cmp.i121 = icmp eq i32 %48, 0
+  br i1 %cmp.i121, label %if.then.i123, label %while.end
 
-if.then.i122:                                     ; preds = %if.then65
-  store i32 9, ptr %error_.i119, align 8
+if.then.i123:                                     ; preds = %if.then65
+  store i32 9, ptr %error_.i120, align 8
   br label %while.end.sink.split
 
 if.end66:                                         ; preds = %if.then63
@@ -2326,13 +2324,13 @@ if.end66:                                         ; preds = %if.then63
   br label %if.end67
 
 if.end67:                                         ; preds = %sw.epilog, %if.end66
-  %51 = load ptr, ptr %current_, align 8
-  %52 = load ptr, ptr %end_, align 8
-  %cmp.not = icmp eq ptr %51, %52
+  %49 = load ptr, ptr %current_, align 8
+  %50 = load ptr, ptr %end_, align 8
+  %cmp.not = icmp eq ptr %49, %50
   br i1 %cmp.not, label %while.end, label %while.body, !llvm.loop !35
 
-while.end.sink.split:                             ; preds = %if.then.i, %if.then.i19, %if.then.i28, %if.then.i35, %if.then.i48, %if.then.i122
-  %.lcssa.sink = phi ptr [ %48, %if.then.i122 ], [ %2, %if.then.i48 ], [ %21, %if.then.i35 ], [ %16, %if.then.i28 ], [ %2, %if.then.i19 ], [ %2, %if.then.i ]
+while.end.sink.split:                             ; preds = %if.then.i, %if.then.i19, %if.then.i28, %if.then.i35, %if.then.i48, %if.then.i123
+  %.lcssa.sink = phi ptr [ %46, %if.then.i123 ], [ %2, %if.then.i48 ], [ %21, %if.then.i35 ], [ %16, %if.then.i28 ], [ %2, %if.then.i19 ], [ %2, %if.then.i ]
   store ptr %.lcssa.sink, ptr %current_, align 8
   br label %while.end
 
@@ -9178,6 +9176,7 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE32consumeLegacy
 
 if.then.i33:                                      ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE32consumeLegacyOctalEscapeSequenceEv.exit
   %29 = and i8 %retval.sroa.0.0.copyload.i.i, 8
+  %tobool8.i = icmp ne i8 %29, 0
   %cmp.i.i34 = icmp ult i16 %28, 128
   br i1 %cmp.i.i34, label %if.then.i.i36, label %if.end7.i.i
 
@@ -9185,14 +9184,12 @@ if.then.i.i36:                                    ; preds = %if.then.i33
   %30 = and i32 %conv24.i, 95
   %31 = add nsw i32 %30, -65
   %or.cond11.i.i = icmp ult i32 %31, 26
-  %32 = shl nuw nsw i8 %29, 2
-  %shl.i.i = zext nneg i8 %32 to i32
-  %or.i.i = or disjoint i32 %30, %shl.i.i
+  %shl.i.i = select i1 %tobool8.i, i32 32, i32 0
+  %or.i.i = or disjoint i32 %shl.i.i, %30
   %c.addr.0.i.i = select i1 %or.cond11.i.i, i32 %or.i.i, i32 %conv24.i
   br label %if.end.i35
 
 if.end7.i.i:                                      ; preds = %if.then.i33
-  %tobool8.i = icmp ne i8 %29, 0
   %call.i.i = tail call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %conv24.i, i1 noundef zeroext %tobool8.i) #16
   %retval.sroa.0.0.copyload.i5.pre.i = load i8, ptr %flags_.i.i, align 8
   br label %if.end.i35
@@ -9209,12 +9206,12 @@ if.end.i35:                                       ; preds = %if.end7.i.i, %if.th
   store i32 1, ptr %Size.i.i.i.i.i.i, align 8
   store i8 %retval.sroa.0.0.copyload.i5.i, ptr %ref.tmp12.i, align 1
   %call15.i = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_13MatchCharNodeEJN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %16, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp10.i, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i)
-  %33 = load ptr, ptr %ref.tmp10.i, align 8
-  %cmp.i.i.i.i = icmp eq ptr %33, %add.ptr.i.i.i.i.i.i
+  %32 = load ptr, ptr %ref.tmp10.i, align 8
+  %cmp.i.i.i.i = icmp eq ptr %32, %add.ptr.i.i.i.i.i.i
   br i1 %cmp.i.i.i.i, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end.i35
-  call void @free(ptr noundef %33) #16
+  call void @free(ptr noundef %32) #16
   br label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit
 
 _ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit: ; preds = %if.end.i35, %if.then.i.i.i
@@ -9233,29 +9230,28 @@ _ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscap
   br i1 %tobool.not.i54, label %if.end.i61, label %if.then.i55
 
 if.then.i55:                                      ; preds = %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit
-  %34 = and i8 %retval.sroa.0.0.copyload.i.i52, 8
-  %cmp.i.i56 = icmp ult i16 %3, 128
-  br i1 %cmp.i.i56, label %if.then.i.i70, label %if.end7.i.i57
+  %33 = and i8 %retval.sroa.0.0.copyload.i.i52, 8
+  %tobool8.i56 = icmp ne i8 %33, 0
+  %cmp.i.i57 = icmp ult i16 %3, 128
+  br i1 %cmp.i.i57, label %if.then.i.i70, label %if.end7.i.i58
 
 if.then.i.i70:                                    ; preds = %if.then.i55
-  %35 = and i32 %conv9.i, 95
-  %36 = add nsw i32 %35, -65
-  %or.cond11.i.i71 = icmp ult i32 %36, 26
-  %37 = shl nuw nsw i8 %34, 2
-  %shl.i.i72 = zext nneg i8 %37 to i32
-  %or.i.i73 = or disjoint i32 %35, %shl.i.i72
+  %34 = and i32 %conv9.i, 95
+  %35 = add nsw i32 %34, -65
+  %or.cond11.i.i71 = icmp ult i32 %35, 26
+  %shl.i.i72 = select i1 %tobool8.i56, i32 32, i32 0
+  %or.i.i73 = or disjoint i32 %shl.i.i72, %34
   %c.addr.0.i.i74 = select i1 %or.cond11.i.i71, i32 %or.i.i73, i32 %conv9.i
   br label %if.end.i61
 
-if.end7.i.i57:                                    ; preds = %if.then.i55
-  %tobool8.i58 = icmp ne i8 %34, 0
-  %call.i.i59 = tail call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %conv9.i, i1 noundef zeroext %tobool8.i58) #16
+if.end7.i.i58:                                    ; preds = %if.then.i55
+  %call.i.i59 = tail call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %conv9.i, i1 noundef zeroext %tobool8.i56) #16
   %retval.sroa.0.0.copyload.i5.pre.i60 = load i8, ptr %flags_.i.i51, align 8
   br label %if.end.i61
 
-if.end.i61:                                       ; preds = %if.end7.i.i57, %if.then.i.i70, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit
-  %retval.sroa.0.0.copyload.i5.i62 = phi i8 [ %retval.sroa.0.0.copyload.i.i52, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit ], [ %retval.sroa.0.0.copyload.i.i52, %if.then.i.i70 ], [ %retval.sroa.0.0.copyload.i5.pre.i60, %if.end7.i.i57 ]
-  %c.addr.0.i63 = phi i32 [ %conv9.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit ], [ %c.addr.0.i.i74, %if.then.i.i70 ], [ %call.i.i59, %if.end7.i.i57 ]
+if.end.i61:                                       ; preds = %if.end7.i.i58, %if.then.i.i70, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit
+  %retval.sroa.0.0.copyload.i5.i62 = phi i8 [ %retval.sroa.0.0.copyload.i.i52, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit ], [ %retval.sroa.0.0.copyload.i.i52, %if.then.i.i70 ], [ %retval.sroa.0.0.copyload.i5.pre.i60, %if.end7.i.i58 ]
+  %c.addr.0.i63 = phi i32 [ %conv9.i, %_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE14identityEscapeEDs.exit ], [ %c.addr.0.i.i74, %if.then.i.i70 ], [ %call.i.i59, %if.end7.i.i58 ]
   %add.ptr.i.i.i.i.i.i64 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i49, i64 16
   store ptr %add.ptr.i.i.i.i.i.i64, ptr %ref.tmp10.i49, align 8
   %Size.i.i.i.i.i.i65 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i49, i64 8
@@ -9265,12 +9261,12 @@ if.end.i61:                                       ; preds = %if.end7.i.i57, %if.
   store i32 1, ptr %Size.i.i.i.i.i.i65, align 8
   store i8 %retval.sroa.0.0.copyload.i5.i62, ptr %ref.tmp12.i50, align 1
   %call15.i67 = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_13MatchCharNodeEJN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %16, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp10.i49, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i50)
-  %38 = load ptr, ptr %ref.tmp10.i49, align 8
-  %cmp.i.i.i.i68 = icmp eq ptr %38, %add.ptr.i.i.i.i.i.i64
+  %36 = load ptr, ptr %ref.tmp10.i49, align 8
+  %cmp.i.i.i.i68 = icmp eq ptr %36, %add.ptr.i.i.i.i.i.i64
   br i1 %cmp.i.i.i.i68, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit75, label %if.then.i.i.i69
 
 if.then.i.i.i69:                                  ; preds = %if.end.i61
-  call void @free(ptr noundef %38) #16
+  call void @free(ptr noundef %36) #16
   br label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit75
 
 _ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit75: ; preds = %if.end.i61, %if.then.i.i.i69
@@ -9281,14 +9277,14 @@ _ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit75: ; preds = %if
 sw.bb40:                                          ; preds = %if.end
   %flags_41 = getelementptr inbounds nuw i8, ptr %this, i64 28
   %bf.load42 = load i8, ptr %flags_41, align 4
-  %39 = and i8 %bf.load42, 8
-  %tobool45.not = icmp eq i8 %39, 0
+  %37 = and i8 %bf.load42, 8
+  %tobool45.not = icmp eq i8 %37, 0
   br i1 %tobool45.not, label %lor.lhs.false46, label %if.then48
 
 lor.lhs.false46:                                  ; preds = %sw.bb40
   %hasNamedGroups_ = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %40 = load i8, ptr %hasNamedGroups_, align 8
-  %tobool47 = trunc i8 %40 to i1
+  %38 = load i8, ptr %hasNamedGroups_, align 8
+  %tobool47 = trunc i8 %38 to i1
   br i1 %tobool47, label %if.then48, label %if.end56
 
 if.then48:                                        ; preds = %lor.lhs.false46, %sw.bb40
@@ -9304,8 +9300,8 @@ if.then48:                                        ; preds = %lor.lhs.false46, %s
   br i1 %cmp.not.i.i80, label %if.then53, label %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i
 
 _ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i: ; preds = %if.then48
-  %41 = load i16, ptr %incdec.ptr.i77, align 2
-  %cmp4.i.i = icmp eq i16 %41, 60
+  %39 = load i16, ptr %incdec.ptr.i77, align 2
+  %cmp4.i.i = icmp eq i16 %39, 60
   br i1 %cmp4.i.i, label %lor.lhs.false51, label %if.then53
 
 lor.lhs.false51:                                  ; preds = %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i
@@ -9316,71 +9312,70 @@ lor.lhs.false51:                                  ; preds = %_ZNK6hermes5regex6P
 
 if.then53:                                        ; preds = %if.then48, %_ZNK6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE5checkEDs.exit.i, %lor.lhs.false51
   %error_.i82 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %42 = load i32, ptr %error_.i82, align 8
-  %cmp.i83 = icmp eq i32 %42, 0
+  %40 = load i32, ptr %error_.i82, align 8
+  %cmp.i83 = icmp eq i32 %40, 0
   br i1 %cmp.i83, label %if.then.i85, label %cleanup
 
 if.then.i85:                                      ; preds = %if.then53
   store i32 14, ptr %error_.i82, align 8
-  %43 = load ptr, ptr %end_, align 8
-  store ptr %43, ptr %current_, align 8
+  %41 = load ptr, ptr %end_, align 8
+  store ptr %41, ptr %current_, align 8
   br label %cleanup
 
 if.end54:                                         ; preds = %lor.lhs.false51
-  %44 = load ptr, ptr %this, align 8
-  call void @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE16pushNamedBackRefEON4llvh11SmallVectorIDsLj5EEE(ptr noundef nonnull align 8 dereferenceable(336) %44, ptr noundef nonnull align 8 dereferenceable(26) %refIdentifer)
+  %42 = load ptr, ptr %this, align 8
+  call void @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE16pushNamedBackRefEON4llvh11SmallVectorIDsLj5EEE(ptr noundef nonnull align 8 dereferenceable(336) %42, ptr noundef nonnull align 8 dereferenceable(26) %refIdentifer)
   br label %cleanup
 
 cleanup:                                          ; preds = %if.then.i85, %if.then53, %if.end54
-  %45 = load ptr, ptr %refIdentifer, align 8
-  %cmp.i.i.i = icmp eq ptr %45, %add.ptr.i.i.i.i.i
+  %43 = load ptr, ptr %refIdentifer, align 8
+  %cmp.i.i.i = icmp eq ptr %43, %add.ptr.i.i.i.i.i
   br i1 %cmp.i.i.i, label %sw.epilog, label %if.then.i.i89
 
 if.then.i.i89:                                    ; preds = %cleanup
-  call void @free(ptr noundef %45) #16
+  call void @free(ptr noundef %43) #16
   br label %sw.epilog
 
 if.end56:                                         ; preds = %lor.lhs.false46
-  %46 = load ptr, ptr %this, align 8
-  %sawNamedBackrefBeforeGroup_.i = getelementptr inbounds nuw i8, ptr %46, i64 304
+  %44 = load ptr, ptr %this, align 8
+  %sawNamedBackrefBeforeGroup_.i = getelementptr inbounds nuw i8, ptr %44, i64 304
   store i8 1, ptr %sawNamedBackrefBeforeGroup_.i, align 8
   br label %sw.default
 
 sw.default:                                       ; preds = %if.end56, %if.end
-  %47 = load ptr, ptr %this, align 8
+  %45 = load ptr, ptr %this, align 8
   %call59 = tail call noundef i32 @_ZN6hermes5regex6ParserINS0_5RegexINS0_16UTF16RegexTraitsEEEPKDsE22consumeCharacterEscapeEv(ptr noundef nonnull align 8 dereferenceable(41) %this)
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %ref.tmp10.i90)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %ref.tmp12.i91)
-  %flags_.i.i92 = getelementptr inbounds nuw i8, ptr %47, i64 136
+  %flags_.i.i92 = getelementptr inbounds nuw i8, ptr %45, i64 136
   %retval.sroa.0.0.copyload.i.i93 = load i8, ptr %flags_.i.i92, align 8
   %bf.clear.i94 = and i8 %retval.sroa.0.0.copyload.i.i93, 1
   %tobool.not.i95 = icmp eq i8 %bf.clear.i94, 0
   br i1 %tobool.not.i95, label %if.end.i102, label %if.then.i96
 
 if.then.i96:                                      ; preds = %sw.default
-  %48 = and i8 %retval.sroa.0.0.copyload.i.i93, 8
-  %cmp.i.i97 = icmp ult i32 %call59, 128
-  br i1 %cmp.i.i97, label %if.then.i.i111, label %if.end7.i.i98
+  %46 = and i8 %retval.sroa.0.0.copyload.i.i93, 8
+  %tobool8.i97 = icmp ne i8 %46, 0
+  %cmp.i.i98 = icmp ult i32 %call59, 128
+  br i1 %cmp.i.i98, label %if.then.i.i111, label %if.end7.i.i99
 
 if.then.i.i111:                                   ; preds = %if.then.i96
-  %49 = and i32 %call59, 95
-  %50 = add nsw i32 %49, -65
-  %or.cond11.i.i112 = icmp ult i32 %50, 26
-  %51 = shl nuw nsw i8 %48, 2
-  %shl.i.i113 = zext nneg i8 %51 to i32
-  %or.i.i114 = or disjoint i32 %49, %shl.i.i113
+  %47 = and i32 %call59, 95
+  %48 = add nsw i32 %47, -65
+  %or.cond11.i.i112 = icmp ult i32 %48, 26
+  %shl.i.i113 = select i1 %tobool8.i97, i32 32, i32 0
+  %or.i.i114 = or disjoint i32 %shl.i.i113, %47
   %c.addr.0.i.i115 = select i1 %or.cond11.i.i112, i32 %or.i.i114, i32 %call59
   br label %if.end.i102
 
-if.end7.i.i98:                                    ; preds = %if.then.i96
-  %tobool8.i99 = icmp ne i8 %48, 0
-  %call.i.i100 = tail call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %call59, i1 noundef zeroext %tobool8.i99) #16
+if.end7.i.i99:                                    ; preds = %if.then.i96
+  %call.i.i100 = tail call noundef i32 @_ZN6hermes12canonicalizeEjb(i32 noundef %call59, i1 noundef zeroext %tobool8.i97) #16
   %retval.sroa.0.0.copyload.i5.pre.i101 = load i8, ptr %flags_.i.i92, align 8
   br label %if.end.i102
 
-if.end.i102:                                      ; preds = %if.end7.i.i98, %if.then.i.i111, %sw.default
-  %retval.sroa.0.0.copyload.i5.i103 = phi i8 [ %retval.sroa.0.0.copyload.i.i93, %sw.default ], [ %retval.sroa.0.0.copyload.i.i93, %if.then.i.i111 ], [ %retval.sroa.0.0.copyload.i5.pre.i101, %if.end7.i.i98 ]
-  %c.addr.0.i104 = phi i32 [ %call59, %sw.default ], [ %c.addr.0.i.i115, %if.then.i.i111 ], [ %call.i.i100, %if.end7.i.i98 ]
+if.end.i102:                                      ; preds = %if.end7.i.i99, %if.then.i.i111, %sw.default
+  %retval.sroa.0.0.copyload.i5.i103 = phi i8 [ %retval.sroa.0.0.copyload.i.i93, %sw.default ], [ %retval.sroa.0.0.copyload.i.i93, %if.then.i.i111 ], [ %retval.sroa.0.0.copyload.i5.pre.i101, %if.end7.i.i99 ]
+  %c.addr.0.i104 = phi i32 [ %call59, %sw.default ], [ %c.addr.0.i.i115, %if.then.i.i111 ], [ %call.i.i100, %if.end7.i.i99 ]
   %add.ptr.i.i.i.i.i.i105 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i90, i64 16
   store ptr %add.ptr.i.i.i.i.i.i105, ptr %ref.tmp10.i90, align 8
   %Size.i.i.i.i.i.i106 = getelementptr inbounds nuw i8, ptr %ref.tmp10.i90, i64 8
@@ -9389,13 +9384,13 @@ if.end.i102:                                      ; preds = %if.end7.i.i98, %if.
   store i32 %c.addr.0.i104, ptr %add.ptr.i.i.i.i.i.i105, align 8
   store i32 1, ptr %Size.i.i.i.i.i.i106, align 8
   store i8 %retval.sroa.0.0.copyload.i5.i103, ptr %ref.tmp12.i91, align 1
-  %call15.i108 = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_13MatchCharNodeEJN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %47, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp10.i90, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i91)
-  %52 = load ptr, ptr %ref.tmp10.i90, align 8
-  %cmp.i.i.i.i109 = icmp eq ptr %52, %add.ptr.i.i.i.i.i.i105
+  %call15.i108 = call noundef ptr @_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE10appendNodeINS0_13MatchCharNodeEJN4llvh11SmallVectorIjLj5EEENS0_11SyntaxFlagsEEEEPT_DpOT0_(ptr noundef nonnull align 8 dereferenceable(336) %45, ptr noundef nonnull align 8 dereferenceable(36) %ref.tmp10.i90, ptr noundef nonnull align 1 dereferenceable(1) %ref.tmp12.i91)
+  %49 = load ptr, ptr %ref.tmp10.i90, align 8
+  %cmp.i.i.i.i109 = icmp eq ptr %49, %add.ptr.i.i.i.i.i.i105
   br i1 %cmp.i.i.i.i109, label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit116, label %if.then.i.i.i110
 
 if.then.i.i.i110:                                 ; preds = %if.end.i102
-  call void @free(ptr noundef %52) #16
+  call void @free(ptr noundef %49) #16
   br label %_ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit116
 
 _ZN6hermes5regex5RegexINS0_16UTF16RegexTraitsEE8pushCharEj.exit116: ; preds = %if.end.i102, %if.then.i.i.i110

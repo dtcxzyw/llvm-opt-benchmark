@@ -589,8 +589,8 @@ define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %0, ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 72
   br label %14
 
-14:                                               ; preds = %.lr.ph, %118
-  %15 = phi i64 [ %9, %.lr.ph ], [ %119, %118 ]
+14:                                               ; preds = %.lr.ph, %116
+  %15 = phi i64 [ %9, %.lr.ph ], [ %117, %116 ]
   %16 = call ptr @evbuffer_pullup(ptr noundef %7, i64 noundef %15) #9
   %17 = icmp eq ptr %16, null
   %18 = icmp eq i64 %15, 1
@@ -631,14 +631,14 @@ define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %0, ptr noun
 
 .preheader.i:                                     ; preds = %34, %.preheader.i
   %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %.preheader.i ], [ 56, %34 ]
-  %.07291.i = phi i64 [ %41, %.preheader.i ], [ 0, %34 ]
-  %.389.i = phi i64 [ %36, %.preheader.i ], [ 2, %34 ]
-  %36 = add nuw nsw i64 %.389.i, 1
-  %37 = getelementptr inbounds nuw i8, ptr %16, i64 %.389.i
+  %.07292.i = phi i64 [ %41, %.preheader.i ], [ 0, %34 ]
+  %.390.i = phi i64 [ %36, %.preheader.i ], [ 2, %34 ]
+  %36 = add nuw nsw i64 %.390.i, 1
+  %37 = getelementptr inbounds nuw i8, ptr %16, i64 %.390.i
   %38 = load i8, ptr %37, align 1
   %39 = zext i8 %38 to i64
   %40 = shl i64 %39, %indvars.iv.i
-  %41 = or i64 %40, %.07291.i
+  %41 = or i64 %40, %.07292.i
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, -8
   %exitcond.not.i = icmp eq i64 %36, 10
   br i1 %exitcond.not.i, label %42, label %.preheader.i, !llvm.loop !7
@@ -655,170 +655,168 @@ define internal void @ws_evhttp_read_cb(ptr readnone captures(none) %0, ptr noun
 46:                                               ; preds = %42, %.thread.i, %26
   %.074.i = phi i64 [ 2, %26 ], [ 4, %.thread.i ], [ 10, %42 ]
   %.069.i = phi i64 [ %27, %26 ], [ %33, %.thread.i ], [ %41, %42 ]
-  %47 = lshr i8 %23, 5
-  %48 = and i8 %47, 4
-  %49 = zext nneg i8 %48 to i64
-  %50 = add nuw nsw i64 %.074.i, %49
-  %51 = add nuw nsw i64 %50, %.069.i
-  %52 = icmp ult i64 %15, %51
-  br i1 %52, label %.thread, label %53
-
-53:                                               ; preds = %46
   %.not.i = icmp sgt i8 %23, -1
-  br i1 %.not.i, label %.loopexit.i, label %54
+  %47 = select i1 %.not.i, i64 0, i64 4
+  %48 = add nuw nsw i64 %.074.i, %47
+  %49 = add nuw nsw i64 %48, %.069.i
+  %50 = icmp ult i64 %15, %49
+  br i1 %50, label %.thread, label %51
 
-54:                                               ; preds = %53
-  %55 = getelementptr inbounds nuw i8, ptr %16, i64 %.074.i
-  %56 = add nuw nsw i64 %.074.i, 4
-  %57 = getelementptr inbounds nuw i8, ptr %16, i64 %56
-  %.not93.i = icmp eq i64 %.069.i, 0
-  br i1 %.not93.i, label %.loopexit.i, label %.lr.ph.i
+51:                                               ; preds = %46
+  br i1 %.not.i, label %.loopexit.i, label %52
 
-.lr.ph.i:                                         ; preds = %54, %.lr.ph.i
-  %.092.i = phi i64 [ %64, %.lr.ph.i ], [ 0, %54 ]
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 %.092.i
-  %59 = load i8, ptr %58, align 1
-  %60 = and i64 %.092.i, 3
-  %61 = getelementptr inbounds nuw i8, ptr %55, i64 %60
-  %62 = load i8, ptr %61, align 1
-  %63 = xor i8 %62, %59
-  store i8 %63, ptr %58, align 1
-  %64 = add nuw nsw i64 %.092.i, 1
-  %exitcond96.not.i = icmp eq i64 %64, %.069.i
-  br i1 %exitcond96.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
+52:                                               ; preds = %51
+  %53 = getelementptr inbounds nuw i8, ptr %16, i64 %.074.i
+  %54 = add nuw nsw i64 %.074.i, 4
+  %55 = getelementptr inbounds nuw i8, ptr %16, i64 %54
+  %.not94.i = icmp eq i64 %.069.i, 0
+  br i1 %.not94.i, label %.loopexit.i, label %.lr.ph.i
 
-.loopexit.i:                                      ; preds = %.lr.ph.i, %54, %53
-  %.4.i = phi i64 [ %.074.i, %53 ], [ %56, %54 ], [ %56, %.lr.ph.i ]
-  %65 = getelementptr inbounds nuw i8, ptr %16, i64 %.4.i
-  %66 = add nsw i8 %21, -3
-  %or.cond.i = icmp ult i8 %66, 5
-  %67 = icmp samesign ugt i8 %21, 10
-  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %67
-  br i1 %or.cond6.i, label %get_ws_frame.exit.thread58, label %68
+.lr.ph.i:                                         ; preds = %52, %.lr.ph.i
+  %.093.i = phi i64 [ %62, %.lr.ph.i ], [ 0, %52 ]
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %.093.i
+  %57 = load i8, ptr %56, align 1
+  %58 = and i64 %.093.i, 3
+  %59 = getelementptr inbounds nuw i8, ptr %53, i64 %58
+  %60 = load i8, ptr %59, align 1
+  %61 = xor i8 %60, %57
+  store i8 %61, ptr %56, align 1
+  %62 = add nuw nsw i64 %.093.i, 1
+  %exitcond97.not.i = icmp eq i64 %62, %.069.i
+  br i1 %exitcond97.not.i, label %.loopexit.i, label %.lr.ph.i, !llvm.loop !8
 
-68:                                               ; preds = %.loopexit.i
-  %69 = zext nneg i8 %21 to i32
-  %70 = icmp samesign ugt i8 %21, 3
-  %71 = icmp slt i8 %20, 0
-  %or.cond8.i = or i1 %71, %70
-  %72 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %.4.i) #9
-  %73 = call ptr @evbuffer_pullup(ptr noundef %7, i64 noundef -1) #9
+.loopexit.i:                                      ; preds = %.lr.ph.i, %52, %51
+  %.4.i = phi i64 [ %.074.i, %51 ], [ %54, %52 ], [ %54, %.lr.ph.i ]
+  %63 = getelementptr inbounds nuw i8, ptr %16, i64 %.4.i
+  %64 = add nsw i8 %21, -3
+  %or.cond.i = icmp ult i8 %64, 5
+  %65 = icmp samesign ugt i8 %21, 10
+  %or.cond6.i = select i1 %or.cond.i, i1 true, i1 %65
+  br i1 %or.cond6.i, label %get_ws_frame.exit.thread58, label %66
+
+66:                                               ; preds = %.loopexit.i
+  %67 = zext nneg i8 %21 to i32
+  %68 = icmp samesign ugt i8 %21, 3
+  %69 = icmp slt i8 %20, 0
+  %or.cond8.i = or i1 %69, %68
+  %70 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %.4.i) #9
+  %71 = call ptr @evbuffer_pullup(ptr noundef %7, i64 noundef -1) #9
   br i1 %or.cond8.i, label %get_ws_frame.exit, label %get_ws_frame.exit.thread66
 
-get_ws_frame.exit.thread66:                       ; preds = %68
-  %74 = load ptr, ptr %10, align 8
-  %75 = icmp eq ptr %74, null
-  br i1 %75, label %95, label %97
+get_ws_frame.exit.thread66:                       ; preds = %66
+  %72 = load ptr, ptr %10, align 8
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %93, label %95
 
 get_ws_frame.exit.thread58:                       ; preds = %.loopexit.i, %44
-  %.253.ph = phi ptr [ %45, %44 ], [ %65, %.loopexit.i ]
+  %.253.ph = phi ptr [ %45, %44 ], [ %63, %.loopexit.i ]
   %.2.ph = phi i64 [ 0, %44 ], [ %.069.i, %.loopexit.i ]
-  %76 = ptrtoint ptr %.253.ph to i64
-  %77 = ptrtoint ptr %16 to i64
-  %78 = sub i64 %76, %77
-  %79 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %78) #9
-  %80 = call ptr @evbuffer_pullup(ptr noundef %7, i64 noundef -1) #9
-  br label %100
+  %74 = ptrtoint ptr %.253.ph to i64
+  %75 = ptrtoint ptr %16 to i64
+  %76 = sub i64 %74, %75
+  %77 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %76) #9
+  %78 = call ptr @evbuffer_pullup(ptr noundef %7, i64 noundef -1) #9
+  br label %98
 
-get_ws_frame.exit:                                ; preds = %68
-  switch i8 %21, label %108 [
-    i8 1, label %81
-    i8 2, label %81
-    i8 10, label %116
-    i8 8, label %100
-    i8 9, label %116
+get_ws_frame.exit:                                ; preds = %66
+  switch i8 %21, label %106 [
+    i8 1, label %79
+    i8 2, label %79
+    i8 10, label %114
+    i8 8, label %98
+    i8 9, label %114
   ]
 
-81:                                               ; preds = %get_ws_frame.exit, %get_ws_frame.exit
-  %82 = load ptr, ptr %10, align 8
-  %.not45 = icmp eq ptr %82, null
-  br i1 %.not45, label %92, label %83
+79:                                               ; preds = %get_ws_frame.exit, %get_ws_frame.exit
+  %80 = load ptr, ptr %10, align 8
+  %.not45 = icmp eq ptr %80, null
+  br i1 %.not45, label %90, label %81
 
-83:                                               ; preds = %81
-  %84 = call i32 @evbuffer_add(ptr noundef nonnull %82, ptr noundef %73, i64 noundef %.069.i) #9
-  %85 = load ptr, ptr %10, align 8
-  %86 = call ptr @evbuffer_pullup(ptr noundef %85, i64 noundef -1) #9
-  %87 = load ptr, ptr %11, align 8
-  %88 = load ptr, ptr %10, align 8
-  %89 = call i64 @evbuffer_get_length(ptr noundef %88) #9
-  %90 = load ptr, ptr %12, align 8
-  call void %87(ptr noundef nonnull %1, i32 noundef %69, ptr noundef %86, i64 noundef %89, ptr noundef %90) #9
-  %91 = load ptr, ptr %10, align 8
-  call void @evbuffer_free(ptr noundef %91) #9
+81:                                               ; preds = %79
+  %82 = call i32 @evbuffer_add(ptr noundef nonnull %80, ptr noundef %71, i64 noundef %.069.i) #9
+  %83 = load ptr, ptr %10, align 8
+  %84 = call ptr @evbuffer_pullup(ptr noundef %83, i64 noundef -1) #9
+  %85 = load ptr, ptr %11, align 8
+  %86 = load ptr, ptr %10, align 8
+  %87 = call i64 @evbuffer_get_length(ptr noundef %86) #9
+  %88 = load ptr, ptr %12, align 8
+  call void %85(ptr noundef nonnull %1, i32 noundef %67, ptr noundef %84, i64 noundef %87, ptr noundef %88) #9
+  %89 = load ptr, ptr %10, align 8
+  call void @evbuffer_free(ptr noundef %89) #9
   store ptr null, ptr %10, align 8
-  br label %116
+  br label %114
 
-92:                                               ; preds = %81
-  %93 = load ptr, ptr %11, align 8
-  %94 = load ptr, ptr %12, align 8
-  call void %93(ptr noundef nonnull %1, i32 noundef %69, ptr noundef %73, i64 noundef %.069.i, ptr noundef %94) #9
-  br label %116
+90:                                               ; preds = %79
+  %91 = load ptr, ptr %11, align 8
+  %92 = load ptr, ptr %12, align 8
+  call void %91(ptr noundef nonnull %1, i32 noundef %67, ptr noundef %71, i64 noundef %.069.i, ptr noundef %92) #9
+  br label %114
 
-95:                                               ; preds = %get_ws_frame.exit.thread66
-  %96 = call ptr @evbuffer_new() #9
-  store ptr %96, ptr %10, align 8
-  br label %97
+93:                                               ; preds = %get_ws_frame.exit.thread66
+  %94 = call ptr @evbuffer_new() #9
+  store ptr %94, ptr %10, align 8
+  br label %95
 
-97:                                               ; preds = %95, %get_ws_frame.exit.thread66
-  %98 = phi ptr [ %96, %95 ], [ %74, %get_ws_frame.exit.thread66 ]
-  %99 = call i32 @evbuffer_remove_buffer(ptr noundef %7, ptr noundef %98, i64 noundef %.069.i) #9
-  br label %118, !llvm.loop !9
+95:                                               ; preds = %93, %get_ws_frame.exit.thread66
+  %96 = phi ptr [ %94, %93 ], [ %72, %get_ws_frame.exit.thread66 ]
+  %97 = call i32 @evbuffer_remove_buffer(ptr noundef %7, ptr noundef %96, i64 noundef %.069.i) #9
+  br label %116, !llvm.loop !9
 
-100:                                              ; preds = %get_ws_frame.exit.thread58, %get_ws_frame.exit
+98:                                               ; preds = %get_ws_frame.exit.thread58, %get_ws_frame.exit
   %.265 = phi i64 [ %.2.ph, %get_ws_frame.exit.thread58 ], [ %.069.i, %get_ws_frame.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #9
   store i32 648, ptr %4, align 4
-  %101 = load i8, ptr %13, align 8, !range !3, !noundef !4
-  %102 = trunc nuw i8 %101 to i1
-  br i1 %102, label %evws_force_disconnect_.exit, label %103
+  %99 = load i8, ptr %13, align 8, !range !3, !noundef !4
+  %100 = trunc nuw i8 %99 to i1
+  br i1 %100, label %evws_force_disconnect_.exit, label %101
 
-103:                                              ; preds = %100
+101:                                              ; preds = %98
   store i8 1, ptr %13, align 8
-  %104 = load ptr, ptr %5, align 8
-  %105 = call ptr @bufferevent_get_output(ptr noundef %104) #9
-  %106 = call i32 @evbuffer_add(ptr noundef %105, ptr noundef nonnull %4, i64 noundef 4) #9
-  %107 = load ptr, ptr %5, align 8
-  call void @bufferevent_setcb(ptr noundef %107, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %1) #9
+  %102 = load ptr, ptr %5, align 8
+  %103 = call ptr @bufferevent_get_output(ptr noundef %102) #9
+  %104 = call i32 @evbuffer_add(ptr noundef %103, ptr noundef nonnull %4, i64 noundef 4) #9
+  %105 = load ptr, ptr %5, align 8
+  call void @bufferevent_setcb(ptr noundef %105, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %1) #9
   br label %evws_force_disconnect_.exit
 
-evws_force_disconnect_.exit:                      ; preds = %100, %103
+evws_force_disconnect_.exit:                      ; preds = %98, %101
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #9
-  br label %116
+  br label %114
 
-108:                                              ; preds = %get_ws_frame.exit
-  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.ws_evhttp_read_cb, i32 noundef %69) #9
+106:                                              ; preds = %get_ws_frame.exit
+  call void (ptr, ...) @event_warn(ptr noundef nonnull @.str.8, ptr noundef nonnull @__func__.ws_evhttp_read_cb, i32 noundef %67) #9
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #9
   store i32 648, ptr %3, align 4
-  %109 = load i8, ptr %13, align 8, !range !3, !noundef !4
-  %110 = trunc nuw i8 %109 to i1
-  br i1 %110, label %evws_force_disconnect_.exit46, label %111
+  %107 = load i8, ptr %13, align 8, !range !3, !noundef !4
+  %108 = trunc nuw i8 %107 to i1
+  br i1 %108, label %evws_force_disconnect_.exit46, label %109
 
-111:                                              ; preds = %108
+109:                                              ; preds = %106
   store i8 1, ptr %13, align 8
-  %112 = load ptr, ptr %5, align 8
-  %113 = call ptr @bufferevent_get_output(ptr noundef %112) #9
-  %114 = call i32 @evbuffer_add(ptr noundef %113, ptr noundef nonnull %3, i64 noundef 4) #9
-  %115 = load ptr, ptr %5, align 8
-  call void @bufferevent_setcb(ptr noundef %115, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %1) #9
+  %110 = load ptr, ptr %5, align 8
+  %111 = call ptr @bufferevent_get_output(ptr noundef %110) #9
+  %112 = call i32 @evbuffer_add(ptr noundef %111, ptr noundef nonnull %3, i64 noundef 4) #9
+  %113 = load ptr, ptr %5, align 8
+  call void @bufferevent_setcb(ptr noundef %113, ptr noundef null, ptr noundef nonnull @close_after_write_cb, ptr noundef nonnull @close_event_cb, ptr noundef nonnull %1) #9
   br label %evws_force_disconnect_.exit46
 
-evws_force_disconnect_.exit46:                    ; preds = %108, %111
+evws_force_disconnect_.exit46:                    ; preds = %106, %109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
+  br label %114
+
+114:                                              ; preds = %get_ws_frame.exit, %get_ws_frame.exit, %81, %90, %evws_force_disconnect_.exit46, %evws_force_disconnect_.exit
+  %.264 = phi i64 [ %.069.i, %get_ws_frame.exit ], [ %.069.i, %get_ws_frame.exit ], [ %.069.i, %81 ], [ %.069.i, %90 ], [ %.069.i, %evws_force_disconnect_.exit46 ], [ %.265, %evws_force_disconnect_.exit ]
+  %115 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %.264) #9
   br label %116
 
-116:                                              ; preds = %get_ws_frame.exit, %get_ws_frame.exit, %83, %92, %evws_force_disconnect_.exit46, %evws_force_disconnect_.exit
-  %.264 = phi i64 [ %.069.i, %get_ws_frame.exit ], [ %.069.i, %get_ws_frame.exit ], [ %.069.i, %83 ], [ %.069.i, %92 ], [ %.069.i, %evws_force_disconnect_.exit46 ], [ %.265, %evws_force_disconnect_.exit ]
-  %117 = call i32 @evbuffer_drain(ptr noundef %7, i64 noundef %.264) #9
-  br label %118
-
-118:                                              ; preds = %116, %97
-  %119 = call i64 @evbuffer_get_length(ptr noundef %7) #9
-  %.not = icmp eq i64 %119, 0
+116:                                              ; preds = %114, %95
+  %117 = call i64 @evbuffer_get_length(ptr noundef %7) #9
+  %.not = icmp eq i64 %117, 0
   br i1 %.not, label %.thread, label %14
 
-.thread:                                          ; preds = %118, %14, %46, %30, %34, %2
-  %120 = load ptr, ptr %5, align 8
-  %121 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %120) #9
+.thread:                                          ; preds = %116, %14, %46, %30, %34, %2
+  %118 = load ptr, ptr %5, align 8
+  %119 = call i32 @bufferevent_decref_and_unlock_(ptr noundef %118) #9
   ret void
 }
 

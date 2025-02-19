@@ -5202,14 +5202,14 @@ _ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; pre
   br label %_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
 142:                                              ; preds = %116
-  %143 = shl nuw nsw i32 %12, 4
+  %143 = select i1 %.not47, i32 128, i32 0
   %144 = shl i32 %2, 3
   %145 = and i32 %144, 120
   %146 = or disjoint i32 %145, %143
   %147 = icmp sgt i32 %113, 0
   %148 = select i1 %147, i32 4, i32 0
-  %149 = or disjoint i32 %148, %146
-  %150 = xor i32 %149, 248
+  %149 = or disjoint i32 %146, %148
+  %150 = xor i32 %149, 120
   %151 = or i32 %150, %4
   %152 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %153 = load ptr, ptr %152, align 8
@@ -6986,14 +6986,14 @@ _ZN9Assembler11evex_prefixEbbbbbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit: ; pre
   br label %_ZN9Assembler10vex_prefixEbbbiNS_13VexSimdPrefixENS_9VexOpcodeE.exit
 
 198:                                              ; preds = %170
-  %199 = shl nuw nsw i32 %27, 4
+  %199 = select i1 %.not42, i32 128, i32 0
   %200 = shl i32 %2, 3
   %201 = and i32 %200, 120
   %202 = or disjoint i32 %199, %201
   %203 = icmp sgt i32 %167, 0
   %204 = select i1 %203, i32 4, i32 0
-  %205 = or disjoint i32 %204, %202
-  %206 = xor i32 %205, 248
+  %205 = or disjoint i32 %202, %204
+  %206 = xor i32 %205, 120
   %207 = or i32 %206, %4
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %209 = load ptr, ptr %208, align 8

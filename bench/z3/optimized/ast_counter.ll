@@ -1726,8 +1726,8 @@ _ZN6vectorIP4exprLb0EjE9push_backERKS1_.exit:     ; preds = %lor.lhs.false.i, %i
   %call2 = call noundef i32 @_ZN11var_counter11get_max_varERb(ptr noundef nonnull align 8 dereferenceable(224) %this, ptr noundef nonnull align 1 dereferenceable(1) %has_var)
   %7 = load i8, ptr %has_var, align 1
   %8 = and i8 %7, 1
-  %inc = zext nneg i8 %8 to i32
-  %spec.select = add i32 %call2, %inc
+  %9 = zext nneg i8 %8 to i32
+  %spec.select = add i32 %call2, %9
   ret i32 %spec.select
 }
 

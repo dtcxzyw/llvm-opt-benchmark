@@ -1588,9 +1588,9 @@ define internal fastcc range(i64 -2147483648, -9223372036854775808) i64 @cvtnum(
 ; Function Attrs: nounwind sspstrong uwtable
 define internal fastcc ptr @qemu_io_alloc(ptr noundef %0, i64 noundef range(i64 0, -9223372036854775808) %1, i32 noundef range(i32 0, -2147483648) %2, i1 noundef zeroext %3) unnamed_addr #0 {
   %5 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
-  %6 = trunc nuw i8 %5 to i1
-  %7 = add nuw i64 %1, 16
-  %spec.select = select i1 %6, i64 %7, i64 %1
+  %6 = shl nuw nsw i8 %5, 4
+  %7 = zext nneg i8 %6 to i64
+  %spec.select = add nuw i64 %1, %7
   %8 = tail call ptr @blk_blockalign(ptr noundef %0, i64 noundef %spec.select) #26
   %9 = trunc i32 %2 to i8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %8, i8 noundef %9, i64 noundef %spec.select, i1 noundef false) #26
@@ -2230,9 +2230,9 @@ define internal fastcc ptr @create_iovec(ptr noundef %0, ptr noundef %1, ptr nou
   %.054.lcssa = phi i64 [ 0, %6 ], [ %32, %30 ]
   call void @qemu_iovec_init(ptr noundef %1, i32 noundef %3) #26
   %33 = load i8, ptr @qemuio_misalign, align 1, !range !11, !noundef !12
-  %34 = trunc nuw i8 %33 to i1
-  %35 = add nuw nsw i64 %.054.lcssa, 16
-  %spec.select.i = select i1 %34, i64 %35, i64 %.054.lcssa
+  %34 = shl nuw nsw i8 %33, 4
+  %35 = zext nneg i8 %34 to i64
+  %spec.select.i = add nuw nsw i64 %.054.lcssa, %35
   %36 = call ptr @blk_blockalign(ptr noundef %0, i64 noundef %spec.select.i) #26
   %37 = trunc i32 %4 to i8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %36, i8 noundef %37, i64 noundef %spec.select.i, i1 noundef false) #26

@@ -35581,9 +35581,9 @@ _ZN3ide19syntax_highlighting16filter_by_config17hbc7d0a021baff059E.exit: ; preds
 _ZN3ide19syntax_highlighting16filter_by_config17hbc7d0a021baff059E.exit.thread: ; preds = %1445, %1439, %"_ZN78_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h72055982d0267521E.llvm.10712026466629435290.exit951", %1440, %1450, %1448, %_ZN3ide19syntax_highlighting16filter_by_config17hbc7d0a021baff059E.exit
   %.sroa.19.0344 = phi i64 [ %.sroa.19.0.extract.shift, %_ZN3ide19syntax_highlighting16filter_by_config17hbc7d0a021baff059E.exit ], [ %spec.select405, %1448 ], [ %spec.select407, %1450 ], [ %.sroa.19.0.extract.shift, %1440 ], [ %.sroa.19.0.extract.shift, %"_ZN78_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h72055982d0267521E.llvm.10712026466629435290.exit951" ], [ %.sroa.19.0.extract.shift, %1439 ], [ %spec.select1151, %1445 ]
   %.sroa.12.0343 = phi i64 [ 14, %_ZN3ide19syntax_highlighting16filter_by_config17hbc7d0a021baff059E.exit ], [ 12, %1448 ], [ 13, %1450 ], [ 15, %1440 ], [ %.sroa.12.0.extract.shift, %"_ZN78_$LT$ide..syntax_highlighting..tags..HlTag$u20$as$u20$core..cmp..PartialEq$GT$2eq17h72055982d0267521E.llvm.10712026466629435290.exit951" ], [ %.sroa.12.0.extract.shift, %1439 ], [ %spec.select1152, %1445 ]
-  %1451 = trunc nuw i8 %.2217 to i1
-  %1452 = or i32 %.sroa.0105.0.extract.trunc, 4
-  %spec.select423 = select i1 %1451, i32 %1452, i32 %.sroa.0105.0.extract.trunc
+  %1451 = zext nneg i8 %.2217 to i32
+  %1452 = shl nuw nsw i32 %1451, 2
+  %spec.select423 = or i32 %1452, %.sroa.0105.0.extract.trunc
   %or.cond6 = and i1 %.2220, %1013
   %1453 = or i32 %spec.select423, 32768
   %spec.select424 = select i1 %.2255, i32 %1453, i32 %spec.select423

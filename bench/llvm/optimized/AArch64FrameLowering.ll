@@ -22813,9 +22813,9 @@ _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit290: ; preds = 
 810:                                              ; preds = %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit290
   %811 = getelementptr inbounds nuw i8, ptr %29, i64 210
   %812 = load i8, ptr %811, align 2, !tbaa !255, !range !50, !noundef !51
-  %813 = trunc nuw i8 %812 to i1
-  %814 = add i32 %803, 8
-  %spec.select218 = select i1 %813, i32 %814, i32 %803
+  %813 = shl nuw nsw i8 %812, 3
+  %814 = zext nneg i8 %813 to i32
+  %spec.select218 = add i32 %803, %814
   br label %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit290.thread
 
 _ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit290.thread: ; preds = %_ZNK4llvm9BitVector5countEv.exit289, %810, %_ZNK4llvm19TargetFrameLowering5hasFPERKNS_15MachineFunctionE.exit290

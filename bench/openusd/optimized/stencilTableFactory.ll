@@ -18036,13 +18036,13 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far28LimitStencilTableFactor
 78:                                               ; preds = %77
   call void @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryRealIfE7OptionsC1Ev(ptr noundef nonnull align 4 dereferenceable(8) %7)
   %79 = load i16, ptr %7, align 8
-  %80 = shl nuw nsw i16 %36, 4
+  %80 = select i1 %37, i16 0, i16 16
   %81 = and i16 %79, -32
-  %82 = or disjoint i16 %81, %80
-  %83 = trunc i64 %4 to i16
-  %84 = and i16 %83, 3
-  %85 = or disjoint i16 %82, %84
-  %86 = xor i16 %85, 28
+  %82 = trunc i64 %4 to i16
+  %83 = and i16 %82, 3
+  %84 = or disjoint i16 %83, %80
+  %85 = or disjoint i16 %84, %81
+  %86 = or disjoint i16 %85, 12
   store i16 %86, ptr %7, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.sroa.7194.0.extract.trunc, ptr %87, align 4
@@ -19010,13 +19010,13 @@ define weak_odr noundef ptr @_ZN10OpenSubdiv6v3_6_03Far28LimitStencilTableFactor
 78:                                               ; preds = %77
   call void @_ZN10OpenSubdiv6v3_6_03Far23StencilTableFactoryRealIdE7OptionsC1Ev(ptr noundef nonnull align 4 dereferenceable(8) %7)
   %79 = load i16, ptr %7, align 8
-  %80 = shl nuw nsw i16 %36, 4
+  %80 = select i1 %37, i16 0, i16 16
   %81 = and i16 %79, -32
-  %82 = or disjoint i16 %81, %80
-  %83 = trunc i64 %4 to i16
-  %84 = and i16 %83, 3
-  %85 = or disjoint i16 %82, %84
-  %86 = xor i16 %85, 28
+  %82 = trunc i64 %4 to i16
+  %83 = and i16 %82, 3
+  %84 = or disjoint i16 %83, %80
+  %85 = or disjoint i16 %84, %81
+  %86 = or disjoint i16 %85, 12
   store i16 %86, ptr %7, align 8
   %87 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %.sroa.7194.0.extract.trunc, ptr %87, align 4

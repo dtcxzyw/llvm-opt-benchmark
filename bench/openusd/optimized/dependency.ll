@@ -174,7 +174,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNod
   %.not.i33 = icmp eq ptr %21, null
   %.not1.i34 = icmp eq i64 %22, -1
   %23 = select i1 %.not.i33, i1 true, i1 %.not1.i34
-  br i1 %23, label %.thread, label %.lr.ph
+  br i1 %23, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -209,35 +209,30 @@ _ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNod
 
 ._crit_edge:                                      ; preds = %29
   %37 = trunc nuw i8 %.020. to i1
-  %38 = trunc nuw i8 %..017 to i1
-  br i1 %37, label %39, label %43
+  br i1 %37, label %38, label %._crit_edge.thread
 
-39:                                               ; preds = %._crit_edge
-  br i1 %38, label %.thread29, label %41
+38:                                               ; preds = %._crit_edge
+  %39 = trunc nuw i8 %..017 to i1
+  %spec.select45 = select i1 %39, i32 4, i32 2
+  br label %.thread29
 
-.thread29:                                        ; preds = %27, %39
-  %40 = or disjoint i32 %.016, 4
-  br label %.thread
+._crit_edge.thread:                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread, %._crit_edge
+  %.017.lcssa42 = phi i8 [ %..017, %._crit_edge ], [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread ]
+  %40 = shl nuw nsw i8 %.017.lcssa42, 3
+  %41 = zext nneg i8 %40 to i32
+  br label %.thread29
 
-41:                                               ; preds = %39
-  %42 = or disjoint i32 %.016, 2
-  br label %.thread
-
-43:                                               ; preds = %._crit_edge
-  %44 = or disjoint i32 %.016, 8
-  %spec.select = select i1 %38, i32 %44, i32 %.016
-  br label %.thread
-
-.thread:                                          ; preds = %43, %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread, %.thread29, %41
-  %.1 = phi i32 [ %40, %.thread29 ], [ %42, %41 ], [ %.016, %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit.thread ], [ %spec.select, %43 ]
-  %45 = shl nsw i32 %.1, 1
-  %46 = and i32 %45, 32
-  %47 = xor i32 %46, 32
-  %spec.select24 = or i32 %47, %.1
+.thread29:                                        ; preds = %27, %38, %._crit_edge.thread
+  %.sink = phi i32 [ %41, %._crit_edge.thread ], [ %spec.select45, %38 ], [ 4, %27 ]
+  %spec.select = or disjoint i32 %.016, %.sink
+  %42 = shl nuw nsw i32 %spec.select, 1
+  %43 = and i32 %42, 32
+  %44 = xor i32 %43, 32
+  %spec.select24 = or i32 %44, %spec.select
   br label %_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit: ; preds = %11, %1, %.thread
-  %.0 = phi i32 [ %spec.select24, %.thread ], [ 1, %1 ], [ 0, %11 ]
+_ZN32pxrInternal_v0_24__pxrReserved__27PcpNodeIntroducesDependencyERKNS_10PcpNodeRefE.exit: ; preds = %11, %1, %.thread29
+  %.0 = phi i32 [ %spec.select24, %.thread29 ], [ 1, %1 ], [ 0, %11 ]
   ret i32 %.0
 }
 

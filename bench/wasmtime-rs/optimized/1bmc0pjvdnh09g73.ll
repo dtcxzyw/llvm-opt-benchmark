@@ -5897,9 +5897,9 @@ define hidden void @_ZN5gimli5write4line11LineProgram5write17h686013c60885eeb2E(
 
 57:                                               ; preds = %51, %44
   %58 = phi i64 [ %40, %44 ], [ %.pre.i.i.i.i, %51 ]
-  %59 = trunc nuw i8 %46 to i1
-  %60 = shl nuw nsw i16 %22, 8
-  %storemerge.i.i = select i1 %59, i16 %60, i16 %22
+  %59 = shl nuw nsw i8 %46, 3
+  %60 = zext nneg i8 %59 to i16
+  %storemerge.i.i = shl nuw nsw i16 %22, %60
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %62 = load ptr, ptr %61, align 8, !alias.scope !781, !noalias !778, !nonnull !4, !noundef !4
   %63 = getelementptr inbounds i8, ptr %62, i64 %58

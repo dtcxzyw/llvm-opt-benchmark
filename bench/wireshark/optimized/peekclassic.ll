@@ -336,7 +336,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #6
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #6
   %8 = call zeroext i1 @wtap_read_bytes_or_eof(ptr noundef %1, ptr noundef nonnull %6, i32 noundef 16, ptr noundef %3, ptr noundef %4)
-  br i1 %8, label %9, label %154
+  br i1 %8, label %9, label %152
 
 9:                                                ; preds = %5
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 2
@@ -430,7 +430,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   %83 = call i32 @wtap_block_add_uint32_option(ptr noundef %65, i32 noundef 2, i32 noundef %.2)
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %85 = load i32, ptr %84, align 8
-  switch i32 %85, label %148 [
+  switch i32 %85, label %146 [
     i32 22, label %86
     i32 1, label %142
   ]
@@ -458,7 +458,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   store i32 -13, ptr %3, align 4
   %98 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.5)
   store ptr %98, ptr %4, align 8
-  br label %154
+  br label %152
 
 99:                                               ; preds = %94
   %100 = add i32 %92, -4
@@ -467,7 +467,7 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   store i32 %101, ptr %76, align 8
   %102 = add i16 %spec.select, -4
   %103 = call zeroext i1 @wtap_read_bytes(ptr noundef %1, ptr noundef nonnull %7, i32 noundef 4, ptr noundef %3, ptr noundef %4)
-  br i1 %103, label %104, label %154
+  br i1 %103, label %104, label %152
 
 104:                                              ; preds = %99
   %105 = getelementptr inbounds nuw i8, ptr %2, i64 112
@@ -545,37 +545,36 @@ define internal fastcc range(i32 -1, 65536) i32 @peekclassic_read_packet_v7(ptr 
   store i32 -13, ptr %3, align 4
   %138 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.6)
   store ptr %138, ptr %4, align 8
-  br label %154
+  br label %152
 
 139:                                              ; preds = %134
   %140 = add i32 %132, -4
   store i32 %140, ptr %77, align 4
   %141 = add i32 %135, -4
   store i32 %141, ptr %76, align 8
-  br label %148
+  br label %146
 
 142:                                              ; preds = %9
-  %143 = shl i8 %25, 2
-  %144 = and i8 %143, 4
-  %145 = xor i8 %144, 4
-  %146 = zext nneg i8 %145 to i32
-  %147 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i32 %146, ptr %147, align 8
-  br label %148
+  %143 = and i8 %25, 1
+  %.not93 = icmp eq i8 %143, 0
+  %144 = select i1 %.not93, i32 4, i32 0
+  %145 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i32 %144, ptr %145, align 8
+  br label %146
 
-148:                                              ; preds = %142, %139, %9
+146:                                              ; preds = %142, %139, %9
   %.187 = phi i16 [ %spec.select, %9 ], [ %spec.select, %142 ], [ %102, %139 ]
-  %149 = getelementptr inbounds nuw i8, ptr %2, i64 280
-  %150 = load i32, ptr %76, align 8
-  %151 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %1, ptr noundef nonnull %149, i32 noundef %150, ptr noundef %3, ptr noundef %4)
-  br i1 %151, label %152, label %154
+  %147 = getelementptr inbounds nuw i8, ptr %2, i64 280
+  %148 = load i32, ptr %76, align 8
+  %149 = call zeroext i1 @wtap_read_bytes_buffer(ptr noundef %1, ptr noundef nonnull %147, i32 noundef %148, ptr noundef %3, ptr noundef %4)
+  br i1 %149, label %150, label %152
 
-152:                                              ; preds = %148
-  %153 = zext i16 %.187 to i32
-  br label %154
+150:                                              ; preds = %146
+  %151 = zext i16 %.187 to i32
+  br label %152
 
-154:                                              ; preds = %148, %99, %5, %152, %137, %97
-  %.085 = phi i32 [ %153, %152 ], [ -1, %97 ], [ -1, %137 ], [ -1, %5 ], [ -1, %99 ], [ -1, %148 ]
+152:                                              ; preds = %146, %99, %5, %150, %137, %97
+  %.085 = phi i32 [ %151, %150 ], [ -1, %97 ], [ -1, %137 ], [ -1, %5 ], [ -1, %99 ], [ -1, %146 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #6
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #6
   ret i32 %.085

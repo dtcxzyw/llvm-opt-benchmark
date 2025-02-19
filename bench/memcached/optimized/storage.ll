@@ -2104,7 +2104,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   br i1 %or.cond108.i, label %166, label %159
 
 159:                                              ; preds = %155
-  %spec.select = or i8 %.sroa.0.5, %139
+  %spec.select = or i8 %139, %.sroa.0.5
   %160 = and i8 %spec.select, 7
   %or.cond106.i = icmp eq i8 %160, 0
   br i1 %or.cond106.i, label %166, label %161
@@ -2113,7 +2113,7 @@ define internal noalias noundef nonnull ptr @storage_compact_thread(ptr noundef 
   %162 = shl i8 %.sroa.0.5, 1
   %163 = and i8 %162, 8
   %164 = and i8 %spec.select, -9
-  %165 = or disjoint i8 %163, %164
+  %165 = or disjoint i8 %164, %163
   br label %.loopexit135
 
 166:                                              ; preds = %159, %155, %153, %146, %140

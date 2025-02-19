@@ -196,59 +196,58 @@ define internal i32 @mem_read(ptr noundef %0, ptr noundef writeonly %1, i32 noun
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8, !tbaa !28
-  %8 = lshr i32 %7, 6
-  %9 = and i32 %8, 8
-  %10 = xor i32 %9, 8
-  %spec.select.idx = zext nneg i32 %10 to i64
+  %8 = and i32 %7, 512
+  %.not = icmp eq i32 %8, 0
+  %spec.select.idx = select i1 %.not, i64 8, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %5, i64 %spec.select.idx
   %.0 = load ptr, ptr %spec.select, align 8, !tbaa !31
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #7
-  %11 = icmp sgt i32 %2, -1
+  %9 = icmp sgt i32 %2, -1
   %.pre = load i64, ptr %.0, align 8, !tbaa !22
-  br i1 %11, label %12, label %.thread
+  br i1 %9, label %10, label %.thread
 
-12:                                               ; preds = %3
-  %13 = zext nneg i32 %2 to i64
-  %spec.select3335 = tail call i64 @llvm.umin.i64(i64 %.pre, i64 %13)
+10:                                               ; preds = %3
+  %11 = zext nneg i32 %2 to i64
+  %spec.select3335 = tail call i64 @llvm.umin.i64(i64 %.pre, i64 %11)
   %spec.select33 = trunc nuw nsw i64 %spec.select3335 to i32
-  %14 = icmp ne ptr %1, null
-  %15 = icmp ne i64 %spec.select3335, 0
-  %or.cond = select i1 %14, i1 %15, i1 false
-  br i1 %or.cond, label %16, label %.thread
+  %12 = icmp ne ptr %1, null
+  %13 = icmp ne i64 %spec.select3335, 0
+  %or.cond = select i1 %12, i1 %13, i1 false
+  br i1 %or.cond, label %14, label %.thread
 
-16:                                               ; preds = %12
-  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %18, i64 %spec.select3335, i1 false)
-  %19 = load i64, ptr %.0, align 8, !tbaa !22
-  %20 = sub i64 %19, %spec.select3335
-  store i64 %20, ptr %.0, align 8, !tbaa !22
-  %21 = getelementptr inbounds nuw i8, ptr %.0, i64 16
-  %22 = load i64, ptr %21, align 8, !tbaa !23
-  %23 = sub i64 %22, %spec.select3335
-  store i64 %23, ptr %21, align 8, !tbaa !23
-  %24 = load ptr, ptr %17, align 8, !tbaa !20
-  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %spec.select3335
-  store ptr %25, ptr %17, align 8, !tbaa !20
-  br label %32
+14:                                               ; preds = %10
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %16, i64 %spec.select3335, i1 false)
+  %17 = load i64, ptr %.0, align 8, !tbaa !22
+  %18 = sub i64 %17, %spec.select3335
+  store i64 %18, ptr %.0, align 8, !tbaa !22
+  %19 = getelementptr inbounds nuw i8, ptr %.0, i64 16
+  %20 = load i64, ptr %19, align 8, !tbaa !23
+  %21 = sub i64 %20, %spec.select3335
+  store i64 %21, ptr %19, align 8, !tbaa !23
+  %22 = load ptr, ptr %15, align 8, !tbaa !20
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 %spec.select3335
+  store ptr %23, ptr %15, align 8, !tbaa !20
+  br label %30
 
-.thread:                                          ; preds = %3, %12
-  %26 = phi i32 [ %spec.select33, %12 ], [ %2, %3 ]
-  %27 = icmp eq i64 %.pre, 0
-  br i1 %27, label %28, label %32
+.thread:                                          ; preds = %3, %10
+  %24 = phi i32 [ %spec.select33, %10 ], [ %2, %3 ]
+  %25 = icmp eq i64 %.pre, 0
+  br i1 %25, label %26, label %30
 
-28:                                               ; preds = %.thread
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %30 = load i32, ptr %29, align 8, !tbaa !29
-  %.not32 = icmp eq i32 %30, 0
-  br i1 %.not32, label %32, label %31
+26:                                               ; preds = %.thread
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %28 = load i32, ptr %27, align 8, !tbaa !29
+  %.not32 = icmp eq i32 %28, 0
+  br i1 %.not32, label %30, label %29
 
-31:                                               ; preds = %28
+29:                                               ; preds = %26
   tail call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 9) #7
-  br label %32
+  br label %30
 
-32:                                               ; preds = %.thread, %31, %28, %16
-  %.026 = phi i32 [ %spec.select33, %16 ], [ %30, %31 ], [ 0, %28 ], [ %26, %.thread ]
+30:                                               ; preds = %.thread, %29, %26, %14
+  %.026 = phi i32 [ %spec.select33, %14 ], [ %28, %29 ], [ 0, %26 ], [ %24, %.thread ]
   ret i32 %.026
 }
 
@@ -266,116 +265,114 @@ define internal i32 @mem_gets(ptr noundef %0, ptr noundef writeonly %1, i32 noun
   %5 = load ptr, ptr %4, align 8, !tbaa !3
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %7 = load i32, ptr %6, align 8, !tbaa !28
-  %8 = lshr i32 %7, 6
-  %9 = and i32 %8, 8
-  %10 = xor i32 %9, 8
-  %spec.select.idx = zext nneg i32 %10 to i64
+  %8 = and i32 %7, 512
+  %.not = icmp eq i32 %8, 0
+  %spec.select.idx = select i1 %.not, i64 8, i64 0
   %spec.select = getelementptr inbounds nuw i8, ptr %5, i64 %spec.select.idx
   %.0 = load ptr, ptr %spec.select, align 8, !tbaa !31
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #7
-  %11 = load i64, ptr %.0, align 8, !tbaa !22
-  %12 = trunc i64 %11 to i32
-  %.not32 = icmp sgt i32 %2, %12
-  %13 = add nsw i32 %2, -1
-  %.028 = select i1 %.not32, i32 %12, i32 %13
-  %14 = icmp slt i32 %.028, 1
-  br i1 %14, label %15, label %16
+  %9 = load i64, ptr %.0, align 8, !tbaa !22
+  %10 = trunc i64 %9 to i32
+  %.not32 = icmp sgt i32 %2, %10
+  %11 = add nsw i32 %2, -1
+  %.028 = select i1 %.not32, i32 %10, i32 %11
+  %12 = icmp slt i32 %.028, 1
+  br i1 %12, label %13, label %14
 
-15:                                               ; preds = %3
+13:                                               ; preds = %3
   store i8 0, ptr %1, align 1, !tbaa !32
   br label %mem_read.exit.thread
 
-16:                                               ; preds = %3
-  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !20
+14:                                               ; preds = %3
+  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %16 = load ptr, ptr %15, align 8, !tbaa !20
   %wide.trip.count = zext nneg i32 %.028 to i64
-  br label %19
+  br label %17
 
-19:                                               ; preds = %16, %26
-  %indvars.iv = phi i64 [ 0, %16 ], [ %indvars.iv.next, %26 ]
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 %indvars.iv
-  %21 = load i8, ptr %20, align 1, !tbaa !32
-  %22 = icmp eq i8 %21, 10
-  br i1 %22, label %23, label %26
+17:                                               ; preds = %14, %24
+  %indvars.iv = phi i64 [ 0, %14 ], [ %indvars.iv.next, %24 ]
+  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %indvars.iv
+  %19 = load i8, ptr %18, align 1, !tbaa !32
+  %20 = icmp eq i8 %19, 10
+  br i1 %20, label %21, label %24
 
-23:                                               ; preds = %19
-  %24 = trunc nuw nsw i64 %indvars.iv to i32
-  %25 = add nuw nsw i32 %24, 1
+21:                                               ; preds = %17
+  %22 = trunc nuw nsw i64 %indvars.iv to i32
+  %23 = add nuw nsw i32 %22, 1
   br label %.loopexit
 
-26:                                               ; preds = %19
+24:                                               ; preds = %17
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %19, !llvm.loop !33
+  br i1 %exitcond.not, label %.loopexit, label %17, !llvm.loop !33
 
-.loopexit:                                        ; preds = %26, %23
-  %.1 = phi i32 [ %25, %23 ], [ %.028, %26 ]
-  %27 = load ptr, ptr %4, align 8, !tbaa !3
-  %28 = load i32, ptr %6, align 8, !tbaa !28
-  %29 = lshr i32 %28, 6
-  %30 = and i32 %29, 8
-  %31 = xor i32 %30, 8
-  %spec.select.idx.i = zext nneg i32 %31 to i64
-  %spec.select.i = getelementptr inbounds nuw i8, ptr %27, i64 %spec.select.idx.i
+.loopexit:                                        ; preds = %24, %21
+  %.1 = phi i32 [ %23, %21 ], [ %.028, %24 ]
+  %25 = load ptr, ptr %4, align 8, !tbaa !3
+  %26 = load i32, ptr %6, align 8, !tbaa !28
+  %27 = and i32 %26, 512
+  %.not.i = icmp eq i32 %27, 0
+  %spec.select.idx.i = select i1 %.not.i, i64 8, i64 0
+  %spec.select.i = getelementptr inbounds nuw i8, ptr %25, i64 %spec.select.idx.i
   %.0.i = load ptr, ptr %spec.select.i, align 8, !tbaa !31
   tail call void @BIO_clear_flags(ptr noundef %0, i32 noundef 15) #7
-  %32 = icmp sgt i32 %.1, -1
+  %28 = icmp sgt i32 %.1, -1
   %.pre.i = load i64, ptr %.0.i, align 8, !tbaa !22
-  br i1 %32, label %33, label %.thread.i
+  br i1 %28, label %29, label %.thread.i
 
-33:                                               ; preds = %.loopexit
-  %34 = zext nneg i32 %.1 to i64
-  %spec.select3335.i = tail call i64 @llvm.umin.i64(i64 %.pre.i, i64 %34)
+29:                                               ; preds = %.loopexit
+  %30 = zext nneg i32 %.1 to i64
+  %spec.select3335.i = tail call i64 @llvm.umin.i64(i64 %.pre.i, i64 %30)
   %spec.select33.i = trunc nuw nsw i64 %spec.select3335.i to i32
-  %35 = icmp ne ptr %1, null
-  %36 = icmp ne i64 %.pre.i, 0
-  %or.cond.i = select i1 %35, i1 %36, i1 false
-  br i1 %or.cond.i, label %37, label %.thread.i
+  %31 = icmp ne ptr %1, null
+  %32 = icmp ne i64 %.pre.i, 0
+  %or.cond.i = select i1 %31, i1 %32, i1 false
+  br i1 %or.cond.i, label %33, label %.thread.i
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !20
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %39, i64 %spec.select3335.i, i1 false)
-  %40 = load i64, ptr %.0.i, align 8, !tbaa !22
-  %41 = sub i64 %40, %spec.select3335.i
-  store i64 %41, ptr %.0.i, align 8, !tbaa !22
-  %42 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !23
-  %44 = sub i64 %43, %spec.select3335.i
-  store i64 %44, ptr %42, align 8, !tbaa !23
-  %45 = load ptr, ptr %38, align 8, !tbaa !20
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %spec.select3335.i
-  store ptr %46, ptr %38, align 8, !tbaa !20
+33:                                               ; preds = %29
+  %34 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1, ptr align 1 %35, i64 %spec.select3335.i, i1 false)
+  %36 = load i64, ptr %.0.i, align 8, !tbaa !22
+  %37 = sub i64 %36, %spec.select3335.i
+  store i64 %37, ptr %.0.i, align 8, !tbaa !22
+  %38 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  %39 = load i64, ptr %38, align 8, !tbaa !23
+  %40 = sub i64 %39, %spec.select3335.i
+  store i64 %40, ptr %38, align 8, !tbaa !23
+  %41 = load ptr, ptr %34, align 8, !tbaa !20
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %spec.select3335.i
+  store ptr %42, ptr %34, align 8, !tbaa !20
   br label %mem_read.exit
 
-.thread.i:                                        ; preds = %33, %.loopexit
-  %47 = phi i32 [ %spec.select33.i, %33 ], [ %.1, %.loopexit ]
-  %48 = icmp eq i64 %.pre.i, 0
-  br i1 %48, label %49, label %mem_read.exit
+.thread.i:                                        ; preds = %29, %.loopexit
+  %43 = phi i32 [ %spec.select33.i, %29 ], [ %.1, %.loopexit ]
+  %44 = icmp eq i64 %.pre.i, 0
+  br i1 %44, label %45, label %mem_read.exit
 
-49:                                               ; preds = %.thread.i
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %51 = load i32, ptr %50, align 8, !tbaa !29
-  %.not32.i = icmp eq i32 %51, 0
-  br i1 %.not32.i, label %mem_read.exit.thread, label %52
+45:                                               ; preds = %.thread.i
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %47 = load i32, ptr %46, align 8, !tbaa !29
+  %.not32.i = icmp eq i32 %47, 0
+  br i1 %.not32.i, label %mem_read.exit.thread, label %48
 
-52:                                               ; preds = %49
+48:                                               ; preds = %45
   tail call void @BIO_set_flags(ptr noundef nonnull %0, i32 noundef 9) #7
   br label %mem_read.exit
 
-mem_read.exit:                                    ; preds = %37, %.thread.i, %52
-  %.026.i = phi i32 [ %spec.select33.i, %37 ], [ %51, %52 ], [ %47, %.thread.i ]
-  %53 = icmp sgt i32 %.026.i, 0
-  br i1 %53, label %54, label %mem_read.exit.thread
+mem_read.exit:                                    ; preds = %33, %.thread.i, %48
+  %.026.i = phi i32 [ %spec.select33.i, %33 ], [ %47, %48 ], [ %43, %.thread.i ]
+  %49 = icmp sgt i32 %.026.i, 0
+  br i1 %49, label %50, label %mem_read.exit.thread
 
-54:                                               ; preds = %mem_read.exit
-  %55 = zext nneg i32 %.026.i to i64
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 %55
-  store i8 0, ptr %56, align 1, !tbaa !32
+50:                                               ; preds = %mem_read.exit
+  %51 = zext nneg i32 %.026.i to i64
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 %51
+  store i8 0, ptr %52, align 1, !tbaa !32
   br label %mem_read.exit.thread
 
-mem_read.exit.thread:                             ; preds = %49, %mem_read.exit, %54, %15
-  %.026 = phi i32 [ 0, %15 ], [ %.026.i, %54 ], [ %.026.i, %mem_read.exit ], [ 0, %49 ]
+mem_read.exit.thread:                             ; preds = %45, %mem_read.exit, %50, %13
+  %.026 = phi i32 [ 0, %13 ], [ %.026.i, %50 ], [ %.026.i, %mem_read.exit ], [ 0, %45 ]
   ret i32 %.026
 }
 

@@ -52412,7 +52412,7 @@ define linkonce_odr dso_local void @_ZSt17__merge_sort_loopIN9__gnu_cxx17__norma
   br i1 %.not59, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %13, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit
-  %.026.i = phi ptr [ %30, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ], [ %.076, %13 ]
+  %.026.i = phi ptr [ %28, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ], [ %.076, %13 ]
   %.sroa.019.025.i = phi ptr [ %.sroa.019.1.i, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ], [ %.sroa.050.075, %13 ]
   %.sroa.015.024.i = phi ptr [ %.sroa.015.1.i, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ], [ %14, %13 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
@@ -52449,9 +52449,7 @@ _ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %.sroa.015.024.pn.i = select i1 %26, ptr %.sroa.015.024.i, ptr %.sroa.019.025.i
-  %27 = lshr i32 %20, 27
-  %28 = and i32 %27, 16
-  %.sroa.015.1.i.idx = zext nneg i32 %28 to i64
+  %.sroa.015.1.i.idx = select i1 %26, i64 16, i64 0
   %.sroa.015.1.i = getelementptr inbounds nuw i8, ptr %.sroa.015.024.i, i64 %.sroa.015.1.i.idx
   %.sroa.019.1.i.idx = select i1 %26, i64 0, i64 16
   %.sroa.019.1.i = getelementptr inbounds nuw i8, ptr %.sroa.019.025.i, i64 %.sroa.019.1.i.idx
@@ -52459,157 +52457,157 @@ _ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit: ; preds 
   store ptr %.sink, ptr %.026.i, align 8
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %.sroa.015.024.pn.i, i64 8
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
-  store ptr %.sink.i, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
-  %31 = icmp ne ptr %.sroa.019.1.i, %14
-  %32 = icmp ne ptr %.sroa.015.1.i, %15
-  %or.cond.i = select i1 %31, i1 %32, i1 false
+  %27 = getelementptr inbounds nuw i8, ptr %.026.i, i64 8
+  store ptr %.sink.i, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.026.i, i64 16
+  %29 = icmp ne ptr %.sroa.019.1.i, %14
+  %30 = icmp ne ptr %.sroa.015.1.i, %15
+  %or.cond.i = select i1 %29, i1 %30, i1 false
   br i1 %or.cond.i, label %.lr.ph.i, label %.critedge.i, !llvm.loop !294
 
 .critedge.i:                                      ; preds = %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit, %13
   %.sroa.015.0.lcssa.i = phi ptr [ %14, %13 ], [ %.sroa.015.1.i, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ]
   %.sroa.019.0.lcssa.i = phi ptr [ %.sroa.050.075, %13 ], [ %.sroa.019.1.i, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ]
-  %.0.lcssa.i = phi ptr [ %.076, %13 ], [ %30, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ]
-  %33 = ptrtoint ptr %14 to i64
-  %34 = ptrtoint ptr %.sroa.019.0.lcssa.i to i64
-  %35 = sub i64 %33, %34
-  %36 = ashr exact i64 %35, 4
-  %37 = icmp sgt i64 %36, 0
-  br i1 %37, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i
+  %.0.lcssa.i = phi ptr [ %.076, %13 ], [ %28, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ]
+  %31 = ptrtoint ptr %14 to i64
+  %32 = ptrtoint ptr %.sroa.019.0.lcssa.i to i64
+  %33 = sub i64 %31, %32
+  %34 = ashr exact i64 %33, 4
+  %35 = icmp sgt i64 %34, 0
+  br i1 %35, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.critedge.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi i64 [ %44, %.lr.ph.i.i.i.i.i.i ], [ %36, %.critedge.i ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i ], [ %.0.lcssa.i, %.critedge.i ]
-  %.0910.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.019.0.lcssa.i, %.critedge.i ]
-  %38 = load ptr, ptr %.0910.i.i.i.i.i.i, align 8
-  store ptr %38, ptr %.0811.i.i.i.i.i.i, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %40 = load ptr, ptr %39, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
-  store ptr %40, ptr %41, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 16
-  %43 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
-  %44 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %45 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
-  br i1 %45, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i, !llvm.loop !291
+  %.012.i.i.i.i.i.i = phi i64 [ %42, %.lr.ph.i.i.i.i.i.i ], [ %34, %.critedge.i ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i ], [ %.0.lcssa.i, %.critedge.i ]
+  %.0910.i.i.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.019.0.lcssa.i, %.critedge.i ]
+  %36 = load ptr, ptr %.0910.i.i.i.i.i.i, align 8
+  store ptr %36, ptr %.0811.i.i.i.i.i.i, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
+  %38 = load ptr, ptr %37, align 8
+  %39 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
+  store ptr %38, ptr %39, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
+  %42 = add nsw i64 %.012.i.i.i.i.i.i, -1
+  %43 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
+  br i1 %43, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i, !llvm.loop !291
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.critedge.i
-  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %43, %.lr.ph.i.i.i.i.i.i ]
-  %46 = ptrtoint ptr %15 to i64
-  %47 = ptrtoint ptr %.sroa.015.0.lcssa.i to i64
-  %48 = sub i64 %46, %47
-  %49 = ashr exact i64 %48, 4
-  %50 = icmp sgt i64 %49, 0
-  br i1 %50, label %.lr.ph.i.i.i.i.i10.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit
+  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %.0.lcssa.i, %.critedge.i ], [ %41, %.lr.ph.i.i.i.i.i.i ]
+  %44 = ptrtoint ptr %15 to i64
+  %45 = ptrtoint ptr %.sroa.015.0.lcssa.i to i64
+  %46 = sub i64 %44, %45
+  %47 = ashr exact i64 %46, 4
+  %48 = icmp sgt i64 %47, 0
+  br i1 %48, label %.lr.ph.i.i.i.i.i10.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit
 
 .lr.ph.i.i.i.i.i10.i:                             ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i, %.lr.ph.i.i.i.i.i10.i
-  %.012.i.i.i.i.i11.i = phi i64 [ %57, %.lr.ph.i.i.i.i.i10.i ], [ %49, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
-  %.0811.i.i.i.i.i12.i = phi ptr [ %56, %.lr.ph.i.i.i.i.i10.i ], [ %.08.lcssa.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
-  %.0910.i.i.i.i.i13.i = phi ptr [ %55, %.lr.ph.i.i.i.i.i10.i ], [ %.sroa.015.0.lcssa.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
-  %51 = load ptr, ptr %.0910.i.i.i.i.i13.i, align 8
-  store ptr %51, ptr %.0811.i.i.i.i.i12.i, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i, i64 8
-  %53 = load ptr, ptr %52, align 8
-  %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i, i64 8
-  store ptr %53, ptr %54, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i, i64 16
-  %56 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i, i64 16
-  %57 = add nsw i64 %.012.i.i.i.i.i11.i, -1
-  %58 = icmp samesign ugt i64 %.012.i.i.i.i.i11.i, 1
-  br i1 %58, label %.lr.ph.i.i.i.i.i10.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit, !llvm.loop !291
+  %.012.i.i.i.i.i11.i = phi i64 [ %55, %.lr.ph.i.i.i.i.i10.i ], [ %47, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
+  %.0811.i.i.i.i.i12.i = phi ptr [ %54, %.lr.ph.i.i.i.i.i10.i ], [ %.08.lcssa.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
+  %.0910.i.i.i.i.i13.i = phi ptr [ %53, %.lr.ph.i.i.i.i.i10.i ], [ %.sroa.015.0.lcssa.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ]
+  %49 = load ptr, ptr %.0910.i.i.i.i.i13.i, align 8
+  store ptr %49, ptr %.0811.i.i.i.i.i12.i, align 8
+  %50 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %52 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i, i64 8
+  store ptr %51, ptr %52, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i, i64 16
+  %54 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i, i64 16
+  %55 = add nsw i64 %.012.i.i.i.i.i11.i, -1
+  %56 = icmp samesign ugt i64 %.012.i.i.i.i.i11.i, 1
+  br i1 %56, label %.lr.ph.i.i.i.i.i10.i, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit, !llvm.loop !291
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit: ; preds = %.lr.ph.i.i.i.i.i10.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i
-  %.08.lcssa.i.i.i.i.i9.i = phi ptr [ %.08.lcssa.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ], [ %56, %.lr.ph.i.i.i.i.i10.i ]
-  %59 = sub i64 %9, %46
-  %60 = ashr exact i64 %59, 4
-  %.not = icmp slt i64 %60, %8
+  %.08.lcssa.i.i.i.i.i9.i = phi ptr [ %.08.lcssa.i.i.i.i.i.i, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i ], [ %54, %.lr.ph.i.i.i.i.i10.i ]
+  %57 = sub i64 %9, %44
+  %58 = ashr exact i64 %57, 4
+  %.not = icmp slt i64 %58, %8
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !295
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit, %4
   %.sroa.050.0.lcssa = phi ptr [ %0, %4 ], [ %15, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
   %.0.lcssa = phi ptr [ %2, %4 ], [ %.08.lcssa.i.i.i.i.i9.i, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
-  %.lcssa64 = phi i64 [ %12, %4 ], [ %60, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
+  %.lcssa64 = phi i64 [ %12, %4 ], [ %58, %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa64)
-  %61 = getelementptr inbounds %"struct.std::pair.116", ptr %.sroa.050.0.lcssa, i64 %.sroa.speculated
+  %59 = getelementptr inbounds %"struct.std::pair.116", ptr %.sroa.050.0.lcssa, i64 %.sroa.speculated
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %62 = icmp ne i64 %.sroa.speculated, 0
-  %63 = icmp ne ptr %61, %1
-  %or.cond23.i16 = select i1 %62, i1 %63, i1 false
+  %60 = icmp ne i64 %.sroa.speculated, 0
+  %61 = icmp ne ptr %59, %1
+  %or.cond23.i16 = select i1 %60, i1 %61, i1 false
   br i1 %or.cond23.i16, label %.lr.ph.i32, label %.critedge.i17
 
 .lr.ph.i32:                                       ; preds = %._crit_edge, %.lr.ph.i32
-  %.026.i33 = phi ptr [ %66, %.lr.ph.i32 ], [ %.0.lcssa, %._crit_edge ]
+  %.026.i33 = phi ptr [ %64, %.lr.ph.i32 ], [ %.0.lcssa, %._crit_edge ]
   %.sroa.019.025.i34 = phi ptr [ %.sroa.019.1.i38, %.lr.ph.i32 ], [ %.sroa.050.0.lcssa, %._crit_edge ]
-  %.sroa.015.024.i35 = phi ptr [ %.sroa.015.1.i37, %.lr.ph.i32 ], [ %61, %._crit_edge ]
-  %64 = call noundef zeroext i1 @_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.015.024.i35, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025.i34)
-  %.sroa.015.024.pn.i36 = select i1 %64, ptr %.sroa.015.024.i35, ptr %.sroa.019.025.i34
-  %.sroa.015.1.i37.idx = select i1 %64, i64 16, i64 0
+  %.sroa.015.024.i35 = phi ptr [ %.sroa.015.1.i37, %.lr.ph.i32 ], [ %59, %._crit_edge ]
+  %62 = call noundef zeroext i1 @_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.015.024.i35, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.019.025.i34)
+  %.sroa.015.024.pn.i36 = select i1 %62, ptr %.sroa.015.024.i35, ptr %.sroa.019.025.i34
+  %.sroa.015.1.i37.idx = select i1 %62, i64 16, i64 0
   %.sroa.015.1.i37 = getelementptr inbounds nuw i8, ptr %.sroa.015.024.i35, i64 %.sroa.015.1.i37.idx
-  %.sroa.019.1.i38.idx = select i1 %64, i64 0, i64 16
+  %.sroa.019.1.i38.idx = select i1 %62, i64 0, i64 16
   %.sroa.019.1.i38 = getelementptr inbounds nuw i8, ptr %.sroa.019.025.i34, i64 %.sroa.019.1.i38.idx
   %.sink88 = load ptr, ptr %.sroa.015.024.pn.i36, align 8
   store ptr %.sink88, ptr %.026.i33, align 8
   %.sink.in.i39 = getelementptr inbounds nuw i8, ptr %.sroa.015.024.pn.i36, i64 8
   %.sink.i40 = load ptr, ptr %.sink.in.i39, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %.026.i33, i64 8
-  store ptr %.sink.i40, ptr %65, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %.026.i33, i64 16
-  %67 = icmp ne ptr %.sroa.019.1.i38, %61
-  %68 = icmp ne ptr %.sroa.015.1.i37, %1
-  %or.cond.i41 = select i1 %67, i1 %68, i1 false
+  %63 = getelementptr inbounds nuw i8, ptr %.026.i33, i64 8
+  store ptr %.sink.i40, ptr %63, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %.026.i33, i64 16
+  %65 = icmp ne ptr %.sroa.019.1.i38, %59
+  %66 = icmp ne ptr %.sroa.015.1.i37, %1
+  %or.cond.i41 = select i1 %65, i1 %66, i1 false
   br i1 %or.cond.i41, label %.lr.ph.i32, label %.critedge.i17, !llvm.loop !294
 
 .critedge.i17:                                    ; preds = %.lr.ph.i32, %._crit_edge
-  %.sroa.015.0.lcssa.i18 = phi ptr [ %61, %._crit_edge ], [ %.sroa.015.1.i37, %.lr.ph.i32 ]
+  %.sroa.015.0.lcssa.i18 = phi ptr [ %59, %._crit_edge ], [ %.sroa.015.1.i37, %.lr.ph.i32 ]
   %.sroa.019.0.lcssa.i19 = phi ptr [ %.sroa.050.0.lcssa, %._crit_edge ], [ %.sroa.019.1.i38, %.lr.ph.i32 ]
-  %.0.lcssa.i20 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %66, %.lr.ph.i32 ]
-  %69 = ptrtoint ptr %61 to i64
-  %70 = ptrtoint ptr %.sroa.019.0.lcssa.i19 to i64
-  %71 = sub i64 %69, %70
-  %72 = ashr exact i64 %71, 4
-  %73 = icmp sgt i64 %72, 0
-  br i1 %73, label %.lr.ph.i.i.i.i.i.i28, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21
+  %.0.lcssa.i20 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %64, %.lr.ph.i32 ]
+  %67 = ptrtoint ptr %59 to i64
+  %68 = ptrtoint ptr %.sroa.019.0.lcssa.i19 to i64
+  %69 = sub i64 %67, %68
+  %70 = ashr exact i64 %69, 4
+  %71 = icmp sgt i64 %70, 0
+  br i1 %71, label %.lr.ph.i.i.i.i.i.i28, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21
 
 .lr.ph.i.i.i.i.i.i28:                             ; preds = %.critedge.i17, %.lr.ph.i.i.i.i.i.i28
-  %.012.i.i.i.i.i.i29 = phi i64 [ %80, %.lr.ph.i.i.i.i.i.i28 ], [ %72, %.critedge.i17 ]
-  %.0811.i.i.i.i.i.i30 = phi ptr [ %79, %.lr.ph.i.i.i.i.i.i28 ], [ %.0.lcssa.i20, %.critedge.i17 ]
-  %.0910.i.i.i.i.i.i31 = phi ptr [ %78, %.lr.ph.i.i.i.i.i.i28 ], [ %.sroa.019.0.lcssa.i19, %.critedge.i17 ]
-  %74 = load ptr, ptr %.0910.i.i.i.i.i.i31, align 8
-  store ptr %74, ptr %.0811.i.i.i.i.i.i30, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i31, i64 8
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i30, i64 8
-  store ptr %76, ptr %77, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i31, i64 16
-  %79 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i30, i64 16
-  %80 = add nsw i64 %.012.i.i.i.i.i.i29, -1
-  %81 = icmp samesign ugt i64 %.012.i.i.i.i.i.i29, 1
-  br i1 %81, label %.lr.ph.i.i.i.i.i.i28, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21, !llvm.loop !291
+  %.012.i.i.i.i.i.i29 = phi i64 [ %78, %.lr.ph.i.i.i.i.i.i28 ], [ %70, %.critedge.i17 ]
+  %.0811.i.i.i.i.i.i30 = phi ptr [ %77, %.lr.ph.i.i.i.i.i.i28 ], [ %.0.lcssa.i20, %.critedge.i17 ]
+  %.0910.i.i.i.i.i.i31 = phi ptr [ %76, %.lr.ph.i.i.i.i.i.i28 ], [ %.sroa.019.0.lcssa.i19, %.critedge.i17 ]
+  %72 = load ptr, ptr %.0910.i.i.i.i.i.i31, align 8
+  store ptr %72, ptr %.0811.i.i.i.i.i.i30, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i31, i64 8
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i30, i64 8
+  store ptr %74, ptr %75, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i31, i64 16
+  %77 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i30, i64 16
+  %78 = add nsw i64 %.012.i.i.i.i.i.i29, -1
+  %79 = icmp samesign ugt i64 %.012.i.i.i.i.i.i29, 1
+  br i1 %79, label %.lr.ph.i.i.i.i.i.i28, label %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21, !llvm.loop !291
 
 _ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21: ; preds = %.lr.ph.i.i.i.i.i.i28, %.critedge.i17
-  %.08.lcssa.i.i.i.i.i.i22 = phi ptr [ %.0.lcssa.i20, %.critedge.i17 ], [ %79, %.lr.ph.i.i.i.i.i.i28 ]
-  %82 = ptrtoint ptr %.sroa.015.0.lcssa.i18 to i64
-  %83 = sub i64 %9, %82
-  %84 = ashr exact i64 %83, 4
-  %85 = icmp sgt i64 %84, 0
-  br i1 %85, label %.lr.ph.i.i.i.i.i10.i24, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit42
+  %.08.lcssa.i.i.i.i.i.i22 = phi ptr [ %.0.lcssa.i20, %.critedge.i17 ], [ %77, %.lr.ph.i.i.i.i.i.i28 ]
+  %80 = ptrtoint ptr %.sroa.015.0.lcssa.i18 to i64
+  %81 = sub i64 %9, %80
+  %82 = ashr exact i64 %81, 4
+  %83 = icmp sgt i64 %82, 0
+  br i1 %83, label %.lr.ph.i.i.i.i.i10.i24, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit42
 
 .lr.ph.i.i.i.i.i10.i24:                           ; preds = %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21, %.lr.ph.i.i.i.i.i10.i24
-  %.012.i.i.i.i.i11.i25 = phi i64 [ %92, %.lr.ph.i.i.i.i.i10.i24 ], [ %84, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21 ]
-  %.0811.i.i.i.i.i12.i26 = phi ptr [ %91, %.lr.ph.i.i.i.i.i10.i24 ], [ %.08.lcssa.i.i.i.i.i.i22, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21 ]
-  %.0910.i.i.i.i.i13.i27 = phi ptr [ %90, %.lr.ph.i.i.i.i.i10.i24 ], [ %.sroa.015.0.lcssa.i18, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21 ]
-  %86 = load ptr, ptr %.0910.i.i.i.i.i13.i27, align 8
-  store ptr %86, ptr %.0811.i.i.i.i.i12.i26, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i27, i64 8
-  %88 = load ptr, ptr %87, align 8
-  %89 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i26, i64 8
-  store ptr %88, ptr %89, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i27, i64 16
-  %91 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i26, i64 16
-  %92 = add nsw i64 %.012.i.i.i.i.i11.i25, -1
-  %93 = icmp samesign ugt i64 %.012.i.i.i.i.i11.i25, 1
-  br i1 %93, label %.lr.ph.i.i.i.i.i10.i24, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit42, !llvm.loop !291
+  %.012.i.i.i.i.i11.i25 = phi i64 [ %90, %.lr.ph.i.i.i.i.i10.i24 ], [ %82, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21 ]
+  %.0811.i.i.i.i.i12.i26 = phi ptr [ %89, %.lr.ph.i.i.i.i.i10.i24 ], [ %.08.lcssa.i.i.i.i.i.i22, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21 ]
+  %.0910.i.i.i.i.i13.i27 = phi ptr [ %88, %.lr.ph.i.i.i.i.i10.i24 ], [ %.sroa.015.0.lcssa.i18, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21 ]
+  %84 = load ptr, ptr %.0910.i.i.i.i.i13.i27, align 8
+  store ptr %84, ptr %.0811.i.i.i.i.i12.i26, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i27, i64 8
+  %86 = load ptr, ptr %85, align 8
+  %87 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i26, i64 8
+  store ptr %86, ptr %87, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i13.i27, i64 16
+  %89 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i12.i26, i64 16
+  %90 = add nsw i64 %.012.i.i.i.i.i11.i25, -1
+  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i11.i25, 1
+  br i1 %91, label %.lr.ph.i.i.i.i.i10.i24, label %_ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit42, !llvm.loop !291
 
 _ZSt12__move_mergeIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_NS0_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit42: ; preds = %.lr.ph.i.i.i.i.i10.i24, %_ZSt4moveIN9__gnu_cxx17__normal_iteratorIPSt4pairIP8AstScopeP13AstNodeModuleESt6vectorIS7_SaIS7_EEEES8_ET0_T_SE_SD_.exit.i21
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)
@@ -52634,7 +52632,7 @@ define linkonce_odr dso_local void @_ZSt17__merge_sort_loopIPSt4pairIP8AstScopeP
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit
-  %.sroa.022.072 = phi ptr [ %2, %.lr.ph ], [ %66, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
+  %.sroa.022.072 = phi ptr [ %2, %.lr.ph ], [ %64, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
   %.071 = phi ptr [ %0, %.lr.ph ], [ %15, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
   %14 = getelementptr inbounds %"struct.std::pair.116", ptr %.071, i64 %3
   %15 = getelementptr inbounds %"struct.std::pair.116", ptr %.071, i64 %8
@@ -52643,7 +52641,7 @@ define linkonce_odr dso_local void @_ZSt17__merge_sort_loopIPSt4pairIP8AstScopeP
 .lr.ph.i:                                         ; preds = %13, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit
   %.029.i = phi ptr [ %.1.i, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ], [ %.071, %13 ]
   %.01628.i = phi ptr [ %.117.i, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ], [ %14, %13 ]
-  %.sroa.0.027.i = phi ptr [ %30, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ], [ %.sroa.022.072, %13 ]
+  %.sroa.0.027.i = phi ptr [ %28, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ], [ %.sroa.022.072, %13 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6)
   %16 = load ptr, ptr %.01628.i, align 8
@@ -52678,9 +52676,7 @@ _ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6)
   %.01628.pn.i = select i1 %26, ptr %.01628.i, ptr %.029.i
-  %27 = lshr i32 %20, 27
-  %28 = and i32 %27, 16
-  %.117.i.idx = zext nneg i32 %28 to i64
+  %.117.i.idx = select i1 %26, i64 16, i64 0
   %.117.i = getelementptr inbounds nuw i8, ptr %.01628.i, i64 %.117.i.idx
   %.1.i.idx = select i1 %26, i64 0, i64 16
   %.1.i = getelementptr inbounds nuw i8, ptr %.029.i, i64 %.1.i.idx
@@ -52688,174 +52684,174 @@ _ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit: ; preds 
   store ptr %.sink, ptr %.sroa.0.027.i, align 8
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %.01628.pn.i, i64 8
   %.sink.i = load ptr, ptr %.sink.in.i, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 8
-  store ptr %.sink.i, ptr %29, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 16
-  %31 = icmp ne ptr %.1.i, %14
-  %32 = icmp ne ptr %.117.i, %15
-  %33 = select i1 %31, i1 %32, i1 false
-  br i1 %33, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !296
+  %27 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 8
+  store ptr %.sink.i, ptr %27, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i, i64 16
+  %29 = icmp ne ptr %.1.i, %14
+  %30 = icmp ne ptr %.117.i, %15
+  %31 = select i1 %29, i1 %30, i1 false
+  br i1 %31, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !296
 
 ._crit_edge.i:                                    ; preds = %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit, %13
-  %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.022.072, %13 ], [ %30, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ]
+  %.sroa.0.0.lcssa.i = phi ptr [ %.sroa.022.072, %13 ], [ %28, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ]
   %.016.lcssa.i = phi ptr [ %14, %13 ], [ %.117.i, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ]
   %.0.lcssa.i = phi ptr [ %.071, %13 ], [ %.1.i, %_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_.exit ]
-  %34 = ptrtoint ptr %14 to i64
-  %35 = ptrtoint ptr %.0.lcssa.i to i64
-  %36 = sub i64 %34, %35
-  %37 = ashr exact i64 %36, 4
-  %38 = icmp sgt i64 %37, 0
-  br i1 %38, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i
+  %32 = ptrtoint ptr %14 to i64
+  %33 = ptrtoint ptr %.0.lcssa.i to i64
+  %34 = sub i64 %32, %33
+  %35 = ashr exact i64 %34, 4
+  %36 = icmp sgt i64 %35, 0
+  br i1 %36, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %._crit_edge.i, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi i64 [ %45, %.lr.ph.i.i.i.i.i.i ], [ %37, %._crit_edge.i ]
-  %.0811.i.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.0.lcssa.i, %._crit_edge.i ]
-  %.0910.i.i.i.i.i.i = phi ptr [ %43, %.lr.ph.i.i.i.i.i.i ], [ %.0.lcssa.i, %._crit_edge.i ]
-  %39 = load ptr, ptr %.0910.i.i.i.i.i.i, align 8
-  store ptr %39, ptr %.0811.i.i.i.i.i.i, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
-  store ptr %41, ptr %42, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
-  %45 = add nsw i64 %.012.i.i.i.i.i.i, -1
-  %46 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
-  br i1 %46, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, !llvm.loop !291
+  %.012.i.i.i.i.i.i = phi i64 [ %43, %.lr.ph.i.i.i.i.i.i ], [ %35, %._crit_edge.i ]
+  %.0811.i.i.i.i.i.i = phi ptr [ %42, %.lr.ph.i.i.i.i.i.i ], [ %.sroa.0.0.lcssa.i, %._crit_edge.i ]
+  %.0910.i.i.i.i.i.i = phi ptr [ %41, %.lr.ph.i.i.i.i.i.i ], [ %.0.lcssa.i, %._crit_edge.i ]
+  %37 = load ptr, ptr %.0910.i.i.i.i.i.i, align 8
+  store ptr %37, ptr %.0811.i.i.i.i.i.i, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 8
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 8
+  store ptr %39, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i, i64 16
+  %42 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 16
+  %43 = add nsw i64 %.012.i.i.i.i.i.i, -1
+  %44 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
+  br i1 %44, label %.lr.ph.i.i.i.i.i.i, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, !llvm.loop !291
 
 _ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i: ; preds = %.lr.ph.i.i.i.i.i.i, %._crit_edge.i
-  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.0.0.lcssa.i, %._crit_edge.i ], [ %44, %.lr.ph.i.i.i.i.i.i ]
-  %47 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i to i64
-  %48 = ptrtoint ptr %.sroa.0.0.lcssa.i to i64
-  %49 = sub i64 %47, %48
-  %50 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i, i64 %49
-  %51 = ptrtoint ptr %15 to i64
-  %52 = ptrtoint ptr %.016.lcssa.i to i64
-  %53 = sub i64 %51, %52
-  %54 = ashr exact i64 %53, 4
-  %55 = icmp sgt i64 %54, 0
-  br i1 %55, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit
+  %.08.lcssa.i.i.i.i.i.i = phi ptr [ %.sroa.0.0.lcssa.i, %._crit_edge.i ], [ %42, %.lr.ph.i.i.i.i.i.i ]
+  %45 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i to i64
+  %46 = ptrtoint ptr %.sroa.0.0.lcssa.i to i64
+  %47 = sub i64 %45, %46
+  %48 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i, i64 %47
+  %49 = ptrtoint ptr %15 to i64
+  %50 = ptrtoint ptr %.016.lcssa.i to i64
+  %51 = sub i64 %49, %50
+  %52 = ashr exact i64 %51, 4
+  %53 = icmp sgt i64 %52, 0
+  br i1 %53, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit
 
 .lr.ph.i.i.i.i.i19.i:                             ; preds = %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %.lr.ph.i.i.i.i.i19.i
-  %.012.i.i.i.i.i20.i = phi i64 [ %62, %.lr.ph.i.i.i.i.i19.i ], [ %54, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ]
-  %.0811.i.i.i.i.i21.i = phi ptr [ %61, %.lr.ph.i.i.i.i.i19.i ], [ %50, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ]
-  %.0910.i.i.i.i.i22.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i19.i ], [ %.016.lcssa.i, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ]
-  %56 = load ptr, ptr %.0910.i.i.i.i.i22.i, align 8
-  store ptr %56, ptr %.0811.i.i.i.i.i21.i, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i, i64 8
-  %58 = load ptr, ptr %57, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i, i64 8
-  store ptr %58, ptr %59, align 8
-  %60 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i, i64 16
-  %61 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i, i64 16
-  %62 = add nsw i64 %.012.i.i.i.i.i20.i, -1
-  %63 = icmp samesign ugt i64 %.012.i.i.i.i.i20.i, 1
-  br i1 %63, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit23.loopexit.i, !llvm.loop !291
+  %.012.i.i.i.i.i20.i = phi i64 [ %60, %.lr.ph.i.i.i.i.i19.i ], [ %52, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ]
+  %.0811.i.i.i.i.i21.i = phi ptr [ %59, %.lr.ph.i.i.i.i.i19.i ], [ %48, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ]
+  %.0910.i.i.i.i.i22.i = phi ptr [ %58, %.lr.ph.i.i.i.i.i19.i ], [ %.016.lcssa.i, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ]
+  %54 = load ptr, ptr %.0910.i.i.i.i.i22.i, align 8
+  store ptr %54, ptr %.0811.i.i.i.i.i21.i, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i, i64 8
+  %56 = load ptr, ptr %55, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i, i64 8
+  store ptr %56, ptr %57, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i, i64 16
+  %59 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i, i64 16
+  %60 = add nsw i64 %.012.i.i.i.i.i20.i, -1
+  %61 = icmp samesign ugt i64 %.012.i.i.i.i.i20.i, 1
+  br i1 %61, label %.lr.ph.i.i.i.i.i19.i, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit23.loopexit.i, !llvm.loop !291
 
 _ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit23.loopexit.i: ; preds = %.lr.ph.i.i.i.i.i19.i
-  %64 = ptrtoint ptr %61 to i64
+  %62 = ptrtoint ptr %59 to i64
   br label %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit
 
 _ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit: ; preds = %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit23.loopexit.i
-  %.08.lcssa.i.i.i.i.i18.i = phi i64 [ %47, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %64, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit23.loopexit.i ]
-  %65 = sub i64 %.08.lcssa.i.i.i.i.i18.i, %47
-  %66 = getelementptr inbounds i8, ptr %50, i64 %65
-  %67 = sub i64 %9, %51
-  %68 = ashr exact i64 %67, 4
-  %.not = icmp slt i64 %68, %8
+  %.08.lcssa.i.i.i.i.i18.i = phi i64 [ %45, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i ], [ %62, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit23.loopexit.i ]
+  %63 = sub i64 %.08.lcssa.i.i.i.i.i18.i, %45
+  %64 = getelementptr inbounds i8, ptr %48, i64 %63
+  %65 = sub i64 %9, %49
+  %66 = ashr exact i64 %65, 4
+  %.not = icmp slt i64 %66, %8
   br i1 %.not, label %._crit_edge, label %13, !llvm.loop !297
 
 ._crit_edge:                                      ; preds = %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit, %4
   %.0.lcssa = phi ptr [ %0, %4 ], [ %15, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
-  %.sroa.022.0.lcssa = phi ptr [ %2, %4 ], [ %66, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
-  %.lcssa60 = phi i64 [ %12, %4 ], [ %68, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
+  %.sroa.022.0.lcssa = phi ptr [ %2, %4 ], [ %64, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
+  %.lcssa60 = phi i64 [ %12, %4 ], [ %66, %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit ]
   %.sroa.speculated = call i64 @llvm.smin.i64(i64 %3, i64 %.lcssa60)
-  %69 = getelementptr inbounds %"struct.std::pair.116", ptr %.0.lcssa, i64 %.sroa.speculated
+  %67 = getelementptr inbounds %"struct.std::pair.116", ptr %.0.lcssa, i64 %.sroa.speculated
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7)
-  %70 = icmp ne i64 %.sroa.speculated, 0
-  %71 = icmp ne ptr %69, %1
-  %72 = and i1 %70, %71
-  br i1 %72, label %.lr.ph.i41, label %._crit_edge.i25
+  %68 = icmp ne i64 %.sroa.speculated, 0
+  %69 = icmp ne ptr %67, %1
+  %70 = and i1 %68, %69
+  br i1 %70, label %.lr.ph.i41, label %._crit_edge.i25
 
 .lr.ph.i41:                                       ; preds = %._crit_edge, %.lr.ph.i41
   %.029.i42 = phi ptr [ %.1.i47, %.lr.ph.i41 ], [ %.0.lcssa, %._crit_edge ]
-  %.01628.i43 = phi ptr [ %.117.i46, %.lr.ph.i41 ], [ %69, %._crit_edge ]
-  %.sroa.0.027.i44 = phi ptr [ %75, %.lr.ph.i41 ], [ %.sroa.022.0.lcssa, %._crit_edge ]
-  %73 = call noundef zeroext i1 @_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %.01628.i43, ptr noundef nonnull align 8 dereferenceable(16) %.029.i42)
-  %.01628.pn.i45 = select i1 %73, ptr %.01628.i43, ptr %.029.i42
-  %.117.i46.idx = select i1 %73, i64 16, i64 0
+  %.01628.i43 = phi ptr [ %.117.i46, %.lr.ph.i41 ], [ %67, %._crit_edge ]
+  %.sroa.0.027.i44 = phi ptr [ %73, %.lr.ph.i41 ], [ %.sroa.022.0.lcssa, %._crit_edge ]
+  %71 = call noundef zeroext i1 @_ZNK9EmitCSyms7CmpNameclERKSt4pairIP8AstScopeP13AstNodeModuleES8_(ptr noundef nonnull align 1 dereferenceable(1) %7, ptr noundef nonnull align 8 dereferenceable(16) %.01628.i43, ptr noundef nonnull align 8 dereferenceable(16) %.029.i42)
+  %.01628.pn.i45 = select i1 %71, ptr %.01628.i43, ptr %.029.i42
+  %.117.i46.idx = select i1 %71, i64 16, i64 0
   %.117.i46 = getelementptr inbounds nuw i8, ptr %.01628.i43, i64 %.117.i46.idx
-  %.1.i47.idx = select i1 %73, i64 0, i64 16
+  %.1.i47.idx = select i1 %71, i64 0, i64 16
   %.1.i47 = getelementptr inbounds nuw i8, ptr %.029.i42, i64 %.1.i47.idx
   %.sink85 = load ptr, ptr %.01628.pn.i45, align 8
   store ptr %.sink85, ptr %.sroa.0.027.i44, align 8
   %.sink.in.i48 = getelementptr inbounds nuw i8, ptr %.01628.pn.i45, i64 8
   %.sink.i49 = load ptr, ptr %.sink.in.i48, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i44, i64 8
-  store ptr %.sink.i49, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i44, i64 16
-  %76 = icmp ne ptr %.1.i47, %69
-  %77 = icmp ne ptr %.117.i46, %1
-  %78 = select i1 %76, i1 %77, i1 false
-  br i1 %78, label %.lr.ph.i41, label %._crit_edge.i25, !llvm.loop !296
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i44, i64 8
+  store ptr %.sink.i49, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0.027.i44, i64 16
+  %74 = icmp ne ptr %.1.i47, %67
+  %75 = icmp ne ptr %.117.i46, %1
+  %76 = select i1 %74, i1 %75, i1 false
+  br i1 %76, label %.lr.ph.i41, label %._crit_edge.i25, !llvm.loop !296
 
 ._crit_edge.i25:                                  ; preds = %.lr.ph.i41, %._crit_edge
-  %.sroa.0.0.lcssa.i26 = phi ptr [ %.sroa.022.0.lcssa, %._crit_edge ], [ %75, %.lr.ph.i41 ]
-  %.016.lcssa.i27 = phi ptr [ %69, %._crit_edge ], [ %.117.i46, %.lr.ph.i41 ]
+  %.sroa.0.0.lcssa.i26 = phi ptr [ %.sroa.022.0.lcssa, %._crit_edge ], [ %73, %.lr.ph.i41 ]
+  %.016.lcssa.i27 = phi ptr [ %67, %._crit_edge ], [ %.117.i46, %.lr.ph.i41 ]
   %.0.lcssa.i28 = phi ptr [ %.0.lcssa, %._crit_edge ], [ %.1.i47, %.lr.ph.i41 ]
-  %79 = ptrtoint ptr %69 to i64
-  %80 = ptrtoint ptr %.0.lcssa.i28 to i64
-  %81 = sub i64 %79, %80
-  %82 = ashr exact i64 %81, 4
-  %83 = icmp sgt i64 %82, 0
-  br i1 %83, label %.lr.ph.i.i.i.i.i.i37, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i29
+  %77 = ptrtoint ptr %67 to i64
+  %78 = ptrtoint ptr %.0.lcssa.i28 to i64
+  %79 = sub i64 %77, %78
+  %80 = ashr exact i64 %79, 4
+  %81 = icmp sgt i64 %80, 0
+  br i1 %81, label %.lr.ph.i.i.i.i.i.i37, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i29
 
 .lr.ph.i.i.i.i.i.i37:                             ; preds = %._crit_edge.i25, %.lr.ph.i.i.i.i.i.i37
-  %.012.i.i.i.i.i.i38 = phi i64 [ %90, %.lr.ph.i.i.i.i.i.i37 ], [ %82, %._crit_edge.i25 ]
-  %.0811.i.i.i.i.i.i39 = phi ptr [ %89, %.lr.ph.i.i.i.i.i.i37 ], [ %.sroa.0.0.lcssa.i26, %._crit_edge.i25 ]
-  %.0910.i.i.i.i.i.i40 = phi ptr [ %88, %.lr.ph.i.i.i.i.i.i37 ], [ %.0.lcssa.i28, %._crit_edge.i25 ]
-  %84 = load ptr, ptr %.0910.i.i.i.i.i.i40, align 8
-  store ptr %84, ptr %.0811.i.i.i.i.i.i39, align 8
-  %85 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i40, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i39, i64 8
-  store ptr %86, ptr %87, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i40, i64 16
-  %89 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i39, i64 16
-  %90 = add nsw i64 %.012.i.i.i.i.i.i38, -1
-  %91 = icmp samesign ugt i64 %.012.i.i.i.i.i.i38, 1
-  br i1 %91, label %.lr.ph.i.i.i.i.i.i37, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i29, !llvm.loop !291
+  %.012.i.i.i.i.i.i38 = phi i64 [ %88, %.lr.ph.i.i.i.i.i.i37 ], [ %80, %._crit_edge.i25 ]
+  %.0811.i.i.i.i.i.i39 = phi ptr [ %87, %.lr.ph.i.i.i.i.i.i37 ], [ %.sroa.0.0.lcssa.i26, %._crit_edge.i25 ]
+  %.0910.i.i.i.i.i.i40 = phi ptr [ %86, %.lr.ph.i.i.i.i.i.i37 ], [ %.0.lcssa.i28, %._crit_edge.i25 ]
+  %82 = load ptr, ptr %.0910.i.i.i.i.i.i40, align 8
+  store ptr %82, ptr %.0811.i.i.i.i.i.i39, align 8
+  %83 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i40, i64 8
+  %84 = load ptr, ptr %83, align 8
+  %85 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i39, i64 8
+  store ptr %84, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i.i40, i64 16
+  %87 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i39, i64 16
+  %88 = add nsw i64 %.012.i.i.i.i.i.i38, -1
+  %89 = icmp samesign ugt i64 %.012.i.i.i.i.i.i38, 1
+  br i1 %89, label %.lr.ph.i.i.i.i.i.i37, label %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i29, !llvm.loop !291
 
 _ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i29: ; preds = %.lr.ph.i.i.i.i.i.i37, %._crit_edge.i25
-  %.08.lcssa.i.i.i.i.i.i30 = phi ptr [ %.sroa.0.0.lcssa.i26, %._crit_edge.i25 ], [ %89, %.lr.ph.i.i.i.i.i.i37 ]
-  %92 = ptrtoint ptr %.016.lcssa.i27 to i64
-  %93 = sub i64 %9, %92
-  %94 = ashr exact i64 %93, 4
-  %95 = icmp sgt i64 %94, 0
-  br i1 %95, label %.lr.ph.i.i.i.i.i19.i32.preheader, label %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit50
+  %.08.lcssa.i.i.i.i.i.i30 = phi ptr [ %.sroa.0.0.lcssa.i26, %._crit_edge.i25 ], [ %87, %.lr.ph.i.i.i.i.i.i37 ]
+  %90 = ptrtoint ptr %.016.lcssa.i27 to i64
+  %91 = sub i64 %9, %90
+  %92 = ashr exact i64 %91, 4
+  %93 = icmp sgt i64 %92, 0
+  br i1 %93, label %.lr.ph.i.i.i.i.i19.i32.preheader, label %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit50
 
 .lr.ph.i.i.i.i.i19.i32.preheader:                 ; preds = %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i29
-  %96 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i30 to i64
-  %97 = ptrtoint ptr %.sroa.0.0.lcssa.i26 to i64
-  %98 = sub i64 %96, %97
-  %99 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i26, i64 %98
+  %94 = ptrtoint ptr %.08.lcssa.i.i.i.i.i.i30 to i64
+  %95 = ptrtoint ptr %.sroa.0.0.lcssa.i26 to i64
+  %96 = sub i64 %94, %95
+  %97 = getelementptr inbounds i8, ptr %.sroa.0.0.lcssa.i26, i64 %96
   br label %.lr.ph.i.i.i.i.i19.i32
 
 .lr.ph.i.i.i.i.i19.i32:                           ; preds = %.lr.ph.i.i.i.i.i19.i32.preheader, %.lr.ph.i.i.i.i.i19.i32
-  %.012.i.i.i.i.i20.i33 = phi i64 [ %106, %.lr.ph.i.i.i.i.i19.i32 ], [ %94, %.lr.ph.i.i.i.i.i19.i32.preheader ]
-  %.0811.i.i.i.i.i21.i34 = phi ptr [ %105, %.lr.ph.i.i.i.i.i19.i32 ], [ %99, %.lr.ph.i.i.i.i.i19.i32.preheader ]
-  %.0910.i.i.i.i.i22.i35 = phi ptr [ %104, %.lr.ph.i.i.i.i.i19.i32 ], [ %.016.lcssa.i27, %.lr.ph.i.i.i.i.i19.i32.preheader ]
-  %100 = load ptr, ptr %.0910.i.i.i.i.i22.i35, align 8
-  store ptr %100, ptr %.0811.i.i.i.i.i21.i34, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i35, i64 8
-  %102 = load ptr, ptr %101, align 8
-  %103 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i34, i64 8
-  store ptr %102, ptr %103, align 8
-  %104 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i35, i64 16
-  %105 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i34, i64 16
-  %106 = add nsw i64 %.012.i.i.i.i.i20.i33, -1
-  %107 = icmp samesign ugt i64 %.012.i.i.i.i.i20.i33, 1
-  br i1 %107, label %.lr.ph.i.i.i.i.i19.i32, label %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit50, !llvm.loop !291
+  %.012.i.i.i.i.i20.i33 = phi i64 [ %104, %.lr.ph.i.i.i.i.i19.i32 ], [ %92, %.lr.ph.i.i.i.i.i19.i32.preheader ]
+  %.0811.i.i.i.i.i21.i34 = phi ptr [ %103, %.lr.ph.i.i.i.i.i19.i32 ], [ %97, %.lr.ph.i.i.i.i.i19.i32.preheader ]
+  %.0910.i.i.i.i.i22.i35 = phi ptr [ %102, %.lr.ph.i.i.i.i.i19.i32 ], [ %.016.lcssa.i27, %.lr.ph.i.i.i.i.i19.i32.preheader ]
+  %98 = load ptr, ptr %.0910.i.i.i.i.i22.i35, align 8
+  store ptr %98, ptr %.0811.i.i.i.i.i21.i34, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i35, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i34, i64 8
+  store ptr %100, ptr %101, align 8
+  %102 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i22.i35, i64 16
+  %103 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i21.i34, i64 16
+  %104 = add nsw i64 %.012.i.i.i.i.i20.i33, -1
+  %105 = icmp samesign ugt i64 %.012.i.i.i.i.i20.i33, 1
+  br i1 %105, label %.lr.ph.i.i.i.i.i19.i32, label %_ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit50, !llvm.loop !291
 
 _ZSt12__move_mergeIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEENS7_5__ops15_Iter_comp_iterIN9EmitCSyms7CmpNameEEEET0_T_SJ_SJ_SJ_SI_T1_.exit50: ; preds = %.lr.ph.i.i.i.i.i19.i32, %_ZSt4moveIPSt4pairIP8AstScopeP13AstNodeModuleEN9__gnu_cxx17__normal_iteratorIS6_St6vectorIS5_SaIS5_EEEEET0_T_SE_SD_.exit.i29
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %7)

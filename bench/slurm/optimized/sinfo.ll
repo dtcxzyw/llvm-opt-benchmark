@@ -507,9 +507,9 @@ _query_fed_servers.exit:                          ; preds = %.thread.i55, %.oute
   %103 = trunc nuw i8 %102 to i1
   %spec.select.i = select i1 %103, i16 9, i16 8
   %104 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !8, !noundef !9
-  %105 = trunc nuw i8 %104 to i1
-  %106 = or disjoint i16 %spec.select.i, 128
-  %.1.i = select i1 %105, i16 %106, i16 %spec.select.i
+  %105 = shl nuw i8 %104, 7
+  %106 = zext i8 %105 to i16
+  %.1.i = or disjoint i16 %spec.select.i, %106
   %107 = load ptr, ptr @_query_server.old_part_ptr, align 8
   %.not.i57 = icmp eq ptr %107, null
   br i1 %.not.i57, label %122, label %108
@@ -1885,9 +1885,9 @@ define internal noalias noundef ptr @_load_job_prio_thread(ptr noundef %0) #5 {
   %10 = trunc nuw i8 %9 to i1
   %.026 = select i1 %10, i16 9, i16 8
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @params, i64 40), align 8, !range !8, !noundef !9
-  %12 = trunc nuw i8 %11 to i1
-  %13 = or disjoint i16 %.026, 128
-  %.1 = select i1 %12, i16 %13, i16 %.026
+  %12 = shl nuw i8 %11, 7
+  %13 = zext i8 %12 to i16
+  %.1 = or disjoint i16 %.026, %13
   %14 = call i32 @slurm_load_partitions2(i64 noundef 0, ptr noundef nonnull %3, i16 noundef zeroext %.1, ptr noundef %5) #13
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %16, label %15

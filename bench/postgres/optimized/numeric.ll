@@ -2512,106 +2512,21 @@ define range(i32 -1, -2147483648) i32 @PGTYPESnumeric_cmp(ptr noundef readonly c
 
 ; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @PGTYPESnumeric_from_int(i32 noundef %0, ptr noundef captures(none) initializes((16, 20)) %1) local_unnamed_addr #0 {
-  %3 = sext i32 %0 to i64
-  %4 = lshr i64 %3, 49
-  %5 = trunc nuw nsw i64 %4 to i32
-  %spec.select.i = and i32 %5, 16384
-  %spec.select43.i = tail call i64 @llvm.abs.i64(i64 %3, i1 true)
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %spec.select.i, ptr %6, align 8
-  br label %7
-
-7:                                                ; preds = %7, %2
-  %.036.i = phi i32 [ 0, %2 ], [ %8, %7 ]
-  %.0.i = phi i64 [ 1, %2 ], [ %9, %7 ]
-  %8 = add nuw nsw i32 %.036.i, 1
-  %9 = mul i64 %.0.i, 10
-  %10 = add i64 %9, -1
-  %11 = icmp slt i64 %10, %spec.select43.i
-  %12 = icmp slt i64 %9, 922337203685477581
-  %13 = and i1 %12, %11
-  br i1 %13, label %7, label %14, !llvm.loop !38
-
-14:                                               ; preds = %7
-  %15 = icmp sgt i64 %9, 922337203685477580
-  br i1 %15, label %16, label %18
-
-16:                                               ; preds = %14
-  %17 = add nuw i32 %.036.i, 3
-  br label %21
-
-18:                                               ; preds = %14
-  %19 = add nuw i32 %.036.i, 2
-  %20 = sdiv i64 %9, 10
-  br label %21
-
-21:                                               ; preds = %18, %16
-  %.137.i = phi i32 [ %17, %16 ], [ %19, %18 ]
-  %.1.i = phi i64 [ %9, %16 ], [ %20, %18 ]
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %23 = load ptr, ptr %22, align 8
-  tail call void @free(ptr noundef %23) #14
-  %24 = add i32 %.137.i, 1
-  %25 = sext i32 %24 to i64
-  %26 = tail call ptr @pgtypes_alloc(i64 noundef %25) #14
-  store ptr %26, ptr %22, align 8
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %PGTYPESnumeric_from_long.exit, label %28
-
-28:                                               ; preds = %21
-  store i8 0, ptr %26, align 1
-  %29 = load ptr, ptr %22, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  store ptr %30, ptr %31, align 8
-  store i32 %.137.i, ptr %1, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 1, ptr %32, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  store i32 1, ptr %33, align 4
-  %34 = add i32 %.137.i, -2
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %34, ptr %35, align 4
-  br label %36
-
-36:                                               ; preds = %36, %28
-  %.035.i = phi i32 [ 0, %28 ], [ %43, %36 ]
-  %.134.i = phi i64 [ %spec.select43.i, %28 ], [ %37, %36 ]
-  %.2.i = phi i64 [ %.1.i, %28 ], [ %44, %36 ]
-  %37 = srem i64 %.134.i, %.2.i
-  %38 = sdiv i64 %.134.i, %.2.i
-  %39 = trunc i64 %38 to i8
-  %40 = load ptr, ptr %31, align 8
-  %41 = sext i32 %.035.i to i64
-  %42 = getelementptr inbounds i8, ptr %40, i64 %41
-  store i8 %39, ptr %42, align 1
-  %43 = add i32 %.035.i, 1
-  %44 = sdiv i64 %.2.i, 10
-  %.not = icmp eq i64 %37, 0
-  br i1 %.not, label %PGTYPESnumeric_from_long.exit, label %36, !llvm.loop !39
-
-PGTYPESnumeric_from_long.exit:                    ; preds = %36, %21
-  %.032.i = phi i32 [ -1, %21 ], [ 0, %36 ]
-  ret i32 %.032.i
-}
-
-; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @PGTYPESnumeric_from_long(i64 noundef %0, ptr noundef captures(none) initializes((16, 20)) %1) local_unnamed_addr #0 {
-  %3 = lshr i64 %0, 49
-  %4 = trunc nuw nsw i64 %3 to i32
-  %spec.select = and i32 %4, 16384
-  %spec.select43 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
+  %3 = lshr i32 %0, 17
+  %spec.select.i = and i32 %3, 16384
+  %4 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
+  %spec.select43.i = zext i32 %4 to i64
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i32 %spec.select, ptr %5, align 8
+  store i32 %spec.select.i, ptr %5, align 8
   br label %6
 
 6:                                                ; preds = %6, %2
-  %.036 = phi i32 [ 0, %2 ], [ %7, %6 ]
-  %.0 = phi i64 [ 1, %2 ], [ %8, %6 ]
-  %7 = add nuw nsw i32 %.036, 1
-  %8 = mul i64 %.0, 10
+  %.036.i = phi i32 [ 0, %2 ], [ %7, %6 ]
+  %.0.i = phi i64 [ 1, %2 ], [ %8, %6 ]
+  %7 = add nuw nsw i32 %.036.i, 1
+  %8 = mul i64 %.0.i, 10
   %9 = add i64 %8, -1
-  %10 = icmp slt i64 %9, %spec.select43
+  %10 = icmp slt i64 %9, %spec.select43.i
   %11 = icmp slt i64 %8, 922337203685477581
   %12 = and i1 %11, %10
   br i1 %12, label %6, label %13, !llvm.loop !38
@@ -2621,26 +2536,26 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_long(i64 noundef %0, ptr nounde
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %13
-  %16 = add nuw i32 %.036, 3
+  %16 = add nuw i32 %.036.i, 3
   br label %20
 
 17:                                               ; preds = %13
-  %18 = add nuw i32 %.036, 2
+  %18 = add nuw i32 %.036.i, 2
   %19 = sdiv i64 %8, 10
   br label %20
 
 20:                                               ; preds = %17, %15
-  %.137 = phi i32 [ %16, %15 ], [ %18, %17 ]
-  %.1 = phi i64 [ %8, %15 ], [ %19, %17 ]
+  %.137.i = phi i32 [ %16, %15 ], [ %18, %17 ]
+  %.1.i = phi i64 [ %8, %15 ], [ %19, %17 ]
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   tail call void @free(ptr noundef %22) #14
-  %23 = add i32 %.137, 1
+  %23 = add i32 %.137.i, 1
   %24 = sext i32 %23 to i64
   %25 = tail call ptr @pgtypes_alloc(i64 noundef %24) #14
   store ptr %25, ptr %21, align 8
   %26 = icmp eq ptr %25, null
-  br i1 %26, label %alloc_var.exit.thread, label %27
+  br i1 %26, label %PGTYPESnumeric_from_long.exit, label %27
 
 27:                                               ; preds = %20
   store i8 0, ptr %25, align 1
@@ -2648,34 +2563,117 @@ define range(i32 -1, 1) i32 @PGTYPESnumeric_from_long(i64 noundef %0, ptr nounde
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 1
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store ptr %29, ptr %30, align 8
-  store i32 %.137, ptr %1, align 8
+  store i32 %.137.i, ptr %1, align 8
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 1, ptr %31, align 8
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 12
   store i32 1, ptr %32, align 4
-  %33 = add i32 %.137, -2
+  %33 = add i32 %.137.i, -2
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store i32 %33, ptr %34, align 4
   br label %35
 
 35:                                               ; preds = %35, %27
-  %.035 = phi i32 [ 0, %27 ], [ %42, %35 ]
-  %.134 = phi i64 [ %spec.select43, %27 ], [ %36, %35 ]
-  %.2 = phi i64 [ %.1, %27 ], [ %43, %35 ]
-  %36 = srem i64 %.134, %.2
-  %37 = sdiv i64 %.134, %.2
+  %.035.i = phi i32 [ 0, %27 ], [ %42, %35 ]
+  %.134.i = phi i64 [ %spec.select43.i, %27 ], [ %36, %35 ]
+  %.2.i = phi i64 [ %.1.i, %27 ], [ %43, %35 ]
+  %36 = srem i64 %.134.i, %.2.i
+  %37 = sdiv i64 %.134.i, %.2.i
   %38 = trunc i64 %37 to i8
   %39 = load ptr, ptr %30, align 8
-  %40 = sext i32 %.035 to i64
+  %40 = sext i32 %.035.i to i64
   %41 = getelementptr inbounds i8, ptr %39, i64 %40
   store i8 %38, ptr %41, align 1
-  %42 = add i32 %.035, 1
-  %43 = sdiv i64 %.2, 10
-  %44 = icmp sgt i64 %36, 0
-  br i1 %44, label %35, label %alloc_var.exit.thread, !llvm.loop !39
+  %42 = add i32 %.035.i, 1
+  %43 = sdiv i64 %.2.i, 10
+  %.not = icmp eq i64 %36, 0
+  br i1 %.not, label %PGTYPESnumeric_from_long.exit, label %35, !llvm.loop !39
 
-alloc_var.exit.thread:                            ; preds = %35, %20
-  %.032 = phi i32 [ -1, %20 ], [ 0, %35 ]
+PGTYPESnumeric_from_long.exit:                    ; preds = %35, %20
+  %.032.i = phi i32 [ -1, %20 ], [ 0, %35 ]
+  ret i32 %.032.i
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 -1, 1) i32 @PGTYPESnumeric_from_long(i64 noundef %0, ptr noundef captures(none) initializes((16, 20)) %1) local_unnamed_addr #0 {
+  %3 = icmp slt i64 %0, 0
+  %spec.select = select i1 %3, i32 16384, i32 0
+  %spec.select43 = tail call i64 @llvm.abs.i64(i64 %0, i1 false)
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  store i32 %spec.select, ptr %4, align 8
+  br label %5
+
+5:                                                ; preds = %5, %2
+  %.036 = phi i32 [ 0, %2 ], [ %6, %5 ]
+  %.0 = phi i64 [ 1, %2 ], [ %7, %5 ]
+  %6 = add nuw nsw i32 %.036, 1
+  %7 = mul i64 %.0, 10
+  %8 = add i64 %7, -1
+  %9 = icmp slt i64 %8, %spec.select43
+  %10 = icmp slt i64 %7, 922337203685477581
+  %11 = and i1 %10, %9
+  br i1 %11, label %5, label %12, !llvm.loop !38
+
+12:                                               ; preds = %5
+  %13 = icmp sgt i64 %7, 922337203685477580
+  br i1 %13, label %14, label %16
+
+14:                                               ; preds = %12
+  %15 = add nuw i32 %.036, 3
+  br label %19
+
+16:                                               ; preds = %12
+  %17 = add nuw i32 %.036, 2
+  %18 = sdiv i64 %7, 10
+  br label %19
+
+19:                                               ; preds = %16, %14
+  %.137 = phi i32 [ %15, %14 ], [ %17, %16 ]
+  %.1 = phi i64 [ %7, %14 ], [ %18, %16 ]
+  %20 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %21 = load ptr, ptr %20, align 8
+  tail call void @free(ptr noundef %21) #14
+  %22 = add i32 %.137, 1
+  %23 = sext i32 %22 to i64
+  %24 = tail call ptr @pgtypes_alloc(i64 noundef %23) #14
+  store ptr %24, ptr %20, align 8
+  %25 = icmp eq ptr %24, null
+  br i1 %25, label %alloc_var.exit.thread, label %26
+
+26:                                               ; preds = %19
+  store i8 0, ptr %24, align 1
+  %27 = load ptr, ptr %20, align 8
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  store ptr %28, ptr %29, align 8
+  store i32 %.137, ptr %1, align 8
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 1, ptr %30, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  store i32 1, ptr %31, align 4
+  %32 = add i32 %.137, -2
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %32, ptr %33, align 4
+  br label %34
+
+34:                                               ; preds = %34, %26
+  %.035 = phi i32 [ 0, %26 ], [ %41, %34 ]
+  %.134 = phi i64 [ %spec.select43, %26 ], [ %35, %34 ]
+  %.2 = phi i64 [ %.1, %26 ], [ %42, %34 ]
+  %35 = srem i64 %.134, %.2
+  %36 = sdiv i64 %.134, %.2
+  %37 = trunc i64 %36 to i8
+  %38 = load ptr, ptr %29, align 8
+  %39 = sext i32 %.035 to i64
+  %40 = getelementptr inbounds i8, ptr %38, i64 %39
+  store i8 %37, ptr %40, align 1
+  %41 = add i32 %.035, 1
+  %42 = sdiv i64 %.2, 10
+  %43 = icmp sgt i64 %35, 0
+  br i1 %43, label %34, label %alloc_var.exit.thread, !llvm.loop !39
+
+alloc_var.exit.thread:                            ; preds = %34, %19
+  %.032 = phi i32 [ -1, %19 ], [ 0, %34 ]
   ret i32 %.032
 }
 
@@ -3157,6 +3155,9 @@ declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.abs.i64(i64, i1 immarg) #13
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.abs.i32(i32, i1 immarg) #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -13859,9 +13859,9 @@ thread-pre-split:                                 ; preds = %267, %dissect_nds_r
 
 948:                                              ; preds = %945
   %949 = load i8, ptr @ncp_newstyle, align 1, !range !6, !noundef !7
-  %950 = trunc nuw i8 %949 to i1
-  %951 = add i32 %.9.i, 8
-  %spec.select401.i = select i1 %950, i32 %951, i32 %.9.i
+  %950 = shl nuw nsw i8 %949, 3
+  %951 = zext nneg i8 %950 to i32
+  %spec.select401.i = add i32 %.9.i, %951
   br label %952
 
 952:                                              ; preds = %948, %945, %938

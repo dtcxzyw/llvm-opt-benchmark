@@ -928,10 +928,10 @@ define hidden void @_ZN5uu_pr13write_columns17h36a1407f3aa14445E(ptr noalias nou
   %29 = load i64, ptr %28, align 8, !noundef !4
   %30 = getelementptr inbounds nuw i8, ptr %3, i64 320
   %31 = load i8, ptr %30, align 8, !range !107, !noundef !4
-  %32 = zext nneg i8 %31 to i64
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 312
-  %34 = load i64, ptr %33, align 8
-  %.0 = lshr i64 %34, %32
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 312
+  %33 = load i64, ptr %32, align 8
+  %34 = zext nneg i8 %31 to i64
+  %.0 = lshr i64 %33, %34
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = load i64, ptr %35, align 8, !range !70, !noundef !4
   %trunc = trunc nuw i64 %36 to i1

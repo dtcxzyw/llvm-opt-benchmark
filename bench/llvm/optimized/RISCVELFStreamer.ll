@@ -305,9 +305,9 @@ define dso_local void @_ZN4llvm22RISCVTargetELFStreamer6finishEv(ptr noundef non
   %spec.select = or i32 %8, %11
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %13 = load i8, ptr %12, align 1, !tbaa !85, !range !83, !noundef !84
-  %14 = trunc nuw i8 %13 to i1
-  %15 = or i32 %spec.select, 16
-  %.1 = select i1 %14, i32 %15, i32 %spec.select
+  %14 = shl nuw nsw i8 %13, 4
+  %15 = zext nneg i8 %14 to i32
+  %.1 = or i32 %spec.select, %15
   switch i32 %6, label %22 [
     i32 7, label %20
     i32 3, label %20

@@ -2891,11 +2891,12 @@ define noundef zeroext i1 @_ZN14vsstatus_csr_t14unlogged_writeEm(ptr noundef non
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %9 = load ptr, ptr %8, align 8
   %10 = tail call noundef i64 %9(ptr noundef nonnull align 8 dereferenceable(37) %6) #30
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %12 = load i64, ptr %11, align 8, !tbaa !190
-  %13 = lshr i64 %10, 35
-  %14 = or i64 %13, -16777217
-  %15 = and i64 %14, %12
+  %11 = and i64 %10, 576460752303423488
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %13 = load i64, ptr %12, align 8, !tbaa !190
+  %.not = icmp eq i64 %11, 0
+  %14 = select i1 %.not, i64 -16777217, i64 -1
+  %15 = and i64 %14, %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %17 = load i64, ptr %16, align 8, !tbaa !196
   %18 = xor i64 %15, -1
@@ -2903,9 +2904,9 @@ define noundef zeroext i1 @_ZN14vsstatus_csr_t14unlogged_writeEm(ptr noundef non
   %20 = and i64 %15, %1
   %21 = or i64 %19, %20
   %22 = and i64 %21, 16777216
-  %.not = icmp eq i64 %22, 0
+  %.not9 = icmp eq i64 %22, 0
   %23 = and i64 %21, -3
-  %24 = select i1 %.not, i64 %21, i64 %23
+  %24 = select i1 %.not9, i64 %21, i64 %23
   %25 = load ptr, ptr %3, align 8, !tbaa !15
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 850
   %27 = load i8, ptr %26, align 2, !tbaa !93, !range !94, !noundef !95
@@ -2948,8 +2949,8 @@ _ZN17base_status_csr_t15maybe_flush_tlbEm.exit:   ; preds = %40, %29, %2
 
 50:                                               ; preds = %_ZN17base_status_csr_t15maybe_flush_tlbEm.exit
   %51 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZNK17base_status_csr_t9adjust_sdEmE6sd_bit) #30
-  %.not.i9 = icmp eq i32 %51, 0
-  br i1 %.not.i9, label %_ZNK17base_status_csr_t9adjust_sdEm.exit, label %52
+  %.not.i10 = icmp eq i32 %51, 0
+  br i1 %.not.i10, label %_ZNK17base_status_csr_t9adjust_sdEm.exit, label %52
 
 52:                                               ; preds = %50
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2991,14 +2992,15 @@ define noundef i64 @_ZNK14vsstatus_csr_t4readEv(ptr noundef nonnull readonly ali
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(37) %5) #30
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load i64, ptr %10, align 8, !tbaa !191
-  %12 = lshr i64 %9, 35
-  %13 = or i64 %12, -16777217
-  %14 = and i64 %13, %11
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %16 = load i64, ptr %15, align 8, !tbaa !196
-  %17 = and i64 %14, %16
+  %10 = and i64 %9, 576460752303423488
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load i64, ptr %11, align 8, !tbaa !191
+  %.not = icmp eq i64 %10, 0
+  %13 = select i1 %.not, i64 -16777217, i64 -1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %15 = load i64, ptr %14, align 8, !tbaa !196
+  %16 = and i64 %15, %12
+  %17 = and i64 %16, %13
   ret i64 %17
 }
 
@@ -3134,11 +3136,12 @@ define noundef zeroext i1 @_ZN19sstatus_proxy_csr_t14unlogged_writeEm(ptr nounde
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %10 = load ptr, ptr %9, align 8
   %11 = tail call noundef i64 %10(ptr noundef nonnull align 8 dereferenceable(37) %7) #30
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %13 = load i64, ptr %12, align 8, !tbaa !190
-  %14 = lshr i64 %11, 35
-  %15 = or i64 %14, -16777217
-  %16 = and i64 %15, %13
+  %12 = and i64 %11, 576460752303423488
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %14 = load i64, ptr %13, align 8, !tbaa !190
+  %.not = icmp eq i64 %12, 0
+  %15 = select i1 %.not, i64 -16777217, i64 -1
+  %16 = and i64 %15, %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !193
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
@@ -3148,9 +3151,9 @@ define noundef zeroext i1 @_ZN19sstatus_proxy_csr_t14unlogged_writeEm(ptr nounde
   %23 = and i64 %16, %1
   %24 = or i64 %22, %23
   %25 = and i64 %24, 16777216
-  %.not = icmp eq i64 %25, 0
+  %.not8 = icmp eq i64 %25, 0
   %26 = and i64 %24, -3
-  %27 = select i1 %.not, i64 %24, i64 %26
+  %27 = select i1 %.not8, i64 %24, i64 %26
   %28 = load ptr, ptr %18, align 8, !tbaa !3
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
   %30 = load ptr, ptr %29, align 8
@@ -3208,11 +3211,12 @@ define noundef i64 @_ZNK19sstatus_proxy_csr_t4readEv(ptr noundef nonnull readonl
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   %9 = tail call noundef i64 %8(ptr noundef nonnull align 8 dereferenceable(37) %5) #30
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load i64, ptr %10, align 8, !tbaa !191
-  %12 = lshr i64 %9, 35
-  %13 = or i64 %12, -16777217
-  %14 = and i64 %13, %11
+  %10 = and i64 %9, 576460752303423488
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load i64, ptr %11, align 8, !tbaa !191
+  %.not = icmp eq i64 %10, 0
+  %13 = select i1 %.not, i64 -16777217, i64 -1
+  %14 = and i64 %13, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %16 = load ptr, ptr %15, align 8, !tbaa !193
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 56
@@ -4155,15 +4159,16 @@ define void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull readonly align 8 cap
   %12 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %13 = load ptr, ptr %12, align 8
   %14 = tail call noundef i64 %13(ptr noundef nonnull align 8 dereferenceable(37) %10) #30
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  %16 = load i64, ptr %15, align 8, !tbaa !191
-  %17 = lshr i64 %14, 35
-  %18 = or i64 %17, -16777217
+  %15 = and i64 %14, 576460752303423488
+  %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  %17 = load i64, ptr %16, align 8, !tbaa !191
+  %.not.i = icmp eq i64 %15, 0
+  %18 = select i1 %.not.i, i64 -16777217, i64 -1
   %19 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %20 = load ptr, ptr %19, align 8, !tbaa !193
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 56
   %22 = load i64, ptr %21, align 8, !tbaa !194
-  %23 = and i64 %16, %18
+  %23 = and i64 %17, %18
   %24 = and i64 %23, %22
   %25 = and i64 %24, %1
   %26 = icmp eq i64 %25, %1
@@ -4188,14 +4193,15 @@ define void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull readonly align 8 cap
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
   %42 = load ptr, ptr %41, align 8
   %43 = tail call noundef i64 %42(ptr noundef nonnull align 8 dereferenceable(37) %39) #30
-  %44 = getelementptr inbounds nuw i8, ptr %35, i64 48
-  %45 = load i64, ptr %44, align 8, !tbaa !191
-  %46 = lshr i64 %43, 35
-  %47 = or i64 %46, -16777217
+  %44 = and i64 %43, 576460752303423488
+  %45 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  %46 = load i64, ptr %45, align 8, !tbaa !191
+  %.not.i7 = icmp eq i64 %44, 0
+  %47 = select i1 %.not.i7, i64 -16777217, i64 -1
   %48 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %49 = load i64, ptr %48, align 8, !tbaa !196
-  %50 = and i64 %45, %47
-  %51 = and i64 %50, %49
+  %50 = and i64 %46, %49
+  %51 = and i64 %50, %47
   %52 = and i64 %51, %1
   %53 = icmp eq i64 %52, %1
   br i1 %53, label %.critedge, label %54, !prof !204
@@ -4210,19 +4216,20 @@ define void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull readonly align 8 cap
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
   %62 = load ptr, ptr %61, align 8
   %63 = tail call noundef i64 %62(ptr noundef nonnull align 8 dereferenceable(37) %59) #30
-  %64 = getelementptr inbounds nuw i8, ptr %55, i64 48
-  %65 = load i64, ptr %64, align 8, !tbaa !191
-  %66 = lshr i64 %63, 35
-  %67 = or i64 %66, -16777217
+  %64 = and i64 %63, 576460752303423488
+  %65 = getelementptr inbounds nuw i8, ptr %55, i64 48
+  %66 = load i64, ptr %65, align 8, !tbaa !191
+  %.not.i.i = icmp eq i64 %64, 0
+  %67 = select i1 %.not.i.i, i64 -16777217, i64 -1
   %68 = getelementptr inbounds nuw i8, ptr %55, i64 56
   %69 = load ptr, ptr %68, align 8, !tbaa !193
   %70 = getelementptr inbounds nuw i8, ptr %69, i64 56
   %71 = load i64, ptr %70, align 8, !tbaa !194
-  %72 = and i64 %65, %67
+  %72 = and i64 %66, %67
   %73 = and i64 %72, %71
   %74 = and i64 %73, %1
-  %.not.i = icmp eq i64 %74, 0
-  br i1 %.not.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %75
+  %.not.i8 = icmp eq i64 %74, 0
+  br i1 %.not.i8, label %_ZN13sstatus_csr_t7enabledEm.exit, label %75
 
 75:                                               ; preds = %54
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4243,14 +4250,15 @@ define void @_ZN13sstatus_csr_t5dirtyEm(ptr noundef nonnull readonly align 8 cap
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %90 = load ptr, ptr %89, align 8
   %91 = tail call noundef i64 %90(ptr noundef nonnull align 8 dereferenceable(37) %87) #30
-  %92 = getelementptr inbounds nuw i8, ptr %83, i64 48
-  %93 = load i64, ptr %92, align 8, !tbaa !191
-  %94 = lshr i64 %91, 35
-  %95 = or i64 %94, -16777217
+  %92 = and i64 %91, 576460752303423488
+  %93 = getelementptr inbounds nuw i8, ptr %83, i64 48
+  %94 = load i64, ptr %93, align 8, !tbaa !191
+  %.not.i4.i = icmp eq i64 %92, 0
+  %95 = select i1 %.not.i4.i, i64 -16777217, i64 -1
   %96 = getelementptr inbounds nuw i8, ptr %83, i64 56
   %97 = load i64, ptr %96, align 8, !tbaa !196
-  %98 = and i64 %93, %95
-  %99 = and i64 %98, %97
+  %98 = and i64 %94, %97
+  %99 = and i64 %98, %95
   %100 = and i64 %99, %1
   %.not3.i = icmp eq i64 %100, 0
   br i1 %.not3.i, label %_ZN13sstatus_csr_t7enabledEm.exit, label %101
@@ -4269,11 +4277,12 @@ _ZN13sstatus_csr_t7enabledEm.exit:                ; preds = %81, %54
   %108 = getelementptr inbounds nuw i8, ptr %107, i64 8
   %109 = load ptr, ptr %108, align 8
   %110 = tail call noundef i64 %109(ptr noundef nonnull align 8 dereferenceable(37) %106) #30
-  %111 = getelementptr inbounds nuw i8, ptr %102, i64 48
-  %112 = load i64, ptr %111, align 8, !tbaa !191
-  %113 = lshr i64 %110, 35
-  %114 = or i64 %113, -16777217
-  %115 = and i64 %114, %112
+  %111 = and i64 %110, 576460752303423488
+  %112 = getelementptr inbounds nuw i8, ptr %102, i64 48
+  %113 = load i64, ptr %112, align 8, !tbaa !191
+  %.not.i9 = icmp eq i64 %111, 0
+  %114 = select i1 %.not.i9, i64 -16777217, i64 -1
+  %115 = and i64 %114, %113
   %116 = getelementptr inbounds nuw i8, ptr %102, i64 56
   %117 = load ptr, ptr %116, align 8, !tbaa !193
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 56
@@ -4341,14 +4350,15 @@ _ZN5csr_t5writeEm.exit:                           ; preds = %101, %126, %143
   %159 = getelementptr inbounds nuw i8, ptr %158, i64 8
   %160 = load ptr, ptr %159, align 8
   %161 = call noundef i64 %160(ptr noundef nonnull align 8 dereferenceable(37) %157) #30
-  %162 = getelementptr inbounds nuw i8, ptr %153, i64 48
-  %163 = load i64, ptr %162, align 8, !tbaa !191
-  %164 = lshr i64 %161, 35
-  %165 = or i64 %164, -16777217
-  %166 = and i64 %165, %163
-  %167 = getelementptr inbounds nuw i8, ptr %153, i64 56
-  %168 = load i64, ptr %167, align 8, !tbaa !196
-  %169 = and i64 %166, %168
+  %162 = and i64 %161, 576460752303423488
+  %163 = getelementptr inbounds nuw i8, ptr %153, i64 48
+  %164 = load i64, ptr %163, align 8, !tbaa !191
+  %.not.i10 = icmp eq i64 %162, 0
+  %165 = select i1 %.not.i10, i64 -16777217, i64 -1
+  %166 = getelementptr inbounds nuw i8, ptr %153, i64 56
+  %167 = load i64, ptr %166, align 8, !tbaa !196
+  %168 = and i64 %167, %164
+  %169 = and i64 %168, %165
   %170 = or i64 %169, %1
   %171 = load ptr, ptr %153, align 8, !tbaa !3
   %172 = getelementptr inbounds nuw i8, ptr %171, i64 32
@@ -4381,8 +4391,8 @@ _ZN5csr_t5writeEm.exit:                           ; preds = %101, %126, %143
 
 192:                                              ; preds = %187
   store i64 %181, ptr %191, align 8
-  %.sroa.4.0..sroa_idx.i.i.i7 = getelementptr inbounds nuw i8, ptr %191, i64 8
-  store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i7, align 8, !tbaa !150
+  %.sroa.4.0..sroa_idx.i.i.i11 = getelementptr inbounds nuw i8, ptr %191, i64 8
+  store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i11, align 8, !tbaa !150
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #30
   br label %.critedge
 
@@ -4409,15 +4419,16 @@ define noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull read
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = tail call noundef i64 %11(ptr noundef nonnull align 8 dereferenceable(37) %8) #30
-  %13 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  %14 = load i64, ptr %13, align 8, !tbaa !191
-  %15 = lshr i64 %12, 35
-  %16 = or i64 %15, -16777217
+  %13 = and i64 %12, 576460752303423488
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  %15 = load i64, ptr %14, align 8, !tbaa !191
+  %.not.i = icmp eq i64 %13, 0
+  %16 = select i1 %.not.i, i64 -16777217, i64 -1
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 56
   %18 = load ptr, ptr %17, align 8, !tbaa !193
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %20 = load i64, ptr %19, align 8, !tbaa !194
-  %21 = and i64 %14, %16
+  %21 = and i64 %15, %16
   %22 = and i64 %21, %20
   %23 = and i64 %22, %1
   %.not = icmp eq i64 %23, 0
@@ -4442,14 +4453,15 @@ define noundef zeroext i1 @_ZN13sstatus_csr_t7enabledEm(ptr noundef nonnull read
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %39 = load ptr, ptr %38, align 8
   %40 = tail call noundef i64 %39(ptr noundef nonnull align 8 dereferenceable(37) %36) #30
-  %41 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %42 = load i64, ptr %41, align 8, !tbaa !191
-  %43 = lshr i64 %40, 35
-  %44 = or i64 %43, -16777217
+  %41 = and i64 %40, 576460752303423488
+  %42 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %43 = load i64, ptr %42, align 8, !tbaa !191
+  %.not.i4 = icmp eq i64 %41, 0
+  %44 = select i1 %.not.i4, i64 -16777217, i64 -1
   %45 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %46 = load i64, ptr %45, align 8, !tbaa !196
-  %47 = and i64 %42, %44
-  %48 = and i64 %47, %46
+  %47 = and i64 %43, %46
+  %48 = and i64 %47, %44
   %49 = and i64 %48, %1
   %.not3 = icmp eq i64 %49, 0
   br i1 %.not3, label %50, label %51
@@ -11178,11 +11190,11 @@ define noundef zeroext i1 @_ZN14stimecmp_csr_t14unlogged_writeEm(ptr noundef non
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %28 = load i64, ptr %27, align 8
   %29 = select i1 %.not, i64 0, i64 %28
-  %30 = lshr i64 %17, 57
-  %31 = lshr i64 %10, 58
-  %32 = and i64 %31, 32
-  %33 = and i64 %30, 64
-  %34 = or disjoint i64 %33, %32
+  %30 = lshr i64 %10, 58
+  %31 = and i64 %30, 32
+  %32 = lshr i64 %17, 57
+  %33 = and i64 %32, 64
+  %34 = or disjoint i64 %33, %31
   %35 = getelementptr inbounds nuw i8, ptr %20, i64 40
   %36 = load i64, ptr %35, align 8, !tbaa !210
   %37 = xor i64 %34, -1

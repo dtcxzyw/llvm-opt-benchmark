@@ -417,8 +417,8 @@ entry:
   %host = alloca %"class.std::optional.91", align 8
   %arrayidx.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %md, i64 2
   %0 = load i16, ptr %arrayidx.i.i.i.i.i, align 2
-  %tobool.i.i.not = icmp sgt i16 %0, -1
-  br i1 %tobool.i.i.not, label %if.else, label %if.then
+  %cmp.i.i.i.i.inv.i = icmp sgt i16 %0, -1
+  br i1 %cmp.i.i.i.i.inv.i, label %if.else, label %if.then
 
 if.then:                                          ; preds = %entry
   %u.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %md, i64 10

@@ -1315,9 +1315,10 @@ define internal void @_ZN12_GLOBAL__N_122HeaderIncludesCallback11FileChangedEN5c
   br label %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread
 
 _ZN4llvm9StringRefC2EPKc.exit:                    ; preds = %25, %21
-  %spec.select = phi i32 [ %14, %25 ], [ %15, %21 ]
-  %41 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
-  %.not.i.i = icmp eq i64 %41, 14
+  %41 = zext nneg i8 %23 to i32
+  %spec.select = add i32 %14, %41
+  %42 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
+  %.not.i.i = icmp eq i64 %42, 14
   br i1 %.not.i.i, label %_ZN4llvmneENS_9StringRefES0_.exit, label %_ZN4llvm9StringRefC2EPKc.exit12
 
 _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC2EPKc.exit
@@ -1326,16 +1327,16 @@ _ZN4llvmneENS_9StringRefES0_.exit:                ; preds = %_ZN4llvm9StringRefC
   br i1 %.not23, label %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread, label %_ZN4llvm9StringRefC2EPKc.exit12
 
 _ZN4llvm9StringRefC2EPKc.exit12:                  ; preds = %_ZN4llvm9StringRefC2EPKc.exit, %_ZN4llvmneENS_9StringRefES0_.exit
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %43 = load ptr, ptr %42, align 8, !tbaa !299
-  %44 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 39
-  %46 = load i8, ptr %45, align 1, !tbaa !309, !range !281, !noundef !282
-  %47 = trunc nuw i8 %46 to i1
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %49 = load i8, ptr %48, align 8, !tbaa !310, !range !281, !noundef !282
-  %50 = trunc nuw i8 %49 to i1
-  call fastcc void @_ZL15PrintHeaderInfoPN4llvm11raw_ostreamENS_9StringRefEbjb(ptr noundef %43, ptr nonnull %9, i64 %44, i1 noundef zeroext %47, i32 noundef %spec.select, i1 noundef zeroext %50)
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !299
+  %45 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %9) #17
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 39
+  %47 = load i8, ptr %46, align 1, !tbaa !309, !range !281, !noundef !282
+  %48 = trunc nuw i8 %47 to i1
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %50 = load i8, ptr %49, align 8, !tbaa !310, !range !281, !noundef !282
+  %51 = trunc nuw i8 %50 to i1
+  call fastcc void @_ZL15PrintHeaderInfoPN4llvm11raw_ostreamENS_9StringRefEbjb(ptr noundef %44, ptr nonnull %9, i64 %45, i1 noundef zeroext %48, i32 noundef %spec.select, i1 noundef zeroext %51)
   br label %_ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread
 
 _ZN12_GLOBAL__N_122HeaderIncludesCallback16ShouldShowHeaderEN5clang6SrcMgr18CharacteristicKindE.exit.thread: ; preds = %30, %25, %20, %_ZN4llvmneENS_9StringRefES0_.exit, %_ZN4llvm9StringRefC2EPKc.exit12, %11, %33, %36, %40, %5

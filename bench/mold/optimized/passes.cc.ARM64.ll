@@ -93053,26 +93053,28 @@ if.end40:                                         ; preds = %if.end36
   br i1 %cmp41, label %return, label %if.end43
 
 if.end43:                                         ; preds = %if.end40
+  %and52 = and i64 %x.0.copyload.i21, 1024
+  %tobool53.not = icmp eq i64 %and52, 0
   %is_relro = getelementptr inbounds nuw i8, ptr %chunk, i64 96
   %14 = load i8, ptr %is_relro, align 8
   %cmp57 = icmp eq i32 %x.0.copyload.i, 8
+  %or = select i1 %tobool.not, i32 1536, i32 1024
   %15 = trunc i64 %x.0.copyload.i21 to i32
-  %16 = shl i32 %15, 8
-  %17 = and i32 %16, 768
-  %18 = shl i32 %15, 5
-  %shl67 = and i32 %18, 128
-  %19 = lshr i32 %15, 4
-  %20 = and i32 %19, 64
-  %21 = shl i8 %14, 5
-  %22 = and i8 %21, 32
-  %23 = xor i8 %22, 32
-  %shl77 = zext nneg i8 %23 to i32
+  %conv62 = shl i32 %15, 8
+  %shl63 = and i32 %conv62, 256
+  %16 = shl i32 %15, 5
+  %shl67 = and i32 %16, 128
+  %shl72 = select i1 %tobool53.not, i32 64, i32 0
+  %17 = shl i8 %14, 5
+  %18 = and i8 %17, 32
+  %19 = xor i8 %18, 32
+  %shl77 = zext nneg i8 %19 to i32
   %shl81 = select i1 %cmp57, i32 16, i32 0
-  %24 = or disjoint i32 %shl67, %shl81
-  %25 = or disjoint i32 %24, %17
-  %26 = or disjoint i32 %25, %20
-  %27 = or disjoint i32 %26, %shl77
-  %or82 = xor i32 %27, 1600
+  %or64 = or disjoint i32 %shl63, %shl81
+  %or68 = or disjoint i32 %or64, %or
+  %or73 = or disjoint i32 %or68, %shl67
+  %or78 = or disjoint i32 %or73, %shl72
+  %or82 = or disjoint i32 %or78, %shl77
   br label %return
 
 return:                                           ; preds = %if.end40, %if.end36, %if.end33, %if.end30, %if.end27, %if.end24, %if.end21, %if.end18, %if.end15, %if.end12, %if.end9, %if.end6, %if.end, %entry, %if.end43

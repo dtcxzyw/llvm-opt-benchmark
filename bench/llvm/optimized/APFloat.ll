@@ -2083,123 +2083,120 @@ define dso_local noundef range(i32 0, 4) i32 @_ZNK4llvm6detail9IEEEFloat7compare
   %9 = and i8 %8, 7
   %narrow = add nuw nsw i8 %6, %9
   switch i8 %narrow, label %10 [
-    i8 7, label %67
-    i8 6, label %67
-    i8 4, label %67
-    i8 5, label %67
-    i8 13, label %67
-    i8 9, label %67
-    i8 1, label %67
+    i8 7, label %61
+    i8 6, label %61
+    i8 4, label %61
+    i8 5, label %61
+    i8 13, label %61
+    i8 9, label %61
+    i8 1, label %61
     i8 2, label %11
     i8 3, label %11
     i8 11, label %11
-    i8 8, label %15
-    i8 12, label %15
-    i8 14, label %15
-    i8 0, label %18
-    i8 15, label %27
-    i8 10, label %28
+    i8 8, label %13
+    i8 12, label %13
+    i8 14, label %13
+    i8 0, label %16
+    i8 15, label %23
+    i8 10, label %24
   ]
 
 10:                                               ; preds = %2
   unreachable
 
 11:                                               ; preds = %2, %2, %2
-  %12 = lshr i8 %4, 2
-  %13 = and i8 %12, 2
-  %14 = xor i8 %13, 2
-  %. = zext nneg i8 %14 to i32
-  br label %67
+  %12 = and i8 %4, 8
+  %.not17 = icmp eq i8 %12, 0
+  %. = select i1 %.not17, i32 2, i32 0
+  br label %61
 
-15:                                               ; preds = %2, %2, %2
-  %16 = lshr i8 %8, 2
-  %17 = and i8 %16, 2
-  %.18 = zext nneg i8 %17 to i32
-  br label %67
+13:                                               ; preds = %2, %2, %2
+  %14 = lshr i8 %8, 2
+  %15 = and i8 %14, 2
+  %.18 = zext nneg i8 %15 to i32
+  br label %61
 
-18:                                               ; preds = %2
-  %19 = lshr i8 %4, 3
+16:                                               ; preds = %2
+  %17 = lshr i8 %4, 3
+  %18 = and i8 %17, 1
+  %19 = lshr i8 %8, 3
   %20 = and i8 %19, 1
-  %21 = lshr i8 %8, 3
-  %22 = and i8 %21, 1
-  %23 = icmp eq i8 %20, %22
-  br i1 %23, label %67, label %24
+  %21 = icmp eq i8 %18, %20
+  br i1 %21, label %61, label %22
 
-24:                                               ; preds = %18
-  %25 = shl nuw nsw i8 %20, 1
-  %26 = xor i8 %25, 2
-  %.19 = zext nneg i8 %26 to i32
-  br label %67
+22:                                               ; preds = %16
+  %.not15 = icmp eq i8 %18, 0
+  %.19 = select i1 %.not15, i32 2, i32 0
+  br label %61
 
-27:                                               ; preds = %2
-  br label %67
+23:                                               ; preds = %2
+  br label %61
 
-28:                                               ; preds = %2
-  %29 = lshr i8 %4, 3
-  %30 = and i8 %29, 1
-  %31 = lshr i8 %8, 3
-  %32 = and i8 %31, 1
-  %.not = icmp eq i8 %30, %32
-  br i1 %.not, label %36, label %33
+24:                                               ; preds = %2
+  %25 = lshr i8 %4, 3
+  %26 = and i8 %25, 1
+  %27 = lshr i8 %8, 3
+  %28 = and i8 %27, 1
+  %.not = icmp eq i8 %26, %28
+  br i1 %.not, label %30, label %29
 
-33:                                               ; preds = %28
-  %34 = shl nuw nsw i8 %30, 1
-  %35 = xor i8 %34, 2
-  %.20 = zext nneg i8 %35 to i32
-  br label %67
+29:                                               ; preds = %24
+  %.not14 = icmp eq i8 %26, 0
+  %.20 = select i1 %.not14, i32 2, i32 0
+  br label %61
 
-36:                                               ; preds = %28
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %38 = load i32, ptr %37, align 8, !tbaa !25
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %40 = load i32, ptr %39, align 8, !tbaa !25
-  %41 = sub nsw i32 %38, %40
-  %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit
+30:                                               ; preds = %24
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %32 = load i32, ptr %31, align 8, !tbaa !25
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load i32, ptr %33, align 8, !tbaa !25
+  %35 = sub nsw i32 %32, %34
+  %36 = icmp eq i32 %35, 0
+  br i1 %36, label %37, label %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit
 
-43:                                               ; preds = %36
-  %44 = load ptr, ptr %0, align 8, !tbaa !19
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %46 = load i32, ptr %45, align 4, !tbaa !12
-  %47 = add i32 %46, -64
-  %48 = icmp ult i32 %47, -128
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %50 = load ptr, ptr %49, align 8
-  %.0.i.i.i = select i1 %48, ptr %50, ptr %49
-  %51 = load ptr, ptr %1, align 8, !tbaa !19
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load i32, ptr %52, align 4, !tbaa !12
-  %54 = add i32 %53, -64
-  %55 = icmp ult i32 %54, -128
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %57 = load ptr, ptr %56, align 8
-  %.0.i.i8.i = select i1 %55, ptr %57, ptr %56
-  %58 = add i32 %46, 64
-  %59 = lshr i32 %58, 6
-  %.sroa.speculated.i.i.i = tail call noundef range(i32 1, 67108864) i32 @llvm.umax.i32(i32 %59, i32 1)
-  %60 = tail call noundef i32 @_ZN4llvm5APInt9tcCompareEPKmS2_j(ptr noundef %.0.i.i.i, ptr noundef %.0.i.i8.i, i32 noundef %.sroa.speculated.i.i.i) #27
+37:                                               ; preds = %30
+  %38 = load ptr, ptr %0, align 8, !tbaa !19
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %40 = load i32, ptr %39, align 4, !tbaa !12
+  %41 = add i32 %40, -64
+  %42 = icmp ult i32 %41, -128
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %44 = load ptr, ptr %43, align 8
+  %.0.i.i.i = select i1 %42, ptr %44, ptr %43
+  %45 = load ptr, ptr %1, align 8, !tbaa !19
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %47 = load i32, ptr %46, align 4, !tbaa !12
+  %48 = add i32 %47, -64
+  %49 = icmp ult i32 %48, -128
+  %50 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %51 = load ptr, ptr %50, align 8
+  %.0.i.i8.i = select i1 %49, ptr %51, ptr %50
+  %52 = add i32 %40, 64
+  %53 = lshr i32 %52, 6
+  %.sroa.speculated.i.i.i = tail call noundef range(i32 1, 67108864) i32 @llvm.umax.i32(i32 %53, i32 1)
+  %54 = tail call noundef i32 @_ZN4llvm5APInt9tcCompareEPKmS2_j(ptr noundef %.0.i.i.i, ptr noundef %.0.i.i8.i, i32 noundef %.sroa.speculated.i.i.i) #27
   %.pre = load i8, ptr %3, align 4
   br label %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit
 
-_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit: ; preds = %36, %43
-  %61 = phi i8 [ %.pre, %43 ], [ %4, %36 ]
-  %.0.i = phi i32 [ %60, %43 ], [ %41, %36 ]
-  %62 = icmp sgt i32 %.0.i, 0
-  %63 = icmp sgt i32 %.0.i, -1
-  %..i = zext i1 %63 to i32
-  %.06.i = select i1 %62, i32 2, i32 %..i
-  %64 = and i8 %61, 8
-  %.not13 = icmp eq i8 %64, 0
-  br i1 %.not13, label %67, label %65
+_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit: ; preds = %30, %37
+  %55 = phi i8 [ %.pre, %37 ], [ %4, %30 ]
+  %.0.i = phi i32 [ %54, %37 ], [ %35, %30 ]
+  %56 = icmp sgt i32 %.0.i, 0
+  %57 = icmp sgt i32 %.0.i, -1
+  %..i = zext i1 %57 to i32
+  %.06.i = select i1 %56, i32 2, i32 %..i
+  %58 = and i8 %55, 8
+  %.not13 = icmp eq i8 %58, 0
+  br i1 %.not13, label %61, label %59
 
-65:                                               ; preds = %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit
-  %66 = icmp eq i32 %.06.i, 0
-  %spec.store.select = select i1 %62, i32 0, i32 %..i
-  %spec.select = select i1 %66, i32 2, i32 %spec.store.select
-  br label %67
+59:                                               ; preds = %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit
+  %60 = icmp eq i32 %.06.i, 0
+  %spec.store.select = select i1 %56, i32 0, i32 %..i
+  %spec.select = select i1 %60, i32 2, i32 %spec.store.select
+  br label %61
 
-67:                                               ; preds = %65, %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit, %33, %24, %18, %15, %11, %2, %2, %2, %2, %2, %2, %2, %27
-  %.09 = phi i32 [ 1, %27 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ %., %11 ], [ %.18, %15 ], [ 1, %18 ], [ %.19, %24 ], [ %.06.i, %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit ], [ %.20, %33 ], [ %spec.select, %65 ]
+61:                                               ; preds = %59, %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit, %29, %22, %16, %13, %11, %2, %2, %2, %2, %2, %2, %2, %23
+  %.09 = phi i32 [ 1, %23 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ 3, %2 ], [ %., %11 ], [ %.18, %13 ], [ 1, %16 ], [ %.19, %22 ], [ %.06.i, %_ZNK4llvm6detail9IEEEFloat20compareAbsoluteValueERKS1_.exit ], [ %.20, %29 ], [ %spec.select, %59 ]
   ret i32 %.09
 }
 

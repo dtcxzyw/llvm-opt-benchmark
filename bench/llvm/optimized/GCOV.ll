@@ -5339,8 +5339,8 @@ _ZNSt6vectorIN12_GLOBAL__N_18LineInfoESaIS1_EE6resizeEm.exit.i: ; preds = %_ZSt8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35) #21
   call void @_ZN4llvm8SmallSetIjLj16ESt4lessIjEE10insertImplIRKjEESt4pairINS_16SmallSetIteratorIjLj16ES2_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.143") align 8 %35, ptr noundef nonnull align 8 dereferenceable(128) %32, ptr noundef nonnull align 4 dereferenceable(4) %34)
   %507 = load i8, ptr %83, align 8, !tbaa !293, !range !199, !noundef !200
-  %508 = zext nneg i8 %507 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35) #21
+  %508 = zext nneg i8 %507 to i64
   %spec.select = add i64 %503, %508
   %509 = load i64, ptr %499, align 8, !tbaa !102
   %.not39.not.i = icmp eq i64 %509, 0
@@ -5350,8 +5350,8 @@ _ZNSt6vectorIN12_GLOBAL__N_18LineInfoESaIS1_EE6resizeEm.exit.i: ; preds = %_ZSt8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %36) #21
   call void @_ZN4llvm8SmallSetIjLj16ESt4lessIjEE10insertImplIRKjEESt4pairINS_16SmallSetIteratorIjLj16ES2_EEbEOT_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.143") align 8 %36, ptr noundef nonnull align 8 dereferenceable(128) %33, ptr noundef nonnull align 4 dereferenceable(4) %34)
   %510 = load i8, ptr %84, align 8, !tbaa !293, !range !199, !noundef !200
-  %511 = zext nneg i8 %510 to i64
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %36) #21
+  %511 = zext nneg i8 %510 to i64
   %spec.select338 = add i64 %502, %511
   %.pre = load i64, ptr %499, align 8, !tbaa !102
   br label %.critedge.thread.i

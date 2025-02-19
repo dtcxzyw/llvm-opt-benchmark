@@ -144,12 +144,12 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %76 = getelementptr inbounds nuw i8, ptr %12, i64 8
   br label %77
 
-77:                                               ; preds = %.lr.ph457, %370
-  %.0295456 = phi float [ 0.000000e+00, %.lr.ph457 ], [ %.1296.lcssa, %370 ]
-  %.0297455 = phi i32 [ 0, %.lr.ph457 ], [ %.1298.lcssa, %370 ]
-  %.0304454 = phi i32 [ 0, %.lr.ph457 ], [ %.1305.lcssa, %370 ]
-  %.0311453 = phi i32 [ 0, %.lr.ph457 ], [ %.1312.lcssa, %370 ]
-  %.sroa.0375.0452 = phi ptr [ %53, %.lr.ph457 ], [ %371, %370 ]
+77:                                               ; preds = %.lr.ph457, %369
+  %.0295456 = phi float [ 0.000000e+00, %.lr.ph457 ], [ %.1296.lcssa, %369 ]
+  %.0297455 = phi i32 [ 0, %.lr.ph457 ], [ %.1298.lcssa, %369 ]
+  %.0304454 = phi i32 [ 0, %.lr.ph457 ], [ %.1305.lcssa, %369 ]
+  %.0311453 = phi i32 [ 0, %.lr.ph457 ], [ %.1312.lcssa, %369 ]
+  %.sroa.0375.0452 = phi ptr [ %53, %.lr.ph457 ], [ %370, %369 ]
   %78 = getelementptr inbounds nuw i8, ptr %.sroa.0375.0452, i64 4
   %79 = load i32, ptr %78, align 4
   %80 = mul nsw i32 %79, 3
@@ -245,14 +245,14 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %wide.trip.count = sext i32 %91 to i64
   br label %.preheader389
 
-.preheader389:                                    ; preds = %.preheader389.lr.ph, %362
-  %indvars.iv486 = phi i64 [ %137, %.preheader389.lr.ph ], [ %indvars.iv.next487, %362 ]
-  %.1296445 = phi float [ %.0295456, %.preheader389.lr.ph ], [ %.8, %362 ]
-  %.1298444 = phi i32 [ %.0297455, %.preheader389.lr.ph ], [ %.6303, %362 ]
-  %.1305443 = phi i32 [ %.0304454, %.preheader389.lr.ph ], [ %.6310, %362 ]
-  %.1312442 = phi i32 [ %.0311453, %.preheader389.lr.ph ], [ %.7318, %362 ]
-  %.3322441 = phi float [ %.0319, %.preheader389.lr.ph ], [ %.10, %362 ]
-  %.0328440 = phi float [ 0.000000e+00, %.preheader389.lr.ph ], [ %.7335, %362 ]
+.preheader389:                                    ; preds = %.preheader389.lr.ph, %361
+  %indvars.iv486 = phi i64 [ %137, %.preheader389.lr.ph ], [ %indvars.iv.next487, %361 ]
+  %.1296445 = phi float [ %.0295456, %.preheader389.lr.ph ], [ %.8, %361 ]
+  %.1298444 = phi i32 [ %.0297455, %.preheader389.lr.ph ], [ %.6303, %361 ]
+  %.1305443 = phi i32 [ %.0304454, %.preheader389.lr.ph ], [ %.6310, %361 ]
+  %.1312442 = phi i32 [ %.0311453, %.preheader389.lr.ph ], [ %.7318, %361 ]
+  %.3322441 = phi float [ %.0319, %.preheader389.lr.ph ], [ %.10, %361 ]
+  %.0328440 = phi float [ 0.000000e+00, %.preheader389.lr.ph ], [ %.7335, %361 ]
   %138 = load ptr, ptr %57, align 8
   %139 = getelementptr inbounds %struct.nbnxn_cj_packed_t, ptr %138, i64 %indvars.iv486, i32 1, i64 0, i32 1
   %140 = load ptr, ptr %64, align 8
@@ -267,14 +267,14 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   store ptr %147, ptr %76, align 8
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader389, %361
-  %indvars.iv482 = phi i64 [ %indvars.iv.next483, %361 ], [ 0, %.preheader389 ]
-  %.2438 = phi float [ %.8, %361 ], [ %.1296445, %.preheader389 ]
-  %.2299437 = phi i32 [ %.6303, %361 ], [ %.1298444, %.preheader389 ]
-  %.2306436 = phi i32 [ %.6310, %361 ], [ %.1305443, %.preheader389 ]
-  %.2313435 = phi i32 [ %.7318, %361 ], [ %.1312442, %.preheader389 ]
-  %.4323434 = phi float [ %.10, %361 ], [ %.3322441, %.preheader389 ]
-  %.1329433 = phi float [ %.7335, %361 ], [ %.0328440, %.preheader389 ]
+.preheader:                                       ; preds = %.preheader389, %360
+  %indvars.iv482 = phi i64 [ %indvars.iv.next483, %360 ], [ 0, %.preheader389 ]
+  %.2438 = phi float [ %.8, %360 ], [ %.1296445, %.preheader389 ]
+  %.2299437 = phi i32 [ %.6303, %360 ], [ %.1298444, %.preheader389 ]
+  %.2306436 = phi i32 [ %.6310, %360 ], [ %.1305443, %.preheader389 ]
+  %.2313435 = phi i32 [ %.7318, %360 ], [ %.1312442, %.preheader389 ]
+  %.4323434 = phi float [ %.10, %360 ], [ %.3322441, %.preheader389 ]
+  %.1329433 = phi float [ %.7335, %360 ], [ %.0328440, %.preheader389 ]
   %148 = load ptr, ptr %57, align 8
   %149 = getelementptr inbounds %struct.nbnxn_cj_packed_t, ptr %148, i64 %indvars.iv486
   %150 = getelementptr inbounds nuw [4 x i32], ptr %149, i64 0, i64 %indvars.iv482
@@ -309,16 +309,16 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %166 = icmp ne i64 %164, %sext
   br label %167
 
-167:                                              ; preds = %163, %360
-  %indvars.iv475 = phi i64 [ 0, %163 ], [ %indvars.iv.next476, %360 ]
-  %.4424 = phi float [ %.3431, %163 ], [ %.6, %360 ]
-  %.4301423 = phi i32 [ %.3300430, %163 ], [ %.5302, %360 ]
-  %.4308422 = phi i32 [ %.3307429, %163 ], [ %.5309, %360 ]
-  %.4315421 = phi i32 [ %.3314428, %163 ], [ %.6317, %360 ]
-  %.6325420 = phi float [ %.5324427, %163 ], [ %.8327, %360 ]
-  %.3331419 = phi float [ %.2330426, %163 ], [ %.5333, %360 ]
-  %.0342418 = phi i8 [ 0, %163 ], [ %.4346, %360 ]
-  %.0347417 = phi i32 [ 0, %163 ], [ %.4351, %360 ]
+167:                                              ; preds = %163, %359
+  %indvars.iv475 = phi i64 [ 0, %163 ], [ %indvars.iv.next476, %359 ]
+  %.4424 = phi float [ %.3431, %163 ], [ %.6, %359 ]
+  %.4301423 = phi i32 [ %.3300430, %163 ], [ %.5302, %359 ]
+  %.4308422 = phi i32 [ %.3307429, %163 ], [ %.5309, %359 ]
+  %.4315421 = phi i32 [ %.3314428, %163 ], [ %.6317, %359 ]
+  %.6325420 = phi float [ %.5324427, %163 ], [ %.8327, %359 ]
+  %.3331419 = phi float [ %.2330426, %163 ], [ %.5333, %359 ]
+  %.0342418 = phi i8 [ 0, %163 ], [ %.4346, %359 ]
+  %.0347417 = phi i32 [ 0, %163 ], [ %.4351, %359 ]
   %168 = add nuw nsw i64 %indvars.iv475, %165
   %169 = load i32, ptr %58, align 8
   %170 = sext i32 %169 to i64
@@ -585,17 +585,16 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %indvars.iv.next476 = add nuw nsw i64 %indvars.iv475, 1
   %353 = and i64 %indvars.iv.next476, 3
   %354 = icmp eq i64 %353, 0
-  br i1 %354, label %355, label %360
+  br i1 %354, label %355, label %359
 
 355:                                              ; preds = %337
   %356 = add nsw i32 %.2349, %.4301423
   %357 = add nsw i32 %.4308422, 1
-  %358 = and i8 %.2344, 1
-  %359 = zext nneg i8 %358 to i32
-  %spec.select369 = add nsw i32 %.4315421, %359
-  br label %360
+  %358 = zext nneg i8 %.2344 to i32
+  %spec.select369 = add nsw i32 %.4315421, %358
+  br label %359
 
-360:                                              ; preds = %337, %355
+359:                                              ; preds = %337, %355
   %.4351 = phi i32 [ 0, %355 ], [ %.2349, %337 ]
   %.4346 = phi i8 [ 0, %355 ], [ %.2344, %337 ]
   %.6317 = phi i32 [ %spec.select369, %355 ], [ %.4315421, %337 ]
@@ -604,92 +603,92 @@ define void @_Z20nbnxn_kernel_gpu_refPK16NbnxnPairlistGpuPK16nbnxn_atomdata_tPK1
   %exitcond477.not = icmp eq i64 %indvars.iv.next476, 8
   br i1 %exitcond477.not, label %.loopexit, label %167, !llvm.loop !9
 
-.loopexit:                                        ; preds = %360, %155
-  %.7335 = phi float [ %.2330426, %155 ], [ %.5333, %360 ]
-  %.10 = phi float [ %.5324427, %155 ], [ %.8327, %360 ]
-  %.7318 = phi i32 [ %.3314428, %155 ], [ %.6317, %360 ]
-  %.6310 = phi i32 [ %.3307429, %155 ], [ %.5309, %360 ]
-  %.6303 = phi i32 [ %.3300430, %155 ], [ %.5302, %360 ]
-  %.8 = phi float [ %.3431, %155 ], [ %.6, %360 ]
+.loopexit:                                        ; preds = %359, %155
+  %.7335 = phi float [ %.2330426, %155 ], [ %.5333, %359 ]
+  %.10 = phi float [ %.5324427, %155 ], [ %.8327, %359 ]
+  %.7318 = phi i32 [ %.3314428, %155 ], [ %.6317, %359 ]
+  %.6310 = phi i32 [ %.3307429, %155 ], [ %.5309, %359 ]
+  %.6303 = phi i32 [ %.3300430, %155 ], [ %.5302, %359 ]
+  %.8 = phi float [ %.3431, %155 ], [ %.6, %359 ]
   %indvars.iv.next479 = add nuw nsw i64 %indvars.iv478, 1
   %exitcond481.not = icmp eq i64 %indvars.iv.next479, 8
-  br i1 %exitcond481.not, label %361, label %155, !llvm.loop !10
+  br i1 %exitcond481.not, label %360, label %155, !llvm.loop !10
 
-361:                                              ; preds = %.loopexit
+360:                                              ; preds = %.loopexit
   %indvars.iv.next483 = add nuw nsw i64 %indvars.iv482, 1
   %exitcond485.not = icmp eq i64 %indvars.iv.next483, 4
-  br i1 %exitcond485.not, label %362, label %.preheader, !llvm.loop !11
+  br i1 %exitcond485.not, label %361, label %.preheader, !llvm.loop !11
 
-362:                                              ; preds = %361
+361:                                              ; preds = %360
   %indvars.iv.next487 = add nsw i64 %indvars.iv486, 1
   %exitcond489.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count
   br i1 %exitcond489.not, label %._crit_edge, label %.preheader389, !llvm.loop !12
 
-._crit_edge:                                      ; preds = %362, %129
-  %.0328.lcssa = phi float [ 0.000000e+00, %129 ], [ %.7335, %362 ]
-  %.3322.lcssa = phi float [ %.0319, %129 ], [ %.10, %362 ]
-  %.1312.lcssa = phi i32 [ %.0311453, %129 ], [ %.7318, %362 ]
-  %.1305.lcssa = phi i32 [ %.0304454, %129 ], [ %.6310, %362 ]
-  %.1298.lcssa = phi i32 [ %.0297455, %129 ], [ %.6303, %362 ]
-  %.1296.lcssa = phi float [ %.0295456, %129 ], [ %.8, %362 ]
-  %363 = load i8, ptr %69, align 1
-  %364 = trunc i8 %363 to i1
-  br i1 %364, label %365, label %370
+._crit_edge:                                      ; preds = %361, %129
+  %.0328.lcssa = phi float [ 0.000000e+00, %129 ], [ %.7335, %361 ]
+  %.3322.lcssa = phi float [ %.0319, %129 ], [ %.10, %361 ]
+  %.1312.lcssa = phi i32 [ %.0311453, %129 ], [ %.7318, %361 ]
+  %.1305.lcssa = phi i32 [ %.0304454, %129 ], [ %.6310, %361 ]
+  %.1298.lcssa = phi i32 [ %.0297455, %129 ], [ %.6303, %361 ]
+  %.1296.lcssa = phi float [ %.0295456, %129 ], [ %.8, %361 ]
+  %362 = load i8, ptr %69, align 1
+  %363 = trunc i8 %362 to i1
+  br i1 %363, label %364, label %369
 
-365:                                              ; preds = %._crit_edge
-  %366 = load float, ptr %9, align 4
-  %367 = fadd float %.3322.lcssa, %366
-  store float %367, ptr %9, align 4
-  %368 = load float, ptr %10, align 4
-  %369 = fadd float %.0328.lcssa, %368
-  store float %369, ptr %10, align 4
-  br label %370
+364:                                              ; preds = %._crit_edge
+  %365 = load float, ptr %9, align 4
+  %366 = fadd float %.3322.lcssa, %365
+  store float %366, ptr %9, align 4
+  %367 = load float, ptr %10, align 4
+  %368 = fadd float %.0328.lcssa, %367
+  store float %368, ptr %10, align 4
+  br label %369
 
-370:                                              ; preds = %._crit_edge, %365
-  %371 = getelementptr inbounds nuw i8, ptr %.sroa.0375.0452, i64 16
-  %.not385 = icmp eq ptr %371, %55
+369:                                              ; preds = %._crit_edge, %364
+  %370 = getelementptr inbounds nuw i8, ptr %.sroa.0375.0452, i64 16
+  %.not385 = icmp eq ptr %370, %55
   br i1 %.not385, label %._crit_edge458, label %77
 
-._crit_edge458:                                   ; preds = %370, %.loopexit391
-  %.0311.lcssa = phi i32 [ 0, %.loopexit391 ], [ %.1312.lcssa, %370 ]
-  %.0304.lcssa = phi i32 [ 0, %.loopexit391 ], [ %.1305.lcssa, %370 ]
-  %.0297.lcssa = phi i32 [ 0, %.loopexit391 ], [ %.1298.lcssa, %370 ]
-  %372 = load ptr, ptr @debug, align 8
-  %.not363 = icmp eq ptr %372, null
-  br i1 %.not363, label %402, label %373
+._crit_edge458:                                   ; preds = %369, %.loopexit391
+  %.0311.lcssa = phi i32 [ 0, %.loopexit391 ], [ %.1312.lcssa, %369 ]
+  %.0304.lcssa = phi i32 [ 0, %.loopexit391 ], [ %.1305.lcssa, %369 ]
+  %.0297.lcssa = phi i32 [ 0, %.loopexit391 ], [ %.1298.lcssa, %369 ]
+  %371 = load ptr, ptr @debug, align 8
+  %.not363 = icmp eq ptr %371, null
+  br i1 %.not363, label %401, label %372
 
-373:                                              ; preds = %._crit_edge458
-  %374 = load i32, ptr %14, align 8
-  %375 = sitofp i32 %.0311.lcssa to double
-  %376 = sitofp i32 %.0304.lcssa to double
-  %377 = fdiv double %375, %376
-  %378 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %372, ptr noundef nonnull @.str.2, i32 noundef %374, i32 noundef %374, i32 noundef %.0304.lcssa, i32 noundef %.0311.lcssa, double noundef %377) #13
-  %379 = load ptr, ptr @debug, align 8
-  %380 = load i32, ptr %14, align 8
-  %381 = mul nsw i32 %380, %.0304.lcssa
-  %382 = sdiv i32 %381, 2
-  %383 = mul nsw i32 %382, %380
-  %384 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %379, ptr noundef nonnull @.str.3, i32 noundef %383) #13
-  %385 = load ptr, ptr @debug, align 8
-  %386 = load i32, ptr %14, align 8
-  %387 = mul nsw i32 %386, %.0311.lcssa
-  %388 = sdiv i32 %387, 2
-  %389 = mul nsw i32 %388, %386
-  %390 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %385, ptr noundef nonnull @.str.4, i32 noundef %389) #13
-  %391 = load ptr, ptr @debug, align 8
-  %392 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %391, ptr noundef nonnull @.str.5, i32 noundef %.0297.lcssa) #13
-  %393 = load ptr, ptr @debug, align 8
-  %394 = sitofp i32 %.0297.lcssa to double
-  %395 = load i32, ptr %14, align 8
-  %396 = sdiv i32 %395, 2
-  %397 = mul i32 %395, %.0311.lcssa
-  %398 = mul i32 %397, %396
-  %399 = sitofp i32 %398 to double
-  %400 = fdiv double %394, %399
-  %401 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %393, ptr noundef nonnull @.str.6, double noundef %400) #13
-  br label %402
+372:                                              ; preds = %._crit_edge458
+  %373 = load i32, ptr %14, align 8
+  %374 = sitofp i32 %.0311.lcssa to double
+  %375 = sitofp i32 %.0304.lcssa to double
+  %376 = fdiv double %374, %375
+  %377 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef nonnull %371, ptr noundef nonnull @.str.2, i32 noundef %373, i32 noundef %373, i32 noundef %.0304.lcssa, i32 noundef %.0311.lcssa, double noundef %376) #13
+  %378 = load ptr, ptr @debug, align 8
+  %379 = load i32, ptr %14, align 8
+  %380 = mul nsw i32 %379, %.0304.lcssa
+  %381 = sdiv i32 %380, 2
+  %382 = mul nsw i32 %381, %379
+  %383 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %378, ptr noundef nonnull @.str.3, i32 noundef %382) #13
+  %384 = load ptr, ptr @debug, align 8
+  %385 = load i32, ptr %14, align 8
+  %386 = mul nsw i32 %385, %.0311.lcssa
+  %387 = sdiv i32 %386, 2
+  %388 = mul nsw i32 %387, %385
+  %389 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %384, ptr noundef nonnull @.str.4, i32 noundef %388) #13
+  %390 = load ptr, ptr @debug, align 8
+  %391 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %390, ptr noundef nonnull @.str.5, i32 noundef %.0297.lcssa) #13
+  %392 = load ptr, ptr @debug, align 8
+  %393 = sitofp i32 %.0297.lcssa to double
+  %394 = load i32, ptr %14, align 8
+  %395 = sdiv i32 %394, 2
+  %396 = mul i32 %394, %.0311.lcssa
+  %397 = mul i32 %396, %395
+  %398 = sitofp i32 %397 to double
+  %399 = fdiv double %393, %398
+  %400 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %392, ptr noundef nonnull @.str.6, double noundef %399) #13
+  br label %401
 
-402:                                              ; preds = %373, %._crit_edge458
+401:                                              ; preds = %372, %._crit_edge458
   ret void
 }
 

@@ -74,14 +74,14 @@ define void @_ZN18AudioRoutingFilter5closeEv(ptr noundef readonly align 8 captur
 define noundef i64 @_ZNK18AudioRoutingFilter4sizeEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(36) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
-  %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i64 %9(ptr noundef align 8 dereferenceable_or_null(16) %6)
-  %.0 = shl i64 %10, %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 128
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef i64 %8(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  %10 = zext nneg i8 %3 to i64
+  %.0 = shl i64 %9, %10
   ret i64 %.0
 }
 
@@ -89,14 +89,14 @@ define noundef i64 @_ZNK18AudioRoutingFilter4sizeEv(ptr noundef readonly align 8
 define noundef i64 @_ZNK18AudioRoutingFilter3posEv(ptr noundef readonly align 8 captures(none) dereferenceable_or_null(36) %0) unnamed_addr #0 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !6, !noundef !7
-  %4 = zext nneg i8 %3 to i64
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %5 = load ptr, ptr %4, align 8
   %6 = load ptr, ptr %5, align 8
-  %7 = load ptr, ptr %6, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %9 = load ptr, ptr %8, align 8
-  %10 = tail call noundef i64 %9(ptr noundef align 8 dereferenceable_or_null(16) %6)
-  %.0 = shl i64 %10, %4
+  %7 = getelementptr inbounds nuw i8, ptr %6, i64 120
+  %8 = load ptr, ptr %7, align 8
+  %9 = tail call noundef i64 %8(ptr noundef align 8 dereferenceable_or_null(16) %5)
+  %10 = zext nneg i8 %3 to i64
+  %.0 = shl i64 %9, %10
   ret i64 %.0
 }
 

@@ -1718,8 +1718,8 @@ define dso_local i32 @ExecCleanTargetListLength(ptr noundef readonly %0) local_u
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 42
   %11 = load i8, ptr %10, align 2, !range !8, !noundef !9
   %12 = xor i8 %11, 1
-  %not. = zext nneg i8 %12 to i32
-  %spec.select = add i32 %.01418, %not.
+  %13 = zext nneg i8 %12 to i32
+  %spec.select = add i32 %.01418, %13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %7

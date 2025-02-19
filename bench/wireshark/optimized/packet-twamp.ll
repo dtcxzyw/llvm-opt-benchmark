@@ -264,62 +264,59 @@ define internal i32 @dissect_twamp_test(ptr noundef %0, ptr noundef readonly cap
   %13 = load i32, ptr @hf_twamp_seq_number, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
-  %16 = load i32, ptr @hf_twamp_timestamp, align 4
-  %17 = lshr i16 %15, 13
-  %18 = and i16 %17, 2
-  %19 = xor i16 %18, 2
-  %. = zext nneg i16 %19 to i32
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef %.)
-  %21 = load i32, ptr @hf_twamp_error_estimate, align 4
-  %22 = load i32, ptr @ett_twamp_error_estimate, align 4
-  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %11, ptr noundef %0, i32 noundef 12, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @twamp_error_estimate_flags, i32 noundef 0)
-  %24 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %25 = add i32 %24, -41
-  %26 = icmp ult i32 %25, -27
-  br i1 %26, label %27, label %51
+  %16 = and i16 %15, 16384
+  %.not = icmp eq i16 %16, 0
+  %17 = load i32, ptr @hf_twamp_timestamp, align 4
+  %. = select i1 %.not, i32 2, i32 0
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef %.)
+  %19 = load i32, ptr @hf_twamp_error_estimate, align 4
+  %20 = load i32, ptr @ett_twamp_error_estimate, align 4
+  %21 = tail call ptr @proto_tree_add_bitmask(ptr noundef %11, ptr noundef %0, i32 noundef 12, i32 noundef %19, i32 noundef %20, ptr noundef nonnull @twamp_error_estimate_flags, i32 noundef 0)
+  %22 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %23 = add i32 %22, -41
+  %24 = icmp ult i32 %23, -27
+  br i1 %24, label %25, label %45
 
-27:                                               ; preds = %4
-  %28 = load i32, ptr @hf_twamp_mbz1, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %28, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
-  %30 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
-  %31 = load i32, ptr @hf_twamp_receive_timestamp, align 4
-  %32 = lshr i16 %30, 13
-  %33 = and i16 %32, 2
-  %34 = xor i16 %33, 2
-  %.78 = zext nneg i16 %34 to i32
-  %35 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %31, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef %.78)
-  %36 = load i32, ptr @hf_twamp_sender_seq_number, align 4
-  %37 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %36, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0)
-  %38 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 36)
-  %39 = lshr i16 %38, 13
-  %40 = and i16 %39, 2
-  %41 = xor i16 %40, 2
-  %.sink77 = zext nneg i16 %41 to i32
-  %42 = load i32, ptr @hf_twamp_sender_timestamp, align 4
-  %43 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %42, ptr noundef %0, i32 noundef 28, i32 noundef 8, i32 noundef %.sink77)
-  %44 = load i32, ptr @hf_twamp_sender_error_estimate, align 4
-  %45 = load i32, ptr @ett_twamp_error_estimate, align 4
-  %46 = tail call ptr @proto_tree_add_bitmask(ptr noundef %11, ptr noundef %0, i32 noundef 36, i32 noundef %44, i32 noundef %45, ptr noundef nonnull @twamp_error_estimate_flags, i32 noundef 0)
-  %47 = load i32, ptr @hf_twamp_mbz2, align 4
-  %48 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %47, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
-  %49 = load i32, ptr @hf_twamp_sender_ttl, align 4
-  %50 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %49, ptr noundef %0, i32 noundef 40, i32 noundef 1, i32 noundef 0)
-  br label %51
+25:                                               ; preds = %4
+  %26 = load i32, ptr @hf_twamp_mbz1, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef 14, i32 noundef 2, i32 noundef 0)
+  %28 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
+  %29 = and i16 %28, 16384
+  %.not73 = icmp eq i16 %29, 0
+  %30 = load i32, ptr @hf_twamp_receive_timestamp, align 4
+  %.78 = select i1 %.not73, i32 2, i32 0
+  %31 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %30, ptr noundef %0, i32 noundef 16, i32 noundef 8, i32 noundef %.78)
+  %32 = load i32, ptr @hf_twamp_sender_seq_number, align 4
+  %33 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %32, ptr noundef %0, i32 noundef 24, i32 noundef 4, i32 noundef 0)
+  %34 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 36)
+  %35 = and i16 %34, 16384
+  %.not74 = icmp eq i16 %35, 0
+  %.sink77 = select i1 %.not74, i32 2, i32 0
+  %36 = load i32, ptr @hf_twamp_sender_timestamp, align 4
+  %37 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %36, ptr noundef %0, i32 noundef 28, i32 noundef 8, i32 noundef %.sink77)
+  %38 = load i32, ptr @hf_twamp_sender_error_estimate, align 4
+  %39 = load i32, ptr @ett_twamp_error_estimate, align 4
+  %40 = tail call ptr @proto_tree_add_bitmask(ptr noundef %11, ptr noundef %0, i32 noundef 36, i32 noundef %38, i32 noundef %39, ptr noundef nonnull @twamp_error_estimate_flags, i32 noundef 0)
+  %41 = load i32, ptr @hf_twamp_mbz2, align 4
+  %42 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %41, ptr noundef %0, i32 noundef 38, i32 noundef 2, i32 noundef 0)
+  %43 = load i32, ptr @hf_twamp_sender_ttl, align 4
+  %44 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %43, ptr noundef %0, i32 noundef 40, i32 noundef 1, i32 noundef 0)
+  br label %45
 
-51:                                               ; preds = %27, %4
-  %.0 = phi i32 [ 41, %27 ], [ 14, %4 ]
-  %52 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %53 = sub i32 %52, %.0
-  %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %55, label %58
+45:                                               ; preds = %25, %4
+  %.0 = phi i32 [ 41, %25 ], [ 14, %4 ]
+  %46 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %47 = sub i32 %46, %.0
+  %48 = icmp sgt i32 %47, 0
+  br i1 %48, label %49, label %52
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr @hf_twamp_padding, align 4
-  %57 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %56, ptr noundef %0, i32 noundef %.0, i32 noundef %53, i32 noundef 0)
-  br label %58
+49:                                               ; preds = %45
+  %50 = load i32, ptr @hf_twamp_padding, align 4
+  %51 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %50, ptr noundef %0, i32 noundef %.0, i32 noundef %47, i32 noundef 0)
+  br label %52
 
-58:                                               ; preds = %55, %51
-  %.1 = phi i32 [ %52, %55 ], [ %.0, %51 ]
+52:                                               ; preds = %49, %45
+  %.1 = phi i32 [ %46, %49 ], [ %.0, %45 ]
   ret i32 %.1
 }
 
@@ -346,27 +343,26 @@ define internal range(i32 14, -2147483634) i32 @dissect_owamp_test(ptr noundef %
   %13 = load i32, ptr @hf_twamp_seq_number, align 4
   %14 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %13, ptr noundef %0, i32 noundef 0, i32 noundef 4, i32 noundef 0)
   %15 = tail call zeroext i16 @tvb_get_ntohs(ptr noundef %0, i32 noundef 12)
-  %16 = load i32, ptr @hf_twamp_sender_timestamp, align 4
-  %17 = lshr i16 %15, 13
-  %18 = and i16 %17, 2
-  %19 = xor i16 %18, 2
-  %. = zext nneg i16 %19 to i32
-  %20 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %16, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef %.)
-  %21 = load i32, ptr @hf_twamp_error_estimate, align 4
-  %22 = load i32, ptr @ett_twamp_error_estimate, align 4
-  %23 = tail call ptr @proto_tree_add_bitmask(ptr noundef %11, ptr noundef %0, i32 noundef 12, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @twamp_error_estimate_flags, i32 noundef 0)
-  %24 = tail call i32 @tvb_reported_length(ptr noundef %0)
-  %25 = add i32 %24, -14
-  %26 = icmp sgt i32 %25, 0
-  br i1 %26, label %27, label %30
+  %16 = and i16 %15, 16384
+  %.not = icmp eq i16 %16, 0
+  %17 = load i32, ptr @hf_twamp_sender_timestamp, align 4
+  %. = select i1 %.not, i32 2, i32 0
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef 4, i32 noundef 8, i32 noundef %.)
+  %19 = load i32, ptr @hf_twamp_error_estimate, align 4
+  %20 = load i32, ptr @ett_twamp_error_estimate, align 4
+  %21 = tail call ptr @proto_tree_add_bitmask(ptr noundef %11, ptr noundef %0, i32 noundef 12, i32 noundef %19, i32 noundef %20, ptr noundef nonnull @twamp_error_estimate_flags, i32 noundef 0)
+  %22 = tail call i32 @tvb_reported_length(ptr noundef %0)
+  %23 = add i32 %22, -14
+  %24 = icmp sgt i32 %23, 0
+  br i1 %24, label %25, label %28
 
-27:                                               ; preds = %4
-  %28 = load i32, ptr @hf_twamp_padding, align 4
-  %29 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %28, ptr noundef %0, i32 noundef 14, i32 noundef %25, i32 noundef 0)
-  br label %30
+25:                                               ; preds = %4
+  %26 = load i32, ptr @hf_twamp_padding, align 4
+  %27 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %26, ptr noundef %0, i32 noundef 14, i32 noundef %23, i32 noundef 0)
+  br label %28
 
-30:                                               ; preds = %27, %4
-  %.0 = phi i32 [ %24, %27 ], [ 14, %4 ]
+28:                                               ; preds = %25, %4
+  %.0 = phi i32 [ %22, %25 ], [ 14, %4 ]
   ret i32 %.0
 }
 

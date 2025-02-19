@@ -1343,16 +1343,16 @@ _ZN4llvm11raw_ostreamlsEPKc.exit:                 ; preds = %11, %13
   %17 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %.0.i.i, i64 noundef %16) #17
   %18 = and i32 %0, 7
   %19 = and i32 %0, 4
-  %switch.i.not.not = icmp eq i32 %19, 0
+  %switch.i.not.not.not = icmp eq i32 %19, 0
   %20 = sub nuw nsw i32 8, %18
-  %.pn.i = select i1 %switch.i.not.not, i32 %18, i32 %20
+  %.pn.i = select i1 %switch.i.not.not.not, i32 %18, i32 %20
   %.sroa.012.0.i = shl nuw nsw i32 1, %.pn.i
   %21 = load ptr, ptr %6, align 8, !tbaa !69
   %22 = load ptr, ptr %8, align 8, !tbaa !73
   %23 = ptrtoint ptr %21 to i64
   %24 = ptrtoint ptr %22 to i64
   %25 = sub i64 %23, %24
-  br i1 %switch.i.not.not, label %33, label %26
+  br i1 %switch.i.not.not.not, label %33, label %26
 
 26:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit
   %27 = icmp ult i64 %25, 4
@@ -1388,14 +1388,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %37, %35, %30, %28
   %40 = zext nneg i32 %.sroa.012.0.i to i64
   %41 = tail call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEm(ptr noundef nonnull align 8 dereferenceable(48) %1, i64 noundef %40) #17
   %42 = and i32 %0, 64
-  %.not33 = icmp eq i32 %42, 0
+  %.not = icmp eq i32 %42, 0
   %43 = load ptr, ptr %6, align 8, !tbaa !69
   %44 = load ptr, ptr %8, align 8, !tbaa !73
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
   %47 = sub i64 %45, %46
   %48 = icmp ult i64 %47, 4
-  br i1 %.not33, label %55, label %49
+  br i1 %.not, label %55, label %49
 
 49:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit14
   br i1 %48, label %50, label %52
@@ -1427,14 +1427,14 @@ _ZN4llvm11raw_ostreamlsEPKc.exit14:               ; preds = %37, %35, %30, %28
 
 _ZN4llvm11raw_ostreamlsEPKc.exit20:               ; preds = %58, %56, %52, %50
   %61 = and i32 %0, 128
-  %.not34 = icmp eq i32 %61, 0
+  %.not32 = icmp eq i32 %61, 0
   %62 = load ptr, ptr %6, align 8, !tbaa !69
   %63 = load ptr, ptr %8, align 8, !tbaa !73
   %64 = ptrtoint ptr %62 to i64
   %65 = ptrtoint ptr %63 to i64
   %66 = sub i64 %64, %65
   %67 = icmp ult i64 %66, 4
-  br i1 %.not34, label %74, label %68
+  br i1 %.not32, label %74, label %68
 
 68:                                               ; preds = %_ZN4llvm11raw_ostreamlsEPKc.exit20
   br i1 %67, label %69, label %71

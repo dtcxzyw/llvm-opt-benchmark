@@ -9970,160 +9970,159 @@ define void @_ZNK3net10SpdyFramer13SerializeDataERKNS_10SpdyDataIRE(ptr dead_on_
 29:                                               ; preds = %28
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #25
-  br label %89
+  br label %88
 
 30:                                               ; preds = %26, %24
   %.pn34 = phi { ptr, i32 } [ %25, %24 ], [ %27, %26 ]
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #25
-  br label %90
+  br label %89
 
 31:                                               ; preds = %3
   %32 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %33 = load i8, ptr %32, align 8, !tbaa !246, !range !85, !noundef !86
-  %34 = trunc nuw i8 %33 to i1
-  %35 = or disjoint i8 %9, 8
   %spec.select37 = zext nneg i8 %33 to i64
-  %spec.select38 = select i1 %34, i8 %35, i8 %9
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %34 = shl nuw nsw i8 %33, 3
+  %spec.select38 = or disjoint i8 %34, %9
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %.sroa.2.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.2.0.copyload.i51 = load i64, ptr %.sroa.2.0..sroa_idx.i50, align 8, !tbaa !122
-  %37 = add i64 %.sroa.2.0.copyload.i51, %spec.select37
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %39 = load i32, ptr %38, align 4, !tbaa !255
-  %40 = sext i32 %39 to i64
-  %41 = add i64 %37, %40
-  %42 = tail call noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %11)
-  %43 = add i64 %41, %42
+  %36 = add i64 %.sroa.2.0.copyload.i51, %spec.select37
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %38 = load i32, ptr %37, align 4, !tbaa !255
+  %39 = sext i32 %38 to i64
+  %40 = add i64 %36, %39
+  %41 = tail call noundef i64 @_ZN3net13SpdyConstants23GetDataFrameMinimumSizeENS_16SpdyMajorVersionE(i32 noundef %11)
+  %42 = add i64 %40, %41
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %6) #25
-  %44 = load i32, ptr %10, align 8, !tbaa !82
-  call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %6, i64 noundef %43, i32 noundef %44)
-  %45 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %46 = load i32, ptr %45, align 8, !tbaa !245
-  %47 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef %46, i8 noundef zeroext %spec.select38)
-          to label %48 unwind label %55
+  %43 = load i32, ptr %10, align 8, !tbaa !82
+  call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %6, i64 noundef %42, i32 noundef %43)
+  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %45 = load i32, ptr %44, align 8, !tbaa !245
+  %46 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef %45, i8 noundef zeroext %spec.select38)
+          to label %47 unwind label %54
 
-48:                                               ; preds = %31
-  %49 = load i8, ptr %32, align 8, !tbaa !246, !range !85, !noundef !86
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %57
+47:                                               ; preds = %31
+  %48 = load i8, ptr %32, align 8, !tbaa !246, !range !85, !noundef !86
+  %49 = trunc nuw i8 %48 to i1
+  br i1 %49, label %50, label %56
 
-51:                                               ; preds = %48
-  %52 = load i32, ptr %38, align 4, !tbaa !255
-  %53 = trunc i32 %52 to i8
+50:                                               ; preds = %47
+  %51 = load i32, ptr %37, align 4, !tbaa !255
+  %52 = trunc i32 %51 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %53, ptr %4, align 1, !tbaa !80
-  %54 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull %4, i32 noundef 1)
-          to label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit unwind label %55
+  store i8 %52, ptr %4, align 1, !tbaa !80
+  %53 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef nonnull %4, i32 noundef 1)
+          to label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit unwind label %54
 
-_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit:     ; preds = %51
+_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit:     ; preds = %50
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %57
+  br label %56
 
-55:                                               ; preds = %51, %86, %31
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %50, %85, %31
+  %55 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-57:                                               ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, %48
-  %.sroa.0.0.copyload.i54 = load ptr, ptr %36, align 8, !tbaa !110
+56:                                               ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, %47
+  %.sroa.0.0.copyload.i54 = load ptr, ptr %35, align 8, !tbaa !110
   %.sroa.2.0.copyload.i56 = load i64, ptr %.sroa.2.0..sroa_idx.i50, align 8, !tbaa !122
-  %58 = trunc i64 %.sroa.2.0.copyload.i56 to i32
-  %59 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef %.sroa.0.0.copyload.i54, i32 noundef %58)
-          to label %60 unwind label %76
+  %57 = trunc i64 %.sroa.2.0.copyload.i56 to i32
+  %58 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef %.sroa.0.0.copyload.i54, i32 noundef %57)
+          to label %59 unwind label %75
 
-60:                                               ; preds = %57
-  %61 = load i32, ptr %38, align 4, !tbaa !255
-  %62 = icmp sgt i32 %61, 0
-  br i1 %62, label %63, label %86
+59:                                               ; preds = %56
+  %60 = load i32, ptr %37, align 4, !tbaa !255
+  %61 = icmp sgt i32 %60, 0
+  br i1 %61, label %62, label %85
 
-63:                                               ; preds = %60
+62:                                               ; preds = %59
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #25
-  %64 = zext nneg i32 %61 to i64
-  %65 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %65, ptr %7, align 8, !tbaa !78
-  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %64, i8 noundef signext 0)
-          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit unwind label %78
+  %63 = zext nneg i32 %60 to i64
+  %64 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %64, ptr %7, align 8, !tbaa !78
+  invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructEmc(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %63, i8 noundef signext 0)
+          to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit unwind label %77
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = %63
-  %66 = load ptr, ptr %7, align 8, !tbaa !100
-  %67 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %68 = load i64, ptr %67, align 8, !tbaa !79
-  %69 = trunc i64 %68 to i32
-  %70 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef %66, i32 noundef %69)
-          to label %71 unwind label %80
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit: ; preds = %62
+  %65 = load ptr, ptr %7, align 8, !tbaa !100
+  %66 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %67 = load i64, ptr %66, align 8, !tbaa !79
+  %68 = trunc i64 %67 to i32
+  %69 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %6, ptr noundef %65, i32 noundef %68)
+          to label %70 unwind label %79
 
-71:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
-  %72 = load ptr, ptr %7, align 8, !tbaa !100
-  %73 = icmp eq ptr %72, %65
-  br i1 %73, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
+70:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
+  %71 = load ptr, ptr %7, align 8, !tbaa !100
+  %72 = icmp eq ptr %71, %64
+  br i1 %72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %71
-  %74 = load i64, ptr %67, align 8, !tbaa !79
-  %75 = icmp ult i64 %74, 16
-  call void @llvm.assume(i1 %75)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %70
+  %73 = load i64, ptr %66, align 8, !tbaa !79
+  %74 = icmp ult i64 %73, 16
+  call void @llvm.assume(i1 %74)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %71
-  call void @_ZdlPv(ptr noundef %72) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %70
+  call void @_ZdlPv(ptr noundef %71) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
-  br label %86
+  br label %85
 
-76:                                               ; preds = %57
-  %77 = landingpad { ptr, i32 }
+75:                                               ; preds = %56
+  %76 = landingpad { ptr, i32 }
           cleanup
-  br label %88
+  br label %87
 
-78:                                               ; preds = %63
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %62
+  %78 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
 
-80:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EmcRKS3_.exit
+  %80 = landingpad { ptr, i32 }
           cleanup
-  %82 = load ptr, ptr %7, align 8, !tbaa !100
-  %83 = icmp eq ptr %82, %65
-  br i1 %83, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
+  %81 = load ptr, ptr %7, align 8, !tbaa !100
+  %82 = icmp eq ptr %81, %64
+  br i1 %82, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65: ; preds = %80
-  %84 = load i64, ptr %67, align 8, !tbaa !79
-  %85 = icmp ult i64 %84, 16
-  call void @llvm.assume(i1 %85)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65: ; preds = %79
+  %83 = load i64, ptr %66, align 8, !tbaa !79
+  %84 = icmp ult i64 %83, 16
+  call void @llvm.assume(i1 %84)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64: ; preds = %80
-  call void @_ZdlPv(ptr noundef %82) #26
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64: ; preds = %79
+  call void @_ZdlPv(ptr noundef %81) #26
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65, %78
-  %.pn = phi { ptr, i32 } [ %79, %78 ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65 ], [ %81, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64 ]
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65, %77
+  %.pn = phi { ptr, i32 } [ %78, %77 ], [ %80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i65 ], [ %80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i64 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #25
+  br label %87
+
+85:                                               ; preds = %59, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+  invoke void @_ZN3net16SpdyFrameBuilder4takeEv(ptr dead_on_unwind writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %6)
+          to label %86 unwind label %54
+
+86:                                               ; preds = %85
+  call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #25
+  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #25
   br label %88
 
-86:                                               ; preds = %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  invoke void @_ZN3net16SpdyFrameBuilder4takeEv(ptr dead_on_unwind writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %6)
-          to label %87 unwind label %55
-
-87:                                               ; preds = %86
+87:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66, %75, %54
+  %.pn32 = phi { ptr, i32 } [ %55, %54 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %76, %75 ]
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #25
   br label %89
 
-88:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66, %76, %55
-  %.pn32 = phi { ptr, i32 } [ %56, %55 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit66 ], [ %77, %76 ]
-  call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %6) #25
-  call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %6) #25
-  br label %90
-
-89:                                               ; preds = %87, %29
+88:                                               ; preds = %86, %29
   ret void
 
-90:                                               ; preds = %88, %30
-  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %30 ], [ %.pn32, %88 ]
+89:                                               ; preds = %87, %30
+  %.pn34.pn = phi { ptr, i32 } [ %.pn34, %30 ], [ %.pn32, %87 ]
   resume { ptr, i32 } %.pn34.pn
 }
 
@@ -10144,86 +10143,85 @@ define void @_ZNK3net10SpdyFramer46SerializeDataFrameHeaderWithPaddingLengthFiel
   %12 = icmp eq i32 %11, 2
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 40
   %14 = load i8, ptr %13, align 8, !range !85
-  %15 = trunc nuw i8 %14 to i1
-  %16 = or disjoint i8 %7, 8
   %spec.select24 = zext nneg i8 %14 to i64
-  %17 = select i1 %12, i1 %15, i1 false
-  %.121 = select i1 %17, i8 %16, i8 %7
-  %18 = select i1 %12, i64 %spec.select24, i64 0
-  %.019 = add i64 %10, %18
+  %15 = shl nuw nsw i8 %14, 3
+  %spec.select23 = select i1 %12, i8 %15, i8 0
+  %.121 = or disjoint i8 %7, %spec.select23
+  %16 = select i1 %12, i64 %spec.select24, i64 0
+  %.019 = add i64 %10, %16
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #25
   call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %5, i64 noundef %.019, i32 noundef %11)
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %20 = load i32, ptr %19, align 8, !tbaa !245
-  %21 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef %20, i8 noundef zeroext %.121)
-          to label %22 unwind label %33
+  %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %18 = load i32, ptr %17, align 8, !tbaa !245
+  %19 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder20WriteDataFrameHeaderERKNS_10SpdyFramerEjh(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef %18, i8 noundef zeroext %.121)
+          to label %20 unwind label %31
 
-22:                                               ; preds = %3
-  %23 = load i32, ptr %8, align 8, !tbaa !82
-  %24 = icmp eq i32 %23, 2
-  br i1 %24, label %25, label %44
+20:                                               ; preds = %3
+  %21 = load i32, ptr %8, align 8, !tbaa !82
+  %22 = icmp eq i32 %21, 2
+  br i1 %22, label %23, label %42
 
-25:                                               ; preds = %22
-  %26 = load i8, ptr %13, align 8, !tbaa !246, !range !85, !noundef !86
-  %27 = trunc nuw i8 %26 to i1
-  br i1 %27, label %28, label %35
+23:                                               ; preds = %20
+  %24 = load i8, ptr %13, align 8, !tbaa !246, !range !85, !noundef !86
+  %25 = trunc nuw i8 %24 to i1
+  br i1 %25, label %26, label %33
 
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %30 = load i32, ptr %29, align 4, !tbaa !255
-  %31 = trunc i32 %30 to i8
+26:                                               ; preds = %23
+  %27 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %28 = load i32, ptr %27, align 4, !tbaa !255
+  %29 = trunc i32 %28 to i8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
-  store i8 %31, ptr %4, align 1, !tbaa !80
-  %32 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull %4, i32 noundef 1)
-          to label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit unwind label %33
+  store i8 %29, ptr %4, align 1, !tbaa !80
+  %30 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull %4, i32 noundef 1)
+          to label %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit unwind label %31
 
-_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit:     ; preds = %28
+_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit:     ; preds = %26
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
-  br label %35
+  br label %33
 
-33:                                               ; preds = %28, %48, %3
-  %34 = landingpad { ptr, i32 }
+31:                                               ; preds = %26, %46, %3
+  %32 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %48
 
-35:                                               ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, %25
+33:                                               ; preds = %_ZN3net16SpdyFrameBuilder10WriteUInt8Eh.exit, %23
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !122
-  %36 = add i64 %.sroa.2.0.copyload.i, %18
-  %37 = getelementptr inbounds nuw i8, ptr %2, i64 44
-  %38 = load i32, ptr %37, align 4, !tbaa !255
-  %39 = sext i32 %38 to i64
-  %40 = add i64 %36, %39
-  %41 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(259) %1, i64 noundef %40)
-          to label %48 unwind label %42
+  %34 = add i64 %.sroa.2.0.copyload.i, %16
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 44
+  %36 = load i32, ptr %35, align 4, !tbaa !255
+  %37 = sext i32 %36 to i64
+  %38 = add i64 %34, %37
+  %39 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(259) %1, i64 noundef %38)
+          to label %46 unwind label %40
 
-42:                                               ; preds = %35
-  %43 = landingpad { ptr, i32 }
+40:                                               ; preds = %33
+  %41 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %48
 
-44:                                               ; preds = %22
+42:                                               ; preds = %20
   %.sroa.2.0..sroa_idx.i26 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %.sroa.2.0.copyload.i27 = load i64, ptr %.sroa.2.0..sroa_idx.i26, align 8, !tbaa !122
-  %45 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(259) %1, i64 noundef %.sroa.2.0.copyload.i27)
-          to label %48 unwind label %46
+  %43 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder15OverwriteLengthERKNS_10SpdyFramerEm(ptr noundef nonnull align 8 dereferenceable(36) %5, ptr noundef nonnull align 8 dereferenceable(259) %1, i64 noundef %.sroa.2.0.copyload.i27)
+          to label %46 unwind label %44
 
-46:                                               ; preds = %44
-  %47 = landingpad { ptr, i32 }
+44:                                               ; preds = %42
+  %45 = landingpad { ptr, i32 }
           cleanup
-  br label %50
+  br label %48
 
-48:                                               ; preds = %35, %44
+46:                                               ; preds = %33, %42
   invoke void @_ZN3net16SpdyFrameBuilder4takeEv(ptr dead_on_unwind writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %5)
-          to label %49 unwind label %33
+          to label %47 unwind label %31
 
-49:                                               ; preds = %48
+47:                                               ; preds = %46
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #25
   ret void
 
-50:                                               ; preds = %46, %42, %33
-  %.pn = phi { ptr, i32 } [ %34, %33 ], [ %43, %42 ], [ %47, %46 ]
+48:                                               ; preds = %44, %40, %31
+  %.pn = phi { ptr, i32 } [ %32, %31 ], [ %41, %40 ], [ %45, %44 ]
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %5) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5) #25
   resume { ptr, i32 } %.pn
@@ -10243,191 +10241,190 @@ define void @_ZN3net10SpdyFramer18SerializeSynStreamERKNS_15SpdySynStreamIRE(ptr
   %11 = load i8, ptr %10, align 4, !tbaa !241, !range !85, !noundef !86
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 109
   %13 = load i8, ptr %12, align 1, !tbaa !256, !range !85, !noundef !86
-  %14 = trunc nuw i8 %13 to i1
-  %15 = or disjoint i8 %11, 2
-  %.128 = select i1 %14, i8 %15, i8 %11
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 108
-  %17 = load i8, ptr %16, align 4, !tbaa !270
-  %18 = icmp ugt i8 %17, 7
-  br i1 %18, label %19, label %.critedge31
+  %14 = shl nuw nsw i8 %13, 1
+  %.128 = or disjoint i8 %14, %11
+  %15 = getelementptr inbounds nuw i8, ptr %2, i64 108
+  %16 = load i8, ptr %15, align 4, !tbaa !270
+  %17 = icmp ugt i8 %16, 7
+  br i1 %17, label %18, label %.critedge31
 
-19:                                               ; preds = %3
-  %20 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
-  br i1 %20, label %21, label %.critedge31
+18:                                               ; preds = %3
+  %19 = tail call noundef zeroext i1 @_ZN7logging22ShouldCreateLogMessageEi(i32 noundef 2)
+  br i1 %19, label %20, label %.critedge31
 
-21:                                               ; preds = %19
+20:                                               ; preds = %18
   call void @llvm.lifetime.start.p0(i64 408, ptr nonnull %8) #25
   call void @_ZN7logging10LogMessageC1EPKcii(ptr noundef nonnull align 8 dereferenceable(404) %8, ptr noundef nonnull @.str, i32 noundef 2476, i32 noundef 2)
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %23 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull @.str.110, i64 noundef 23)
-          to label %.critedge unwind label %24
+  %21 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %22 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull @.str.110, i64 noundef 23)
+          to label %.critedge unwind label %23
 
-.critedge:                                        ; preds = %21
+.critedge:                                        ; preds = %20
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %8) #25
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %8) #25
   br label %.critedge31
 
-24:                                               ; preds = %21
-  %25 = landingpad { ptr, i32 }
+23:                                               ; preds = %20
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7logging10LogMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(404) %8) #25
   call void @llvm.lifetime.end.p0(i64 408, ptr nonnull %8) #25
-  br label %92
+  br label %91
 
-.critedge31:                                      ; preds = %.critedge, %19, %3
-  %.026 = phi i8 [ %17, %3 ], [ 7, %19 ], [ 7, %.critedge ]
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  %27 = load i32, ptr %26, align 8, !tbaa !82
-  %28 = icmp eq i32 %27, 1
-  %.3.i = select i1 %28, i64 10, i64 5
-  %29 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %27)
-  %30 = add i64 %.3.i, %29
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  %.sroa.06.09.i.i = load ptr, ptr %31, align 8, !tbaa !146
-  %.not10.i.i = icmp eq ptr %.sroa.06.09.i.i, %31
+.critedge31:                                      ; preds = %.critedge, %18, %3
+  %.026 = phi i8 [ %16, %3 ], [ 7, %18 ], [ 7, %.critedge ]
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  %26 = load i32, ptr %25, align 8, !tbaa !82
+  %27 = icmp eq i32 %26, 1
+  %.3.i = select i1 %27, i64 10, i64 5
+  %28 = call noundef i64 @_ZN3net13SpdyConstants18GetFrameHeaderSizeENS_16SpdyMajorVersionE(i32 noundef %26)
+  %29 = add i64 %.3.i, %28
+  %30 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  %.sroa.06.09.i.i = load ptr, ptr %30, align 8, !tbaa !146
+  %.not10.i.i = icmp eq ptr %.sroa.06.09.i.i, %30
   br i1 %.not10.i.i, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %.critedge31, %.lr.ph.i.i
   %.sroa.06.012.i.i = phi ptr [ %.sroa.06.0.i.i, %.lr.ph.i.i ], [ %.sroa.06.09.i.i, %.critedge31 ]
-  %.011.i.i = phi i64 [ %38, %.lr.ph.i.i ], [ 4, %.critedge31 ]
-  %32 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 24
-  %33 = load i64, ptr %32, align 8, !tbaa !149
-  %34 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 40
-  %35 = load i64, ptr %34, align 8, !tbaa !149
-  %36 = add i64 %.011.i.i, 8
-  %37 = add i64 %36, %33
-  %38 = add i64 %37, %35
+  %.011.i.i = phi i64 [ %37, %.lr.ph.i.i ], [ 4, %.critedge31 ]
+  %31 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 24
+  %32 = load i64, ptr %31, align 8, !tbaa !149
+  %33 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i.i, i64 40
+  %34 = load i64, ptr %33, align 8, !tbaa !149
+  %35 = add i64 %.011.i.i, 8
+  %36 = add i64 %35, %32
+  %37 = add i64 %36, %34
   %.sroa.06.0.i.i = load ptr, ptr %.sroa.06.012.i.i, align 8, !tbaa !146
-  %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, %31
+  %.not.i.i = icmp eq ptr %.sroa.06.0.i.i, %30
   br i1 %.not.i.i, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i, label %.lr.ph.i.i
 
 _ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i: ; preds = %.lr.ph.i.i, %.critedge31
-  %.0.lcssa.i.i = phi i64 [ 4, %.critedge31 ], [ %38, %.lr.ph.i.i ]
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 253
-  %40 = load i8, ptr %39, align 1, !tbaa !83, !range !85, !noundef !86
-  %41 = trunc nuw i8 %40 to i1
-  br i1 %41, label %42, label %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
+  %.0.lcssa.i.i = phi i64 [ 4, %.critedge31 ], [ %37, %.lr.ph.i.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 253
+  %39 = load i8, ptr %38, align 1, !tbaa !83, !range !85, !noundef !86
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %41, label %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
 
-42:                                               ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i
-  %43 = call noundef ptr @_ZN3net10SpdyFramer19GetHeaderCompressorEv(ptr noundef nonnull align 8 dereferenceable(259) %1)
-  %44 = call i64 @MOZ_Z_deflateBound(ptr noundef %43, i64 noundef %.0.lcssa.i.i)
-  %45 = shl i64 %44, 1
+41:                                               ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i
+  %42 = call noundef ptr @_ZN3net10SpdyFramer19GetHeaderCompressorEv(ptr noundef nonnull align 8 dereferenceable(259) %1)
+  %43 = call i64 @MOZ_Z_deflateBound(ptr noundef %42, i64 noundef %.0.lcssa.i.i)
+  %44 = shl i64 %43, 1
   br label %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
 
-_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit: ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i, %42
-  %.0.i = phi i64 [ %45, %42 ], [ %.0.lcssa.i.i, %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i ]
-  %46 = add i64 %30, %.0.i
+_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit: ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i, %41
+  %.0.i = phi i64 [ %44, %41 ], [ %.0.lcssa.i.i, %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit.i ]
+  %45 = add i64 %29, %.0.i
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %9) #25
-  %47 = load i32, ptr %26, align 8, !tbaa !82
-  call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %9, i64 noundef %46, i32 noundef %47)
-  %48 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder23WriteControlFrameHeaderERKNS_10SpdyFramerENS_13SpdyFrameTypeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef 1, i8 noundef zeroext %.128)
-          to label %49 unwind label %64
+  %46 = load i32, ptr %25, align 8, !tbaa !82
+  call void @_ZN3net16SpdyFrameBuilderC1EmNS_16SpdyMajorVersionE(ptr noundef nonnull align 8 dereferenceable(36) %9, i64 noundef %45, i32 noundef %46)
+  %47 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder23WriteControlFrameHeaderERKNS_10SpdyFramerENS_13SpdyFrameTypeEh(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef 1, i8 noundef zeroext %.128)
+          to label %48 unwind label %63
 
-49:                                               ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
-  %50 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %51 = load i32, ptr %50, align 8, !tbaa !245
+48:                                               ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
+  %49 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %50 = load i32, ptr %49, align 8, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7)
-  %52 = call noundef i32 @llvm.bswap.i32(i32 %51)
-  store i32 %52, ptr %7, align 4, !tbaa !118
-  %53 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %7, i32 noundef 4)
-          to label %54 unwind label %64
+  %51 = call noundef i32 @llvm.bswap.i32(i32 %50)
+  store i32 %51, ptr %7, align 4, !tbaa !118
+  %52 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %7, i32 noundef 4)
+          to label %53 unwind label %63
 
-54:                                               ; preds = %49
+53:                                               ; preds = %48
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  %55 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %56 = load i32, ptr %55, align 8, !tbaa !271
+  %54 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %55 = load i32, ptr %54, align 8, !tbaa !271
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %57 = call noundef i32 @llvm.bswap.i32(i32 %56)
-  store i32 %57, ptr %6, align 4, !tbaa !118
-  %58 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %6, i32 noundef 4)
-          to label %59 unwind label %64
+  %56 = call noundef i32 @llvm.bswap.i32(i32 %55)
+  store i32 %56, ptr %6, align 4, !tbaa !118
+  %57 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %6, i32 noundef 4)
+          to label %58 unwind label %63
 
-59:                                               ; preds = %54
+58:                                               ; preds = %53
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %60 = shl nuw i8 %.026, 5
+  %59 = shl nuw i8 %.026, 5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
-  store i8 %60, ptr %5, align 1, !tbaa !80
-  %61 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %5, i32 noundef 1)
-          to label %62 unwind label %64
+  store i8 %59, ptr %5, align 1, !tbaa !80
+  %60 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %5, i32 noundef 1)
+          to label %61 unwind label %63
 
-62:                                               ; preds = %59
+61:                                               ; preds = %58
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4)
   store i8 0, ptr %4, align 1, !tbaa !80
-  %63 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %4, i32 noundef 1)
-          to label %66 unwind label %64
+  %62 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %9, ptr noundef nonnull %4, i32 noundef 1)
+          to label %65 unwind label %63
 
-64:                                               ; preds = %62, %59, %54, %49, %89, %66, %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %61, %58, %53, %48, %88, %65, %_ZN3net10SpdyFramer19GetSerializedLengthERKNS_15SpdyHeaderBlockE.exit
+  %64 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %90
 
-66:                                               ; preds = %62
+65:                                               ; preds = %61
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4)
   invoke void @_ZN3net10SpdyFramer20SerializeHeaderBlockEPNS_16SpdyFrameBuilderERKNS_26SpdyFrameWithHeaderBlockIRE(ptr noundef nonnull align 8 dereferenceable(259) %1, ptr noundef nonnull %9, ptr noundef nonnull align 8 dereferenceable(104) %2)
-          to label %67 unwind label %64
+          to label %66 unwind label %63
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 184
-  %69 = load ptr, ptr %68, align 8, !tbaa !106
-  %.not = icmp eq ptr %69, null
-  br i1 %.not, label %89, label %70
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 184
+  %68 = load ptr, ptr %67, align 8, !tbaa !106
+  %.not = icmp eq ptr %68, null
+  br i1 %.not, label %88, label %69
 
-70:                                               ; preds = %67
-  %.sroa.06.09.i = load ptr, ptr %31, align 8, !tbaa !146
-  %.not10.i = icmp eq ptr %.sroa.06.09.i, %31
+69:                                               ; preds = %66
+  %.sroa.06.09.i = load ptr, ptr %30, align 8, !tbaa !146
+  %.not10.i = icmp eq ptr %.sroa.06.09.i, %30
   br i1 %.not10.i, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %70, %.lr.ph.i
-  %.sroa.06.012.i = phi ptr [ %.sroa.06.0.i, %.lr.ph.i ], [ %.sroa.06.09.i, %70 ]
-  %.011.i = phi i64 [ %77, %.lr.ph.i ], [ 4, %70 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 24
-  %72 = load i64, ptr %71, align 8, !tbaa !149
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 40
-  %74 = load i64, ptr %73, align 8, !tbaa !149
-  %75 = add i64 %.011.i, 8
-  %76 = add i64 %75, %72
-  %77 = add i64 %76, %74
+.lr.ph.i:                                         ; preds = %69, %.lr.ph.i
+  %.sroa.06.012.i = phi ptr [ %.sroa.06.0.i, %.lr.ph.i ], [ %.sroa.06.09.i, %69 ]
+  %.011.i = phi i64 [ %76, %.lr.ph.i ], [ 4, %69 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 24
+  %71 = load i64, ptr %70, align 8, !tbaa !149
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.06.012.i, i64 40
+  %73 = load i64, ptr %72, align 8, !tbaa !149
+  %74 = add i64 %.011.i, 8
+  %75 = add i64 %74, %71
+  %76 = add i64 %75, %73
   %.sroa.06.0.i = load ptr, ptr %.sroa.06.012.i, align 8, !tbaa !146
-  %.not.i35 = icmp eq ptr %.sroa.06.0.i, %31
+  %.not.i35 = icmp eq ptr %.sroa.06.0.i, %30
   br i1 %.not.i35, label %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit, label %.lr.ph.i
 
-_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit: ; preds = %.lr.ph.i, %70
-  %.0.lcssa.i = phi i64 [ 4, %70 ], [ %77, %.lr.ph.i ]
-  %78 = load i32, ptr %50, align 8, !tbaa !245
-  %79 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %80 = load i64, ptr %79, align 8, !tbaa !216
-  %81 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %82 = load i64, ptr %81, align 8, !tbaa !215
-  %83 = add i64 %82, %80
-  %84 = load ptr, ptr %69, align 8, !tbaa !9
-  %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %86 = load ptr, ptr %85, align 8
-  invoke void %86(ptr noundef nonnull align 8 dereferenceable(8) %69, i32 noundef %78, i32 noundef 1, i64 noundef %.0.lcssa.i, i64 noundef %83)
-          to label %89 unwind label %87
+_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit: ; preds = %.lr.ph.i, %69
+  %.0.lcssa.i = phi i64 [ 4, %69 ], [ %76, %.lr.ph.i ]
+  %77 = load i32, ptr %49, align 8, !tbaa !245
+  %78 = getelementptr inbounds nuw i8, ptr %9, i64 24
+  %79 = load i64, ptr %78, align 8, !tbaa !216
+  %80 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %81 = load i64, ptr %80, align 8, !tbaa !215
+  %82 = add i64 %81, %79
+  %83 = load ptr, ptr %68, align 8, !tbaa !9
+  %84 = getelementptr inbounds nuw i8, ptr %83, i64 16
+  %85 = load ptr, ptr %84, align 8
+  invoke void %85(ptr noundef nonnull align 8 dereferenceable(8) %68, i32 noundef %77, i32 noundef 1, i64 noundef %.0.lcssa.i, i64 noundef %82)
+          to label %88 unwind label %86
 
-87:                                               ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit
-  %88 = landingpad { ptr, i32 }
+86:                                               ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit
+  %87 = landingpad { ptr, i32 }
           cleanup
-  br label %91
+  br label %90
 
-89:                                               ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit, %67
+88:                                               ; preds = %_ZN3net10SpdyFramer19GetSerializedLengthENS_16SpdyMajorVersionEPKNS_15SpdyHeaderBlockE.exit, %66
   invoke void @_ZN3net16SpdyFrameBuilder4takeEv(ptr dead_on_unwind writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %9)
-          to label %90 unwind label %64
+          to label %89 unwind label %63
 
-90:                                               ; preds = %89
+89:                                               ; preds = %88
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #25
   ret void
 
-91:                                               ; preds = %87, %64
-  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %88, %87 ]
+90:                                               ; preds = %86, %63
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %87, %86 ]
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %9) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #25
-  br label %92
+  br label %91
 
-92:                                               ; preds = %91, %24
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %91 ], [ %25, %24 ]
+91:                                               ; preds = %90, %23
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %90 ], [ %24, %23 ]
   resume { ptr, i32 } %.pn.pn
 }
 
@@ -10990,7 +10987,7 @@ _ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit: ; preds = %20, %23
 34:                                               ; preds = %._crit_edge.invoke, %43, %36, %32
   %35 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %94
 
 36:                                               ; preds = %_ZNK3net10SpdyFramer22GetSettingsMinimumSizeEv.exit
   %37 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder13BeginNewFrameERKNS_10SpdyFramerENS_13SpdyFrameTypeEhj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull align 8 dereferenceable(259) %1, i32 noundef 4, i8 noundef zeroext %.021, i32 noundef 0)
@@ -11032,107 +11029,106 @@ _ZN3net16SpdyFrameBuilder11WriteUInt32Ej.exit:    ; preds = %43
   %51 = getelementptr inbounds nuw i8, ptr %8, i64 4
   br label %52
 
-52:                                               ; preds = %.lr.ph, %92
-  %.sroa.041.050 = phi ptr [ %49, %.lr.ph ], [ %93, %92 ]
+52:                                               ; preds = %.lr.ph, %91
+  %.sroa.041.050 = phi ptr [ %49, %.lr.ph ], [ %92, %91 ]
   %53 = load i32, ptr %10, align 8, !tbaa !82
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.041.050, i64 32
   %55 = load i32, ptr %54, align 4, !tbaa !288
   %56 = invoke noundef i32 @_ZN3net13SpdyConstants18SerializeSettingIdENS_16SpdyMajorVersionENS_15SpdySettingsIdsE(i32 noundef %53, i32 noundef %55)
           to label %59 unwind label %57
 
-57:                                               ; preds = %87, %83, %52
+57:                                               ; preds = %86, %82, %52
   %58 = landingpad { ptr, i32 }
           cleanup
-  br label %95
+  br label %94
 
 59:                                               ; preds = %52
   %60 = load i32, ptr %10, align 8, !tbaa !82
   %61 = icmp eq i32 %60, 1
-  br i1 %61, label %62, label %83
+  br i1 %61, label %62, label %82
 
 62:                                               ; preds = %59
   %63 = getelementptr inbounds nuw i8, ptr %.sroa.041.050, i64 36
   %64 = load i8, ptr %63, align 4, !tbaa !292, !range !85, !noundef !86
   %65 = getelementptr inbounds nuw i8, ptr %.sroa.041.050, i64 37
   %66 = load i8, ptr %65, align 1, !tbaa !293, !range !85, !noundef !86
-  %67 = trunc nuw i8 %66 to i1
-  %68 = or disjoint i8 %64, 2
-  %.1 = select i1 %67, i8 %68, i8 %64
+  %67 = shl nuw nsw i8 %66, 1
+  %.1 = or disjoint i8 %67, %64
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
   invoke void @_ZN3net18SettingsFlagsAndIdC1Ehj(ptr noundef nonnull align 4 dereferenceable(8) %8, i8 noundef zeroext %.1, i32 noundef %56)
-          to label %69 unwind label %78
+          to label %68 unwind label %77
 
-69:                                               ; preds = %62
+68:                                               ; preds = %62
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #25
-  %70 = load i32, ptr %51, align 4, !tbaa !8
-  %71 = and i32 %70, 16777215
-  %72 = call noundef i32 @llvm.bswap.i32(i32 %71)
-  %73 = load i8, ptr %8, align 4, !tbaa !3
-  %74 = zext i8 %73 to i32
-  %75 = or disjoint i32 %72, %74
-  store i32 %75, ptr %9, align 4, !tbaa !118
-  %76 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %9, i32 noundef 4)
-          to label %77 unwind label %80
+  %69 = load i32, ptr %51, align 4, !tbaa !8
+  %70 = and i32 %69, 16777215
+  %71 = call noundef i32 @llvm.bswap.i32(i32 %70)
+  %72 = load i8, ptr %8, align 4, !tbaa !3
+  %73 = zext i8 %72 to i32
+  %74 = or disjoint i32 %71, %73
+  store i32 %74, ptr %9, align 4, !tbaa !118
+  %75 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %9, i32 noundef 4)
+          to label %76 unwind label %79
 
-77:                                               ; preds = %69
+76:                                               ; preds = %68
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  br label %87
+  br label %86
 
-78:                                               ; preds = %62
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %62
+  %78 = landingpad { ptr, i32 }
           cleanup
-  br label %82
+  br label %81
 
-80:                                               ; preds = %69
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %68
+  %80 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #25
-  br label %82
+  br label %81
 
-82:                                               ; preds = %80, %78
-  %.pn = phi { ptr, i32 } [ %81, %80 ], [ %79, %78 ]
+81:                                               ; preds = %79, %77
+  %.pn = phi { ptr, i32 } [ %80, %79 ], [ %78, %77 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
-  br label %95
+  br label %94
 
-83:                                               ; preds = %59
-  %84 = trunc i32 %56 to i16
+82:                                               ; preds = %59
+  %83 = trunc i32 %56 to i16
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %5)
-  %85 = call noundef i16 @llvm.bswap.i16(i16 %84)
-  store i16 %85, ptr %5, align 2, !tbaa !114
-  %86 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %5, i32 noundef 2)
+  %84 = call noundef i16 @llvm.bswap.i16(i16 %83)
+  store i16 %84, ptr %5, align 2, !tbaa !114
+  %85 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %5, i32 noundef 2)
           to label %_ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit unwind label %57
 
-_ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit:    ; preds = %83
+_ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit:    ; preds = %82
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %5)
-  br label %87
+  br label %86
 
-87:                                               ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit, %77
-  %88 = getelementptr inbounds nuw i8, ptr %.sroa.041.050, i64 40
-  %89 = load i32, ptr %88, align 4, !tbaa !294
+86:                                               ; preds = %_ZN3net16SpdyFrameBuilder11WriteUInt16Et.exit, %76
+  %87 = getelementptr inbounds nuw i8, ptr %.sroa.041.050, i64 40
+  %88 = load i32, ptr %87, align 4, !tbaa !294
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4)
-  %90 = call noundef i32 @llvm.bswap.i32(i32 %89)
-  store i32 %90, ptr %4, align 4, !tbaa !118
-  %91 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %4, i32 noundef 4)
-          to label %92 unwind label %57
+  %89 = call noundef i32 @llvm.bswap.i32(i32 %88)
+  store i32 %89, ptr %4, align 4, !tbaa !118
+  %90 = invoke noundef zeroext i1 @_ZN3net16SpdyFrameBuilder10WriteBytesEPKvj(ptr noundef nonnull align 8 dereferenceable(36) %7, ptr noundef nonnull %4, i32 noundef 4)
+          to label %91 unwind label %57
 
-92:                                               ; preds = %87
+91:                                               ; preds = %86
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4)
-  %93 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.041.050) #28
-  %.not = icmp eq ptr %93, %50
+  %92 = call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.041.050) #28
+  %.not = icmp eq ptr %92, %50
   br i1 %.not, label %._crit_edge.invoke, label %52, !llvm.loop !295
 
-._crit_edge.invoke:                               ; preds = %92, %.thread, %40
+._crit_edge.invoke:                               ; preds = %91, %.thread, %40
   invoke void @_ZN3net16SpdyFrameBuilder4takeEv(ptr dead_on_unwind writable sret(%"class.net::SpdySerializedFrame") align 8 %0, ptr noundef nonnull align 8 dereferenceable(36) %7)
-          to label %94 unwind label %34
+          to label %93 unwind label %34
 
-94:                                               ; preds = %._crit_edge.invoke
+93:                                               ; preds = %._crit_edge.invoke
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #25
   ret void
 
-95:                                               ; preds = %57, %82, %34
-  %.pn30 = phi { ptr, i32 } [ %35, %34 ], [ %58, %57 ], [ %.pn, %82 ]
+94:                                               ; preds = %57, %81, %34
+  %.pn30 = phi { ptr, i32 } [ %35, %34 ], [ %58, %57 ], [ %.pn, %81 ]
   call void @_ZN3net16SpdyFrameBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(36) %7) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #25
   resume { ptr, i32 } %.pn30
@@ -11346,12 +11342,11 @@ define void @_ZN3net10SpdyFramer16SerializeHeadersERKNS_13SpdyHeadersIRE(ptr dea
   %17 = load i8, ptr %16, align 8, !tbaa !303, !range !85, !noundef !86
   %18 = trunc nuw i8 %17 to i1
   %spec.select59.v = select i1 %18, i8 36, i8 4
-  %spec.select59 = or disjoint i8 %spec.select59.v, %11
   %19 = getelementptr inbounds nuw i8, ptr %2, i64 117
   %20 = load i8, ptr %19, align 1, !tbaa !305, !range !85, !noundef !86
-  %21 = trunc nuw i8 %20 to i1
-  %22 = or disjoint i8 %spec.select59, 8
-  %spec.select60 = select i1 %21, i8 %22, i8 %spec.select59
+  %21 = shl nuw nsw i8 %20, 3
+  %22 = or disjoint i8 %spec.select59.v, %21
+  %spec.select60 = or disjoint i8 %22, %11
   br label %23
 
 23:                                               ; preds = %15, %3

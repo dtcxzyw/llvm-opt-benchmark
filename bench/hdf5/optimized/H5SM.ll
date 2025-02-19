@@ -1440,7 +1440,7 @@ H5SM__write_mesg.exit.thread:                     ; preds = %161
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  br label %478
+  br label %477
 
 172:                                              ; preds = %161
   %173 = call i64 @H5O_msg_raw_size(ptr noundef %0, i32 noundef %3, i1 noundef zeroext true, ptr noundef %4) #11
@@ -1982,86 +1982,85 @@ H5SM__find_in_list.exit.thread.i:                 ; preds = %250, %244, %230, %2
   %.12.i = phi i32 [ -1, %175 ], [ -1, %182 ], [ -1, %189 ], [ -1, %198 ], [ %.11.i, %450 ], [ -1, %454 ], [ %.11.i, %451 ]
   %458 = load ptr, ptr %8, align 8, !tbaa !71
   %.not132.i = icmp eq ptr %458, null
-  br i1 %.not132.i, label %470, label %459
+  br i1 %.not132.i, label %469, label %459
 
 459:                                              ; preds = %.thread182.i
   %460 = getelementptr inbounds nuw i8, ptr %166, i64 48
   %461 = load i64, ptr %460, align 8, !tbaa !51
-  %462 = shl nuw nsw i32 %167, 1
-  %463 = xor i32 %462, 2
-  %464 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_LIST, i64 noundef %461, ptr noundef nonnull %458, i32 noundef %463) #11
-  %465 = icmp slt i32 %464, 0
-  br i1 %465, label %466, label %470
+  %462 = select i1 %.not85, i32 2, i32 0
+  %463 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_LIST, i64 noundef %461, ptr noundef nonnull %458, i32 noundef %462) #11
+  %464 = icmp slt i32 %463, 0
+  br i1 %464, label %465, label %469
 
-466:                                              ; preds = %459
-  %467 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
-  %468 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !7
-  %469 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM__write_mesg, i32 noundef 1499, i64 noundef %467, i64 noundef %468, ptr noundef nonnull @.str.45) #11
-  br label %470
+465:                                              ; preds = %459
+  %466 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
+  %467 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !7
+  %468 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM__write_mesg, i32 noundef 1499, i64 noundef %466, i64 noundef %467, ptr noundef nonnull @.str.45) #11
+  br label %469
 
-470:                                              ; preds = %466, %459, %.thread182.i
-  %.13.i = phi i32 [ -1, %466 ], [ %.12.i, %459 ], [ %.12.i, %.thread182.i ]
+469:                                              ; preds = %465, %459, %.thread182.i
+  %.13.i = phi i32 [ -1, %465 ], [ %.12.i, %459 ], [ %.12.i, %.thread182.i ]
   %.not133.i = icmp eq ptr %.0105173187.i, null
-  br i1 %.not133.i, label %H5SM__write_mesg.exit, label %471
+  br i1 %.not133.i, label %H5SM__write_mesg.exit, label %470
 
-471:                                              ; preds = %470
-  %472 = call ptr @H5MM_xfree(ptr noundef nonnull %.0105173187.i) #11
+470:                                              ; preds = %469
+  %471 = call ptr @H5MM_xfree(ptr noundef nonnull %.0105173187.i) #11
   br label %H5SM__write_mesg.exit
 
-H5SM__write_mesg.exit:                            ; preds = %470, %471
+H5SM__write_mesg.exit:                            ; preds = %469, %470
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #11
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #11
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #11
-  %473 = icmp slt i32 %.13.i, 0
-  br i1 %473, label %474, label %478
+  %472 = icmp slt i32 %.13.i, 0
+  br i1 %472, label %473, label %477
 
-474:                                              ; preds = %H5SM__write_mesg.exit
-  %475 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
-  %476 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !7
-  %477 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM_try_share, i32 noundef 1106, i64 noundef %475, i64 noundef %476, ptr noundef nonnull @.str.29) #11
+473:                                              ; preds = %H5SM__write_mesg.exit
+  %474 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
+  %475 = load i64, ptr @H5E_CANTINSERT_g, align 8, !tbaa !7
+  %476 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM_try_share, i32 noundef 1106, i64 noundef %474, i64 noundef %475, ptr noundef nonnull @.str.29) #11
   br label %.thread77
 
-478:                                              ; preds = %H5SM__write_mesg.exit.thread, %H5SM__write_mesg.exit
+477:                                              ; preds = %H5SM__write_mesg.exit.thread, %H5SM__write_mesg.exit
   %.569 = phi i32 [ %.159, %H5SM__write_mesg.exit.thread ], [ %.4, %H5SM__write_mesg.exit ]
-  br i1 %.not50, label %.thread77, label %479
+  br i1 %.not50, label %.thread77, label %478
 
-479:                                              ; preds = %478
-  %480 = load i32, ptr %4, align 8, !tbaa !49
-  %481 = icmp eq i32 %480, 3
-  %482 = load i32, ptr %5, align 4, !tbaa !3
-  br i1 %481, label %483, label %485
+478:                                              ; preds = %477
+  %479 = load i32, ptr %4, align 8, !tbaa !49
+  %480 = icmp eq i32 %479, 3
+  %481 = load i32, ptr %5, align 4, !tbaa !3
+  br i1 %480, label %482, label %484
 
-483:                                              ; preds = %479
-  %484 = or i32 %482, 64
-  store i32 %484, ptr %5, align 4, !tbaa !3
+482:                                              ; preds = %478
+  %483 = or i32 %481, 64
+  store i32 %483, ptr %5, align 4, !tbaa !3
   br label %.thread77
 
-485:                                              ; preds = %479
-  %486 = or i32 %482, 2
-  store i32 %486, ptr %5, align 4, !tbaa !3
+484:                                              ; preds = %478
+  %485 = or i32 %481, 2
+  store i32 %485, ptr %5, align 4, !tbaa !3
   br label %.thread77
 
-.thread77:                                        ; preds = %474, %483, %485, %478, %67, %157, %63
-  %.184 = phi i32 [ 0, %67 ], [ -1, %157 ], [ -1, %63 ], [ -1, %474 ], [ 1, %478 ], [ 1, %483 ], [ 1, %485 ]
-  %.05882 = phi i32 [ 0, %67 ], [ 0, %157 ], [ 0, %63 ], [ %.4, %474 ], [ %.569, %478 ], [ %.569, %483 ], [ %.569, %485 ]
-  %487 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #11
-  %488 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_TABLE, i64 noundef %487, ptr noundef nonnull %54, i32 noundef %.05882) #11
-  %489 = icmp slt i32 %488, 0
-  br i1 %489, label %490, label %.thread70
+.thread77:                                        ; preds = %473, %482, %484, %477, %67, %157, %63
+  %.184 = phi i32 [ 0, %67 ], [ -1, %157 ], [ -1, %63 ], [ -1, %473 ], [ 1, %477 ], [ 1, %482 ], [ 1, %484 ]
+  %.05882 = phi i32 [ 0, %67 ], [ 0, %157 ], [ 0, %63 ], [ %.4, %473 ], [ %.569, %477 ], [ %.569, %482 ], [ %.569, %484 ]
+  %486 = call i64 @H5F_get_sohm_addr(ptr noundef %0) #11
+  %487 = call i32 @H5AC_unprotect(ptr noundef %0, ptr noundef nonnull @H5AC_SOHM_TABLE, i64 noundef %486, ptr noundef nonnull %54, i32 noundef %.05882) #11
+  %488 = icmp slt i32 %487, 0
+  br i1 %488, label %489, label %.thread70
 
-490:                                              ; preds = %.thread77
-  %491 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
-  %492 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !7
-  %493 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM_try_share, i32 noundef 1132, i64 noundef %491, i64 noundef %492, ptr noundef nonnull @.str.22) #11
+489:                                              ; preds = %.thread77
+  %490 = load i64, ptr @H5E_SOHM_g, align 8, !tbaa !7
+  %491 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !7
+  %492 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.H5SM_try_share, i32 noundef 1132, i64 noundef %490, i64 noundef %491, ptr noundef nonnull @.str.22) #11
   br label %.thread70
 
-.thread70:                                        ; preds = %38, %50, %35, %32, %56, %43, %.thread77, %490, %27
-  %.0 = phi i32 [ -1, %490 ], [ %.184, %.thread77 ], [ 1, %27 ], [ 0, %50 ], [ 0, %35 ], [ 0, %32 ], [ -1, %56 ], [ -1, %43 ], [ 0, %38 ]
-  %494 = load i64, ptr %21, align 8, !tbaa !7
-  call void @H5AC_tag(i64 noundef %494, ptr noundef null) #11
+.thread70:                                        ; preds = %38, %50, %35, %32, %56, %43, %.thread77, %489, %27
+  %.0 = phi i32 [ -1, %489 ], [ %.184, %.thread77 ], [ 1, %27 ], [ 0, %50 ], [ 0, %35 ], [ 0, %32 ], [ -1, %56 ], [ -1, %43 ], [ 0, %38 ]
+  %493 = load i64, ptr %21, align 8, !tbaa !7
+  call void @H5AC_tag(i64 noundef %493, ptr noundef null) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #11

@@ -7467,59 +7467,58 @@ if.then26:                                        ; preds = %land.lhs.true20
 
 if.end30:                                         ; preds = %if.then, %land.lhs.true20, %if.then26, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit
   %bf.load32 = phi i64 [ %bf.load32.pre45, %if.then ], [ %bf.load32.pre45, %land.lhs.true20 ], [ %bf.load32.pre, %if.then26 ], [ %bf.set, %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit ]
-  %22 = shl i32 %l.coerce, 27
-  %23 = and i32 %22, 134217728
+  %22 = and i32 %l.coerce, 1
+  %tobool.i13.not = icmp eq i32 %22, 0
   %bf.set34 = and i64 %bf.load32, -201326593
-  %24 = xor i32 %23, 201326592
-  %bf.clear40 = zext nneg i32 %24 to i64
-  %bf.set41 = or disjoint i64 %bf.set34, %bf.clear40
+  %bf.clear40 = select i1 %tobool.i13.not, i64 201326592, i64 67108864
+  %bf.set41 = or disjoint i64 %bf.clear40, %bf.set34
   store i64 %bf.set41, ptr %m_scope_lvl14, align 8
-  %25 = and i64 %bf.load32, 36028797018963968
-  %tobool.i14.not = icmp eq i64 %25, 0
+  %23 = and i64 %bf.load32, 36028797018963968
+  %tobool.i14.not = icmp eq i64 %23, 0
   br i1 %tobool.i14.not, label %if.end56, label %land.lhs.true43
 
 land.lhs.true43:                                  ; preds = %if.end30
   %m_relevancy_lvl.i = getelementptr inbounds nuw i8, ptr %this, i64 184
-  %26 = load ptr, ptr %m_fparams, align 8
-  %m_relevancy_lvl2.i = getelementptr inbounds nuw i8, ptr %26, i64 512
-  %27 = load i32, ptr %m_relevancy_lvl2.i, align 4
-  %28 = load i32, ptr %m_relevancy_lvl.i, align 8
-  %29 = tail call noundef i32 @llvm.umin.i32(i32 %27, i32 %28)
-  switch i32 %29, label %lor.lhs.false50 [
+  %24 = load ptr, ptr %m_fparams, align 8
+  %m_relevancy_lvl2.i = getelementptr inbounds nuw i8, ptr %24, i64 512
+  %25 = load i32, ptr %m_relevancy_lvl2.i, align 4
+  %26 = load i32, ptr %m_relevancy_lvl.i, align 8
+  %27 = tail call noundef i32 @llvm.umin.i32(i32 %25, i32 %26)
+  switch i32 %27, label %lor.lhs.false50 [
     i32 0, label %if.then54
     i32 1, label %land.lhs.true48
   ]
 
 land.lhs.true48:                                  ; preds = %land.lhs.true43
-  %30 = and i64 %bf.load32, 2147483648
-  %tobool.i19.not = icmp eq i64 %30, 0
+  %28 = and i64 %bf.load32, 2147483648
+  %tobool.i19.not = icmp eq i64 %28, 0
   br i1 %tobool.i19.not, label %if.then54, label %lor.lhs.false50
 
 lor.lhs.false50:                                  ; preds = %land.lhs.true43, %land.lhs.true48
   %m_bool_var2expr.i.i = getelementptr inbounds nuw i8, ptr %this, i64 9384
-  %31 = load ptr, ptr %m_bool_var2expr.i.i, align 8
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %31, i64 %idxprom.i.i
-  %32 = load ptr, ptr %arrayidx.i.i.i, align 8
+  %29 = load ptr, ptr %m_bool_var2expr.i.i, align 8
+  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %29, i64 %idxprom.i.i
+  %30 = load ptr, ptr %arrayidx.i.i.i, align 8
   %m_relevancy_propagator.i.i = getelementptr inbounds nuw i8, ptr %this, i64 7512
-  %33 = load ptr, ptr %m_relevancy_propagator.i.i, align 8
-  %vtable.i.i = load ptr, ptr %33, align 8
+  %31 = load ptr, ptr %m_relevancy_propagator.i.i, align 8
+  %vtable.i.i = load ptr, ptr %31, align 8
   %vfn.i.i = getelementptr inbounds nuw i8, ptr %vtable.i.i, i64 56
-  %34 = load ptr, ptr %vfn.i.i, align 8
-  %call2.i.i = tail call noundef zeroext i1 %34(ptr noundef nonnull align 8 dereferenceable(16) %33, ptr noundef %32)
+  %32 = load ptr, ptr %vfn.i.i, align 8
+  %call2.i.i = tail call noundef zeroext i1 %32(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef %30)
   br i1 %call2.i.i, label %if.then54, label %if.end56
 
 if.then54:                                        ; preds = %land.lhs.true43, %lor.lhs.false50, %land.lhs.true48
   %m_atom_propagation_queue = getelementptr inbounds nuw i8, ptr %this, i64 9584
-  %35 = load ptr, ptr %m_atom_propagation_queue, align 8
-  %cmp.i20 = icmp eq ptr %35, null
+  %33 = load ptr, ptr %m_atom_propagation_queue, align 8
+  %cmp.i20 = icmp eq ptr %33, null
   br i1 %cmp.i20, label %if.then.i29, label %lor.lhs.false.i21
 
 lor.lhs.false.i21:                                ; preds = %if.then54
-  %arrayidx.i22 = getelementptr inbounds i8, ptr %35, i64 -4
-  %36 = load i32, ptr %arrayidx.i22, align 4
-  %arrayidx4.i23 = getelementptr inbounds i8, ptr %35, i64 -8
-  %37 = load i32, ptr %arrayidx4.i23, align 4
-  %cmp5.i24 = icmp eq i32 %36, %37
+  %arrayidx.i22 = getelementptr inbounds i8, ptr %33, i64 -4
+  %34 = load i32, ptr %arrayidx.i22, align 4
+  %arrayidx4.i23 = getelementptr inbounds i8, ptr %33, i64 -8
+  %35 = load i32, ptr %arrayidx4.i23, align 4
+  %cmp5.i24 = icmp eq i32 %34, %35
   br i1 %cmp5.i24, label %if.then.i29, label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit33
 
 if.then.i29:                                      ; preds = %lor.lhs.false.i21, %if.then54
@@ -7530,24 +7529,24 @@ if.then.i29:                                      ; preds = %lor.lhs.false.i21, 
   br label %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit33
 
 _ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit33: ; preds = %lor.lhs.false.i21, %if.then.i29
-  %38 = phi i32 [ %.pre1.i32, %if.then.i29 ], [ %36, %lor.lhs.false.i21 ]
-  %39 = phi ptr [ %.pre.i30, %if.then.i29 ], [ %35, %lor.lhs.false.i21 ]
-  %idx.ext.i25 = zext i32 %38 to i64
-  %add.ptr.i26 = getelementptr inbounds nuw %"class.sat::literal", ptr %39, i64 %idx.ext.i25
+  %36 = phi i32 [ %.pre1.i32, %if.then.i29 ], [ %34, %lor.lhs.false.i21 ]
+  %37 = phi ptr [ %.pre.i30, %if.then.i29 ], [ %33, %lor.lhs.false.i21 ]
+  %idx.ext.i25 = zext i32 %36 to i64
+  %add.ptr.i26 = getelementptr inbounds nuw %"class.sat::literal", ptr %37, i64 %idx.ext.i25
   store i32 %l.coerce, ptr %add.ptr.i26, align 4
-  %40 = load ptr, ptr %m_atom_propagation_queue, align 8
-  %arrayidx10.i27 = getelementptr inbounds i8, ptr %40, i64 -4
-  %41 = load i32, ptr %arrayidx10.i27, align 4
-  %inc.i28 = add i32 %41, 1
+  %38 = load ptr, ptr %m_atom_propagation_queue, align 8
+  %arrayidx10.i27 = getelementptr inbounds i8, ptr %38, i64 -4
+  %39 = load i32, ptr %arrayidx10.i27, align 4
+  %inc.i28 = add i32 %39, 1
   store i32 %inc.i28, ptr %arrayidx10.i27, align 4
   br label %if.end56
 
 if.end56:                                         ; preds = %_ZN6vectorIN3sat7literalELb0EjE9push_backERKS1_.exit33, %lor.lhs.false50, %if.end30
   %m = getelementptr inbounds nuw i8, ptr %this, i64 104
-  %42 = load ptr, ptr %m, align 8
-  %m_trace_stream.i = getelementptr inbounds nuw i8, ptr %42, i64 912
-  %43 = load ptr, ptr %m_trace_stream.i, align 8
-  %cmp.i34.not = icmp eq ptr %43, null
+  %40 = load ptr, ptr %m, align 8
+  %m_trace_stream.i = getelementptr inbounds nuw i8, ptr %40, i64 912
+  %41 = load ptr, ptr %m_trace_stream.i, align 8
+  %cmp.i34.not = icmp eq ptr %41, null
   br i1 %cmp.i34.not, label %if.end64, label %if.then58
 
 if.then58:                                        ; preds = %if.end56
@@ -7556,11 +7555,11 @@ if.then58:                                        ; preds = %if.end56
 
 if.end64:                                         ; preds = %if.then58, %if.end56
   %m_case_split_queue = getelementptr inbounds nuw i8, ptr %this, i64 9512
-  %44 = load ptr, ptr %m_case_split_queue, align 8
-  %vtable = load ptr, ptr %44, align 8
+  %42 = load ptr, ptr %m_case_split_queue, align 8
+  %vtable = load ptr, ptr %42, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 32
-  %45 = load ptr, ptr %vfn, align 8
-  tail call void %45(ptr noundef nonnull align 8 dereferenceable(8) %44, i32 %l.coerce)
+  %43 = load ptr, ptr %vfn, align 8
+  tail call void %43(ptr noundef nonnull align 8 dereferenceable(8) %42, i32 %l.coerce)
   ret void
 }
 

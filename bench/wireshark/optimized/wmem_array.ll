@@ -351,10 +351,10 @@ define ptr @wmem_array_finalize(ptr noundef %0) local_unnamed_addr #0 {
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8, !range !8, !noundef !9
-  %6 = zext nneg i8 %5 to i32
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %8 = load i32, ptr %7, align 8
-  %.sink = add i32 %8, %6
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %7 = load i32, ptr %6, align 8
+  %8 = zext nneg i8 %5 to i32
+  %.sink = add i32 %7, %8
   %9 = zext i32 %.sink to i64
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %11 = load i64, ptr %10, align 8

@@ -1056,13 +1056,12 @@ declare void @dtls1_clear_received_buffer(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define zeroext i16 @dtls1_get_epoch(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #5 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 3296
-  %4 = load ptr, ptr %3, align 8, !tbaa !87
-  %5 = shl i32 %1, 1
-  %6 = and i32 %5, 2
-  %7 = xor i32 %6, 2
-  %.0.in.idx = zext nneg i32 %7 to i64
-  %.0.in = getelementptr inbounds nuw i8, ptr %4, i64 %.0.in.idx
+  %3 = and i32 %1, 1
+  %.not = icmp eq i32 %3, 0
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 3296
+  %5 = load ptr, ptr %4, align 8, !tbaa !87
+  %.0.in.idx = select i1 %.not, i64 2, i64 0
+  %.0.in = getelementptr inbounds nuw i8, ptr %5, i64 %.0.in.idx
   %.0 = load i16, ptr %.0.in, align 2, !tbaa !94
   ret i16 %.0
 }

@@ -51674,9 +51674,9 @@ vm_ci_kwarg.exit:                                 ; preds = %.thread
   %.0 = phi i32 [ 1, %32 ], [ 0, %46 ]
   %57 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %58 = load i8, ptr %57, align 4, !tbaa !214, !range !258, !noundef !60
-  %59 = trunc nuw i8 %58 to i1
-  %60 = or disjoint i32 %.0, 64
-  %spec.select = select i1 %59, i32 %60, i32 %.0
+  %59 = shl nuw nsw i8 %58, 6
+  %60 = zext nneg i8 %59 to i32
+  %spec.select = or disjoint i32 %.0, %60
   br label %75
 
 .critedge:                                        ; preds = %vm_ci_flag.exit, %.thread, %vm_ci_kwarg.exit

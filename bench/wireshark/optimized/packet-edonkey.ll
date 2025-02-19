@@ -2955,31 +2955,28 @@ define internal noundef i32 @dissect_emule_sourceOBFU(ptr noundef %0, ptr readno
   %6 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %5)
   %7 = load i32, ptr @hf_emule_sourceOBFU, align 4
   %.not = icmp sgt i8 %6, -1
-  %8 = lshr i8 %6, 3
-  %9 = and i8 %8, 16
-  %10 = or disjoint i8 %9, 7
-  %11 = zext nneg i8 %10 to i32
-  %12 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %11, i32 noundef 0)
-  %13 = load i32, ptr @ett_emule_sourceOBFU, align 4
-  %14 = tail call ptr @proto_item_add_subtree(ptr noundef %12, i32 noundef %13)
-  %15 = load i32, ptr @hf_edonkey_ip, align 4
-  %16 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %15, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0)
-  %17 = load i32, ptr @hf_edonkey_port, align 4
-  %18 = add i32 %2, 4
-  %19 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %17, ptr noundef %0, i32 noundef %18, i32 noundef 2, i32 noundef -2147483648)
-  %20 = load i32, ptr @hf_edonkey_obfuscation_settings, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %20, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
-  %22 = add i32 %2, 7
-  br i1 %.not, label %27, label %23
+  %8 = select i1 %.not, i32 7, i32 23
+  %9 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %7, ptr noundef %0, i32 noundef %2, i32 noundef %8, i32 noundef 0)
+  %10 = load i32, ptr @ett_emule_sourceOBFU, align 4
+  %11 = tail call ptr @proto_item_add_subtree(ptr noundef %9, i32 noundef %10)
+  %12 = load i32, ptr @hf_edonkey_ip, align 4
+  %13 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %12, ptr noundef %0, i32 noundef %2, i32 noundef 4, i32 noundef 0)
+  %14 = load i32, ptr @hf_edonkey_port, align 4
+  %15 = add i32 %2, 4
+  %16 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %14, ptr noundef %0, i32 noundef %15, i32 noundef 2, i32 noundef -2147483648)
+  %17 = load i32, ptr @hf_edonkey_obfuscation_settings, align 4
+  %18 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %17, ptr noundef %0, i32 noundef %5, i32 noundef 1, i32 noundef 0)
+  %19 = add i32 %2, 7
+  br i1 %.not, label %24, label %20
 
-23:                                               ; preds = %4
-  %24 = load i32, ptr @hf_edonkey_client_hash, align 4
-  %25 = tail call ptr @proto_tree_add_item(ptr noundef %14, i32 noundef %24, ptr noundef %0, i32 noundef %22, i32 noundef 16, i32 noundef 0)
-  %26 = add i32 %2, 23
-  br label %27
+20:                                               ; preds = %4
+  %21 = load i32, ptr @hf_edonkey_client_hash, align 4
+  %22 = tail call ptr @proto_tree_add_item(ptr noundef %11, i32 noundef %21, ptr noundef %0, i32 noundef %19, i32 noundef 16, i32 noundef 0)
+  %23 = add i32 %2, 23
+  br label %24
 
-27:                                               ; preds = %23, %4
-  %.0 = phi i32 [ %26, %23 ], [ %22, %4 ]
+24:                                               ; preds = %20, %4
+  %.0 = phi i32 [ %23, %20 ], [ %19, %4 ]
   ret i32 %.0
 }
 
