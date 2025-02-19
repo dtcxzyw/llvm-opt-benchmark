@@ -3776,7 +3776,7 @@ _ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128: ; preds = %457, %451, %447, %
 
 487:                                              ; preds = %482, %476, %_ZN4cvc58internal12NodeTemplateILb1EED2Ev.exit128
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #24
-  %.pre197 = load ptr, ptr %299, align 8, !tbaa !17
+  %.not10.i.i.i.i132 = load ptr, ptr %299, align 8, !tbaa !17
   %.not10.i.i.i.i132 = icmp eq ptr %.pre197, null
   br i1 %.not10.i.i.i.i132, label %.critedge.i142, label %.lr.ph.i.i.i.i133
 

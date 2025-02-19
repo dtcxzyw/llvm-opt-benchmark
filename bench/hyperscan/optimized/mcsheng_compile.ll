@@ -10657,7 +10657,7 @@ for.end85:                                        ; preds = %for.inc82.us
   br i1 %cmp91, label %cleanup, label %if.end93
 
 if.end93:                                         ; preds = %for.end85.thread71, %for.end85
-  %extra80 = phi ptr [ %extra75, %for.end85.thread71 ], [ %extra, %for.end85 ]
+  %conv94 = phi ptr [ %extra75, %for.end85.thread71 ], [ %extra, %for.end85 ]
   %best_score.179 = phi i16 [ %conv76.us, %for.end85.thread71 ], [ %best_score.2.us, %for.end85 ]
   %conv94 = zext i16 %best_score.179 to i32
   %add96 = add nuw nsw i32 %cond, %conv94

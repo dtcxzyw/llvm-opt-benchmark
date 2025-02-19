@@ -182,19 +182,19 @@ define hidden noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly cap
   %28 = add nuw nsw i64 %.043, 1
   %.034 = add i64 %.034.in42, 3
   %exitcond.not = icmp eq i64 %28, 32
-  br i1 %exitcond.not, label %.lr.ph.preheader, label %14, !llvm.loop !10
+  br i1 %exitcond.not, label %29, label %14, !llvm.loop !10
 
-.lr.ph.preheader:                                 ; preds = %14
-  %29 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.034
-  store i8 32, ptr %29, align 1, !tbaa !9
+29:                                               ; preds = %14
+  %30 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.034
+  store i8 32, ptr %30, align 1, !tbaa !9
   %.13545 = add i64 %.034.in42, 4
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.13548 = phi i64 [ %.135, %.lr.ph ], [ %.13545, %.lr.ph.preheader ]
-  %.147 = phi i64 [ %43, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %.135.in46 = phi i64 [ %.13548, %.lr.ph ], [ %21, %.lr.ph.preheader ]
-  %30 = getelementptr inbounds nuw i8, ptr %2, i64 %.147
+  %.13548 = phi i64 [ %.135, %.lr.ph ], [ %.13545, %29 ]
+  %.13548 = phi i64 [ %43, %.lr.ph ], [ 0, %29 ]
+  %.147 = phi i64 [ %.13548, %.lr.ph ], [ %21, %29 ]
+  %.135.in46 = getelementptr inbounds nuw i8, ptr %2, i64 %.13548
   %31 = load i8, ptr %30, align 1, !tbaa !9
   %32 = lshr i8 %31, 4
   %33 = zext nneg i8 %32 to i64
@@ -215,15 +215,15 @@ define hidden noundef zeroext i1 @Curl_tls_keylog_write(ptr noundef readonly cap
   br i1 %exitcond52.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %44 = add i64 %.13548, 3
-  %45 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.135
-  store i8 10, ptr %45, align 1, !tbaa !9
-  %46 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %44
+  %.135.in.lcssa = add i64 %.13548, 3
+  %.135.lcssa = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.135
+  store i8 10, ptr %.135.lcssa, align 1, !tbaa !9
+  %46 = getelementptr inbounds nuw [195 x i8], ptr %5, i64 0, i64 %.135.in.lcssa
   store i8 0, ptr %46, align 1, !tbaa !9
   %47 = call i32 @fputs(ptr noundef nonnull %5, ptr noundef nonnull %6)
   br label %48
 
-48:                                               ; preds = %7, %4, %._crit_edge
+48:; preds = %7, %4, %._crit_edge
   %.036 = phi i1 [ true, %._crit_edge ], [ false, %4 ], [ false, %7 ]
   call void @llvm.lifetime.end.p0(i64 195, ptr nonnull %5) #8
   ret i1 %.036

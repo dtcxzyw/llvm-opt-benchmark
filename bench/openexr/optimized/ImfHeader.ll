@@ -4362,7 +4362,7 @@ lpad164:                                          ; preds = %if.then162
   br label %eh.resume
 
 if.end168:                                        ; preds = %if.end152
-  %_M_parent.i.i.i.i.i181.phi.trans.insert = getelementptr inbounds nuw i8, ptr %this, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %.pre = load ptr, ptr %_M_parent.i.i.i.i.i181.phi.trans.insert, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %ref.tmp.i.i178)
   %call.i.i.i.i179 = call ptr @strncpy(ptr noundef nonnull align 1 dereferenceable(256) %ref.tmp.i.i178, ptr noundef nonnull dereferenceable(5) @.str.30, i64 noundef 255) #26
@@ -4371,11 +4371,11 @@ if.end168:                                        ; preds = %if.end152
   %_M_parent.i.i.i.i.i181 = getelementptr inbounds nuw i8, ptr %this, i64 16
   %add.ptr.i.i.i.i.i182 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %cmp.not5.i.i.i.i.i183 = icmp eq ptr %.pre, null
-  br i1 %cmp.not5.i.i.i.i.i183, label %_ZNK7Imf_3_26Header7hasTypeEv.exit205.thread, label %while.body.i.i.i.i.i184.preheader
+  br i1 %cmp.not5.i.i.i.i.i183, label %_ZNK7Imf_3_26Header7hasTypeEv.exit205.thread, label %while.body.i.i.i.i.i184
 
-while.body.i.i.i.i.i184.preheader:                ; preds = %if.end168.thread, %if.end168
-  %add.ptr.i.i.i.i.i182361 = phi ptr [ %add.ptr.i.i.i.i.i182355, %if.end168.thread ], [ %add.ptr.i.i.i.i.i182, %if.end168 ]
-  %_M_parent.i.i.i.i.i181360 = phi ptr [ %_M_parent.i.i.i.i.i181354, %if.end168.thread ], [ %_M_parent.i.i.i.i.i181, %if.end168 ]
+while.body.i.i.i.i.i184:                          ; preds = %if.end168.thread, %if.end168
+  %__x.addr.07.i.i.i.i.i185 = phi ptr [ %add.ptr.i.i.i.i.i182355, %if.end168.thread ], [ %add.ptr.i.i.i.i.i182, %if.end168 ]
+  %__y.addr.06.i.i.i.i.i186 = phi ptr [ %_M_parent.i.i.i.i.i181354, %if.end168.thread ], [ %_M_parent.i.i.i.i.i181, %if.end168 ]
   %43 = phi ptr [ %34, %if.end168.thread ], [ %.pre, %if.end168 ]
   br label %while.body.i.i.i.i.i184
 

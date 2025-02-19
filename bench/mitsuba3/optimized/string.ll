@@ -5465,7 +5465,7 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
 
 69:                                               ; preds = %66
   %70 = icmp samesign ugt i64 %67, %62
-  br i1 %70, label %.lr.ph.i.i.i.i.preheader.i.i.i.us, label %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
+  br i1 %70, label %.lr.ph.i.i.i.i.preheader.i.i.i.us, label %.sink.split.i.us
 
 .lr.ph.i.i.i.i.preheader.i.i.i.us:                ; preds = %69
   %.idx8.i.i.i.us = shl nuw nsw i64 %62, 3
@@ -5473,29 +5473,29 @@ _ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us: ; pred
   %72 = sub nuw nsw i64 %67, %62
   %73 = shl nuw nsw i64 %72, 3
   tail call void @llvm.memset.p0.i64(ptr align 8 %71, i8 0, i64 %73, i1 false)
-  br label %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us
+  br label %.sink.split.i.us
 
-_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.us, %69
+.sink.split.i.us:                                 ; preds = %.lr.ph.i.i.i.i.preheader.i.i.i.us, %69
   %storemerge.i.i.i.us = trunc nuw i64 %67 to i16
   store i16 %storemerge.i.i.i.us, ptr %6, align 8
   br label %74
 
-74:                                               ; preds = %_ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us
+74:                                               ; preds = %.sink.split.i.us, %_ZN10fast_float9small_mulILt62EEEbRNS_8stackvecIXT_EEEm.exit29.thread.us
   %.not.i30.us = icmp eq i16 %59, 0
   br i1 %.not.i30.us, label %_ZN10fast_float14large_add_fromILt62EEEbRNS_8stackvecIXT_EEENS_4spanImEEm.exit.thread.us, label %.lr.ph.i31.us
 
 .lr.ph.i31.us:                                    ; preds = %74, %88
-  %.03246.i.us = phi i64 [ %92, %88 ], [ 0, %74 ]
-  %.03345.i.us = phi i1 [ %91, %88 ], [ false, %74 ]
-  %75 = add i64 %.03246.i.us, %.01659.us
+  %.03248.i.us = phi i64 [ %92, %88 ], [ 0, %74 ]
+  %.03347.i.us = phi i1 [ %91, %88 ], [ false, %74 ]
+  %75 = add i64 %.03248.i.us, %.01659.us
   %76 = getelementptr inbounds [62 x i64], ptr %0, i64 0, i64 %75
   %77 = load i64, ptr %76, align 8
-  %78 = getelementptr inbounds nuw i64, ptr %5, i64 %.03246.i.us
+  %78 = getelementptr inbounds nuw i64, ptr %5, i64 %.03248.i.us
   %79 = load i64, ptr %78, align 8
   %80 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %77, i64 %79)
   %81 = extractvalue { i64, i1 } %80, 1
   %82 = extractvalue { i64, i1 } %80, 0
-  br i1 %.03345.i.us, label %83, label %88
+  br i1 %.03347.i.us, label %83, label %88
 
 83:                                               ; preds = %.lr.ph.i31.us
   %84 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %82, i64 1)
@@ -5511,7 +5511,7 @@ _ZN10fast_float8stackvecILt62EE10try_resizeEmm.exit.thread.i.us: ; preds = %.lr.
   %89 = zext i1 %81 to i32
   %90 = or i32 %.035.i.us, %89
   %91 = icmp ne i32 %90, 0
-  %92 = add nuw nsw i64 %.03246.i.us, 1
+  %92 = add nuw nsw i64 %.03248.i.us, 1
   %exitcond.not.i.us = icmp eq i64 %92, %60
   br i1 %exitcond.not.i.us, label %._crit_edge.i32.us, label %.lr.ph.i31.us, !llvm.loop !63
 

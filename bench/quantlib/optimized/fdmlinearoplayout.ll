@@ -239,9 +239,9 @@ for.body.i.i:                                     ; preds = %for.body.i.i, %for.
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %__first1.sroa.0.07.i.i, i64 8
   %incdec.ptr.i2.i.i = getelementptr inbounds nuw i8, ptr %__first2.sroa.0.08.i.i, i64 8
   %cmp.i.not.i.i = icmp eq ptr %incdec.ptr.i.i.i, %add.ptr.i.i.i136
-  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit81, label %for.body.i.i, !llvm.loop !18
+  br i1 %cmp.i.not.i.i, label %_ZNSt6vectorImSaImEED2Ev.exit73, label %for.body.i.i, !llvm.loop !18
 
-_ZNSt6vectorImSaImEED2Ev.exit81:                  ; preds = %for.body.i.i, %invoke.cont
+_ZNSt6vectorImSaImEED2Ev.exit73:                  ; preds = %for.body.i.i, %invoke.cont
   %cond.i.i.i.i46145150 = phi ptr [ null, %invoke.cont ], [ %call5.i.i.i.i2.i6.i4458, %for.body.i.i ]
   %__init.addr.0.lcssa.i.i = phi i64 [ 0, %invoke.cont ], [ %add.i.i, %for.body.i.i ]
   %add.ptr.i.i.i48146149 = getelementptr inbounds i8, ptr %cond.i.i.i.i46145150, i64 %sub.ptr.sub.i.i

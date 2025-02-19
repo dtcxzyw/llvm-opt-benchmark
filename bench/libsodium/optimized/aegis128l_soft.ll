@@ -922,11 +922,11 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   br i1 %.not68, label %513, label %302
 
 302:                                              ; preds = %.loopexit
-  br i1 %293, label %303, label %408
+  br i1 %293, label %.thread316, label %.thread
 
-303:                                              ; preds = %302
-  %304 = getelementptr i8, ptr %0, i64 %.3
-  %305 = getelementptr i8, ptr %1, i64 %.3
+.thread316:                                       ; preds = %302
+  %.3310318 = getelementptr i8, ptr %0, i64 %.3
+  %303 = getelementptr i8, ptr %1, i64 %.3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %11, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
   %306 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef nonnull readonly %305, i64 noundef range(i64 1, 32) %301, i64 noundef 32) #7, !alias.scope !25
@@ -1074,8 +1074,8 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11) #7
   br label %513
 
-408:                                              ; preds = %302
-  %409 = getelementptr i8, ptr %1, i64 %.3
+.thread:                                          ; preds = %302
+  %.3310312 = getelementptr i8, ptr %1, i64 %.3
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #7
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %10, i8 noundef 0, i64 noundef 32, i1 noundef false) #7
   %410 = call ptr @__memcpy_chk(ptr noundef nonnull %10, ptr noundef nonnull readonly %409, i64 noundef range(i64 1, 32) %301, i64 noundef 32) #7, !alias.scope !29
@@ -1223,7 +1223,7 @@ aegis128l_init.exit:                              ; preds = %aegis128l_init.exit
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #7
   br label %513
 
-513:                                              ; preds = %303, %408, %.loopexit
+513:                                              ; preds = %.thread316, %.thread, %.loopexit
   %514 = call fastcc i32 @aegis128l_mac(ptr noundef nonnull %15, i64 noundef %4, i64 noundef %6, i64 noundef %2, ptr noundef %12)
   %515 = icmp eq i32 %514, 0
   br i1 %515, label %516, label %521

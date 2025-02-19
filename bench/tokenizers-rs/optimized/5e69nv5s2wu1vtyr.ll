@@ -3706,7 +3706,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
 
 25:                                               ; preds = %26
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h081126bf60e73432E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %4) #45
-          to label %77 unwind label %33, !noalias !539
+          to label %78 unwind label %33, !noalias !539
 
 26:                                               ; preds = %32, %28
   %27 = landingpad { ptr, i32 }
@@ -3743,7 +3743,7 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %36 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr77drop_in_place$LT$$LP$alloc..string..String$C$serde_json..value..Value$RP$$GT$17h3500a33c2dfa49deE"(ptr noalias noundef align 8 dereferenceable(56) %5) #45
-          to label %77 unwind label %75
+          to label %78 unwind label %76
 
 37:                                               ; preds = %29
   %38 = getelementptr inbounds nuw i8, ptr %9, i64 360
@@ -3805,35 +3805,35 @@ define internal fastcc void @"_ZN5alloc11collections5btree4node212Handle$LT$allo
   %spec.select8.i.i = add nuw nsw i64 %.sroa.0.011.i.i, %64
   %65 = getelementptr inbounds nuw ptr, ptr %51, i64 %.sroa.0.011.i.i
   %66 = load ptr, ptr %65, align 8, !alias.scope !554, !noalias !557, !nonnull !4, !noundef !4
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 352
-  store ptr %9, ptr %67, align 8, !noalias !564
+  %66 = getelementptr inbounds nuw i8, ptr %66, i64 352
+  store ptr %9, ptr %66, align 8, !noalias !564
   %68 = trunc nuw nsw i64 %.sroa.0.011.i.i to i16
   %69 = getelementptr inbounds nuw i8, ptr %66, i64 624
   store i16 %68, ptr %69, align 8, !noalias !565
   %.not.i.i.i.i = icmp samesign ugt i64 %spec.select8.i.i, %50
   %or.cond.i.i = select i1 %63, i1 true, i1 %.not.i.i.i.i
-  br i1 %or.cond.i.i, label %70, label %62
+  br i1 %or.cond.i.i, label %71, label %62
 
-70:                                               ; preds = %62
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %6, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i64 %61, ptr %72, align 8
+71:                                               ; preds = %62
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %6, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i64 %61, ptr %73, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef nonnull align 8 dereferenceable(56) %5, i64 56, i1 false)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store ptr %9, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i64 %61, ptr %74, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store ptr %9, ptr %74, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i64 %61, ptr %75, align 8
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5)
   ret void
 
-75:                                               ; preds = %35
-  %76 = landingpad { ptr, i32 }
+76:                                               ; preds = %35
+  %77 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hc8e2b17e1b6d1381E() #46
   unreachable
 
-77:                                               ; preds = %35, %25
+78:                                               ; preds = %35, %25
   %.pn = phi { ptr, i32 } [ %36, %35 ], [ %27, %25 ]
   call void @__rust_dealloc(ptr noundef nonnull %9, i64 noundef 728, i64 noundef 8) #44
   resume { ptr, i32 } %.pn

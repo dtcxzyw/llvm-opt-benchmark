@@ -25616,7 +25616,7 @@ _ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.
   %187 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i173.i, i64 16
   %188 = getelementptr inbounds i8, ptr %187, i64 %186
   %.not12.i.i = icmp eq i64 %186, 0
-  br i1 %.not12.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i, label %.lr.ph.i.i
+  br i1 %.not12.i.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit.i, %.lr.ph.i.i
   %.014.i.i = phi i64 [ %193, %.lr.ph.i.i ], [ 0, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit.i ]
@@ -25644,21 +25644,21 @@ _ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.i: ; preds 
 _ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i: ; preds = %181
   br i1 %switch.not.not.i171.i, label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit181.i, label %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i_crit_edge
 
-_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i_crit_edge: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i
+_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i_crit_edge: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i
   %.sroa.3.0.i.i178.i.pre = load ptr, ptr %.sroa.3.0.in.i.i.i, align 8, !noalias !4255
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i178.i.pre, i64 8
   %.pre = load i64, ptr %.phi.trans.insert, align 8, !noalias !4255
-  br label %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i
+  br label %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i
 
-_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i_crit_edge, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.i, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit.i
-  %201 = phi i64 [ %.pre, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i_crit_edge ], [ %186, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.i ], [ 0, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit.i ]
-  %.sroa.3.0.i.i178.i = phi ptr [ %.sroa.3.0.i.i178.i.pre, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i_crit_edge ], [ %.sroa.3.0.i.i173.i, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.i ], [ %.sroa.3.0.i.i173.i, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit.i ]
+_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i_crit_edge, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.i, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit.i
+  %201 = phi i64 [ %.pre, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i_crit_edge ], [ %186, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.i ], [ 0, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit.i ]
+  %.sroa.3.0.i.i178.i = phi ptr [ %.sroa.3.0.i.i178.i.pre, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i._ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i_crit_edge ], [ %.sroa.3.0.i.i173.i, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.i ], [ %.sroa.3.0.i.i173.i, %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit.i ]
   %202 = getelementptr inbounds nuw i8, ptr %.sroa.3.0.i.i178.i, i64 16
   br label %_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit181.i
 
-_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit181.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i, %184
-  %.sroa.3.0.i179.i = phi i64 [ %201, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i ], [ 0, %184 ]
-  %.sroa.0.0.i180.i = phi ptr [ %202, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread.i ], [ @anon.51bed9337ee0b8104f33ac59a1bbbf07.18.llvm.1684962189325099908, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i ], [ @anon.51bed9337ee0b8104f33ac59a1bbbf07.18.llvm.1684962189325099908, %184 ]
+_ZN5rowan6cursor11SyntaxToken4text17h91f241cb81989acaE.llvm.1684962189325099908.exit181.i: ; preds = %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i, %184
+  %.sroa.3.0.i179.i = phi i64 [ %201, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i ], [ 0, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i ], [ 0, %184 ]
+  %.sroa.0.0.i180.i = phi ptr [ %202, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.thread399.i ], [ @anon.51bed9337ee0b8104f33ac59a1bbbf07.18.llvm.1684962189325099908, %_ZN4core4iter6traits8iterator8Iterator4fold17ha2c3eedd1ea8d063E.exit.thread.i ], [ @anon.51bed9337ee0b8104f33ac59a1bbbf07.18.llvm.1684962189325099908, %184 ]
   %203 = load i8, ptr %42, align 4, !range !158, !noalias !4256, !noundef !9
   %204 = trunc nuw i8 %203 to i1
   br i1 %204, label %207, label %205

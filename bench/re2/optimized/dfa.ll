@@ -11918,23 +11918,23 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
   %sub6.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i, -2
   %div7.i.i.i.i = ashr exact i64 %sub6.i.i.i.i, 1
   %cmp8.i.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i.i, %div7.i.i.i.i
-  br i1 %cmp8.i.i.i.i, label %if.end16.i.thread.i.i.i, label %if.end16.i.i.i.i
+  br i1 %cmp8.i.i.i.i, label %if.then9.i.i.i.i, label %if.end16.i.i.i.i
 
-if.end16.i.thread.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
+if.then9.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i
   %add10.i.i.i.i = shl nuw nsw i64 %__secondChild.0.lcssa.i.i.i.i, 1
   %sub12.i.i.i.i = or disjoint i64 %add10.i.i.i.i, 1
   %add.ptr13.i.i.i.i = getelementptr inbounds nuw i32, ptr %__first, i64 %sub12.i.i.i.i
   %6 = load i32, ptr %add.ptr13.i.i.i.i, align 4
   %add.ptr14.i.i.i.i = getelementptr inbounds i32, ptr %__first, i64 %__secondChild.0.lcssa.i.i.i.i
   store i32 %6, ptr %add.ptr14.i.i.i.i, align 4
-  br label %land.rhs.i.i.i.i.i.preheader
+  br label %land.rhs.i.i.i.i.i
 
 if.end16.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i, %while.end.i.i.i.i
-  %cmp13.i.i.not.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i.i, 0
-  br i1 %cmp13.i.i.not.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i.preheader
+  %__holeIndex.addr.1.i.i.i.i = icmp eq i64 %__secondChild.0.lcssa.i.i.i.i, 0
+  br i1 %__holeIndex.addr.1.i.i.i.i, label %_ZSt10__pop_heapIPiN9__gnu_cxx5__ops15_Iter_less_iterEEvT_S4_S4_RT0_.exit.i.i, label %land.rhs.i.i.i.i.i
 
-land.rhs.i.i.i.i.i.preheader:                     ; preds = %if.end16.i.i.i.i, %if.end16.i.thread.i.i.i
-  %__holeIndex.addr.014.i.i.i.i.i.ph = phi i64 [ %__secondChild.0.lcssa.i.i.i.i, %if.end16.i.i.i.i ], [ %sub12.i.i.i.i, %if.end16.i.thread.i.i.i ]
+land.rhs.i.i.i.i.i:                               ; preds = %if.end16.i.i.i.i, %if.then9.i.i.i.i
+  %__holeIndex.addr.014.i.i.i.i.i = phi i64 [ %__secondChild.0.lcssa.i.i.i.i, %if.end16.i.i.i.i ], [ %sub12.i.i.i.i, %if.then9.i.i.i.i ]
   br label %land.rhs.i.i.i.i.i
 
 land.rhs.i.i.i.i.i:                               ; preds = %land.rhs.i.i.i.i.i.preheader, %while.body.i.i.i.i.i
@@ -12105,13 +12105,13 @@ while.end.i:                                      ; preds = %while.body.i, %if.e
   %__secondChild.0.lcssa.i = phi i64 [ %div11, %if.end.split ], [ %spec.select.i, %while.body.i ]
   %4 = and i64 %sub.ptr.sub, 4
   %cmp5.i = icmp eq i64 %4, 0
-  %cmp8.i = icmp eq i64 %__secondChild.0.lcssa.i, %div11
-  %or.cond = and i1 %cmp5.i, %cmp8.i
+  %div7.i = icmp eq i64 %__secondChild.0.lcssa.i, %div11
+  %cmp8.i = and i1 %cmp5.i, %div7.i
   br i1 %or.cond, label %if.then9.i, label %if.end16.i
 
 if.then9.i:                                       ; preds = %while.end.i
-  %sub12.i = or disjoint i64 %sub, 1
-  %add.ptr13.i = getelementptr inbounds nuw i32, ptr %__first, i64 %sub12.i
+  %add10.i = or disjoint i64 %sub, 1
+  %sub12.i = getelementptr inbounds nuw i32, ptr %__first, i64 %add10.i
   %5 = load i32, ptr %add.ptr13.i, align 4
   store i32 %5, ptr %add.ptr9, align 4
   br label %if.end16.i

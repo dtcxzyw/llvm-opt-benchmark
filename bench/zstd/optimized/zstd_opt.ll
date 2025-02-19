@@ -285,7 +285,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %96, %103, %ZSTD_LLc
   br i1 %exitcond.not, label %.preheader189.preheader, label %.preheader190, !llvm.loop !45
 
 .preheader189.preheader:                          ; preds = %.preheader190
-  %wide.trip.count264 = zext i32 %91 to i64
+  %umax263 = zext i32 %91 to i64
   br label %.preheader189
 
 .preheader189:                                    ; preds = %.preheader189.preheader, %._crit_edge
@@ -1769,7 +1769,7 @@ ZSTD_litLengthPrice.exit:                         ; preds = %98, %108, %ZSTD_LLc
   br i1 %exitcond.not, label %.preheader306.preheader, label %.preheader307, !llvm.loop !45
 
 .preheader306.preheader:                          ; preds = %.preheader307
-  %wide.trip.count377 = zext i32 %93 to i64
+  %umax376 = zext i32 %93 to i64
   br label %.preheader306
 
 .preheader306:                                    ; preds = %.preheader306.preheader, %._crit_edge

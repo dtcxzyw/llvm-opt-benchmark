@@ -10853,7 +10853,7 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
   %43 = call i64 @tvb_get_ntoh64(ptr noundef %0, i32 noundef %21)
   %44 = load i32, ptr @hf_kafka_offset_time, align 4
   %45 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %44, ptr noundef %0, i32 noundef %21, i32 noundef 8, i32 noundef 0)
-  switch i64 %43, label %dissect_kafka_array.exit [
+  switch i64 %43, label %dissect_kafka_offset_time.exit [
     i64 -1, label %.sink.split.i
     i64 -2, label %46
   ]
@@ -10864,9 +10864,9 @@ dissect_kafka_error.exit:                         ; preds = %5, %16
 .sink.split.i:                                    ; preds = %46, %42
   %.str.676.sink.i = phi ptr [ @.str.676, %46 ], [ @.str.675, %42 ]
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %45, ptr noundef nonnull %.str.676.sink.i)
-  br label %dissect_kafka_array.exit
+  br label %dissect_kafka_offset_time.exit
 
-dissect_kafka_array.exit:                         ; preds = %.sink.split.i, %42
+dissect_kafka_offset_time.exit:                   ; preds = %.sink.split.i, %42
   %47 = add i32 %3, 14
   %48 = load i32, ptr @hf_kafka_offset, align 4
   %49 = call ptr @proto_tree_add_item(ptr noundef %8, i32 noundef %48, ptr noundef %0, i32 noundef %47, i32 noundef 8, i32 noundef 0)

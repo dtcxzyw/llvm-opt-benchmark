@@ -4114,7 +4114,7 @@ _ZN8aiStringaSERKS_.exit:                         ; preds = %_ZNSt6vectorIP6aiBo
   call void @llvm.memset.p0.i64(ptr nonnull align 4 %1571, i8 0, i64 %1570, i1 false)
   %1572 = getelementptr inbounds nuw i8, ptr %1514, i64 1048
   store ptr %1571, ptr %1572, align 8
-  %wide.trip.count = and i64 %1511, 4294967295
+  %umax = and i64 %1511, 4294967295
   br label %1666
 
 1573:                                             ; preds = %.lr.ph1408, %1573

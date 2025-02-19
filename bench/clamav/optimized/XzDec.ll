@@ -1266,7 +1266,7 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
 
 .preheader.i:                                     ; preds = %97
   %104 = icmp eq i32 %98, 1
-  br i1 %104, label %.lr.ph17.i.preheader, label %MixCoder_Init.exit
+  br i1 %104, label %.lr.ph17.i, label %MixCoder_Init.exit
 
 105:                                              ; preds = %105, %.lr.ph.i69
   %indvars.iv.i70 = phi i64 [ 0, %.lr.ph.i69 ], [ %indvars.iv.next.i71, %105 ]
@@ -1280,7 +1280,7 @@ MixCoder_Free.exit:                               ; preds = %._crit_edge.i, %40
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i71, %wide.trip.count.i
   br i1 %exitcond.not.i, label %.lr.ph17.i.preheader, label %105
 
-.lr.ph17.i.preheader:                             ; preds = %105, %.preheader.i
+.lr.ph17.i:                                       ; preds = %105, %.preheader.i
   br label %.lr.ph17.i
 
 .lr.ph17.i:                                       ; preds = %.lr.ph17.i.preheader, %.lr.ph17.i

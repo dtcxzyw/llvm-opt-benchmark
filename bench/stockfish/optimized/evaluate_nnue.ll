@@ -790,12 +790,12 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
 
 153:                                              ; preds = %151, %184
   %154 = phi i1 [ true, %151 ], [ false, %184 ]
-  %indvars.iv137.sroa.phi.sroa.speculated = phi i32 [ %139, %151 ], [ %140, %184 ]
-  %indvars.iv137 = phi i64 [ 0, %151 ], [ 1280, %184 ]
-  %155 = zext i32 %indvars.iv137.sroa.phi.sroa.speculated to i64
+  %indvars.iv141.sroa.phi.sroa.speculated = phi i32 [ %139, %151 ], [ %140, %184 ]
+  %indvars.iv141 = phi i64 [ 0, %151 ], [ 1280, %184 ]
+  %155 = zext i32 %indvars.iv141.sroa.phi.sroa.speculated to i64
   %156 = getelementptr inbounds nuw [2 x [2560 x i16]], ptr %152, i64 0, i64 %155
   %157 = getelementptr inbounds nuw i8, ptr %156, i64 2560
-  %158 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv137
+  %158 = getelementptr inbounds nuw i8, ptr %2, i64 %indvars.iv141
   br label %159
 
 159:                                              ; preds = %153, %159
@@ -1698,9 +1698,9 @@ _ZNK9Stockfish4Eval4NNUE18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumul
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %scevgep94.i.i, ptr noundef nonnull align 16 dereferenceable(256) %2, i64 256, i1 false)
   %indvar.next.i.i19 = add nuw nsw i64 %indvar.i.i9, 1
   %exitcond99.not.i.i20 = icmp eq i64 %indvar.next.i.i19, 20
-  br i1 %exitcond99.not.i.i20, label %.lr.ph89.i.i23, label %.lr.ph.i.preheader.i8, !llvm.loop !13
+  br i1 %exitcond99.not.i.i20, label %.critedge.i.i21, label %.lr.ph.i.preheader.i8, !llvm.loop !13
 
-.lr.ph89.i.i23:                                   ; preds = %._crit_edge.i.loopexit.i18
+.critedge.i.i21:                                  ; preds = %._crit_edge.i.loopexit.i18
   %74 = getelementptr inbounds nuw i8, ptr %17, i64 115348480
   br label %.critedge.i24
 
@@ -3765,11 +3765,11 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560
   %79 = load i64, ptr %78, align 8
   %80 = getelementptr inbounds i8, ptr %0, i64 %79
   %81 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %80) #15
-  br i1 %81, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.thread.i
+  br i1 %81, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %101
 
 82:                                               ; preds = %63
   %83 = icmp eq i32 %1, 1
-  br i1 %83, label %84, label %.thread.i
+  br i1 %83, label %84, label %101
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr @_ZN9Stockfish4Eval4NNUE23featureTransformerSmallE, align 8
@@ -3811,16 +3811,16 @@ _ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128E
   %98 = load i64, ptr %97, align 8
   %99 = getelementptr inbounds i8, ptr %0, i64 %98
   %100 = call noundef zeroext i1 @_ZNKSt9basic_iosIcSt11char_traitsIcEE4failEv(ptr noundef nonnull align 8 dereferenceable(264) %99) #15
-  br i1 %100, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %.thread.i
+  br i1 %100, label %_ZN9Stockfish4Eval4NNUEL16write_parametersERSoNS1_7NetSizeERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %101
 
-.thread.i:                                        ; preds = %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEbRSoRKT_.exit.i, %82, %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEbRSoRKT_.exit.i
+101:                                              ; preds = %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEbRSoRKT_.exit.i, %82, %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEbRSoRKT_.exit.i
   %101 = phi i1 [ true, %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj128EXadL_ZNS_9StateInfo16accumulatorSmallEEEEEEEbRSoRKT_.exit.i ], [ false, %82 ], [ false, %_ZN9Stockfish4Eval4NNUE6Detail16write_parametersINS1_18FeatureTransformerILj2560EXadL_ZNS_9StateInfo14accumulatorBigEEEEEEEbRSoRKT_.exit.i ]
   %102 = getelementptr inbounds nuw i8, ptr %8, i64 3
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 3
   br label %104
 
-104:                                              ; preds = %128, %.thread.i
-  %.046.i = phi i64 [ 0, %.thread.i ], [ %129, %128 ]
+104:                                              ; preds = %128, %101
+  %.046.i = phi i64 [ 0, %101 ], [ %129, %128 ]
   br i1 %64, label %105, label %116
 
 105:                                              ; preds = %104

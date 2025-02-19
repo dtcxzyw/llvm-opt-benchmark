@@ -19083,16 +19083,16 @@ if.then180:                                       ; preds = %if.end173
   br label %return
 
 for.end185:                                       ; preds = %for.cond162, %for.cond133.preheader
-  %v_max.0.lcssa365 = phi i32 [ 1, %for.cond133.preheader ], [ %v_max.1, %for.cond162 ]
+  %v_max.0.lcssa364 = phi i32 [ 1, %for.cond133.preheader ], [ %v_max.1, %for.cond162 ]
   %h_max.0.lcssa363 = phi i32 [ 1, %for.cond133.preheader ], [ %spec.select, %for.cond162 ]
   %img_h_max = getelementptr inbounds nuw i8, ptr %z, i64 18056
   store i32 %h_max.0.lcssa363, ptr %img_h_max, align 8
   %img_v_max = getelementptr inbounds nuw i8, ptr %z, i64 18060
-  store i32 %v_max.0.lcssa365, ptr %img_v_max, align 4
+  store i32 %v_max.0.lcssa364, ptr %img_v_max, align 4
   %mul186 = shl nsw i32 %h_max.0.lcssa363, 3
   %img_mcu_w = getelementptr inbounds nuw i8, ptr %z, i64 18072
   store i32 %mul186, ptr %img_mcu_w, align 8
-  %mul187 = shl nsw i32 %v_max.0.lcssa365, 3
+  %mul187 = shl nsw i32 %v_max.0.lcssa364, 3
   %img_mcu_h = getelementptr inbounds nuw i8, ptr %z, i64 18076
   store i32 %mul187, ptr %img_mcu_h, align 4
   %84 = load i32, ptr %0, align 8
@@ -19114,7 +19114,7 @@ for.end185:                                       ; preds = %for.cond162, %for.c
 for.body201.lr.ph:                                ; preds = %for.end185
   %img_comp203 = getelementptr inbounds nuw i8, ptr %z, i64 18080
   %add208 = add nsw i32 %h_max.0.lcssa363, -1
-  %add220 = add nsw i32 %v_max.0.lcssa365, -1
+  %add220 = add nsw i32 %v_max.0.lcssa364, -1
   %progressive = getelementptr inbounds nuw i8, ptr %z, i64 18480
   br label %for.body201
 
@@ -19134,7 +19134,7 @@ for.body201:                                      ; preds = %for.body201.lr.ph, 
   %90 = load i32, ptr %v218, align 8
   %mul219 = mul i32 %90, %89
   %sub221 = add i32 %add220, %mul219
-  %div222 = udiv i32 %sub221, %v_max.0.lcssa365
+  %div222 = udiv i32 %sub221, %v_max.0.lcssa364
   %y = getelementptr inbounds nuw i8, ptr %arrayidx205, i64 32
   store i32 %div222, ptr %y, align 8
   %mul231 = mul nsw i32 %88, %div

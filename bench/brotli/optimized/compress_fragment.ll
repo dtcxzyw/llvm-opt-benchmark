@@ -1649,13 +1649,13 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %951 = trunc nuw nsw i64 %938 to i32
-  %.lhs.trunc = add nuw nsw i32 %951, 42
+  %952 = add nuw nsw i32 %951, 42
   %952 = udiv i32 %.lhs.trunc, 43
   %953 = icmp ult i64 %937, 10966
   br i1 %953, label %._crit_edge.thread.i, label %956
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  %.zext = zext nneg i32 %952 to i64
+  %954 = zext nneg i32 %952 to i64
   %954 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
@@ -3657,13 +3657,13 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %951 = trunc nuw nsw i64 %938 to i32
-  %.lhs.trunc = add nuw nsw i32 %951, 42
+  %952 = add nuw nsw i32 %951, 42
   %952 = udiv i32 %.lhs.trunc, 43
   %953 = icmp ult i64 %937, 10966
   br i1 %953, label %._crit_edge.thread.i, label %956
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  %.zext = zext nneg i32 %952 to i64
+  %954 = zext nneg i32 %952 to i64
   %954 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
@@ -5665,13 +5665,13 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %951 = trunc nuw nsw i64 %938 to i32
-  %.lhs.trunc = add nuw nsw i32 %951, 42
+  %952 = add nuw nsw i32 %951, 42
   %952 = udiv i32 %.lhs.trunc, 43
   %953 = icmp ult i64 %937, 10966
   br i1 %953, label %._crit_edge.thread.i, label %956
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  %.zext = zext nneg i32 %952 to i64
+  %954 = zext nneg i32 %952 to i64
   %954 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double
@@ -7673,13 +7673,13 @@ EmitCopyLen.exit:                                 ; preds = %747, %769, %809, %8
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
   %951 = trunc nuw nsw i64 %938 to i32
-  %.lhs.trunc = add nuw nsw i32 %951, 42
+  %952 = add nuw nsw i32 %951, 42
   %952 = udiv i32 %.lhs.trunc, 43
   %953 = icmp ult i64 %937, 10966
   br i1 %953, label %._crit_edge.thread.i, label %956
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i
-  %.zext = zext nneg i32 %952 to i64
+  %954 = zext nneg i32 %952 to i64
   %954 = getelementptr inbounds nuw [256 x double], ptr @kBrotliLog2Table, i64 0, i64 %.zext
   %955 = load double, ptr %954, align 8, !tbaa !268
   %.pre.i = uitofp nneg i32 %952 to double

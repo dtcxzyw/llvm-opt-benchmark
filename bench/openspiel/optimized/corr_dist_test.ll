@@ -8109,10 +8109,10 @@ _ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE7reserveEm.exit.i: ; preds = %
           to label %.preheader.i198 unwind label %.loopexit54.i
 
 .preheader.i198:                                  ; preds = %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE7reserveEm.exit.i
-  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.i
+  br i1 %.not67.i, label %._crit_edge.i, label %.lr.ph.preheader.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i198, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209
-  %.061.i = phi i32 [ %3049, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209 ], [ 0, %.preheader.i198 ]
+.lr.ph.preheader.i:                               ; preds = %.preheader.i198, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209
+  %smax.i = phi i32 [ %3049, %_ZN10open_spiel13TabularPolicyD2Ev.exit.i209 ], [ 0, %.preheader.i198 ]
   invoke void @_ZN10open_spiel10algorithms13CFRSolverBase23EvaluateAndUpdatePolicyEv(ptr noundef nonnull align 8 dereferenceable(5128) %10)
           to label %2942 unwind label %.loopexit.i199
 
@@ -25368,11 +25368,11 @@ _ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit: ; p
           to label %37 unwind label %.thread
 
 .thread:                                          ; preds = %_ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit
-  %lpad.thr_comm45 = landingpad { ptr, i32 }
+  %lpad.thr_comm46 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %lpad.thr_comm45, 0
+  %35 = extractvalue { ptr, i32 } %lpad.thr_comm46, 0
   %36 = call ptr @__cxa_begin_catch(ptr %35) #27
-  br label %.loopexit
+  br label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
 
 37:                                               ; preds = %_ZNKSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE12_M_check_lenEmPKc.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
@@ -25424,7 +25424,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   %53 = load ptr, ptr %22, align 8
   %54 = load ptr, ptr %53, align 8
   call void %54(ptr noundef nonnull align 8 dereferenceable(64) %22) #27
-  br label %.loopexit
+  br label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
 
 55:                                               ; preds = %_ZSt34__uninitialized_move_if_noexcept_aIPN10open_spiel13TabularPolicyES2_SaIS1_EET0_T_S5_S4_RT1_.exit
   %lpad.thr_comm = landingpad { ptr, i32 }
@@ -25432,7 +25432,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   %56 = extractvalue { ptr, i32 } %lpad.thr_comm, 0
   %57 = call ptr @__cxa_begin_catch(ptr %56) #27
   %.not4.i.i.i30 = icmp eq ptr %21, %39
-  br i1 %.not4.i.i.i30, label %.loopexit, label %.lr.ph.i.i.i31
+  br i1 %.not4.i.i.i30, label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36, label %.lr.ph.i.i.i31
 
 .lr.ph.i.i.i31:                                   ; preds = %55, %.lr.ph.i.i.i31
   %.05.i.i.i32 = phi ptr [ %60, %.lr.ph.i.i.i31 ], [ %21, %55 ]
@@ -25441,15 +25441,15 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   call void %59(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i32) #27
   %60 = getelementptr inbounds nuw i8, ptr %.05.i.i.i32, i64 64
   %.not.i.i.i33 = icmp eq ptr %.05.i.i.i32, %38
-  br i1 %.not.i.i.i33, label %.loopexit, label %.lr.ph.i.i.i31, !llvm.loop !51
+  br i1 %.not.i.i.i33, label %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36, label %.lr.ph.i.i.i31, !llvm.loop !51
 
-61:                                               ; preds = %.loopexit
+61:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
   %62 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
           to label %63 unwind label %64
 
-.loopexit:                                        ; preds = %.lr.ph.i.i.i31, %.thread, %50, %55
+_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36: ; preds = %.lr.ph.i.i.i31, %.thread, %50, %55
   call void @_ZdlPvm(ptr noundef nonnull %21, i64 noundef %20) #25
   invoke void @__cxa_rethrow() #26
           to label %67 unwind label %61
@@ -25464,7 +25464,7 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.e
   call void @__clang_call_terminate(ptr %66) #28
   unreachable
 
-67:                                               ; preds = %.loopexit
+67:                                               ; preds = %_ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EE13_M_deallocateEPS1_m.exit36
   unreachable
 }
 

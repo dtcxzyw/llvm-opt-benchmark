@@ -109,9 +109,9 @@ sub_2:                                            ; preds = %sub_1
   call void @PHP_MD5Update(ptr noundef nonnull %4, ptr noundef nonnull %3, i64 noundef %23) #8
   %24 = add nsw i32 %.086, -16
   %25 = icmp samesign ugt i32 %.086, 16
-  br i1 %25, label %.lr.ph, label %._crit_edge.thread
+  br i1 %25, label %.lr.ph, label %._crit_edge
 
-._crit_edge.thread:                               ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   call void @explicit_bzero(ptr noundef nonnull %3, i64 noundef 16) #8
   br label %.lr.ph90.preheader
 

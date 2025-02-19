@@ -411,12 +411,12 @@ define internal fastcc noundef zeroext i1 @parse_cosine_packet(ptr noundef %0, p
 82:                                               ; preds = %80
   %switch.selectcmp = icmp eq i32 %lhsv, 977818693
   %switch.select = select i1 %switch.selectcmp, i8 8, i8 99
-  %switch.selectcmp106 = icmp eq i32 %lhsv, 978341968
-  %switch.select107 = select i1 %switch.selectcmp106, i8 7, i8 %switch.select
+  %switch.selectcmp105 = icmp eq i32 %lhsv, 978341968
+  %switch.select106 = select i1 %switch.selectcmp105, i8 7, i8 %switch.select
   br label %83
 
 83:                                               ; preds = %82, %80, %78, %77, %75, %73, %47
-  %.sink = phi i8 [ 1, %47 ], [ 2, %73 ], [ 3, %75 ], [ 4, %77 ], [ 5, %78 ], [ 6, %80 ], [ %switch.select107, %82 ]
+  %.sink = phi i8 [ 1, %47 ], [ 2, %73 ], [ 3, %75 ], [ 4, %77 ], [ 5, %78 ], [ 6, %80 ], [ %switch.select106, %82 ]
   store i8 %.sink, ptr %26, align 8
   %bcmp76 = call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %23, ptr noundef nonnull dereferenceable(5) @.str.1, i64 5)
   %84 = icmp eq i32 %bcmp76, 0
@@ -428,9 +428,9 @@ define internal fastcc noundef zeroext i1 @parse_cosine_packet(ptr noundef %0, p
   br i1 %86, label %.sink.split, label %88
 
 .sink.split:                                      ; preds = %85, %83
-  %.sink104 = phi i8 [ 1, %83 ], [ 2, %85 ]
+  %.sink103 = phi i8 [ 1, %83 ], [ 2, %85 ]
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 81
-  store i8 %.sink104, ptr %87, align 1
+  store i8 %.sink103, ptr %87, align 1
   br label %88
 
 88:                                               ; preds = %.sink.split, %85
@@ -559,9 +559,9 @@ parse_single_hex_dump_line.exit.thread:           ; preds = %empty_line.exit
   store i8 %156, ptr %160, align 1
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %parse_single_hex_dump_line.exit.thread98, label %.lr.ph.i80, !llvm.loop !9
+  br i1 %exitcond.not.i, label %parse_single_hex_dump_line.exit, label %.lr.ph.i80, !llvm.loop !9
 
-parse_single_hex_dump_line.exit.thread98:         ; preds = %.lr.ph.i80
+parse_single_hex_dump_line.exit:                  ; preds = %.lr.ph.i80
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %6) #9
   br label %163
 
@@ -576,7 +576,7 @@ parse_single_hex_dump_line.exit:                  ; preds = %152
   store ptr %162, ptr %4, align 8
   br label %166
 
-163:                                              ; preds = %parse_single_hex_dump_line.exit.thread98, %parse_single_hex_dump_line.exit
+163:                                              ; preds = %parse_single_hex_dump_line.exit, %parse_single_hex_dump_line.exit
   %164 = add i32 %spec.store.select.i, %.090
   %165 = add nuw nsw i32 %.06089, 1
   %exitcond.not = icmp eq i32 %165, %115

@@ -5679,9 +5679,9 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapIlN9grpc_c
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz10SocketNodeEEESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, %invoke.cont5
   %__y.addr.0.lcssa.i.i.i11.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz10SocketNodeEEESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i.i, %invoke.cont5 ]
   %call.i.i2 = invoke ptr @_ZNSt8_Rb_treeIlSt4pairIKlN9grpc_core13RefCountedPtrINS2_8channelz10SocketNodeEEEESt10_Select1stIS7_ESt4lessIlESaIS7_EE22_M_emplace_hint_uniqueIJS0_IlS6_EEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %child_sockets_, ptr %__y.addr.0.lcssa.i.i.i11.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont7 unwind label %lpad6
+          to label %if.then.i.invoke.cont7_crit_edge unwind label %lpad6
 
-invoke.cont7:                                     ; preds = %if.then.i
+if.then.i.invoke.cont7_crit_edge:                 ; preds = %if.then.i
   %.pre = load ptr, ptr %second.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i, label %_ZNSt4pairIlN9grpc_core13RefCountedPtrINS0_8channelz10SocketNodeEEEED2Ev.exit, label %if.then.i.i
@@ -5904,9 +5904,9 @@ lor.rhs.i:                                        ; preds = %_ZNSt3mapIlN9grpc_c
 if.then.i:                                        ; preds = %lor.rhs.i, %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz16ListenSocketNodeEEESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i, %invoke.cont5
   %__y.addr.0.lcssa.i.i.i11.i = phi ptr [ %__y.addr.1.i.i.i.i, %_ZNSt3mapIlN9grpc_core13RefCountedPtrINS0_8channelz16ListenSocketNodeEEESt4lessIlESaISt4pairIKlS4_EEE11lower_boundERS8_.exit.i ], [ %__y.addr.1.i.i.i.i, %lor.rhs.i ], [ %add.ptr.i.i.i.i, %invoke.cont5 ]
   %call.i.i2 = invoke ptr @_ZNSt8_Rb_treeIlSt4pairIKlN9grpc_core13RefCountedPtrINS2_8channelz16ListenSocketNodeEEEESt10_Select1stIS7_ESt4lessIlESaIS7_EE22_M_emplace_hint_uniqueIJS0_IlS6_EEEESt17_Rb_tree_iteratorIS7_ESt23_Rb_tree_const_iteratorIS7_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %child_listen_sockets_, ptr %__y.addr.0.lcssa.i.i.i11.i, ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp)
-          to label %invoke.cont7 unwind label %lpad6
+          to label %if.then.i.invoke.cont7_crit_edge unwind label %lpad6
 
-invoke.cont7:                                     ; preds = %if.then.i
+if.then.i.invoke.cont7_crit_edge:                 ; preds = %if.then.i
   %.pre = load ptr, ptr %second.i.i, align 8
   %cmp.not.i.i = icmp eq ptr %.pre, null
   br i1 %cmp.not.i.i, label %_ZNSt4pairIlN9grpc_core13RefCountedPtrINS0_8channelz16ListenSocketNodeEEEED2Ev.exit, label %if.then.i.i

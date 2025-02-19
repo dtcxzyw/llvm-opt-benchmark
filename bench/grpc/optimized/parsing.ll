@@ -3526,8 +3526,8 @@ for.body.i.i.i.i:                                 ; preds = %for.body.i.i.i.i, %
 _ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i: ; preds = %for.body.i.i.i.i
   %or.i.i.i.i = or i64 %conv.i, 1
   %15 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %or.i.i.i.i, i1 true)
-  %div.neg567.i.i.i.i.mask19 = and i64 %15, 60
-  %cmp.not.i.i.i = icmp eq i64 %div.neg567.i.i.i.i.mask19, 60
+  %div.neg5.lhs.trunc.i.i.i.i = and i64 %15, 60
+  %div.neg567.i.i.i.i = icmp eq i64 %div.neg5.lhs.trunc.i.i.i.i, 60
   br i1 %cmp.not.i.i.i, label %if.else.i.i.i, label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i
 
 if.else.i.i.i:                                    ; preds = %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
@@ -3535,8 +3535,8 @@ if.else.i.i.i:                                    ; preds = %_ZN4absl12lts_20230
   br label %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i
 
 _ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i: ; preds = %if.else.i.i.i, %_ZN4absl12lts_2023080216numbers_internal24FastHexToBufferZeroPad16EmPc.exit.i.i.i
-  %add.ptr13.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i, i64 30
-  invoke void @_ZN4absl12lts_2023080216strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, i64 2, ptr nonnull %add.ptr13.i.i.i)
+  %conv.sink13.i.i.i = getelementptr inbounds nuw i8, ptr %buffer.i.i.i, i64 30
+  invoke void @_ZN4absl12lts_2023080216strings_internal13StringifySink6AppendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp22, i64 2, ptr nonnull %conv.sink13.i.i.i)
           to label %invoke.cont24 unwind label %lpad23
 
 invoke.cont24:                                    ; preds = %_ZN4absl12lts_2023080216strings_internal22ExtractStringificationINS0_3HexEEESt17basic_string_viewIcSt11char_traitsIcEERNS1_13StringifySinkERKT_.exit.i

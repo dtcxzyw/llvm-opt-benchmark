@@ -24660,45 +24660,45 @@ define internal fastcc ptr @clusterManagerMigrateKeysInReply(ptr noundef readonl
   %96 = add nuw i64 %.094108, 1
   %97 = load i64, ptr %16, align 8, !tbaa !28
   %98 = icmp ult i64 %96, %97
-  br i1 %98, label %.lr.ph.split, label %._crit_edge.thread120, !llvm.loop !490
+  br i1 %98, label %.lr.ph.split, label %._crit_edge.thread, !llvm.loop !490
 
 ._crit_edge:                                      ; preds = %62
   %.not105 = icmp eq ptr %5, null
-  br i1 %.not105, label %._crit_edge.thread, label %._crit_edge.thread120
+  br i1 %.not105, label %100, label %._crit_edge.thread
 
-._crit_edge.thread120:                            ; preds = %.lr.ph.split, %._crit_edge
-  %.lcssa123 = phi i64 [ 0, %._crit_edge ], [ %97, %.lr.ph.split ]
-  %99 = getelementptr inbounds nuw i8, ptr %5, i64 %.lcssa123
+._crit_edge.thread:                               ; preds = %.lr.ph.split, %._crit_edge
+  %.lcssa120 = phi i64 [ 0, %._crit_edge ], [ %97, %.lr.ph.split ]
+  %99 = getelementptr inbounds nuw i8, ptr %5, i64 %.lcssa120
   store i8 0, ptr %99, align 1, !tbaa !67
-  br label %._crit_edge.thread
+  br label %100
 
-._crit_edge.thread:                               ; preds = %.lr.ph.split.us, %._crit_edge.thread120, %._crit_edge
+100:                                              ; preds = %.lr.ph.split.us, %._crit_edge.thread, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #33
   store ptr null, ptr %9, align 8, !tbaa !23
-  %100 = load ptr, ptr %0, align 8, !tbaa !82
-  %101 = trunc i64 %18 to i32
-  %102 = call i32 @redisAppendCommandArgv(ptr noundef %100, i32 noundef %101, ptr noundef nonnull %20, ptr noundef nonnull %21) #33
-  %103 = load ptr, ptr %0, align 8, !tbaa !82
-  %104 = call i32 @redisGetReply(ptr noundef %103, ptr noundef nonnull %9) #33
+  %101 = load ptr, ptr %0, align 8, !tbaa !82
+  %102 = trunc i64 %18 to i32
+  %103 = call i32 @redisAppendCommandArgv(ptr noundef %101, i32 noundef %102, ptr noundef nonnull %20, ptr noundef nonnull %21) #33
+  %104 = load ptr, ptr %0, align 8, !tbaa !82
+  %105 = call i32 @redisGetReply(ptr noundef %104, ptr noundef nonnull %9) #33
   %invariant.gep = getelementptr ptr, ptr %20, i64 %65
-  %105 = load i64, ptr %16, align 8, !tbaa !28
-  %.not114 = icmp eq i64 %105, 0
+  %106 = load i64, ptr %16, align 8, !tbaa !28
+  %.not114 = icmp eq i64 %106, 0
   br i1 %.not114, label %._crit_edge112, label %.lr.ph111
 
-.lr.ph111:                                        ; preds = %._crit_edge.thread, %.lr.ph111
-  %.195109 = phi i64 [ %107, %.lr.ph111 ], [ 0, %._crit_edge.thread ]
+.lr.ph111:                                        ; preds = %100, %.lr.ph111
+  %.195109 = phi i64 [ %108, %.lr.ph111 ], [ 0, %100 ]
   %gep = getelementptr ptr, ptr %invariant.gep, i64 %.195109
-  %106 = load ptr, ptr %gep, align 8, !tbaa !24
-  call void @hi_sdsfree(ptr noundef %106) #33
-  %107 = add nuw i64 %.195109, 1
-  %108 = load i64, ptr %16, align 8, !tbaa !28
-  %109 = icmp ult i64 %107, %108
-  br i1 %109, label %.lr.ph111, label %._crit_edge112, !llvm.loop !491
+  %107 = load ptr, ptr %gep, align 8, !tbaa !24
+  call void @hi_sdsfree(ptr noundef %107) #33
+  %108 = add nuw i64 %.195109, 1
+  %109 = load i64, ptr %16, align 8, !tbaa !28
+  %110 = icmp ult i64 %108, %109
+  br i1 %110, label %.lr.ph111, label %._crit_edge112, !llvm.loop !491
 
-._crit_edge112:                                   ; preds = %.lr.ph111, %._crit_edge.thread
-  %110 = icmp eq i32 %104, 0
-  %111 = load ptr, ptr %9, align 8
-  %spec.select107 = select i1 %110, ptr %111, ptr null
+._crit_edge112:                                   ; preds = %.lr.ph111, %100
+  %111 = icmp eq i32 %105, 0
+  %112 = load ptr, ptr %9, align 8
+  %spec.select107 = select i1 %111, ptr %112, ptr null
   call void @zfree(ptr noundef nonnull %20) #33
   call void @zfree(ptr noundef nonnull %21) #33
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #33

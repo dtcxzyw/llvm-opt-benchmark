@@ -2732,25 +2732,25 @@ if.end64:                                         ; preds = %for.body.i82, %for.
   %17 = load ptr, ptr %dirs, align 8
   %_M_finish.i96 = getelementptr inbounds nuw i8, ptr %dirs, i64 8
   %18 = load ptr, ptr %_M_finish.i96, align 8
-  %cmp.i.not104 = icmp eq ptr %17, %18
-  br i1 %cmp.i.not104, label %for.end, label %for.body.lr.ph
+  %cmp.i.not103 = icmp eq ptr %17, %18
+  br i1 %cmp.i.not103, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %if.end64
   %19 = load i16, ptr %dir, align 4
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc
-  %__begin1.sroa.0.0105 = phi ptr [ %17, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
-  %20 = load i16, ptr %__begin1.sroa.0.0105, align 4
+  %__begin1.sroa.0.0104 = phi ptr [ %17, %for.body.lr.ph ], [ %incdec.ptr.i, %for.inc ]
+  %20 = load i16, ptr %__begin1.sroa.0.0104, align 4
   %cmp75 = icmp eq i16 %20, %19
   br i1 %cmp75, label %if.then76, label %for.inc
 
 if.then76:                                        ; preds = %for.body
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__begin1.sroa.0.0105, ptr noundef nonnull align 4 dereferenceable(12) %dir, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %__begin1.sroa.0.0104, ptr noundef nonnull align 4 dereferenceable(12) %dir, i64 12, i1 false)
   br label %return
 
 for.inc:                                          ; preds = %for.body
-  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0105, i64 12
+  %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin1.sroa.0.0104, i64 12
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %18
   br i1 %cmp.i.not, label %for.end, label %for.body
 

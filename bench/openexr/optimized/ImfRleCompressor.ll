@@ -316,16 +316,16 @@ while.body:                                       ; preds = %while.body.preheade
   store i8 %sub, ptr %t.018, align 1
   %t.0 = getelementptr inbounds nuw i8, ptr %t.018, i64 1
   %cmp8 = icmp ult ptr %t.0, %add.ptr7
-  br i1 %cmp8, label %while.body, label %while.end.thread, !llvm.loop !7
+  br i1 %cmp8, label %while.body, label %while.end.loopexit, !llvm.loop !7
 
-while.end.thread:                                 ; preds = %while.body
+while.end.loopexit:                               ; preds = %while.body
   %.pre23 = load ptr, ptr %_tmpBuffer, align 8
   %_outBuffer1824 = getelementptr inbounds nuw i8, ptr %this, i64 32
   br label %if.then25.preheader
 
 while.end:                                        ; preds = %if.end4
   %_outBuffer18 = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %cmp2419 = icmp eq i32 %call, 1
+  %7 = icmp eq i32 %call, 1
   br i1 %cmp2419, label %if.then25.preheader, label %return
 
 if.then25.preheader:                              ; preds = %while.end.thread, %while.end
@@ -334,8 +334,8 @@ if.then25.preheader:                              ; preds = %while.end.thread, %
   %7 = load ptr, ptr %_outBuffer1827, align 8
   %add.ptr2128 = getelementptr inbounds i8, ptr %7, i64 %idx.ext
   %add15 = add nuw nsw i32 %call, 1
-  %div2930 = lshr i32 %add15, 1
-  %idx.ext16 = zext nneg i32 %div2930 to i64
+  %div2425 = lshr i32 %add15, 1
+  %idx.ext16 = zext nneg i32 %div2425 to i64
   %add.ptr17 = getelementptr inbounds nuw i8, ptr %6, i64 %idx.ext16
   br label %if.then25
 

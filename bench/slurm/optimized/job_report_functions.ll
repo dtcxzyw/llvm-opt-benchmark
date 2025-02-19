@@ -1420,7 +1420,7 @@ define internal fastcc void @_check_create_grouping(ptr noundef %0, ptr noundef 
   br i1 %.not55, label %._crit_edge, label %.lr.ph.split, !llvm.loop !30
 
 ._crit_edge:                                      ; preds = %.lr.ph.split
-  %.not56 = icmp eq i32 %59, 0
+  %.0.lcssa = icmp eq i32 %59, 0
   br i1 %.not56, label %._crit_edge.thread, label %64
 
 64:                                               ; preds = %._crit_edge

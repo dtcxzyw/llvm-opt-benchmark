@@ -910,12 +910,12 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_vector(ptr noundef %0, i32 noun
   br i1 %41, label %.preheader186, label %.preheader187.preheader
 
 .preheader187.preheader:                          ; preds = %.loopexit
-  %wide.trip.count257 = zext i32 %1 to i64
+  %umax = zext i32 %1 to i64
   br label %.preheader187
 
 .preheader186:                                    ; preds = %.loopexit
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %wide.trip.count262 = zext i32 %1 to i64
+  %umax261 = zext i32 %1 to i64
   br label %43
 
 43:                                               ; preds = %.preheader186, %91
@@ -1313,7 +1313,7 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_vector(ptr noundef %0, i32 nou
 
 .loopexit:                                        ; preds = %.preheader156, %31
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %wide.trip.count221 = zext i32 %1 to i64
+  %umax = zext i32 %1 to i64
   br label %39
 
 39:                                               ; preds = %.loopexit, %87
@@ -1714,7 +1714,7 @@ define i32 @H5FD_read_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2, 
   br i1 %.not130, label %57, label %.preheader158.preheader
 
 .preheader158.preheader:                          ; preds = %56
-  %wide.trip.count183 = zext i32 %2 to i64
+  %umax = zext i32 %2 to i64
   br label %.preheader158
 
 57:                                               ; preds = %56
@@ -2791,7 +2791,7 @@ define range(i32 -1, -2147483648) i32 @H5FD_read_selection_id(i32 noundef %0, pt
   br i1 %.not117, label %60, label %.preheader155.preheader
 
 .preheader155.preheader:                          ; preds = %59
-  %wide.trip.count170 = zext i32 %3 to i64
+  %umax = zext i32 %3 to i64
   br label %.preheader155
 
 60:                                               ; preds = %59
@@ -3114,7 +3114,7 @@ define i32 @H5FD_write_selection(ptr noundef %0, i32 noundef %1, i32 noundef %2,
   br i1 %.not125, label %53, label %.preheader148.preheader
 
 .preheader148.preheader:                          ; preds = %52
-  %wide.trip.count172 = zext i32 %2 to i64
+  %umax = zext i32 %2 to i64
   br label %.preheader148
 
 53:                                               ; preds = %52
@@ -4172,7 +4172,7 @@ define range(i32 -1, -2147483648) i32 @H5FD_write_selection_id(i32 noundef %0, p
   br i1 %.not112, label %56, label %.preheader145.preheader
 
 .preheader145.preheader:                          ; preds = %55
-  %wide.trip.count159 = zext i32 %3 to i64
+  %umax = zext i32 %3 to i64
   br label %.preheader145
 
 56:                                               ; preds = %55

@@ -788,9 +788,9 @@ get_help.exit28:                                  ; preds = %55, %52
 
 60:                                               ; preds = %58
   %61 = icmp ugt i64 %19, 1
-  br i1 %61, label %.lr.ph, label %86
+  br i1 %61, label %.preheader77, label %86
 
-.lr.ph:                                           ; preds = %60, %75
+.preheader77:                                     ; preds = %60, %75
   %62 = phi ptr [ %77, %75 ], [ %21, %60 ]
   %storemerge85 = phi ptr [ %76, %75 ], [ @phpdbg_prompt_commands, %60 ]
   %63 = load ptr, ptr %16, align 8, !tbaa !59

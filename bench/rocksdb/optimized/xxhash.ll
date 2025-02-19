@@ -4557,9 +4557,9 @@ while.body:                                       ; preds = %if.end3, %while.bod
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %add.ptr, ptr nonnull align 1 %spec.select23, i64 %cond, i1 false)
   %add = add i64 %cond, %pos.036
   %cmp10 = icmp ult i64 %add, %secretSize
-  br i1 %cmp10, label %while.body, label %for.body.lr.ph, !llvm.loop !27
+  br i1 %cmp10, label %while.body, label %while.end, !llvm.loop !27
 
-for.body.lr.ph:                                   ; preds = %while.body
+while.end:                                        ; preds = %while.body
   %div22 = lshr i64 %secretSize, 4
   %call.i.i = tail call fastcc { i64, i64 } @_ZL21XXH3_128bits_internalPKvmmS0_mPF13XXH128_hash_tS0_mmS0_mE(ptr noundef nonnull %spec.select23, i64 noundef %spec.select, i64 noundef 0, ptr noundef nonnull @_ZL12XXH3_kSecret, i64 noundef 192, ptr noundef nonnull @_ZL27XXH3_hashLong_128b_withSeedPKvmmS0_m) #32
   %0 = extractvalue { i64, i64 } %call.i.i, 0

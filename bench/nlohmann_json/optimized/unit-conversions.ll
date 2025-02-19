@@ -96474,18 +96474,18 @@ if.then.i:                                        ; preds = %while.end.i, %if.el
 if.else.i:                                        ; preds = %if.then.i
   %call.i.i = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %__y.0.lcssa25.i) #32
   %_M_storage.i.i.i.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %call.i.i, i64 32
-  %.pre = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
-  %.pre110 = load i8, ptr %__k, align 1
-  %.pre111 = and i8 %.pre, 1
-  %.pre112 = and i8 %.pre110, 1
+  %.pre111 = load i8, ptr %_M_storage.i.i.i.i.phi.trans.insert, align 1
+  %.pre112 = load i8, ptr %__k, align 1
+  %.pre113 = and i8 %.pre111, 1
+  %.pre114 = and i8 %.pre112, 1
   br label %if.end12.i
 
 if.end12.i:                                       ; preds = %if.else.i, %while.end.i
-  %.pre-phi113 = phi i8 [ %.pre112, %if.else.i ], [ %7, %while.end.i ]
-  %.pre-phi = phi i8 [ %.pre111, %if.else.i ], [ %9, %while.end.i ]
+  %.pre-phi115 = phi i8 [ %.pre114, %if.else.i ], [ %7, %while.end.i ]
+  %.pre-phi = phi i8 [ %.pre113, %if.else.i ], [ %9, %while.end.i ]
   %__y.0.lcssa26.i = phi ptr [ %__y.0.lcssa25.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
   %__j.sroa.0.0.i = phi ptr [ %call.i.i, %if.else.i ], [ %__x.021.i, %while.end.i ]
-  %cmp.i5.i = icmp samesign ult i8 %.pre-phi, %.pre-phi113
+  %cmp.i5.i = icmp samesign ult i8 %.pre-phi, %.pre-phi115
   %spec.select.i = select i1 %cmp.i5.i, ptr null, ptr %__j.sroa.0.0.i
   %spec.select18.i = select i1 %cmp.i5.i, ptr %__y.0.lcssa26.i, ptr null
   br label %return
@@ -96553,15 +96553,15 @@ if.else57:                                        ; preds = %if.then50
 
 while.body.i69:                                   ; preds = %if.else57, %while.body.i69
   %__x.021.i70 = phi ptr [ %__x.0.i75, %while.body.i69 ], [ %__x.019.i66, %if.else57 ]
-  %cond.in.i74 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 24
+  %_M_storage.i.i.i71 = getelementptr inbounds nuw i8, ptr %__x.021.i70, i64 24
   %__x.0.i75 = load ptr, ptr %cond.in.i74, align 8
   %cmp.not.i76 = icmp eq ptr %__x.0.i75, null
   br i1 %cmp.not.i76, label %if.end12.i78, label %while.body.i69, !llvm.loop !2709
 
 if.then.i89:                                      ; preds = %if.else57
   %_M_left.i3.i91 = getelementptr inbounds nuw i8, ptr %this, i64 24
-  %19 = load ptr, ptr %_M_left.i3.i91, align 8
-  %cmp.i4.i92 = icmp eq ptr %add.ptr.i, %19
+  %21 = load ptr, ptr %_M_left.i3.i91, align 8
+  %cmp.i4.i92 = icmp eq ptr %add.ptr.i, %21
   br i1 %cmp.i4.i92, label %return, label %if.else.i93
 
 if.else.i93:                                      ; preds = %if.then.i89
@@ -96569,10 +96569,10 @@ if.else.i93:                                      ; preds = %if.then.i89
   br label %if.end12.i78
 
 if.end12.i78:                                     ; preds = %while.body.i69, %if.else.i93
-  %__y.0.lcssa26.i79 = phi ptr [ %add.ptr.i, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
-  %__j.sroa.0.0.i80 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
-  %_M_storage.i.i.i.i81 = getelementptr inbounds nuw i8, ptr %__j.sroa.0.0.i80, i64 32
-  %20 = load i8, ptr %_M_storage.i.i.i.i81, align 1
+  %.pre-phi119 = phi ptr [ %add.ptr.i, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
+  %__y.0.lcssa26.i79 = phi ptr [ %call.i.i94, %if.else.i93 ], [ %__x.021.i70, %while.body.i69 ]
+  %__j.sroa.0.0.i80 = getelementptr inbounds nuw i8, ptr %__y.0.lcssa26.i79, i64 32
+  %cmp.i5.i82 = load i8, ptr %.pre-phi119, align 1
   %21 = and i8 %20, 1
   %cmp.i5.i82 = icmp samesign ult i8 %21, %12
   %spec.select.i83 = select i1 %cmp.i5.i82, ptr null, ptr %__j.sroa.0.0.i80

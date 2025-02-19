@@ -1240,8 +1240,8 @@ _ZNK6snappy8internal13WorkingMemory12GetHashTableEmPi.exit: ; preds = %if.end, %
   %mul.i = zext nneg i32 %18 to i64
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %call5.i.i, i8 0, i64 %mul.i, i1 false)
   %add.i = add nuw nsw i64 %.sroa.speculated60, 32
-  %div.i.lhs.trunc = trunc nuw nsw i64 %.sroa.speculated60 to i32
-  %div.i75 = udiv i32 %div.i.lhs.trunc, 6
+  %div.i = trunc nuw nsw i64 %.sroa.speculated60 to i32
+  %add1.i = udiv i32 %div.i, 6
   %div.i.zext = zext nneg i32 %div.i75 to i64
   %add1.i = add nuw nsw i64 %add.i, %div.i.zext
   %vtable33 = load ptr, ptr %writer, align 8

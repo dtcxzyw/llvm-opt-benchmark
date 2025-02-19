@@ -3039,7 +3039,7 @@ _ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_Id
 
 379:                                              ; preds = %372, %_ZNSt10_HashtableIN4cvc58internal12NodeTemplateILb1EEES3_SaIS3_ENSt8__detail9_IdentityESt8equal_toIS3_ESt4hashIS3_ENS5_18_Mod_range_hashingENS5_20_Default_ranged_hashENS5_20_Prime_rehash_policyENS5_17_Hashtable_traitsILb1ELb1ELb1EEEE5clearEv.exit.i137
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #23
-  %.pre = load ptr, ptr %163, align 8, !tbaa !357
+  %.not10.i.i.i.i92 = load ptr, ptr %163, align 8, !tbaa !357
   %.not10.i.i.i.i92 = icmp eq ptr %.pre, null
   br i1 %.not10.i.i.i.i92, label %.critedge.i103, label %.lr.ph.i.i.i.i93
 

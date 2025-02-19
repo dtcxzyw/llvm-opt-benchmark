@@ -7813,23 +7813,23 @@ _ZNSt3setIiSt4lessIiESaIiEED2Ev.exit:             ; preds = %._crit_edge
 
 _ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i: ; preds = %.lr.ph.i.i.i
   %76 = icmp eq ptr %.19.i.i.i, %37
-  br i1 %76, label %.lr.ph.i.i.i14.preheader, label %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit
+  br i1 %76, label %.critedge, label %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit
 
 _ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit:        ; preds = %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %75, ptr %.0811.i.i.i, ptr %.012.i.i.i
   %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel.v, i64 32
   %77 = load i32, ptr %.19.i.i.i.sroa.sel.v.sroa.sel.v.sroa.sel, align 4, !tbaa !36
   %78 = icmp slt i32 %67, %77
-  br i1 %78, label %.lr.ph.i.i.i14.preheader, label %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit
+  br i1 %78, label %.critedge, label %_ZNSt3setIiSt4lessIiESaIiEE6insertERKi.exit
 
 .critedge:                                        ; preds = %68
   br i1 %.not10.i.i.i, label %._crit_edge.thread.i.i.i, label %.lr.ph.i.i.i14.preheader
 
-.lr.ph.i.i.i14.preheader:                         ; preds = %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, %.critedge
+.critedge:                                        ; preds = %_ZNSt3setIiSt4lessIiESaIiEE4findERKi.exit, %_ZNSt8_Rb_treeIiiSt9_IdentityIiESt4lessIiESaIiEE14_M_lower_boundEPSt13_Rb_tree_nodeIiEPSt18_Rb_tree_node_baseRKi.exit.i.i, %.critedge
   br label %.lr.ph.i.i.i14
 
-.lr.ph.i.i.i14:                                   ; preds = %.lr.ph.i.i.i14.preheader, %.lr.ph.i.i.i14
-  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i14 ], [ %.02022.i.i.i.pr.pre, %.lr.ph.i.i.i14.preheader ]
+.lr.ph.i.i.i14:                                   ; preds = %.critedge, %.lr.ph.i.i.i14
+  %.02024.i.i.i = phi ptr [ %.020.i.i.i, %.lr.ph.i.i.i14 ], [ %.02022.i.i.i.pr.pre, %.critedge ]
   %79 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i, i64 32
   %80 = load i32, ptr %79, align 4, !tbaa !36
   %81 = icmp slt i32 %67, %80

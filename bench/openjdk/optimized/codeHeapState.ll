@@ -3755,8 +3755,8 @@ _ZN13CodeHeapState21print_blobType_legendEP12outputStream.exit: ; preds = %47
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.117) #12
   %190 = load i64, ptr %67, align 8
   %.not384 = icmp eq i64 %190, 0
-  %or.cond467 = select i1 %.not, i1 true, i1 %.not384
-  br i1 %or.cond467, label %193, label %191
+  %or.cond468 = select i1 %.not, i1 true, i1 %.not384
+  br i1 %or.cond468, label %193, label %191
 
 191:                                              ; preds = %.loopexit
   %192 = call noundef ptr @_ZN14bufferedStream9as_stringEv(ptr noundef nonnull align 8 dereferenceable(89) %3) #12
@@ -3940,8 +3940,8 @@ _ZN13CodeHeapState21print_blobType_legendEP12outputStream.exit: ; preds = %47
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.129) #12
   %285 = load i64, ptr %221, align 8
   %.not387 = icmp eq i64 %285, 0
-  %or.cond468 = select i1 %.not, i1 true, i1 %.not387
-  br i1 %or.cond468, label %288, label %286
+  %or.cond469 = select i1 %.not, i1 true, i1 %.not387
+  br i1 %or.cond469, label %288, label %286
 
 286:                                              ; preds = %283
   %287 = call noundef ptr @_ZN14bufferedStream9as_stringEv(ptr noundef nonnull align 8 dereferenceable(89) %3) #12
@@ -3964,8 +3964,8 @@ _ZN13CodeHeapState21print_blobType_legendEP12outputStream.exit: ; preds = %47
   %293 = call noundef i64 @_ZN9ttyLocker8hold_ttyEv() #12
   %294 = load i64, ptr %221, align 8
   %.not388 = icmp eq i64 %294, 0
-  %or.cond469 = select i1 %.not, i1 true, i1 %.not388
-  br i1 %or.cond469, label %297, label %295
+  %or.cond470 = select i1 %.not, i1 true, i1 %.not388
+  br i1 %or.cond470, label %297, label %295
 
 295:                                              ; preds = %288
   %296 = call noundef ptr @_ZN14bufferedStream9as_stringEv(ptr noundef nonnull align 8 dereferenceable(89) %3) #12
@@ -4090,8 +4090,8 @@ _ZN13CodeHeapState21print_blobType_legendEP12outputStream.exit: ; preds = %47
   call void (ptr, ptr, ...) @_ZN12outputStream5printEPKcz(ptr noundef nonnull align 8 dereferenceable(56) %3, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.129) #12
   %359 = load i64, ptr %221, align 8
   %.not389 = icmp eq i64 %359, 0
-  %or.cond470 = select i1 %.not, i1 true, i1 %.not389
-  br i1 %or.cond470, label %362, label %360
+  %or.cond471 = select i1 %.not, i1 true, i1 %.not389
+  br i1 %or.cond471, label %362, label %360
 
 360:                                              ; preds = %357
   %361 = call noundef ptr @_ZN14bufferedStream9as_stringEv(ptr noundef nonnull align 8 dereferenceable(89) %3) #12

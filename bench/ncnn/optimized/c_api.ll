@@ -2104,16 +2104,16 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %13 = add nsw i64 %.01012.i.i.i.i.i, -1
   %14 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq i64 %13, 0
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i.i, label %.loopexit53, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i
+.loopexit53:                                      ; preds = %.lr.ph.i.i.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %14, ptr %15, align 8
-  %wide.trip.count = zext nneg i32 %1 to i64
+  %smax = zext nneg i32 %1 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %72
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %72 ]
+.lr.ph:                                           ; preds = %.loopexit53, %72
+  %indvars.iv = phi i64 [ 0, %.loopexit53 ], [ %indvars.iv.next, %72 ]
   %16 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %3, align 8
@@ -2792,7 +2792,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i73: ; preds = %_ZNSt6vect
   br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.loopexit101
-  %wide.trip.count = zext nneg i32 %2 to i64
+  %smax = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %88
@@ -3206,16 +3206,16 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %15 = add nsw i64 %.01012.i.i.i.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i.i, label %.loopexit46, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i
+.loopexit46:                                      ; preds = %.lr.ph.i.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %16, ptr %17, align 8
-  %wide.trip.count = zext nneg i32 %2 to i64
+  %smax = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %74
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
+.lr.ph:                                           ; preds = %.loopexit46, %74
+  %indvars.iv = phi i64 [ 0, %.loopexit46 ], [ %indvars.iv.next, %74 ]
   %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %5, align 8
@@ -3739,7 +3739,7 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i73: ; preds = %_ZNSt6vect
   br i1 %.not.i.i.i.i, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %.loopexit101
-  %wide.trip.count = zext nneg i32 %2 to i64
+  %smax = zext nneg i32 %2 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %88
@@ -4159,16 +4159,16 @@ _ZNSt12_Vector_baseIN4ncnn3MatESaIS1_EEC2EmRKS2_.exit.i: ; preds = %_ZNSt6vector
   %15 = add nsw i64 %.01012.i.i.i.i.i, -1
   %16 = getelementptr inbounds nuw i8, ptr %.013.i.i.i.i.i, i64 72
   %.not.i.i.i.i.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.preheader, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
+  br i1 %.not.i.i.i.i.i, label %.loopexit46, label %.lr.ph.i.i.i.i.i, !llvm.loop !6
 
-.lr.ph.preheader:                                 ; preds = %.lr.ph.i.i.i.i.i
+.loopexit46:                                      ; preds = %.lr.ph.i.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %16, ptr %17, align 8
-  %wide.trip.count = zext nneg i32 %2 to i64
+  %smax = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %74
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
+.lr.ph:                                           ; preds = %.loopexit46, %74
+  %indvars.iv = phi i64 [ 0, %.loopexit46 ], [ %indvars.iv.next, %74 ]
   %18 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv
   %19 = load ptr, ptr %18, align 8
   %20 = load ptr, ptr %5, align 8

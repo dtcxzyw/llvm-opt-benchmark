@@ -414,9 +414,9 @@ for.body.i.i.i.i.i25:                             ; preds = %for.body.i.i.i.i.i2
   %incdec.ptr4.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__prev.013.i.i.i.i.i, i64 32
   %__cur.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__cur.014.i.i.i.i.i, i64 32
   %cmp1.not.i.i.i.i.i = icmp eq ptr %__cur.0.i.i.i.i.i, %add.ptr.i.i.i
-  br i1 %cmp1.not.i.i.i.i.i, label %for.end.i.i.i.i.i, label %for.body.i.i.i.i.i25, !llvm.loop !11
+  br i1 %cmp1.not.i.i.i.i.i, label %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i, label %for.body.i.i.i.i.i25, !llvm.loop !11
 
-for.end.i.i.i.i.i:                                ; preds = %for.body.i.i.i.i.i25, %if.then.i.i.i24
+_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i: ; preds = %for.body.i.i.i.i.i25, %if.then.i.i.i24
   %__prev.0.lcssa.i.i.i.i.i = phi ptr [ %call.i.i.i.i, %if.then.i.i.i24 ], [ %incdec.ptr4.i.i.i.i.i, %for.body.i.i.i.i.i25 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %.pre57, ptr noundef nonnull align 8 dereferenceable(32) %__prev.0.lcssa.i.i.i.i.i, i64 32, i1 false)
   invoke fastcc void @"_ZSt22__stable_sort_adaptiveIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES5_lNS0_5__ops15_Iter_comp_iterIZNS3_13EndCollectionEN4absl12lts_202308024SpanIKSt17basic_string_viewIcSt11char_traitsIcEEEEE3$_0EEEvT_SN_T0_T1_T2_"(ptr nonnull %.pre57, ptr %.pre58, ptr noundef nonnull %call.i.i.i.i, i64 noundef %storemerge27.i.i.i.i)
@@ -432,8 +432,8 @@ lpad.i.i:                                         ; preds = %for.end.i.i.i.i.i
   tail call void @_ZdlPv(ptr noundef nonnull %call.i.i.i.i) #22
   br label %ehcleanup
 
-if.end22.i.i:                                     ; preds = %if.then5.i.i, %for.end.i.i.i.i.i
-  %__buf.sroa.4.017.i.i = phi ptr [ %call.i.i.i.i, %for.end.i.i.i.i.i ], [ null, %if.then5.i.i ]
+if.else.i.i:                                      ; preds = %if.then5.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i
+  %__buf.sroa.4.017.i.i = phi ptr [ %call.i.i.i.i, %_ZNSt17_Temporary_bufferIN9__gnu_cxx17__normal_iteratorIPN9grpc_core8EventLog5EntryESt6vectorIS4_SaIS4_EEEES4_EC2ES9_l.exit.i.i ], [ null, %if.then5.i.i ]
   tail call void @_ZdlPv(ptr noundef %__buf.sroa.4.017.i.i) #22
   br label %nrvo.skipdtor
 

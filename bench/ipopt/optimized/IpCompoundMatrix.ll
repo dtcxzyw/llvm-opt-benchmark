@@ -4441,7 +4441,7 @@ _ZNSt12_Vector_baseIN5Ipopt8SmartPtrIKNS0_11MatrixSpaceEEESaIS4_EEC2EmRKS5_.exit
   store ptr %53, ptr %7, align 8
   store i32 0, ptr %45, align 8
   %57 = lshr i32 %2, 6
-  %.zext = zext nneg i32 %57 to i64
+  %58 = zext nneg i32 %57 to i64
   %58 = getelementptr inbounds nuw i64, ptr %53, i64 %.zext
   %59 = and i32 %2, 63
   store ptr %58, ptr %46, align 8

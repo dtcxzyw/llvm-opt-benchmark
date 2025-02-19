@@ -772,7 +772,7 @@ define range(i32 -192, 1) i32 @wc_Sha224GetHash(ptr noundef readonly captures(ad
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull readonly align 16 dereferenceable(128) %0, i64 128, i1 false)
   %7 = call fastcc i32 @Sha256Final(ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.lr.ph26.i.i, label %.lr.ph29.i.i.preheader
+  br i1 %.not.i, label %.lr.ph26.i.i, label %.lr.ph29.preheader.i.i
 
 .lr.ph26.i.i:                                     ; preds = %6, %.lr.ph26.i.i
   %indvars.iv30.i.i = phi i64 [ %indvars.iv.next31.i.i, %.lr.ph26.i.i ], [ 0, %6 ]
@@ -786,14 +786,14 @@ define range(i32 -192, 1) i32 @wc_Sha224GetHash(ptr noundef readonly captures(ad
 
 ByteReverseWords.exit.i:                          ; preds = %.lr.ph26.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %1, ptr noundef nonnull align 16 dereferenceable(28) %3, i64 28, i1 false)
-  br label %.lr.ph29.i.i.preheader
+  br label %.lr.ph29.preheader.i.i
 
-.lr.ph29.i.i.preheader:                           ; preds = %ByteReverseWords.exit.i, %6
+.lr.ph29.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %6
   br label %.lr.ph29.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
-  %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %3, %.lr.ph29.i.i.preheader ]
-  %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ 128, %.lr.ph29.i.i.preheader ]
+  %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %3, %.lr.ph29.preheader.i.i ]
+  %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ 128, %.lr.ph29.preheader.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !18
   %12 = add nsw i32 %.01827.i.i, -8
@@ -835,7 +835,7 @@ define range(i32 -192, 1) i32 @wc_Sha256GetHash(ptr noundef readonly captures(ad
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(128) %3, ptr noundef nonnull readonly align 16 dereferenceable(128) %0, i64 128, i1 false)
   %7 = call fastcc i32 @Sha256Final(ptr noundef nonnull %3)
   %.not.i = icmp eq i32 %7, 0
-  br i1 %.not.i, label %.lr.ph26.i.i, label %.lr.ph29.i.i.preheader
+  br i1 %.not.i, label %.lr.ph26.i.i, label %.lr.ph29.preheader.i.i
 
 .lr.ph26.i.i:                                     ; preds = %6, %.lr.ph26.i.i
   %indvars.iv30.i.i = phi i64 [ %indvars.iv.next31.i.i, %.lr.ph26.i.i ], [ 0, %6 ]
@@ -849,14 +849,14 @@ define range(i32 -192, 1) i32 @wc_Sha256GetHash(ptr noundef readonly captures(ad
 
 ByteReverseWords.exit.i:                          ; preds = %.lr.ph26.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %1, ptr noundef nonnull align 16 dereferenceable(32) %3, i64 32, i1 false)
-  br label %.lr.ph29.i.i.preheader
+  br label %.lr.ph29.preheader.i.i
 
-.lr.ph29.i.i.preheader:                           ; preds = %ByteReverseWords.exit.i, %6
+.lr.ph29.preheader.i.i:                           ; preds = %ByteReverseWords.exit.i, %6
   br label %.lr.ph29.i.i
 
 .lr.ph29.i.i:                                     ; preds = %.lr.ph29.i.i.preheader, %.lr.ph29.i.i
-  %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %3, %.lr.ph29.i.i.preheader ]
-  %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ 128, %.lr.ph29.i.i.preheader ]
+  %.01528.i.i = phi ptr [ %11, %.lr.ph29.i.i ], [ %3, %.lr.ph29.preheader.i.i ]
+  %.01827.i.i = phi i32 [ %12, %.lr.ph29.i.i ], [ 128, %.lr.ph29.preheader.i.i ]
   %11 = getelementptr inbounds nuw i8, ptr %.01528.i.i, i64 8
   store volatile i64 0, ptr %.01528.i.i, align 8, !tbaa !18
   %12 = add nsw i32 %.01827.i.i, -8

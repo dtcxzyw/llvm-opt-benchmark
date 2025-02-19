@@ -633,25 +633,25 @@ define dso_local noundef zeroext i1 @_ZN30btKinematicCharacterController22recove
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i: ; preds = %59
   %.not.i5.i.i = icmp eq ptr %.pre, null
-  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
+  br i1 %.not.i5.i.i, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i, label %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
 
 _ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i: ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   %62 = load i8, ptr %46, align 8, !tbaa !10, !range !55, !noundef !56
   %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  br i1 %63, label %64, label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i
 
 64:                                               ; preds = %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i
   call void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %.pre)
-  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i
+  br label %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i
 
-_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i: ; preds = %64, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
+_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i: ; preds = %64, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.thread.i.i, %_ZNK20btAlignedObjectArrayIP20btPersistentManifoldE4copyEiiPS1_.exit.i.i
   store i8 1, ptr %46, align 8, !tbaa !10
   store ptr null, ptr %45, align 8, !tbaa !17
   store i32 0, ptr %44, align 8, !tbaa !19
   br label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i, %59
-  %65 = phi ptr [ null, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE10deallocateEv.exit.i.i ], [ %.pre, %59 ]
+  %65 = phi ptr [ null, %_ZN20btAlignedObjectArrayIP20btPersistentManifoldE7reserveEi.exit.i ], [ %.pre, %59 ]
   %66 = sext i32 %57 to i64
   %67 = shl nsw i64 %66, 3
   %scevgep = getelementptr i8, ptr %65, i64 %67

@@ -3819,7 +3819,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %108 = fsub double %106, %107
   %109 = tail call double @llvm.fabs.f64(double %108)
   %110 = fcmp ugt double %109, %50
-  br i1 %110, label %.lr.ph310.i, label %.loopexit263.i..lr.ph321.i_crit_edge.critedge
+  br i1 %110, label %.lr.ph310.i, label %.lr.ph321.i.critedge
 
 .lr.ph310.i:                                      ; preds = %.preheader265.i
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 1144
@@ -4122,7 +4122,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   store double %268, ptr %269, align 8, !tbaa !130
   %indvars.iv.next351.i = add nuw nsw i64 %indvars.iv350.i, 1
   %exitcond355.not.i = icmp eq i64 %indvars.iv.next351.i, %wide.trip.count338.i
-  br i1 %exitcond355.not.i, label %.loopexit263.thread.i, label %266
+  br i1 %exitcond355.not.i, label %.loopexit263.loopexit.i, label %266
 
 270:                                              ; preds = %261
   store double %.1244.i, ptr %105, align 8, !tbaa !129
@@ -4154,7 +4154,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %282 = fcmp ugt double %280, %281
   br i1 %282, label %.backedge.i, label %.loopexit263.i.loopexit
 
-.loopexit263.thread.i:                            ; preds = %266
+.loopexit263.loopexit.i:                          ; preds = %266
   %.pre368.i = load double, ptr %20, align 8, !tbaa !155
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store double %.pre368.i, ptr %283, align 8, !tbaa !156
@@ -4162,7 +4162,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
 
 .loopexit263.i.loopexit:                          ; preds = %._crit_edge300.loopexit.i, %.backedge.i, %._crit_edge304.i
   %.ph = phi double [ %278, %._crit_edge304.i ], [ %259, %.backedge.i ], [ %.pre.i, %._crit_edge300.loopexit.i ]
-  %284 = icmp sgt i32 %200, 0
+  %283 = icmp sgt i32 %200, 0
   %285 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store double %.ph, ptr %285, align 8, !tbaa !156
   br i1 %284, label %.loopexit263.i..lr.ph321.i_crit_edge, label %._crit_edge.thread.thread116
@@ -4174,8 +4174,8 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   store double %287, ptr %288, align 8, !tbaa !129
   br label %372
 
-.loopexit263.i..lr.ph321.i_crit_edge.critedge:    ; preds = %.preheader265.i
-  %289 = getelementptr inbounds nuw i8, ptr %0, i64 1120
+.lr.ph321.i.critedge:                             ; preds = %.preheader265.i
+  %.ph158 = getelementptr inbounds nuw i8, ptr %0, i64 1120
   store double %106, ptr %289, align 8, !tbaa !156
   br label %.loopexit263.i..lr.ph321.i_crit_edge
 
@@ -4186,12 +4186,12 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %.pre109 = load ptr, ptr %58, align 8, !tbaa !110
   br label %.lr.ph321.i
 
-.lr.ph321.i:                                      ; preds = %.loopexit263.i..lr.ph321.i_crit_edge, %.loopexit263.thread.i
-  %290 = phi ptr [ %.pre109, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %202, %.loopexit263.thread.i ]
-  %291 = phi ptr [ %.pre108, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %264, %.loopexit263.thread.i ]
-  %292 = phi ptr [ %.pre106, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %265, %.loopexit263.thread.i ]
-  %293 = getelementptr inbounds nuw i8, ptr %0, i64 1088
-  %294 = load ptr, ptr %293, align 8, !tbaa !108
+.lr.ph321.i:                                      ; preds = %.loopexit263.i..lr.ph321.i_crit_edge, %.loopexit263.loopexit.i
+  %289 = phi ptr [ %.pre109, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %202, %.loopexit263.thread.i ]
+  %290 = phi ptr [ %.pre108, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %264, %.loopexit263.thread.i ]
+  %291 = phi ptr [ %.pre106, %.loopexit263.i..lr.ph321.i_crit_edge ], [ %265, %.loopexit263.thread.i ]
+  %292 = getelementptr inbounds nuw i8, ptr %0, i64 1088
+  %293 = load ptr, ptr %292, align 8, !tbaa !108
   br label %295
 
 295:                                              ; preds = %333, %.lr.ph321.i
@@ -4200,7 +4200,7 @@ define internal fastcc range(i32 -10, 2) i32 @IDARcheck3(ptr noundef nonnull %0)
   %297 = load double, ptr %296, align 8, !tbaa !130
   %298 = getelementptr inbounds nuw double, ptr %291, i64 %indvars.iv356.i
   store double %297, ptr %298, align 8, !tbaa !130
-  %299 = getelementptr inbounds nuw i32, ptr %294, i64 %indvars.iv356.i
+  %299 = getelementptr inbounds nuw i32, ptr %293, i64 %indvars.iv356.i
   store i32 0, ptr %299, align 4, !tbaa !111
   %300 = getelementptr inbounds nuw i32, ptr %290, i64 %indvars.iv356.i
   %301 = load i32, ptr %300, align 4, !tbaa !111
@@ -4298,11 +4298,11 @@ IDARootfind.exit:                                 ; preds = %333, %145, %._crit_
 
 352:                                              ; preds = %347
   store i32 1, ptr %345, align 4, !tbaa !111
-  %.pre110 = load i32, ptr %52, align 8, !tbaa !87
+  %.pre106 = load i32, ptr %52, align 8, !tbaa !87
   br label %353
 
 353:                                              ; preds = %343, %347, %352
-  %354 = phi i32 [ %344, %343 ], [ %344, %347 ], [ %.pre110, %352 ]
+  %354 = phi i32 [ %344, %343 ], [ %344, %347 ], [ %.pre106, %352 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %355 = sext i32 %354 to i64
   %356 = icmp slt i64 %indvars.iv.next, %355

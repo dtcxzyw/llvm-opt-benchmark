@@ -3034,9 +3034,9 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
 
 98:                                               ; preds = %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
   %99 = sdiv i32 %7, 4
-  %.sext = sext i32 %99 to i64
-  %100 = shl nsw i64 %.sext, 2
-  %101 = sdiv i32 %7, 2
+  %100 = sext i32 %99 to i64
+  %101 = shl nsw i64 %100, 2
+  %102 = sdiv i32 %7, 2
   %.sext51 = sext i32 %101 to i64
   %102 = shl nsw i64 %.sext51, 1
   %.off.i.i.i.i12 = add nsw i64 %8, 1
@@ -3090,8 +3090,8 @@ _ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit
 
 127:                                              ; preds = %122, %._crit_edge.i.i.i.i21, %103
   %.072.i.i.i.i14 = phi <2 x double> [ %105, %103 ], [ %126, %122 ], [ %112, %._crit_edge.i.i.i.i21 ]
-  %shift74 = shufflevector <2 x double> %.072.i.i.i.i14, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %128 = fadd <2 x double> %.072.i.i.i.i14, %shift74
+  %shift72 = shufflevector <2 x double> %.072.i.i.i.i14, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %128 = fadd <2 x double> %.072.i.i.i.i14, %shift72
   %129 = extractelement <2 x double> %128, i64 0
   %130 = icmp slt i64 %102, %8
   br i1 %130, label %.lr.ph85.i.i.i.i16, label %_ZNK5Eigen10MatrixBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE11squaredNormEv.exit31

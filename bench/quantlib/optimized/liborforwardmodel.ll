@@ -4721,7 +4721,7 @@ _ZN8QuantLib5ArrayD2Ev.exit142:                   ; preds = %lpad108, %_ZNKSt14d
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %ref.tmp102) #25
   br label %ehcleanup198
 
-_ZN8QuantLib6MatrixD2Ev.exit:                     ; preds = %_ZN8QuantLib5ArrayD2Ev.exit164
+for.cond.cleanup136:                              ; preds = %_ZN8QuantLib5ArrayD2Ev.exit164
   call void @_ZdaPv(ptr noundef nonnull %cond.i125) #29
   %exitcond323.not = icmp eq i64 %add83, %div56
   br i1 %exitcond323.not, label %for.cond.cleanup75, label %for.body76, !llvm.loop !114
@@ -4810,7 +4810,7 @@ for.body.i:                                       ; preds = %for.body.i, %for.bo
   %72 = call double @llvm.fmuladd.f64(double %70, double %71, double %fwdRate.016.i)
   %i.0.i = add nuw i64 %i.017.i, 1
   %cmp.not.i148.not = icmp ult i64 %i.017.i, %add138
-  br i1 %cmp.not.i148.not, label %for.body.i, label %_ZN8QuantLib5ArrayD2Ev.exit164, !llvm.loop !94
+  br i1 %cmp.not.i148.not, label %for.body.i, label %invoke.cont186, !llvm.loop !94
 
 lpad139:                                          ; preds = %for.body137
   %73 = landingpad { ptr, i32 }
@@ -4839,7 +4839,7 @@ invoke.cont166:                                   ; preds = %for.cond149.prehead
   %cmp150.not.not = icmp ult i64 %j147.0304, %add138
   br i1 %cmp150.not.not, label %invoke.cont166, label %for.cond.cleanup151, !llvm.loop !116
 
-_ZN8QuantLib5ArrayD2Ev.exit164:                   ; preds = %for.body.i
+invoke.cont186:                                   ; preds = %for.body.i
   call void @_ZdaPv(ptr noundef nonnull %.pre.i147) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %f.i) #25
   call void @_ZdaPv(ptr noundef nonnull %67) #29
@@ -4856,7 +4856,7 @@ _ZN8QuantLib5ArrayD2Ev.exit164:                   ; preds = %for.body.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %w) #25
   %inc195 = add nuw i64 %l.0310, 1
   %exitcond322.not = icmp eq i64 %l.0310, %div56
-  br i1 %exitcond322.not, label %_ZN8QuantLib6MatrixD2Ev.exit, label %for.body137, !llvm.loop !117
+  br i1 %exitcond322.not, label %for.cond.cleanup136, label %for.body137, !llvm.loop !117
 
 lpad182:                                          ; preds = %for.cond.cleanup145
   %81 = landingpad { ptr, i32 }

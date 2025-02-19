@@ -2883,9 +2883,9 @@ define dso_local nonnull ptr @jq_yy_scan_bytes(ptr noundef readonly captures(non
   store i8 %10, ptr %11, align 1, !tbaa !37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.thread, label %.lr.ph, !llvm.loop !70
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !70
 
-._crit_edge.thread:                               ; preds = %.lr.ph
+._crit_edge:                                      ; preds = %.lr.ph
   %12 = zext nneg i32 %1 to i64
   %13 = getelementptr i8, ptr %6, i64 %12
   %14 = getelementptr i8, ptr %13, i64 1
@@ -2893,7 +2893,7 @@ define dso_local nonnull ptr @jq_yy_scan_bytes(ptr noundef readonly captures(non
   store i8 0, ptr %13, align 1, !tbaa !37
   br label %19
 
-._crit_edge:                                      ; preds = %.preheader
+18:                                               ; preds = %.preheader
   %15 = sext i32 %1 to i64
   %16 = getelementptr i8, ptr %6, i64 %15
   %17 = getelementptr i8, ptr %16, i64 1
@@ -2911,32 +2911,32 @@ define dso_local nonnull ptr @jq_yy_scan_bytes(ptr noundef readonly captures(non
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.4) #18
   unreachable
 
-22:                                               ; preds = %._crit_edge
+19:                                               ; preds = %._crit_edge
   tail call fastcc void @yy_fatal_error(ptr noundef nonnull @.str.6) #18
   unreachable
 
-23:                                               ; preds = %19
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  store i32 %1, ptr %24, align 8, !tbaa !27
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store ptr %6, ptr %25, align 8, !tbaa !29
-  %26 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %6, ptr %26, align 8, !tbaa !33
-  %27 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store i32 0, ptr %27, align 8, !tbaa !30
+20:                                               ; preds = %19
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 24
+  store i32 %1, ptr %21, align 8, !tbaa !27
+  %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store ptr %6, ptr %22, align 8, !tbaa !29
+  %23 = getelementptr inbounds nuw i8, ptr %20, i64 16
+  store ptr %6, ptr %23, align 8, !tbaa !33
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store i32 0, ptr %24, align 8, !tbaa !30
   store ptr null, ptr %20, align 8, !tbaa !36
-  %28 = getelementptr inbounds nuw i8, ptr %20, i64 28
-  store i32 %1, ptr %28, align 4, !tbaa !31
-  %29 = getelementptr inbounds nuw i8, ptr %20, i64 36
-  store i32 0, ptr %29, align 4, !tbaa !58
-  %30 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store i32 1, ptr %30, align 8, !tbaa !66
-  %31 = getelementptr inbounds nuw i8, ptr %20, i64 52
-  store i32 0, ptr %31, align 4, !tbaa !55
-  %32 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  store i32 0, ptr %32, align 8, !tbaa !51
+  %25 = getelementptr inbounds nuw i8, ptr %20, i64 28
+  store i32 %1, ptr %25, align 4, !tbaa !31
+  %26 = getelementptr inbounds nuw i8, ptr %20, i64 36
+  store i32 0, ptr %26, align 4, !tbaa !58
+  %27 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  store i32 1, ptr %27, align 8, !tbaa !66
+  %28 = getelementptr inbounds nuw i8, ptr %20, i64 52
+  store i32 0, ptr %28, align 4, !tbaa !55
+  %29 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  store i32 0, ptr %29, align 8, !tbaa !51
   tail call void @jq_yy_switch_to_buffer(ptr noundef nonnull %20, ptr noundef %2)
-  store i32 1, ptr %27, align 8, !tbaa !30
+  store i32 1, ptr %24, align 8, !tbaa !30
   ret ptr %20
 }
 

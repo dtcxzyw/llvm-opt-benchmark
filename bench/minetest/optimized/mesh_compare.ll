@@ -231,7 +231,7 @@ invoke.cont3.i.unr-lcssa:                         ; preds = %invoke.cont3.i.unr-
   %__cur.013.i.i.i.i.i.i.idx.unr = phi i64 [ 0, %_ZNSt12_Vector_baseISt5arrayIN3irr5video9S3DVertexELm3EESaIS4_EEC2EmRKS5_.exit.i.i ], [ %__cur.013.i.i.i.i.i.i.add.1, %invoke.cont3.i.unr-lcssa.loopexit ]
   %2 = and i32 %div.i, 1
   %lcmp.mod.not = icmp eq i32 %2, 0
-  br i1 %lcmp.mod.not, label %for.body.lr.ph.i, label %for.inc.i.i.i.i.i.i.epil
+  br i1 %lcmp.mod.not, label %invoke.cont3.i, label %for.inc.i.i.i.i.i.i.epil
 
 for.inc.i.i.i.i.i.i.epil:                         ; preds = %invoke.cont3.i.unr-lcssa
   %__cur.013.i.i.i.i.i.i.ptr.epil = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i46.i, i64 %__cur.013.i.i.i.i.i.i.idx.unr
@@ -250,9 +250,9 @@ for.inc.i.i.i.i.i.i.epil:                         ; preds = %invoke.cont3.i.unr-
   store <2 x float> zeroinitializer, ptr %TCoords.i.2.i.i.i.i.i.i.i.i.epil, align 4, !tbaa !23, !noalias !9
   %__cur.013.i.i.i.i.i.i.add.epil = add nuw nsw i64 %__cur.013.i.i.i.i.i.i.idx.unr, 108
   %incdec.ptr.i.i.i.i.i.i.ptr.epil = getelementptr inbounds i8, ptr %call5.i.i.i.i4.i.i46.i, i64 %__cur.013.i.i.i.i.i.i.add.epil
-  br label %for.body.lr.ph.i
+  br label %invoke.cont3.i
 
-for.body.lr.ph.i:                                 ; preds = %invoke.cont3.i.unr-lcssa, %for.inc.i.i.i.i.i.i.epil
+invoke.cont3.i:                                   ; preds = %invoke.cont3.i.unr-lcssa, %for.inc.i.i.i.i.i.i.epil
   %__cur.013.i.i.i.i.i.i.idx.lcssa = phi i64 [ %__cur.013.i.i.i.i.i.i.idx.lcssa.ph, %invoke.cont3.i.unr-lcssa ], [ %__cur.013.i.i.i.i.i.i.idx.unr, %for.inc.i.i.i.i.i.i.epil ]
   %__cur.013.i.i.i.i.i.i.ptr.lcssa = phi ptr [ %__cur.013.i.i.i.i.i.i.ptr.lcssa.ph, %invoke.cont3.i.unr-lcssa ], [ %__cur.013.i.i.i.i.i.i.ptr.epil, %for.inc.i.i.i.i.i.i.epil ]
   %__cur.013.i.i.i.i.i.i.add.lcssa = phi i64 [ %__cur.013.i.i.i.i.i.i.add.lcssa.ph, %invoke.cont3.i.unr-lcssa ], [ %__cur.013.i.i.i.i.i.i.add.epil, %for.inc.i.i.i.i.i.i.epil ]
@@ -351,7 +351,7 @@ for.cond.cleanup.thread:                          ; preds = %_ZNSt6vectorISt5arr
   br label %nrvo.skipdtor
 
 if.then.i.i:                                      ; preds = %invoke.cont
-  %12 = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i102.i, i1 true), !range !33
+  %sub.ptr.div.i.i.i = tail call i64 @llvm.ctlz.i64(i64 %sub.ptr.div.i.i.i102.i, i1 true), !range !33
   %sub.i.i.i = shl nuw nsw i64 %12, 1
   %mul.i.i = xor i64 %sub.i.i.i, 126
   invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt5arrayIN3irr5video9S3DVertexELm3EESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_less_iterEEvT_SE_T0_T1_(ptr nonnull %call5.i.i.i.i4.i.i46.i, ptr nonnull %incdec.ptr.i.i.i.i.i.i.ptr.lcssa, i64 noundef %mul.i.i)

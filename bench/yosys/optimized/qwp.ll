@@ -16071,16 +16071,16 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
 
 .lr.ph.preheader:                                 ; preds = %3
   %9 = icmp eq i64 %2, 0
-  br i1 %9, label %.split.i.i.i, label %.lr.ph29
+  br i1 %9, label %.split.i.i.i, label %.lr.ph37
 
-.lr.ph:                                           ; preds = %.lr.ph29
-  %10 = icmp eq i64 %24, 0
-  br i1 %10, label %.split.i.i.i, label %.lr.ph29, !llvm.loop !195
+.lr.ph:                                           ; preds = %.lr.ph37
+  %10 = icmp eq i64 %25, 0
+  br i1 %10, label %.split.i.i.i, label %.lr.ph37, !llvm.loop !195
 
 .split.i.i.i:                                     ; preds = %.lr.ph, %.lr.ph.preheader
-  %.lcssa = phi i64 [ %7, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %storemerge16.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %25, %.lr.ph ]
-  %11 = add nsw i64 %.lcssa, -2
+  %.lcssa33 = phi i64 [ %7, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %.lcssa = phi ptr [ %1, %.lr.ph.preheader ], [ %25, %.lr.ph ]
+  %storemerge18.lcssa = add nsw i64 %.lcssa, -2
   %12 = lshr i64 %11, 1
   br label %.split11.i.i.i
 
@@ -16090,45 +16090,45 @@ define linkonce_odr void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorI
   %.sroa.02.0.copyload.i.i.i = load double, ptr %phi.call.i.i.i, align 8
   %.sroa.23.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %phi.call.i.i.i, i64 8
   %.sroa.23.0.copyload.i.i.i = load i32, ptr %.sroa.23.0..sroa_idx.i.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa, double %.sroa.02.0.copyload.i.i.i, i32 %.sroa.23.0.copyload.i.i.i)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr %0, i64 noundef %.0.i.i.i, i64 noundef %.lcssa33, double %.sroa.02.0.copyload.i.i.i, i32 %.sroa.23.0.copyload.i.i.i)
   %13 = icmp eq i64 %.0.i.i.i, 0
   %14 = add nsw i64 %.0.i.i.i, -1
-  br i1 %13, label %.lr.ph.i8.i, label %.split11.i.i.i, !llvm.loop !196
+  br i1 %13, label %_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_RT0_.exit.i.i, label %.split11.i.i.i, !llvm.loop !196
 
-.lr.ph.i8.i:                                      ; preds = %.split11.i.i.i
+_ZSt11__make_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_RT0_.exit.i.i: ; preds = %.split11.i.i.i
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %16
 
-16:                                               ; preds = %16, %.lr.ph.i8.i
-  %.sroa.0.05.i.i = phi ptr [ %storemerge16.lcssa, %.lr.ph.i8.i ], [ %17, %16 ]
-  %17 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
-  %.sroa.02.0.copyload.i.i9.i = load double, ptr %17, align 8
+17:                                               ; preds = %17, %.lr.ph.i8.i
+  %.sroa.0.05.i.i = phi ptr [ %storemerge16.lcssa, %.lr.ph.i8.i ], [ %18, %17 ]
+  %18 = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -16
+  %.sroa.02.0.copyload.i.i9.i = load double, ptr %18, align 8
   %.sroa.23.0..sroa_idx.i.i10.i = getelementptr inbounds i8, ptr %.sroa.0.05.i.i, i64 -8
   %.sroa.23.0.copyload.i.i11.i = load i32, ptr %.sroa.23.0..sroa_idx.i.i10.i, align 8
-  %18 = load double, ptr %0, align 8
-  store double %18, ptr %17, align 8
-  %19 = load i32, ptr %15, align 4
-  store i32 %19, ptr %.sroa.23.0..sroa_idx.i.i10.i, align 8
-  %20 = ptrtoint ptr %17 to i64
-  %21 = sub i64 %20, %4
-  %22 = ashr exact i64 %21, 4
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %22, double %.sroa.02.0.copyload.i.i9.i, i32 %.sroa.23.0.copyload.i.i11.i)
-  %23 = icmp sgt i64 %21, 16
-  br i1 %23, label %16, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !197
+  %19 = load double, ptr %0, align 8
+  store double %19, ptr %18, align 8
+  %20 = load i32, ptr %15, align 4
+  store i32 %20, ptr %.sroa.23.0..sroa_idx.i.i10.i, align 8
+  %21 = ptrtoint ptr %18 to i64
+  %22 = sub i64 %21, %4
+  %23 = ashr exact i64 %22, 4
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEElS3_NS0_5__ops15_Iter_less_iterEEvT_T0_SC_T1_T2_(ptr nonnull %0, i64 noundef 0, i64 noundef %23, double %.sroa.02.0.copyload.i.i9.i, i32 %.sroa.23.0.copyload.i.i11.i)
+  %24 = icmp sgt i64 %22, 16
+  br i1 %24, label %17, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !197
 
-.lr.ph29:                                         ; preds = %.lr.ph.preheader, %.lr.ph
-  %storemerge1628 = phi ptr [ %25, %.lr.ph ], [ %1, %.lr.ph.preheader ]
-  %.01727 = phi i64 [ %24, %.lr.ph ], [ %2, %.lr.ph.preheader ]
-  %24 = add nsw i64 %.01727, -1
-  %25 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_T0_(ptr %0, ptr %storemerge1628)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr %25, ptr %storemerge1628, i64 noundef %24)
-  %26 = ptrtoint ptr %25 to i64
-  %27 = sub i64 %26, %4
-  %28 = ashr exact i64 %27, 4
-  %29 = icmp sgt i64 %28, 16
-  br i1 %29, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !195
+.lr.ph37:                                         ; preds = %.lr.ph.preheader, %.lr.ph
+  %storemerge1836 = phi ptr [ %26, %.lr.ph ], [ %1, %.lr.ph.preheader ]
+  %.01935 = phi i64 [ %25, %.lr.ph ], [ %2, %.lr.ph.preheader ]
+  %25 = add nsw i64 %.01935, -1
+  %26 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEET_SB_SB_T0_(ptr %0, ptr %storemerge1836)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEElNS0_5__ops15_Iter_less_iterEEvT_SB_T0_T1_(ptr %26, ptr %storemerge1836, i64 noundef %25)
+  %27 = ptrtoint ptr %26 to i64
+  %28 = sub i64 %27, %4
+  %29 = ashr exact i64 %28, 4
+  %30 = icmp sgt i64 %29, 16
+  br i1 %30, label %.lr.ph, label %_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit, !llvm.loop !195
 
-_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit: ; preds = %.lr.ph29, %16, %3
+_ZSt14__partial_sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIdiESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_T0_.exit: ; preds = %.lr.ph37, %17, %3
   ret void
 }
 
@@ -18189,7 +18189,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE
   %8 = load ptr, ptr %1, align 8
   %9 = load i8, ptr %8, align 1
   %.not5.i.i = icmp eq i8 %9, 0
-  br i1 %.not5.i.i, label %.loopexit, label %.lr.ph.i.i
+  br i1 %.not5.i.i, label %_ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit.thread6, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %7, %.lr.ph.i.i
   %10 = phi i8 [ %15, %.lr.ph.i.i ], [ %9, %7 ]
@@ -18201,16 +18201,16 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE
   %14 = xor i32 %13, %12
   %15 = load i8, ptr %11, align 1
   %.not.i.i = icmp eq i8 %15, 0
-  br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !220
+  br i1 %.not.i.i, label %_ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit.thread6, label %.lr.ph.i.i, !llvm.loop !220
 
-.loopexit:                                        ; preds = %.lr.ph.i.i, %7
-  %.0.lcssa.i.i = phi i32 [ 5381, %7 ], [ %14, %.lr.ph.i.i ]
+_ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit.thread6: ; preds = %.lr.ph.i.i, %7
+  %.lcssa21.sink = phi i32 [ 5381, %7 ], [ %14, %.lr.ph.i.i ]
   %16 = ptrtoint ptr %5 to i64
   %17 = ptrtoint ptr %3 to i64
   %18 = sub i64 %16, %17
   %19 = lshr exact i64 %18, 2
   %20 = trunc i64 %19 to i32
-  %21 = urem i32 %.0.lcssa.i.i, %20
+  %21 = urem i32 %.lcssa21.sink, %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %24 = load ptr, ptr %23, align 8
@@ -18224,7 +18224,7 @@ define linkonce_odr noundef i32 @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE
   %32 = icmp ugt i64 %30, %31
   br i1 %32, label %33, label %._crit_edge.i
 
-33:                                               ; preds = %.loopexit
+33:                                               ; preds = %_ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit.thread6
   tail call void @_ZN5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE9do_rehashEv(ptr noundef nonnull align 8 dereferenceable(49) %0)
   %34 = load ptr, ptr %0, align 8
   %35 = load ptr, ptr %4, align 8
@@ -18259,9 +18259,9 @@ _ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i.i: ; preds = %.lr.ph.i.i.i, %37
   %51 = urem i32 %.0.lcssa.i.i.i, %50
   br label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %33, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i.i, %.loopexit
-  %.0 = phi i32 [ %21, %.loopexit ], [ 0, %33 ], [ %51, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i.i ]
-  %52 = phi ptr [ %3, %.loopexit ], [ %34, %33 ], [ %34, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i.i ]
+._crit_edge.i:                                    ; preds = %33, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i.i, %_ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit.thread6
+  %.0 = phi i32 [ %21, %_ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit.thread6 ], [ 0, %33 ], [ %51, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i.i ]
+  %52 = phi ptr [ %3, %_ZNK5Yosys7hashlib4dictIPciNS0_13hash_cstr_opsEE7do_hashERKS2_.exit.thread6 ], [ %34, %33 ], [ %34, %_ZN5Yosys7hashlib13hash_cstr_ops4hashEPKc.exit.i.i ]
   %53 = sext i32 %.0 to i64
   %54 = getelementptr inbounds i32, ptr %52, i64 %53
   %55 = load i32, ptr %54, align 4

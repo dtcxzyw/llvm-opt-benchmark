@@ -151,9 +151,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
 ._crit_edge:                                      ; preds = %82
   %91 = zext nneg i32 %.2 to i64
   %.not265 = icmp sgt i64 %indvars.iv361, %91
-  br i1 %.not265, label %.lr.ph294.preheader, label %101
+  br i1 %.not265, label %.preheader270, label %101
 
-.lr.ph294.preheader:                              ; preds = %._crit_edge
+.preheader270:                                    ; preds = %._crit_edge
   %92 = add nuw i32 %62, 1
   %wide.trip.count359 = zext i32 %92 to i64
   br label %.lr.ph294
@@ -268,7 +268,7 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %132 = shl i32 %130, 1
   %133 = sext i32 %132 to i64
   %gep332.us = getelementptr i32, ptr %invariant.gep306, i64 %133
-  %invariant.gep391 = getelementptr i8, ptr %10, i64 -8
+  %invariant.gep392 = getelementptr i8, ptr %10, i64 -8
   br label %134
 
 134:                                              ; preds = %141, %.lr.ph340.split.us
@@ -277,9 +277,9 @@ define void @dlarrj_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %.1241336.us = phi i32 [ %.3227, %.lr.ph340.split.us ], [ %137, %141 ]
   %135 = shl i32 %.1241336.us, 1
   %136 = sext i32 %135 to i64
-  %gep392 = getelementptr i32, ptr %invariant.gep391, i64 %136
-  %137 = load i32, ptr %gep392, align 4, !tbaa !3
-  store i32 0, ptr %gep392, align 4, !tbaa !3
+  %gep393 = getelementptr i32, ptr %invariant.gep392, i64 %136
+  %137 = load i32, ptr %gep393, align 4, !tbaa !3
+  store i32 0, ptr %gep393, align 4, !tbaa !3
   %138 = icmp eq i32 %.4228338.us, %.1241336.us
   br i1 %138, label %141, label %139
 

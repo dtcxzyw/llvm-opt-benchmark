@@ -2661,19 +2661,19 @@ _ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %5) #25
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %6) #25
-  br i1 %.0, label %65, label %67
+  br i1 %.0, label %65, label %68
 
 65:                                               ; preds = %.body.thread, %.body
   %.pn24 = phi { ptr, i32 } [ %.pn.ph, %.body.thread ], [ %64, %.body ]
   call void @_ZdlPv(ptr noundef nonnull %27) #28
-  br label %67
+  br label %68
 
 _ZN9AstActive9addStmtspEP7AstNode.exit:           ; preds = %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit, %21
   %66 = phi ptr [ %.pre25, %_ZNSt6vectorISt4pairIP8AstScopeP9AstActiveESaIS5_EE12emplace_backIJRS2_S4_EEERS5_DpOT_.exit ], [ %23, %21 ]
   call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(192) %66, ptr noundef nonnull %3)
   ret void
 
-67:                                               ; preds = %.body, %65
+68:                                               ; preds = %.body, %65
   %.pn23 = phi { ptr, i32 } [ %64, %.body ], [ %.pn24, %65 ]
   resume { ptr, i32 } %.pn23
 }

@@ -3033,23 +3033,23 @@ land.lhs.true.i.i.i.i:                            ; preds = %while.end.i.i.i.i
   %sub17.i.i.i.i = add nsw i64 %sub.ptr.div.i.i.i.i, -2
   %div18.i.i.i.i = ashr exact i64 %sub17.i.i.i.i, 1
   %cmp19.i.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i.i, %div18.i.i.i.i
-  br i1 %cmp19.i.i.i.i, label %if.end33.i.thread.i.i.i, label %if.end33.i.i.i.i
+  br i1 %cmp19.i.i.i.i, label %if.then20.i.i.i.i, label %if.end33.i.i.i.i
 
-if.end33.i.thread.i.i.i:                          ; preds = %land.lhs.true.i.i.i.i
+if.then20.i.i.i.i:                                ; preds = %land.lhs.true.i.i.i.i
   %add21.i.i.i.i = shl nuw nsw i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 1
   %sub24.i.i.i.i = or disjoint i64 %add21.i.i.i.i, 1
   %add.ptr.i20.i.i.i.i = getelementptr inbounds nuw %"class.ue2::PositionInfo", ptr %__first.coerce, i64 %sub24.i.i.i.i
   %add.ptr.i21.i.i.i.i = getelementptr inbounds %"class.ue2::PositionInfo", ptr %__first.coerce, i64 %__holeIndex.addr.0.lcssa.i.i.i.i
   %5 = load i64, ptr %add.ptr.i20.i.i.i.i, align 4
   store i64 %5, ptr %add.ptr.i21.i.i.i.i, align 4
-  br label %land.rhs.i.i.preheader.i.i.i
+  br label %land.rhs.i.i.i.i.i
 
 if.end33.i.i.i.i:                                 ; preds = %land.lhs.true.i.i.i.i, %while.end.i.i.i.i
-  %cmp16.i.i.not.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 0
-  br i1 %cmp16.i.i.not.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, label %land.rhs.i.i.preheader.i.i.i
+  %__holeIndex.addr.1.i.i.i.i = icmp eq i64 %__holeIndex.addr.0.lcssa.i.i.i.i, 0
+  br i1 %__holeIndex.addr.1.i.i.i.i, label %_ZSt10__pop_heapIN9__gnu_cxx17__normal_iteratorIPN3ue212PositionInfoESt6vectorIS3_SaIS3_EEEENS0_5__ops15_Iter_less_iterEEvT_SB_SB_RT0_.exit.i.i, label %land.rhs.i.i.preheader.i.i.i
 
-land.rhs.i.i.preheader.i.i.i:                     ; preds = %if.end33.i.i.i.i, %if.end33.i.thread.i.i.i
-  %__holeIndex.addr.1.i8.i.i.i = phi i64 [ %sub24.i.i.i.i, %if.end33.i.thread.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i, %if.end33.i.i.i.i ]
+land.rhs.i.i.i.i.i:                               ; preds = %if.end33.i.i.i.i, %if.then20.i.i.i.i
+  %__holeIndex.addr.017.i.i.i.i.i = phi i64 [ %sub24.i.i.i.i, %if.then20.i.i.i.i ], [ %__holeIndex.addr.0.lcssa.i.i.i.i, %if.end33.i.i.i.i ]
   %__value.sroa.0.0.extract.trunc.i.i9.i.i.i = trunc i64 %__value.sroa.0.0.copyload.i.i.i to i32
   br label %land.rhs.i.i.i.i.i
 

@@ -8904,7 +8904,7 @@ _ZN3std4hash6random11RandomState3new4KEYS7__getit17h7a0280ef360f84c5E.llvm.86254
   %155 = load i64, ptr %55, align 8
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %18)
   %or.cond = select i1 %trunc, i1 true, i1 %trunc52
-  %.not.i81140 = icmp ult i64 %149, 6
+  %.not.i81 = icmp ult i64 %149, 6
   %not.trunc = xor i1 %trunc, true
   %.not.i81 = select i1 %not.trunc, i1 %.not.i81140, i1 false
   %or.cond139 = select i1 %or.cond, i1 true, i1 %.not.i81

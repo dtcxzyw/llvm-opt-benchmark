@@ -251,7 +251,7 @@ if.end:                                           ; preds = %entry
 land.lhs.true.i.i.i:                              ; preds = %if.end
   %add.i.i.i = add i32 %1, 1
   %cmp.i.i.i.i.i = icmp slt i32 %2, 0
-  br i1 %cmp.i.i.i.i.i, label %_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit.thread, label %if.end.i.i.i.i
+  br i1 %cmp.i.i.i.i.i, label %if.end.i.i.i, label %if.end.i.i.i.i
 
 if.end.i.i.i.i:                                   ; preds = %land.lhs.true.i.i.i
   %cmp9.not.i.i.i.i = icmp ugt i32 %add.i.i.i, %2
@@ -287,39 +287,39 @@ _ZN11hb_vector_tIPcLb0EE5allocEjb.exit.thread5.i.i.i: ; preds = %if.then28.i.i.i
   %new_allocated.028.sink.i.ph.in.i.i.i = phi i32 [ %2, %lor.rhs.i.i.i.i ], [ %6, %if.then28.i.i.i.i ]
   %new_allocated.028.sink.i.ph.i.i.i = xor i32 %new_allocated.028.sink.i.ph.in.i.i.i, -1
   store i32 %new_allocated.028.sink.i.ph.i.i.i, ptr %buffers.i.i, align 8
-  br label %_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit.thread
+  br label %if.end.i.i.i
 
 _ZN11hb_vector_tIPcLb0EE5allocEjb.exit.i.i.i:     ; preds = %_ZN11hb_vector_tIPcLb0EE14realloc_vectorIS0_TnPN12hb_enable_ifIXsr3std28is_trivially_copy_assignableIT_EE5valueEvE4typeELPv0EEEPS0_j11hb_priorityILj0EE.exit.i.i.i.i
   store ptr %call.i.i.i.i.i, ptr %arrayZ.i.i.i.i.i, align 8
   store i32 %add15.i.i.i.i, ptr %buffers.i.i, align 8
   br label %_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit
 
-_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit.thread: ; preds = %land.lhs.true.i.i.i, %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.thread5.i.i.i
+if.end.i.i.i:                                     ; preds = %land.lhs.true.i.i.i, %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.thread5.i.i.i
   %7 = load i64, ptr @_hb_NullPool, align 16
   store i64 %7, ptr @_hb_CrapPool, align 16
   br label %if.then3
 
 _ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit: ; preds = %if.end, %if.end.i.i.i.i, %if.then28.i.i.i.i, %_ZN11hb_vector_tIPcLb0EE5allocEjb.exit.i.i.i
   %arrayZ.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %8 = load ptr, ptr %arrayZ.i.i.i, align 8
-  %9 = load i32, ptr %length.i.i.i, align 4
-  %inc.i.i.i = add i32 %9, 1
+  %9 = load ptr, ptr %arrayZ.i.i.i, align 8
+  %10 = load i32, ptr %length.i.i.i, align 4
+  %inc.i.i.i = add i32 %10, 1
   store i32 %inc.i.i.i, ptr %length.i.i.i, align 4
-  %idxprom.i.i.i = zext i32 %9 to i64
-  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %8, i64 %idxprom.i.i.i
+  %idxprom.i.i.i = zext i32 %10 to i64
+  %arrayidx.i.i.i = getelementptr inbounds nuw ptr, ptr %9, i64 %idxprom.i.i.i
   store ptr %call, ptr %arrayidx.i.i.i, align 8
   %.pre.i.i = load i32, ptr %buffers.i.i, align 8
   %cmp.i.i.i = icmp sgt i32 %.pre.i.i, -1
   br i1 %cmp.i.i.i, label %if.end4, label %if.then3
 
-if.then3:                                         ; preds = %_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit.thread, %_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit
+if.then3:                                         ; preds = %if.end.i.i.i, %_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit
   tail call void @free(ptr noundef nonnull %call) #11
   br label %return
 
 if.end4:                                          ; preds = %_ZN5graph24gsubgpos_graph_context_t10add_bufferEPc.exit
-  %10 = load ptr, ptr %graph.i, align 8
+  %12 = load ptr, ptr %graph.i, align 8
   %add.ptr = getelementptr inbounds nuw i8, ptr %call, i64 %conv
-  %call5 = tail call noundef i32 @_ZN5graph7graph_t8new_nodeEPcS1_(ptr noundef nonnull align 8 dereferenceable(72) %10, ptr noundef nonnull %call, ptr noundef nonnull %add.ptr)
+  %call5 = tail call noundef i32 @_ZN5graph7graph_t8new_nodeEPcS1_(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr noundef nonnull %call, ptr noundef nonnull %add.ptr)
   br label %return
 
 return:                                           ; preds = %entry, %if.end4, %if.then3

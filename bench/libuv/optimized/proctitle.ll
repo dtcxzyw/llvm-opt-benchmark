@@ -60,7 +60,7 @@ define dso_local ptr @uv_setup_args(i32 noundef %0, ptr noundef readonly capture
   br i1 %.not, label %._crit_edge56, label %.lr.ph55.preheader
 
 .lr.ph55.preheader:                               ; preds = %19
-  %wide.trip.count69 = zext nneg i32 %0 to i64
+  %smax = zext nneg i32 %0 to i64
   br label %.lr.ph55
 
 .lr.ph55:                                         ; preds = %.lr.ph55.preheader, %.lr.ph55

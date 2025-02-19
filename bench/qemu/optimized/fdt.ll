@@ -751,45 +751,45 @@ fdt_check_node_offset_.exit:                      ; preds = %9
   %18 = call i32 @fdt_next_tag(ptr noundef %0, i32 noundef %17, ptr noundef nonnull %5)
   switch i32 %18, label %.backedge [
     i32 9, label %.split25.us
-    i32 2, label %21
+    i32 2, label %22
     i32 1, label %.split27.us
   ]
 
-.backedge:                                        ; preds = %21, %.split
+.backedge:                                        ; preds = %22, %.split
   %.pre = load i32, ptr %5, align 4
   br label %.split, !llvm.loop !6
 
 .split27.us:                                      ; preds = %.split
-  %19 = load i32, ptr %2, align 4
+  %.us-phi = load i32, ptr %2, align 4
   %20 = add i32 %19, 1
   store i32 %20, ptr %2, align 4
   br label %.thread
 
-21:                                               ; preds = %.split
-  %22 = load i32, ptr %2, align 4
-  %23 = add i32 %22, -1
-  store i32 %23, ptr %2, align 4
-  %24 = icmp slt i32 %23, 0
-  br i1 %24, label %25, label %.backedge
+22:                                               ; preds = %.split
+  %23 = load i32, ptr %2, align 4
+  %24 = add i32 %23, -1
+  store i32 %24, ptr %2, align 4
+  %25 = icmp slt i32 %24, 0
+  br i1 %25, label %26, label %.backedge
 
-25:                                               ; preds = %21
-  %26 = load i32, ptr %5, align 4
+26:                                               ; preds = %22
+  %27 = load i32, ptr %5, align 4
   br label %.thread
 
 .split25.us:                                      ; preds = %.split, %.split.us
-  %27 = load i32, ptr %5, align 4
-  %28 = icmp sgt i32 %27, -1
-  br i1 %28, label %.thread, label %29
+  %28 = load i32, ptr %5, align 4
+  %29 = icmp sgt i32 %28, -1
+  br i1 %29, label %.thread, label %30
 
-29:                                               ; preds = %.split25.us
-  %30 = icmp ne i32 %27, -8
-  %31 = icmp ne ptr %2, null
-  %or.cond = or i1 %31, %30
-  %spec.select = select i1 %or.cond, i32 %27, i32 -1
+30:                                               ; preds = %.split25.us
+  %31 = icmp ne i32 %28, -8
+  %32 = icmp ne ptr %2, null
+  %or.cond = or i1 %32, %31
+  %spec.select = select i1 %or.cond, i32 %28, i32 -1
   br label %.thread
 
-.thread:                                          ; preds = %.split.us, %.split27.us, %fdt_check_node_offset_.exit.thread, %29, %.split25.us, %fdt_check_node_offset_.exit, %25
-  %.0 = phi i32 [ %26, %25 ], [ %11, %fdt_check_node_offset_.exit ], [ -1, %.split25.us ], [ %spec.select, %29 ], [ -4, %fdt_check_node_offset_.exit.thread ], [ %17, %.split27.us ], [ %15, %.split.us ]
+.thread:                                          ; preds = %.split.us, %.split27.us, %fdt_check_node_offset_.exit.thread, %30, %.split25.us, %fdt_check_node_offset_.exit, %26
+  %.0 = phi i32 [ %27, %26 ], [ %11, %fdt_check_node_offset_.exit ], [ -1, %.split25.us ], [ %spec.select, %30 ], [ -4, %fdt_check_node_offset_.exit.thread ], [ %17, %.split27.us ], [ %15, %.split.us ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #10
   ret i32 %.0
 }

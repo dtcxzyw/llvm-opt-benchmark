@@ -844,9 +844,9 @@ if.then.i:                                        ; preds = %invoke.cont144
 if.end.i:                                         ; preds = %invoke.cont144
   %_M_end_of_storage.i.i = getelementptr inbounds nuw i8, ptr %descriptors, i64 16
   %cmp3.i.not = icmp eq i32 %call139, 0
-  br i1 %cmp3.i.not, label %for.end.thread, label %if.then4.i
+  br i1 %cmp3.i.not, label %invoke.cont146.thread, label %if.then4.i
 
-for.end.thread:                                   ; preds = %if.end.i
+invoke.cont146.thread:                            ; preds = %if.end.i
   %46 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 8
   store i32 0, ptr %46, align 8
   %_M_parent.i.i.i.i.i213 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 16
@@ -857,7 +857,7 @@ for.end.thread:                                   ; preds = %if.end.i
   store ptr %46, ptr %_M_right.i.i.i.i.i215, align 8
   %_M_node_count.i.i.i.i.i216 = getelementptr inbounds nuw i8, ptr %namedGrids, i64 40
   store i64 0, ptr %_M_node_count.i.i.i.i.i216, align 8
-  %_M_finish.i136220 = getelementptr inbounds nuw i8, ptr %descriptors, i64 8
+  %_M_finish.i136221 = getelementptr inbounds nuw i8, ptr %descriptors, i64 8
   br label %for.end175
 
 if.then4.i:                                       ; preds = %if.end.i
@@ -885,13 +885,13 @@ _ZSt8_DestroyIPN7openvdb5v11_02io14GridDescriptorES3_EvT_S5_RSaIT0_E.exitthread-
 _ZSt8_DestroyIPN7openvdb5v11_02io14GridDescriptorES3_EvT_S5_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyIPN7openvdb5v11_02io14GridDescriptorES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i, %call9.i.noexc
   %49 = phi ptr [ %.pr.i, %_ZSt8_DestroyIPN7openvdb5v11_02io14GridDescriptorES3_EvT_S5_RSaIT0_E.exitthread-pre-split.i ], [ %47, %call9.i.noexc ]
   %tobool.not.i.i56 = icmp eq ptr %49, null
-  br i1 %tobool.not.i.i56, label %for.body.lr.ph, label %if.then.i.i57
+  br i1 %tobool.not.i.i56, label %invoke.cont146, label %if.then.i.i57
 
 if.then.i.i57:                                    ; preds = %_ZSt8_DestroyIPN7openvdb5v11_02io14GridDescriptorES3_EvT_S5_RSaIT0_E.exit.i
   call void @_ZdlPv(ptr noundef nonnull %49) #24
-  br label %for.body.lr.ph
+  br label %invoke.cont146
 
-for.body.lr.ph:                                   ; preds = %if.then.i.i57, %_ZSt8_DestroyIPN7openvdb5v11_02io14GridDescriptorES3_EvT_S5_RSaIT0_E.exit.i
+invoke.cont146:                                   ; preds = %if.then.i.i57, %_ZSt8_DestroyIPN7openvdb5v11_02io14GridDescriptorES3_EvT_S5_RSaIT0_E.exit.i
   store ptr %call9.i58, ptr %descriptors, align 8
   store ptr %call9.i58, ptr %_M_finish.i.i, align 8
   %add.ptr26.i = getelementptr inbounds nuw %"class.openvdb::v11_0::io::GridDescriptor", ptr %call9.i58, i64 %conv
@@ -912,8 +912,8 @@ for.body.lr.ph:                                   ; preds = %if.then.i.i57, %_ZS
   %mUniqueName.i = getelementptr inbounds nuw i8, ptr %gd, i64 32
   br label %for.body
 
-for.body:                                         ; preds = %for.body.lr.ph, %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit135
-  %i.0208 = phi i32 [ 0, %for.body.lr.ph ], [ %inc, %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit135 ]
+for.body:                                         ; preds = %invoke.cont146, %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit135
+  %i.0208 = phi i32 [ 0, %invoke.cont146 ], [ %inc, %_ZNSt10shared_ptrIN7openvdb5v11_08GridBaseEED2Ev.exit135 ]
   invoke void @_ZN7openvdb5v11_02io14GridDescriptorC1Ev(ptr noundef nonnull align 8 dereferenceable(160) %gd)
           to label %invoke.cont148 unwind label %lpad147.loopexit.split-lp
 
@@ -1327,10 +1327,10 @@ for.inc173:                                       ; preds = %for.body170
   %exitcond211.not = icmp eq i64 %inc174, %umax
   br i1 %exitcond211.not, label %for.end175, label %for.body170, !llvm.loop !10
 
-for.end175:                                       ; preds = %for.inc173, %for.end.thread, %for.end
-  %_M_finish.i136223 = phi ptr [ %_M_finish.i136220, %for.end.thread ], [ %_M_finish.i136, %for.end ], [ %_M_finish.i136, %for.inc173 ]
-  %_M_parent.i.i.i.i.i218222 = phi ptr [ %_M_parent.i.i.i.i.i213, %for.end.thread ], [ %_M_parent.i.i.i.i.i, %for.end ], [ %_M_parent.i.i.i.i.i, %for.inc173 ]
-  %109 = load ptr, ptr %_M_parent.i.i.i.i.i218222, align 8
+for.end175:                                       ; preds = %for.inc173, %invoke.cont146.thread, %for.end
+  %_M_finish.i136224 = phi ptr [ %_M_finish.i136221, %invoke.cont146.thread ], [ %_M_finish.i136, %for.end ], [ %_M_finish.i136, %for.inc173 ]
+  %_M_parent.i.i.i.i.i218223 = phi ptr [ %_M_parent.i.i.i.i.i213, %invoke.cont146.thread ], [ %_M_parent.i.i.i.i.i, %for.end ], [ %_M_parent.i.i.i.i.i, %for.inc173 ]
+  %109 = load ptr, ptr %_M_parent.i.i.i.i.i218223, align 8
   invoke void @_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_St10shared_ptrIN7openvdb5v11_08GridBaseEEESt10_Select1stISD_ESt4lessIS5_ESaISD_EE8_M_eraseEPSt13_Rb_tree_nodeISD_E(ptr noundef nonnull align 8 dereferenceable(48) %namedGrids, ptr noundef %109)
           to label %_ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08GridBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit unwind label %terminate.lpad.i.i138
 
@@ -1343,7 +1343,7 @@ terminate.lpad.i.i138:                            ; preds = %for.end175
 
 _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10shared_ptrIN7openvdb5v11_08GridBaseEESt4lessIS5_ESaISt4pairIKS5_SA_EEED2Ev.exit: ; preds = %for.end175
   %112 = load ptr, ptr %descriptors, align 8
-  %113 = load ptr, ptr %_M_finish.i136223, align 8
+  %113 = load ptr, ptr %_M_finish.i136224, align 8
   %cmp.not3.i.i.i.i140 = icmp eq ptr %112, %113
   br i1 %cmp.not3.i.i.i.i140, label %invoke.cont.i, label %for.body.i.i.i.i141
 

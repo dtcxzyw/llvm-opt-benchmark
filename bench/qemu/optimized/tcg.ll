@@ -8698,7 +8698,7 @@ set_temp_val_reg.exit.i188:                       ; preds = %851, %843
   store i64 %861, ptr %837, align 8
   %indvars.iv.next145.i = add nuw nsw i64 %indvars.iv144.i, 1
   %exitcond148.not.i = icmp eq i64 %indvars.iv.next145.i, %wide.trip.count147.i
-  br i1 %exitcond148.not.i, label %.lr.ph128.i, label %834, !llvm.loop !46
+  br i1 %exitcond148.not.i, label %.loopexit.i, label %834, !llvm.loop !46
 
 862:                                              ; preds = %822
   %863 = load i64, ptr %561, align 8
@@ -8733,14 +8733,14 @@ set_temp_val_reg.exit.i188:                       ; preds = %851, %843
   store i64 %878, ptr %875, align 8
   %indvars.iv.next141.i = add nuw nsw i64 %indvars.iv140.i, 1
   %exitcond143.not.i = icmp eq i64 %indvars.iv.next141.i, %wide.trip.count.i186
-  br i1 %exitcond143.not.i, label %.lr.ph128.i, label %.lr.ph124.i, !llvm.loop !47
+  br i1 %exitcond143.not.i, label %.loopexit.i, label %.lr.ph124.i, !llvm.loop !47
 
 879:                                              ; preds = %822
   tail call void @g_assertion_message_expr(ptr noundef null, ptr noundef nonnull @.str.4, i32 noundef 5706, ptr noundef nonnull @__func__.tcg_reg_alloc_call, ptr noundef null) #31
   unreachable
 
-.lr.ph128.i:                                      ; preds = %.lr.ph124.i, %set_temp_val_reg.exit.i188
-  %wide.trip.count152.i.pre-phi = phi i64 [ %wide.trip.count147.i, %set_temp_val_reg.exit.i188 ], [ %wide.trip.count.i186, %.lr.ph124.i ]
+.loopexit.i:                                      ; preds = %.lr.ph124.i, %set_temp_val_reg.exit.i188
+  %.not132.i = phi i64 [ %wide.trip.count147.i, %set_temp_val_reg.exit.i188 ], [ %wide.trip.count.i186, %.lr.ph124.i ]
   br label %880
 
 880:                                              ; preds = %temp_dead.exit113.i, %.lr.ph128.i

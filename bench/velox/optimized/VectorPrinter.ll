@@ -971,7 +971,7 @@ if.then19.i:                                      ; preds = %for.end.i
 
 .noexc.sink.split:                                ; preds = %if.then3.i, %if.then19.i
   %sub.i46.i.sink = phi i64 [ %sub.i46.i, %if.then19.i ], [ %and7.i, %if.then3.i ]
-  %div20.i.sink = lshr i32 %.sroa.speculated, 6
+  %arrayidx.i55.i = lshr i32 %.sroa.speculated, 6
   %idxprom.i54.i = zext nneg i32 %div20.i.sink to i64
   %arrayidx.i55.i = getelementptr inbounds nuw i64, ptr %3, i64 %idxprom.i54.i
   %7 = load i64, ptr %arrayidx.i55.i, align 8

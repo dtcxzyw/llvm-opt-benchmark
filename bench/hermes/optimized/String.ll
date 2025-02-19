@@ -9364,7 +9364,7 @@ if.end109:                                        ; preds = %if.end.i.i.i.i.i.i.
   %hasVal.i.i.i = getelementptr inbounds nuw i8, ptr %builder, i64 24
   %add.ptr.i52 = getelementptr inbounds nuw i16, ptr %1, i64 %conv.i.i
   %index_12.i = getelementptr inbounds nuw i8, ptr %builder, i64 8
-  br i1 %upperCase, label %for.body116, label %for.body144
+  br i1 %upperCase, label %for.body116, label %if.else136
 
 for.body116:                                      ; preds = %if.end109, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit
   %__begin5.0145 = phi ptr [ %incdec.ptr134, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit ], [ %1, %if.end109 ]
@@ -9463,7 +9463,7 @@ _ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit: ; preds = %_ZN6hermes2vm1
   %cmp115.not = icmp eq ptr %incdec.ptr134, %add.ptr.i52
   br i1 %cmp115.not, label %cleanup, label %for.body116
 
-for.body144:                                      ; preds = %if.end109, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102
+if.else136:                                       ; preds = %if.end109, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102
   %__begin5138.0143 = phi ptr [ %incdec.ptr161, %_ZN6hermes2vm13StringBuilder15appendCharacterEDs.exit102 ], [ %1, %if.end109 ]
   %31 = load i16, ptr %__begin5138.0143, align 2
   %32 = add i16 %31, -65

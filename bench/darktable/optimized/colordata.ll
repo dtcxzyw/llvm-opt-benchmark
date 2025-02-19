@@ -948,7 +948,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   store double %82, ptr %83, align 8, !tbaa !84
   %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
   %exitcond90.not = icmp eq i64 %indvars.iv.next88, 12
-  br i1 %exitcond90.not, label %93, label %.split.us, !llvm.loop !85
+  br i1 %exitcond90.not, label %.split74.us, label %.split.us, !llvm.loop !85
 
 .split:                                           ; preds = %70, %.split
   %indvars.iv83 = phi i64 [ %indvars.iv.next84, %.split ], [ 0, %70 ]
@@ -967,7 +967,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %exitcond86.not = icmp eq i64 %indvars.iv.next84, 12
   br i1 %exitcond86.not, label %.critedge61, label %.split, !llvm.loop !85
 
-93:                                               ; preds = %.split.us
+.split74.us:                                      ; preds = %.split.us
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 153304
   call void @_ZN6LibRaw13cam_xyz_coeffEPA4_fPA3_d(ptr noundef nonnull align 8 dereferenceable(767680) %0, ptr noundef nonnull %94, ptr noundef nonnull %5)
   br label %.critedge61
@@ -977,7 +977,7 @@ define noundef range(i32 0, 2) i32 @_ZN6LibRaw11adobe_coeffEjPKci(ptr noundef no
   %exitcond82.not = icmp eq i64 %indvars.iv.next80, 792
   br i1 %exitcond82.not, label %.critedge61, label %37, !llvm.loop !86
 
-.critedge61:                                      ; preds = %95, %.split, %67, %93, %4
+.critedge61:                                      ; preds = %95, %.split, %67, %.split74.us, %4
   %.0 = phi i32 [ 1, %4 ], [ 1, %67 ], [ 1, %93 ], [ 1, %.split ], [ 0, %95 ]
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %5) #9
   ret i32 %.0

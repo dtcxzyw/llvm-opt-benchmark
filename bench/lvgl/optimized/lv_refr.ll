@@ -950,7 +950,7 @@ define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
 85:                                               ; preds = %78
   %86 = call ptr @lv_draw_layer_create(ptr noundef nonnull %0, i32 noundef 16, ptr noundef nonnull %10) #9
   %87 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %wide.trip.count129 = zext i32 %23 to i64
+  %umax128 = zext i32 %23 to i64
   br label %88
 
 88:                                               ; preds = %85, %88
@@ -991,7 +991,7 @@ define void @lv_obj_redraw(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1
 106:                                              ; preds = %98
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !69
   %107 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %wide.trip.count135 = zext i32 %23 to i64
+  %umax134 = zext i32 %23 to i64
   br label %108
 
 108:                                              ; preds = %106, %108

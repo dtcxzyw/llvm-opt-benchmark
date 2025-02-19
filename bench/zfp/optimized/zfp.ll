@@ -7218,7 +7218,7 @@ define internal fastcc void @compress_finish_par(ptr %.16.val, ptr noundef captu
   br label %26
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %.0271 = phi i64 [ %25, %.lr.ph.split ], [ 0, %.lr.ph ]
+  %.02 = phi i64 [ %25, %.lr.ph.split ], [ 0, %.lr.ph ]
   %15 = getelementptr inbounds ptr, ptr %0, i64 %.0271
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i64 @stream_wtell(ptr noundef %16) #19
@@ -7237,20 +7237,20 @@ define internal fastcc void @compress_finish_par(ptr %.16.val, ptr noundef captu
   %exitcond.not = icmp eq i64 %25, %1
   br i1 %exitcond.not, label %._crit_edge.thread9, label %.lr.ph.split
 
-._crit_edge.thread9:                              ; preds = %.lr.ph.split
+._crit_edge.thread9:; preds = %.lr.ph.split
   tail call void @free(ptr noundef nonnull %0) #19
   br label %27
 
 ._crit_edge:                                      ; preds = %2
   tail call void @free(ptr noundef nonnull %0) #19
-  br i1 %.not.fr, label %26, label %27
+  br i1 %.not.fr, label %27, label %28
 
-26:                                               ; preds = %._crit_edge.thread, %._crit_edge
+27:                                               ; preds = %._crit_edge.thread, %._crit_edge
   %.0.lcssa8 = phi i64 [ %10, %._crit_edge.thread ], [ %6, %._crit_edge ]
   tail call void @stream_wseek(ptr noundef %.16.val, i64 noundef %.0.lcssa8) #19
   br label %27
 
-27:                                               ; preds = %._crit_edge.thread9, %26, %._crit_edge
+28:                                               ; preds = %._crit_edge.thread9, %27, %._crit_edge
   ret void
 }
 

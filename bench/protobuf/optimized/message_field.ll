@@ -3615,24 +3615,24 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #20
 define linkonce_odr hidden void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEEvT_SM_T0_T1_(ptr %__first.coerce, ptr %__last.coerce, i64 noundef %__depth_limit) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {
 entry:
   %sub.ptr.rhs.cast.i = ptrtoint ptr %__first.coerce to i64
-  %sub.ptr.lhs.cast.i12 = ptrtoint ptr %__last.coerce to i64
-  %sub.ptr.sub.i13 = sub i64 %sub.ptr.lhs.cast.i12, %sub.ptr.rhs.cast.i
-  %sub.ptr.div.i14 = ashr exact i64 %sub.ptr.sub.i13, 3
-  %cmp15 = icmp sgt i64 %sub.ptr.div.i14, 16
-  br i1 %cmp15, label %while.body.preheader, label %while.end
+  %sub.ptr.lhs.cast.i13 = ptrtoint ptr %__last.coerce to i64
+  %sub.ptr.sub.i14 = sub i64 %sub.ptr.lhs.cast.i13, %sub.ptr.rhs.cast.i
+  %sub.ptr.div.i15 = ashr exact i64 %sub.ptr.sub.i14, 3
+  %cmp16 = icmp sgt i64 %sub.ptr.div.i15, 16
+  br i1 %cmp16, label %while.body.preheader, label %while.end
 
 while.body.preheader:                             ; preds = %entry
-  %cmp228 = icmp eq i64 %__depth_limit, 0
-  br i1 %cmp228, label %if.end.i.i, label %if.end
+  %cmp233 = icmp eq i64 %__depth_limit, 0
+  br i1 %cmp233, label %if.end.i.i, label %if.end
 
 while.body:                                       ; preds = %if.end
   %cmp2 = icmp eq i64 %dec, 0
   br i1 %cmp2, label %if.end.i.i, label %if.end, !llvm.loop !69
 
 if.end.i.i:                                       ; preds = %while.body, %while.body.preheader
-  %sub.ptr.div.i18.lcssa = phi i64 [ %sub.ptr.div.i14, %while.body.preheader ], [ %sub.ptr.div.i, %while.body ]
-  %storemerge16.lcssa = phi ptr [ %__last.coerce, %while.body.preheader ], [ %call14, %while.body ]
-  %sub.i.i = add nsw i64 %sub.ptr.div.i18.lcssa, -2
+  %sub.ptr.div.i20.lcssa = phi i64 [ %sub.ptr.div.i15, %while.body.preheader ], [ %sub.ptr.div.i, %while.body ]
+  %sub.ptr.sub.i19.lcssa = phi ptr [ %__last.coerce, %while.body.preheader ], [ %call14, %while.body ]
+  %storemerge17.lcssa = add nsw i64 %sub.ptr.div.i18.lcssa, -2
   %div1617.i.i = lshr i64 %sub.i.i, 1
   br label %while.body.i.i7
 
@@ -3640,13 +3640,13 @@ while.body.i.i7:                                  ; preds = %while.body.i.i7, %i
   %__parent.0.i.i = phi i64 [ %div1617.i.i, %if.end.i.i ], [ %dec.i.i, %while.body.i.i7 ]
   %phi.call.i.i = getelementptr inbounds ptr, ptr %__first.coerce, i64 %__parent.0.i.i
   %0 = load ptr, ptr %phi.call.i.i, align 8
-  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEEvT_T0_SN_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i, i64 noundef %sub.ptr.div.i18.lcssa, ptr noundef %0)
+  tail call void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEElS6_NS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEEvT_T0_SN_T1_T2_(ptr %__first.coerce, i64 noundef %__parent.0.i.i, i64 noundef %sub.ptr.div.i20.lcssa, ptr noundef %0)
   %cmp8.i.i = icmp eq i64 %__parent.0.i.i, 0
   %dec.i.i = add nsw i64 %__parent.0.i.i, -1
-  br i1 %cmp8.i.i, label %while.body.i.i, label %while.body.i.i7, !llvm.loop !70
+  br i1 %cmp8.i.i, label %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEEvT_SM_SM_T0_.exit, label %while.body.i.i7, !llvm.loop !70
 
-while.body.i.i:                                   ; preds = %while.body.i.i7, %while.body.i.i
-  %__last.sroa.0.05.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %storemerge16.lcssa, %while.body.i.i7 ]
+_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEEvT_SM_SM_T0_.exit: ; preds = %while.body.i.i7, %while.body.i.i
+  %cmp4.i.i = phi ptr [ %incdec.ptr.i.i.i, %while.body.i.i ], [ %sub.ptr.sub.i19.lcssa, %while.body.i.i7 ]
   %incdec.ptr.i.i.i = getelementptr inbounds i8, ptr %__last.sroa.0.05.i.i, i64 -8
   %1 = load ptr, ptr %incdec.ptr.i.i.i, align 8
   %2 = load ptr, ptr %__first.coerce, align 8
@@ -3659,18 +3659,18 @@ while.body.i.i:                                   ; preds = %while.body.i.i7, %w
   br i1 %cmp.i.i, label %while.body.i.i, label %while.end, !llvm.loop !71
 
 if.end:                                           ; preds = %while.body.preheader, %while.body
-  %storemerge1630 = phi ptr [ %call14, %while.body ], [ %__last.coerce, %while.body.preheader ]
-  %__depth_limit.addr.01729 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.preheader ]
-  %dec = add nsw i64 %__depth_limit.addr.01729, -1
-  %call14 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEET_SM_SM_T0_(ptr %__first.coerce, ptr %storemerge1630)
-  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEEvT_SM_T0_T1_(ptr %call14, ptr %storemerge1630, i64 noundef %dec)
+  %storemerge1735 = phi ptr [ %call14, %while.body ], [ %__last.coerce, %while.body.preheader ]
+  %__depth_limit.addr.01834 = phi i64 [ %dec, %while.body ], [ %__depth_limit, %while.body.preheader ]
+  %dec = add nsw i64 %__depth_limit.addr.01834, -1
+  %call14 = tail call ptr @_ZSt27__unguarded_partition_pivotIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEET_SM_SM_T0_(ptr %__first.coerce, ptr %storemerge1735)
+  tail call void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEElNS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEEvT_SM_T0_T1_(ptr %call14, ptr %storemerge1735, i64 noundef %dec)
   %sub.ptr.lhs.cast.i = ptrtoint ptr %call14 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp = icmp sgt i64 %sub.ptr.div.i, 16
   br i1 %cmp, label %while.body, label %while.end, !llvm.loop !69
 
-while.end:                                        ; preds = %if.end, %while.body.i.i, %entry
+while.end:                                        ; preds = %if.end, %_ZSt13__heap_selectIN9__gnu_cxx17__normal_iteratorIPPKN6google8protobuf10DescriptorESt6vectorIS6_SaIS6_EEEENS0_5__ops15_Iter_comp_iterIZNS3_8compiler11SCCAnalyzerINSE_3cpp18MessageSCCAnalyzer13DepsGeneratorEE3DFSES6_EUlS6_S6_E_EEEvT_SM_SM_T0_.exit, %entry
   ret void
 }
 

@@ -2350,20 +2350,20 @@ define dso_local noundef zeroext i1 @_ZNK8Variable11loose_matchEPKS_(ptr noundef
 
 24:                                               ; preds = %16, %13
   %25 = icmp eq ptr %6, %10
-  br i1 %25, label %_ZNK8Variable5matchEPKS_.exit.thread, label %.preheader.i.preheader
+  br i1 %25, label %_ZNK8Variable5matchEPKS_.exit.thread, label %26
 
 .thread22:                                        ; preds = %2
   %26 = icmp eq ptr %6, %10
   br i1 %26, label %_ZNK8Variable5matchEPKS_.exit.thread, label %_ZNK8Variable19get_container_unionEv.exit
 
 _ZNK8Variable5matchEPKS_.exit:                    ; preds = %.lr.ph.i.i
-  br i1 %.not.i.i, label %_ZNK8Variable5matchEPKS_.exit.thread, label %.preheader.i.preheader
+  br i1 %.not.i.i, label %_ZNK8Variable5matchEPKS_.exit.thread, label %26
 
-.preheader.i.preheader:                           ; preds = %24, %_ZNK8Variable5matchEPKS_.exit
+26:                                               ; preds = %24, %_ZNK8Variable5matchEPKS_.exit
   br label %.preheader.i
 
-.preheader.i:                                     ; preds = %.preheader.i.preheader, %30
-  %.08.i = phi ptr [ %32, %30 ], [ %6, %.preheader.i.preheader ]
+.preheader.i:                                     ; preds = %26, %30
+  %.08.i = phi ptr [ %32, %30 ], [ %6, %26 ]
   %27 = getelementptr inbounds nuw i8, ptr %.08.i, i64 64
   %28 = load ptr, ptr %27, align 8, !tbaa !39
   %29 = load i32, ptr %28, align 8, !tbaa !57

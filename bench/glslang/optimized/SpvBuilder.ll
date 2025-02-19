@@ -10756,21 +10756,21 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.sink.split: ; preds = %_ZNS
 _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit.sink.split, %366, %344, %300, %255, %211, %_ZN3spv6Module14mapInstructionEPNS_11InstructionE.exit, %266
   %380 = icmp eq i32 %6, 2
   %or.cond = and i1 %5, %380
-  br i1 %or.cond, label %381, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209
+  br i1 %or.cond, label %382, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209
 
-381:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
+382:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit
   %.not = icmp eq i32 %2, 6
-  br i1 %.not, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit191, label %382
+  br i1 %.not, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit191, label %.thread
 
-382:                                              ; preds = %381
+.thread:                                          ; preds = %.thread
   %383 = getelementptr inbounds nuw i8, ptr %0, i64 360
   %384 = getelementptr inbounds nuw i8, ptr %0, i64 352
   %.02022.i.i.i.i174 = load ptr, ptr %383, align 8
   %.not23.i.i.i.i175 = icmp eq ptr %.02022.i.i.i.i174, null
   br i1 %.not23.i.i.i.i175, label %._crit_edge.thread.i.i.i.i187, label %.lr.ph.i.i.i.i176
 
-.lr.ph.i.i.i.i176:                                ; preds = %382, %.lr.ph.i.i.i.i176
-  %.02024.i.i.i.i177 = phi ptr [ %.020.i.i.i.i180, %.lr.ph.i.i.i.i176 ], [ %.02022.i.i.i.i174, %382 ]
+.lr.ph.i.i.i.i176:                                ; preds = %.thread, %.lr.ph.i.i.i.i176
+  %.02024.i.i.i.i177 = phi ptr [ %.020.i.i.i.i180, %.lr.ph.i.i.i.i176 ], [ %.02022.i.i.i.i174, %.thread ]
   %385 = getelementptr inbounds nuw i8, ptr %.02024.i.i.i.i177, i64 32
   %386 = load i32, ptr %385, align 4
   %387 = icmp sgt i32 %386, 27
@@ -10783,8 +10783,8 @@ _ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit: ; preds = %_ZN3spv7Builder
 ._crit_edge.i.i.i.i182:                           ; preds = %.lr.ph.i.i.i.i176
   br i1 %387, label %._crit_edge.thread.i.i.i.i187, label %393
 
-._crit_edge.thread.i.i.i.i187:                    ; preds = %._crit_edge.i.i.i.i182, %382
-  %.019.lcssa28.i.i.i.i188 = phi ptr [ %.02024.i.i.i.i177, %._crit_edge.i.i.i.i182 ], [ %384, %382 ]
+._crit_edge.thread.i.i.i.i187:                    ; preds = %._crit_edge.i.i.i.i182, %.thread
+  %.019.lcssa28.i.i.i.i188 = phi ptr [ %.02024.i.i.i.i177, %._crit_edge.i.i.i.i182 ], [ %384, %.thread ]
   %388 = getelementptr inbounds nuw i8, ptr %0, i64 368
   %389 = load ptr, ptr %388, align 8
   %390 = icmp eq ptr %.019.lcssa28.i.i.i.i188, %389
@@ -10825,7 +10825,7 @@ _ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_in
   store i64 %406, ptr %404, align 8
   br label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit191
 
-_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit191: ; preds = %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i186, %393, %381
+_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit191: ; preds = %_ZNSt8_Rb_treeIN3spv10CapabilityES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_M_insert_IRKS1_NS7_11_Alloc_nodeEEESt17_Rb_tree_iteratorIS1_EPSt18_Rb_tree_node_baseSF_OT_RT0_.exit.i.i.i186, %393, %382
   br i1 %4, label %407, label %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit209
 
 407:                                              ; preds = %_ZN3spv7Builder13addCapabilityENS_10CapabilityE.exit191

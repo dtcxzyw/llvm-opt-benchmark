@@ -2207,28 +2207,28 @@ select.unfold.i:                                  ; preds = %70
   %159 = getelementptr inbounds { { { { { { ptr, i64 } }, {} }, {} } }, double }, ptr %141, i64 %.sroa.854.0.i
   %160 = trunc nuw i8 %.1.ph.i to i1
   %.val26.i = load ptr, ptr %159, align 8, !noalias !239, !nonnull !13, !align !16, !noundef !13
-  %161 = getelementptr i8, ptr %159, i64 8
-  %.val27.i = load i64, ptr %161, align 8, !noalias !239, !noundef !13
-  br i1 %160, label %157, label %162
+  %160 = getelementptr i8, ptr %159, i64 8
+  %.val27.i = load i64, ptr %160, align 8, !noalias !239, !noundef !13
+  br i1 %160, label %157, label %161
 
-162:                                              ; preds = %158
+161:                                              ; preds = %158
   tail call void @llvm.experimental.noalias.scope.decl(metadata !245)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !248)
   %.not.i.i63 = icmp eq i64 %135, %.val27.i
-  br i1 %.not.i.i63, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he4810eae26b0828dE.exit.i", label %163
+  br i1 %.not.i.i63, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he4810eae26b0828dE.exit.i", label %162
 
-163:                                              ; preds = %162
+162:                                              ; preds = %161
   tail call void @"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17len_mismatch_fail17h10d2ebd8c0a00047E"(i64 noundef %135, i64 noundef %.val27.i, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.854811f44bca550c56cb6f681a6a9a44.54) #31, !noalias !250
   unreachable
 
-"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he4810eae26b0828dE.exit.i": ; preds = %162
+"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he4810eae26b0828dE.exit.i": ; preds = %161
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %133, ptr nonnull readonly align 4 %.val26.i, i64 %136, i1 false), !alias.scope !251, !noalias !252
   br label %.outer.i.backedge
 
-.outer.i.backedge:                                ; preds = %.lr.ph.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he4810eae26b0828dE.exit.i", %157
+.outer.i.outer:                                   ; preds = %.lr.ph.i, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17he4810eae26b0828dE.exit.i", %157
   br label %.outer.i
 
-.outer.i:                                         ; preds = %.outer.i.backedge, %139
+.outer.i:                                         ; preds = %.outer.i.outer, %139
   %.sroa.854.0.ph.i = phi i64 [ 0, %139 ], [ %154, %.outer.i.backedge ]
   %.1.ph.i = phi i8 [ %.087.i, %139 ], [ 1, %.outer.i.backedge ]
   br label %151
@@ -2243,7 +2243,7 @@ select.unfold.i:                                  ; preds = %70
   %169 = add i32 %168, %167
   store i32 %169, ptr %165, align 4, !noalias !239
   %exitcond.not.i64 = icmp eq i64 %164, %.0.sroa.speculated.i.i.i34.i
-  br i1 %exitcond.not.i64, label %.outer.i.backedge, label %.lr.ph.i
+  br i1 %exitcond.not.i64, label %.outer.i.outer, label %.lr.ph.i
 
 "_ZN6brotli3enc11find_stride39EntropyBucketPopulation$LT$AllocU32$GT$13initiate_from17h69e67789c4ece1f3E.exit": ; preds = %147, %149, %.lr.ph.preheader.i.i
   %170 = phi double [ %148, %147 ], [ 0.000000e+00, %149 ], [ 0.000000e+00, %.lr.ph.preheader.i.i ]

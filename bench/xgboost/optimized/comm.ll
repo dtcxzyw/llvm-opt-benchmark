@@ -2616,7 +2616,7 @@ _ZNSt12_Vector_baseIN7xgboost10collective5proto8PeerInfoESaIS3_EEC2EmRKS4_.exit.
   %490 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSaIcED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %46) #10
-  br label %.body249
+  br label %.body217.thread637
 
 .noexc248:                                        ; preds = %.noexc247
   %491 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %482) #10
@@ -2678,12 +2678,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit251: ;
 505:                                              ; preds = %.noexc247, %481
   %506 = landingpad { ptr, i32 }
           cleanup
-  br label %.body249
+  br label %.body217.thread637
 
-.body249:                                         ; preds = %489, %505
+.body217.thread637:                               ; preds = %489, %505
   %eh.lpad-body250 = phi { ptr, i32 } [ %506, %505 ], [ %490, %489 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %47) #10
-  br label %.body217.thread637
+  br label %.body217
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit251, %.loopexit554
   %507 = phi ptr [ %469, %.loopexit554 ], [ %494, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit251 ]
@@ -2865,7 +2865,7 @@ _ZN4dmlc15LogMessageFatal6streamB5cxx11Ev.exit263: ; preds = %.noexc262, %_ZN4dm
 565:                                              ; preds = %536, %534
   %.pn100 = phi { ptr, i32 } [ %535, %534 ], [ %537, %536 ]
   call void @_ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt14default_deleteIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #10
-  br label %.body217.thread637
+  br label %.body217
 
 566:                                              ; preds = %_ZN4dmlc15LogMessageFatal8GetEntryEv.exit.i257, %550, %564
   %567 = landingpad { ptr, i32 }
@@ -3849,8 +3849,8 @@ _ZSt8_DestroyIPN7xgboost10collective5proto8PeerInfoES3_EvT_S5_RSaIT0_E.exit.i: ;
   call void @_ZdlPvm(ptr noundef nonnull %910, i64 noundef %918) #28
   br label %_ZNSt6vectorIN7xgboost10collective5proto8PeerInfoESaIS3_EED2Ev.exit
 
-.body217.thread637:                               ; preds = %565, %.body249
-  %.pn112.ph = phi { ptr, i32 } [ %.pn100, %565 ], [ %eh.lpad-body250, %.body249 ]
+.body217:                                         ; preds = %565, %.body249
+  %.pn112 = phi { ptr, i32 } [ %.pn100, %565 ], [ %eh.lpad-body250, %.body249 ]
   call void @_ZNSt6vectorIN7xgboost10collective5proto8PeerInfoESaIS3_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %44) #10
   br label %.body217.thread
 
@@ -3869,7 +3869,7 @@ _ZNSt6vectorIN7xgboost10collective5proto8PeerInfoESaIS3_EED2Ev.exit: ; preds = %
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 .body217.thread:                                  ; preds = %.body217.thread637, %447, %.body233, %503, %431, %.body217
-  %.pn112.pn536 = phi { ptr, i32 } [ %.pn112, %.body217 ], [ %432, %431 ], [ %448, %447 ], [ %.pn98, %.body233 ], [ %504, %503 ], [ %.pn112.ph, %.body217.thread637 ]
+  %.pn112.pn536 = phi { ptr, i32 } [ %.pn112, %.body217 ], [ %432, %431 ], [ %448, %447 ], [ %.pn98, %.body233 ], [ %504, %503 ], [ %.pn112, %.body217.thread637 ]
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0439.0, i64 noundef %336) #28
   br label %.body175
 

@@ -2926,7 +2926,7 @@ _php_filter_validate_ipv4.exit:                   ; preds = %40
 .loopexit:                                        ; preds = %.lr.ph192, %130, %.preheader.preheader
   %146 = icmp sgt i32 %.2126, -1
   %147 = icmp eq i32 %.3, 8
-  %narrow160 = select i1 %146, i1 true, i1 %147
+  %or.cond13 = select i1 %146, i1 true, i1 %147
   %148 = zext i1 %narrow160 to i32
   br label %_php_filter_validate_ipv4.exit.thread
 
